@@ -36,7 +36,8 @@
   "homepage": "https://github.com/reaviz/reablocks#readme",
   "dependencies": {
     "classnames": "^2.3.1",
-    "framer-motion": "^6.2.8"
+    "framer-motion": "^6.2.8",
+    "pluralize": "^8.0.0"
   },
   "peerDependencies": {
     "react": ">=16",
