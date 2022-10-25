@@ -62,7 +62,6 @@
     "eslint-plugin-react": "^7.28.0",
     "eslint-plugin-react-hooks": "^4.3.0",
     "eslint-plugin-storybook": "^0.5.7",
-    "framer-motion": "^4.1.17",
     "husky": "^4.2.5",
     "lint-staged": "^10.5.4",
     "postcss-nested": "^4",
