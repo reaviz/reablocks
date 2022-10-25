@@ -8,7 +8,7 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
-    if: github.repository == 'reaviz/reaselct'
+    if: github.repository == 'reaviz/reablocks'
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -35,5 +35,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Publish Chromatic
-        run: yarn chromatic
