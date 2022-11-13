@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-  TypographyBlock,
-  ColorBlock,
-  SpacingBlock,
-  PaletteBlock,
-  BorderBlock,
-  ShadowBlock
+  TypographyBlocks,
+  ColorBlocks,
+  SpacingBlocks,
+  PaletteBlocks,
+  BorderBlocks,
+  ShadowBlocks
 } from './helpers';
 import { ThemeProvider } from './ThemeProvider';
 import { darkTheme } from './themes';
@@ -18,37 +18,39 @@ export default {
 export const Colors = () => (
   <ThemeProvider value={darkTheme}>
     <div style={{ width: '90vw' }}>
-      <ColorBlock />
+      <ColorBlocks />
     </div>
   </ThemeProvider>
 );
 
 export const Palettes = () => (
   <ThemeProvider value={darkTheme}>
-    <PaletteBlock />
+    <div style={{ width: '90vw' }}>
+      <PaletteBlocks />
+    </div>
   </ThemeProvider>
 );
 
 export const Typography = () => (
   <ThemeProvider value={darkTheme}>
-    <TypographyBlock />
+    <TypographyBlocks />
   </ThemeProvider>
 );
 
 export const Spacings = () => (
   <ThemeProvider value={darkTheme}>
-    <SpacingBlock />
+    <SpacingBlocks />
   </ThemeProvider>
 );
 
 export const Borders = () => (
   <ThemeProvider value={darkTheme}>
-    <BorderBlock />
+    <BorderBlocks />
   </ThemeProvider>
 );
 
 export const Shadows = () => (
   <ThemeProvider value={darkTheme}>
-    <ShadowBlock />
+    <ShadowBlocks />
   </ThemeProvider>
 );

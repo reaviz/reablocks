@@ -4,7 +4,7 @@ export interface Palette {
 }
 
 export interface Palettes {
-  common?: Palette;
+  body?: Palette;
   primary?: Palette;
   secondary?: Palette;
   error?: Palette;

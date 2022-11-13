@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTheme } from '../ThemeContext';
 
-export const TypographyBlock = () => {
+export const BorderBlocks = () => {
   const theme = useTheme();
 
   return <>TODO</>;

@@ -110,7 +110,29 @@ export const darkTheme: Theme = {
   name: 'dark',
   colors: darkThemeColors,
   palettes: {
-    primary: {},
-    secondary: {}
+    body: {
+      background: darkThemeColors.slate['900'],
+      color: darkThemeColors.slate['100']
+    },
+    primary: {
+      background: darkThemeColors.blue['800'],
+      color: darkThemeColors.slate['100']
+    },
+    secondary: {
+      background: darkThemeColors.blue['500'],
+      color: darkThemeColors.slate['100']
+    },
+    error: {
+      background: darkThemeColors.blue['500'],
+      color: darkThemeColors.slate['100']
+    },
+    success: {
+      background: darkThemeColors.blue['500'],
+      color: darkThemeColors.slate['100']
+    },
+    warning: {
+      background: darkThemeColors.blue['500'],
+      color: darkThemeColors.slate['100']
+    }
   }
 };
