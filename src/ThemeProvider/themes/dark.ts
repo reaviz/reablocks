@@ -115,10 +115,21 @@ export const darkTheme: Theme = {
       monoFontFamily: 'Monaco, monospace'
     },
     sizes: {
+      xs: 8,
       sm: 11,
       md: 16,
-      lg: 20
+      lg: 20,
+      xl: 28,
+      xll: 32
     }
+  },
+  spacing: {
+    xs: 2,
+    sm: 5,
+    md: 10,
+    lg: 20,
+    xl: 24,
+    xxl: 30
   },
   palettes: {
     body: {
