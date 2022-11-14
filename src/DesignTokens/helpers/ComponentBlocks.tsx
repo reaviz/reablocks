@@ -33,8 +33,8 @@ export const ComponentBlocks = () => {
               <div>
                 {Object.keys(components[key]).map(kk => (
                   <div key={kk} style={{ marginBottom: 5 }}>
-                    <h5 style={{ margin: 0 }}>{kk}</h5>
-                    --{components[key][kk]}
+                    <h5 style={{ margin: 0 }}>--{kk}</h5>
+                    {components[key][kk]}
                   </div>
                 ))}
               </div>
