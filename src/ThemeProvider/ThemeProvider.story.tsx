@@ -5,7 +5,8 @@ import {
   SpacingBlocks,
   PaletteBlocks,
   BorderBlocks,
-  ShadowBlocks
+  ShadowBlocks,
+  ComponentBlocks
 } from './helpers';
 import { ThemeProvider } from './ThemeProvider';
 import { darkTheme } from './themes';
@@ -54,5 +55,27 @@ export const Borders = () => (
 export const Shadows = () => (
   <ThemeProvider value={darkTheme}>
     <ShadowBlocks />
+  </ThemeProvider>
+);
+
+export const Components = () => (
+  <ThemeProvider
+    value={{
+      ...darkTheme,
+      components: {
+        select: {
+          'select-border': 'grey',
+          'select-background': 'white',
+          'select-color': 'black'
+        },
+        input: {
+          'select-border': 'grey',
+          'select-background': 'white',
+          'select-color': 'black'
+        }
+      }
+    }}
+  >
+    <ComponentBlocks />
   </ThemeProvider>
 );

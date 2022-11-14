@@ -74,6 +74,8 @@ export interface Theme {
   shadows?: Shadows;
   typography?: Typography;
   components?: {
-    [key: string]: any;
+    [key: string]: {
+      [key: string]: string;
+    };
   };
 }
