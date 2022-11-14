@@ -64,7 +64,13 @@ export const TypographyBlocks = () => {
   } = useTheme();
 
   return (
-    <div>
+    <div
+      style={{
+        fontFamily: 'var(--font-family)',
+        color: 'var(--body-color)',
+        width: '100%'
+      }}
+    >
       {Object.keys(families).map(family => (
         <div
           key={family}

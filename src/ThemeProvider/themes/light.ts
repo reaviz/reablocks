@@ -3,7 +3,7 @@ import { Theme } from '../types';
 /**
  * Inspired by https://www.radix-ui.com/docs/colors/palette-composition/the-scales
  */
-export const darkThemeColors = {
+export const lightThemeColors = {
   red: {
     '100': '#fffcfc',
     '200': '#fff8f8',
@@ -106,14 +106,14 @@ export const darkThemeColors = {
 };
 
 /**
- * Dark theme example.
+ * Light theme example.
  */
-export const darkTheme: Theme = {
-  name: 'dark',
-  colors: darkThemeColors,
+export const lightTheme: Theme = {
+  name: 'light',
+  colors: lightThemeColors,
   typography: {
     families: {
-      fontFamily: 'Open Sans',
+      fontFamily: 'Inter, sans-serif',
       monoFontFamily: 'Monaco, monospace'
     },
     sizes: {
@@ -153,28 +153,28 @@ export const darkTheme: Theme = {
   },
   palettes: {
     body: {
-      background: darkThemeColors.slate['900'],
-      color: darkThemeColors.slate['100']
+      background: 'white',
+      color: 'black'
     },
     primary: {
-      background: darkThemeColors.blue['800'],
-      color: darkThemeColors.slate['100']
+      background: lightThemeColors.blue['800'],
+      color: lightThemeColors.slate['100']
     },
     secondary: {
-      background: darkThemeColors.slate['500'],
-      color: darkThemeColors.slate['100']
+      background: lightThemeColors.slate['500'],
+      color: lightThemeColors.slate['100']
     },
     error: {
-      background: darkThemeColors.red['500'],
-      color: darkThemeColors.slate['100']
+      background: lightThemeColors.red['500'],
+      color: lightThemeColors.slate['100']
     },
     success: {
-      background: darkThemeColors.green['500'],
-      color: darkThemeColors.slate['100']
+      background: lightThemeColors.green['500'],
+      color: lightThemeColors.slate['100']
     },
     warning: {
-      background: darkThemeColors.orange['500'],
-      color: darkThemeColors.slate['100']
+      background: lightThemeColors.orange['500'],
+      color: lightThemeColors.slate['100']
     }
   }
 };

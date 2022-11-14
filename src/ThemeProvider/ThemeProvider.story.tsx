@@ -9,7 +9,7 @@ import {
   ComponentBlocks
 } from './helpers';
 import { ThemeProvider } from './ThemeProvider';
-import { darkTheme } from './themes';
+import { lightTheme } from './themes';
 import { buildSheetRules } from './utils';
 
 export default {
@@ -18,7 +18,7 @@ export default {
 };
 
 const exampleTheme = {
-  ...darkTheme,
+  ...lightTheme,
   components: {
     select: {
       'select-border': 'grey',
@@ -77,7 +77,7 @@ export const Model = () => (
 );
 
 export const Colors = () => (
-  <ThemeProvider value={darkTheme}>
+  <ThemeProvider value={lightTheme}>
     <div style={{ width: '90vw' }}>
       <ColorBlocks />
     </div>
@@ -85,7 +85,7 @@ export const Colors = () => (
 );
 
 export const Palettes = () => (
-  <ThemeProvider value={darkTheme}>
+  <ThemeProvider value={lightTheme}>
     <div style={{ width: '90vw' }}>
       <PaletteBlocks />
     </div>
@@ -93,7 +93,7 @@ export const Palettes = () => (
 );
 
 export const Typography = () => (
-  <ThemeProvider value={darkTheme}>
+  <ThemeProvider value={lightTheme}>
     <div style={{ width: '90vw' }}>
       <TypographyBlocks />
     </div>
@@ -101,19 +101,19 @@ export const Typography = () => (
 );
 
 export const Spacings = () => (
-  <ThemeProvider value={darkTheme}>
+  <ThemeProvider value={lightTheme}>
     <SpacingBlocks />
   </ThemeProvider>
 );
 
 export const Borders = () => (
-  <ThemeProvider value={darkTheme}>
+  <ThemeProvider value={lightTheme}>
     <BorderBlocks />
   </ThemeProvider>
 );
 
 export const Shadows = () => (
-  <ThemeProvider value={darkTheme}>
+  <ThemeProvider value={lightTheme}>
     <ShadowBlocks />
   </ThemeProvider>
 );

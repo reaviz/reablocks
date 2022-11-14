@@ -9,7 +9,7 @@ export const PaletteBlocks = () => {
     <div
       style={{
         padding: '5px 15px',
-        color: 'black',
+        color: 'var(--body-color)',
         width: '100%'
       }}
     >

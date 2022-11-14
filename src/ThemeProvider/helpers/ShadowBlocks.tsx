@@ -8,7 +8,8 @@ export const ShadowBlocks = () => {
     <div
       style={{
         padding: '5px 15px',
-        color: 'black',
+        fontFamily: 'var(--font-family)',
+        color: 'var(--body-color)',
         width: '100%'
       }}
     >
