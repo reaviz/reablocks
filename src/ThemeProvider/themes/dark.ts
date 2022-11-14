@@ -1,5 +1,8 @@
 import { Theme } from '../types';
 
+/**
+ * Inspired by https://www.radix-ui.com/docs/colors/palette-composition/the-scales
+ */
 export const darkThemeColors = {
   red: {
     '100': '#fffcfc',
@@ -104,7 +107,6 @@ export const darkThemeColors = {
 
 /**
  * Dark theme example.
- * Inspired by https://www.radix-ui.com/docs/colors/palette-composition/the-scales
  */
 export const darkTheme: Theme = {
   name: 'dark',
@@ -131,6 +133,7 @@ export const darkTheme: Theme = {
     xl: 24,
     xxl: 30
   },
+  border: {},
   shadows: {
     100: '0 2px 4px 0 rgba(17,22,26,0.16), 0 0 4px 0 rgba(17,22,26,0.08), 0 4px 8px 0 rgba(17,22,26,0.04)',
     200: '0 4px 8px 0 rgba(17,22,26,0.16), 0 4px 8px 0 rgba(17,22,26,0.08), 0 8px 16px 0 rgba(17,22,26,0.04)',
@@ -152,19 +155,19 @@ export const darkTheme: Theme = {
       color: darkThemeColors.slate['100']
     },
     secondary: {
-      background: darkThemeColors.blue['500'],
+      background: darkThemeColors.slate['500'],
       color: darkThemeColors.slate['100']
     },
     error: {
-      background: darkThemeColors.blue['500'],
+      background: darkThemeColors.red['500'],
       color: darkThemeColors.slate['100']
     },
     success: {
-      background: darkThemeColors.blue['500'],
+      background: darkThemeColors.green['500'],
       color: darkThemeColors.slate['100']
     },
     warning: {
-      background: darkThemeColors.blue['500'],
+      background: darkThemeColors.orange['500'],
       color: darkThemeColors.slate['100']
     }
   }
