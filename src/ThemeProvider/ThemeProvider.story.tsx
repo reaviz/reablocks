@@ -16,6 +16,24 @@ export default {
   component: ThemeProvider
 };
 
+export const Model = () => (
+  <ThemeProvider value={darkTheme}>
+    <div
+      style={{
+        width: '90vw',
+        border: 'solid 1px var(--slate-900)',
+        borderRadius: 5,
+        padding: '0 20px',
+        overflowX: 'auto'
+      }}
+    >
+      <pre>
+        <code>{JSON.stringify(darkTheme, null, 2)}</code>
+      </pre>
+    </div>
+  </ThemeProvider>
+);
+
 export const Colors = () => (
   <ThemeProvider value={darkTheme}>
     <div style={{ width: '90vw' }}>
