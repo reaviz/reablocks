@@ -16,11 +16,11 @@ export const groupVariants = {
   }
 };
 
-export interface MotionItemProps extends HTMLMotionProps<'div'> {
+export interface MotionGroupProps extends HTMLMotionProps<'div'> {
   children: ReactNode;
 }
 
-export const MotionGroup: FC<MotionItemProps> = ({ children, ...rest }) => (
+export const MotionGroup: FC<MotionGroupProps> = ({ children, ...rest }) => (
   <motion.div
     variants={groupVariants}
     initial="initial"
