@@ -40,8 +40,19 @@ export const ColorBlocks = () => {
       }}
     >
       {Object.keys(theme.colors!).map(key => (
-        <div key={key}>
-          <h2>colors.{key}</h2>
+        <div
+          key={key}
+          style={{
+            marginBottom: 20
+          }}
+        >
+          <h3 style={{ fontWeight: 500 }}>
+            {key}
+            <br />
+            <small>
+              <code>colors.{key}</code>
+            </small>
+          </h3>
           <div
             style={{
               display: 'grid',

@@ -15,9 +15,16 @@ export const PaletteBlocks = () => {
     >
       {Object.keys(theme.palettes!).map(key => (
         <div key={key}>
-          <h2>palettes.{key}</h2>
+          <h3 style={{ fontWeight: 500 }}>
+            {key}
+            <br />
+            <small>
+              <code>palettes.{key}</code>
+            </small>
+          </h3>
           <div
             style={{
+              marginBottom: 20,
               display: 'grid',
               gap: 12,
               gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))'

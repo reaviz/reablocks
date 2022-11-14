@@ -109,6 +109,17 @@ export const darkThemeColors = {
 export const darkTheme: Theme = {
   name: 'dark',
   colors: darkThemeColors,
+  typography: {
+    families: {
+      fontFamily: 'Open Sans',
+      monoFontFamily: 'Monaco, monospace'
+    },
+    sizes: {
+      sm: 11,
+      md: 16,
+      lg: 20
+    }
+  },
   palettes: {
     body: {
       background: darkThemeColors.slate['900'],

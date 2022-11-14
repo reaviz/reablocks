@@ -33,7 +33,9 @@ export const Palettes = () => (
 
 export const Typography = () => (
   <ThemeProvider value={darkTheme}>
-    <TypographyBlocks />
+    <div style={{ width: '90vw' }}>
+      <TypographyBlocks />
+    </div>
   </ThemeProvider>
 );
 

@@ -53,9 +53,14 @@ export interface Colors {
   overlay?: Color;
 }
 
-export interface Typography {
+export interface FontFamilies {
   fontFamily?: string;
-  monoFamily?: string;
+  monoFontFamily?: string;
+}
+
+export interface Typography {
+  families?: FontFamilies;
+  sizes?: Sizes;
 }
 
 export interface Theme {
