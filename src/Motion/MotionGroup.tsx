@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { FC, ReactNode } from 'react';
+import { HTMLMotionProps, motion } from 'framer-motion';
 
 export const groupVariants = {
   initial: {
@@ -16,7 +16,11 @@ export const groupVariants = {
   }
 };
 
-export const MotionGroup = ({ children, ...rest }) => (
+export interface MotionItemProps extends HTMLMotionProps<'div'> {
+  children: ReactNode;
+}
+
+export const MotionGroup: FC<MotionItemProps> = ({ children, ...rest }) => (
   <motion.div
     variants={groupVariants}
     initial="initial"

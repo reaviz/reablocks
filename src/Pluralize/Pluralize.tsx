@@ -2,6 +2,9 @@ import React, { FC, useMemo } from 'react';
 import { pluralize, PluralizeInputs } from './utils';
 
 export interface PluralizeProps extends PluralizeInputs {
+  /**
+   * CSS classname for the span element.
+   */
   className?: string;
 }
 

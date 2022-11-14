@@ -3,6 +3,7 @@ import theme from './theme';
 const order = [
   'docs-intro-',
   'docs-getting-started-',
+  'components-',
   'data-',
   'utils-'
 ];
