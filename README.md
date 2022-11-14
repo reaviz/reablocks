@@ -34,4 +34,5 @@
 ## 🪄 Features
 - Design Token Provider
 - Pluralization Helper
+- Ellipsis Helper
 - Motion Utilities based on framer-motion

@@ -1,0 +1,10 @@
+.dots {
+  cursor: pointer;
+  opacity: 0.5;
+  border: none;
+  background: none;
+  outline: none;
+  padding: 0;
+  font: unset;
+  color: unset;
+}
