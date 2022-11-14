@@ -18,6 +18,7 @@ export default {
 
 export const Model = () => (
   <ThemeProvider value={darkTheme}>
+    <h2>Theme Model</h2>
     <div
       style={{
         width: '90vw',
