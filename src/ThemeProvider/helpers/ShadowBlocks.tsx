@@ -21,11 +21,11 @@ export const ShadowBlocks = () => {
             display: 'flex',
             alignItems: 'center',
             borderRadius: 5,
-            border: 'solid 1px var(--slate-900)'
+            border: 'solid 1px var(--slate-500)'
           }}
         >
           <h3 style={{ fontWeight: 500, marginRight: 50, maxWidth: 300 }}>
-            shadows.{key}
+            --shadow-{key}
             <br />
             <small>
               <code>{shadows[key]}</code>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTheme } from '../ThemeContext';
+import { camelToDash } from '../utils';
 
 export const TypographyLetterBlock = ({ fontFamily }) => (
   <div
@@ -16,7 +17,7 @@ export const TypographyLetterBlock = ({ fontFamily }) => (
         marginLeft: 20,
         paddingLeft: 20,
         fontSize: 22,
-        borderLeft: 'solid 1px var(--slate-900)'
+        borderLeft: 'solid 1px var(--slate-500)'
       }}
     >
       <h2 style={{ margin: 0 }}>{fontFamily}</h2>
@@ -75,18 +76,24 @@ export const TypographyBlocks = () => {
             {families[family]}
             <br />
             <small>
-              <code>typography.families.{family}</code>
+              <code>--{camelToDash(family)}</code>
             </small>
           </h3>
           <div
             style={{
               padding: 10,
               borderRadius: 5,
-              border: 'solid 1px var(--slate-900)'
+              border: 'solid 1px var(--slate-500)'
             }}
           >
             <TypographyLetterBlock fontFamily={families[family]} />
-            <hr />
+            <hr
+              style={{
+                background: 'none',
+                border: 'none',
+                borderTop: 'solid 1px var(--slate-500)'
+              }}
+            />
             <TypographySizeBlock sizes={sizes} />
           </div>
         </div>

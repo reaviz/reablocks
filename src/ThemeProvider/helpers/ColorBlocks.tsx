@@ -5,7 +5,7 @@ export const ColorBlock = ({ name, color }) => (
   <div
     key={name}
     style={{
-      border: 'solid 1px var(--slate-900)',
+      border: 'solid 1px var(--slate-500)',
       borderRadius: 5,
       overflow: 'hidden'
     }}
@@ -14,7 +14,7 @@ export const ColorBlock = ({ name, color }) => (
       style={{
         padding: 20,
         background: color,
-        borderBottom: 'solid 1px var(--slate-900)'
+        borderBottom: 'solid 1px var(--slate-500)'
       }}
     />
     <div style={{ padding: '5px 10px' }}>

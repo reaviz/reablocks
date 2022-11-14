@@ -21,17 +21,13 @@ export const SpacingBlocks = () => {
             display: 'flex',
             alignItems: 'center',
             borderRadius: 5,
-            border: 'solid 1px var(--slate-900)'
+            border: 'solid 1px var(--slate-500)'
           }}
         >
           <h3 style={{ fontWeight: 500, marginRight: 50 }}>
-            {key}
+            <code>--spacing-{key}</code>
             <br />
-            <small>
-              {spacings[key]}
-              {' - '}
-              <code>spacings.{key}</code>
-            </small>
+            <small>{spacings[key]}</small>
           </h3>
           <div
             style={{
@@ -40,7 +36,12 @@ export const SpacingBlocks = () => {
               flex: 1
             }}
           >
-            <div style={{ padding: spacings[key], border: 'solid 1px blue' }}>
+            <div
+              style={{
+                padding: spacings[key],
+                border: 'solid 1px var(--blue-900)'
+              }}
+            >
               Content
             </div>
           </div>

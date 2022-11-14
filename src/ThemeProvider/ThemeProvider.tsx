@@ -30,7 +30,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
 
       sheetRef.current = createSheet(element, value);
     } else {
-      sheetRef.current.replace(buildSheetRules(value));
+      sheetRef.current.replace(buildSheetRules(value).join(' '));
     }
   }, [value, reference]);
 

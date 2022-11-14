@@ -122,7 +122,7 @@ export const darkTheme: Theme = {
       md: 16,
       lg: 20,
       xl: 28,
-      xll: 32
+      xxl: 32
     }
   },
   spacings: {

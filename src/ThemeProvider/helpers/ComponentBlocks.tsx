@@ -23,7 +23,7 @@ export const ComponentBlocks = () => {
                 display: 'flex',
                 alignItems: 'center',
                 borderRadius: 5,
-                border: 'solid 1px var(--slate-900)'
+                border: 'solid 1px var(--slate-500)'
               }}
             >
               <h3 style={{ fontWeight: 500, marginRight: 50, maxWidth: 300 }}>
@@ -33,7 +33,7 @@ export const ComponentBlocks = () => {
                 {Object.keys(components[key]).map(kk => (
                   <div key={kk} style={{ marginBottom: 5 }}>
                     <h5 style={{ margin: 0 }}>{kk}</h5>
-                    {components[key][kk]}
+                    --{components[key][kk]}
                   </div>
                 ))}
               </div>

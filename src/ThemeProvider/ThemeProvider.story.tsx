@@ -10,27 +10,68 @@ import {
 } from './helpers';
 import { ThemeProvider } from './ThemeProvider';
 import { darkTheme } from './themes';
+import { buildSheetRules } from './utils';
 
 export default {
   title: 'Utils/Theme Provider',
   component: ThemeProvider
 };
 
+const exampleTheme = {
+  ...darkTheme,
+  components: {
+    select: {
+      'select-border': 'grey',
+      'select-background': 'white',
+      'select-color': 'black'
+    },
+    input: {
+      'select-border': 'grey',
+      'select-background': 'white',
+      'select-color': 'black'
+    }
+  }
+};
+
 export const Model = () => (
-  <ThemeProvider value={darkTheme}>
-    <h2>Theme Model</h2>
+  <ThemeProvider value={exampleTheme}>
     <div
       style={{
-        width: '90vw',
-        border: 'solid 1px var(--slate-900)',
-        borderRadius: 5,
-        padding: '0 20px',
-        overflowX: 'auto'
+        display: 'flex',
+        position: 'absolute',
+        top: 0,
+        right: 0,
+        bottom: 0,
+        left: 0
       }}
     >
-      <pre>
-        <code>{JSON.stringify(darkTheme, null, 2)}</code>
-      </pre>
+      <div
+        style={{
+          padding: '0 20px',
+          overflow: 'auto',
+          width: '50%'
+        }}
+      >
+        <h3>Model</h3>
+        <pre>
+          <code>{JSON.stringify(exampleTheme, null, 2)}</code>
+        </pre>
+      </div>
+      <div
+        style={{
+          borderLeft: 'solid 1px var(--slate-500)',
+          padding: '0 20px',
+          overflow: 'auto',
+          width: '50%'
+        }}
+      >
+        <h3>Output</h3>
+        <pre>
+          {buildSheetRules(exampleTheme).map(k => (
+            <div>{k}</div>
+          ))}
+        </pre>
+      </div>
     </div>
   </ThemeProvider>
 );
@@ -78,23 +119,7 @@ export const Shadows = () => (
 );
 
 export const Components = () => (
-  <ThemeProvider
-    value={{
-      ...darkTheme,
-      components: {
-        select: {
-          'select-border': 'grey',
-          'select-background': 'white',
-          'select-color': 'black'
-        },
-        input: {
-          'select-border': 'grey',
-          'select-background': 'white',
-          'select-color': 'black'
-        }
-      }
-    }}
-  >
+  <ThemeProvider value={exampleTheme}>
     <h2>Example Component Design Tokens</h2>
     <ComponentBlocks />
   </ThemeProvider>
