@@ -2,7 +2,7 @@ import React from 'react';
 import { useTheme } from '../ThemeContext';
 
 export const SpacingBlocks = () => {
-  const { spacing } = useTheme();
+  const { spacings } = useTheme();
 
   return (
     <div
@@ -12,7 +12,7 @@ export const SpacingBlocks = () => {
         width: '100%'
       }}
     >
-      {Object.keys(spacing).map(key => (
+      {Object.keys(spacings).map(key => (
         <div
           key={key}
           style={{
@@ -28,9 +28,9 @@ export const SpacingBlocks = () => {
             {key}
             <br />
             <small>
-              {spacing[key]}
+              {spacings[key]}
               {' - '}
-              <code>spacing.{key}</code>
+              <code>spacings.{key}</code>
             </small>
           </h3>
           <div
@@ -40,7 +40,7 @@ export const SpacingBlocks = () => {
               flex: 1
             }}
           >
-            <div style={{ padding: spacing[key], border: 'solid 1px blue' }}>
+            <div style={{ padding: spacings[key], border: 'solid 1px blue' }}>
               Content
             </div>
           </div>

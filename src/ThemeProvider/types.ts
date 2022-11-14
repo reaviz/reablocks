@@ -67,7 +67,7 @@ export interface Theme {
   name?: string;
   palettes?: Palettes;
   colors?: Colors;
-  spacing?: Spacings;
+  spacings?: Spacings;
   borders?: Borders;
   shadows?: Shadows;
   typography?: Typography;
