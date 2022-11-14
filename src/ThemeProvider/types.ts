@@ -37,7 +37,9 @@ export type Color = Scale;
 
 export type Spacings = Sizes;
 
-export type Borders = Sizes;
+export interface Borders {
+  radius?: Sizes;
+}
 
 export type Shadows = Scale;
 

@@ -133,7 +133,13 @@ export const darkTheme: Theme = {
     xl: 24,
     xxl: 30
   },
-  border: {},
+  borders: {
+    radius: {
+      sm: 2,
+      md: 5,
+      lg: 10
+    }
+  },
   shadows: {
     100: '0 2px 4px 0 rgba(17,22,26,0.16), 0 0 4px 0 rgba(17,22,26,0.08), 0 4px 8px 0 rgba(17,22,26,0.04)',
     200: '0 4px 8px 0 rgba(17,22,26,0.16), 0 4px 8px 0 rgba(17,22,26,0.08), 0 8px 16px 0 rgba(17,22,26,0.04)',
