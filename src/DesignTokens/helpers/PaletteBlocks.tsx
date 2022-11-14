@@ -1,15 +1,16 @@
 import React from 'react';
-import { useTheme } from '../ThemeContext';
+import { useDts } from '../DesignTokensContext';
 import { ColorBlock } from './ColorBlocks';
 
 export const PaletteBlocks = () => {
-  const theme = useTheme();
+  const theme = useDts();
 
   return (
     <div
       style={{
         padding: '5px 15px',
         color: 'var(--body-color)',
+        fontFamily: 'var(--font-family)',
         width: '100%'
       }}
     >

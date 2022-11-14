@@ -1,8 +1,8 @@
 import React from 'react';
-import { useTheme } from '../ThemeContext';
+import { useDts } from '../DesignTokensContext';
 
 export const ComponentBlocks = () => {
-  const { components } = useTheme();
+  const { components } = useDts();
 
   return (
     <div

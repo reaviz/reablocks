@@ -1,4 +1,4 @@
-import { Theme } from './types';
+import { DesignTokens } from './types';
 
 export const isRefObject = ref =>
   // eslint-disable-next-line no-prototype-builtins
@@ -7,7 +7,7 @@ export const isRefObject = ref =>
 export const camelToDash = (str: string) =>
   str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 
-const applyColors = (theme: Theme) => {
+const applyColors = (theme: DesignTokens) => {
   const colors: string[] = [];
 
   if (theme?.colors) {
@@ -21,7 +21,7 @@ const applyColors = (theme: Theme) => {
   return colors;
 };
 
-const applyBorders = (theme: Theme) => {
+const applyBorders = (theme: DesignTokens) => {
   const borders: string[] = [];
 
   if (theme?.borders?.radius) {
@@ -33,7 +33,7 @@ const applyBorders = (theme: Theme) => {
   return borders;
 };
 
-const applyShadows = (theme: Theme) => {
+const applyShadows = (theme: DesignTokens) => {
   const shadows: string[] = [];
 
   if (theme?.shadows) {
@@ -45,7 +45,7 @@ const applyShadows = (theme: Theme) => {
   return shadows;
 };
 
-const applySpacings = (theme: Theme) => {
+const applySpacings = (theme: DesignTokens) => {
   const spacings: string[] = [];
 
   if (theme?.spacings) {
@@ -57,7 +57,7 @@ const applySpacings = (theme: Theme) => {
   return spacings;
 };
 
-const applyPalettes = (theme: Theme) => {
+const applyPalettes = (theme: DesignTokens) => {
   const palettes: string[] = [];
 
   if (theme?.palettes) {
@@ -71,7 +71,7 @@ const applyPalettes = (theme: Theme) => {
   return palettes;
 };
 
-const applyTypography = (theme: Theme) => {
+const applyTypography = (theme: DesignTokens) => {
   const typographies: string[] = [];
 
   if (theme?.typography) {
@@ -95,7 +95,7 @@ const applyTypography = (theme: Theme) => {
   return typographies;
 };
 
-const applyComponents = (theme: Theme) => {
+const applyComponents = (theme: DesignTokens) => {
   const components: string[] = [];
 
   if (theme?.components) {
@@ -109,7 +109,7 @@ const applyComponents = (theme: Theme) => {
   return components;
 };
 
-export const buildSheetRules = (theme: Theme) => {
+export const buildSheetRules = (theme: DesignTokens) => {
   const template: string[] = [];
 
   if (theme) {
@@ -125,7 +125,7 @@ export const buildSheetRules = (theme: Theme) => {
   return template;
 };
 
-export const createSheet = (element: HTMLElement, theme: Theme) => {
+export const createSheet = (element: HTMLElement, theme: DesignTokens) => {
   const styleEl = document.createElement('style');
   const sheet = element.appendChild(styleEl).sheet;
 

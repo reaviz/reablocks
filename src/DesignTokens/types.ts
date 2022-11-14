@@ -65,8 +65,7 @@ export interface Typography {
   sizes?: Sizes;
 }
 
-export interface Theme {
-  name?: string;
+export interface DesignTokens {
   palettes?: Palettes;
   colors?: Colors;
   spacings?: Spacings;

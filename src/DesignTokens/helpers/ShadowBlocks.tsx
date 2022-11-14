@@ -1,8 +1,8 @@
 import React from 'react';
-import { useTheme } from '../ThemeContext';
+import { useDts } from '../DesignTokensContext';
 
 export const ShadowBlocks = () => {
-  const { shadows } = useTheme();
+  const { shadows } = useDts();
 
   return (
     <div

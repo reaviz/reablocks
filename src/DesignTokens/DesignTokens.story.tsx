@@ -8,13 +8,13 @@ import {
   ShadowBlocks,
   ComponentBlocks
 } from './helpers';
-import { ThemeProvider } from './ThemeProvider';
+import { DesignTokensProvider } from './DesignTokensProvider';
 import { lightTheme } from './themes';
 import { buildSheetRules } from './utils';
 
 export default {
-  title: 'Utils/Theme Provider',
-  component: ThemeProvider
+  title: 'Utils/Design Tokens',
+  component: DesignTokensProvider
 };
 
 const exampleTheme = {
@@ -34,7 +34,7 @@ const exampleTheme = {
 };
 
 export const Model = () => (
-  <ThemeProvider value={exampleTheme}>
+  <DesignTokensProvider value={exampleTheme}>
     <div
       style={{
         display: 'flex',
@@ -73,54 +73,54 @@ export const Model = () => (
         </pre>
       </div>
     </div>
-  </ThemeProvider>
+  </DesignTokensProvider>
 );
 
 export const Colors = () => (
-  <ThemeProvider value={lightTheme}>
+  <DesignTokensProvider value={lightTheme}>
     <div style={{ width: '90vw' }}>
       <ColorBlocks />
     </div>
-  </ThemeProvider>
+  </DesignTokensProvider>
 );
 
 export const Palettes = () => (
-  <ThemeProvider value={lightTheme}>
+  <DesignTokensProvider value={lightTheme}>
     <div style={{ width: '90vw' }}>
       <PaletteBlocks />
     </div>
-  </ThemeProvider>
+  </DesignTokensProvider>
 );
 
 export const Typography = () => (
-  <ThemeProvider value={lightTheme}>
+  <DesignTokensProvider value={lightTheme}>
     <div style={{ width: '90vw' }}>
       <TypographyBlocks />
     </div>
-  </ThemeProvider>
+  </DesignTokensProvider>
 );
 
 export const Spacings = () => (
-  <ThemeProvider value={lightTheme}>
+  <DesignTokensProvider value={lightTheme}>
     <SpacingBlocks />
-  </ThemeProvider>
+  </DesignTokensProvider>
 );
 
 export const Borders = () => (
-  <ThemeProvider value={lightTheme}>
+  <DesignTokensProvider value={lightTheme}>
     <BorderBlocks />
-  </ThemeProvider>
+  </DesignTokensProvider>
 );
 
 export const Shadows = () => (
-  <ThemeProvider value={lightTheme}>
+  <DesignTokensProvider value={lightTheme}>
     <ShadowBlocks />
-  </ThemeProvider>
+  </DesignTokensProvider>
 );
 
 export const Components = () => (
-  <ThemeProvider value={exampleTheme}>
+  <DesignTokensProvider value={exampleTheme}>
     <h2>Example Component Design Tokens</h2>
     <ComponentBlocks />
-  </ThemeProvider>
+  </DesignTokensProvider>
 );

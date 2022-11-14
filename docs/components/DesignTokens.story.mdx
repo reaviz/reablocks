@@ -1,0 +1,42 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Design Tokens/Getting Started" />
+
+# Design Tokens
+A provider for design tokens in your application. It has no opinions about
+the UI libraries you use, and it's agnostic to the design system you use.
+
+It also provides Storybook blocks for you to use in your storybook.
+
+## Example
+
+Initalize it in the root of your application like:
+
+```tsx
+import { DesignTokensProvider } from 'reablocks';
+
+export const App = () => (
+  <DesignTokensProvider value={myTheme}>
+    <YourComponents />
+  </DesignTokensProvider>
+);
+```
+
+Later on you can use the hook to get the design tokens:
+
+```tsx
+import { useDts } from 'reablocks';
+
+export const MyComponent = () => {
+  //-> All tokens available
+  const tokens = useDts();
+};
+```
+
+You can also use it via CSS variables like:
+
+```css
+.body {
+  color: var(--body-color);
+}
+```

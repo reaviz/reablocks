@@ -1,10 +1,10 @@
 import React from 'react';
-import { useTheme } from '../ThemeContext';
+import { useDts } from '../DesignTokensContext';
 
 export const BorderBlocks = () => {
   const {
     borders: { radius }
-  } = useTheme();
+  } = useDts();
 
   return (
     <div

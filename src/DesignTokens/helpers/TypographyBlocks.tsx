@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '../ThemeContext';
+import { useDts } from '../DesignTokensContext';
 import { camelToDash } from '../utils';
 
 export const TypographyLetterBlock = ({ fontFamily }) => (
@@ -61,7 +61,7 @@ export const TypographySizeBlock = ({ sizes }) => (
 export const TypographyBlocks = () => {
   const {
     typography: { families, sizes }
-  } = useTheme();
+  } = useDts();
 
   return (
     <div

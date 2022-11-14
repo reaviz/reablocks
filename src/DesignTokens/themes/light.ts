@@ -1,4 +1,4 @@
-import { Theme } from '../types';
+import { DesignTokens } from '../types';
 
 /**
  * Inspired by https://www.radix-ui.com/docs/colors/palette-composition/the-scales
@@ -108,8 +108,7 @@ export const lightThemeColors = {
 /**
  * Light theme example.
  */
-export const lightTheme: Theme = {
-  name: 'light',
+export const lightTheme: DesignTokens = {
   colors: lightThemeColors,
   typography: {
     families: {

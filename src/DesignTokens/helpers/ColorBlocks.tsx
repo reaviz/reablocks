@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTheme } from '../ThemeContext';
+import { useDts } from '../DesignTokensContext';
 
 export const ColorBlock = ({ name, color }) => (
   <div
@@ -29,7 +29,7 @@ export const ColorBlock = ({ name, color }) => (
 );
 
 export const ColorBlocks = () => {
-  const theme = useTheme();
+  const theme = useDts();
 
   return (
     <div

@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Design Tokens/Blocks" />
+
+# Design Tokens Blocks
+A set of components to use in Storybook to display design tokens. It provides
+the following block components:
+
+- Typography Block
+- Color Block
+- Spacing Block
+- Border Block
+- Shadow Block
+- Palette Block
+- Components Block
+
+## Example
+
+```tsx
+import {
+  TypographyBlocks,
+  ColorBlocks,
+  SpacingBlocks,
+  PaletteBlocks,
+  BorderBlocks,
+  ShadowBlocks,
+  ComponentBlocks
+} from 'reablocks';
+
+export const MyColorStory = () => (
+  <DesignTokensProvider value={lightTheme}>
+    <ColorBlocks />
+  </DesignTokensProvider>
+);
+````

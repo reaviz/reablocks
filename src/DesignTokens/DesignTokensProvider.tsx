@@ -6,16 +6,16 @@ import React, {
   useEffect,
   useCallback
 } from 'react';
-import { ThemeContext } from './ThemeContext';
-import { Theme } from './types';
+import { DesignTokensContext } from './DesignTokensContext';
+import { DesignTokens } from './types';
 import { buildSheetRules, createSheet, isRefObject } from './utils';
 
-export type ThemeProviderProps = PropsWithChildren<{
-  value: Theme;
+export type DesignTokensProviderProps = PropsWithChildren<{
+  value: DesignTokens;
   reference?: RefObject<any> | HTMLElement;
 }>;
 
-export const ThemeProvider: FC<ThemeProviderProps> = ({
+export const DesignTokensProvider: FC<DesignTokensProviderProps> = ({
   children,
   value,
   reference = document.body
@@ -39,6 +39,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   }, [applyTheme]);
 
   return (
-    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+    <DesignTokensContext.Provider value={value}>
+      {children}
+    </DesignTokensContext.Provider>
   );
 };
