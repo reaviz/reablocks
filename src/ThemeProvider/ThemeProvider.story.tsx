@@ -76,6 +76,7 @@ export const Components = () => (
       }
     }}
   >
+    <h2>Example Component Design Tokens</h2>
     <ComponentBlocks />
   </ThemeProvider>
 );
