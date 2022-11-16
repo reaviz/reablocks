@@ -1,4 +1,2 @@
-export * from './Motion';
-export * from './Pluralize';
-export * from './DesignTokens';
-export * from './Ellipsis';
+export * from './utils';
+export * from './data';
