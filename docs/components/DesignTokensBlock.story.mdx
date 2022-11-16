@@ -13,10 +13,13 @@ the following block components:
 - Shadow Block
 - Palette Block
 - Components Block
+- Gradients Block
 
 ## Example
+Here is an example Storybook story that uses the Design Tokens Blocks.
 
 ```tsx
+import React from 'react';
 import {
   TypographyBlocks,
   ColorBlocks,
@@ -25,11 +28,69 @@ import {
   BorderBlocks,
   ShadowBlocks,
   ComponentBlocks
-} from 'reablocks';
+} from './helpers';
 
-export const MyColorStory = () => (
+export default {
+  title: 'General/Design Tokens',
+  component: DesignTokensProvider
+};
+
+export const Colors = () => (
   <DesignTokensProvider value={lightTheme}>
-    <ColorBlocks />
+    <div style={{ width: '90vw' }}>
+      <ColorBlocks />
+    </div>
+  </DesignTokensProvider>
+);
+
+export const Palettes = () => (
+  <DesignTokensProvider value={lightTheme}>
+    <div style={{ width: '90vw' }}>
+      <PaletteBlocks />
+    </div>
+  </DesignTokensProvider>
+);
+
+export const Typography = () => (
+  <DesignTokensProvider value={lightTheme}>
+    <div style={{ width: '90vw' }}>
+      <TypographyBlocks />
+    </div>
+  </DesignTokensProvider>
+);
+
+export const Spacings = () => (
+  <DesignTokensProvider value={lightTheme}>
+    <SpacingBlocks />
+  </DesignTokensProvider>
+);
+
+export const Borders = () => (
+  <DesignTokensProvider value={lightTheme}>
+    <BorderBlocks />
+  </DesignTokensProvider>
+);
+
+export const Gradients = () => (
+  <DesignTokensProvider value={lightTheme}>
+    <div style={{ width: '90vw' }}>
+      <GradientBlocks />
+    </div>
+  </DesignTokensProvider>
+);
+
+export const Shadows = () => (
+  <DesignTokensProvider value={lightTheme}>
+    <ShadowBlocks />
+  </DesignTokensProvider>
+);
+
+export const Components = () => (
+  <DesignTokensProvider value={lightTheme}>
+    <ComponentBlocks />
   </DesignTokensProvider>
 );
 ````
+
+NOTE: This example uses the `DesignTokensProvider` in each story,
+but you can also use it in the `preview.js` file to wrap all stories.

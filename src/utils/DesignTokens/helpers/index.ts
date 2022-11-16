@@ -5,3 +5,4 @@ export * from './PaletteBlocks';
 export * from './BorderBlocks';
 export * from './ShadowBlocks';
 export * from './ComponentBlocks';
+export * from './GradientBlocks';

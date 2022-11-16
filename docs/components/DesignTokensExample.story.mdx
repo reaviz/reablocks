@@ -1,8 +1,15 @@
-import { DesignTokens, Colors } from '../types';
+import { Meta } from '@storybook/addon-docs/blocks';
 
-/**
- * Inspired by https://www.radix-ui.com/docs/colors/palette-composition/the-scales
- */
+<Meta title="Docs/Design Tokens/Example" />
+
+# Design Tokens Example
+Below is an example of a theme implemented using the design
+tokens system. This theme is the `lightTheme` that is
+used in the Storybook stories.
+
+```ts
+import { DesignTokens, Colors } from 'reablocks';
+
 export const lightThemeColors: Colors = {
   red: {
     '100': '#fffcfc',
@@ -105,9 +112,6 @@ export const lightThemeColors: Colors = {
   }
 };
 
-/**
- * Light theme example.
- */
 export const lightTheme: DesignTokens = {
   colors: lightThemeColors,
   typography: {
@@ -195,3 +199,4 @@ export const lightTheme: DesignTokens = {
     }
   }
 };
+```

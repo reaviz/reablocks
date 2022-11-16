@@ -6,12 +6,12 @@ import {
   PaletteBlocks,
   BorderBlocks,
   ShadowBlocks,
-  ComponentBlocks
+  ComponentBlocks,
+  GradientBlocks
 } from './helpers';
 import { DesignTokensProvider } from './DesignTokensProvider';
 import { lightTheme } from './themes';
 import { buildSheetRules } from './utils';
-import { GradientBlocks } from './helpers/GradientBlocks';
 
 export default {
   title: 'Utils/Design Tokens',
