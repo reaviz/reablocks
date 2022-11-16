@@ -38,6 +38,14 @@ export const DesignTokensProvider: FC<DesignTokensProviderProps> = ({
     applyTheme();
   }, [applyTheme]);
 
+  useEffect(() => {
+    return () => {
+      if (sheetRef.current) {
+        sheetRef.current.ownerNode.remove();
+      }
+    };
+  });
+
   return (
     <DesignTokensContext.Provider value={value}>
       {children}
