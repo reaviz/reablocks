@@ -44,13 +44,15 @@ export const TypographySizeBlock = ({ sizes }) => (
           style={{
             color: 'var(--grey-900)',
             fontSize: 12,
-            width: 50,
+            width: 110,
             marginRight: 15
           }}
         >
-          {size}
-          {' - '}
           {sizes[size]}
+          <br />
+          <small>
+            <code>--font-size-{size}</code>
+          </small>
         </div>
         The quick brown fox jumps over the lazy dog.
       </div>
