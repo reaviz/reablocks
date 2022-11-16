@@ -139,6 +139,24 @@ export const lightTheme: DesignTokens = {
       lg: 10
     }
   },
+  gradients: {
+    blue: {
+      '100': 'linear-gradient(204deg, #19D4EE 10%, #4B5CFA 100%)',
+      '200': 'linear-gradient(30deg, #2E27AD 0%, #679BFF 100%)'
+    },
+    orange: {
+      '100': 'linear-gradient(45deg, #C8511B 0%, #FFA800 100%)'
+    },
+    red: {
+      '100': 'linear-gradient(204deg, #FF8A8A 10%, #C14941 100%)'
+    },
+    green: {
+      '100': 'linear-gradient(45deg, #055F4E 0%, #56C0A7 100%)'
+    },
+    pink: {
+      '100': 'linear-gradient(204deg, #FC7AFF 10%, #C15179 100%)'
+    }
+  },
   shadows: {
     100: '0 2px 4px 0 rgba(17,22,26,0.16), 0 0 4px 0 rgba(17,22,26,0.08), 0 4px 8px 0 rgba(17,22,26,0.04)',
     200: '0 4px 8px 0 rgba(17,22,26,0.16), 0 4px 8px 0 rgba(17,22,26,0.08), 0 8px 16px 0 rgba(17,22,26,0.04)',

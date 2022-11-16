@@ -13,41 +13,47 @@ export const SpacingBlocks = () => {
         width: '100%'
       }}
     >
-      {Object.keys(spacings).map(key => (
-        <div
-          key={key}
-          style={{
-            marginBottom: 20,
-            padding: 15,
-            display: 'flex',
-            alignItems: 'center',
-            borderRadius: 5,
-            border: 'solid 1px var(--slate-500)'
-          }}
-        >
-          <h3 style={{ fontWeight: 500, marginRight: 50 }}>
-            <code>--spacing-{key}</code>
-            <br />
-            <small>{spacings[key]}</small>
-          </h3>
-          <div
-            style={{
-              justifyContent: 'end',
-              display: 'flex',
-              flex: 1
-            }}
-          >
+      {spacings ? (
+        <>
+          {Object.keys(spacings).map(key => (
             <div
+              key={key}
               style={{
-                padding: spacings[key],
-                border: 'solid 1px var(--blue-900)'
+                marginBottom: 20,
+                padding: 15,
+                display: 'flex',
+                alignItems: 'center',
+                borderRadius: 5,
+                border: 'solid 1px var(--slate-500)'
               }}
             >
-              Content
+              <h3 style={{ fontWeight: 500, marginRight: 50 }}>
+                <code>--spacing-{key}</code>
+                <br />
+                <small>{spacings[key]}</small>
+              </h3>
+              <div
+                style={{
+                  justifyContent: 'end',
+                  display: 'flex',
+                  flex: 1
+                }}
+              >
+                <div
+                  style={{
+                    padding: spacings[key],
+                    border: 'solid 1px var(--blue-900)'
+                  }}
+                >
+                  Content
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      ))}
+          ))}
+        </>
+      ) : (
+        <p>⚠️ No spacings defined</p>
+      )}
     </div>
   );
 };

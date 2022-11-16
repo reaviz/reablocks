@@ -1,35 +1,9 @@
 import React from 'react';
 import { useDts } from '../DesignTokensContext';
+import { ColorBlock } from './ColorBlocks';
 
-export const ColorBlock = ({ name, color }) => (
-  <div
-    key={name}
-    style={{
-      border: 'solid 1px var(--slate-500)',
-      borderRadius: 5,
-      overflow: 'hidden'
-    }}
-  >
-    <div
-      style={{
-        padding: 20,
-        background: color,
-        borderBottom: 'solid 1px var(--slate-500)'
-      }}
-    />
-    <div style={{ padding: '5px 10px' }}>
-      <div>
-        <code>{name}</code>
-      </div>
-      <div>
-        <code>{color}</code>
-      </div>
-    </div>
-  </div>
-);
-
-export const ColorBlocks = () => {
-  const { colors } = useDts();
+export const GradientBlocks = () => {
+  const { gradients } = useDts();
 
   return (
     <div
@@ -40,9 +14,9 @@ export const ColorBlocks = () => {
         width: '100%'
       }}
     >
-      {colors ? (
+      {gradients ? (
         <>
-          {Object.keys(colors).map(key => (
+          {Object.keys(gradients).map(key => (
             <div
               key={key}
               style={{
@@ -53,7 +27,7 @@ export const ColorBlocks = () => {
                 {key}
                 <br />
                 <small>
-                  <code>colors.{key}</code>
+                  <code>gradients.{key}</code>
                 </small>
               </h3>
               <div
@@ -63,11 +37,11 @@ export const ColorBlocks = () => {
                   gridTemplateColumns: 'repeat(auto-fit, minmax(auto, 300px))'
                 }}
               >
-                {Object.keys(colors[key]).map(color => (
+                {Object.keys(gradients[key]).map(color => (
                   <ColorBlock
                     key={`--${key}-${color}`}
-                    name={`--${key}-${color}`}
-                    color={colors[key][color]}
+                    name={`--gradient-${key}-${color}`}
+                    color={gradients[key][color]}
                   />
                 ))}
               </div>
@@ -75,7 +49,7 @@ export const ColorBlocks = () => {
           ))}
         </>
       ) : (
-        <p>⚠️ No colors defined</p>
+        <p>⚠️ No gradients defined</p>
       )}
     </div>
   );

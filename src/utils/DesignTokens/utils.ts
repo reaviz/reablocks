@@ -21,6 +21,22 @@ const applyColors = (theme: DesignTokens) => {
   return colors;
 };
 
+const applyGradients = (theme: DesignTokens) => {
+  const gradients: string[] = [];
+
+  if (theme?.gradients) {
+    for (const key of Object.keys(theme.gradients)) {
+      for (const shade of Object.keys(theme.gradients[key])) {
+        gradients.push(
+          `--gradient-${key}-${shade}: ${theme.gradients[key][shade]};`
+        );
+      }
+    }
+  }
+
+  return gradients;
+};
+
 const applyBorders = (theme: DesignTokens) => {
   const borders: string[] = [];
 
@@ -115,6 +131,7 @@ export const buildSheetRules = (theme: DesignTokens) => {
   if (theme) {
     template.push(...applyColors(theme));
     template.push(...applyPalettes(theme));
+    template.push(...applyGradients(theme));
     template.push(...applyBorders(theme));
     template.push(...applyShadows(theme));
     template.push(...applySpacings(theme));

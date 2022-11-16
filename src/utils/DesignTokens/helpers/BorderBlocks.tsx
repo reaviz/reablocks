@@ -2,9 +2,7 @@ import React from 'react';
 import { useDts } from '../DesignTokensContext';
 
 export const BorderBlocks = () => {
-  const {
-    borders: { radius }
-  } = useDts();
+  const { borders } = useDts();
 
   return (
     <div
@@ -15,44 +13,50 @@ export const BorderBlocks = () => {
         width: '100%'
       }}
     >
-      {Object.keys(radius).map(key => (
-        <div
-          key={key}
-          style={{
-            marginBottom: 20,
-            padding: 15,
-            display: 'flex',
-            alignItems: 'center',
-            borderRadius: 5,
-            border: 'solid 1px var(--slate-500)'
-          }}
-        >
-          <h3 style={{ fontWeight: 500, marginRight: 50, maxWidth: 300 }}>
-            --border-radius-{key}
-            <br />
-            <small>
-              <code>{radius[key]}</code>
-            </small>
-          </h3>
-          <div
-            style={{
-              justifyContent: 'end',
-              display: 'flex',
-              flex: 1
-            }}
-          >
+      {borders ? (
+        <>
+          {Object.keys(borders.radius).map(key => (
             <div
+              key={key}
               style={{
-                padding: 5,
-                borderRadius: radius[key],
-                border: 'solid 1px var(--blue-900)'
+                marginBottom: 20,
+                padding: 15,
+                display: 'flex',
+                alignItems: 'center',
+                borderRadius: 5,
+                border: 'solid 1px var(--slate-500)'
               }}
             >
-              Content
+              <h3 style={{ fontWeight: 500, marginRight: 50, maxWidth: 300 }}>
+                --border-radius-{key}
+                <br />
+                <small>
+                  <code>{borders.radius[key]}</code>
+                </small>
+              </h3>
+              <div
+                style={{
+                  justifyContent: 'end',
+                  display: 'flex',
+                  flex: 1
+                }}
+              >
+                <div
+                  style={{
+                    padding: 5,
+                    borderRadius: borders.radius[key],
+                    border: 'solid 1px var(--blue-900)'
+                  }}
+                >
+                  Content
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      ))}
+          ))}
+        </>
+      ) : (
+        <p>⚠️ No borders defined</p>
+      )}
     </div>
   );
 };

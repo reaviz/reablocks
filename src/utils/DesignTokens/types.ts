@@ -51,6 +51,7 @@ export interface Colors {
   yellow?: Color;
   orange?: Color;
   grey?: Color;
+  pink?: Color;
   slate?: Color;
   overlay?: Color;
 }
@@ -65,16 +66,21 @@ export interface Typography {
   sizes?: Sizes;
 }
 
+export interface Components {
+  [key: string]: {
+    [key: string]: string;
+  };
+}
+
+export type Gradients = Omit<Colors, 'overlay'>;
+
 export interface DesignTokens {
   palettes?: Palettes;
   colors?: Colors;
   spacings?: Spacings;
   borders?: Borders;
+  gradients?: Gradients;
   shadows?: Shadows;
   typography?: Typography;
-  components?: {
-    [key: string]: {
-      [key: string]: string;
-    };
-  };
+  components?: Components;
 }

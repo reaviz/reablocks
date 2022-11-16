@@ -11,6 +11,7 @@ import {
 import { DesignTokensProvider } from './DesignTokensProvider';
 import { lightTheme } from './themes';
 import { buildSheetRules } from './utils';
+import { GradientBlocks } from './helpers/GradientBlocks';
 
 export default {
   title: 'Utils/Design Tokens',
@@ -109,6 +110,14 @@ export const Spacings = () => (
 export const Borders = () => (
   <DesignTokensProvider value={lightTheme}>
     <BorderBlocks />
+  </DesignTokensProvider>
+);
+
+export const Gradients = () => (
+  <DesignTokensProvider value={lightTheme}>
+    <div style={{ width: '90vw' }}>
+      <GradientBlocks />
+    </div>
   </DesignTokensProvider>
 );
 
