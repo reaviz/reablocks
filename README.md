@@ -2,8 +2,8 @@
   <h1>reablocks</h1>
   Low level components for React.
   <br /><br />
-  <a href="https://github.com/reaviz/reablocks/actions/workflows/build.yml/badge.svg">
-    <img src="https://github.com/reaviz/reablocks/actions/workflows/build/badge.svg?branch=master" />
+  <a href="https://github.com/reaviz/reablocks/actions/workflows/build.yml">
+    <img src="https://github.com/reaviz/reablocks/actions/workflows/build.yml/badge.svg" />
   </a>
   &nbsp;
   <a href="https://npm.im/reablocks" target="_blank">
