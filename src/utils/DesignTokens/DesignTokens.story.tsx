@@ -7,11 +7,13 @@ import {
   BorderBlocks,
   ShadowBlocks,
   ComponentBlocks,
-  GradientBlocks
+  GradientBlocks,
+  IconBlocks
 } from './helpers';
 import { DesignTokensProvider } from './DesignTokensProvider';
 import { lightTheme } from './themes';
 import { buildSheetRules } from './utils';
+import favoriteIcon from './icon-demo.svg';
 
 export default {
   title: 'Utils/Design Tokens',
@@ -131,5 +133,23 @@ export const Components = () => (
   <DesignTokensProvider value={exampleTheme}>
     <h2>Example Component Design Tokens</h2>
     <ComponentBlocks />
+  </DesignTokensProvider>
+);
+
+export const Icons = () => (
+  <DesignTokensProvider value={exampleTheme}>
+    <h2>Icon Block Helper ( icons not included )</h2>
+    <IconBlocks
+      icons={[
+        {
+          name: 'favorite',
+          src: favoriteIcon
+        },
+        {
+          name: 'another favorite',
+          src: favoriteIcon
+        }
+      ]}
+    />
   </DesignTokensProvider>
 );

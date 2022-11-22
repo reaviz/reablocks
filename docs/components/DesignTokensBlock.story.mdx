@@ -14,6 +14,7 @@ the following block components:
 - Palette Block
 - Components Block
 - Gradients Block
+- Icons Block ( icons not included )
 
 ## Example
 Here is an example Storybook story that uses the Design Tokens Blocks.
@@ -27,7 +28,8 @@ import {
   PaletteBlocks,
   BorderBlocks,
   ShadowBlocks,
-  ComponentBlocks
+  ComponentBlocks,
+  IconBlocks
 } from './helpers';
 
 export default {
@@ -90,7 +92,25 @@ export const Components = () => (
     <ComponentBlocks />
   </DesignTokensProvider>
 );
+
+const icons = [
+  {
+    name: 'favorite',
+    src: favoriteIconSrc
+  },
+   {
+    name: 'favorite',
+    component: FavoriteIconComponent
+  }
+];
+
+export const Icons = () => (
+  <DesignTokensProvider value={lightTheme}>
+    <IconBlocks icons={icons} />
+  </DesignTokensProvider>
+);
 ````
 
 NOTE: This example uses the `DesignTokensProvider` in each story,
 but you can also use it in the `preview.js` file to wrap all stories.
+

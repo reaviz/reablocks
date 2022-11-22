@@ -6,3 +6,4 @@ export * from './BorderBlocks';
 export * from './ShadowBlocks';
 export * from './ComponentBlocks';
 export * from './GradientBlocks';
+export * from './IconBlocks';
