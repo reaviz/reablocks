@@ -32,6 +32,10 @@ const exampleTheme = {
       'select-border': 'grey',
       'select-background': 'white',
       'select-color': 'black'
+    },
+    iconBlock: {
+      'icon-block-background': 'black',
+      'icon-block-color': 'white'
     }
   }
 };

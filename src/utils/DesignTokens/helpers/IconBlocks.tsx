@@ -17,12 +17,13 @@ export const IconBlock: FC<IconBlockProps> = ({
       flexDirection: 'column',
       justifyContent: 'center',
       alignItems: 'center',
-      padding: '10px',
-      background: 'var(--slate-900)',
-      color: 'var(--slate-100)',
+      padding: 'var(--spacing-md)',
+      fontFamily: 'var(--font-family)',
+      background: 'var(--icon-block-background)',
+      color: 'var(--icon-block-color)',
       textAlign: 'center',
       fontSize: '12px',
-      borderRadius: 10,
+      borderRadius: 'var(--border-radius-md)',
       height: 75
     }}
   >
