@@ -1,6 +1,6 @@
 {
   "name": "reablocks",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Low level component building blocks for React",
   "scripts": {
     "build": "rollup -c",
