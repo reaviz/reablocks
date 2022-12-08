@@ -46,7 +46,7 @@ const ColorPaletteBlock = ({ name, color }) => {
   const valid = chroma.valid(color);
   const fontColor =
     valid && !name.includes('overlay')
-      ? chroma(color).luminance() >= 0.5
+      ? chroma(color).luminance() >= 0.3
         ? chroma(color).darken(100).css()
         : chroma(color).brighten(100).css()
       : 'var(--body-color)';
@@ -61,13 +61,12 @@ const ColorPaletteBlock = ({ name, color }) => {
       <div
         style={{
           padding: 10,
-          fontSize: '12px',
           background: color
         }}
       >
         <div>
           <code
-            style={{ cursor: 'pointer', color: fontColor }}
+            style={{ cursor: 'pointer', color: fontColor, fontSize: '12px' }}
             title={`Double click to copy ${name} to your clipboard`}
             onDoubleClick={() => navigator.clipboard.writeText(name)}
           >
@@ -76,7 +75,7 @@ const ColorPaletteBlock = ({ name, color }) => {
         </div>
         <div>
           <code
-            style={{ cursor: 'pointer', color: fontColor }}
+            style={{ cursor: 'pointer', color: fontColor, fontSize: '12px' }}
             title={`Double click to copy ${color} to your clipboard`}
             onDoubleClick={() => navigator.clipboard.writeText(color)}
           >
