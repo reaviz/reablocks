@@ -17,12 +17,60 @@ export const ColorBlock = ({ name, color }) => (
         borderBottom: 'solid 1px var(--slate-500)'
       }}
     />
-    <div style={{ padding: '5px 10px' }}>
+    <div style={{ padding: '5px 10px', fontSize: '12px' }}>
       <div>
-        <code>{name}</code>
+        <code
+          style={{ cursor: 'pointer' }}
+          title={`Double click to copy ${name} to your clipboard`}
+          onDoubleClick={() => navigator.clipboard.writeText(name)}
+        >
+          {name}
+        </code>
       </div>
       <div>
-        <code>{color}</code>
+        <code
+          style={{ cursor: 'pointer' }}
+          title={`Double click to copy ${color} to your clipboard`}
+          onDoubleClick={() => navigator.clipboard.writeText(color)}
+        >
+          {color}
+        </code>
+      </div>
+    </div>
+  </div>
+);
+
+const ColorPaletteBlock = ({ name, color }) => (
+  <div
+    key={name}
+    style={{
+      borderRight: 'solid 1px var(--slate-500)'
+    }}
+  >
+    <div
+      style={{
+        padding: 10,
+        fontSize: '12px',
+        background: color
+      }}
+    >
+      <div>
+        <code
+          style={{ cursor: 'pointer' }}
+          title={`Double click to copy ${name} to your clipboard`}
+          onDoubleClick={() => navigator.clipboard.writeText(name)}
+        >
+          {name}
+        </code>
+      </div>
+      <div>
+        <code
+          style={{ cursor: 'pointer' }}
+          title={`Double click to copy ${color} to your clipboard`}
+          onDoubleClick={() => navigator.clipboard.writeText(color)}
+        >
+          {color}
+        </code>
       </div>
     </div>
   </div>
@@ -59,12 +107,14 @@ export const ColorBlocks = () => {
               <div
                 style={{
                   display: 'grid',
-                  gap: 12,
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(auto, 300px))'
+                  overflow: 'hidden',
+                  borderRadius: 'var(--border-radius-md)',
+                  border: 'solid 1px var(--slate-500)',
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))'
                 }}
               >
                 {Object.keys(colors[key]).map(color => (
-                  <ColorBlock
+                  <ColorPaletteBlock
                     key={`--${key}-${color}`}
                     name={`--${key}-${color}`}
                     color={colors[key][color]}

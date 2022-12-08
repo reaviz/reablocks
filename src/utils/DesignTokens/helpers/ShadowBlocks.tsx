@@ -28,7 +28,15 @@ export const ShadowBlocks = () => {
               }}
             >
               <h3 style={{ fontWeight: 500, marginRight: 50, maxWidth: 300 }}>
-                --shadow-{key}
+                <span
+                  style={{ cursor: 'pointer' }}
+                  title={`Double click to copy --shadow-${key} to your clipboard`}
+                  onDoubleClick={() =>
+                    navigator.clipboard.writeText(`--shadow-${key}`)
+                  }
+                >
+                  --shadow-{key}
+                </span>
                 <br />
                 <small>
                   <code>{shadows[key]}</code>

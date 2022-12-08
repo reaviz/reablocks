@@ -33,7 +33,15 @@ export const ComponentBlocks = () => {
               <div>
                 {Object.keys(components[key]).map(kk => (
                   <div key={kk} style={{ marginBottom: 5 }}>
-                    <h5 style={{ margin: 0 }}>--{kk}</h5>
+                    <h5
+                      style={{ margin: 0, cursor: 'pointer' }}
+                      title={`Double click to copy --${kk} to your clipboard`}
+                      onDoubleClick={() =>
+                        navigator.clipboard.writeText(`--${kk}`)
+                      }
+                    >
+                      --{kk}
+                    </h5>
                     {components[key][kk]}
                   </div>
                 ))}

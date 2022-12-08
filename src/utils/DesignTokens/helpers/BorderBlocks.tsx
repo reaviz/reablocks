@@ -28,7 +28,15 @@ export const BorderBlocks = () => {
               }}
             >
               <h3 style={{ fontWeight: 500, marginRight: 50, maxWidth: 300 }}>
-                --border-radius-{key}
+                <span
+                  style={{ cursor: 'pointer' }}
+                  title={`Double click to copy --border-radius-${key} to your clipboard`}
+                  onDoubleClick={() =>
+                    navigator.clipboard.writeText(`--border-radius-${key}`)
+                  }
+                >
+                  --border-radius-{key}
+                </span>
                 <br />
                 <small>
                   <code>{borders.radius[key]}</code>

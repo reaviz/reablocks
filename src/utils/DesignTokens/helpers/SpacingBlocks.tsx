@@ -28,7 +28,15 @@ export const SpacingBlocks = () => {
               }}
             >
               <h3 style={{ fontWeight: 500, marginRight: 50 }}>
-                <code>--spacing-{key}</code>
+                <code
+                  style={{ cursor: 'pointer' }}
+                  title={`Double click to copy --spacing-${key} to your clipboard`}
+                  onDoubleClick={() =>
+                    navigator.clipboard.writeText(`--spacing-${key}`)
+                  }
+                >
+                  --{key}
+                </code>
                 <br />
                 <small>{spacings[key]}</small>
               </h3>
