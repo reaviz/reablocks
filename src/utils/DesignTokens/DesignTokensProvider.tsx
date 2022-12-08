@@ -34,6 +34,7 @@ export const DesignTokensProvider: FC<DesignTokensProviderProps> = ({
         document.adoptedStyleSheets = document.adoptedStyleSheets.filter(
           s => s !== sheetRef.current
         );
+        sheetRef.current = null;
       }
     };
   });
