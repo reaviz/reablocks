@@ -3,8 +3,8 @@ import React, {
   FC,
   PropsWithChildren,
   RefObject,
-  useEffect,
-  useCallback
+  useCallback,
+  useLayoutEffect
 } from 'react';
 import { DesignTokensContext } from './DesignTokensContext';
 import { DesignTokens } from './types';
@@ -21,6 +21,7 @@ export const DesignTokensProvider: FC<DesignTokensProviderProps> = ({
   reference = document.body
 }) => {
   const sheetRef = useRef<CSSStyleSheet | null>(null);
+  const loadedRef = useRef<boolean>(false);
 
   const applyTheme = useCallback(() => {
     if (!sheetRef.current) {
@@ -29,18 +30,19 @@ export const DesignTokensProvider: FC<DesignTokensProviderProps> = ({
         : reference;
 
       sheetRef.current = createSheet(element, value);
-    } else {
+      loadedRef.current = true;
+    } else if (loadedRef.current) {
       sheetRef.current.replace(buildSheetRules(value).join(' '));
     }
   }, [value, reference]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     applyTheme();
   }, [applyTheme]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     return () => {
-      if (sheetRef.current) {
+      if (sheetRef.current && loadedRef.current) {
         sheetRef.current.ownerNode.remove();
       }
     };
