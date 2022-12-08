@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDts } from '../DesignTokensContext';
+import chroma from 'chroma-js';
 
 export const ColorBlock = ({ name, color }) => (
   <div
@@ -14,6 +15,7 @@ export const ColorBlock = ({ name, color }) => (
       style={{
         padding: 20,
         background: color,
+        color: 'var(--body-color)',
         borderBottom: 'solid 1px var(--slate-500)'
       }}
     />
@@ -40,41 +42,51 @@ export const ColorBlock = ({ name, color }) => (
   </div>
 );
 
-const ColorPaletteBlock = ({ name, color }) => (
-  <div
-    key={name}
-    style={{
-      borderRight: 'solid 1px var(--slate-500)'
-    }}
-  >
+const ColorPaletteBlock = ({ name, color }) => {
+  const valid = chroma.valid(color);
+  const fontColor =
+    valid && !name.includes('overlay')
+      ? chroma(color).luminance() >= 0.5
+        ? chroma(color).darken(100).css()
+        : chroma(color).brighten(100).css()
+      : 'var(--body-color)';
+
+  return (
     <div
+      key={name}
       style={{
-        padding: 10,
-        fontSize: '12px',
-        background: color
+        borderRight: 'solid 1px var(--slate-500)'
       }}
     >
-      <div>
-        <code
-          style={{ cursor: 'pointer' }}
-          title={`Double click to copy ${name} to your clipboard`}
-          onDoubleClick={() => navigator.clipboard.writeText(name)}
-        >
-          {name}
-        </code>
-      </div>
-      <div>
-        <code
-          style={{ cursor: 'pointer' }}
-          title={`Double click to copy ${color} to your clipboard`}
-          onDoubleClick={() => navigator.clipboard.writeText(color)}
-        >
-          {color}
-        </code>
+      <div
+        style={{
+          padding: 10,
+          fontSize: '12px',
+          background: color
+        }}
+      >
+        <div>
+          <code
+            style={{ cursor: 'pointer', color: fontColor }}
+            title={`Double click to copy ${name} to your clipboard`}
+            onDoubleClick={() => navigator.clipboard.writeText(name)}
+          >
+            {name}
+          </code>
+        </div>
+        <div>
+          <code
+            style={{ cursor: 'pointer', color: fontColor }}
+            title={`Double click to copy ${color} to your clipboard`}
+            onDoubleClick={() => navigator.clipboard.writeText(color)}
+          >
+            {color}
+          </code>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 export const ColorBlocks = () => {
   const { colors } = useDts();
