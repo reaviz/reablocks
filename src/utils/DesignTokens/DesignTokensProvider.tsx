@@ -12,38 +12,28 @@ import { buildSheetRules, createSheet, isRefObject } from './utils';
 
 export type DesignTokensProviderProps = PropsWithChildren<{
   value: DesignTokens;
-  reference?: RefObject<any> | HTMLElement;
 }>;
 
 export const DesignTokensProvider: FC<DesignTokensProviderProps> = ({
   children,
-  value,
-  reference = document.body
+  value
 }) => {
   const sheetRef = useRef<CSSStyleSheet | null>(null);
-  const loadedRef = useRef<boolean>(false);
-
-  const applyTheme = useCallback(() => {
-    if (!sheetRef.current) {
-      const element = isRefObject(reference)
-        ? (reference as RefObject<any>).current
-        : reference;
-
-      sheetRef.current = createSheet(element, value);
-      loadedRef.current = true;
-    } else if (loadedRef.current) {
-      sheetRef.current.replace(buildSheetRules(value).join(' '));
-    }
-  }, [value, reference]);
 
   useLayoutEffect(() => {
-    applyTheme();
-  }, [applyTheme]);
+    if (!sheetRef.current) {
+      sheetRef.current = createSheet(value);
+    } else {
+      sheetRef.current.replaceSync(buildSheetRules(value).join(' '));
+    }
+  }, [value]);
 
   useLayoutEffect(() => {
     return () => {
-      if (sheetRef.current && loadedRef.current) {
-        sheetRef.current.ownerNode.remove();
+      if (sheetRef.current) {
+        document.adoptedStyleSheets = document.adoptedStyleSheets.filter(
+          s => s !== sheetRef.current
+        );
       }
     };
   });

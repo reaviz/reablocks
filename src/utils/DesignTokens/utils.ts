@@ -142,21 +142,17 @@ export const buildSheetRules = (theme: DesignTokens) => {
   return template;
 };
 
-export const createSheet = (element: HTMLElement, theme: DesignTokens) => {
-  const styleEl = document.createElement('style');
-  const sheet = element.appendChild(styleEl).sheet;
-
-  if (!sheet) {
-    throw new Error('Could not create style sheet');
-  }
-
+export const createSheet = (theme: DesignTokens) => {
   const str = buildSheetRules(theme);
 
-  sheet.insertRule(`
+  const sheet = new CSSStyleSheet();
+  sheet.replaceSync(`
     body {
       ${str.join(' ')}
     }
   `);
+
+  document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
 
   return sheet;
 };
