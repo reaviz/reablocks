@@ -39,6 +39,7 @@
     "classnames": "^2.3.1",
     "ellipsize": "^0.5.1",
     "framer-motion": "^7.6.7",
+    "human-format": "^1.0.0",
     "pluralize": "^8.0.0"
   },
   "peerDependencies": {
