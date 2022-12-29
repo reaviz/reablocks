@@ -1,0 +1,136 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Getting Started/Philosophy" />
+
+# Philosophy
+When you first see this library, one of the first questions you might
+ask yourself when you take a look at this library is why another
+component library; don't we have enough? Its true, there are a LOT
+of component libraries out there such as MUI, AntD, Tailwind and the
+list continues. These libraries are very mature and can help you build
+a great looking application without too much work, however, they come
+with a number of drawbacks. Let's take a look at those real quick.
+
+## Design Style Opinions
+Libraries such as MUI look great out of the box,
+but they are extremely opinionated about their design philosphy and thats OK.
+Those design philosphies can help you build a nice looking application very
+quickly without the need for a designer.
+
+The problem is if you want a more customized
+design than say just changing some colors, it becomes more of a challenge and the
+benefits begin to dwindle. Most all offer customization ability but those customizations
+like disabling the ripple of a material button come at a cost:
+
+- Download bloat (ripples/animations are hard)
+- Internal breaking changes (once start customizing internal styles which almost always happens)
+- Increased complexity with overrides
+
+reablocks is designed to not have a design out of the box. We plan to offer
+themes and provide lots of examples of how to make them beautiful but not having
+a design is our priority. This let's you avoid all the nasty overrides and
+focus on building the product your team needs.
+
+## CSS-IN-JS
+When CSS-IN-JS first came out, it was game changer. It allowed developers the
+ability to write runtime CSS which allowed us to break away from the build time
+variables we had in LESS/SASS. The ability to do calculations on sizes, dynamically
+change colors for dark themes and provide a nice typesafe API.
+
+CSS has matured so much since then, literally almost everything I listed above
+and more can be done with native CSS now. By using the native CSS you also
+get some other advantages:
+
+- Better performance
+- Standard language for styling not matter the project
+- Seperation of concerns ( styles and code belong in different places )
+
+To this day, almost every React based component library still uses css-in-js.
+There are many die hard css-in-js fans out there that could debate this all day
+long, its almost like debating react vs angular vs vue though.
+
+reablocks is designed to use native CSS features such as CSS variables. Out of the box,
+we provide helpers such as our design tokens provider to help you standardize and provide
+a convientant way to define those variables but you don't have to use it and under the hood
+its just printing out standard CSS.
+
+The one drawback to this approach is if you have to support really old browsers,
+then this won't work. If thats the case, this library isn't for you. Once you don't
+have to support those, please give us a look again though!
+
+## Documentation
+Almost all of the libraries I mentioned have great documentation and examples. The
+challenge begins once you start customizing the components. Some of them let you
+change the colors inline but if you start adding custom CSS styles and such all
+that goes out the window. Outside of that, maintaining legacy documentation
+for open-source developers is difficult at each version point.
+
+Often times developers will take the examples from the libraries website
+and build out Storybook stories for them so you can have the examples
+customized to your usage.
+
+Rather than build a fancy documentation site, reablock's documentation is all
+built inside Storybook. By doing this, all the documentation is in easy to consume
+and standard format that any consumer can import into their Storybook. We've even
+built Storybook story helpers and specific documentation on how to set it up in
+your application.
+
+reablocks is the first component library to take a Storybook-first. This is a
+core principle of ours so we are dedicated to making this as smooth as possible.
+
+## Agnostic Framework Pitfalls
+A recent trend in the ui component libraries is to make vanilla Javascript
+components and then create wrappers for them. As a open-source developer, I understand
+the reasoning, however, it comes with sacrafices.
+
+- Developers are not able to take advantage of native capabilities
+and instead monkey patch to support the various frameworks. This can result
+in oddities due to multiple scripts accessing the DOM not in sync with each other.
+- The APIs have to make sacrafices, for example it becomes more difficult to
+design APIs that take advantage of some of the awesome React features like JSX inputs.
+- The documentation and examples suffer because its so much to maintain.
+- Download bloat is increased because you have to handle things that React just does
+manually resulting in a larger download size.
+
+reablocks is dedicated to React and we are going to be focusing on it exclusively.
+
+## Animations
+Most of the libraries have their own animation frameworks they use internally
+( or don't even do animations natively ). Animations are not just important for
+user experience but can provide valuable experiences to see how data changes
+over time.
+
+The challenge begins when you need to syncronize animations between
+all the various components. For example, you have a drawer component and when it
+opens you want to animate in the child components. Usually developers handle this
+by doing `setTimeout` for the duration the drawer takes to open which is bad for a
+few reasons.
+
+- Its brittle since the timing is based on the ideal system that
+can animate at that speed
+- This assumes the animations are all linear, good animations
+are spring based since they feel more natural
+
+reablocks ( and all the reaviz projects for that matter ) are all built
+on framer-motion. Framer motion is amazing, it performs spring ( and linear if you want )
+based animations that happen at 60 FPS and can syncronize between desperate
+components. Its a big bet, but framer-motion has been out for a while
+( previously named react-pose and based on popmotion ) and is supported by
+Framer so as far as bets are concerned in technology, its about as good one
+as you can make.
+
+## Enterprise-focused
+One unique attribute of this library is that we aren't trying to make a library
+that is everything to everyone. We are focusing on only on enterprise web applications
+and more specifically data intensive applications. You won't find any hero banners
+or similar components, instead components like displaying large numbers, formatting
+data sizes and so on.
+
+## Wrap up
+reablocks is built by industry leading proffesionals and the lead developer
+[Austin McDaniel](https://github.com/amcdnl) was a former Angular Material team member.
+The team has built more than half a dozen component libraries and the project
+is supported by [Good Code](https://goodcode.us).
+
+We hope you enjoy our hard work, please share with others and let's make
+the web a better place.

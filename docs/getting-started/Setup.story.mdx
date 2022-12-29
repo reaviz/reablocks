@@ -1,0 +1,62 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Getting Started/Setup" />
+
+# Setup
+
+## Installing
+You can install reablocks with [NPM](https://www.npmjs.com/package/reablocks) or Yarn.
+
+- NPM: `npm install reablocks --save`
+- YARN: `yarn add reablocks`
+
+## Getting Started
+reablocks aims to be design system agnostic. Out of the box, reablocks
+includes a light weight design token system, however, that is optional.
+
+Not all of the components require design tokens but the more visual
+based ones do. If a component requires a design token, it will be called
+out in the documentation so that developers are aware.
+
+As a result, there are 2 different approaches for setting up reablocks:
+
+- Design Token Provider
+- CSS Variables
+
+### Design Token Provider
+The design token provider gives you a standard system to define
+spacing, colors and themes. It comes with a React provider and hook
+so you can get started with reablocks really easily in a standard way.
+
+You don't have to use this provider, one reason is if you already have
+a design system in place and just want to use pieces of reablocks.
+
+To get started with the design tokens provider, you can simply import
+it at the top of your application and now you
+
+```tsx
+import { DesignTokensProvider, lightTheme } from 'reablocks';
+
+export const App = () => (
+  <>
+    <DesignTokensProvider theme={lightTheme}>
+      Your Application Code
+    </DesignTokensProvider>
+  </>
+);
+```
+
+To learn more about the design tokens, visit the documentation
+specific for the design tokens.
+
+### CSS Variables
+If you are using the CSS variables approach, simply
+define each design token ( called out in each component documentation )
+to the body element like:
+
+```css
+body {
+  --divider-bg: #ccc;
+  --divider-spacing: 25px;
+}
+```

@@ -2,7 +2,9 @@ import theme from './theme';
 
 const order = [
   'docs-intro-',
-  'docs-getting-started-',
+  'docs-getting-started-setup--page',
+  'docs-getting-started-philosophy--page',
+  'docs-getting-started-storybook--page',
   'design-tokens-',
   'design-tokens-getting-started',
   'components-',

@@ -106,6 +106,18 @@ export const lightThemeColors: Colors = {
 };
 
 /**
+ * Common spacings.
+ */
+export const spacings = {
+  xs: '2px',
+  sm: '5px',
+  md: '10px',
+  lg: '20px',
+  xl: '24px',
+  xxl: '30px'
+};
+
+/**
  * Light theme example.
  */
 export const lightTheme: DesignTokens = {
@@ -124,14 +136,7 @@ export const lightTheme: DesignTokens = {
       xxl: '32px'
     }
   },
-  spacings: {
-    xs: '2px',
-    sm: '5px',
-    md: '10px',
-    lg: '20px',
-    xl: '24px',
-    xxl: '30px'
-  },
+  spacings,
   borders: {
     radius: {
       sm: '2px',
@@ -192,6 +197,12 @@ export const lightTheme: DesignTokens = {
     warning: {
       background: lightThemeColors.orange['500'],
       color: lightThemeColors.slate['100']
+    }
+  },
+  components: {
+    divider: {
+      'divider-spacing': spacings.md,
+      'divider-bg': lightThemeColors.grey['500']
     }
   }
 };

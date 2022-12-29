@@ -5,13 +5,13 @@
   &.horizontal {
     height: 1px;
     width: 100%;
-    margin: var(--spacing-md) 0;
+    margin: var(--divider-spacing) 0;
   }
 
   &.vertical {
     width: 1px;
     height: 100%;
-    margin: 0 var(--spacing-md);
+    margin: 0 var(--divider-spacing);
   }
 
   &.horizontal,

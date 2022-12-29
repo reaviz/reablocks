@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Getting Started/Storybook" />
+
+# Storybook
+If you read our Philosophy documentation, reablocks is a Storybook-first library.
+To setup Storybook with reablocks, follow the steps below.
+
+## Design Tokens Approach
+If you are choosing to use the `DesignTokensProvider`, we need import
+it as a decorator. This will automatically apply your design tokens to
+every story.
+
+To get started, if you don't already have a file called
+`preview.jsx` in your `.storybook` folder, let's make one. Here is how
+I typically structure my `preview.jsx` file:
+
+```jsx
+import { DocsContainer } from '@storybook/addon-docs';
+import { DesignTokensProvider } from 'reablocks';
+import { theme } from '[INSERT_PATH_TO_YOUR_THEME]';
+
+export const decorators = [
+  Story => (
+    <DesignTokensProvider value={theme}>
+      <Story />
+    </DesignTokensProvider>
+  )
+];
+
+export const parameters = {
+  layout: 'centered',
+  docs: {
+    container: ({ context, children }) => (
+      <DocsContainer context={context}>
+        <DesignTokensProvider value={theme}>
+          {children}
+        </DesignTokensProvider>
+      </DocsContainer>
+    )
+  },
+  controls: {
+    hideNoControlsWarning: true
+  }
+};
+```
+
+## CSS Variables Approach
+If you choose to use the CSS variables approach, if you don't
+already have a file called `preview-head.html` in your `.storybook`
+folder, lets make one and define the design tokens you will
+be using in your application like:
+
+```html
+<style>
+  body {
+    --spacing-md: 25px;
+    --divider-bg: #ccc;
+  }
+</style>
+```
