@@ -1,14 +1,7 @@
-import React, {
-  useRef,
-  FC,
-  PropsWithChildren,
-  RefObject,
-  useCallback,
-  useLayoutEffect
-} from 'react';
+import React, { useRef, FC, PropsWithChildren, useLayoutEffect } from 'react';
 import { DesignTokensContext } from './DesignTokensContext';
 import { DesignTokens } from './types';
-import { buildSheetRules, createSheet, isRefObject } from './utils';
+import { buildSheetRules, createSheet } from './utils';
 
 export type DesignTokensProviderProps = PropsWithChildren<{
   value: DesignTokens;

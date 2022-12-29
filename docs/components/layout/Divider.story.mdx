@@ -1,0 +1,53 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Divider } from '../../../src/layout/Divider';
+
+<Meta title="Docs/Components/Layout/Divider" />
+
+# Divider
+A simple divider component that supports horizontal and vertical.
+
+## Useage
+This component requires the use of the `DesignTokensProvider` or
+manually defining a CSS variable. Below is an example of using
+the design tokens provider.
+
+```ts
+import { DesignTokens, DesignTokensProvider, lightTheme } from 'reablocks';
+
+const dividerTheme: DesignTokens = {
+  ...lightTheme,
+  components: {
+    divider: {
+      'divider-bg': lightTheme.colors.grey['500']
+    }
+  }
+};
+
+export const App = () => (
+  <DesignTokensProvider value={dividerTheme}>
+    <div style={{ width: 400 }}>
+      <h1>Hello</h1>
+      <Divider />
+      </h2>Good Bye</h2>
+    </div>
+  </DesignTokensProvider>
+);
+```
+
+If you wish to define the design tokens yourself using CSS variables, you
+can do so like:
+
+```css
+body {
+  --spacing-md: 10px;
+  --divider-bg: #ccc;
+}
+```
+
+## Example
+<Canvas>
+  <Story id="layout-divider--horizontal" />
+</Canvas>
+
+## API
+<ArgsTable of={Divider} />
