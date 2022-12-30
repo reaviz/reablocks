@@ -26,6 +26,9 @@ jobs:
       - name: Build Storybook
         run: yarn build-storybook
 
+      - name: Copy Domain
+        run: yarn copy
+
       - name: Publish Storybook to GH Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2

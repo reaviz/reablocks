@@ -9,6 +9,7 @@
     "build-storybook": "build-storybook",
     "lint": "eslint --ext js,ts,tsx",
     "lint:fix": "eslint --ext js,ts,tsx --fix src",
+    "copy": "cp CNAME storybook-static/",
     "lint:prettier": "prettier --loglevel warn --write 'src/**/*.{ts,tsx,js,jsx}'"
   },
   "source": "src/index.ts",
