@@ -31,5 +31,8 @@ export const parameters = {
   },
   docs: {
     theme
+  },
+  controls: {
+    hideNoControlsWarning: true
   }
 };

@@ -10,7 +10,7 @@ module.exports = {
     '@storybook/addon-docs/preset',
     '@storybook/addon-essentials'
   ],
-  webpackFinal: async (config, { configType }) => {
+  webpackFinal: async (config) => {
     config.module.rules.push({
       type: 'javascript/auto',
       test: /\.mjs$/,
