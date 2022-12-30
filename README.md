@@ -33,6 +33,8 @@
 
 ## 🪄 Features
 - Design Token Provider
-- Pluralization Helper
-- Ellipsis Helper
-- Motion Utilities based on framer-motion
+- Pluralization component
+- Ellipsis component
+- Data Size component
+- Divider component
+- Animation components based on [framer-motion](https://www.framer.com/docs/animation/)
