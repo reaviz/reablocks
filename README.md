@@ -37,4 +37,5 @@
 - Ellipsis component
 - Data Size component
 - Divider component
+- Redact component
 - Animation components based on [framer-motion](https://www.framer.com/docs/animation/)
