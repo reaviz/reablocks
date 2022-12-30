@@ -29,7 +29,7 @@
 ---
 
 ## 🚀 Quick Links
-- View the [Docs and Demos](https://reaviz.github.io/reablocks)
+- View the [Docs and Demos](https://reablocks.dev)
 
 ## 🪄 Features
 - Design Token Provider
