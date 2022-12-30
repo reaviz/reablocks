@@ -23,6 +23,7 @@ export default {
 const exampleTheme = {
   ...lightTheme,
   components: {
+    ...lightTheme.components,
     select: {
       'select-border': 'grey',
       'select-background': 'white',
