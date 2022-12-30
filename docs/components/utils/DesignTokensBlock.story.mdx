@@ -29,68 +29,55 @@ import {
   BorderBlocks,
   ShadowBlocks,
   ComponentBlocks,
+  DesignTokensProvider,
+  lightTheme,
   IconBlocks
-} from './helpers';
+} from 'reablocks';
 
 export default {
   title: 'General/Design Tokens',
-  component: DesignTokensProvider
+  component: DesignTokensProvider,
+  decorators: [
+    Story => (
+      <DesignTokensProvider value={lightTheme}>
+        <div style={{ width: '90vw' }}>
+          <Story />
+        </div>
+      </DesignTokensProvider>
+    )
+  ]
 };
 
 export const Colors = () => (
-  <DesignTokensProvider value={lightTheme}>
-    <div style={{ width: '90vw' }}>
-      <ColorBlocks />
-    </div>
-  </DesignTokensProvider>
+  <ColorBlocks />
 );
 
 export const Palettes = () => (
-  <DesignTokensProvider value={lightTheme}>
-    <div style={{ width: '90vw' }}>
-      <PaletteBlocks />
-    </div>
-  </DesignTokensProvider>
+  <PaletteBlocks />
 );
 
 export const Typography = () => (
-  <DesignTokensProvider value={lightTheme}>
-    <div style={{ width: '90vw' }}>
-      <TypographyBlocks />
-    </div>
-  </DesignTokensProvider>
+  <TypographyBlocks />
 );
 
 export const Spacings = () => (
-  <DesignTokensProvider value={lightTheme}>
-    <SpacingBlocks />
-  </DesignTokensProvider>
+  <SpacingBlocks />
 );
 
 export const Borders = () => (
-  <DesignTokensProvider value={lightTheme}>
-    <BorderBlocks />
-  </DesignTokensProvider>
+  <BorderBlocks />
 );
 
 export const Gradients = () => (
-  <DesignTokensProvider value={lightTheme}>
-    <div style={{ width: '90vw' }}>
-      <GradientBlocks />
-    </div>
-  </DesignTokensProvider>
+  <GradientBlocks />
 );
 
 export const Shadows = () => (
-  <DesignTokensProvider value={lightTheme}>
-    <ShadowBlocks />
-  </DesignTokensProvider>
+  <ShadowBlocks />
 );
 
 export const Components = () => (
-  <DesignTokensProvider value={lightTheme}>
-    <ComponentBlocks />
-  </DesignTokensProvider>
+  <ComponentBlocks />
 );
 
 const icons = [
@@ -105,12 +92,10 @@ const icons = [
 ];
 
 export const Icons = () => (
-  <DesignTokensProvider value={lightTheme}>
-    <IconBlocks icons={icons} />
-  </DesignTokensProvider>
+  <IconBlocks icons={icons} />
 );
 ````
 
-NOTE: This example uses the `DesignTokensProvider` in each story,
+NOTE: This example uses the `DesignTokensProvider` in the story decorator,
 but you can also use it in the `preview.js` file to wrap all stories.
 
