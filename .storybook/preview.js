@@ -1,4 +1,15 @@
-import theme from './theme';
+import { withThemes } from '@react-theming/storybook-addon';
+import { lightTheme, DesignTokensProvider } from '../src/utils/DesignTokens';
+import { addDecorator } from '@storybook/react';
+import { theme } from './theme';
+
+const providerFn = ({ theme, children }) => (
+  <DesignTokensProvider value={theme}>
+    {children}
+  </DesignTokensProvider>
+);
+
+addDecorator(withThemes(null, [lightTheme], { providerFn }));
 
 const order = [
   'docs-intro-',

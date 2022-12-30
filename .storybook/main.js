@@ -5,6 +5,7 @@ module.exports = {
     '../src/**/*.story.tsx'
   ],
   addons: [
+    '@react-theming/storybook-addon',
     'storybook-css-modules-preset',
     '@storybook/addon-storysource',
     '@storybook/addon-docs/preset',

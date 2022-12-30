@@ -1,5 +1,4 @@
 import React from 'react';
-import { DesignTokensProvider, lightTheme } from '../../utils/DesignTokens';
 import { Divider } from './Divider';
 
 export default {
@@ -7,11 +6,9 @@ export default {
   component: Divider,
   decorators: [
     Story => (
-      <DesignTokensProvider value={lightTheme}>
-        <div style={{ width: 400 }}>
-          <Story />
-        </div>
-      </DesignTokensProvider>
+      <div style={{ width: 400 }}>
+        <Story />
+      </div>
     )
   ]
 };
