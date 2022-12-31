@@ -38,4 +38,5 @@
 - Data Size component
 - Divider component
 - Redact component
+- Duration Component
 - Animation components based on [framer-motion](https://www.framer.com/docs/animation/)

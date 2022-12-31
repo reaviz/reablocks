@@ -8,16 +8,25 @@ export default {
 
 export const Simple = () => (
   <Fragment>
-    <DataSize size={null} />
+    <DataSize value="99" />
     <br />
-    <DataSize size="99" />
+    <DataSize value="4500" />
     <br />
-    <DataSize size="4500" />
+    <DataSize value="34343233" />
     <br />
-    <DataSize size="34343233" />
+    <DataSize value="434334434123" />
     <br />
-    <DataSize size="434334434123" />
+    <DataSize value={324344535345232} />
+  </Fragment>
+);
+
+export const Empty = () => (
+  <Fragment>
+    <DataSize value={null} />
     <br />
-    <DataSize size={324344535345232} />
+    <DataSize value={undefined} />
+    <br />
+    <DataSize value={null} emptyValue="Nothing to see" />
+    <br />
   </Fragment>
 );
