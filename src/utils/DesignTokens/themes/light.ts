@@ -118,6 +118,17 @@ export const spacings = {
 };
 
 /**
+ * Common borders.
+ */
+export const borders = {
+  radius: {
+    sm: '2px',
+    md: '5px',
+    lg: '10px'
+  }
+};
+
+/**
  * Light theme example.
  */
 export const lightTheme: DesignTokens = {
@@ -137,13 +148,7 @@ export const lightTheme: DesignTokens = {
     }
   },
   spacings,
-  borders: {
-    radius: {
-      sm: '2px',
-      md: '5px',
-      lg: '10px'
-    }
-  },
+  borders,
   gradients: {
     blue: {
       '100': 'linear-gradient(204deg, #19D4EE 10%, #4B5CFA 100%)',
@@ -203,6 +208,20 @@ export const lightTheme: DesignTokens = {
     divider: {
       'divider-spacing': spacings.md,
       'divider-bg': lightThemeColors.grey['500']
+    },
+    card: {
+      'card-border-radius': borders.radius.md,
+      'card-spacing': spacings.md,
+      'card-bg': lightThemeColors.slate['900'],
+      'card-color': lightThemeColors.slate['500']
+    },
+    block: {
+      'block-spacing': spacings.md,
+      'block-label-spacing': spacings.sm
+    },
+    list: {
+      'list-item-spacing': spacings.md,
+      'list-item-dense-spacing': spacings.sm
     }
   }
 };

@@ -32,11 +32,17 @@
 - View the [Docs and Demos](https://reablocks.dev)
 
 ## 🪄 Features
+### Components
+- Pluralization
+- Ellipsis
+- Data Size
+- Divider
+- Redactor
+- Duration
+- Card
+- List
+- Block
+
+### Utilities
 - Design Token Provider
-- Pluralization component
-- Ellipsis component
-- Data Size component
-- Divider component
-- Redact component
-- Duration Component
 - Animation components based on [framer-motion](https://www.framer.com/docs/animation/)
