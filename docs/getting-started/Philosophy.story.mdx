@@ -8,7 +8,8 @@ might ask yourself is why another component library; don't we have enough? It's 
 there are a LOT of component libraries out there such as MUI, AntD,
 Tailwind, and the list continues. These libraries are very mature and
 can help you build a great looking application without too much work,
-but they come with a number of drawbacks. Let's take a look at these real quick:
+but they come with a number of drawbacks. Let's dive into why we created
+this now.
 
 ## Design Style Opinions
 Libraries such as MUI look great out of the box, but they are extremely
@@ -102,14 +103,14 @@ valuable experiences to see how data changes over time.
 The challenge begins when you need to synchronize animations between
 all the various components. For example, you have a drawer component
 and when it opens you want to animate in the child components. Usually
-developers handle this by doing setTimeout for the duration the drawer
+developers handle this by doing `setTimeout`` for the duration the drawer
 takes to open which is bad for a few reasons.
 
 It's brittle since the timing is based on the ideal system that can animate at that speed
 This assumes the animations are all linear, good animations are
 spring-based since they feel more natural
 
-Reablocks (and all the Reaviz projects for that matter) are all built on Framer-Motion.
+Reablocks (and all the Reaviz projects for that matter) are all built on [framer-motion](https://www.framer.com/docs/).
 Framer Motion is amazing, it performs spring (and linear if you want) based animations
 that happen at 60 FPS and can synchronize between desperate components.
 It's a big bet, but Framer-Motion has been out for a while (previously named
