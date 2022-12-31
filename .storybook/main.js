@@ -5,11 +5,11 @@ module.exports = {
     '../src/**/*.story.tsx'
   ],
   addons: [
-    '@react-theming/storybook-addon',
     'storybook-css-modules-preset',
     '@storybook/addon-storysource',
-    '@storybook/addon-docs/preset',
-    '@storybook/addon-essentials'
+    '@storybook/addon-docs',
+    '@storybook/addon-essentials',
+    '@react-theming/storybook-addon'
   ],
   webpackFinal: async (config) => {
     config.module.rules.push({

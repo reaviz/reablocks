@@ -1,6 +1,6 @@
 import { create } from '@storybook/theming/create';
 
-export default create({
+export const theme = create({
   base: 'dark',
   brandTitle: 'reablocks'
 });
