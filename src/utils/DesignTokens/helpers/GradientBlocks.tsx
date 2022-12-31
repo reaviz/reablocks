@@ -8,7 +8,7 @@ export const GradientBlocks = () => {
   return (
     <div
       style={{
-        padding: '5px 15px',
+        padding: 'var(--spacing-sm) var(--spacing-md)',
         fontFamily: 'var(--font-family)',
         color: 'var(--body-color)',
         width: '100%'
@@ -20,7 +20,7 @@ export const GradientBlocks = () => {
             <div
               key={key}
               style={{
-                marginBottom: 20
+                marginBottom: 'var(--spacing-xl)'
               }}
             >
               <h3 style={{ fontWeight: 500, margin: 0 }}>
@@ -34,7 +34,7 @@ export const GradientBlocks = () => {
                 style={{
                   display: 'grid',
                   gap: 12,
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(auto, 300px))'
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
                 }}
               >
                 {Object.keys(gradients[key]).map(color => (

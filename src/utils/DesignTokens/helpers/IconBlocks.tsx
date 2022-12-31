@@ -29,9 +29,14 @@ export const IconBlock: FC<IconBlockProps> = ({
   >
     <Suspense fallback={null}>
       {src ? (
-        <img src={src} style={{ width: 25, height: 25, marginBottom: 5 }} />
+        <img
+          src={src}
+          style={{ width: 25, height: 25, marginBottom: 'var(--spacing-md)' }}
+        />
       ) : (
-        <Component style={{ width: 25, height: 25, marginBottom: 5 }} />
+        <Component
+          style={{ width: 25, height: 25, marginBottom: 'var(--spacing-md)' }}
+        />
       )}
       <div>{name}</div>
     </Suspense>
@@ -46,7 +51,7 @@ export const IconBlocks: FC<IconBlocksProps> = ({ icons }) => (
   <div
     style={{
       display: 'grid',
-      gridGap: '15px',
+      gridGap: 'var(--spacing-lg)',
       gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))',
       justifyItems: 'stretch'
     }}

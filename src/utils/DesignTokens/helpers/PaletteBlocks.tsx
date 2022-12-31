@@ -8,7 +8,7 @@ export const PaletteBlocks = () => {
   return (
     <div
       style={{
-        padding: '5px 15px',
+        padding: 'var(--spacing-sm) var(--spacing-md)',
         color: 'var(--body-color)',
         fontFamily: 'var(--font-family)',
         width: '100%'
@@ -25,10 +25,10 @@ export const PaletteBlocks = () => {
           </h3>
           <div
             style={{
-              marginBottom: 20,
+              marginBottom: 'var(--spacing-xl)',
               display: 'grid',
               gap: 12,
-              gridTemplateColumns: 'repeat(auto-fit, minmax(auto, 300px))'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
             }}
           >
             {Object.keys(theme.palettes[key]).map(item => (

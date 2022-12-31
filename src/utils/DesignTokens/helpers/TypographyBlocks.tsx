@@ -8,14 +8,14 @@ export const TypographyLetterBlock = ({ fontFamily }) => (
       fontFamily,
       display: 'flex',
       alignItems: 'center',
-      marginLeft: 20
+      marginLeft: 'var(--spacing-lg)'
     }}
   >
     <div style={{ fontSize: 128 }}>Aa</div>
     <div
       style={{
-        marginLeft: 20,
-        paddingLeft: 20,
+        marginLeft: 'var(--spacing-lg)',
+        paddingLeft: 'var(--spacing-lg)',
         fontSize: 22,
         borderLeft: 'solid 1px var(--slate-500)'
       }}
@@ -37,7 +37,7 @@ export const TypographySizeBlock = ({ sizes }) => (
           fontSize: sizes[size],
           display: 'flex',
           alignItems: 'center',
-          margin: 10
+          margin: 'var(--spacing-lg)'
         }}
       >
         <div
@@ -45,7 +45,7 @@ export const TypographySizeBlock = ({ sizes }) => (
             color: 'var(--grey-900)',
             fontSize: 12,
             width: 110,
-            marginRight: 15
+            marginRight: 'var(--spacing-md)'
           }}
         >
           {sizes[size]}
@@ -77,7 +77,7 @@ export const TypographyBlocks = () => {
         <div
           key={family}
           style={{
-            marginBottom: 30
+            marginBottom: 'var(--spacing-xl)'
           }}
         >
           <h3 style={{ fontWeight: 500 }}>
@@ -89,8 +89,8 @@ export const TypographyBlocks = () => {
           </h3>
           <div
             style={{
-              padding: 10,
-              borderRadius: 5,
+              padding: 'var(--spacing-md)',
+              borderRadius: 'var(--border-radius-md)',
               border: 'solid 1px var(--slate-500)'
             }}
           >

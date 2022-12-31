@@ -7,19 +7,24 @@ export const ColorBlock = ({ name, color }) => (
     key={name}
     style={{
       border: 'solid 1px var(--slate-500)',
-      borderRadius: 5,
+      borderRadius: 'var(--border-radius-md)',
       overflow: 'hidden'
     }}
   >
     <div
       style={{
-        padding: 20,
+        padding: 'var(--spacing-lg)',
         background: color,
         color: 'var(--body-color)',
         borderBottom: 'solid 1px var(--slate-500)'
       }}
     />
-    <div style={{ padding: '5px 10px', fontSize: '12px' }}>
+    <div
+      style={{
+        padding: 'var(--spacing-sm) var(--spacing-md)',
+        fontSize: '12px'
+      }}
+    >
       <div>
         <code
           style={{ cursor: 'pointer' }}
@@ -60,7 +65,7 @@ const ColorPaletteBlock = ({ name, color }) => {
     >
       <div
         style={{
-          padding: 10,
+          padding: 'var(--spacing-md)',
           background: color
         }}
       >
@@ -93,7 +98,7 @@ export const ColorBlocks = () => {
   return (
     <div
       style={{
-        padding: '5px 15px',
+        padding: 'var(--spacing-sm) var(--spacing-md)',
         fontFamily: 'var(--font-family)',
         color: 'var(--body-color)',
         width: '100%'
@@ -105,7 +110,7 @@ export const ColorBlocks = () => {
             <div
               key={key}
               style={{
-                marginBottom: 20
+                marginBottom: 'var(--spacing-xl)'
               }}
             >
               <h3 style={{ fontWeight: 500, margin: 0 }}>

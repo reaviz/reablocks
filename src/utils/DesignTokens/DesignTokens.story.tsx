@@ -20,7 +20,7 @@ export default {
   component: DesignTokensProvider,
   decorators: [
     Story => (
-      <div style={{ width: '90vw' }}>
+      <div style={{ width: '95vw' }}>
         <Story />
       </div>
     )
@@ -40,7 +40,7 @@ export const Model = () => (
   >
     <div
       style={{
-        padding: '0 20px',
+        padding: '0 var(--spacing-lg)',
         overflow: 'auto',
         width: '50%'
       }}
@@ -53,7 +53,7 @@ export const Model = () => (
     <div
       style={{
         borderLeft: 'solid 1px var(--slate-500)',
-        padding: '0 20px',
+        padding: '0 var(--spacing-lg)',
         overflow: 'auto',
         width: '50%'
       }}

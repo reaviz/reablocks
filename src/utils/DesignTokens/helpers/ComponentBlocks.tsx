@@ -7,7 +7,7 @@ export const ComponentBlocks = () => {
   return (
     <div
       style={{
-        padding: '5px 15px',
+        padding: 'var(--spacing-sm) var(--spacing-md)',
         fontFamily: 'var(--font-family)',
         color: 'var(--body-color)',
         width: '100%'
@@ -19,11 +19,11 @@ export const ComponentBlocks = () => {
             <div
               key={key}
               style={{
-                marginBottom: 20,
-                padding: '15px 30px',
+                marginBottom: 'var(--spacing-lg)',
+                padding: 'var(--spacing-lg) var(--spacing-xl)',
                 display: 'flex',
                 alignItems: 'center',
-                borderRadius: 5,
+                borderRadius: 'var(--border-radius-md)',
                 border: 'solid 1px var(--slate-500)'
               }}
             >
