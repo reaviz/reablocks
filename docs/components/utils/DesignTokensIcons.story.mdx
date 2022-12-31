@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Design Tokens/Icons" />
+
+# Design Tokens Icons
+Out of the box, reablocks doesn't include any icons, however, you
+can you use any icon library you want. This is because reablocks
+wants to stay true to our core values of being unopinionated and
+lightweight.
+
+reablocks offers helpers to make it easier to document icons
+in your Storybook. Below is an example of how to use the helper components.
+
+To get started, let's create a file called `icons.ts` that
+will glob and load all of your icons. Below is an example of how
+to do this in [Vite](https://vitejs.dev/).
+
+```tsx
+import React from 'react';
+
+const iconPaths = import.meta.glob('./*.svg');
+
+export const icons = Object.keys(iconPaths).map(key => ({
+  name: key.replace('.svg', '').replace('./', ''),
+  component: React.lazy(async () => {
+    const lazy: any = await iconPaths[key]();
+    return { default: lazy.ReactComponent };
+  })
+}));
+```
+
+then later create a file called `Icons.stories.mdx` and import
+the icons and the `IconBlocks` component.
+
+```tsx
+import { Meta } from '@storybook/addon-docs';
+import { IconBlocks } from 'reablocks';
+import { icons } from './icons';
+
+<Meta title="General/Icons" />
+
+<style>
+body {
+  --icon-block-color: #fff;
+  --icon-block-background: #000;
+}
+</style>
+
+## Icons
+<IconBlocks icons={icons} />
+```
+
+and now you have a icons library list in your Storybook.
