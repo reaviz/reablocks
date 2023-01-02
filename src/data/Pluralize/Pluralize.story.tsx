@@ -2,7 +2,7 @@ import React from 'react';
 import { Pluralize } from './Pluralize';
 
 export default {
-  title: 'Data/Pluralize',
+  title: 'Components/Data/Pluralize',
   component: Pluralize
 };
 

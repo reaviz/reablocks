@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Collapse } from './Collapse';
 
 export default {
-  title: 'Layout/Collapse',
+  title: 'Components/Layout/Collapse',
   component: Collapse
 };
 

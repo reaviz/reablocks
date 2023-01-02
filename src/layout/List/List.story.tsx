@@ -2,7 +2,7 @@ import { List } from './List';
 import { ListItem } from './ListItem';
 
 export default {
-  title: 'Layout/List',
+  title: 'Components/Layout/List',
   component: List,
   subcomponents: {
     ListItem

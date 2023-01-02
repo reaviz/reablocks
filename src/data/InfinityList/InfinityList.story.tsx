@@ -3,7 +3,7 @@ import { InfinityList } from './InfinityList';
 import { useInfinityList } from './useInfinityList';
 
 export default {
-  title: 'Data/InfinityList',
+  title: 'Components/Data/InfinityList',
   component: InfinityList
 };
 

@@ -3,7 +3,7 @@ import { MotionGroup } from './MotionGroup';
 import { MotionItem } from './MotionItem';
 
 export default {
-  title: 'Layout/Motion',
+  title: 'Components/Layout/Motion',
   component: MotionGroup,
   subcomponents: {
     MotionItem

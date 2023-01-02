@@ -2,7 +2,7 @@ import React from 'react';
 import { Ellipsis } from './Ellipsis';
 
 export default {
-  title: 'Data/Ellipsis',
+  title: 'Components/Data/Ellipsis',
   component: Ellipsis
 };
 

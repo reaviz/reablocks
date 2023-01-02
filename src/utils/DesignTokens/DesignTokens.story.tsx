@@ -16,7 +16,7 @@ import { buildSheetRules } from './utils';
 import favoriteIcon from './icon-demo.svg';
 
 export default {
-  title: 'Utils/Design Tokens',
+  title: 'Components/Utils/Design Tokens',
   component: DesignTokensProvider,
   decorators: [
     Story => (

@@ -2,7 +2,7 @@ import React from 'react';
 import { Divider } from './Divider';
 
 export default {
-  title: 'Layout/Divider',
+  title: 'Components/Layout/Divider',
   component: Divider,
   decorators: [
     Story => (

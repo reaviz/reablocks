@@ -2,7 +2,7 @@ import { Fragment } from 'react';
 import { DataSize } from './DataSize';
 
 export default {
-  title: 'Data/Data Size',
+  title: 'Components/Data/Data Size',
   component: DataSize
 };
 

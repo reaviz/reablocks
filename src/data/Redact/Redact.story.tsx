@@ -1,7 +1,7 @@
 import { Redact } from './Redact';
 
 export default {
-  title: 'Data/Redact',
+  title: 'Components/Data/Redact',
   component: Redact
 };
 

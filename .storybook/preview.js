@@ -21,9 +21,7 @@ const order = [
   'design-tokens-',
   'design-tokens-getting-started',
   'components-',
-  'layout-',
-  'data-',
-  'utils-'
+  'blocks-'
 ];
 
 export const parameters = {

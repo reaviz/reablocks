@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { Duration } from './Duration';
 
 export default {
-  title: 'Data/Duration',
+  title: 'Components/Data/Duration',
   component: Duration
 };
 
