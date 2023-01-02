@@ -42,6 +42,7 @@
 - Card
 - List
 - Block
+- Infinity List
 
 ### Utilities
 - Design Token Provider
