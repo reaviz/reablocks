@@ -3,11 +3,34 @@ import classNames from 'classnames';
 import css from './Card.module.css';
 
 export interface CardProps extends React.DOMAttributes<any> {
+  /**
+   * Disable the padding of the card.
+   */
   disablePadding?: boolean;
+
+  /**
+   * Additional classname to apply to the card.
+   */
   className?: string;
+
+  /**
+   * Header classname to apply.
+   */
   headerClassName?: string;
+
+  /**
+   * Content classname to apply.
+   */
   contentClassName?: string;
+
+  /**
+   * Additional style attributes. Recommend to use css classes over this.
+   */
   style?: React.CSSProperties;
+
+  /**
+   * Header element or text to show.
+   */
   header?: string | JSX.Element | JSX.Element[];
 }
 

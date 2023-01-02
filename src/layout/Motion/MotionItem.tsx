@@ -50,7 +50,14 @@ const horizontalVariants = {
 };
 
 export interface MotionItemProps extends HTMLMotionProps<'div'> {
+  /**
+   * Direction of the motion.
+   */
   direction?: 'horizontal' | 'vertical';
+
+  /**
+   * Children to render.
+   */
   children: ReactNode;
 }
 

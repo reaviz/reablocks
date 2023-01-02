@@ -3,16 +3,54 @@ import classNames from 'classnames';
 import css from './Block.module.css';
 
 export interface BlockProps extends React.HTMLAttributes<HTMLElement> {
+  /**
+   * Label to display on the block.
+   */
   label?: React.ReactNode | string;
-  disableLabelPadding?: boolean;
+
+  /**
+   * Disable block bottom margin.
+   */
   disableMargin?: boolean;
+
+  /**
+   * Whether to show the required * or not.
+   */
   required?: boolean;
+
+  /**
+   * Children to render.
+   */
   children?: React.ReactNode;
+
+  /**
+   * Additional classname to apply to the content.
+   */
   contentClassName?: string;
+
+  /**
+   * Additional classname to apply to the label.
+   */
   labelClassName?: string;
+
+  /**
+   * Additional classname to apply to the block.
+   */
   className?: string;
+
+  /**
+   * Direction of the block.
+   */
   direction?: 'vertical' | 'horizontal';
+
+  /**
+   * Alignment of the label.
+   */
   alignment?: 'start' | 'center' | 'end';
+
+  /**
+   * Event when the label is clicked.
+   */
   onTitleClick?: (
     event: React.MouseEvent<HTMLLabelElement, MouseEvent>
   ) => void;
@@ -20,7 +58,6 @@ export interface BlockProps extends React.HTMLAttributes<HTMLElement> {
 
 export const Block: FC<BlockProps> = ({
   label,
-  disableLabelPadding,
   children,
   contentClassName,
   disableMargin,
@@ -44,9 +81,7 @@ export const Block: FC<BlockProps> = ({
   >
     {label && (
       <label
-        className={classNames(css.label, labelClassName, {
-          [css.disablePadding]: disableLabelPadding
-        })}
+        className={classNames(css.label, labelClassName)}
         onClick={onTitleClick}
       >
         {label}

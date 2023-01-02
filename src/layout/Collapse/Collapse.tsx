@@ -23,7 +23,14 @@ const TRANSITION = {
 
 export interface CollapseProps
   extends Omit<Partial<HTMLDivElement>, 'children'> {
+  /**
+   * Whether the collapse is expanded or not.
+   */
   expanded?: boolean;
+
+  /**
+   * Children to render.
+   */
   children?: React.ReactNode | (() => React.ReactNode);
 }
 

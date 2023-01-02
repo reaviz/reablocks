@@ -3,10 +3,29 @@ import classNames from 'classnames';
 import css from './ListItem.module.css';
 
 export interface ListItemProps extends InputHTMLAttributes<HTMLDivElement> {
+  /**
+   * Whether the item is active or not.
+   */
   active?: boolean;
+
+  /**
+   * Whether the item is disabled or not.
+   */
   disabled?: boolean;
+
+  /**
+   * Disable the padding ( including gutters ).
+   */
   disablePadding?: boolean;
+
+  /**
+   * Disable the gutters ( left + right padding ).
+   */
   disableGutters?: boolean;
+
+  /**
+   * Whether the item data is dense and reduce the padding.
+   */
   dense?: boolean;
 }
 
