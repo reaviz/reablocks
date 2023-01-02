@@ -11,7 +11,7 @@ import {
   IconBlocks
 } from './helpers';
 import { DesignTokensProvider } from './DesignTokensProvider';
-import { lightTheme } from './themes';
+import { darkTheme } from './themes';
 import { buildSheetRules } from './utils';
 import favoriteIcon from './icon-demo.svg';
 
@@ -47,7 +47,7 @@ export const Model = () => (
     >
       <h3>Model</h3>
       <pre>
-        <code>{JSON.stringify(lightTheme, null, 2)}</code>
+        <code>{JSON.stringify(darkTheme, null, 2)}</code>
       </pre>
     </div>
     <div
@@ -60,7 +60,7 @@ export const Model = () => (
     >
       <h3>Output</h3>
       <pre>
-        {buildSheetRules(lightTheme).map(k => (
+        {buildSheetRules(darkTheme).map(k => (
           <div>{k}</div>
         ))}
       </pre>

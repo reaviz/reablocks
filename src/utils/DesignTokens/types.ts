@@ -13,6 +13,7 @@ export interface Palettes {
 }
 
 export interface Scale {
+  50?: string;
   100?: string;
   200?: string;
   300?: string;
@@ -50,7 +51,7 @@ export interface Colors {
   green?: Color;
   yellow?: Color;
   orange?: Color;
-  grey?: Color;
+  gray?: Color;
   pink?: Color;
   slate?: Color;
   overlay?: Color;

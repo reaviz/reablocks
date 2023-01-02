@@ -1,41 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Colors, DesignTokens } from '../types';
+import { borders, spacings } from './common';
 
-<Meta title="Docs/Design Tokens/Example" />
-
-# Design Tokens Example
-Below is an example of a theme implemented using the design
-tokens system. This theme is the `lightTheme` that is
-used in the Storybook stories.
-
-```ts
-import { DesignTokens, Colors } from 'reablocks';
-
-/**
- * Common spacings.
- */
-export const spacings = {
-  xs: '2px',
-  sm: '5px',
-  md: '10px',
-  lg: '20px',
-  xl: '24px',
-  xxl: '30px'
-};
-
-/**
- * Common borders.
- */
-export const borders = {
-  radius: {
-    sm: '2px',
-    md: '5px',
-    lg: '10px'
-  }
-};
-
-/**
- * Dark theme colors example.
- */
 export const darkColors: Colors = {
   red: {
     900: '#1f1315',
@@ -243,4 +208,3 @@ export const darkTheme: DesignTokens = {
     }
   }
 };
-```

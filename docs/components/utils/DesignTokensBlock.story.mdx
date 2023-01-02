@@ -30,7 +30,7 @@ import {
   ShadowBlocks,
   ComponentBlocks,
   DesignTokensProvider,
-  lightTheme,
+  darkTheme,
   IconBlocks
 } from 'reablocks';
 
@@ -39,7 +39,7 @@ export default {
   component: DesignTokensProvider,
   decorators: [
     Story => (
-      <DesignTokensProvider value={lightTheme}>
+      <DesignTokensProvider value={darkTheme}>
         <div style={{ width: '90vw' }}>
           <Story />
         </div>

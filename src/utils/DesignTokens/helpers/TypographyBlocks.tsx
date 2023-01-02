@@ -42,7 +42,7 @@ export const TypographySizeBlock = ({ sizes }) => (
       >
         <div
           style={{
-            color: 'var(--grey-900)',
+            color: 'var(--gray-900)',
             fontSize: 12,
             width: 110,
             marginRight: 'var(--spacing-md)'
