@@ -10,7 +10,7 @@ export const Simple = () => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
   return (
-    <div style={{ width: 300, height: 300, textAlign: 'center' }}>
+    <div style={{ height: 300, textAlign: 'center' }}>
       <button type="button" onClick={() => setExpanded(!expanded)}>
         Expand Contents
       </button>
