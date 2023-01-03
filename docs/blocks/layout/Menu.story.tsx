@@ -1,6 +1,7 @@
-import { Fragment } from 'react';
 import { List, ListItem } from '../../../src/layout/List';
 import { Card } from '../../../src/layout/Card';
+import { useRef, useState } from 'react';
+import { Menu } from 'realayers';
 
 export default {
   title: 'Blocks/Layout/Menu'
@@ -41,3 +42,26 @@ export const Icons = () => (
     </List>
   </Card>
 );
+
+export const Trigger = () => {
+  const [open, setOpen] = useState(false);
+  const buttonRef = useRef(null);
+
+  return (
+    <>
+      <button type="button" ref={buttonRef} onClick={() => setOpen(!open)}>
+        Open
+      </button>
+      <Menu open={open} onClose={() => setOpen(false)} reference={buttonRef}>
+        <Card disablePadding>
+          <List>
+            <ListItem>Menu Item 1</ListItem>
+            <ListItem>Menu Item 2</ListItem>
+            <ListItem>Menu Item 3</ListItem>
+            <ListItem>Menu Item 4</ListItem>
+          </List>
+        </Card>
+      </Menu>
+    </>
+  );
+};
