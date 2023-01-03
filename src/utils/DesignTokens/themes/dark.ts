@@ -200,7 +200,7 @@ export const darkTheme: DesignTokens = {
     },
     block: {
       'block-spacing': spacings.md,
-      'block-label-spacing': spacings.sm
+      'block-label-spacing': spacings.xs
     },
     list: {
       'list-item-spacing': spacings.md,
