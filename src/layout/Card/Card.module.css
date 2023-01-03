@@ -24,6 +24,7 @@
       margin-top: 0;
       font-size: 14px;
       font-weight: 500;
+      margin-bottom: var(--spacing-sm);
     }
   }
 
