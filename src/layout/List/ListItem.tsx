@@ -27,6 +27,16 @@ export interface ListItemProps extends InputHTMLAttributes<HTMLDivElement> {
    * Whether the item data is dense and reduce the padding.
    */
   dense?: boolean;
+
+  /**
+   * A start component for the list item.
+   */
+  start?: React.ReactNode;
+
+  /**
+   * A end component for the list item.
+   */
+  end?: React.ReactNode;
 }
 
 export const ListItem: FC<ListItemProps> = ({
@@ -36,6 +46,8 @@ export const ListItem: FC<ListItemProps> = ({
   disabled,
   disablePadding,
   disableGutters,
+  start,
+  end,
   dense,
   onClick,
   ...rest
@@ -47,12 +59,14 @@ export const ListItem: FC<ListItemProps> = ({
     className={classNames(className, css.listItem, {
       [css.disabled]: disabled,
       [css.active]: active,
-      [css.clickable]: onClick && disabled,
+      [css.clickable]: onClick && !disabled,
       [css.disablePadding]: disablePadding,
       [css.disableGutters]: disableGutters,
       [css.dense]: dense
     })}
   >
-    {children}
+    {start && <div className={css.start}>{start}</div>}
+    <div className={css.content}>{children}</div>
+    {end && <div className={css.end}>{end}</div>}
   </div>
 );

@@ -26,20 +26,16 @@ export const Simple = () => (
 export const Icons = () => (
   <Card disablePadding>
     <List>
-      <ListItem>
-        <Icon />
+      <ListItem start={<Icon />}>
         Menu Item 1
       </ListItem>
-      <ListItem>
-        <Icon />
+      <ListItem start={<Icon />}>
         Menu Item 2
       </ListItem>
-      <ListItem>
-        <Icon />
+      <ListItem start={<Icon />}>
         Menu Item 3
       </ListItem>
-      <ListItem>
-        <Icon />
+      <ListItem start={<Icon />}>
         Menu Item 4
       </ListItem>
     </List>

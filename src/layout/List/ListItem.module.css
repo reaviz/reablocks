@@ -3,10 +3,27 @@
   display: flex;
   padding: var(--list-item-spacing);
   position: relative;
-  white-space: break-spaces;
-  word-break: break-all;
-  width: 100%;
-  font-size: 14px;
+
+  .start {
+    padding-right: calc(var(--list-item-spacing) / 2);
+  }
+
+  .end {
+    padding-left: calc(var(--list-item-spacing) / 2);
+  }
+
+  .start,
+  .end {
+    align-items: center;
+    display: flex;
+  }
+
+  .content {
+    font-size: 14px;
+    flex: 1;
+    white-space: break-spaces;
+    word-break: break-all;
+  }
 
   &.active {
     text-decoration: underline;
