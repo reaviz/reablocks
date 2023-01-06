@@ -45,6 +45,8 @@ export interface Borders {
 export type Shadows = Scale;
 
 export interface Colors {
+  black?: string;
+  white?: string;
   red?: Color;
   purple?: Color;
   blue?: Color;

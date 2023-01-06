@@ -1,0 +1,76 @@
+.container {
+  background: var(--input-bg);
+  border-radius: var(--input-border-radius);
+  border: var(--input-border);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &.small {
+    padding: var(--input-spacing-sm);
+  }
+
+  &.medium {
+    padding: var(--input-spacing-md);
+  }
+
+  &.large {
+    padding: var(--input-spacing-lg);
+  }
+
+  &:focus-within,
+  &:focus-visible {
+    outline: none;
+  }
+
+  &.error {
+    border-color: var(--error-background);
+  }
+
+  &.fullWidth {
+    width: 100%;
+
+    .input {
+      width: 100%;
+    }
+  }
+
+  .start,
+  .end {
+    display: flex;
+  }
+
+  .start {
+    padding-right: calc(var(--list-item-spacing) / 2);
+  }
+
+  .end {
+    padding-left: calc(var(--list-item-spacing) / 2);
+  }
+
+  .input {
+    flex: 1;
+    font-weight: normal;
+    background: none;
+    font-family: var(--font-family);
+    border: none;
+    color: var(--input-color);
+    padding: 0;
+    margin: 0;
+
+    &::placeholder {
+      font-style: italic;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &[disabled],
+    &:read-only {
+      cursor: not-allowed;
+    }
+  }
+}

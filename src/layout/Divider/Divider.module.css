@@ -1,5 +1,5 @@
 .divider {
-  background: var(--divider-bg);
+  background: var(--divider-background);
   border: none;
 
   &.horizontal {

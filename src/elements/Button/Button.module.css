@@ -1,0 +1,83 @@
+.btn {
+  padding: var(--button-spacing);
+  border: var(--button-border);
+  border-radius: var(--button-radius-md);
+  display: inline-block;
+  user-select: none;
+  font-family: var(--font-family);
+  font-weight: normal;
+  font-weight: 500;
+  will-change: scale, background-color, color, border-color;
+  white-space: nowrap;
+
+  &.small {
+    font-size: var(--font-size-sm);
+  }
+
+  &.medium {
+    font-size: var(--font-size-md);
+  }
+
+  &.large {
+    font-size: var(--font-size-lg);
+  }
+
+  &.default {
+    background: var(--button-background);
+    color: var(--button-color);
+  }
+
+  &.primary {
+    background: var(--primary-background);
+    color: var(--primary-color);
+  }
+
+  &.secondary {
+    background: var(--secondary-background);
+    color: var(--secondary-color);
+  }
+
+  &.error {
+    background: var(--error-background);
+    color: var(--error-color);
+  }
+
+  &.filled {
+    background: var(--button-background);
+    border: var(--button-background);
+  }
+
+  &.outline {
+    background: transparent;
+  }
+
+  &.text {
+    background: transparent;
+    border: solid 1px transparent;
+  }
+
+  &.fullWidth {
+    display: block;
+    width: 100%;
+  }
+
+  &.disableMargins {
+    margin: 0;
+  }
+
+  &.disablePadding {
+    padding: 0;
+  }
+
+  &:not([disabled]) {
+    cursor: pointer;
+  }
+
+  &[disabled] {
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}

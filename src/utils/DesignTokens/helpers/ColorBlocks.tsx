@@ -66,7 +66,8 @@ const ColorPaletteBlock = ({ name, color }) => {
       <div
         style={{
           padding: 'var(--spacing-md)',
-          background: color
+          background: color,
+          height: '100%'
         }}
       >
         <div>
@@ -129,13 +130,19 @@ export const ColorBlocks = () => {
                   gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))'
                 }}
               >
-                {Object.keys(colors[key]).map(color => (
-                  <ColorPaletteBlock
-                    key={`--${key}-${color}`}
-                    name={`--${key}-${color}`}
-                    color={colors[key][color]}
-                  />
-                ))}
+                {typeof colors[key] === 'string' ? (
+                  <ColorBlock name={`--${key}`} color={colors[key]} />
+                ) : (
+                  <>
+                    {Object.keys(colors[key]).map(color => (
+                      <ColorPaletteBlock
+                        key={`--${key}-${color}`}
+                        name={`--${key}-${color}`}
+                        color={colors[key][color]}
+                      />
+                    ))}
+                  </>
+                )}
               </div>
             </div>
           ))}

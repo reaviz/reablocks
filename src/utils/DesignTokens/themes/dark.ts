@@ -2,6 +2,8 @@ import { Colors, DesignTokens } from '../types';
 import { borders, spacings } from './common';
 
 export const darkColors: Colors = {
+  black: '#000000',
+  white: '#ffffff',
   red: {
     900: '#1f1315',
     800: '#291415',
@@ -164,7 +166,7 @@ export const darkTheme: DesignTokens = {
   palettes: {
     body: {
       background: darkColors.gray['900'],
-      color: darkColors.slate['50']
+      color: darkColors.white
     },
     primary: {
       background: darkColors.blue['800'],
@@ -175,7 +177,7 @@ export const darkTheme: DesignTokens = {
       color: darkColors.slate['100']
     },
     error: {
-      background: darkColors.red['500'],
+      background: darkColors.red['200'],
       color: darkColors.slate['100']
     },
     success: {
@@ -190,12 +192,12 @@ export const darkTheme: DesignTokens = {
   components: {
     divider: {
       'divider-spacing': spacings.md,
-      'divider-bg': darkColors.gray['500']
+      'divider-background': darkColors.gray['500']
     },
     card: {
       'card-border-radius': borders.radius.md,
       'card-spacing': spacings.md,
-      'card-bg': darkColors.slate['800'],
+      'card-background': darkColors.slate['800'],
       'card-color': darkColors.slate['50']
     },
     block: {
@@ -205,6 +207,22 @@ export const darkTheme: DesignTokens = {
     list: {
       'list-item-spacing': spacings.md,
       'list-item-dense-spacing': spacings.sm
+    },
+    button: {
+      'button-background': darkColors.blue['800'],
+      'button-spacing': `${spacings.sm} ${spacings.md}`,
+      'button-border-radius': borders.radius.md,
+      'button-color': darkColors.slate['100'],
+      'button-border': `solid 1px ${darkColors.gray['500']}`
+    },
+    input: {
+      'input-background': darkColors.slate['800'],
+      'input-color': darkColors.white,
+      'input-border-radius': borders.radius.md,
+      'input-border': `solid 1px ${darkColors.gray['500']}`,
+      'input-spacing-md': `${spacings.sm} ${spacings.md}`,
+      'input-spacing-sm': spacings.sm,
+      'input-spacing-lg': spacings.lg
     }
   }
 };

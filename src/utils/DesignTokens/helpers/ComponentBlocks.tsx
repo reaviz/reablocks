@@ -1,8 +1,31 @@
 import React from 'react';
 import { useDts } from '../DesignTokensContext';
+import chroma from 'chroma-js';
 
 export const ComponentBlocks = () => {
   const { components } = useDts();
+
+  function renderValue(value) {
+    if (chroma.valid(value)) {
+      return (
+        <div style={{ display: 'flex', alignContent: 'center' }}>
+          <div
+            style={{
+              background: value,
+              borderRadius: 'var(--border-radius-sm)',
+              height: 15,
+              width: 15,
+              marginRight: 'var(--spacing-sm)',
+              border: 'solid 1px var(--slate-500)'
+            }}
+          />
+          <code>{value}</code>
+        </div>
+      );
+    } else {
+      return <code>{value}</code>;
+    }
+  }
 
   return (
     <div
@@ -16,21 +39,28 @@ export const ComponentBlocks = () => {
       {components ? (
         <>
           {Object.keys(components).map(key => (
-            <div
-              key={key}
-              style={{
-                marginBottom: 'var(--spacing-lg)',
-                padding: 'var(--spacing-lg) var(--spacing-xl)',
-                display: 'flex',
-                alignItems: 'center',
-                borderRadius: 'var(--border-radius-md)',
-                border: 'solid 1px var(--slate-500)'
-              }}
-            >
-              <h3 style={{ fontWeight: 500, marginRight: 50, maxWidth: 300 }}>
+            <>
+              <h3
+                style={{
+                  fontWeight: 500,
+                  marginRight: 50,
+                  marginBottom: 'var(--spacing-sm)',
+                  maxWidth: 300
+                }}
+              >
                 components.{key}
               </h3>
-              <div>
+              <div
+                key={key}
+                style={{
+                  marginBottom: 'var(--spacing-lg)',
+                  padding: 'var(--spacing-lg) var(--spacing-xl)',
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fit, 200px)',
+                  borderRadius: 'var(--border-radius-md)',
+                  border: 'solid 1px var(--slate-500)'
+                }}
+              >
                 {Object.keys(components[key]).map(kk => (
                   <div key={kk} style={{ marginBottom: 5 }}>
                     <h5
@@ -42,11 +72,11 @@ export const ComponentBlocks = () => {
                     >
                       --{kk}
                     </h5>
-                    {components[key][kk]}
+                    {renderValue(components[key][kk])}
                   </div>
                 ))}
               </div>
-            </div>
+            </>
           ))}
         </>
       ) : (
