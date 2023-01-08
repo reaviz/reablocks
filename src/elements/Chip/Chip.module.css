@@ -1,0 +1,31 @@
+.chip {
+  color: var(--chip-color);
+  display: inline-flex;
+  align-items: center;
+  border-radius: var(--border-radius-md);
+
+  &.small {
+    padding: var(--spacing-sm);
+    font-size: 12px;
+  }
+
+  &.medium {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 14px;
+  }
+
+  &.large {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: 16px;
+  }
+
+  &.selectable {
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &.disableMargins {
+    margin: 0 !important;
+  }
+}
