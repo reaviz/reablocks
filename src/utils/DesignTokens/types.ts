@@ -1,6 +1,8 @@
 export interface Palette {
   background?: string;
   color?: string;
+  'background-hover'?: string;
+  'color-hover'?: string;
 }
 
 export interface Palettes {
@@ -10,6 +12,7 @@ export interface Palettes {
   error?: Palette;
   warning?: Palette;
   success?: Palette;
+  disabled?: Palette;
 }
 
 export interface Scale {

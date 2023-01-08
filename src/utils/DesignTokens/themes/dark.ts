@@ -169,24 +169,38 @@ export const darkTheme: DesignTokens = {
       color: darkColors.white
     },
     primary: {
-      background: darkColors.blue['800'],
-      color: darkColors.slate['100']
+      background: darkColors.purple['300'],
+      color: darkColors.purple['300'],
+      'background-hover': darkColors.purple['200'],
+      'color-hover': darkColors.purple['200']
     },
     secondary: {
-      background: darkColors.slate['500'],
-      color: darkColors.slate['100']
+      background: darkColors.blue['500'],
+      color: darkColors.blue['300'],
+      'background-hover': darkColors.blue['400'],
+      'color-hover': darkColors.blue['200']
     },
     error: {
-      background: darkColors.red['200'],
-      color: darkColors.slate['100']
+      background: darkColors.red['100'],
+      color: darkColors.red['100'],
+      'background-hover': darkColors.red['50'],
+      'color-hover': darkColors.red['50']
     },
     success: {
-      background: darkColors.green['500'],
-      color: darkColors.slate['100']
+      background: darkColors.green['100'],
+      color: darkColors.green['100'],
+      'background-hover': darkColors.green['50'],
+      'color-hover': darkColors.green['50']
     },
     warning: {
-      background: darkColors.orange['500'],
-      color: darkColors.slate['100']
+      background: darkColors.orange['100'],
+      color: darkColors.orange['100'],
+      'background-hover': darkColors.orange['50'],
+      'color-hover': darkColors.orange['50']
+    },
+    disabled: {
+      background: darkColors.gray['500'],
+      color: darkColors.gray['200']
     }
   },
   components: {
@@ -209,11 +223,18 @@ export const darkTheme: DesignTokens = {
       'list-item-dense-spacing': spacings.sm
     },
     button: {
-      'button-background': darkColors.blue['800'],
+      'button-font-weight': '500',
+      'button-background': darkColors.gray['200'],
+      'button-background-hover': darkColors.gray['100'],
+      'button-color': darkColors.gray['100'],
+      'button-color-hover': darkColors.gray['50'],
+      'button-color-on-background': darkColors.white,
+      'button-disabled-color-on-background': darkColors.gray['100'],
       'button-spacing': `${spacings.sm} ${spacings.md}`,
       'button-border-radius': borders.radius.md,
-      'button-color': darkColors.slate['100'],
-      'button-border': `solid 1px ${darkColors.gray['500']}`
+      'button-border': `solid 1px ${darkColors.gray['500']}`,
+      'button-focus': darkColors.blue['100'],
+      'button-focus-offset': spacings.xs
     },
     input: {
       'input-background': darkColors.slate['800'],
