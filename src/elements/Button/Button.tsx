@@ -11,12 +11,17 @@ export interface ButtonProps
   /**
    * Color variation of the button.
    */
-  color?: 'default' | 'primary' | 'secondary' | 'error';
+  color?: 'default' | 'primary' | 'secondary' | 'error' | 'success' | 'warning';
 
   /**
    * Style variant of the button.
    */
   variant?: 'filled' | 'outline' | 'text';
+
+  /**
+   * The size variation of the button.
+   */
+  size?: 'small' | 'medium' | 'large';
 
   /**
    * If true, the button will take up the full width of its container.
@@ -37,11 +42,6 @@ export interface ButtonProps
    * If true, the animation of the button will be disabled.
    */
   disableAnimation?: boolean;
-
-  /**
-   * The size variation of the button.
-   */
-  size?: 'small' | 'medium' | 'large';
 }
 
 export interface ButtonRef {
