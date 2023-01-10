@@ -244,6 +244,13 @@ export const darkTheme: DesignTokens = {
       'input-spacing-md': `${spacings.sm} ${spacings.md}`,
       'input-spacing-sm': spacings.sm,
       'input-spacing-lg': spacings.lg
-    }
+    },
+    dialog: {},
+    drawer: {},
+    tooltip: {},
+    popover: {},
+    menu: {},
+    notification: {},
+    contextmenu: {}
   }
 };
