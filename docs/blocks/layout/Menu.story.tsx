@@ -1,7 +1,6 @@
 import { List, ListItem } from '../../../src/layout/List';
 import { Card } from '../../../src/layout/Card';
-import { useRef, useState } from 'react';
-import { Menu } from 'realayers';
+// import { useRef, useState } from 'react';
 
 export default {
   title: 'Blocks/Layout/Menu'
@@ -43,6 +42,7 @@ export const Icons = () => (
   </Card>
 );
 
+/*
 export const Trigger = () => {
   const [open, setOpen] = useState(false);
   const buttonRef = useRef(null);
@@ -65,3 +65,4 @@ export const Trigger = () => {
     </>
   );
 };
+*/

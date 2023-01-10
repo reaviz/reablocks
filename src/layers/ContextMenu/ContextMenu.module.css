@@ -1,0 +1,7 @@
+.open {
+  outline: 1px dotted var(--color-button-success);
+}
+
+.enabled {
+  cursor: context-menu;
+}

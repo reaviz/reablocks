@@ -1,17 +1,14 @@
-import { withThemes } from '@react-theming/storybook-addon';
-import { darkTheme, DesignTokensProvider } from '../src/utils/DesignTokens';
-import { addDecorator } from '@storybook/react';
+import { DesignTokensProvider, darkTheme } from '../src/utils/DesignTokens';
 import { theme } from './theme';
+import { DocsContainer } from '@storybook/addon-docs';
 
-const providerFn = ({ theme, children }) => (
-  <DesignTokensProvider value={theme}>
-    {children}
-  </DesignTokensProvider>
-);
-
-addDecorator(withThemes(null, [darkTheme], {
-  providerFn
-}));
+export const decorators = [
+  Story => (
+    <DesignTokensProvider value={darkTheme}>
+      <Story />
+    </DesignTokensProvider>
+  )
+];
 
 const order = [
   'docs-intro-',
@@ -41,7 +38,14 @@ export const parameters = {
     }
   },
   docs: {
-    theme
+    theme,
+    container: ({ context, children }) => (
+      <DocsContainer context={context}>
+        <DesignTokensProvider value={theme}>
+          {children}
+        </DesignTokensProvider>
+      </DocsContainer>
+    )
   },
   controls: {
     hideNoControlsWarning: true

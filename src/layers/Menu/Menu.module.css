@@ -1,0 +1,12 @@
+.container {
+  position: relative;
+  padding: 1px;
+  min-width: 112px;
+  max-width: 500px;
+
+  .inner {
+    &:focus {
+      outline: none;
+    }
+  }
+}
