@@ -1,0 +1,22 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Drawer } from '../../../src/layers/Drawer';
+
+<Meta title="Docs/Components/Layers/Drawer" />
+
+# Drawer
+
+## CSS Variables
+The drawer component uses the following CSS variables.
+If you are using the `DesignTokenProvider` these will be defined
+in the `component` section.
+
+- `--drawer-background`
+- `--drawer-color`
+
+## Example
+<Canvas>
+  <Story id="components-layers-drawer--simple" />
+</Canvas>
+
+## API
+<ArgsTable of={Drawer} />

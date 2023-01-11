@@ -258,6 +258,34 @@ export const darkTheme: DesignTokens = {
       'input-spacing-md': `${spacings.sm} ${spacings.md}`,
       'input-spacing-sm': spacings.sm,
       'input-spacing-lg': spacings.lg
+    },
+    dialog: {
+      'dialog-background': darkColors.slate['800'],
+      'dialog-color': darkColors.white
+    },
+    drawer: {
+      'drawer-background': darkColors.slate['800'],
+      'drawer-color': darkColors.white
+    },
+    tooltip: {
+      'tooltip-background': darkColors.slate['500'],
+      'tooltip-color': darkColors.white,
+      'tooltip-border-radius': borders.radius.md,
+      'tooltip-spacing': spacings.sm
+    },
+    popover: {
+      'popover-background': darkColors.slate['500'],
+      'popover-color': darkColors.white,
+      'popover-border-radius': borders.radius.md,
+      'popover-spacing': spacings.md
+    },
+    notification: {
+      'notification-background': darkColors.slate['700'],
+      'notification-color': darkColors.white,
+      'notification-border': `solid 1px ${darkColors.gray['500']}`,
+      'notification-color-error': darkColors.red['100'],
+      'notification-color-warning': darkColors.orange['100'],
+      'notification-color-success': darkColors.green['100']
     }
   }
 };

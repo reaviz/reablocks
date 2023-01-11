@@ -36,7 +36,10 @@ export const borders = {
 /**
  * Dark theme colors example.
  */
+
 export const darkColors: Colors = {
+  black: '#000000',
+  white: '#ffffff',
   red: {
     900: '#1f1315',
     800: '#291415',
@@ -199,47 +202,112 @@ export const darkTheme: DesignTokens = {
   palettes: {
     body: {
       background: darkColors.gray['900'],
-      color: darkColors.slate['50']
+      color: darkColors.white
     },
     primary: {
-      background: darkColors.blue['800'],
-      color: darkColors.slate['100']
+      background: darkColors.purple['300'],
+      color: darkColors.purple['300'],
+      'background-hover': darkColors.purple['200'],
+      'color-hover': darkColors.purple['200']
     },
     secondary: {
-      background: darkColors.slate['500'],
-      color: darkColors.slate['100']
+      background: darkColors.blue['500'],
+      color: darkColors.blue['300'],
+      'background-hover': darkColors.blue['400'],
+      'color-hover': darkColors.blue['200']
     },
     error: {
-      background: darkColors.red['500'],
-      color: darkColors.slate['100']
+      background: darkColors.red['100'],
+      color: darkColors.red['100'],
+      'background-hover': darkColors.red['50'],
+      'color-hover': darkColors.red['50']
     },
     success: {
-      background: darkColors.green['500'],
-      color: darkColors.slate['100']
+      background: darkColors.green['100'],
+      color: darkColors.green['100'],
+      'background-hover': darkColors.green['50'],
+      'color-hover': darkColors.green['50']
     },
     warning: {
-      background: darkColors.orange['500'],
-      color: darkColors.slate['100']
+      background: darkColors.orange['100'],
+      color: darkColors.orange['100'],
+      'background-hover': darkColors.orange['50'],
+      'color-hover': darkColors.orange['50']
+    },
+    disabled: {
+      background: darkColors.gray['500'],
+      color: darkColors.gray['200']
     }
   },
   components: {
     divider: {
       'divider-spacing': spacings.md,
-      'divider-bg': darkColors.gray['500']
+      'divider-background': darkColors.gray['500']
     },
     card: {
       'card-border-radius': borders.radius.md,
       'card-spacing': spacings.md,
-      'card-bg': darkColors.slate['800'],
+      'card-background': darkColors.slate['800'],
       'card-color': darkColors.slate['50']
     },
     block: {
       'block-spacing': spacings.md,
-      'block-label-spacing': spacings.sm
+      'block-label-spacing': spacings.xs
     },
     list: {
       'list-item-spacing': spacings.md,
       'list-item-dense-spacing': spacings.sm
+    },
+    button: {
+      'button-font-weight': '500',
+      'button-background': darkColors.gray['200'],
+      'button-background-hover': darkColors.gray['100'],
+      'button-color': darkColors.gray['100'],
+      'button-color-hover': darkColors.gray['50'],
+      'button-color-on-background': darkColors.white,
+      'button-disabled-color-on-background': darkColors.gray['100'],
+      'button-spacing': `${spacings.sm} ${spacings.md}`,
+      'button-border-radius': borders.radius.md,
+      'button-border': `solid 1px ${darkColors.gray['500']}`,
+      'button-focus': darkColors.blue['100'],
+      'button-focus-offset': spacings.xs
+    },
+    input: {
+      'input-background': darkColors.slate['800'],
+      'input-color': darkColors.white,
+      'input-border-radius': borders.radius.md,
+      'input-border': `solid 1px ${darkColors.gray['500']}`,
+      'input-spacing-md': `${spacings.sm} ${spacings.md}`,
+      'input-spacing-sm': spacings.sm,
+      'input-spacing-lg': spacings.lg
+    },
+    dialog: {
+      'dialog-background': darkColors.slate['800'],
+      'dialog-color': darkColors.white,
+    },
+    drawer: {
+      'drawer-background': darkColors.slate['800'],
+      'drawer-color': darkColors.white,
+    },
+    tooltip: {
+      'tooltip-background': darkColors.slate['500'],
+      'tooltip-color': darkColors.white,
+      'tooltip-border-radius': borders.radius.md,
+      'tooltip-spacing': spacings.sm,
+    },
+    popover: {
+      'popover-background': darkColors.slate['500'],
+      'popover-color': darkColors.white,
+      'popover-border-radius': borders.radius.md,
+      'popover-spacing': spacings.md,
+    },
+    notification: {
+      'notification-background': darkColors.slate['700'],
+      'notification-color': darkColors.white,
+      'notification-border': `solid 1px ${darkColors.gray['500']}`,
+      'notification-color-error': darkColors.red['100'],
+      'notification-color-warning': darkColors.orange['100'],
+      'notification-color-success': darkColors.green['100']
     }
   }
 };

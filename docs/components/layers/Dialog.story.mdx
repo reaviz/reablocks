@@ -1,0 +1,22 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Dialog } from '../../../src/layers/Dialog';
+
+<Meta title="Docs/Components/Layers/Dialog" />
+
+# Dialog
+
+## CSS Variables
+The dialog component uses the following CSS variables.
+If you are using the `DesignTokenProvider` these will be defined
+in the `component` section.
+
+- `--dialog-background`
+- `--dialog-color`
+
+## Example
+<Canvas>
+  <Story id="components-layers-dialog--simple" />
+</Canvas>
+
+## API
+<ArgsTable of={Dialog} />

@@ -42,14 +42,16 @@
     "ellipsize": "^0.5.1",
     "framer-motion": "^7.6.7",
     "human-format": "^1.0.0",
-    "pluralize": "^8.0.0"
+    "pluralize": "^8.0.0",
+    "create-global-state-hook": "^0.0.2",
+    "focus-trap-react": "^8.7.1",
+    "rdk": "^6.1.0"
   },
   "peerDependencies": {
     "react": ">=16",
     "react-dom": ">=16"
   },
   "devDependencies": {
-    "@react-theming/storybook-addon": "^1.1.10",
     "@storybook/addon-essentials": "6.5.15",
     "@storybook/addon-storysource": "^6.5.15",
     "@storybook/addons": "6.5.15",
@@ -75,7 +77,6 @@
     "prettier": "^2.6.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "realayers": "^3.1.0",
     "rollup": "^2.29.0",
     "rollup-plugin-commonjs": "10.1.0",
     "rollup-plugin-node-resolve": "5.2.0",
