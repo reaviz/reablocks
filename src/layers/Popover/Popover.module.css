@@ -1,8 +1,8 @@
 .popover {
-  background: var(--color-popover);
-  border-radius: 2px;
-  color: var(--color-on-popover);
-  padding: 14px;
+  background: var(--popover-background);
+  color: var(--popover-color);
+  border-radius: var(--popover-border-radius);
+  padding: var(--popover-spacing);
   will-change: transform, opacity;
 
   &.disablePadding {

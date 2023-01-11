@@ -1,8 +1,8 @@
 .tooltip {
-  background: var(--color-tooltip);
-  border-radius: 5px;
-  color: var(--color-on-tooltip);
-  padding: 7px;
+  background: var(--tooltip-background);
+  color: var(--tooltip-color);
+  border-radius: var(--tooltip-border-radius);
+  padding: var(--tooltip-spacing);
   white-space: nowrap;
   text-align: center;
   will-change: transform, opacity;

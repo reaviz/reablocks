@@ -2,8 +2,8 @@
   position: fixed;
   overflow-y: auto;
   overflow-x: hidden;
-  background: var(--color-drawer);
-  color: var(--color-on-drawer);
+  background: var(--drawer-background);
+  color: var(--drawer-color);
 
   &:not(.disablePadding) {
     .content {
@@ -32,7 +32,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: var(--color-on-drawer);
+    color: var(--drawer-color);
     font-size: 16px;
 
     &:focus {

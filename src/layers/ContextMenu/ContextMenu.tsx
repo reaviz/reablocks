@@ -9,17 +9,48 @@ import css from './ContextMenu.module.css';
 const useGlobalMenuState = creteGlobalStateHook<any[]>([]);
 
 export interface ContextMenuProps extends Omit<ConnectedOverlayProps, 'open'> {
+  /**
+   * Child element to trigger the context menu.
+   */
   children: ReactNode;
+
+  /**
+   * Content to show in the context menu.
+   */
   content: ReactNode;
+
+  /**
+   * Whether the context menu is disabled.
+   */
   disabled?: boolean;
+
+  /**
+   * Whether the context menu should autofocus on open.
+   */
   autofocus?: boolean;
+
+  /**
+   * Whether the context menu should close on click.
+   */
   autoClose?: boolean;
+
+  /**
+   * Class name to apply to the trigger element.
+   */
+  triggerClassName?: string;
+
+  /**
+   * Class name to apply to the trigger when the context menu is open.
+   */
+  triggerOpenClassName?: string;
 }
 
 export const ContextMenu: FC<ContextMenuProps> = ({
   children,
   content,
   disabled,
+  triggerClassName,
+  triggerOpenClassName,
   autofocus,
   autoClose,
   ...rest
@@ -49,15 +80,16 @@ export const ContextMenu: FC<ContextMenuProps> = ({
     if (open) {
       closeAllMenus();
     }
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [closeAllMenus]);
 
   return (
     <ConnectedOverlay
       placement="bottom-start"
       triggerElement="span"
       {...rest}
-      triggerClassName={classNames({
-        [css.open]: open,
+      triggerClassName={classNames(triggerClassName, {
+        [triggerOpenClassName]: open,
         [css.enabled]: !disabled
       })}
       trigger="contextmenu"

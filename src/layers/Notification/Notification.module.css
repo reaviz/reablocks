@@ -7,9 +7,9 @@
   min-height: 45px;
   margin-bottom: 10px;
   border-radius: 4px;
-  background: var(--color-notification);
-  color: var(--color-on-notification);
-  border: 1px solid var(--color-notification-border);
+  background: var(--notification-background);
+  color: var(--notification-color);
+  border: 1px solid var(--notification-border);
 
   .contentContainer {
     display: flex;
@@ -19,19 +19,19 @@
 
   &.error {
     .header {
-      color: var(--color-notification-error);
+      color: var(--notification-color-error);
     }
   }
 
   &.warning {
     .header {
-      color: var(--color-notification-warning);
+      color: var(--notification-color-warning);
     }
   }
 
   &.success {
     .header {
-      color: var(--color-notification-success);
+      color: var(--notification-color-success);
     }
   }
 

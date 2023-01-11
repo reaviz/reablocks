@@ -24,8 +24,8 @@
   }
 
   .inner {
-    background: var(--color-dialog);
-    color: var(--color-on-dialog);
+    background: var(--dialog-background);
+    color: var(--dialog-color);
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -60,7 +60,7 @@
       border: none;
       cursor: pointer;
       align-items: center;
-      color: var(--color-on-dialog);
+      color: var(--dialog-color);
       font-size: 16px;
 
       &:focus {
