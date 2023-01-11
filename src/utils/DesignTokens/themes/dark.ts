@@ -223,9 +223,8 @@ export const darkTheme: DesignTokens = {
     chip: {
       'chip-background': darkColors.gray['200'],
       'chip-background-hover': darkColors.gray['100'],
-      'chip-color': darkColors.gray['100'],
+      'chip-color': darkColors.white,
       'chip-color-hover': darkColors.gray['50'],
-      'chip-color-on-background': darkColors.white,
       'chip-border-radius': borders.radius.md
     },
     block: {

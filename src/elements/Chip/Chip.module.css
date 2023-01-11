@@ -5,24 +5,24 @@
   border: 1px solid transparent;
 
   &.small {
+    padding: var(--spacing-xs) var(--spacing-xs);
+    font-size: 10px;
+  }
+
+  &.medium {
     padding: var(--spacing-xs) var(--spacing-sm);
     font-size: 12px;
   }
 
-  &.medium {
+  &.large {
     padding: var(--spacing-sm) var(--spacing-md);
     font-size: 14px;
-  }
-
-  &.large {
-    padding: var(--spacing-md) var(--spacing-lg);
-    font-size: 16px;
   }
 
   &.filled {
     background-color: var(--chip-background);
     border-color: var(--chip-background);
-    color: var(--chip-color-on-background);
+    color: var(--chip-color);
 
     &.primary {
       background-color: var(--primary-background);
