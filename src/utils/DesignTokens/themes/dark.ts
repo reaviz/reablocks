@@ -198,6 +198,12 @@ export const darkTheme: DesignTokens = {
       'background-hover': darkColors.orange['50'],
       'color-hover': darkColors.orange['50']
     },
+    info: {
+      background: darkColors.blue['100'],
+      color: darkColors.blue['100'],
+      'background-hover': darkColors.blue['50'],
+      'color-hover': darkColors.blue['50']
+    },
     disabled: {
       background: darkColors.gray['500'],
       color: darkColors.gray['200']
@@ -213,6 +219,14 @@ export const darkTheme: DesignTokens = {
       'card-spacing': spacings.md,
       'card-background': darkColors.slate['800'],
       'card-color': darkColors.slate['50']
+    },
+    chip: {
+      'chip-background': darkColors.gray['200'],
+      'chip-background-hover': darkColors.gray['100'],
+      'chip-color': darkColors.gray['100'],
+      'chip-color-hover': darkColors.gray['50'],
+      'chip-color-on-background': darkColors.white,
+      'chip-border-radius': borders.radius.md
     },
     block: {
       'block-spacing': spacings.md,

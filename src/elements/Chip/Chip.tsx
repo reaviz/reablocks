@@ -6,7 +6,14 @@ export interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * Color variant for the chip.
    */
-  color?: 'default' | 'primary' | 'secondary' | 'error' | 'warning' | 'info';
+  color?:
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'error'
+    | 'success'
+    | 'warning'
+    | 'info';
 
   /**
    * Size variant for the chip.
@@ -17,6 +24,11 @@ export interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
    * Style variant for the chip.
    */
   variant?: 'filled' | 'outline';
+
+  /**
+   * Whether the chip is selected.
+   */
+  selected?: boolean;
 
   /**
    * Whether the chip is disabled.
@@ -40,6 +52,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       color,
       variant,
       size,
+      selected,
       disabled,
       className,
       disableMargins,
@@ -58,6 +71,8 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
         [css[variant]]: true,
         [css[size]]: true,
         [css.selectable]: onClick && !disabled,
+        [css.selected]: !!selected,
+        [css.disabled]: disabled,
         [css.disableMargins]: disableMargins
       })}
     >
@@ -68,5 +83,6 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
 
 Chip.defaultProps = {
   color: 'default',
+  size: 'medium',
   variant: 'filled'
 };
