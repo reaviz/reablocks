@@ -1,11 +1,11 @@
 .chip {
-  color: var(--chip-color);
   display: inline-flex;
   align-items: center;
-  border-radius: var(--border-radius-md);
+  border-radius: var(--chip-border-radius);
+  border: 1px solid transparent;
 
   &.small {
-    padding: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
     font-size: 12px;
   }
 
@@ -19,13 +19,176 @@
     font-size: 16px;
   }
 
+  &.filled {
+    background-color: var(--chip-background);
+    border-color: var(--chip-background);
+    color: var(--chip-color-on-background);
+
+    &.primary {
+      background-color: var(--primary-background);
+      border-color: var(--primary-background);
+    }
+
+    &.secondary {
+      background-color: var(--secondary-background);
+      border-color: var(--secondary-background);
+    }
+
+    &.error {
+      background-color: var(--error-background);
+      border-color: var(--error-background);
+    }
+
+    &.success {
+      background-color: var(--success-background);
+      border-color: var(--success-background);
+    }
+
+    &.warning {
+      background-color: var(--warning-background);
+      border-color: var(--warning-background);
+    }
+
+    &.info {
+      background-color: var(--info-background);
+      border-color: var(--info-background);
+    }
+  }
+
+  &.outline {
+    background: transparent;
+    border-color: var(--chip-background);
+    color: var(--chip-color);
+
+    &.primary {
+      border-color: var(--primary-background);
+      color: var(--primary-color);
+    }
+
+    &.secondary {
+      border-color: var(--secondary-background);
+      color: var(--secondary-color);
+    }
+
+    &.error {
+      border-color: var(--error-background);
+      color: var(--error-color);
+    }
+
+    &.success {
+      border-color: var(--success-background);
+      color: var(--success-color);
+    }
+
+    &.warning {
+      border-color: var(--warning-background);
+      color: var(--warning-color);
+    }
+
+    &.info {
+      border-color: var(--info-background);
+      color: var(--info-color);
+    }
+  }
+
   &.selectable {
     &:hover {
       cursor: pointer;
     }
   }
 
+  &.selected {
+    &.filled,
+    &.filled:hover {
+      background-color: var(--chip-background-hover);
+      border-color: var(--chip-background-hover);
+
+      &.primary,
+      &.primary:hover {
+        background-color: var(--primary-background-hover);
+        border-color: var(--primary-background-hover);
+      }
+
+      &.secondary,
+      &.secondary:hover {
+        background-color: var(--secondary-background-hover);
+        border-color: var(--secondary-background-hover);
+      }
+
+      &.error,
+      &.error:hover {
+        background-color: var(--error-background-hover);
+        border-color: var(--error-background-hover);
+      }
+
+      &.success,
+      &.success:hover {
+        background-color: var(--success-background-hover);
+        border-color: var(--success-background-hover);
+      }
+
+      &.warning,
+      &.warning:hover {
+        background-color: var(--warning-background-hover);
+        border-color: var(--warning-background-hover);
+      }
+
+      &.info,
+      &.info:hover {
+        background-color: var(--info-background-hover);
+        border-color: var(--info-background-hover);
+      }
+    }
+
+    &.outline,
+    &.outline:hover {
+      border-color: var(--chip-background-hover);
+      color: var(--chip-color-hover);
+
+      &.primary,
+      &.primary:hover {
+        border-color: var(--primary-background-hover);
+        color: var(--primary-color-hover);
+      }
+
+      &.secondary,
+      &.secondary:hover {
+        border-color: var(--secondary-background-hover);
+        color: var(--secondary-color-hover);
+      }
+
+      &.error,
+      &.error:hover {
+        border-color: var(--error-background-hover);
+        color: var(--error-color-hover);
+      }
+
+      &.success,
+      &.success:hover {
+        border-color: var(--success-background-hover);
+        color: var(--success-color-hover);
+      }
+
+      &.warning,
+      &.warning:hover {
+        border-color: var(--warning-background-hover);
+        color: var(--warning-color-hover);
+      }
+
+      &.info,
+      &.info:hover {
+        border-color: var(--info-background-hover);
+        color: var(--info-color-hover);
+      }
+    }
+  }
+
   &.disableMargins {
     margin: 0 !important;
+  }
+
+  &:focus-visible {
+    outline: 1px dashed var(--button-focus);
+    outline-offset: var(--button-focus-offset);
   }
 }
