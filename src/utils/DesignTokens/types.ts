@@ -12,6 +12,7 @@ export interface Palettes {
   error?: Palette;
   warning?: Palette;
   success?: Palette;
+  info?: Palette;
   disabled?: Palette;
 }
 
