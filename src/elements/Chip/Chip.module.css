@@ -4,25 +4,57 @@
   border-radius: var(--chip-border-radius);
   border: 1px solid transparent;
 
+  svg {
+    transition: fill 0.15s ease-in-out;
+    will-change: fill;
+  }
+
+  .contents {
+    display: flex;
+    align-items: center;
+  }
+
   &.small {
     padding: var(--spacing-xs) var(--spacing-xs);
     font-size: 10px;
+
+    svg {
+      width: 10px;
+      height: 10px;
+      margin-right: var(--spacing-xs);
+    }
   }
 
   &.medium {
     padding: var(--spacing-xs) var(--spacing-sm);
     font-size: 12px;
+
+    svg {
+      width: 12px;
+      height: 12px;
+      margin-right: var(--spacing-sm);
+    }
   }
 
   &.large {
     padding: var(--spacing-sm) var(--spacing-md);
     font-size: 14px;
+
+    svg {
+      width: 14px;
+      height: 14px;
+      margin-right: var(--spacing-md);
+    }
   }
 
   &.filled {
     background-color: var(--chip-background);
     border-color: var(--chip-background);
     color: var(--chip-color);
+
+    svg {
+      fill: var(--chip-color);
+    }
 
     &.primary {
       background-color: var(--primary-background);
@@ -60,34 +92,62 @@
     border-color: var(--chip-background);
     color: var(--chip-color);
 
+    svg {
+      fill: var(--chip-color);
+    }
+
     &.primary {
       border-color: var(--primary-background);
       color: var(--primary-color);
+
+      svg {
+        fill: var(--primary-color);
+      }
     }
 
     &.secondary {
       border-color: var(--secondary-background);
       color: var(--secondary-color);
+
+      svg {
+        fill: var(--secondary-color);
+      }
     }
 
     &.error {
       border-color: var(--error-background);
       color: var(--error-color);
+
+      svg {
+        fill: var(--error-color);
+      }
     }
 
     &.success {
       border-color: var(--success-background);
       color: var(--success-color);
+
+      svg {
+        fill: var(--success-color);
+      }
     }
 
     &.warning {
       border-color: var(--warning-background);
       color: var(--warning-color);
+
+      svg {
+        fill: var(--warning-color);
+      }
     }
 
     &.info {
       border-color: var(--info-background);
       color: var(--info-color);
+
+      svg {
+        fill: var(--info-color);
+      }
     }
   }
 
@@ -180,6 +240,24 @@
         border-color: var(--info-background-hover);
         color: var(--info-color-hover);
       }
+    }
+  }
+
+  .label {
+    padding: 0 var(--spacing-xs);
+  }
+
+  .delete {
+    justify-self: flex-end;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--spacing-xs);
+
+    svg {
+      width: 9px;
+      height: 9px;
+      margin-right: 0;
     }
   }
 

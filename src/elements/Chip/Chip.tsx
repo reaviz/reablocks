@@ -1,5 +1,6 @@
 import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
+import { Button } from '../Button';
 import css from './Chip.module.css';
 
 export interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -26,6 +27,11 @@ export interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: 'filled' | 'outline';
 
   /**
+   * If there is an icon for the chip.
+   */
+  icon?: React.ReactElement;
+
+  /**
    * Whether the chip is selected.
    */
   selected?: boolean;
@@ -39,6 +45,11 @@ export interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
    * Whether to disable the margins.
    */
   disableMargins?: boolean;
+
+  /**
+   * Callback if the chip is deletable.
+   */
+  onDelete?: () => void;
 }
 
 export interface ChipRef {
@@ -52,11 +63,13 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       color,
       variant,
       size,
+      icon,
       selected,
       disabled,
       className,
       disableMargins,
       onClick,
+      onDelete,
       ...rest
     },
     ref: Ref<HTMLDivElement>
@@ -70,15 +83,53 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
         [css[color]]: true,
         [css[variant]]: true,
         [css[size]]: true,
-        [css.selectable]: onClick && !disabled,
         [css.selected]: !!selected,
         [css.disabled]: disabled,
+        [css.selectable]: onClick && !disabled,
+        [css.canDelete]: !!onDelete,
         [css.disableMargins]: disableMargins
       })}
     >
-      {children}
+      <div className={css.contents}>
+        {icon && icon}
+        <span className={css.label}>{children}</span>
+        {onDelete && (
+          <Button
+            tabIndex={0}
+            variant="text"
+            className={css.delete}
+            onClick={event => {
+              if (!disabled) {
+                event.stopPropagation();
+                onDelete();
+              }
+            }}
+            disabled={disabled}
+            disableMargins
+            disablePadding
+          >
+            <CloseIcon />
+          </Button>
+        )}
+      </div>
     </div>
   )
+);
+
+const CloseIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      fill-rule="evenodd"
+      clip-rule="evenodd"
+      d="M12.5304 4.53036L13.0608 4.00003L12.0001 2.93937L11.4698 3.4697L8.00011 6.93937L4.53044 3.4697L4.00011 2.93937L2.93945 4.00003L3.46978 4.53036L6.93945 8.00003L3.46978 11.4697L2.93945 12L4.00011 13.0607L4.53044 12.5304L8.00011 9.06069L11.4698 12.5304L12.0001 13.0607L13.0608 12L12.5304 11.4697L9.06077 8.00003L12.5304 4.53036Z"
+    />
+  </svg>
 );
 
 Chip.defaultProps = {
