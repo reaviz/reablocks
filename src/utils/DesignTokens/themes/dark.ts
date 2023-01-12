@@ -237,6 +237,7 @@ export const darkTheme: DesignTokens = {
     },
     button: {
       'button-font-weight': '500',
+      'button-font-family': 'var(--font-family)',
       'button-background': darkColors.gray['200'],
       'button-background-hover': darkColors.gray['100'],
       'button-color': darkColors.gray['100'],

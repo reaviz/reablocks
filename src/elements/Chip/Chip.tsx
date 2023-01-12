@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref } from 'react';
+import React, { FC, forwardRef, Ref, ReactElement } from 'react';
 import classNames from 'classnames';
 import { Button } from '../Button';
 import css from './Chip.module.css';
@@ -27,9 +27,9 @@ export interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
   variant?: 'filled' | 'outline';
 
   /**
-   * If there is an icon for the chip.
+   * Content to display before the chip label.
    */
-  icon?: React.ReactElement;
+  start?: ReactElement | string;
 
   /**
    * Whether the chip is selected.
@@ -45,6 +45,11 @@ export interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
    * Whether to disable the margins.
    */
   disableMargins?: boolean;
+
+  /**
+   * Customize delete icon.
+   */
+  deleteIcon?: ReactElement;
 
   /**
    * Callback if the chip is deletable.
@@ -63,11 +68,12 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       color,
       variant,
       size,
-      icon,
+      start,
       selected,
       disabled,
       className,
       disableMargins,
+      deleteIcon = CloseIcon,
       onClick,
       onDelete,
       ...rest
@@ -91,7 +97,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       })}
     >
       <div className={css.contents}>
-        {icon && icon}
+        {start && start}
         <span className={css.label}>{children}</span>
         {onDelete && (
           <Button
