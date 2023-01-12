@@ -19,11 +19,23 @@ export const ComponentBlocks = () => {
               border: 'solid 1px var(--slate-500)'
             }}
           />
-          <code>{value}</code>
+          <code
+            style={{ cursor: 'pointer' }}
+            onDoubleClick={() => navigator.clipboard.writeText(value)}
+          >
+            {value}
+          </code>
         </div>
       );
     } else {
-      return <code>{value}</code>;
+      return (
+        <code
+          style={{ cursor: 'pointer' }}
+          onDoubleClick={() => navigator.clipboard.writeText(value)}
+        >
+          {value}
+        </code>
+      );
     }
   }
 
@@ -48,7 +60,7 @@ export const ComponentBlocks = () => {
                   maxWidth: 300
                 }}
               >
-                components.{key}
+                {key}
               </h3>
               <div
                 key={key}

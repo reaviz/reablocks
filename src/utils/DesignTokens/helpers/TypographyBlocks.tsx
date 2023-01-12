@@ -42,16 +42,30 @@ export const TypographySizeBlock = ({ sizes }) => (
       >
         <div
           style={{
-            color: 'var(--gray-900)',
             fontSize: 12,
             width: 110,
-            marginRight: 'var(--spacing-md)'
+            marginRight: 'var(--spacing-md)',
+            color: 'var(--body-color)'
           }}
         >
-          {sizes[size]}
+          <code
+            style={{ cursor: 'pointer' }}
+            onDoubleClick={() =>
+              navigator.clipboard.writeText(`--font-size-${size}`)
+            }
+          >
+            {sizes[size]}
+          </code>
           <br />
           <small>
-            <code>--font-size-{size}</code>
+            <code
+              style={{ cursor: 'pointer' }}
+              onDoubleClick={() =>
+                navigator.clipboard.writeText(`--font-size-${size}`)
+              }
+            >
+              --font-size-{size}
+            </code>
           </small>
         </div>
         The quick brown fox jumps over the lazy dog.

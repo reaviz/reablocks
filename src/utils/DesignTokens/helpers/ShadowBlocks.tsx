@@ -39,7 +39,14 @@ export const ShadowBlocks = () => {
                 </span>
                 <br />
                 <small>
-                  <code>{shadows[key]}</code>
+                  <code
+                    style={{ cursor: 'pointer' }}
+                    onDoubleClick={() =>
+                      navigator.clipboard.writeText(shadows[key])
+                    }
+                  >
+                    {shadows[key]}
+                  </code>
                 </small>
               </h3>
               <div

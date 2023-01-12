@@ -44,7 +44,12 @@ export const BorderBlocks = () => {
                   --border-radius-{key}
                 </span>
                 <br />
-                <small>
+                <small
+                  style={{ cursor: 'pointer' }}
+                  onDoubleClick={() =>
+                    navigator.clipboard.writeText(borders.radius[key])
+                  }
+                >
                   <code>{borders.radius[key]}</code>
                 </small>
               </h3>
@@ -59,7 +64,7 @@ export const BorderBlocks = () => {
                   style={{
                     padding: 'var(--spacing-sm)',
                     borderRadius: borders.radius[key],
-                    border: 'solid 1px var(--blue-900)'
+                    border: 'solid 1px var(--blue-100)'
                   }}
                 >
                   Content

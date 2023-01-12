@@ -35,10 +35,17 @@ export const SpacingBlocks = () => {
                     navigator.clipboard.writeText(`--spacing-${key}`)
                   }
                 >
-                  --{key}
+                  --spacing-{key}
                 </code>
                 <br />
-                <small>{spacings[key]}</small>
+                <small
+                  style={{ cursor: 'pointer' }}
+                  onDoubleClick={() =>
+                    navigator.clipboard.writeText(spacings[key])
+                  }
+                >
+                  {spacings[key]}
+                </small>
               </h3>
               <div
                 style={{
@@ -50,7 +57,7 @@ export const SpacingBlocks = () => {
                 <div
                   style={{
                     padding: spacings[key],
-                    border: 'solid 1px var(--blue-900)'
+                    border: 'solid 1px var(--blue-100)'
                   }}
                 >
                   Content
