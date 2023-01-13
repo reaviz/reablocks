@@ -50,6 +50,7 @@
 - Notification
 - Menu
 - Context Menu
+- Loader
 
 ### Utilities
 - Design Token Provider

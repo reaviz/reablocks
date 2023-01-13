@@ -1,0 +1,157 @@
+.container {
+  display: flex;
+  flex-wrap: nowrap;
+  background: var(--select-input-background);
+  border-radius: var(--select-input-border-radius);
+  border: var(--select-input-border);
+  align-items: center;
+  padding: var(--select-input-spacing);
+  min-height: 34px;
+  box-sizing: border-box;
+
+  &.open {
+    border-radius: var(--select-input-border-radius)
+      var(--select-input-border-radius) 0 0;
+  }
+
+  &:not(.disabled) {
+    cursor: text;
+  }
+
+  &.disabled {
+    .expand,
+    .input {
+      cursor: not-allowed;
+    }
+  }
+
+  &.unfilterable {
+    .input {
+      caret-color: transparent;
+    }
+  }
+
+  &.error {
+    border: 1px solid var(--select-input-error);
+  }
+
+  .inputContainer {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .input {
+    padding: 0;
+    background: transparent;
+    border: none;
+    font-size: 13px;
+    color: var(--select-input-color);
+    font-family: inherit;
+    vertical-align: middle;
+
+    &[disabled] {
+      color: var(--select-input-disabled-color);
+    }
+
+    &::placeholder {
+      color: var(--select-input-placeholder-color);
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:read-only {
+      cursor: not-allowed;
+    }
+  }
+
+  &.single {
+    .prefix {
+      padding: 5px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .inputContainer {
+      flex-wrap: nowrap;
+
+      > div,
+      .input {
+        max-width: 100%;
+      }
+    }
+
+    .input {
+      width: 100%;
+      text-overflow: ellipsis;
+    }
+  }
+
+  &.multiple {
+    .prefix {
+      display: contents;
+    }
+
+    .inputContainer {
+      flex-wrap: wrap;
+    }
+  }
+
+  .prefix {
+    align-items: center;
+  }
+
+  .suffix {
+    display: flex;
+    margin-left: auto;
+
+    svg {
+      height: 20px;
+      width: 20px;
+      vertical-align: middle;
+    }
+
+    .loader {
+      margin-right: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    .btn {
+      padding: 0;
+      border: none;
+      background: none;
+
+      &:not([disabled]) {
+        cursor: pointer;
+      }
+
+      svg {
+        vertical-align: middle;
+        fill: var(--select-input-icon-color);
+      }
+
+      &.expand {
+        svg {
+          height: 18px;
+          width: 18px;
+        }
+      }
+
+      &.refresh,
+      &.close {
+        margin-right: 5px;
+
+        svg {
+          height: 16px;
+          width: 16px;
+        }
+      }
+    }
+  }
+}

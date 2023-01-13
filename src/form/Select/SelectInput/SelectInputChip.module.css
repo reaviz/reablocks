@@ -1,0 +1,45 @@
+.tag {
+  margin-top: 1px;
+  margin-bottom: 1px;
+  border: solid 1px transparent;
+  cursor: pointer;
+  background: var(--select-chip-background);
+  border: var(--select-chip-border);
+  color: var(--select-chip-color);
+  display: flex;
+  padding: 3px 4px;
+  margin-right: 4px;
+  font-size: 12px;
+  border-radius: 4px;
+  line-height: 1;
+  box-sizing: border-box;
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &:focus {
+    border: solid 1px transparent;
+  }
+
+  button {
+    cursor: pointer;
+    background: none;
+    border: none;
+    line-height: 0;
+    padding: 0;
+    margin-left: 4px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  svg {
+    height: 12px;
+    width: 12px;
+    vertical-align: baseline;
+    pointer-events: none;
+    fill: var(--select-chip-icon-color);
+  }
+}
