@@ -288,6 +288,33 @@ export const darkTheme: DesignTokens = {
     },
     loader: {
       'loader-background': darkColors.gray['100']
+    },
+    select: {
+      'color-select-input': '#202124',
+      'color-on-select-input': '#bdc1c6',
+      'color-select-input-placeholder': 'rgb(145, 145, 145)',
+      'color-select-input-border': '#3c4043',
+      'color-select-input-disabled': 'rgb(145, 145, 145)',
+
+      'color-select-input-error': 'rgba(255, 0, 0, 0.5)',
+      'color-select-input-icon': '#757b80',
+
+      'color-select-chip': '#303134',
+      'color-select-chip-icon': '#757b80',
+      'color-select-chip-border': 'transparent',
+      'color-on-select-chip': '#bdc1c6',
+
+      'color-select-menu-border': '#3c4043',
+      'color-select-menu': '#202124',
+      'color-select-menu-group': 'grey',
+      'color-on-select-menu-item': '#bdc1c6',
+      'select-border-radius': '4px',
+
+      'color-select-menu-item-active': '#303134',
+      'color-on-select-menu-item-active': '#bdc1c6',
+
+      'color-select-menu-item-selected': '#2684FF',
+      'color-on-select-menu-item-selected': '#bdc1c6'
     }
   }
 };
