@@ -15,7 +15,7 @@
 
   &.medium {
     padding: var(--input-spacing-md);
-    min-height: 38px;
+    min-height: 34px;
   }
 
   &.large {

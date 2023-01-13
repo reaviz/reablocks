@@ -6,7 +6,7 @@
   border: var(--select-input-border);
   align-items: center;
   padding: var(--select-input-spacing);
-  min-height: 38px;
+  min-height: 34px;
   box-sizing: border-box;
 
   &.open {
