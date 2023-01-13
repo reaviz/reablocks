@@ -1,6 +1,4 @@
 import { SelectOptionProps } from '../SelectOption';
-import groupBy from 'lodash/groupBy';
-import sumBy from 'lodash/sumBy';
 
 export interface GroupOptions {
   groups: GroupOption[];
