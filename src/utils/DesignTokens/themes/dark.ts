@@ -311,11 +311,10 @@ export const darkTheme: DesignTokens = {
       'select-menu-item-selected-color': darkColors.white,
       'select-menu-item-selected-background': darkColors.blue['200'],
 
-      // OLD STYLES : TODO UPDATE
-      'color-select-chip': '#303134',
-      'color-select-chip-icon': '#757b80',
-      'color-select-chip-border': 'transparent',
-      'color-on-select-chip': '#bdc1c6'
+      'select-chip-background': darkColors.slate['300'],
+      'select-chip-border': `solid 1px ${darkColors.slate['900']}`,
+      'select-chip-color': darkColors.white,
+      'select-chip-icon-color': darkColors.slate['50']
     }
   }
 };
