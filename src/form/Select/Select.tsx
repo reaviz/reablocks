@@ -19,7 +19,7 @@ import { SelectInput, SelectInputProps, SelectInputRef } from './SelectInput';
 import { SelectMenu, SelectMenuProps } from './SelectMenu';
 import { SelectOptionProps, SelectValue } from './SelectOption';
 import { useWidth } from './utils/useWidth';
-import { useFuzzy } from 'react-use-fuzzy';
+import { useFuzzy } from '@reaviz/react-use-fuzzy';
 import { createOptions, getGroups } from './utils';
 import isEqual from 'react-fast-compare';
 

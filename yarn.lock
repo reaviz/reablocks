@@ -1548,6 +1548,11 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
+"@reaviz/react-use-fuzzy@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@reaviz/react-use-fuzzy/-/react-use-fuzzy-1.0.2.tgz#e0188ba32944ec6e75616c2c8b836a689f7cbdc6"
+  integrity sha512-+r+j3NNBXeZB8IqKtCHkXQeGjm02EAbQ24a4xqnUzORJV6NKFkg4YYUWFafyCsqRtt+E/DtxpapXvN2+STM2Ag==
+
 "@rollup/pluginutils@^3.0.9":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@rollup/pluginutils/-/pluginutils-3.1.0.tgz#706b4524ee6dc8b103b3c995533e5ad680c02b9b"
@@ -9976,11 +9981,6 @@ react-syntax-highlighter@^15.4.5:
     lowlight "^1.17.0"
     prismjs "^1.27.0"
     refractor "^3.6.0"
-
-react-use-fuzzy@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/react-use-fuzzy/-/react-use-fuzzy-1.0.4.tgz#8697aec1ca6d858721d93dca334044787ce6fa0b"
-  integrity sha512-eAxNa67Av7h6WNnJ7Bnqn3qmMb/AdBDpPHGRatv8Dg1is4WpEjJA5Cah4nZncH7w5lHeAD77WduHDZRYdke2Lg==
 
 react@^18.0.0:
   version "18.2.0"
