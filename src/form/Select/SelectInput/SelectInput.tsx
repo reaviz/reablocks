@@ -13,7 +13,7 @@ import { SelectOptionProps, SelectValue } from '../SelectOption';
 import AutosizeInput from 'react-input-autosize';
 import { DownArrowIcon } from '../icons/DownArrowIcon';
 import { CloseIcon } from '../icons/CloseIcon';
-import { LoadingIcon } from '../icons/LoadingIcon';
+import { DotsLoader } from '../../../elements/Loader/DotsLoader';
 import { RefreshIcon } from '../icons/RefreshIcon';
 import { SelectInputChip, SelectInputChipProps } from './SelectInputChip';
 import { CloneElement } from 'rdk';
@@ -393,6 +393,6 @@ SelectInput.defaultProps = {
   expandIcon: <DownArrowIcon />,
   closeIcon: <CloseIcon />,
   refreshIcon: <RefreshIcon />,
-  loadingIcon: <LoadingIcon />,
+  loadingIcon: <DotsLoader />,
   chip: <SelectInputChip />
 };
