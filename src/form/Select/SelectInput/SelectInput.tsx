@@ -268,7 +268,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
       const multipleOptions = selectedOption as SelectOptionProps[];
       if (multipleOptions?.length) {
         return (
-          <div className={classNames(css.prefix, 'reaselct-input-value')}>
+          <div className={classNames(css.prefix, 'select-input-value')}>
             {multipleOptions.map(option => (
               <CloneElement<SelectInputChipProps>
                 element={chip}
@@ -288,7 +288,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
       const singleOption = selectedOption as SelectOptionProps;
       if (singleOption?.inputLabel && !inputText) {
         return (
-          <div className={classNames(css.prefix, 'reaselct-input-value')}>
+          <div className={classNames(css.prefix, 'select-input-value')}>
             {singleOption?.inputLabel}
           </div>
         );
@@ -311,7 +311,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
   return (
     <div
       ref={containerRef}
-      className={classNames(css.container, 'reaselct-input', className, {
+      className={classNames(css.container, 'select-input', className, {
         [css.disabled]: disabled,
         [css.unfilterable]: !filterable,
         [css.error]: error,
@@ -332,7 +332,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
           required={required}
           autoFocus={autoFocus}
           placeholder={placeholderText}
-          inputClassName={classNames(css.input, 'reaselct-input-input')}
+          inputClassName={classNames(css.input, 'select-input-input')}
           value={inputTextValue}
           autoCorrect="off"
           spellCheck="false"
@@ -350,11 +350,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
             type="button"
             title="Refresh Options"
             disabled={disabled}
-            className={classNames(
-              css.refresh,
-              css.btn,
-              'reaselct-input-refresh'
-            )}
+            className={classNames(css.refresh, css.btn, 'select-input-refresh')}
             onClick={onRefresh}
           >
             {refreshIcon}
@@ -366,7 +362,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
             type="button"
             title="Clear selection"
             disabled={disabled}
-            className={classNames(css.close, css.btn, 'reaselct-input-clear')}
+            className={classNames(css.close, css.btn, 'select-input-clear')}
             onClick={onClearValues}
           >
             {closeIcon}
@@ -377,7 +373,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
             type="button"
             title="Toggle options menu"
             disabled={disabled}
-            className={classNames(css.expand, css.btn, 'reaselct-input-toggle')}
+            className={classNames(css.expand, css.btn, 'select-input-toggle')}
             onClick={onExpandClick}
           >
             {expandIcon}

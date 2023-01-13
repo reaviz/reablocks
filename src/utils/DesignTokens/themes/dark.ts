@@ -253,7 +253,7 @@ export const darkTheme: DesignTokens = {
       'input-background': darkColors.slate['800'],
       'input-color': darkColors.white,
       'input-border-radius': borders.radius.md,
-      'input-border': `solid 1px ${darkColors.gray['500']}`,
+      'input-border': `solid 1px ${darkColors.gray['200']}`,
       'input-spacing-md': `${spacings.sm} ${spacings.md}`,
       'input-spacing-sm': spacings.sm,
       'input-spacing-lg': spacings.lg
@@ -291,33 +291,31 @@ export const darkTheme: DesignTokens = {
     },
     select: {
       'select-input-border-radius': spacings.sm,
-      'select-input-background': darkColors.slate['900'],
+      'select-input-background': darkColors.slate['800'],
       'select-input-border': `solid 1px ${darkColors.slate['200']}`,
       'select-input-color': darkColors.white,
+      'select-input-spacing': `${spacings.sm} ${spacings.md}`,
+      'select-input-error': darkColors.red['100'],
+      'select-input-placeholder-color': darkColors.gray['50'],
+      'select-input-disabled-color': darkColors.gray['100'],
+      'select-input-icon-color': darkColors.gray['50'],
+
+      'select-menu-background': darkColors.slate['800'],
+      'select-menu-border': `solid 1px ${darkColors.slate['200']}`,
+      'select-menu-border-radius': `0 0 ${borders.radius.md} ${borders.radius.md}`,
+      'select-menu-item-color': darkColors.white,
+      'select-menu-group-color': darkColors.slate['50'],
+      'select-menu-item-spacing': `${spacings.sm} ${spacings.md}`,
+      'select-menu-item-active-background': darkColors.slate['500'],
+      'select-menu-item-active-color': darkColors.white,
+      'select-menu-item-selected-color': darkColors.white,
+      'select-menu-item-selected-background': darkColors.blue['200'],
 
       // OLD STYLES : TODO UPDATE
-      'color-select-input-placeholder': 'rgb(145, 145, 145)',
-      'color-select-input-border': '#3c4043',
-      'color-select-input-disabled': 'rgb(145, 145, 145)',
-
-      'color-select-input-error': 'rgba(255, 0, 0, 0.5)',
-      'color-select-input-icon': '#757b80',
-
       'color-select-chip': '#303134',
       'color-select-chip-icon': '#757b80',
       'color-select-chip-border': 'transparent',
-      'color-on-select-chip': '#bdc1c6',
-
-      'color-select-menu-border': '#3c4043',
-      'color-select-menu': '#202124',
-      'color-select-menu-group': 'grey',
-      'color-on-select-menu-item': '#bdc1c6',
-
-      'color-select-menu-item-active': '#303134',
-      'color-on-select-menu-item-active': '#bdc1c6',
-
-      'color-select-menu-item-selected': '#2684FF',
-      'color-on-select-menu-item-selected': '#bdc1c6'
+      'color-on-select-chip': '#bdc1c6'
     }
   }
 };

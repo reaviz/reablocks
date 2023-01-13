@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { SelectOptionProps, SelectValue } from '../SelectOption';
 import Highlighter from 'react-highlight-words';
 import { GroupOptions, GroupOption } from '../utils';
+import { List, ListItem } from '../../../layout/List';
 import css from './SelectMenu.module.css';
 
 export interface SelectMenuProps {
@@ -58,9 +59,9 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
   const renderListItems = useCallback(
     (items: SelectOptionProps[], group?: GroupOption) =>
       items.map((o, i) => (
-        <li
+        <ListItem
           key={`${group?.name}-${o.value}`}
-          className={classNames(css.option, 'reaselct-menu-item', {
+          className={classNames(css.option, 'select-menu-item', {
             [css.selected]: checkOptionSelected(o),
             [css.active]: index === i + (group?.offset || 0),
             [css.diabled]: disabled || o.disabled
@@ -80,7 +81,7 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
               textToHighlight={o.children}
             />
           )}
-        </li>
+        </ListItem>
       )),
     [checkOptionSelected, disabled, index, inputSearchText, onSelectedChange]
   );
@@ -88,7 +89,7 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
   return (
     <motion.div
       style={style}
-      className={classNames(css.menu, className, 'reaselct-menu')}
+      className={classNames(css.menu, className, 'select-menu')}
       initial={{
         opacity: 0,
         y: -20,
@@ -109,10 +110,10 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
         transition: { duration: 0.3, ease: 'anticipate' }
       }}
     >
-      <ul>
+      <List>
         {options?.length === 0 && createable && trimmedText && !loading && (
-          <li
-            className="reaselct-menu-create-option"
+          <ListItem
+            className="select-menu-create-option"
             onClick={event => {
               event.preventDefault();
               event.stopPropagation();
@@ -123,23 +124,25 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
             }}
           >
             Create option &quot;{trimmedText.toLowerCase()}&quot;
-          </li>
+          </ListItem>
         )}
         {options?.length === 0 &&
           !createable &&
           filterable &&
           trimmedText &&
           !loading && (
-            <li className="reaselct-menu-empty-search">
+            <ListItem className="select-menu-empty-search">
               No option(s) for &quot;{trimmedText}&quot;
-            </li>
+            </ListItem>
           )}
         {options?.length === 0 &&
           !createable &&
           filterable &&
           !trimmedText &&
           !loading && (
-            <li className="reaselct-menu-empty">No option(s) available</li>
+            <ListItem className="select-menu-empty">
+              No option(s) available
+            </ListItem>
           )}
         {groups.hasGroups
           ? groups.groups.map(g => (
@@ -147,17 +150,17 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
                 {g.name === 'undefined' ? (
                   renderListItems(g.items, g)
                 ) : (
-                  <li
-                    className={classNames(css.groupItem, 'reaselct-menu-group')}
+                  <ListItem
+                    className={classNames(css.groupItem, 'select-menu-group')}
                   >
-                    <h3 className="reaselct-menu-group-header">{g.name}</h3>
-                    <ul>{renderListItems(g.items, g)}</ul>
-                  </li>
+                    <h3 className="select-menu-group-header">{g.name}</h3>
+                    <List>{renderListItems(g.items, g)}</List>
+                  </ListItem>
                 )}
               </Fragment>
             ))
           : renderListItems(options)}
-      </ul>
+      </List>
     </motion.div>
   );
 };

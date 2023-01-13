@@ -11,6 +11,7 @@
   margin-right: 4px;
   font-size: 12px;
   border-radius: 4px;
+  box-sizing: border-box;
 
   &.disabled {
     cursor: not-allowed;

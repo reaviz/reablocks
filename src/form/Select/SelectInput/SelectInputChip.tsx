@@ -35,7 +35,7 @@ export const SelectInputChip: FC<Partial<SelectInputChipProps>> = ({
 
   return (
     <span
-      className={classNames(css.tag, className, 'reaselct-input-chip')}
+      className={classNames(css.tag, className, 'select-input-chip')}
       title={origLabel as string}
       tabIndex={-1}
       onKeyDown={event => onTagKeyDown(event, option)}
