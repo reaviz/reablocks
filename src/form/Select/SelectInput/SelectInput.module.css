@@ -115,17 +115,7 @@
     }
 
     .loader {
-      display: flex;
-      align-items: center;
       margin-right: 10px;
-
-      div {
-        margin-left: 10px;
-        border-radius: 50%;
-        height: 2px;
-        width: 2px;
-        background: var(--color-select-input-icon);
-      }
     }
 
     .btn {

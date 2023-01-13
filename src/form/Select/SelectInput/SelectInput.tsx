@@ -393,6 +393,6 @@ SelectInput.defaultProps = {
   expandIcon: <DownArrowIcon />,
   closeIcon: <CloseIcon />,
   refreshIcon: <RefreshIcon />,
-  loadingIcon: <DotsLoader />,
+  loadingIcon: <DotsLoader size="small" />,
   chip: <SelectInputChip />
 };
