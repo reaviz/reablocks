@@ -51,6 +51,7 @@
 - Menu
 - Context Menu
 - Select
+- Loader
 
 ### Utilities
 - Design Token Provider
