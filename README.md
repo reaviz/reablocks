@@ -50,6 +50,7 @@
 - Notification
 - Menu
 - Context Menu
+- Select
 
 ### Utilities
 - Design Token Provider
