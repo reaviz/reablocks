@@ -253,7 +253,7 @@ export const darkTheme: DesignTokens = {
       'input-background': darkColors.slate['800'],
       'input-color': darkColors.white,
       'input-border-radius': borders.radius.md,
-      'input-border': `solid 1px ${darkColors.gray['500']}`,
+      'input-border': `solid 1px ${darkColors.gray['200']}`,
       'input-spacing-md': `${spacings.sm} ${spacings.md}`,
       'input-spacing-sm': spacings.sm,
       'input-spacing-lg': spacings.lg
@@ -285,6 +285,36 @@ export const darkTheme: DesignTokens = {
       'notification-color-error': darkColors.red['100'],
       'notification-color-warning': darkColors.orange['100'],
       'notification-color-success': darkColors.green['100']
+    },
+    loader: {
+      'loader-background': darkColors.gray['100']
+    },
+    select: {
+      'select-input-border-radius': spacings.sm,
+      'select-input-background': darkColors.slate['800'],
+      'select-input-border': `solid 1px ${darkColors.slate['200']}`,
+      'select-input-color': darkColors.white,
+      'select-input-spacing': `${spacings.sm} ${spacings.md}`,
+      'select-input-error': darkColors.red['100'],
+      'select-input-placeholder-color': darkColors.gray['50'],
+      'select-input-disabled-color': darkColors.gray['100'],
+      'select-input-icon-color': darkColors.gray['50'],
+
+      'select-menu-background': darkColors.slate['800'],
+      'select-menu-border': `solid 1px ${darkColors.slate['200']}`,
+      'select-menu-border-radius': `0 0 ${borders.radius.md} ${borders.radius.md}`,
+      'select-menu-item-color': darkColors.white,
+      'select-menu-group-color': darkColors.slate['50'],
+      'select-menu-item-spacing': `${spacings.sm} ${spacings.md}`,
+      'select-menu-item-active-background': darkColors.slate['500'],
+      'select-menu-item-active-color': darkColors.white,
+      'select-menu-item-selected-color': darkColors.white,
+      'select-menu-item-selected-background': darkColors.blue['200'],
+
+      'select-chip-background': darkColors.slate['300'],
+      'select-chip-border': `solid 1px ${darkColors.slate['900']}`,
+      'select-chip-color': darkColors.white,
+      'select-chip-icon-color': darkColors.slate['50']
     }
   }
 };

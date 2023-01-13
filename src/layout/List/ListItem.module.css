@@ -39,6 +39,10 @@
 
   &.dense {
     padding: var(--list-item-dense-spacing);
+
+    .content {
+      font-size: 95%;
+    }
   }
 
   &.disableGutters {

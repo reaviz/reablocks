@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+
+  div {
+    margin-left: var(--spacing-md);
+    border-radius: 50%;
+    background: var(--loader-background);
+  }
+
+  &.small div {
+    height: 3px;
+    width: 3px;
+  }
+
+  &.medium div {
+    height: 5px;
+    width: 5px;
+  }
+
+  &.large div {
+    height: 7px;
+    width: 7px;
+  }
+}
