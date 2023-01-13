@@ -285,6 +285,9 @@ export const darkTheme: DesignTokens = {
       'notification-color-error': darkColors.red['100'],
       'notification-color-warning': darkColors.orange['100'],
       'notification-color-success': darkColors.green['100']
+    },
+    loader: {
+      'loader-background': darkColors.gray['100']
     }
   }
 };
