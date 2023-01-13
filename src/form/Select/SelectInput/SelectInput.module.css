@@ -1,15 +1,16 @@
 .container {
   display: flex;
   flex-wrap: nowrap;
-  background: var(--color-select-input);
-  border-radius: var(--select-border-radius);
-  border: solid 1px var(--color-select-input-border);
+  background: var(--select-input-background);
+  border-radius: var(--select-input-border-radius);
+  border: var(--select-input-border);
   align-items: center;
   padding: 0 12px;
   min-height: 38px;
 
   &.open {
-    border-radius: var(--select-border-radius) var(--select-border-radius) 0 0;
+    border-radius: var(--select-input-border-radius)
+      var(--select-input-border-radius) 0 0;
   }
 
   &:not(.disabled) {
@@ -45,7 +46,7 @@
     background: transparent;
     border: none;
     font-size: 13px;
-    color: var(--color-on-select-input);
+    color: var(--select-input-color);
     font-family: inherit;
     vertical-align: middle;
 

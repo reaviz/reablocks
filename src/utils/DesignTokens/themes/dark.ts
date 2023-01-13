@@ -290,8 +290,12 @@ export const darkTheme: DesignTokens = {
       'loader-background': darkColors.gray['100']
     },
     select: {
-      'color-select-input': '#202124',
-      'color-on-select-input': '#bdc1c6',
+      'select-input-border-radius': spacings.sm,
+      'select-input-background': darkColors.slate['900'],
+      'select-input-border': `solid 1px ${darkColors.slate['200']}`,
+      'select-input-color': darkColors.white,
+
+      // OLD STYLES : TODO UPDATE
       'color-select-input-placeholder': 'rgb(145, 145, 145)',
       'color-select-input-border': '#3c4043',
       'color-select-input-disabled': 'rgb(145, 145, 145)',
@@ -308,7 +312,6 @@ export const darkTheme: DesignTokens = {
       'color-select-menu': '#202124',
       'color-select-menu-group': 'grey',
       'color-on-select-menu-item': '#bdc1c6',
-      'select-border-radius': '4px',
 
       'color-select-menu-item-active': '#303134',
       'color-on-select-menu-item-active': '#bdc1c6',
