@@ -1,6 +1,6 @@
 <div align="center">
   <h1>reablocks</h1>
-  Low level components for React.
+  UI components for React.
   <br /><br />
   <a href="https://github.com/reaviz/reablocks/actions/workflows/build.yml">
     <img src="https://github.com/reaviz/reablocks/actions/workflows/build.yml/badge.svg" />
