@@ -24,37 +24,156 @@ import { createOptions, getGroups } from './utils';
 import isEqual from 'react-fast-compare';
 
 export interface SelectProps {
+  /**
+   * The id of the select.
+   */
   id?: string;
+
+  /**
+   * The form name of the select.
+   */
   name?: string;
+
+  /**
+   * Additional CSS style attributes to apply to the select.
+   */
   style?: React.CSSProperties;
+
+  /**
+   * Additional class names to apply to the select.
+   */
   className?: string;
+
+  /**
+   * Set the select to disabled state.
+   */
   disabled?: boolean;
+
+  /**
+   * Auto focus the select on render.
+   */
   autoFocus?: boolean;
+
+  /**
+   * Close the select after you select an option.
+   */
   closeOnSelect?: boolean;
+
+  /**
+   * The value of the select.
+   */
   value?: string | string[];
+
+  /**
+   * Whether the select is required or not.
+   */
   required?: boolean;
+
+  /**
+   * Whether the select is multi or single select.
+   */
   multiple?: boolean;
+
+  /**
+   * Default placeholder text.
+   */
   placeholder?: string;
+
+  /**
+   * Whether you can filter the select options.
+   */
   filterable?: boolean;
+
+  /**
+   * Whether you can clear the select after selection.
+   */
   clearable?: boolean;
+
+  /**
+   * Whether the select is in loading state or not.
+   */
   loading?: boolean;
+
+  /**
+   * Whether you can refresh the async values or not.
+   */
   refreshable?: boolean;
+
+  /**
+   * Whether you can create new options or not.
+   */
   createable?: boolean;
+
+  /**
+   * The options of the select.
+   */
   children?: any;
+
+  /**
+   * Whether the select has an error state or not.
+   */
   error?: boolean;
+
+  /**
+   * The placement options for the menu.
+   */
   menuPlacement?: Placement;
+
+  /**
+   * Whether the menu is disabled or not.
+   */
   menuDisabled?: boolean;
+
+  /**
+   * When the input receives a key down event.
+   */
   onInputKeydown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+
+  /**
+   * When the input receives a key up event.
+   */
   onInputKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+
+  /**
+   * When the select was focused.
+   */
   onFocus?: (
     event: React.FocusEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement>
   ) => void;
+
+  /**
+   * When the select was blurred.
+   */
   onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
+
+  /**
+   * When the select input value changed.
+   */
   onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+
+  /**
+   * When the user manually refreshed the options.
+   */
   onRefresh?: () => void;
+
+  /**
+   * When the value changes.
+   */
   onChange?: (value) => void;
+
+  /**
+   * When a new option is added or removed.
+   */
   onOptionsChange?: (options: SelectOptionProps[]) => void;
+
+  /**
+   * Input override component.
+   */
   input?: ReactElement<SelectInputProps, typeof SelectInput>;
+
+  /**
+   * Menu component override.
+   */
   menu?: ReactElement<SelectMenuProps, typeof SelectMenu>;
 }
 

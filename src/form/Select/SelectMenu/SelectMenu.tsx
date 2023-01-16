@@ -8,19 +8,74 @@ import { List, ListItem } from '../../../layout/List';
 import css from './SelectMenu.module.css';
 
 export interface SelectMenuProps {
+  /**
+   * The id of the select.
+   */
   id?: string;
+
+  /**
+   * Options passed to the select.
+   */
   options: SelectOptionProps[];
+
+  /**
+   * The selected option(s).
+   */
   selectedOption?: SelectOptionProps | SelectOptionProps[];
+
+  /**
+   * Additional CSS styles to apply to the select menu.
+   */
   style?: React.CSSProperties;
+
+  /**
+   * Whether the menu is disabled or not.
+   */
   disabled?: boolean;
+
+  /**
+   * The groups of options.
+   */
   groups?: GroupOptions;
+
+  /**
+   * Whether users can create options or not.
+   */
   createable?: boolean;
+
+  /**
+   * Additional class names to apply to the select menu.
+   */
   className?: string;
+
+  /**
+   * Whether the menu can select multiples or not.
+   */
   multiple?: boolean;
+
+  /**
+   * Internal active index of the keyboard position.
+   */
   index: number;
+
+  /**
+   * The input's search text to use for highlighting.
+   */
   inputSearchText: string;
+
+  /**
+   * Whether users can filter the options or not.
+   */
   filterable?: boolean;
+
+  /**
+   * Whether the component is loading or not.
+   */
   loading?: boolean;
+
+  /**
+   * Event fired when the selected option(s) change.
+   */
   onSelectedChange: (option: SelectValue) => void;
 }
 
