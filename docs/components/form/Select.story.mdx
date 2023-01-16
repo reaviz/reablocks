@@ -1,9 +1,72 @@
-import { Meta, Story, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, ArgsTable, Canvas } from '@storybook/addon-docs/blocks';
 import { Select, SelectOption, SelectMenu, SelectInput, SelectInputChip } from '../../../src/form/Select';
 
 <Meta title="Docs/Components/Form/Select" />
 
 # Select
+A select component that features:
+
+- Single Select
+- Multi Select
+- Tag / Creation of options
+- Filtering with Fuzzy Search
+- Async Support
+- Groups Support
+- Animation
+
+## Example
+<Canvas>
+  <Story id="components-form-select-single--basic" />
+</Canvas>
+
+## Styling
+
+### CSS Classes
+The select component exposes the following CSS class names for custom
+styling.
+
+- `select-input`
+- `select-input-value`
+- `select-input-refresh`
+- `select-input-clear`
+- `select-input-toggle`
+- `select-input-chip`
+- `select-menu`
+- `select-menu-item`
+- `select-menu-create-option`
+- `select-menu-empty-search`
+- `select-menu-empty`
+- `select-menu-group`
+- `select-menu-group-header`
+
+### CSS Variables
+The select component exposes the following CSS variables for customization.
+If you are using the `DesignTokenProvider` these options should be defined
+there already.
+
+- `--select-input-border-radius`
+- `--select-input-background`
+- `--select-input-border`
+- `--select-input-color`
+- `--select-input-spacing`
+- `--select-input-error`
+- `--select-input-placeholder-color`
+- `--select-input-disabled-color`
+- `--select-input-icon-color`
+- `--select-menu-background`
+- `--select-menu-border`
+- `--select-menu-border-radius`
+- `--select-menu-item-color`
+- `--select-menu-group-color`
+- `--select-menu-item-spacing`
+- `--select-menu-item-active-background`
+- `--select-menu-item-active-color`
+- `--select-menu-item-selected-color`
+- `--select-menu-item-selected-background`
+- `--select-chip-background`
+- `--select-chip-border`
+- `--select-chip-color`
+- `--select-chip-icon-color`
 
 ## API
 
