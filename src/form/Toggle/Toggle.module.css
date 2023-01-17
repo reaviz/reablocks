@@ -1,0 +1,63 @@
+.switch {
+  /** TODO: Improve this sizing logic */
+  --toggle-width: 55px;
+  --toggle-height: 35px;
+  --toggle-handle-size: 25px;
+  --toggle-padding: var(--toggle-spacing);
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: var(--toggle-border-radius);
+  cursor: pointer;
+  background-color: var(--toggle-background);
+  box-sizing: border-box;
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+  }
+
+  &.small {
+    height: calc(var(--toggle-height) / 2);
+    width: calc(var(--toggle-width) / 2);
+    padding: calc(var(--toggle-padding) / 2);
+
+    .handle {
+      height: calc(var(--toggle-handle-size) / 2);
+      width: calc(var(--toggle-handle-size) / 2);
+    }
+  }
+
+  &.medium {
+    height: calc(var(--toggle-height) / 1.5);
+    width: calc(var(--toggle-width) / 1.5);
+    padding: calc(var(--toggle-padding) / 1.5);
+
+    .handle {
+      height: calc(var(--toggle-handle-size) / 1.5);
+      width: calc(var(--toggle-handle-size) / 1.5);
+    }
+  }
+
+  &.large {
+    height: var(--toggle-height);
+    width: var(--toggle-width);
+    padding: var(--toggle-padding);
+
+    .handle {
+      height: var(--toggle-handle-size);
+      width: var(--toggle-handle-size);
+    }
+  }
+
+  &.checked {
+    justify-content: flex-end;
+    background-color: var(--toggle-handle-checked-background);
+  }
+
+  .handle {
+    background-color: var(--toggle-handle-background);
+    border-radius: var(--toggle-handle-border-radius);
+  }
+}
