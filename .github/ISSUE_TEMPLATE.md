@@ -44,7 +44,7 @@ https://codesandbox.io/embed/m7rl2z1989
 <pre><code>
 Libs:
 - react version: X.Y.Z
-- realayers version: X.Y.Z
+- reablocks version: X.Y.Z
 <!-- Check whether this is still an issue in the most recent React version -->
 
 Browser:
