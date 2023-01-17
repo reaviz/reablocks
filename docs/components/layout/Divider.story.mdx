@@ -6,28 +6,13 @@ import { Divider } from '../../../src/layout/Divider';
 # Divider
 A simple divider component that supports horizontal and vertical.
 
-## Usage
+## Design tokens
 This component uses the following design tokens:
 
 - `divider-spacing`: Margins to be applied to the component.
 - `divider-bg`: Color to be applied to the component.
 
-If you are using the `DesignTokensProvider`, you can override these using
-the following namespace:
-
-```ts
-import { DesignTokens } from 'reablocks';
-
-const customTheme: DesignTokens = {
-  ...yourTheme,
-  components: {
-    divider: {
-      'divider-spacing': yourTheme.spacings.md,
-      'divider-background': yourTheme.colors.gray['500']
-    }
-  }
-};
-```
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
 
 ## Example
 <Canvas>
