@@ -70,9 +70,9 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
         [css[color]]: true,
         [css[variant]]: true,
         [css[size]]: true,
-        [css.selectable]: onClick && !disabled,
         [css.selected]: !!selected,
         [css.disabled]: disabled,
+        [css.selectable]: onClick && !disabled,
         [css.disableMargins]: disableMargins
       })}
     >
