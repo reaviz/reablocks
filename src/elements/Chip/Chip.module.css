@@ -9,11 +9,6 @@
     will-change: fill;
   }
 
-  .contents {
-    display: flex;
-    align-items: center;
-  }
-
   &.small {
     padding: var(--spacing-xs) var(--spacing-xs);
     font-size: 10px;
@@ -240,24 +235,6 @@
         border-color: var(--info-background-hover);
         color: var(--info-color-hover);
       }
-    }
-  }
-
-  .label {
-    padding: 0 var(--spacing-xs);
-  }
-
-  .delete {
-    justify-self: flex-end;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: var(--spacing-xs);
-
-    svg {
-      width: 9px;
-      height: 9px;
-      margin-right: 0;
     }
   }
 

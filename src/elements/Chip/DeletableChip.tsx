@@ -1,9 +1,8 @@
 import { FC, forwardRef, Ref, ReactElement } from 'react';
-import classNames from 'classnames';
 import { Button } from '../Button';
-import { ChipProps } from './Chip';
+import { Chip, ChipProps } from './Chip';
 import { CloseIcon } from '../../form/Select/icons';
-import css from './Chip.module.css';
+import css from './DeletableChip.module.css';
 
 export interface DeletableChipProps extends ChipProps {
   /**
@@ -28,39 +27,10 @@ export interface ChipRef {
 
 export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
   (
-    {
-      children,
-      color,
-      variant,
-      size,
-      start,
-      selected,
-      disabled,
-      className,
-      disableMargins,
-      deleteIcon,
-      onClick,
-      onDelete,
-      ...rest
-    },
+    { children, start, disabled, deleteIcon, onDelete, ...rest },
     ref: Ref<HTMLDivElement>
   ) => (
-    <div
-      {...rest}
-      ref={ref}
-      tabIndex={onClick ? 0 : -1}
-      onClick={onClick}
-      className={classNames(className, css.chip, {
-        [css[color]]: true,
-        [css[variant]]: true,
-        [css[size]]: true,
-        [css.selected]: !!selected,
-        [css.disabled]: disabled,
-        [css.selectable]: onClick && !disabled,
-        [css.canDelete]: !!onDelete,
-        [css.disableMargins]: disableMargins
-      })}
-    >
+    <Chip ref={ref} disabled={disabled} {...rest}>
       <div className={css.contents}>
         {start && start}
         <span className={css.label}>{children}</span>
@@ -79,11 +49,11 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
             disableMargins
             disablePadding
           >
-            <CloseIcon />
+            {deleteIcon}
           </Button>
         )}
       </div>
-    </div>
+    </Chip>
   )
 );
 
