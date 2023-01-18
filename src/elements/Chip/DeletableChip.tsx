@@ -1,15 +1,9 @@
-import { FC, forwardRef, Ref, ReactElement } from 'react';
+import React, { FC, forwardRef, Ref, ReactElement } from 'react';
 import { Button } from '../Button';
 import { Chip, ChipProps } from './Chip';
 import { CloseIcon } from '../../form/Select/icons';
-import css from './DeletableChip.module.css';
 
-export interface DeletableChipProps extends ChipProps {
-  /**
-   * Content to display before the chip label.
-   */
-  start?: ReactElement | string;
-
+export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
   /**
    * Customize delete icon.
    */
@@ -27,32 +21,32 @@ export interface ChipRef {
 
 export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
   (
-    { children, start, disabled, deleteIcon, onDelete, ...rest },
+    { children, disabled, deleteIcon, onDelete, ...rest },
     ref: Ref<HTMLDivElement>
   ) => (
-    <Chip ref={ref} disabled={disabled} {...rest}>
-      <div className={css.contents}>
-        {start && start}
-        <span className={css.label}>{children}</span>
-        {onDelete && (
-          <Button
-            tabIndex={0}
-            variant="text"
-            className={css.delete}
-            onClick={event => {
-              if (!disabled) {
-                event.stopPropagation();
-                onDelete();
-              }
-            }}
-            disabled={disabled}
-            disableMargins
-            disablePadding
-          >
-            {deleteIcon}
-          </Button>
-        )}
-      </div>
+    <Chip
+      ref={ref}
+      disabled={disabled}
+      end={
+        <Button
+          tabIndex={0}
+          variant="text"
+          onClick={event => {
+            if (!disabled) {
+              event.stopPropagation();
+              onDelete?.();
+            }
+          }}
+          disabled={disabled}
+          disableMargins
+          disablePadding
+        >
+          {deleteIcon}
+        </Button>
+      }
+      {...rest}
+    >
+      {children}
     </Chip>
   )
 );

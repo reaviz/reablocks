@@ -1,8 +1,8 @@
-import React, { FC, forwardRef, Ref } from 'react';
+import React, { FC, forwardRef, ReactElement, Ref } from 'react';
 import classNames from 'classnames';
 import css from './Chip.module.css';
 
-export interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Color variant for the chip.
    */
@@ -39,6 +39,16 @@ export interface ChipProps extends React.HTMLAttributes<HTMLSpanElement> {
    * Whether to disable the margins.
    */
   disableMargins?: boolean;
+
+  /**
+   * Content to display before the chip label.
+   */
+  start?: ReactElement | string;
+
+  /**
+   * Content to display before the chip label.
+   */
+  end?: ReactElement | string;
 }
 
 export interface ChipRef {
@@ -56,6 +66,8 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       disabled,
       className,
       disableMargins,
+      start,
+      end,
       onClick,
       ...rest
     },
@@ -76,7 +88,9 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
         [css.disableMargins]: disableMargins
       })}
     >
-      {children}
+      {start && <div className={css.start}>{start}</div>}
+      <div className={css.content}>{children}</div>
+      {end && <div className={css.end}>{end}</div>}
     </div>
   )
 );
