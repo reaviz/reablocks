@@ -6,9 +6,7 @@ export default {
 };
 
 export const Variants = () => (
-  <div
-    style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-md)' }}
-  >
+  <div style={{ display: 'flex', gap: 10 }}>
     <Button variant="filled">Filled</Button>
     <Button variant="outline">Outline</Button>
     <Button variant="text">Text</Button>
@@ -16,9 +14,7 @@ export const Variants = () => (
 );
 
 export const Colors = () => (
-  <div
-    style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-md)' }}
-  >
+  <div style={{ display: 'flex', gap: 10 }}>
     <Button>Default</Button>
     <Button color="primary">Primary</Button>
     <Button color="secondary">Secondary</Button>
@@ -30,9 +26,7 @@ export const Colors = () => (
 );
 
 export const Sizes = () => (
-  <div
-    style={{ display: 'flex', alignItems: 'center', gap: 'var(--spacing-md)' }}
-  >
+  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
     <Button size="small">Small</Button>
     <Button size="medium">Medium</Button>
     <Button size="large">Large</Button>

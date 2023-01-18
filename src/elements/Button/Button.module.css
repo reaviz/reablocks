@@ -3,7 +3,7 @@
   border: var(--button-border);
   border-radius: var(--button-border-radius);
   display: inline-block;
-  font-family: var(--font-family);
+  font-family: var(--button-font-family);
   font-weight: var(--button-font-weight);
   white-space: nowrap;
   user-select: none;

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Chip } from './Chip';
 
 export default {
@@ -7,7 +7,7 @@ export default {
 };
 
 export const Colors = () => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+  <div style={{ display: 'flex', gap: 10 }}>
     <Chip>Default</Chip>
     <Chip color="primary">Primary</Chip>
     <Chip color="secondary">Secondary</Chip>
@@ -27,17 +27,18 @@ export const Sizes = () => (
 );
 
 export const Variants = () => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+  <div style={{ display: 'flex', gap: 10 }}>
     <Chip variant="filled">Filled</Chip>
     <Chip variant="outline">Outline</Chip>
   </div>
 );
 
-export const Selectable = () => (
-  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-    <Chip onClick={() => console.log('click!')} selected>
-      Selected
+export const Selectable = () => {
+  const [state, setState] = useState(false);
+
+  return (
+    <Chip onClick={() => setState(!state)} selected={state}>
+      Selectable
     </Chip>
-    <Chip onClick={() => console.log('click!')}>Unselected</Chip>
-  </div>
-);
+  );
+};
