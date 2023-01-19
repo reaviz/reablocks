@@ -4,7 +4,7 @@
   width: 100%;
 
   .label {
-    color: var(--gray-300);
+    color: var(--checkbox-color);
     margin-left: var(--spacing-md);
     width: 100%;
 
@@ -12,6 +12,10 @@
       cursor: pointer;
     }
   }
+}
+
+.check {
+  stroke: var(--checkbox-check-stroke);
 }
 
 .checkbox {

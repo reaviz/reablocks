@@ -324,6 +324,13 @@ export const darkTheme: DesignTokens = {
       'toggle-handle-background': darkColors.gray['300'],
       'toggle-handle-checked-background': darkColors.blue['50'],
       'toggle-handle-border-radius': borders.radius.lg
+    },
+    radio: {},
+    checkbox: {
+      'checkbox-color': darkColors.white,
+      'checkbox-check-stroke': darkColors.blue['100'],
+      'checkbox-box-checked-stroke': darkColors.slate['100'],
+      'checkbox-box-unchecked-stroke': darkColors.slate['100']
     }
   }
 };

@@ -56,11 +56,11 @@ export interface CheckboxProps {
   onBlur?: (event: React.FocusEvent<HTMLDivElement>) => void;
 }
 
-export const Checkbox: FC<
-  CheckboxProps & {
-    ref?: Ref<HTMLDivElement>;
-  }
-> = forwardRef(
+export interface CheckboxRef {
+  ref?: Ref<HTMLDivElement>;
+}
+
+export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
   (
     {
       checked,
@@ -88,10 +88,17 @@ export const Checkbox: FC<
     };
 
     const boxVariants = {
-      hover: { strokeWidth: 1, stroke: theme.palettes.primary.background },
+      hover: {
+        strokeWidth: 1,
+        stroke: theme.components.checkbox['checkbox-box-checked-stroke']
+      },
       pressed: { scale: 0.95 },
-      checked: { stroke: theme.palettes.primary.background },
-      unchecked: { stroke: theme.colors.gray[300] }
+      checked: {
+        stroke: theme.components.checkbox['checkbox-box-checked-stroke']
+      },
+      unchecked: {
+        stroke: theme.components.checkbox['checkbox-box-unchecked-stroke']
+      }
     };
 
     return (
@@ -134,7 +141,7 @@ export const Checkbox: FC<
                 d="M 5.36396 8.17792 L 10.6044 8.17792"
                 fill="transparent"
                 strokeWidth="1"
-                stroke={theme.palettes.primary.background}
+                className={css.check}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}
                 custom={checked}
@@ -144,7 +151,7 @@ export const Checkbox: FC<
                 d="M 5.36396 8.17792 L 7.34236 9.91424 L 10.6044 5.832"
                 fill="transparent"
                 strokeWidth="1"
-                stroke={theme.palettes.primary.background}
+                className={css.check}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}
                 custom={checked}
@@ -159,7 +166,7 @@ export const Checkbox: FC<
             })}
             onClick={() => {
               if (!disabled && onChange) {
-                onChange(!checked);
+                onChange?.(!checked);
               }
             }}
           >
