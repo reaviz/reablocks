@@ -8,7 +8,7 @@ export default {
 
 export const Simple = () => {
   const [state, setState] = useState(true);
-  return <Radio checked={state} onChange={setState} />;
+  return <Radio checked={state} label="Label" onChange={setState} />;
 };
 
 export const Disabled = () => {
@@ -21,13 +21,13 @@ export const Sizes = () => {
 
   return (
     <Fragment>
-      <Radio checked={state} onChange={setState} size="small" label="small" />
+      <Radio checked={state} onChange={setState} size="small" label="Small" />
       <br />
       <br />
-      <Radio checked={state} onChange={setState} size="medium" label="medium" />
+      <Radio checked={state} onChange={setState} size="medium" label="Medium" />
       <br />
       <br />
-      <Radio checked={state} onChange={setState} size="large" label="large" />
+      <Radio checked={state} onChange={setState} size="large" label="Large" />
     </Fragment>
   );
 };

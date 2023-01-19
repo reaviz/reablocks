@@ -1,12 +1,13 @@
 .container {
-  display: inline-flex;
-  align-items: center;
   width: 100%;
+  box-sizing: border-box;
+  line-height: 1;
 
   .label {
-    color: var(--gray-300);
+    color: var(--radio-label-color);
     margin-left: var(--spacing-md);
     width: 100%;
+    vertical-align: middle;
 
     &.clickable {
       cursor: pointer;
@@ -15,12 +16,14 @@
 }
 
 .radio {
-  border: 1px solid var(--radio-color);
+  border: 1px solid var(--radio-stroke);
   border-radius: 100%;
   will-change: border-color;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+  box-sizing: border-box;
+  vertical-align: middle;
 
   &:hover {
     cursor: pointer;
@@ -28,11 +31,11 @@
 
   .indicator {
     border-radius: 100%;
-    background-color: var(--radio-color-active);
+    background-color: var(--radio-indicator-active);
   }
 
   &.checked {
-    border-color: var(--radio-color-active);
+    border-color: var(--radio-stroke-active);
   }
 
   &.small {
@@ -40,8 +43,8 @@
     height: 14px;
 
     .indicator {
-      width: 7px;
-      height: 7px;
+      width: 6px;
+      height: 6px;
     }
   }
 
@@ -66,11 +69,7 @@
   }
 
   &.disabled {
-    border-color: var(--disabled-background);
     cursor: not-allowed;
-
-    .indicator {
-      background-color: var(--disabled-background);
-    }
+    opacity: 0.6;
   }
 }

@@ -4,7 +4,7 @@
   width: 100%;
 
   .label {
-    color: var(--checkbox-color);
+    color: var(--checkbox-label-color);
     margin-left: var(--spacing-md);
     width: 100%;
 

@@ -45,11 +45,11 @@ const VARIANTS = {
   uncheck: { opacity: 0, scale: 0 }
 };
 
-export const Radio: FC<
-  RadioProps & {
-    ref?: Ref<HTMLDivElement>;
-  }
-> = forwardRef(
+export interface RadioRef {
+  ref?: Ref<HTMLDivElement>;
+}
+
+export const Radio: FC<RadioProps & RadioRef> = forwardRef(
   (
     { checked, label, disabled, onChange, onBlur, className, size, ...rest },
     ref: Ref<HTMLDivElement>
@@ -66,13 +66,13 @@ export const Radio: FC<
         })}
         onClick={() => {
           if (!disabled && onChange) {
-            onChange(!checked);
+            onChange?.(!checked);
           }
         }}
         onBlur={onBlur}
         onKeyDown={event => {
           if (!disabled && onChange && event.code === 'Space') {
-            onChange(!checked);
+            onChange?.(!checked);
           }
         }}
       >
