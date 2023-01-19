@@ -1,0 +1,75 @@
+.container {
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1;
+
+  .label {
+    color: var(--radio-label-color);
+    margin-left: var(--spacing-md);
+    width: 100%;
+    vertical-align: middle;
+
+    &.clickable {
+      cursor: pointer;
+    }
+  }
+}
+
+.radio {
+  border: 1px solid var(--radio-stroke);
+  border-radius: 100%;
+  will-change: border-color;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  vertical-align: middle;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .indicator {
+    border-radius: 100%;
+    background-color: var(--radio-indicator-active);
+  }
+
+  &.checked {
+    border-color: var(--radio-stroke-active);
+  }
+
+  &.small {
+    width: 14px;
+    height: 14px;
+
+    .indicator {
+      width: 6px;
+      height: 6px;
+    }
+  }
+
+  &.medium {
+    width: 16px;
+    height: 16px;
+
+    .indicator {
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  &.large {
+    width: 20px;
+    height: 20px;
+
+    .indicator {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}

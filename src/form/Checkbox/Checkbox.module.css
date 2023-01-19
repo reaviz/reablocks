@@ -1,0 +1,50 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+
+  .label {
+    color: var(--checkbox-label-color);
+    margin-left: var(--spacing-md);
+    width: 100%;
+
+    &.clickable {
+      cursor: pointer;
+    }
+  }
+}
+
+.check {
+  stroke: var(--checkbox-check-stroke);
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &.small {
+    min-width: 14px;
+    min-height: 14px;
+  }
+
+  &.medium {
+    min-width: 16px;
+    min-height: 16px;
+  }
+
+  &.large {
+    min-width: 20px;
+    min-height: 20px;
+  }
+
+  &:focus-visible {
+    outline: none;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    opacity: 0.75;
+  }
+}
