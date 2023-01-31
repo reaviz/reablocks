@@ -5,8 +5,8 @@
   "scripts": {
     "build": "rollup -c",
     "prettier": "prettier --loglevel warn --write 'src/**/*.{ts,tsx,js,jsx}'",
-    "start": "start-storybook -p 9009",
-    "build-storybook": "build-storybook",
+    "start": "export NODE_OPTIONS=--openssl-legacy-provider && start-storybook -p 9009",
+    "build-storybook": "export NODE_OPTIONS=--openssl-legacy-provider && build-storybook",
     "lint": "eslint --ext js,ts,tsx",
     "lint:fix": "eslint --ext js,ts,tsx --fix src",
     "copy": "cp CNAME storybook-static/",
