@@ -1,4 +1,5 @@
 .chip {
+  font-family: var(--chip-font-family);
   display: inline-flex;
   align-items: center;
   border-radius: var(--chip-border-radius);
@@ -37,6 +38,11 @@
       width: 10px;
       height: 10px;
     }
+
+    .deleteButton {
+      line-height: 10px;
+      max-height: 10px;
+    }
   }
 
   &.medium {
@@ -47,6 +53,11 @@
       width: 12px;
       height: 12px;
     }
+
+    .deleteButton {
+      line-height: 12px;
+      max-height: 12px;
+    }
   }
 
   &.large {
@@ -56,6 +67,11 @@
     svg {
       width: 14px;
       height: 14px;
+    }
+
+    .deleteButton {
+      line-height: 14px;
+      max-height: 14px;
     }
   }
 

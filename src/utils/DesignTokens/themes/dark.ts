@@ -210,30 +210,9 @@ export const darkTheme: DesignTokens = {
     }
   },
   components: {
-    divider: {
-      'divider-spacing': spacings.md,
-      'divider-background': darkColors.gray['500']
-    },
-    card: {
-      'card-border-radius': borders.radius.md,
-      'card-spacing': spacings.md,
-      'card-background': darkColors.slate['800'],
-      'card-color': darkColors.slate['50']
-    },
-    chip: {
-      'chip-background': darkColors.gray['200'],
-      'chip-background-hover': darkColors.gray['100'],
-      'chip-color': darkColors.white,
-      'chip-color-hover': darkColors.gray['50'],
-      'chip-border-radius': borders.radius.md
-    },
     block: {
       'block-spacing': spacings.md,
       'block-label-spacing': spacings.xs
-    },
-    list: {
-      'list-item-spacing': spacings.md,
-      'list-item-dense-spacing': spacings.sm
     },
     button: {
       'button-font-weight': '500',
@@ -250,28 +229,54 @@ export const darkTheme: DesignTokens = {
       'button-focus': darkColors.blue['100'],
       'button-focus-offset': spacings.xs
     },
-    input: {
-      'input-background': darkColors.slate['800'],
-      'input-color': darkColors.white,
-      'input-border-radius': borders.radius.md,
-      'input-border': `solid 1px ${darkColors.gray['200']}`,
-      'input-spacing-md': `${spacings.sm} ${spacings.md}`,
-      'input-spacing-sm': spacings.sm,
-      'input-spacing-lg': spacings.lg
+    card: {
+      'card-border': '0',
+      'card-border-radius': borders.radius.md,
+      'card-spacing': spacings.md,
+      'card-background': darkColors.slate['800'],
+      'card-color': darkColors.slate['50']
+    },
+    checkbox: {
+      'checkbox-label-color': darkColors.white,
+      'checkbox-check-stroke': darkColors.blue['100'],
+      'checkbox-box-checked-stroke': darkColors.slate['100'],
+      'checkbox-box-unchecked-stroke': darkColors.slate['100']
+    },
+    chip: {
+      'chip-font-family': 'var(--font-family)',
+      'chip-background': darkColors.gray['200'],
+      'chip-background-hover': darkColors.gray['100'],
+      'chip-color': darkColors.white,
+      'chip-color-hover': darkColors.gray['50'],
+      'chip-border-radius': borders.radius.md
     },
     dialog: {
       'dialog-background': darkColors.slate['800'],
       'dialog-color': darkColors.white
     },
+    divider: {
+      'divider-spacing': spacings.md,
+      'divider-background': darkColors.gray['500']
+    },
     drawer: {
       'drawer-background': darkColors.slate['800'],
       'drawer-color': darkColors.white
     },
-    tooltip: {
-      'tooltip-background': darkColors.slate['500'],
-      'tooltip-color': darkColors.white,
-      'tooltip-border-radius': borders.radius.md,
-      'tooltip-spacing': spacings.sm
+    input: {
+      'input-background': darkColors.slate['800'],
+      'input-color': darkColors.white,
+      'input-color-placeholder': darkColors.gray['200'],
+      'input-placeholder-style': 'italic',
+      'input-border': `solid 1px ${darkColors.gray['200']}`,
+      'input-border-radius': borders.radius.md,
+      'input-border-focus': darkColors.gray['100'],
+      'input-spacing-md': `${spacings.sm} ${spacings.md}`,
+      'input-spacing-sm': spacings.sm,
+      'input-spacing-lg': spacings.lg
+    },
+    list: {
+      'list-item-spacing': spacings.md,
+      'list-item-dense-spacing': spacings.sm
     },
     popover: {
       'popover-background': darkColors.slate['500'],
@@ -289,6 +294,12 @@ export const darkTheme: DesignTokens = {
     },
     loader: {
       'loader-background': darkColors.gray['100']
+    },
+    radio: {
+      'radio-label-color': darkColors.white,
+      'radio-stroke': darkColors.slate['100'],
+      'radio-indicator-active': darkColors.blue['100'],
+      'radio-stroke-active': darkColors.blue['100']
     },
     select: {
       'select-input-border-radius': spacings.sm,
@@ -314,6 +325,7 @@ export const darkTheme: DesignTokens = {
 
       'select-chip-background': darkColors.slate['300'],
       'select-chip-border': `solid 1px ${darkColors.slate['900']}`,
+      'select-chip-border-radius': 'var(--chip-border-radius)',
       'select-chip-color': darkColors.white,
       'select-chip-icon-color': darkColors.slate['50']
     },
@@ -325,17 +337,11 @@ export const darkTheme: DesignTokens = {
       'toggle-handle-checked-background': darkColors.blue['50'],
       'toggle-handle-border-radius': borders.radius.lg
     },
-    radio: {
-      'radio-label-color': darkColors.white,
-      'radio-stroke': darkColors.slate['100'],
-      'radio-indicator-active': darkColors.blue['100'],
-      'radio-stroke-active': darkColors.blue['100']
-    },
-    checkbox: {
-      'checkbox-label-color': darkColors.white,
-      'checkbox-check-stroke': darkColors.blue['100'],
-      'checkbox-box-checked-stroke': darkColors.slate['100'],
-      'checkbox-box-unchecked-stroke': darkColors.slate['100']
+    tooltip: {
+      'tooltip-background': darkColors.slate['500'],
+      'tooltip-color': darkColors.white,
+      'tooltip-border-radius': borders.radius.md,
+      'tooltip-spacing': spacings.sm
     }
   }
 };
