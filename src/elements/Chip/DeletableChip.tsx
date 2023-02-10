@@ -1,7 +1,8 @@
-import React, { FC, forwardRef, Ref, ReactElement } from 'react';
+import { FC, forwardRef, Ref, ReactElement } from 'react';
 import { Button } from '../Button';
-import { Chip, ChipProps } from './Chip';
+import { Chip, ChipProps, ChipRef } from './Chip';
 import { CloseIcon } from '../../form/Select/icons';
+import css from './Chip.module.css';
 
 export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
   /**
@@ -15,22 +16,21 @@ export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
   onDelete?: () => void;
 }
 
-export interface ChipRef {
-  ref?: Ref<HTMLDivElement>;
-}
-
 export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
   (
-    { children, disabled, deleteIcon, onDelete, ...rest },
+    { children, disabled, deleteIcon, onDelete, size, ...rest },
     ref: Ref<HTMLDivElement>
   ) => (
     <Chip
       ref={ref}
+      size={size}
       disabled={disabled}
       end={
         <Button
           tabIndex={0}
           variant="text"
+          size={size}
+          className={css.deleteButton}
           onClick={event => {
             if (!disabled) {
               event.stopPropagation();

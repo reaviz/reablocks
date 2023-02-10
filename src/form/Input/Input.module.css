@@ -15,7 +15,6 @@
 
   &.medium {
     padding: var(--input-spacing-md);
-    min-height: 34px;
   }
 
   &.large {
@@ -24,6 +23,7 @@
 
   &:focus-within,
   &:focus-visible {
+    border-color: var(--input-border-focus);
     outline: none;
   }
 
@@ -63,7 +63,8 @@
     margin: 0;
 
     &::placeholder {
-      font-style: italic;
+      color: var(--input-color-placeholder);
+      font-style: var(--input-placeholder-style);
     }
 
     &:focus {

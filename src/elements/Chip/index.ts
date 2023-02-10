@@ -1,2 +1,2 @@
-export { Chip } from './Chip';
-export { DeletableChip } from './DeletableChip';
+export { Chip, ChipProps, ChipRef } from './Chip';
+export { DeletableChip, DeletableChipProps } from './DeletableChip';
