@@ -4,23 +4,29 @@ import typescript from 'rollup-plugin-typescript2';
 import external from 'rollup-plugin-peer-deps-external';
 import postcss from 'rollup-plugin-postcss-modules';
 import commonjs from 'rollup-plugin-commonjs';
-import pkg from './package.json';
+import pkg from './package.json' assert { type: 'json' };
+import postCssNested from 'postcss-nested';
+import postCssPresetEnv from 'postcss-preset-env';
+import autoprefixer from 'autoprefixer';
 
 export default [
   {
     input: pkg.source,
     output: [
       {
+        sourcemap: true,
         file: pkg.browser,
         format: 'umd',
-        name: 'reaselect'
+        name: 'reablocks'
       },
       {
+        sourcemap: true,
         file: pkg.main,
         format: 'cjs',
-        name: 'reaselect'
+        name: 'reablocks'
       },
       {
+        sourcemap: true,
         file: pkg.module,
         format: 'esm'
       }
@@ -29,14 +35,14 @@ export default [
       external({
         includeDependencies: true
       }),
-      postcss({
+      postcss.default({
         // extract: true,
         modules: true,
         // writeDefinitions: true,
         plugins: [
-          require('postcss-nested'),
-          require('postcss-preset-env')({ stage: 1 }),
-          require('autoprefixer')
+          postCssNested,
+          postCssPresetEnv({ stage: 1 }),
+          autoprefixer
         ]
       }),
       typescript({
