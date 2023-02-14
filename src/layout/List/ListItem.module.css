@@ -4,16 +4,16 @@
   padding: var(--list-item-spacing);
   position: relative;
 
-  .start {
+  .startAdornment {
     padding-right: calc(var(--list-item-spacing) / 2);
   }
 
-  .end {
+  .endAdornment {
     padding-left: calc(var(--list-item-spacing) / 2);
   }
 
-  .start,
-  .end {
+  .startAdornment,
+  .endAdornment {
     align-items: center;
     display: flex;
   }

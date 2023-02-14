@@ -12,7 +12,7 @@
     will-change: fill;
   }
 
-  .start {
+  .startAdornment {
     padding-right: var(--spacing-xs);
     display: flex;
     align-items: center;
@@ -23,7 +23,7 @@
     align-items: center;
   }
 
-  .end {
+  .endAdornment {
     padding-left: var(--spacing-xs);
     justify-self: flex-end;
     display: flex;

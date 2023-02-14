@@ -100,7 +100,7 @@ export const Input: FC<InputProps> = forwardRef(
         })}
         ref={containerRef}
       >
-        {start && <div className={css.start}>{start}</div>}
+        {start && <div className={css.startAdornment}>{start}</div>}
         <input
           {...rest}
           ref={inputRef}
@@ -114,7 +114,7 @@ export const Input: FC<InputProps> = forwardRef(
             onFocus?.(event);
           }}
         />
-        {end && <div className={css.end}>{end}</div>}
+        {end && <div className={css.endAdornment}>{end}</div>}
       </div>
     );
   }

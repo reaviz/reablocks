@@ -39,16 +39,16 @@
     }
   }
 
-  .start,
-  .end {
+  .startAdornment,
+  .endAdornment {
     display: flex;
   }
 
-  .start {
+  .startAdornment {
     padding-right: calc(var(--list-item-spacing) / 2);
   }
 
-  .end {
+  .endAdornment {
     padding-left: calc(var(--list-item-spacing) / 2);
   }
 

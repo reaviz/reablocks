@@ -88,9 +88,9 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
         [css.disableMargins]: disableMargins
       })}
     >
-      {start && <div className={css.start}>{start}</div>}
+      {start && <div className={css.startAdornment}>{start}</div>}
       <div className={css.content}>{children}</div>
-      {end && <div className={css.end}>{end}</div>}
+      {end && <div className={css.endAdornment}>{end}</div>}
     </div>
   )
 );
