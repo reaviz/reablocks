@@ -41,7 +41,7 @@ export const parameters = {
     theme,
     container: ({ context, children }) => (
       <DocsContainer context={context}>
-        <DesignTokensProvider value={theme}>
+        <DesignTokensProvider value={darkTheme}>
           {children}
         </DesignTokensProvider>
       </DocsContainer>
