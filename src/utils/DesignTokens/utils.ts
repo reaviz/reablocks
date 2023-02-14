@@ -12,8 +12,12 @@ const applyColors = (theme: DesignTokens) => {
 
   if (theme?.colors) {
     for (const key of Object.keys(theme.colors)) {
-      for (const shade of Object.keys(theme.colors[key])) {
-        colors.push(`--${key}-${shade}: ${theme.colors[key][shade]};`);
+      if (key !== 'black' && key !== 'white') {
+        for (const shade of Object.keys(theme.colors[key])) {
+          colors.push(`--${key}-${shade}: ${theme.colors[key][shade]};`);
+        }
+      } else {
+        colors.push(`--${key}: ${theme.colors[key]};`);
       }
     }
   }
