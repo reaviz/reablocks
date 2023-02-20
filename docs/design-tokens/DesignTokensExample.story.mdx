@@ -239,26 +239,13 @@ export const darkTheme: DesignTokens = {
     }
   },
   components: {
-    divider: {
-      'divider-spacing': spacings.md,
-      'divider-background': darkColors.gray['500']
-    },
-    card: {
-      'card-border-radius': borders.radius.md,
-      'card-spacing': spacings.md,
-      'card-background': darkColors.slate['800'],
-      'card-color': darkColors.slate['50']
-    },
     block: {
       'block-spacing': spacings.md,
       'block-label-spacing': spacings.xs
     },
-    list: {
-      'list-item-spacing': spacings.md,
-      'list-item-dense-spacing': spacings.sm
-    },
     button: {
       'button-font-weight': '500',
+      'button-font-family': 'var(--font-family)',
       'button-background': darkColors.gray['200'],
       'button-background-hover': darkColors.gray['100'],
       'button-color': darkColors.gray['100'],
@@ -271,34 +258,60 @@ export const darkTheme: DesignTokens = {
       'button-focus': darkColors.blue['100'],
       'button-focus-offset': spacings.xs
     },
+    card: {
+      'card-border': '0',
+      'card-border-radius': borders.radius.md,
+      'card-spacing': spacings.md,
+      'card-background': darkColors.slate['800'],
+      'card-color': darkColors.slate['50']
+    },
+    checkbox: {
+      'checkbox-label-color': darkColors.white,
+      'checkbox-check-stroke': darkColors.blue['100'],
+      'checkbox-box-checked-stroke': darkColors.slate['100'],
+      'checkbox-box-unchecked-stroke': darkColors.slate['100']
+    },
+    chip: {
+      'chip-font-family': 'var(--font-family)',
+      'chip-background': darkColors.gray['200'],
+      'chip-background-hover': darkColors.gray['100'],
+      'chip-color': darkColors.white,
+      'chip-color-hover': darkColors.gray['50'],
+      'chip-border-radius': borders.radius.md
+    },
+    dialog: {
+      'dialog-background': darkColors.slate['800'],
+      'dialog-color': darkColors.white
+    },
+    divider: {
+      'divider-spacing': spacings.md,
+      'divider-background': darkColors.gray['500']
+    },
+    drawer: {
+      'drawer-background': darkColors.slate['800'],
+      'drawer-color': darkColors.white
+    },
     input: {
       'input-background': darkColors.slate['800'],
       'input-color': darkColors.white,
+      'input-color-placeholder': darkColors.gray['200'],
+      'input-placeholder-style': 'italic',
+      'input-border': `solid 1px ${darkColors.gray['200']}`,
       'input-border-radius': borders.radius.md,
-      'input-border': `solid 1px ${darkColors.gray['500']}`,
+      'input-border-focus': darkColors.gray['100'],
       'input-spacing-md': `${spacings.sm} ${spacings.md}`,
       'input-spacing-sm': spacings.sm,
       'input-spacing-lg': spacings.lg
     },
-    dialog: {
-      'dialog-background': darkColors.slate['800'],
-      'dialog-color': darkColors.white,
-    },
-    drawer: {
-      'drawer-background': darkColors.slate['800'],
-      'drawer-color': darkColors.white,
-    },
-    tooltip: {
-      'tooltip-background': darkColors.slate['500'],
-      'tooltip-color': darkColors.white,
-      'tooltip-border-radius': borders.radius.md,
-      'tooltip-spacing': spacings.sm,
+    list: {
+      'list-item-spacing': spacings.md,
+      'list-item-dense-spacing': spacings.sm
     },
     popover: {
       'popover-background': darkColors.slate['500'],
       'popover-color': darkColors.white,
       'popover-border-radius': borders.radius.md,
-      'popover-spacing': spacings.md,
+      'popover-spacing': spacings.md
     },
     notification: {
       'notification-background': darkColors.slate['700'],
@@ -311,6 +324,12 @@ export const darkTheme: DesignTokens = {
     loader: {
       'loader-background': darkColors.gray['100']
     },
+    radio: {
+      'radio-label-color': darkColors.white,
+      'radio-stroke': darkColors.slate['100'],
+      'radio-indicator-active': darkColors.blue['100'],
+      'radio-stroke-active': darkColors.blue['100']
+    },
     select: {
       'select-input-border-radius': spacings.sm,
       'select-input-background': darkColors.slate['800'],
@@ -321,6 +340,7 @@ export const darkTheme: DesignTokens = {
       'select-input-placeholder-color': darkColors.gray['50'],
       'select-input-disabled-color': darkColors.gray['100'],
       'select-input-icon-color': darkColors.gray['50'],
+
       'select-menu-background': darkColors.slate['800'],
       'select-menu-border': `solid 1px ${darkColors.slate['200']}`,
       'select-menu-border-radius': `0 0 ${borders.radius.md} ${borders.radius.md}`,
@@ -331,8 +351,10 @@ export const darkTheme: DesignTokens = {
       'select-menu-item-active-color': darkColors.white,
       'select-menu-item-selected-color': darkColors.white,
       'select-menu-item-selected-background': darkColors.blue['200'],
+
       'select-chip-background': darkColors.slate['300'],
       'select-chip-border': `solid 1px ${darkColors.slate['900']}`,
+      'select-chip-border-radius': 'var(--chip-border-radius)',
       'select-chip-color': darkColors.white,
       'select-chip-icon-color': darkColors.slate['50']
     },
@@ -342,19 +364,13 @@ export const darkTheme: DesignTokens = {
       'toggle-spacing': spacings.sm,
       'toggle-handle-background': darkColors.gray['300'],
       'toggle-handle-checked-background': darkColors.blue['50'],
-      'toggle-handle-border-radius': borders.radius.lg,
+      'toggle-handle-border-radius': borders.radius.lg
     },
-    radio: {
-      'radio-label-color': darkColors.white,
-      'radio-stroke': darkColors.slate['100'],
-      'radio-indicator-active': darkColors.blue['100'],
-      'radio-stroke-active': darkColors.blue['100']
-    },
-    checkbox: {
-      'checkbox-label-color': darkColors.white,
-      'checkbox-check-stroke': darkColors.blue['100'],
-      'checkbox-box-checked-stroke': darkColors.slate['100'],
-      'checkbox-box-unchecked-stroke': darkColors.slate['100']
+    tooltip: {
+      'tooltip-background': darkColors.slate['500'],
+      'tooltip-color': darkColors.white,
+      'tooltip-border-radius': borders.radius.md,
+      'tooltip-spacing': spacings.sm
     }
   }
 };
