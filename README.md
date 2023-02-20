@@ -55,6 +55,7 @@
 - Toggle
 - Checkbox
 - Radio Button
+- Tree
 
 ### Utilities
 - Design Token Provider
