@@ -56,6 +56,7 @@
 - Checkbox
 - Radio Button
 - Tree
+- Date Format
 
 ### Utilities
 - Design Token Provider
