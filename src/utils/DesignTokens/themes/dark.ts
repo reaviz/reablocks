@@ -342,6 +342,14 @@ export const darkTheme: DesignTokens = {
       'tooltip-color': darkColors.white,
       'tooltip-border-radius': borders.radius.md,
       'tooltip-spacing': spacings.sm
+    },
+    range: {
+      'color-range-background': darkColors.slate['300'],
+      'color-range-background-disabled': darkColors.slate['200'],
+      'color-range-input': 'var(--primary-color)',
+      'color-range-input-disabled': darkColors.slate['300'],
+      'color-range-handle-hover-border': 'rgb(150 225 243 / 50%)',
+      'color-range-handle-hover-border-disabled': 'rgb(200 200 200 / 50%)'
     }
   }
 };

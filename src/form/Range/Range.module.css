@@ -1,0 +1,70 @@
+.range {
+  position: relative;
+  width: 100%;
+  height: 4px;
+  background: var(--color-range-background);
+  border-radius: 4px;
+}
+
+.handleDrag {
+  position: absolute;
+  top: calc(-1 * (20px - 4px) / 2);
+  left: calc(-1 * 20px / 2);
+  width: 20px;
+  height: 20px;
+  background: var(--color-range-input);
+  border-radius: 50%;
+
+  /* The input is used for keyboard controls, but we want to hide it far off the screen */
+  input {
+    position: absolute;
+    left: -9999px;
+  }
+
+  &.handleDragHighlight {
+    box-shadow: 0 0 0 6px var(--color-range-handle-hover-border);
+  }
+}
+
+.handle {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.tooltip {
+  position: absolute;
+  top: -44px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-tooltip);
+  color: var(--color-on-tooltip);
+  border-radius: 5px;
+  padding: 7px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.rangeHighlight {
+  pointer-events: none;
+  height: 4px;
+  background: var(--color-range-input);
+}
+
+.rangeDisabled {
+  background: var(--color-range-background-disabled);
+
+  .handleDrag {
+    background: var(--color-range-input-disabled);
+
+    &.handleDragHighlight {
+      box-shadow: 0 0 0 6px var(--color-range-handle-hover-border-disabled);
+    }
+  }
+
+  .rangeHighlight {
+    background: var(--color-range-input-disabled);
+  }
+}
