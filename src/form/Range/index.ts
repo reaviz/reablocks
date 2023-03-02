@@ -1,3 +1,3 @@
-export type { RangeProps } from './Range';
+export type { RangeProps } from './RangeTooltip';
 export { RangeDouble } from './RangeDouble';
 export { RangeSingle } from './RangeSingle';

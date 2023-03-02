@@ -344,12 +344,13 @@ export const darkTheme: DesignTokens = {
       'tooltip-spacing': spacings.sm
     },
     range: {
-      'color-range-background': darkColors.slate['300'],
-      'color-range-background-disabled': darkColors.slate['200'],
-      'color-range-input': 'var(--primary-color)',
-      'color-range-input-disabled': darkColors.slate['300'],
-      'color-range-handle-hover-border': 'rgb(150 225 243 / 50%)',
-      'color-range-handle-hover-border-disabled': 'rgb(200 200 200 / 50%)'
+      'range-track-background': darkColors.slate['300'],
+      'range-track-border-radius': '0',
+      'range-track-size': '2px',
+      'range-handle-size': '14px',
+      'range-handle-border-radius': '50%',
+      'range-track-active-background': 'var(--primary-color)',
+      'range-handle-background': 'var(--primary-color)'
     }
   }
 };

@@ -57,6 +57,7 @@
 - Radio Button
 - Tree
 - Date Format
+- Range
 
 ### Utilities
 - Design Token Provider

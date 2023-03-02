@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState, FC } from 'react';
 import classNames from 'classnames';
 import { motion, useMotionValue } from 'framer-motion';
-import { RangeProps, RangeTooltip } from './Range';
+import { RangeProps, RangeTooltip } from './RangeTooltip';
 import css from './Range.module.css';
 
 const MIN_VALUE_BETWEEN = 1;
@@ -10,6 +10,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   disabled,
   style,
   className,
+  handleClassName,
   min,
   max,
   value,
@@ -105,7 +106,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
       })}
     >
       <motion.div
-        className={classNames(css.handleDrag, {
+        className={classNames(css.handleDrag, handleClassName, {
           [css.handleDragHighlight]: minTooltipVisible
         })}
         drag={!disabled ? 'x' : null}
@@ -172,7 +173,6 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
         </div>
         <RangeTooltip visible={maxTooltipVisible}>{currentMax}</RangeTooltip>
       </motion.div>
-
       <div
         className={css.rangeHighlight}
         style={{

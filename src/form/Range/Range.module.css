@@ -1,28 +1,24 @@
 .range {
   position: relative;
   width: 100%;
-  height: 4px;
-  background: var(--color-range-background);
-  border-radius: 4px;
+  height: var(--range-track-size);
+  background: var(--range-track-background);
+  border-radius: var(--range-track-border-radius);
 }
 
 .handleDrag {
   position: absolute;
-  top: calc(-1 * (20px - 4px) / 2);
-  left: calc(-1 * 20px / 2);
-  width: 20px;
-  height: 20px;
-  background: var(--color-range-input);
-  border-radius: 50%;
+  top: calc(-1 * (var(--range-handle-size) - var(--range-track-size)) / 2);
+  left: calc(-1 * var(--range-handle-size) / 2);
+  width: var(--range-handle-size);
+  height: var(--range-handle-size);
+  background: var(--range-handle-background);
+  border-radius: var(--range-handle-border-radius);
 
-  /* The input is used for keyboard controls, but we want to hide it far off the screen */
+  /* The hidden input used for keyboard controls */
   input {
     position: absolute;
     left: -9999px;
-  }
-
-  &.handleDragHighlight {
-    box-shadow: 0 0 0 6px var(--color-range-handle-hover-border);
   }
 }
 
@@ -36,35 +32,27 @@
 
 .tooltip {
   position: absolute;
-  top: -44px;
+  top: -45px;
   left: 50%;
   transform: translateX(-50%);
-  background: var(--color-tooltip);
-  color: var(--color-on-tooltip);
-  border-radius: 5px;
-  padding: 7px;
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
   white-space: nowrap;
   text-align: center;
+  background: var(--tooltip-background);
+  color: var(--tooltip-color);
 }
 
 .rangeHighlight {
   pointer-events: none;
-  height: 4px;
-  background: var(--color-range-input);
+  height: var(--range-track-size);
+  background: var(--range-track-active-background);
 }
 
 .rangeDisabled {
-  background: var(--color-range-background-disabled);
+  opacity: 0.7;
 
-  .handleDrag {
-    background: var(--color-range-input-disabled);
-
-    &.handleDragHighlight {
-      box-shadow: 0 0 0 6px var(--color-range-handle-hover-border-disabled);
-    }
-  }
-
-  .rangeHighlight {
-    background: var(--color-range-input-disabled);
+  .handle {
+    cursor: not-allowed;
   }
 }

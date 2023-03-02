@@ -1,12 +1,13 @@
 import React, { useCallback, useEffect, useRef, useState, FC } from 'react';
 import classNames from 'classnames';
 import { motion, useMotionValue } from 'framer-motion';
-import { RangeProps, RangeTooltip } from './Range';
+import { RangeProps, RangeTooltip } from './RangeTooltip';
 import css from './Range.module.css';
 
 export const RangeSingle: FC<RangeProps<number>> = ({
   disabled,
   style,
+  handleClassName,
   onChange,
   className,
   min,
@@ -63,7 +64,7 @@ export const RangeSingle: FC<RangeProps<number>> = ({
       })}
     >
       <motion.div
-        className={classNames(css.handleDrag, {
+        className={classNames(css.handleDrag, handleClassName, {
           [css.handleDragHighlight]: tooltipVisible
         })}
         drag={!disabled ? 'x' : null}
