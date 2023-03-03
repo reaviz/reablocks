@@ -351,6 +351,10 @@ export const darkTheme: DesignTokens = {
       'range-handle-border-radius': '50%',
       'range-track-active-background': 'var(--primary-color)',
       'range-handle-background': 'var(--primary-color)'
+    },
+    sort: {
+      'sort-icon-color': darkColors.white,
+      'sort-icon-size': '14px'
     }
   }
 };

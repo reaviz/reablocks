@@ -58,6 +58,7 @@
 - Tree
 - Date Format
 - Range
+- Sort
 
 ### Utilities
 - Design Token Provider

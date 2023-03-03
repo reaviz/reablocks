@@ -1,0 +1,27 @@
+.button {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.disabled {
+  cursor: initial;
+
+  &.hasValue {
+    cursor: not-allowed;
+  }
+}
+
+.icon {
+  height: var(--sort-icon-size);
+  width: var(--sort-icon-size);
+  vertical-align: middle;
+  margin: 0 var(--spacing-sm);
+  fill: var(--sort-icon-color);
+
+  &.descIcon {
+    transform: rotate(180deg);
+  }
+}
