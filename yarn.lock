@@ -10352,10 +10352,10 @@ raw-loader@^4.0.2:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-rdk@^6.4.0:
-  version "6.4.0"
-  resolved "https://registry.yarnpkg.com/rdk/-/rdk-6.4.0.tgz#c45891066b98644563a332a06f7ba9a2bbd53990"
-  integrity sha512-6HR5ZNthNOZ7upaSYoCIsZgYyC7xFctprGq1+ZlhhUwhG7Z9ngU0dM7cE4IzVrSASPNhIAHopo6aXCqQ2YtM9A==
+rdk@^6.4.1:
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/rdk/-/rdk-6.4.1.tgz#347ace6de17603a3dfdf1bbb1783905b5b985310"
+  integrity sha512-JCrVOV2EV+VNWxe1kDtky757jr01Kze7OXSInQctNaVm9sUVtrrPsaIipIoJ8/K4sVWGvpXF0uxwqvyhDyH3VQ==
   dependencies:
     classnames "^2.3.1"
     framer-motion "7.8.0"
