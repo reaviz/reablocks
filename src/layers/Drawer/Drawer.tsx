@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, ReactNode } from 'react';
+import { FC, ReactElement } from 'react';
 import classNames from 'classnames';
 import FocusTrap from 'focus-trap-react';
 import { CloneElement, GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
@@ -72,7 +72,11 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                 when: 'beforeChildren'
               }}
               style={{ ...style, zIndex: overlayIndex }}
-              className={classNames(css.drawer, className, css[position], {
+              className={classNames(css.drawer, className, {
+                [css.left]: position === 'start',
+                [css.right]: position === 'end',
+                [css.top]: position === 'top',
+                [css.bottom]: position === 'bottom',
                 [css.disablePadding]: disablePadding
               })}
             >

@@ -46,18 +46,18 @@
     }
   }
 
-  &.start,
-  &.end {
+  &.left,
+  &.right {
     top: 0;
     bottom: 0;
     height: 100%;
   }
 
-  &.start {
+  &.left {
     left: 0;
   }
 
-  &.end {
+  &.right {
     right: 0;
   }
 
