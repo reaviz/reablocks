@@ -21,13 +21,13 @@ export const Simple = () => {
   );
 };
 
-const CustomHeaderElement = () => <div>hello!</div>;
+const MyHeader = () => <div>hello!</div>;
 
-export const CustomHeader = () => {
+export const CustomHeaderElement = () => {
   const { toggleOpen, Drawer } = useDrawer();
   return (
     <Fragment>
-      <Drawer headerElement={<CustomHeaderElement />}>
+      <Drawer headerElement={<MyHeader />}>
         <p>Hello There!</p>
       </Drawer>
       <button type="button" onClick={toggleOpen}>
@@ -42,6 +42,20 @@ export const Header = () => {
   return (
     <Fragment>
       <Drawer header="Hello!!!!">
+        <p>Hello There!</p>
+      </Drawer>
+      <button type="button" onClick={toggleOpen}>
+        Open
+      </button>
+    </Fragment>
+  );
+};
+
+export const CustomHeader = () => {
+  const { toggleOpen, Drawer } = useDrawer();
+  return (
+    <Fragment>
+      <Drawer header={<h3>Hello!!!!</h3>}>
         <p>Hello There!</p>
       </Drawer>
       <button type="button" onClick={toggleOpen}>

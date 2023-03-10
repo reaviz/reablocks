@@ -16,7 +16,13 @@ export const DialogHeader: FC<Partial<DialogHeaderProps>> = ({
   onClose
 }) => (
   <header className={classNames(css.header, className)}>
-    <h1 className={css.headerText}>{children}</h1>
+    <div>
+      {typeof children === 'string' ? (
+        <h1 className={css.headerText}>{children}</h1>
+      ) : (
+        children
+      )}
+    </div>
     {showCloseButton && (
       <button type="button" className={css.closeButton} onClick={onClose}>
         ✕
