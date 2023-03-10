@@ -18,15 +18,26 @@ export const Simple = () => {
   );
 };
 
-const CustomHeaderElement = ({ children }: any) => <div>{children}</div>;
-
 export const CustomHeader = () => {
   const { toggleOpen, Dialog } = useDialog();
 
   return (
     <div style={{ textAlign: 'center', margin: '50px' }}>
       <button onClick={toggleOpen}>Open</button>
-      <Dialog header="My Custom Header" headerElement={<CustomHeaderElement />}>
+      <Dialog header={<h3>What's up</h3>}>Hello</Dialog>
+    </div>
+  );
+};
+
+const MyHeader = ({ children }: any) => <div>{children}</div>;
+
+export const CustomHeaderElement = () => {
+  const { toggleOpen, Dialog } = useDialog();
+
+  return (
+    <div style={{ textAlign: 'center', margin: '50px' }}>
+      <button onClick={toggleOpen}>Open</button>
+      <Dialog header="My Custom Header" headerElement={<MyHeader />}>
         Body Content
       </Dialog>
     </div>
