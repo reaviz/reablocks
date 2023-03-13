@@ -331,6 +331,7 @@ export const darkTheme: DesignTokens = {
     },
     toggle: {
       'toggle-background': darkColors.gray['100'],
+      'toggle-border': 'none',
       'toggle-border-radius': borders.radius.lg,
       'toggle-spacing': spacings.sm,
       'toggle-handle-background': darkColors.gray['300'],
