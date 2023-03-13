@@ -459,11 +459,16 @@ export const Select: FC<Partial<SelectProps>> = ({
       }
 
       if (index > -1 || createable) {
-        const newSelection = {
-          value: createable && result[index] ? result[index].value : inputValue,
-          children:
-            createable && result[index] ? result[index].value : inputValue
-        };
+        let newSelection;
+
+        if (createable) {
+          newSelection = {
+            value: inputValue,
+            children: inputValue
+          };
+        } else {
+          newSelection = result[index];
+        }
 
         toggleSelectedOption(newSelection);
       }
@@ -481,13 +486,25 @@ export const Select: FC<Partial<SelectProps>> = ({
         onArrowDownKeyUp(event);
       } else if (key === 'Escape') {
         resetSelect();
-      } else if (key === 'Enter' || key === 'Tab') {
+      } else if (key === 'Enter') {
         onEnterKeyUp(event);
       }
 
       onInputKeyUp?.(event);
     },
     [onArrowDownKeyUp, onArrowUpKeyUp, onEnterKeyUp, onInputKeyUp, resetSelect]
+  );
+
+  const onInputKeyedDown = useCallback(
+    (event: React.KeyboardEvent<HTMLInputElement>) => {
+      const key = event.key;
+      if (key === 'Tab') {
+        setOpen(false);
+      }
+
+      onInputKeydown?.(event);
+    },
+    [onInputKeydown]
   );
 
   const onInputBlured = useCallback(
@@ -589,7 +606,7 @@ export const Select: FC<Partial<SelectProps>> = ({
         menuDisabled={menuDisabled}
         onSelectedChange={toggleSelectedOption}
         onExpandClick={onInputExpanded}
-        onKeyDown={onInputKeydown}
+        onKeyDown={onInputKeyedDown}
         onKeyUp={onInputKeyedUp}
         onInputChange={onInputChanged}
         onBlur={onInputBlured}

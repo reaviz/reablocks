@@ -70,7 +70,7 @@ export interface SelectInputRef {
 
 const horiztonalArrowKeys = ['ArrowLeft', 'ArrowRight'];
 const verticalArrowKeys = ['ArrowUp', 'ArrowDown'];
-const actionKeys = [...verticalArrowKeys, 'Enter', 'Tab', 'Escape'];
+const actionKeys = [...verticalArrowKeys, 'Enter', 'Escape'];
 
 export const SelectInput: FC<Partial<SelectInputProps>> = ({
   reference,
