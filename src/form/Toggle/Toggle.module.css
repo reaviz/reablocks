@@ -8,6 +8,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
+  border: var(--toggle-border);
   border-radius: var(--toggle-border-radius);
   cursor: pointer;
   background-color: var(--toggle-background);
