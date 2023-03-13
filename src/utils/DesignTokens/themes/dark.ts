@@ -331,11 +331,13 @@ export const darkTheme: DesignTokens = {
     },
     toggle: {
       'toggle-background': darkColors.gray['100'],
+      'toggle-background-checked': darkColors.blue['50'],
       'toggle-border': 'none',
+      'toggle-border-checked': 'none',
       'toggle-border-radius': borders.radius.lg,
       'toggle-spacing': spacings.sm,
       'toggle-handle-background': darkColors.gray['300'],
-      'toggle-handle-checked-background': darkColors.blue['50'],
+      'toggle-handle-checked-background': darkColors.gray['300'],
       'toggle-handle-border-radius': borders.radius.lg
     },
     tooltip: {
