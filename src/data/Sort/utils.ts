@@ -12,12 +12,23 @@ export interface SortValue {
   direction: SortDirection;
 }
 
-export function getNextDirection(direction?: SortDirection | null) {
+/**
+ * @param direction Current sort direction
+ *
+ * @param defaultDirection Inital sort direction in case currently unsorted
+ *
+ * @param canBeNull If next direction can be null (unsorted)
+ */
+export function getNextDirection(
+  direction?: SortDirection | null,
+  defaultDirection: NonNullable<SortDirection> = 'asc',
+  canBeNull: boolean = true
+) {
   if (!direction) {
-    return 'asc';
+    return defaultDirection;
   } else if (direction === 'asc') {
     return 'desc';
   } else if (direction === 'desc') {
-    return null;
+    return canBeNull ? null : 'asc';
   }
 }
