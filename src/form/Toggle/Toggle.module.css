@@ -52,13 +52,18 @@
     }
   }
 
-  &.checked {
-    justify-content: flex-end;
-    background-color: var(--toggle-handle-checked-background);
-  }
-
   .handle {
     background-color: var(--toggle-handle-background);
     border-radius: var(--toggle-handle-border-radius);
+  }
+
+  &.checked {
+    justify-content: flex-end;
+    border: var(--toggle-border-checked);
+    background-color: var(--toggle-background-checked);
+
+    .handle {
+      background-color: var(--toggle-handle-checked-background);
+    }
   }
 }
