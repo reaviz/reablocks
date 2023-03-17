@@ -7,7 +7,7 @@
 
   .label {
     font-weight: bold;
-    font-size: 11px;
+    font-size: var(--block-label-size);
     text-transform: uppercase;
     display: block;
   }

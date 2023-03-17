@@ -1,5 +1,5 @@
 import { Colors, DesignTokens } from '../types';
-import { borders, spacings } from './common';
+import { borders, fontSizes, spacings } from './common';
 
 export const darkColors: Colors = {
   black: '#000000',
@@ -123,14 +123,7 @@ export const darkTheme: DesignTokens = {
       fontFamily: 'Inter, sans-serif',
       monoFontFamily: 'Monaco, monospace'
     },
-    sizes: {
-      xs: '8px',
-      sm: '11px',
-      md: '16px',
-      lg: '20px',
-      xl: '28px',
-      xxl: '32px'
-    }
+    sizes: fontSizes
   },
   spacings,
   borders,
@@ -212,7 +205,8 @@ export const darkTheme: DesignTokens = {
   components: {
     block: {
       'block-spacing': spacings.md,
-      'block-label-spacing': spacings.xs
+      'block-label-spacing': spacings.xs,
+      'block-label-size': fontSizes.sm
     },
     button: {
       'button-font-weight': '500',

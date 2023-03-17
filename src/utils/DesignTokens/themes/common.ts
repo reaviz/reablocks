@@ -20,3 +20,15 @@ export const borders = {
     lg: '10px'
   }
 };
+
+/**
+ * Common font sizes.
+ */
+export const fontSizes = {
+  xs: '8px',
+  sm: '11px',
+  md: '16px',
+  lg: '20px',
+  xl: '28px',
+  xxl: '32px'
+};
