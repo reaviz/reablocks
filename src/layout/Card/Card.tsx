@@ -58,7 +58,11 @@ export const Card: FC<CardRefProps> = forwardRef(
     >
       {header && (
         <header className={classNames(css.header, headerClassName)}>
-          {header && <h3 className={css.headerText}>{header}</h3>}
+          {header && typeof header === 'string' ? (
+            <h3 className={css.headerText}>{header}</h3>
+          ) : (
+            header
+          )}
         </header>
       )}
       <div className={classNames(css.content, contentClassName)}>
