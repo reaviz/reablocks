@@ -24,11 +24,6 @@ export interface BlockProps extends React.HTMLAttributes<HTMLElement> {
   children?: React.ReactNode;
 
   /**
-   * Additional classname to apply to the content.
-   */
-  contentClassName?: string;
-
-  /**
    * Additional classname to apply to the label.
    */
   labelClassName?: string;
@@ -59,7 +54,6 @@ export interface BlockProps extends React.HTMLAttributes<HTMLElement> {
 export const Block: FC<BlockProps> = ({
   label,
   children,
-  contentClassName,
   disableMargin,
   labelClassName,
   className,
