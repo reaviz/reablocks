@@ -65,7 +65,7 @@ export const Block: FC<BlockProps> = ({
 }) => (
   <section
     {...rest}
-    className={classNames(css.block, className, {
+    className={classNames(css.container, className, {
       [css.disableMargin]: disableMargin,
       [css.horizontal]: direction === 'horizontal',
       [css.vertical]: direction === 'vertical',
