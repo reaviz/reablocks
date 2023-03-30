@@ -52,7 +52,7 @@ export const Dialog: FC<Partial<DialogProps>> = ({
             fallbackFocus: `#${id}-content`
           }}
         >
-          <div id={id} tab-index="-1">
+          <div id={id} tabIndex={-1}>
             <motion.div
               initial={{ opacity: 0, y: '-20%' }}
               animate={{ opacity: 1, y: 0 }}
