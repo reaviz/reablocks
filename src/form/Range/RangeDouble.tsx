@@ -124,6 +124,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
           left: 0,
           right: maxX.get() - minSpaceBetween
         }}
+        dragElastic={false}
       >
         <div className={css.handle}>
           <input
@@ -158,6 +159,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
           left: minX.get() + minSpaceBetween,
           right: rangeWidth
         }}
+        dragElastic={false}
       >
         <div className={css.handle}>
           <input
