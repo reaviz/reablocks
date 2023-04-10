@@ -46,6 +46,11 @@ export interface InputProps
    * Content to display after the input.
    */
   end?: React.ReactNode | string;
+
+  /**
+   * Shortcut for the onChange value event.
+   */
+  onValueChange?: (value: string) => void;
 }
 
 export interface InputRef {
@@ -70,6 +75,8 @@ export const Input: FC<InputProps> = forwardRef(
       value,
       size,
       onFocus,
+      onChange,
+      onValueChange,
       ...rest
     },
     ref: Ref<InputRef>
@@ -87,7 +94,7 @@ export const Input: FC<InputProps> = forwardRef(
     useLayoutEffect(() => {
       if (autoFocus) {
         // Small timeout for page loading
-        setTimeout(() => inputRef.current?.focus());
+        requestAnimationFrame(() => inputRef.current?.focus());
       }
     }, [autoFocus]);
 
@@ -112,6 +119,10 @@ export const Input: FC<InputProps> = forwardRef(
               event.target.select();
             }
             onFocus?.(event);
+          }}
+          onChange={event => {
+            onValueChange?.(event.target.value);
+            onChange?.(event);
           }}
         />
         {end && <div className={css.endAdornment}>{end}</div>}
