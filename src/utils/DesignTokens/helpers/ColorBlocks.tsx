@@ -47,7 +47,7 @@ export const ColorBlock = ({ name, color }) => (
   </div>
 );
 
-const ColorPaletteBlock = ({ name, color }) => {
+export const ColorPaletteBlock = ({ name, color }) => {
   const valid = chroma.valid(color);
   const fontColor =
     valid && !name.includes('overlay')
