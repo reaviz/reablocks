@@ -148,6 +148,7 @@ export const darkColors: Colors = {
   }
 };
 
+
 /**
  * Dark theme example.
  */
@@ -158,14 +159,7 @@ export const darkTheme: DesignTokens = {
       fontFamily: 'Inter, sans-serif',
       monoFontFamily: 'Monaco, monospace'
     },
-    sizes: {
-      xs: '8px',
-      sm: '11px',
-      md: '16px',
-      lg: '20px',
-      xl: '28px',
-      xxl: '32px'
-    }
+    sizes: fontSizes
   },
   spacings,
   borders,
@@ -233,6 +227,12 @@ export const darkTheme: DesignTokens = {
       'background-hover': darkColors.orange['50'],
       'color-hover': darkColors.orange['50']
     },
+    info: {
+      background: darkColors.blue['100'],
+      color: darkColors.blue['100'],
+      'background-hover': darkColors.blue['50'],
+      'color-hover': darkColors.blue['50']
+    },
     disabled: {
       background: darkColors.gray['500'],
       color: darkColors.gray['200']
@@ -241,7 +241,8 @@ export const darkTheme: DesignTokens = {
   components: {
     block: {
       'block-spacing': spacings.md,
-      'block-label-spacing': spacings.xs
+      'block-label-spacing': spacings.xs,
+      'block-label-size': fontSizes.sm
     },
     button: {
       'button-font-weight': '500',
@@ -252,11 +253,13 @@ export const darkTheme: DesignTokens = {
       'button-color-hover': darkColors.gray['50'],
       'button-color-on-background': darkColors.white,
       'button-disabled-color-on-background': darkColors.gray['100'],
-      'button-spacing': `${spacings.sm} ${spacings.md}`,
       'button-border-radius': borders.radius.md,
       'button-border': `solid 1px ${darkColors.gray['500']}`,
       'button-focus': darkColors.blue['100'],
-      'button-focus-offset': spacings.xs
+      'button-focus-offset': spacings.xs,
+      'button-spacing-sm': `${spacings.xs} ${spacings.sm}`,
+      'button-spacing-md': `${spacings.sm} ${spacings.md}`,
+      'button-spacing-lg': `${spacings.md} ${spacings.lg}`,
     },
     card: {
       'card-border': '0',
@@ -360,10 +363,13 @@ export const darkTheme: DesignTokens = {
     },
     toggle: {
       'toggle-background': darkColors.gray['100'],
+      'toggle-background-checked': darkColors.blue['50'],
+      'toggle-border': 'none',
+      'toggle-border-checked': 'none',
       'toggle-border-radius': borders.radius.lg,
       'toggle-spacing': spacings.sm,
       'toggle-handle-background': darkColors.gray['300'],
-      'toggle-handle-checked-background': darkColors.blue['50'],
+      'toggle-handle-checked-background': darkColors.gray['300'],
       'toggle-handle-border-radius': borders.radius.lg
     },
     tooltip: {
@@ -371,6 +377,19 @@ export const darkTheme: DesignTokens = {
       'tooltip-color': darkColors.white,
       'tooltip-border-radius': borders.radius.md,
       'tooltip-spacing': spacings.sm
+    },
+    range: {
+      'range-track-background': darkColors.slate['300'],
+      'range-track-border-radius': '0',
+      'range-track-size': '2px',
+      'range-handle-size': '14px',
+      'range-handle-border-radius': '50%',
+      'range-track-active-background': 'var(--primary-color)',
+      'range-handle-background': 'var(--primary-color)'
+    },
+    sort: {
+      'sort-icon-color': darkColors.white,
+      'sort-icon-size': '14px'
     }
   }
 };
