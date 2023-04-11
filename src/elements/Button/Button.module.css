@@ -1,5 +1,4 @@
 .btn {
-  padding: var(--button-spacing);
   border: var(--button-border);
   border-radius: var(--button-border-radius);
   display: inline-flex;
@@ -15,13 +14,16 @@
 
   &.small {
     font-size: var(--font-size-sm);
+    padding: var(--button-spacing-sm);
   }
 
   &.medium {
     font-size: var(--font-size-md);
+    padding: var(--button-spacing-md);
   }
 
   &.large {
+    padding: var(--button-spacing-lg);
     font-size: var(--font-size-lg);
   }
 

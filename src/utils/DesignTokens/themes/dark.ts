@@ -217,11 +217,13 @@ export const darkTheme: DesignTokens = {
       'button-color-hover': darkColors.gray['50'],
       'button-color-on-background': darkColors.white,
       'button-disabled-color-on-background': darkColors.gray['100'],
-      'button-spacing': `${spacings.sm} ${spacings.md}`,
       'button-border-radius': borders.radius.md,
       'button-border': `solid 1px ${darkColors.gray['500']}`,
       'button-focus': darkColors.blue['100'],
-      'button-focus-offset': spacings.xs
+      'button-focus-offset': spacings.xs,
+      'button-spacing-sm': `${spacings.xs} ${spacings.sm}`,
+      'button-spacing-md': `${spacings.sm} ${spacings.md}`,
+      'button-spacing-lg': `${spacings.md} ${spacings.lg}`
     },
     card: {
       'card-border': '0',
