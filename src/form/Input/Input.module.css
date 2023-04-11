@@ -1,5 +1,5 @@
 .container {
-  background: var(--input-bg);
+  background: var(--input-background);
   border-radius: var(--input-border-radius);
   border: var(--input-border);
   display: flex;
