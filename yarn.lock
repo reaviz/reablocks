@@ -10352,10 +10352,10 @@ raw-loader@^4.0.2:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-rdk@>=6.4.3:
-  version "6.4.3"
-  resolved "https://registry.yarnpkg.com/rdk/-/rdk-6.4.3.tgz#b4756342b7e829bf9772da3ad9ff011b22fbeb78"
-  integrity sha512-G2f/f+Xrxid9HaGoHX3DQUmpdN0XL3+xr4cRJGSjOL2xkXhHujTPCZbivO2/LckJZnrBssECyKlqWjrs182Flg==
+rdk@>=6.4.4:
+  version "6.4.4"
+  resolved "https://registry.yarnpkg.com/rdk/-/rdk-6.4.4.tgz#6cfba22a5a801075ab56c9f9e9e61b09435b2bcd"
+  integrity sha512-8ix2MSQxPP9cElSfPRt3bmAIgSPC/sN164YJD/R22Kbo+GFEbVYnfJUggbUTHYodt7TCEV/BV/gFUPl12A4dGg==
   dependencies:
     body-scroll-lock "^4.0.0-beta.0"
     classnames "^2.3.2"
