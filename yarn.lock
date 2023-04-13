@@ -4282,7 +4282,7 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
-classnames@*, classnames@^2.3.1:
+classnames@*, classnames@^2.3.1, classnames@^2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.3.2.tgz#351d813bf0137fcc6a76a16b88208d2560a0d924"
   integrity sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==
@@ -10352,13 +10352,13 @@ raw-loader@^4.0.2:
     loader-utils "^2.0.0"
     schema-utils "^3.0.0"
 
-rdk@^6.4.2:
-  version "6.4.2"
-  resolved "https://registry.yarnpkg.com/rdk/-/rdk-6.4.2.tgz#928ec2f2c7d3e3d243543025ad982e4fad91f156"
-  integrity sha512-hBlqPzESSyyqF7S/sQcLtqyGJnexYWxcTsurI4BZrmqQ3Q9CPAwygvFgYKw4ncDn6cmuCLcQoKgNpRUs2Tj/rA==
+rdk@>=6.4.3:
+  version "6.4.3"
+  resolved "https://registry.yarnpkg.com/rdk/-/rdk-6.4.3.tgz#b4756342b7e829bf9772da3ad9ff011b22fbeb78"
+  integrity sha512-G2f/f+Xrxid9HaGoHX3DQUmpdN0XL3+xr4cRJGSjOL2xkXhHujTPCZbivO2/LckJZnrBssECyKlqWjrs182Flg==
   dependencies:
     body-scroll-lock "^4.0.0-beta.0"
-    classnames "^2.3.1"
+    classnames "^2.3.2"
     framer-motion "7.8.0"
     popper.js "^1.16.1"
 
