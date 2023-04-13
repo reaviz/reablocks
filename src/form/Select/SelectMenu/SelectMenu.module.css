@@ -8,7 +8,6 @@
   overflow-y: auto;
   text-align: left;
   border: var(--select-menu-border);
-  border-top: none;
   box-sizing: border-box;
 
   .groupItem {
