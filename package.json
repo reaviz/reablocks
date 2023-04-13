@@ -1,6 +1,6 @@
 {
   "name": "reablocks",
-  "version": "3.6.17",
+  "version": "3.6.18",
   "description": "Component library for React",
   "scripts": {
     "build": "rollup -c",
