@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref, useEffect, useRef } from 'react';
+import React, { FC, forwardRef, Ref, useRef } from 'react';
 import { Input, InputProps, InputRef } from '../Input';
 
 export interface DebouncedInputProps extends InputProps {
@@ -15,12 +15,12 @@ export const DebouncedInput: FC<DebouncedInputProps> = forwardRef(
   ) => {
     // eslint-disable-next-line no-undef
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
-    const lastEvent = useRef<any>();
 
     return (
       <Input
         {...rest}
         ref={ref}
+        value={value}
         onKeyDown={(event: any) => {
           // if user hits enter, no need to debounce
           if (event.key === 'Enter') {
