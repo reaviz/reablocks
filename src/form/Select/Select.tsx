@@ -258,6 +258,7 @@ export const Select: FC<Partial<SelectProps>> = ({
 
   useLayoutEffect(() => {
     updateMenuWidth();
+    overlayRef?.current?.updatePosition();
   }, [internalValue, updateMenuWidth]);
 
   useEffect(() => {
