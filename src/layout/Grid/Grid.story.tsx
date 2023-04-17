@@ -4,7 +4,7 @@ import { Grid } from './Grid';
 import { Column } from './Column';
 
 export default {
-  title: 'Components/Grid',
+  title: 'Components/Layout/Grid',
   component: Grid,
   argTypes: {
     rowSpacing: { control: 'number' },

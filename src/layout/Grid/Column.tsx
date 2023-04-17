@@ -2,7 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import styles from './Column.module.css';
 
-interface ColumnProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ColumnProps extends React.HTMLAttributes<HTMLDivElement> {
   xs?: number;
   sm?: number;
   md?: number;

@@ -1,0 +1,50 @@
+.title {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.title.default {
+  color: #333;
+}
+
+.title.primary {
+  color: #007bff;
+}
+
+.title.secondary {
+  color: #6c757d;
+}
+
+.subtitle {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.subtitle.default {
+  color: #333;
+}
+
+.subtitle.primary {
+  color: #007bff;
+}
+
+.subtitle.secondary {
+  color: #6c757d;
+}
+
+.text {
+  font-size: 1.2rem;
+  line-height: 1.5;
+}
+
+.text.default {
+  color: #555;
+}
+
+.text.primary {
+  color: #007bff;
+}
+
+.text.secondary {
+  color: #6c757d;
+}
