@@ -1,0 +1,36 @@
+.column {
+  position: relative;
+  width: 100%;
+  padding-left: calc(var(--columnSpacing) / 2);
+  padding-right: calc(var(--columnSpacing) / 2);
+  box-sizing: border-box;
+  min-height: 1px;
+}
+
+@media (min-width: 576px) {
+  .col-sm-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .col-md-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
+
+@media (min-width: 992px) {
+  .col-lg-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-xl-auto {
+    flex: 0 0 auto;
+    width: auto;
+  }
+}
