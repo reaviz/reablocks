@@ -44,7 +44,7 @@ export const Popover: FC<PopoverProps> = ({
       pointerEvents="initial"
       leaveDelay={leaveDelay}
       isPopover
-      className={classNames(css.popover, {
+      className={classNames(css.popover, className, {
         [css.disablePadding]: disablePadding
       })}
       content={() => {
