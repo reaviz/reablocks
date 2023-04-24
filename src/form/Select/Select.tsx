@@ -453,7 +453,7 @@ export const Select: FC<Partial<SelectProps>> = ({
   const onEnterKeyUp = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       const inputElement = event.target as HTMLInputElement;
-      const inputValue = inputElement.value.trim().toLowerCase();
+      const inputValue = inputElement.value.trim();
 
       if (index === -1 && createable && !inputValue) {
         return;
