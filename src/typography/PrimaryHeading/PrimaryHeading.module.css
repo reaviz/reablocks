@@ -1,0 +1,41 @@
+h2 {
+  font-family: var(--font-family);
+  font-size: var(--primary-heading-font-size);
+  line-height: var(--primary-heading-line-height);
+  font-weight: var(--primary-heading-font-weight);
+  text-transform: var(--primary-heading-text-transform);
+  color: var(--primary-heading-color);
+  margin: var(--primary-heading-margin);
+
+  &.disableMargins {
+    margin: 0;
+  }
+
+  &.primary {
+    color: var(--primary-color);
+  }
+
+  &.secondary {
+    color: var(--secondary-color);
+  }
+
+  &.error {
+    color: var(--error-color);
+  }
+
+  &.success {
+    color: var(--success-color);
+  }
+
+  &.warning {
+    color: var(--warning-color);
+  }
+
+  &.info {
+    color: var(--info-color);
+  }
+
+  &.mono {
+    font-family: var(--mono-font-family);
+  }
+}

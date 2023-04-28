@@ -1,0 +1,41 @@
+h1 {
+  font-family: var(--font-family);
+  font-size: var(--page-title-font-size);
+  line-height: var(--page-title-line-height);
+  font-weight: var(--page-title-font-weight);
+  text-transform: var(--page-title-text-transform);
+  color: var(--page-title-color);
+  margin: var(--page-title-margin);
+
+  &.disableMargins {
+    margin: 0;
+  }
+
+  &.primary {
+    color: var(--primary-color);
+  }
+
+  &.secondary {
+    color: var(--secondary-color);
+  }
+
+  &.error {
+    color: var(--error-color);
+  }
+
+  &.success {
+    color: var(--success-color);
+  }
+
+  &.warning {
+    color: var(--warning-color);
+  }
+
+  &.info {
+    color: var(--info-color);
+  }
+
+  &.mono {
+    font-family: var(--mono-font-family);
+  }
+}

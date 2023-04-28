@@ -355,6 +355,41 @@ export const darkTheme: DesignTokens = {
     sort: {
       'sort-icon-color': darkColors.white,
       'sort-icon-size': '14px'
+    },
+    typography: {
+      'thin-weight': '200',
+      'bold-weight': '600',
+      'extra-bold-weight': '800',
+      'page-title-font-size': '40px',
+      'page-title-line-height': '1',
+      'page-title-font-weight': 'var(--bold-weight)',
+      'page-title-text-transform': 'none',
+      'page-title-color': darkColors.white,
+      'page-title-margin': '0 0 var(--spacing-lg) 0',
+      'primary-heading-font-size': 'var(--font-size-xxl)',
+      'primary-heading-line-height': '1',
+      'primary-heading-font-weight': 'var(--extra-bold-weight)',
+      'primary-heading-text-transform': 'none',
+      'primary-heading-color': darkColors.white,
+      'primary-heading-margin': '0 0 var(--spacing-sm) 0',
+      'secondary-heading-font-size': 'var(--font-size-xl)',
+      'secondary-heading-line-height': '1',
+      'secondary-heading-font-weight': 'normal',
+      'secondary-heading-text-transform': 'none',
+      'secondary-heading-color': darkColors.white,
+      'secondary-heading-margin': '0 0 var(--spacing-sm) 0',
+      'small-heading-font-size': 'var(--font-size-lg)',
+      'small-heading-line-height': '1',
+      'small-heading-font-weight': 'var(--thin-weight)',
+      'small-heading-text-transform': 'none',
+      'small-heading-color': darkColors.white,
+      'small-heading-margin': '0 0 var(--spacing-sm) 0',
+      'sub-font-size': 'var(--font-size-sm)',
+      'sub-line-height': '1',
+      'sub-font-weight': 'var(--bold-weight)',
+      'sub-text-transform': 'none',
+      'sub-color': darkColors.white,
+      'sub-margin': '0 0 var(--spacing-xs) 0'
     }
   }
 };

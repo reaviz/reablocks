@@ -1,0 +1,41 @@
+h3 {
+  font-family: var(--font-family);
+  font-size: var(--secondary-heading-font-size);
+  line-height: var(--secondary-heading-line-height);
+  font-weight: var(--secondary-heading-font-weight);
+  text-transform: var(--secondary-heading-text-transform);
+  color: var(--secondary-heading-color);
+  margin: var(--secondary-heading-margin);
+
+  &.disableMargins {
+    margin: 0;
+  }
+
+  &.primary {
+    color: var(--primary-color);
+  }
+
+  &.secondary {
+    color: var(--secondary-color);
+  }
+
+  &.error {
+    color: var(--error-color);
+  }
+
+  &.success {
+    color: var(--success-color);
+  }
+
+  &.warning {
+    color: var(--warning-color);
+  }
+
+  &.info {
+    color: var(--info-color);
+  }
+
+  &.mono {
+    font-family: var(--mono-font-family);
+  }
+}

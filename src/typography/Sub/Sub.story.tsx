@@ -1,0 +1,22 @@
+import { Sub } from './Sub';
+
+export default {
+  title: 'Components/Typography/Sub',
+  component: Sub
+};
+
+export const Simple = () => <Sub>Hello world</Sub>;
+
+export const Colors = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 5 }}>
+    <Sub>Default</Sub>
+    <Sub color="primary">Primary</Sub>
+    <Sub color="secondary">Secondary</Sub>
+    <Sub color="error">Error</Sub>
+    <Sub color="success">Success</Sub>
+    <Sub color="warning">Warning</Sub>
+    <Sub color="info">Info</Sub>
+  </div>
+);
+
+export const Monospace = () => <Sub variant="mono">Hello world</Sub>;
