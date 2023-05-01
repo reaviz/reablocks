@@ -25,3 +25,15 @@
 .mono {
   font-family: var(--mono-font-family);
 }
+
+.thin {
+  font-weight: var(--thin-weight);
+}
+
+.bold {
+  font-weight: var(--bold-weight);
+}
+
+.italic {
+  font-style: italic;
+}

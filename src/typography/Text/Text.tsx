@@ -15,6 +15,8 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
     | 'warning'
     | 'info';
 
+  fontStyle?: 'default' | 'thin' | 'bold' | 'italic';
+
   /**
    * Font variant for the text.
    */
@@ -27,12 +29,17 @@ export interface TextRef {
 
 export const Text: FC<TextProps & TextRef> = forwardRef(
   (
-    { color, variant, children, className, ...rest }: TextProps,
+    { color, variant, fontStyle, children, className, ...rest }: TextProps,
     ref: Ref<HTMLSpanElement>
   ) => (
     <span
       ref={ref}
-      className={classNames(css[color], css[variant], className)}
+      className={classNames(
+        css[color],
+        css[variant],
+        css[fontStyle],
+        className
+      )}
       {...rest}
     >
       {children}
@@ -42,5 +49,6 @@ export const Text: FC<TextProps & TextRef> = forwardRef(
 
 Text.defaultProps = {
   color: 'default',
-  variant: 'default'
+  variant: 'default',
+  fontStyle: 'default'
 };
