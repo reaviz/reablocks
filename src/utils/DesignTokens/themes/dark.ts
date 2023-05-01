@@ -340,7 +340,8 @@ export const darkTheme: DesignTokens = {
       'tooltip-background': darkColors.slate['500'],
       'tooltip-color': darkColors.white,
       'tooltip-border-radius': borders.radius.md,
-      'tooltip-spacing': spacings.sm
+      'tooltip-spacing': spacings.sm,
+      'tooltip-border': 'none'
     },
     range: {
       'range-track-background': darkColors.slate['300'],
