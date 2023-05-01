@@ -10,32 +10,4 @@ h2 {
   &.disableMargins {
     margin: 0;
   }
-
-  &.primary {
-    color: var(--primary-color);
-  }
-
-  &.secondary {
-    color: var(--secondary-color);
-  }
-
-  &.error {
-    color: var(--error-color);
-  }
-
-  &.success {
-    color: var(--success-color);
-  }
-
-  &.warning {
-    color: var(--warning-color);
-  }
-
-  &.info {
-    color: var(--info-color);
-  }
-
-  &.mono {
-    font-family: var(--mono-font-family);
-  }
 }

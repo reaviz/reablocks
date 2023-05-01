@@ -1,6 +1,7 @@
 import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
 import css from './SecondaryHeading.module.css';
+import common from '../Typography.module.css';
 
 export interface SecondaryHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -46,8 +47,8 @@ export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
       <h3
         ref={ref}
         className={classNames(
-          css[color],
-          css[variant],
+          common[color],
+          common[variant],
           { [css.disableMargins]: disableMargins },
           className
         )}

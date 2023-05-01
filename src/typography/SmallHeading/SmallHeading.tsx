@@ -1,6 +1,7 @@
 import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
 import css from './SmallHeading.module.css';
+import common from '../Typography.module.css';
 
 export interface SmallHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -45,8 +46,8 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
     <h5
       ref={ref}
       className={classNames(
-        css[color],
-        css[variant],
+        common[color],
+        common[variant],
         { [css.disableMargins]: disableMargins },
         className
       )}

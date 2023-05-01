@@ -23,6 +23,8 @@ export const Monospace = () => <Text variant="mono">Hello world</Text>;
 
 export const Bold = () => <Text fontStyle="bold">Bold</Text>;
 
+export const ExtraBold = () => <Text fontStyle="extraBold">Extra Bold</Text>;
+
 export const Thin = () => <Text fontStyle="thin">Thin</Text>;
 
 export const Italic = () => <Text fontStyle="italic">Italic</Text>;

@@ -1,6 +1,7 @@
 import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
 import css from './PageTitle.module.css';
+import common from '../Typography.module.css';
 
 export interface PageTitleProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -45,8 +46,8 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
     <h1
       ref={ref}
       className={classNames(
-        css[color],
-        css[variant],
+        common[color],
+        common[variant],
         { [css.disableMargins]: disableMargins },
         className
       )}

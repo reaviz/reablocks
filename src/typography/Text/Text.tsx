@@ -1,6 +1,7 @@
 import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
 import css from './Text.module.css';
+import common from '../Typography.module.css';
 
 export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
@@ -15,7 +16,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
     | 'warning'
     | 'info';
 
-  fontStyle?: 'default' | 'thin' | 'bold' | 'italic';
+  fontStyle?: 'default' | 'thin' | 'bold' | 'extraBold' | 'italic';
 
   /**
    * Font variant for the text.
@@ -35,8 +36,8 @@ export const Text: FC<TextProps & TextRef> = forwardRef(
     <span
       ref={ref}
       className={classNames(
-        css[color],
-        css[variant],
+        common[color],
+        common[variant],
         css[fontStyle],
         className
       )}

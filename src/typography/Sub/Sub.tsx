@@ -1,6 +1,7 @@
 import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
 import css from './Sub.module.css';
+import common from '../Typography.module.css';
 
 export interface SubProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
@@ -39,8 +40,8 @@ export const Sub: FC<SubProps & SubRef> = forwardRef(
       ref={ref}
       className={classNames(
         css.text,
-        css[color],
-        css[variant],
+        common[color],
+        common[variant],
         { [css.disableMargins]: disableMargins },
         className
       )}
