@@ -1,0 +1,12 @@
+.text {
+  font-size: var(--sub-font-size);
+  line-height: var(--sub-line-height);
+  font-weight: var(--sub-font-weight);
+  text-transform: var(--sub-text-transform);
+  color: var(--sub-color);
+  margin: var(--sub-margin);
+
+  &.disableMargins {
+    margin: 0;
+  }
+}

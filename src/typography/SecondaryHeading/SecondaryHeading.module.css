@@ -1,0 +1,13 @@
+h3 {
+  font-family: var(--font-family);
+  font-size: var(--secondary-heading-font-size);
+  line-height: var(--secondary-heading-line-height);
+  font-weight: var(--secondary-heading-font-weight);
+  text-transform: var(--secondary-heading-text-transform);
+  color: var(--secondary-heading-color);
+  margin: var(--secondary-heading-margin);
+
+  &.disableMargins {
+    margin: 0;
+  }
+}
