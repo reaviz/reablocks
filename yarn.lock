@@ -5048,6 +5048,11 @@ default-browser-id@^1.0.4:
     meow "^3.1.0"
     untildify "^2.0.0"
 
+defaults@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/defaults/-/defaults-2.0.1.tgz#4350551a163121e9726840babccdedbcafbf7b3a"
+  integrity sha512-1bGZaOcfpx0Iyxc0SqSIJ8O2WZF8xm56p4Yd4be+VxYQlFM5/4Mx3IMZqi96Npl8EsBG2pePlyGVLdqsmtIkag==
+
 defer-to-connect@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/defer-to-connect/-/defer-to-connect-2.0.1.tgz#8016bdb4143e4632b77a3449c6236277de520587"
