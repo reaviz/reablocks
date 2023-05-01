@@ -12,7 +12,7 @@ import defaults from 'defaults';
 import { darkTheme } from './themes';
 
 export type ThemeProviderProps = PropsWithChildren<{
-  value: Theme;
+  value: Partial<Theme>;
 }>;
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children, value }) => {
