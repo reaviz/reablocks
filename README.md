@@ -61,5 +61,5 @@
 - Sort
 
 ### Utilities
-- Design Token Provider
+- Theme Provider
 - Animation components based on [framer-motion](https://www.framer.com/docs/animation/)

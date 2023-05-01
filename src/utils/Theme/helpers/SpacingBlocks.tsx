@@ -1,8 +1,8 @@
 import React from 'react';
-import { useDts } from '../DesignTokensContext';
+import { useTheme } from '../ThemeContext';
 
 export const SpacingBlocks = () => {
-  const { spacings } = useDts();
+  const { spacings } = useTheme();
 
   return (
     <div

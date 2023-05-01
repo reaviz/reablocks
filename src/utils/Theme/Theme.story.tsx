@@ -10,14 +10,14 @@ import {
   GradientBlocks,
   IconBlocks
 } from './helpers';
-import { DesignTokensProvider } from './DesignTokensProvider';
+import { ThemeProvider } from './ThemeProvider';
 import { darkTheme } from './themes';
 import { buildSheetRules } from './utils';
 import favoriteIcon from './icon-demo.svg';
 
 export default {
-  title: 'Components/Utils/Design Tokens',
-  component: DesignTokensProvider,
+  title: 'Components/Utils/Theme',
+  component: ThemeProvider,
   decorators: [
     Story => (
       <div style={{ width: '95vw' }}>

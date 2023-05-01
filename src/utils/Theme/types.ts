@@ -1,15 +1,8 @@
-import { Meta } from '@storybook/addon-docs';
-
-<Meta title="Docs/Design Tokens/API" />
-
-# Design Tokens API
-Below is the TypeScript API for the design tokens. You can
-use this to define your theme and pass it to the provider.
-
-```ts
 export interface Palette {
   background?: string;
   color?: string;
+  'background-hover'?: string;
+  'color-hover'?: string;
 }
 
 export interface Palettes {
@@ -19,9 +12,12 @@ export interface Palettes {
   error?: Palette;
   warning?: Palette;
   success?: Palette;
+  info?: Palette;
+  disabled?: Palette;
 }
 
 export interface Scale {
+  50?: string;
   100?: string;
   200?: string;
   300?: string;
@@ -53,6 +49,8 @@ export interface Borders {
 export type Shadows = Scale;
 
 export interface Colors {
+  black?: string;
+  white?: string;
   red?: Color;
   purple?: Color;
   blue?: Color;
@@ -83,7 +81,7 @@ export interface Components {
 
 export type Gradients = Omit<Colors, 'overlay'>;
 
-export interface DesignTokens {
+export interface Theme {
   palettes?: Palettes;
   colors?: Colors;
   spacings?: Spacings;
@@ -93,4 +91,3 @@ export interface DesignTokens {
   typography?: Typography;
   components?: Components;
 }
-```

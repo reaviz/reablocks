@@ -1,8 +1,8 @@
 import { Meta } from '@storybook/addon-docs';
 
-<Meta title="Docs/Design Tokens/Getting Started" />
+<Meta title="Docs/Theme/Getting Started" />
 
-# Design Tokens
+# Getting Started
 A provider for design tokens in your application. It has no opinions about
 the UI libraries you use, and it's agnostic to the design system you use.
 
@@ -13,23 +13,23 @@ It also provides Storybook blocks for you to use in your storybook.
 Initalize it in the root of your application like:
 
 ```tsx
-import { DesignTokensProvider } from 'reablocks';
+import { ThemeProvider } from 'reablocks';
 
 export const App = () => (
-  <DesignTokensProvider value={myTheme}>
+  <ThemeProvider value={myTheme}>
     <YourComponents />
-  </DesignTokensProvider>
+  </ThemeProvider>
 );
 ```
 
 Later on you can use the hook to get the design tokens:
 
 ```tsx
-import { useDts } from 'reablocks';
+import { useTheme } from 'reablocks';
 
 export const MyComponent = () => {
   //-> All tokens available
-  const tokens = useDts();
+  const tokens = useTheme();
 };
 ```
 

@@ -1,7 +1,7 @@
 import React, { FC, forwardRef, Ref, useCallback } from 'react';
 import classNames from 'classnames';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { useDts } from '../../utils/DesignTokens';
+import { useTheme } from '../../utils/Theme';
 import css from './Checkbox.module.css';
 
 export interface CheckboxProps {
@@ -77,7 +77,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
     },
     ref: Ref<HTMLDivElement>
   ) => {
-    const theme = useDts();
+    const theme = useTheme();
     const pathLength = useMotionValue(0);
     const opacity = useTransform(pathLength, [0.05, 0.15], [0, 1]);
 

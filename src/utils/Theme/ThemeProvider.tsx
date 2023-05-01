@@ -1,16 +1,13 @@
 import React, { useRef, FC, PropsWithChildren, useLayoutEffect } from 'react';
-import { DesignTokensContext } from './DesignTokensContext';
-import { DesignTokens } from './types';
+import { ThemeContext } from './ThemeContext';
+import { Theme } from './types';
 import { buildSheetRules, createSheet } from './utils';
 
-export type DesignTokensProviderProps = PropsWithChildren<{
-  value: DesignTokens;
+export type ThemeProviderProps = PropsWithChildren<{
+  value: Theme;
 }>;
 
-export const DesignTokensProvider: FC<DesignTokensProviderProps> = ({
-  children,
-  value
-}) => {
+export const ThemeProvider: FC<ThemeProviderProps> = ({ children, value }) => {
   const sheetRef = useRef<CSSStyleSheet | null>(null);
 
   useLayoutEffect(() => {
@@ -33,8 +30,6 @@ export const DesignTokensProvider: FC<DesignTokensProviderProps> = ({
   });
 
   return (
-    <DesignTokensContext.Provider value={value}>
-      {children}
-    </DesignTokensContext.Provider>
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 };

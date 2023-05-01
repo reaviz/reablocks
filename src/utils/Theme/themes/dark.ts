@@ -1,41 +1,6 @@
-import { Meta } from '@storybook/addon-docs';
+import { Colors, Theme } from '../types';
+import { borders, fontSizes, spacings } from './common';
 
-<Meta title="Docs/Design Tokens/Example" />
-
-# Design Tokens Example
-Below is an example of a theme implemented using the design
-tokens system. This theme is the `lightTheme` that is
-used in the Storybook stories.
-
-```ts
-import { DesignTokens, Colors } from 'reablocks';
-
-/**
- * Common spacings.
- */
-export const spacings = {
-  xs: '2px',
-  sm: '5px',
-  md: '10px',
-  lg: '20px',
-  xl: '24px',
-  xxl: '30px'
-};
-
-/**
- * Common borders.
- */
-export const borders = {
-  radius: {
-    sm: '2px',
-    md: '5px',
-    lg: '10px'
-  }
-};
-
-/**
- * Dark theme colors example.
- */
 export const darkColors: Colors = {
   black: '#000000',
   white: '#ffffff',
@@ -148,11 +113,10 @@ export const darkColors: Colors = {
   }
 };
 
-
 /**
  * Dark theme example.
  */
-export const darkTheme: DesignTokens = {
+export const darkTheme: Theme = {
   colors: darkColors,
   typography: {
     families: {
@@ -259,7 +223,7 @@ export const darkTheme: DesignTokens = {
       'button-focus-offset': spacings.xs,
       'button-spacing-sm': `${spacings.xs} ${spacings.sm}`,
       'button-spacing-md': `${spacings.sm} ${spacings.md}`,
-      'button-spacing-lg': `${spacings.md} ${spacings.lg}`,
+      'button-spacing-lg': `${spacings.md} ${spacings.lg}`
     },
     card: {
       'card-border': '0',
@@ -376,7 +340,8 @@ export const darkTheme: DesignTokens = {
       'tooltip-background': darkColors.slate['500'],
       'tooltip-color': darkColors.white,
       'tooltip-border-radius': borders.radius.md,
-      'tooltip-spacing': spacings.sm
+      'tooltip-spacing': spacings.sm,
+      'tooltip-border': 'none'
     },
     range: {
       'range-track-background': darkColors.slate['300'],
@@ -390,7 +355,41 @@ export const darkTheme: DesignTokens = {
     sort: {
       'sort-icon-color': darkColors.white,
       'sort-icon-size': '14px'
+    },
+    typography: {
+      'thin-weight': '200',
+      'bold-weight': '600',
+      'extra-bold-weight': '800',
+      'page-title-font-size': '40px',
+      'page-title-line-height': '1',
+      'page-title-font-weight': 'var(--bold-weight)',
+      'page-title-text-transform': 'none',
+      'page-title-color': darkColors.white,
+      'page-title-margin': '0 0 var(--spacing-lg) 0',
+      'primary-heading-font-size': 'var(--font-size-xxl)',
+      'primary-heading-line-height': '1',
+      'primary-heading-font-weight': 'var(--extra-bold-weight)',
+      'primary-heading-text-transform': 'none',
+      'primary-heading-color': darkColors.white,
+      'primary-heading-margin': '0 0 var(--spacing-sm) 0',
+      'secondary-heading-font-size': 'var(--font-size-xl)',
+      'secondary-heading-line-height': '1',
+      'secondary-heading-font-weight': 'normal',
+      'secondary-heading-text-transform': 'none',
+      'secondary-heading-color': darkColors.white,
+      'secondary-heading-margin': '0 0 var(--spacing-sm) 0',
+      'small-heading-font-size': 'var(--font-size-lg)',
+      'small-heading-line-height': '1',
+      'small-heading-font-weight': 'var(--thin-weight)',
+      'small-heading-text-transform': 'none',
+      'small-heading-color': darkColors.white,
+      'small-heading-margin': '0 0 var(--spacing-sm) 0',
+      'sub-font-size': 'var(--font-size-sm)',
+      'sub-line-height': '1',
+      'sub-font-weight': 'var(--bold-weight)',
+      'sub-text-transform': 'none',
+      'sub-color': darkColors.white,
+      'sub-margin': '0 0 var(--spacing-xs) 0'
     }
   }
 };
-```

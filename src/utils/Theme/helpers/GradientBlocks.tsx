@@ -1,9 +1,9 @@
 import React from 'react';
-import { useDts } from '../DesignTokensContext';
+import { useTheme } from '../ThemeContext';
 import { ColorBlock } from './ColorBlocks';
 
 export const GradientBlocks = () => {
-  const { gradients } = useDts();
+  const { gradients } = useTheme();
 
   return (
     <div

@@ -1,9 +1,9 @@
 import React from 'react';
-import { useDts } from '../DesignTokensContext';
+import { useTheme } from '../ThemeContext';
 import { ColorBlock } from './ColorBlocks';
 
 export const PaletteBlocks = () => {
-  const theme = useDts();
+  const theme = useTheme();
 
   return (
     <div

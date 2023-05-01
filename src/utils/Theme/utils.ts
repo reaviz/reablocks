@@ -1,4 +1,4 @@
-import { DesignTokens } from './types';
+import { Theme } from './types';
 
 export const isRefObject = ref =>
   // eslint-disable-next-line no-prototype-builtins
@@ -7,7 +7,7 @@ export const isRefObject = ref =>
 export const camelToDash = (str: string) =>
   str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
 
-const applyColors = (theme: DesignTokens) => {
+const applyColors = (theme: Theme) => {
   const colors: string[] = [];
 
   if (theme?.colors) {
@@ -25,7 +25,7 @@ const applyColors = (theme: DesignTokens) => {
   return colors;
 };
 
-const applyGradients = (theme: DesignTokens) => {
+const applyGradients = (theme: Theme) => {
   const gradients: string[] = [];
 
   if (theme?.gradients) {
@@ -41,7 +41,7 @@ const applyGradients = (theme: DesignTokens) => {
   return gradients;
 };
 
-const applyBorders = (theme: DesignTokens) => {
+const applyBorders = (theme: Theme) => {
   const borders: string[] = [];
 
   if (theme?.borders?.radius) {
@@ -53,7 +53,7 @@ const applyBorders = (theme: DesignTokens) => {
   return borders;
 };
 
-const applyShadows = (theme: DesignTokens) => {
+const applyShadows = (theme: Theme) => {
   const shadows: string[] = [];
 
   if (theme?.shadows) {
@@ -65,7 +65,7 @@ const applyShadows = (theme: DesignTokens) => {
   return shadows;
 };
 
-const applySpacings = (theme: DesignTokens) => {
+const applySpacings = (theme: Theme) => {
   const spacings: string[] = [];
 
   if (theme?.spacings) {
@@ -77,7 +77,7 @@ const applySpacings = (theme: DesignTokens) => {
   return spacings;
 };
 
-const applyPalettes = (theme: DesignTokens) => {
+const applyPalettes = (theme: Theme) => {
   const palettes: string[] = [];
 
   if (theme?.palettes) {
@@ -91,7 +91,7 @@ const applyPalettes = (theme: DesignTokens) => {
   return palettes;
 };
 
-const applyTypography = (theme: DesignTokens) => {
+const applyTypography = (theme: Theme) => {
   const typographies: string[] = [];
 
   if (theme?.typography) {
@@ -115,7 +115,7 @@ const applyTypography = (theme: DesignTokens) => {
   return typographies;
 };
 
-const applyComponents = (theme: DesignTokens) => {
+const applyComponents = (theme: Theme) => {
   const components: string[] = [];
 
   if (theme?.components) {
@@ -129,7 +129,7 @@ const applyComponents = (theme: DesignTokens) => {
   return components;
 };
 
-export const buildSheetRules = (theme: DesignTokens) => {
+export const buildSheetRules = (theme: Theme) => {
   const template: string[] = [];
 
   if (theme) {
@@ -146,7 +146,7 @@ export const buildSheetRules = (theme: DesignTokens) => {
   return template;
 };
 
-export const createSheet = (theme: DesignTokens) => {
+export const createSheet = (theme: Theme) => {
   const str = buildSheetRules(theme);
 
   const sheet = new CSSStyleSheet();

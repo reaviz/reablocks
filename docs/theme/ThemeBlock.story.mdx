@@ -1,9 +1,9 @@
 import { Meta } from '@storybook/addon-docs';
 
-<Meta title="Docs/Design Tokens/Blocks" />
+<Meta title="Docs/Theme/Blocks" />
 
-# Design Tokens Blocks
-A set of components to use in Storybook to display design tokens. It provides
+# Theme Blocks
+A set of components to use in Storybook to display theme. It provides
 the following block components:
 
 - Typography Block
@@ -17,7 +17,7 @@ the following block components:
 - Icons Block ( icons not included )
 
 ## Example
-Here is an example Storybook story that uses the Design Tokens Blocks.
+Here is an example Storybook story that uses the theme Blocks.
 
 ```tsx
 import React from 'react';
@@ -29,21 +29,21 @@ import {
   BorderBlocks,
   ShadowBlocks,
   ComponentBlocks,
-  DesignTokensProvider,
+  ThemeProvider,
   darkTheme,
   IconBlocks
 } from 'reablocks';
 
 export default {
-  title: 'General/Design Tokens',
-  component: DesignTokensProvider,
+  title: 'General/Theme',
+  component: ThemeProvider,
   decorators: [
     Story => (
-      <DesignTokensProvider value={darkTheme}>
+      <ThemeProvider value={darkTheme}>
         <div style={{ width: '90vw' }}>
           <Story />
         </div>
-      </DesignTokensProvider>
+      </ThemeProvider>
     )
   ]
 };
@@ -96,6 +96,6 @@ export const Icons = () => (
 );
 ````
 
-NOTE: This example uses the `DesignTokensProvider` in the story decorator,
+NOTE: This example uses the `ThemeProvider` in the story decorator,
 but you can also use it in the `preview.js` file to wrap all stories.
 

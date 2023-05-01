@@ -1,1 +1,1 @@
-export * from './DesignTokens';
+export * from './Theme';

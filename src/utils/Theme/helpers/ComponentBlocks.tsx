@@ -1,9 +1,9 @@
 import React from 'react';
-import { useDts } from '../DesignTokensContext';
+import { useTheme } from '../ThemeContext';
 import chroma from 'chroma-js';
 
 export const ComponentBlocks = () => {
-  const { components } = useDts();
+  const { components } = useTheme();
 
   function renderValue(value) {
     if (chroma.valid(value)) {

@@ -1,12 +1,12 @@
-import { DesignTokensProvider, darkTheme } from '../src/utils/DesignTokens';
+import { ThemeProvider, darkTheme } from '../src/utils/Theme';
 import { theme } from './theme';
 import { DocsContainer } from '@storybook/addon-docs';
 
 export const decorators = [
   Story => (
-    <DesignTokensProvider value={darkTheme}>
+    <ThemeProvider value={darkTheme}>
       <Story />
-    </DesignTokensProvider>
+    </ThemeProvider>
   )
 ];
 
@@ -15,8 +15,9 @@ const order = [
   'docs-getting-started-setup--page',
   'docs-getting-started-philosophy--page',
   'docs-getting-started-storybook--page',
-  'design-tokens-',
-  'design-tokens-getting-started',
+  'docs-theme-',
+  'docs-theme-getting-started',
+  'docs-components-',
   'components-',
   'blocks-'
 ];
@@ -41,9 +42,9 @@ export const parameters = {
     theme,
     container: ({ context, children }) => (
       <DocsContainer context={context}>
-        <DesignTokensProvider value={darkTheme}>
+        <ThemeProvider value={darkTheme}>
           {children}
-        </DesignTokensProvider>
+        </ThemeProvider>
       </DocsContainer>
     )
   },
