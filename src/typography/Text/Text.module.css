@@ -1,13 +1,13 @@
 .thin {
-  font-weight: var(--thin-weight);
+  font-weight: var(--font-weight-thin);
 }
 
 .bold {
-  font-weight: var(--bold-weight);
+  font-weight: var(--font-weight-bold);
 }
 
 .extraBold {
-  font-weight: var(--extra-bold-weight);
+  font-weight: var(--font-weight-extraBold);
 }
 
 .italic {

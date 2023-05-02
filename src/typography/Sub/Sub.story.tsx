@@ -19,4 +19,11 @@ export const Colors = () => (
   </div>
 );
 
+export const NoMargins = () => (
+  <>
+    <Sub disableMargins>Hello world</Sub>
+    <Sub disableMargins>Hello world</Sub>
+  </>
+);
+
 export const Monospace = () => <Sub variant="mono">Hello world</Sub>;
