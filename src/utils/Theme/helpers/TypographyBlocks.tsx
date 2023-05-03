@@ -74,9 +74,47 @@ export const TypographySizeBlock = ({ sizes }) => (
   </div>
 );
 
+export const TypographyWeightBlock = ({ weights }) => (
+  <div
+    style={{
+      padding: 'var(--spacing-md)',
+      borderRadius: 'var(--border-radius-md)',
+      border: 'solid 1px var(--slate-500)'
+    }}
+  >
+    {Object.keys(weights).map((weight, i) => (
+      <div
+        key={i}
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          marginBottom: 'var(--spacing-lg)'
+        }}
+      >
+        <code style={{ width: '25%', minWidth: 200 }}>
+          <div style={{ fontSize: 'var(--font-size-md)' }}>
+            {weights[weight]}
+          </div>
+          <span
+            style={{ cursor: 'pointer' }}
+            onDoubleClick={() =>
+              navigator.clipboard.writeText(`--font-weight-${weight}`)
+            }
+          >
+            --font-weight-{weight}
+          </span>
+        </code>
+        <div style={{ fontWeight: weights[weight] }}>
+          The quick brown fox jumps over the lazy dog.
+        </div>
+      </div>
+    ))}
+  </div>
+);
+
 export const TypographyBlocks = () => {
   const {
-    typography: { families, sizes }
+    typography: { families, sizes, weights }
   } = useTheme();
 
   return (
@@ -87,6 +125,8 @@ export const TypographyBlocks = () => {
         width: '100%'
       }}
     >
+      <h1>Typography</h1>
+      <h2>Font Families</h2>
       {Object.keys(families).map(family => (
         <div
           key={family}
@@ -94,12 +134,11 @@ export const TypographyBlocks = () => {
             marginBottom: 'var(--spacing-xl)'
           }}
         >
-          <h3 style={{ fontWeight: 500 }}>
-            {families[family]}
-            <br />
+          <h3 style={{ fontWeight: 500, fontSize: 'var(--font-size-lg)' }}>
             <small>
               <code>--{camelToDash(family)}</code>
             </small>
+            <br />
           </h3>
           <div
             style={{
@@ -120,6 +159,12 @@ export const TypographyBlocks = () => {
           </div>
         </div>
       ))}
+      {weights && (
+        <>
+          <h2>Font Weights</h2>
+          <TypographyWeightBlock weights={weights} />
+        </>
+      )}
     </div>
   );
 };
