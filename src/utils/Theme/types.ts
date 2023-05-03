@@ -38,6 +38,13 @@ export interface Sizes {
   xxl?: number | string;
 }
 
+export interface Weights {
+  thin?: string;
+  normal?: string;
+  bold?: string;
+  extraBold?: string;
+}
+
 export type Color = Scale;
 
 export type Spacings = Sizes;
@@ -71,6 +78,7 @@ export interface FontFamilies {
 export interface Typography {
   families?: FontFamilies;
   sizes?: Sizes;
+  weights?: Weights;
 }
 
 export interface Components {

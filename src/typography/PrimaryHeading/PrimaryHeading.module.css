@@ -1,9 +1,7 @@
 h2 {
   font-family: var(--font-family);
   font-size: var(--primary-heading-font-size);
-  line-height: var(--primary-heading-line-height);
   font-weight: var(--primary-heading-font-weight);
-  text-transform: var(--primary-heading-text-transform);
   color: var(--primary-heading-color);
   margin: var(--primary-heading-margin);
 

@@ -1,9 +1,7 @@
 h5 {
   font-family: var(--font-family);
   font-size: var(--small-heading-font-size);
-  line-height: var(--small-heading-line-height);
   font-weight: var(--small-heading-font-weight);
-  text-transform: var(--small-heading-text-transform);
   color: var(--small-heading-color);
   margin: var(--small-heading-margin);
 

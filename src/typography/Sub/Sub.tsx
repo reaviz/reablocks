@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import css from './Sub.module.css';
 import common from '../Typography.module.css';
 
-export interface SubProps extends React.HTMLAttributes<HTMLSpanElement> {
+export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
    * Color variation of the text.
    */
@@ -28,18 +28,17 @@ export interface SubProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 export interface SubRef {
-  ref?: Ref<HTMLSpanElement>;
+  ref?: Ref<HTMLHeadingElement>;
 }
 
 export const Sub: FC<SubProps & SubRef> = forwardRef(
   (
     { color, variant, disableMargins, children, className, ...rest }: SubProps,
-    ref: Ref<HTMLSpanElement>
+    ref: Ref<HTMLHeadingElement>
   ) => (
-    <span
+    <h6
       ref={ref}
       className={classNames(
-        css.text,
         common[color],
         common[variant],
         { [css.disableMargins]: disableMargins },
@@ -48,7 +47,7 @@ export const Sub: FC<SubProps & SubRef> = forwardRef(
       {...rest}
     >
       {children}
-    </span>
+    </h6>
   )
 );
 

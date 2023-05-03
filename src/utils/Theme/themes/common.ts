@@ -32,3 +32,13 @@ export const fontSizes = {
   xl: '28px',
   xxl: '32px'
 };
+
+/**
+ * Common font weights.
+ */
+export const fontWeights = {
+  thin: '200',
+  normal: '400',
+  bold: '600',
+  extraBold: '800'
+};

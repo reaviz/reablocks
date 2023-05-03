@@ -72,13 +72,14 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
       ref={ref}
       whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
       type={type || 'button'}
-      className={classNames(className, css.btn, {
+      className={classNames(css.btn, {
         [css.fullWidth]: fullWidth,
         [css.disableMargins]: disableMargins,
         [css.disablePadding]: disablePadding,
         [css[color]]: true,
         [css[size]]: true,
-        [css[variant]]: true
+        [css[variant]]: true,
+        className
       })}
     >
       {children}

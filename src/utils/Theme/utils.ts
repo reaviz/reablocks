@@ -110,6 +110,14 @@ const applyTypography = (theme: Theme) => {
         );
       }
     }
+
+    if (theme.typography.weights) {
+      for (const key of Object.keys(theme.typography.weights)) {
+        typographies.push(
+          `--font-weight-${key}: ${theme.typography.weights[key]};`
+        );
+      }
+    }
   }
 
   return typographies;
