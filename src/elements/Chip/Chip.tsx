@@ -78,15 +78,14 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       ref={ref}
       tabIndex={onClick ? 0 : -1}
       onClick={onClick}
-      className={classNames(css.chip, {
+      className={classNames(css.chip, className, {
         [css[color]]: true,
         [css[variant]]: true,
         [css[size]]: true,
         [css.selected]: !!selected,
         [css.disabled]: disabled,
         [css.selectable]: onClick && !disabled,
-        [css.disableMargins]: disableMargins,
-        className
+        [css.disableMargins]: disableMargins
       })}
     >
       {start && <div className={css.startAdornment}>{start}</div>}
