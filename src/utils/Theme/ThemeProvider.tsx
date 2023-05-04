@@ -1,15 +1,7 @@
-import React, {
-  useRef,
-  FC,
-  PropsWithChildren,
-  useLayoutEffect,
-  useMemo
-} from 'react';
+import React, { useRef, FC, PropsWithChildren, useLayoutEffect } from 'react';
 import { ThemeContext } from './ThemeContext';
 import { Theme } from './types';
 import { buildSheetRules, createSheet } from './utils';
-import defaults from 'defaults';
-import { darkTheme } from './themes';
 
 export type ThemeProviderProps = PropsWithChildren<{
   value: Partial<Theme>;
@@ -18,24 +10,18 @@ export type ThemeProviderProps = PropsWithChildren<{
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children, value }) => {
   const sheetRef = useRef<CSSStyleSheet | null>(null);
 
-  // Default merge our theme with the dark theme
-  const merged = useMemo(
-    () => defaults(value as any, darkTheme as any),
-    [value]
-  );
-
   useLayoutEffect(() => {
     if (!sheetRef.current) {
-      sheetRef.current = createSheet(merged);
+      sheetRef.current = createSheet(value);
     } else {
-      const cssVariables = buildSheetRules(merged);
+      const cssVariables = buildSheetRules(value);
       sheetRef.current.replaceSync(`
         :root {
           ${cssVariables.map(variable => `${variable}`).join('\n')}
         }
       `);
     }
-  }, [merged]);
+  }, [value]);
 
   useLayoutEffect(() => {
     return () => {
@@ -49,6 +35,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, value }) => {
   });
 
   return (
-    <ThemeContext.Provider value={merged}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
   );
 };
