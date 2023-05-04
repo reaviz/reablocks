@@ -1,4 +1,4 @@
-h6 {
+.root {
   font-size: var(--sub-font-size);
   font-weight: var(--sub-font-weight);
   color: var(--sub-color);

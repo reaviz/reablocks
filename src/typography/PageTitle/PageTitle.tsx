@@ -48,6 +48,7 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
       className={classNames(
         common[color],
         common[variant],
+        css.root,
         { [css.disableMargins]: disableMargins },
         className
       )}

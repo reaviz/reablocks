@@ -49,6 +49,7 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
         className={classNames(
           common[color],
           common[variant],
+          css.root,
           { [css.disableMargins]: disableMargins },
           className
         )}

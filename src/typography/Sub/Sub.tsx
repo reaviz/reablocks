@@ -41,6 +41,7 @@ export const Sub: FC<SubProps & SubRef> = forwardRef(
       className={classNames(
         common[color],
         common[variant],
+        css.root,
         { [css.disableMargins]: disableMargins },
         className
       )}

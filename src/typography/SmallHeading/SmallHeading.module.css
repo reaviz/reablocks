@@ -1,4 +1,4 @@
-h5 {
+.root {
   font-family: var(--font-family);
   font-size: var(--small-heading-font-size);
   font-weight: var(--small-heading-font-weight);

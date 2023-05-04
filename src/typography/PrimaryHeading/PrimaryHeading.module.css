@@ -1,4 +1,4 @@
-h2 {
+.root {
   font-family: var(--font-family);
   font-size: var(--primary-heading-font-size);
   font-weight: var(--primary-heading-font-weight);
