@@ -3,7 +3,6 @@
   --toggle-width: 55px;
   --toggle-height: 35px;
   --toggle-handle-size: 25px;
-  --toggle-padding: var(--toggle-spacing);
 
   display: flex;
   align-items: center;
@@ -22,7 +21,7 @@
   &.small {
     height: calc(var(--toggle-height) / 2);
     width: calc(var(--toggle-width) / 2);
-    padding: calc(var(--toggle-padding) / 2);
+    padding: calc(var(--toggle-spacing) / 2);
 
     .handle {
       height: calc(var(--toggle-handle-size) / 2);
@@ -33,7 +32,7 @@
   &.medium {
     height: calc(var(--toggle-height) / 1.5);
     width: calc(var(--toggle-width) / 1.5);
-    padding: calc(var(--toggle-padding) / 1.5);
+    padding: calc(var(--toggle-spacing) / 1.5);
 
     .handle {
       height: calc(var(--toggle-handle-size) / 1.5);
@@ -44,7 +43,7 @@
   &.large {
     height: var(--toggle-height);
     width: var(--toggle-width);
-    padding: var(--toggle-padding);
+    padding: var(--toggle-spacing);
 
     .handle {
       height: var(--toggle-handle-size);
