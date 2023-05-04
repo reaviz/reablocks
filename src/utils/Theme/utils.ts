@@ -155,12 +155,12 @@ export const buildSheetRules = (theme: Theme) => {
 };
 
 export const createSheet = (theme: Theme) => {
-  const str = buildSheetRules(theme);
+  const cssVariables = buildSheetRules(theme);
 
   const sheet = new CSSStyleSheet();
   sheet.replaceSync(`
-    body {
-      ${str.join(' ')}
+    :root {
+      ${cssVariables.map(variable => `${variable}`).join('\n')}
     }
   `);
 

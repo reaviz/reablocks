@@ -28,7 +28,12 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, value }) => {
     if (!sheetRef.current) {
       sheetRef.current = createSheet(merged);
     } else {
-      sheetRef.current.replaceSync(buildSheetRules(merged).join(' '));
+      const cssVariables = buildSheetRules(merged);
+      sheetRef.current.replaceSync(`
+        :root {
+          ${cssVariables.map(variable => `${variable}`).join('\n')}
+        }
+      `);
     }
   }, [merged]);
 
