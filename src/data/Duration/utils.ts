@@ -23,7 +23,7 @@ export function formatDuration(time: DurationFormatTypes, emptyValue = 'N/A') {
   }
 
   // Let's get the format and tease out the different values
-  const humanized = humanFormat(newTime, { scale: timeScale });
+  const humanized = humanFormat(newTime as number, { scale: timeScale });
   const [valueStr, unitStr] = humanized.split(' ');
 
   const value = parseFloat(valueStr);
