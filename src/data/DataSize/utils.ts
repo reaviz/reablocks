@@ -11,5 +11,5 @@ export function formatSize(size: FormatSizeTypes, emptyValue = 'N/A') {
     return [emptyValue];
   }
 
-  return humanFormat.bytes(newSize);
+  return humanFormat.bytes(newSize as number);
 }
