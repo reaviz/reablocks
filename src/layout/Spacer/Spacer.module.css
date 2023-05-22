@@ -6,4 +6,12 @@
   &.dense {
     gap: var(--spacer-dense-gap);
   }
+
+  &.column {
+    flex-direction: column;
+  }
+
+  &.row {
+    flex-direction: row;
+  }
 }

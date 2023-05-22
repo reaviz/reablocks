@@ -21,3 +21,11 @@ export const Dense = () => (
     <span>span</span>
   </Spacer>
 );
+
+export const Columns = () => (
+  <Spacer direction="column">
+    <button>Button</button>
+    <div>div</div>
+    <span>span</span>
+  </Spacer>
+);
