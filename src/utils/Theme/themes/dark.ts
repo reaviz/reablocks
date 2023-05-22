@@ -357,6 +357,10 @@ export const darkTheme: Theme = {
       'sort-icon-color': darkColors.white,
       'sort-icon-size': '14px'
     },
+    spacer: {
+      'spacer-gap': spacings.md,
+      'spacer-dense-gap': spacings.sm
+    },
     typography: {
       'page-title-font-size': '40px',
       'page-title-font-weight': 'var(--font-weight-bold)',
