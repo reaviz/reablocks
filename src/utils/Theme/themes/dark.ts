@@ -357,6 +357,9 @@ export const darkTheme: Theme = {
       'sort-icon-color': darkColors.white,
       'sort-icon-size': '14px'
     },
+    avatar: {
+      'avatar-initials-color': darkColors.white
+    },
     spacer: {
       'spacer-gap': spacings.md,
       'spacer-dense-gap': spacings.sm

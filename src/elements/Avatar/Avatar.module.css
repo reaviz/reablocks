@@ -1,0 +1,12 @@
+.avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  color: var(--avatar-initials-color);
+}
+
+.rounded {
+  border-radius: 50%;
+}
