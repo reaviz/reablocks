@@ -365,6 +365,9 @@ export const darkTheme: Theme = {
       'spacer-gap': spacings.md,
       'spacer-dense-gap': spacings.sm
     },
+    avatarGroup: {
+      'avatar-group-spacing': `calc(${spacings.md} * -1)`
+    },
     typography: {
       'page-title-font-size': '40px',
       'page-title-font-weight': 'var(--font-weight-bold)',

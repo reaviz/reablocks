@@ -18,8 +18,7 @@ Default.args = {
 
 export const RoundedWithImage = Template.bind({});
 RoundedWithImage.args = {
-  imageUrl:
-    'https://lh3.googleusercontent.com/a-/AAuE7mAtQVUnylKNBtevO2lU0S-a4X-nu0IwMIyVl0Qe',
+  src: 'https://lh3.googleusercontent.com/a-/AAuE7mAtQVUnylKNBtevO2lU0S-a4X-nu0IwMIyVl0Qe',
   size: 50,
   rounded: true
 };
