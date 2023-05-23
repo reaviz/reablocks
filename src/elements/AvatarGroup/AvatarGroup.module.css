@@ -1,0 +1,12 @@
+.group {
+  display: flex;
+  align-items: center;
+
+  .avatar {
+    margin-left: calc(var(--spacing-md) * -1);
+  }
+
+  .overflow {
+    margin-left: var(--spacing-sm);
+  }
+}

@@ -5,6 +5,7 @@
   background-size: cover;
   background-position: center;
   color: var(--avatar-initials-color);
+  border: var(--avatar-border);
 }
 
 .rounded {
