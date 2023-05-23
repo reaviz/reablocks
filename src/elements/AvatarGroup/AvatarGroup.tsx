@@ -1,7 +1,7 @@
-import React, { Children, FC, forwardRef, Ref } from 'react';
+import React, { Children, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
-import css from './AvatarGroup.module.css';
 import { useInfinityList } from '../../data/InfinityList';
+import css from './AvatarGroup.module.css';
 
 export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -20,31 +20,30 @@ export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: number;
 }
 
-export const AvatarGroup: FC<AvatarGroupProps & { ref?: Ref<HTMLDivElement> }> =
-  forwardRef(
-    (
-      { children, className, size, ...rest }: AvatarGroupProps,
-      ref: Ref<HTMLDivElement>
-    ) => {
-      const childrenArray = Children.toArray(children);
+export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
+  (
+    { children, className, size, ...rest }: AvatarGroupProps,
+    ref: Ref<HTMLDivElement>
+  ) => {
+    const childrenArray = Children.toArray(children);
 
-      const { data, hasMore, remaining } = useInfinityList({
-        items: childrenArray,
-        size
-      });
+    const { data, hasMore, remaining } = useInfinityList({
+      items: childrenArray,
+      size
+    });
 
-      return (
-        <div {...rest} ref={ref} className={classNames(className, css.group)}>
-          {data.map((child, index) => (
-            <div key={index} className={css.avatar}>
-              {child}
-            </div>
-          ))}
-          {hasMore && <span className={css.overflow}>+{remaining} more</span>}
-        </div>
-      );
-    }
-  );
+    return (
+      <div {...rest} ref={ref} className={classNames(className, css.group)}>
+        {data.map((child, index) => (
+          <div key={index} className={css.avatar}>
+            {child}
+          </div>
+        ))}
+        {hasMore && <span className={css.overflow}>+{remaining} more</span>}
+      </div>
+    );
+  }
+);
 
 AvatarGroup.defaultProps = {
   size: 10

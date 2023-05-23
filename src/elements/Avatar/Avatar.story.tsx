@@ -35,7 +35,7 @@ export const MultipleAvatars: Story<AvatarProps> = args => (
   <div style={{ display: 'flex', gap: '1em' }}>
     <Avatar {...args} name="Alice" />
     <Avatar {...args} name="Bob Meyer Bogger" />
-    <Avatar {...args} name="Charlie" />
+    <Avatar {...args} name="Charlie" onClick={() => console.log('here')} />
   </div>
 );
 

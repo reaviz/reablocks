@@ -4,7 +4,7 @@ import getInitials from 'name-initials';
 import stc from 'string-to-color';
 import css from './Avatar.module.css';
 
-export interface AvatarProps {
+export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * The name of the person.
    */
