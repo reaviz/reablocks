@@ -32,12 +32,13 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
-  ({ name, src, color, size, rounded }, ref) => {
+  ({ name, src, color, size, rounded, className, ...rest }, ref) => {
     const fontSize = size * 0.4;
 
     return (
       <div
-        className={classNames(css.avatar, {
+        {...rest}
+        className={classNames(css.avatar, className, {
           [css.rounded]: rounded
         })}
         style={{
