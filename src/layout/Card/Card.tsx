@@ -31,7 +31,7 @@ export interface CardProps extends React.DOMAttributes<any> {
   /**
    * Header element or text to show.
    */
-  header?: string | JSX.Element | JSX.Element[];
+  header?: string | React.JSX.Element | React.JSX.Element[];
 }
 
 export type CardRefProps = CardProps & { ref?: Ref<HTMLDivElement> };

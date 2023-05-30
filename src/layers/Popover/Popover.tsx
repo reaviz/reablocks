@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC } from 'react';
 import { TooltipProps, Tooltip } from '../Tooltip';
 import FocusTrap from 'focus-trap-react';
 import classNames from 'classnames';
@@ -64,8 +64,8 @@ export const Popover: FC<PopoverProps> = ({
           >
             <div
               id={id}
-              tab-index="-1"
-              stlye={popoverStyle}
+              tabIndex={-1}
+              style={popoverStyle}
               className={popoverClassName}
             >
               {children}
