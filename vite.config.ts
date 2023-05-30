@@ -35,8 +35,8 @@ export default defineConfig(({ mode }) =>
         sourcemap: true,
         lib: {
           entry: resolve('src', 'index.ts'),
-          name: 'reagraph',
-          fileName: 'reagraph'
+          name: 'reablocks',
+          fileName: 'reablocks'
         },
         rollupOptions: {
           plugins: [
