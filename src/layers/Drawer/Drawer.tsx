@@ -1,4 +1,4 @@
-import { FC, ReactElement } from 'react';
+import React, { FC, ReactElement } from 'react';
 import classNames from 'classnames';
 import FocusTrap from 'focus-trap-react';
 import { CloneElement, GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
@@ -60,7 +60,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
             fallbackFocus: `#${id}`
           }}
         >
-          <div id={id} tab-index="-1">
+          <div id={id} tabIndex={-1}>
             <motion.div
               initial="initial"
               animate="animate"

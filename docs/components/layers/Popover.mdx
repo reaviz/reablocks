@@ -1,0 +1,22 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Popover } from '../../../src/layers/Popover';
+import * as PopoverStories from '../../../src/layers/Popover/Popover.story';
+
+<Meta title="Docs/Components/Layers/Popover" />
+
+# Popover
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `popover-background`
+- `popover-color`
+- `popover-border-radius`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## Example
+<Canvas sourceState="shown" of={PopoverStories.Simple} />
+
+## API
+<ArgsTable of={Popover} />

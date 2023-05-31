@@ -1,0 +1,98 @@
+import { Meta, ArgsTable, Canvas } from '@storybook/addon-docs';
+import { Select, SelectOption, SelectMenu, SelectInput, SelectInputChip } from '../../../src/form/Select';
+import * as SingleSelectStories from '../../../src/form/Select/SingleSelect.story';
+import * as MultiSelectStories from '../../../src/form/Select/MultiSelect.story';
+
+<Meta title="Docs/Components/Form/Select" />
+
+# Select
+A select component that features:
+
+- Single Select
+- Multi Select
+- Flexible customization of the components
+- Tagging / Creation of options
+- Filtering with Fuzzy Search via [fuse.js](https://github.com/reaviz/react-use-fuzzy)
+- Highlighting of selected options
+- Async Support
+- Groups Support
+- Animation
+
+## Single
+<Canvas sourceState="shown" of={SingleSelectStories.Basic} />
+<Canvas sourceState="shown" of={SingleSelectStories.CustomLabels} />
+<Canvas sourceState="shown" of={SingleSelectStories.Createable} />
+<Canvas sourceState="shown" of={SingleSelectStories.Error} />
+<Canvas sourceState="shown" of={SingleSelectStories.Groups} />
+<Canvas sourceState="shown" of={SingleSelectStories.FluidWidth} />
+
+## Multiple
+<Canvas sourceState="shown" of={MultiSelectStories.Basic} />
+<Canvas sourceState="shown" of={MultiSelectStories.CustomLabels} />
+<Canvas sourceState="shown" of={MultiSelectStories.Createable} />
+<Canvas sourceState="shown" of={MultiSelectStories.Error} />
+<Canvas sourceState="shown" of={MultiSelectStories.FluidWidth} />
+
+## CSS Classes
+The select component exposes the following CSS class names for custom
+styling.
+
+- `select-input`
+- `select-input-value`
+- `select-input-refresh`
+- `select-input-clear`
+- `select-input-toggle`
+- `select-input-chip`
+- `select-menu`
+- `select-menu-item`
+- `select-menu-create-option`
+- `select-menu-empty-search`
+- `select-menu-empty`
+- `select-menu-group`
+- `select-menu-group-header`
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `select-input-border-radius`
+- `select-input-background`
+- `select-input-border`
+- `select-input-color`
+- `select-input-spacing`
+- `select-input-error`
+- `select-input-placeholder-color`
+- `select-input-disabled-color`
+- `select-input-icon-color`
+- `select-menu-background`
+- `select-menu-border`
+- `select-menu-border-radius`
+- `select-menu-item-color`
+- `select-menu-group-color`
+- `select-menu-item-spacing`
+- `select-menu-item-active-background`
+- `select-menu-item-active-color`
+- `select-menu-item-selected-color`
+- `select-menu-item-selected-background`
+- `select-chip-background`
+- `select-chip-border`
+- `select-chip-color`
+- `select-chip-icon-color`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-startedpage).
+
+## API
+
+### Select
+<ArgsTable of={Select} />
+
+### SelectOption
+<ArgsTable of={SelectOption} />
+
+### SelectMenu
+<ArgsTable of={SelectMenu} />
+
+### SelectInput
+<ArgsTable of={SelectInput} />
+
+### SelectInputChip
+<ArgsTable of={SelectInputChip} />

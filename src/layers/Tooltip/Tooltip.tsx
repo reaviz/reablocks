@@ -1,11 +1,4 @@
-import React, {
-  FC,
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-  ReactNode
-} from 'react';
+import React, { FC, useState, useRef, useEffect, ReactNode } from 'react';
 import classNames from 'classnames';
 import {
   Placement,
@@ -173,7 +166,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
       clearTimeout(timer);
       deactivateTooltip(curRef, isPopover);
     };
-  }, [deactivateTooltip, visible]);
+  }, [deactivateTooltip, isPopover, visible]);
 
   return (
     <ConnectedOverlay

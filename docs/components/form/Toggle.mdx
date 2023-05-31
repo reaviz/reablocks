@@ -1,0 +1,28 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Toggle } from '../../../src/form/Toggle';
+import * as ToggleStories from '../../../src/form/Toggle/Toggle.story';
+
+<Meta title="Docs/Components/Form/Toggle" />
+
+# Toggle
+A boolean input element to toggle between two states.
+
+## Examples
+<Canvas sourceState="shown" of={ToggleStories.Simple} />
+<Canvas sourceState="shown" of={ToggleStories.Sizes} />
+<Canvas sourceState="shown" of={ToggleStories.Disabled} />
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `toggle-background`
+- `toggle-border-radius`
+- `toggle-spacing`
+- `toggle-handle-background`
+- `toggle-handle-checked-background`
+- `toggle-handle-border-radius`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## API
+<ArgsTable of={Toggle} />

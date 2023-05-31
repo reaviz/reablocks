@@ -1,0 +1,30 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Duration } from '../../../src/data/Duration';
+import * as DurationStories from '../../../src/data/Duration/Duration.story';
+
+<Meta title="Docs/Components/Data/Duration" />
+
+# Duration
+Duration is a component that renders duration of epoch time in a human readable format using
+[human-format](https://www.npmjs.com/package/human-format).
+
+You can use the component directly like in the example below or via
+the API that is exported.
+
+## Example
+
+### Component
+<Canvas sourceState="shown" of={DurationStories.Simple} />
+
+### Function API
+```ts
+import { formatDuration, DurationFormatTypes } from 'reablocks';
+
+function formatSomething(size: DurationFormatTypes) {
+  // size = number | string | null | undefined;
+  return formatDuration(size);
+}
+```
+
+## API
+<ArgsTable of={Duration} />
