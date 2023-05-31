@@ -1,0 +1,36 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Input } from '../../../src/form/Input';
+import * as InputStories from '../../../src/form/Input/Input.story';
+
+<Meta title="Docs/Components/Form/Input" />
+
+# Input
+Text field to enter and submit input.
+
+## Examples
+<Canvas sourceState="shown" of={InputStories.Basic} />
+<Canvas sourceState="shown" of={InputStories.Sizes} />
+<Canvas sourceState="shown" of={InputStories.Disabled} />
+<Canvas sourceState="shown" of={InputStories.EndAdornment} />
+<Canvas sourceState="shown" of={InputStories.StartAdornment} />
+<Canvas sourceState="shown" of={InputStories.StartEndAdorment} />
+<Canvas sourceState="shown" of={InputStories.Error} />
+<Canvas sourceState="shown" of={InputStories.Placeholder} />
+<Canvas sourceState="shown" of={InputStories.DefaultValue} />
+<Canvas sourceState="shown" of={InputStories.FullWidth} />
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `input-background`
+- `input-color`
+- `input-border-radius`
+- `input-border`
+- `input-spacing-md`
+- `input-spacing-sm`
+- `input-spacing-lg`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## API
+<ArgsTable of={Input} />

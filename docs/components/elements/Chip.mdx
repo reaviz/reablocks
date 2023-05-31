@@ -1,0 +1,31 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Chip } from '../../../src/elements/Chip';
+import * as ChipStories from '../../../src/elements/Chip/Chip.story';
+
+<Meta title="Docs/Components/Elements/Chip" />
+
+# Chip
+
+## Examples
+<Canvas sourceState="shown" of={ChipStories.Colors} />
+<Canvas sourceState="shown" of={ChipStories.Sizes} />
+<Canvas sourceState="shown" of={ChipStories.Variants} />
+<Canvas sourceState="shown" of={ChipStories.StartAdornment} />
+<Canvas sourceState="shown" of={ChipStories.EndAdornment} />
+<Canvas sourceState="shown" of={ChipStories.StartEndAdornment} />
+<Canvas sourceState="shown" of={ChipStories.Selectable} />
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `chip-font-family`
+- `chip-background`
+- `chip-background-hover`
+- `chip-color`
+- `chip-color-hover`
+- `chip-border-radius`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## API
+<ArgsTable of={Chip} />

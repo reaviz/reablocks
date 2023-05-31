@@ -1,0 +1,21 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Drawer } from '../../../src/layers/Drawer';
+import * as DrawerStories from '../../../src/layers/Drawer/Drawer.story';
+
+<Meta title="Docs/Components/Layers/Drawer" />
+
+# Drawer
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `drawer-background`
+- `drawer-color`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## Example
+<Canvas sourceState="shown" of={DrawerStories.Simple} />
+
+## API
+<ArgsTable of={Drawer} />

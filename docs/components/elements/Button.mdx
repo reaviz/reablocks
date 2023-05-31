@@ -1,0 +1,37 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Button } from '../../../src/elements/Button';
+import * as ButtonStories from '../../../src/elements/Button/Button.story';
+
+<Meta title="Docs/Components/Elements/Button" />
+
+# Button
+Simple button component.
+
+## Examples
+<Canvas sourceState="shown" of={ButtonStories.Variants} />
+<Canvas sourceState="shown" of={ButtonStories.Sizes} />
+<Canvas sourceState="shown" of={ButtonStories.Colors} />
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `button-font-weight`
+- `button-font-family`
+- `button-background`
+- `button-background-hover`
+- `button-color`
+- `button-color-hover`
+- `button-color-on-background`
+- `button-disabled-color-on-background`
+- `button-border-radius`
+- `button-border`
+- `button-focus`
+- `button-focus-offset`
+- `button-spacing-sm`
+- `button-spacing-md`
+- `button-spacing-lg`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## API
+<ArgsTable of={Button} />

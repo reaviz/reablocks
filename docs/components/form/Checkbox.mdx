@@ -1,0 +1,26 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Checkbox } from '../../../src/form/Checkbox';
+import * as CheckboxStories from '../../../src/form/Checkbox/Checkbox.story';
+
+<Meta title="Docs/Components/Form/Checkbox" />
+
+# Checkbox
+
+## Examples
+<Canvas sourceState="shown" of={CheckboxStories.Simple} />
+<Canvas sourceState="shown" of={CheckboxStories.Sizes} />
+<Canvas sourceState="shown" of={CheckboxStories.Disabled} />
+<Canvas sourceState="shown" of={CheckboxStories.Intermediate} />
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `checkbox-label-color`
+- `checkbox-check-stroke`
+- `checkbox-box-checked-stroke`
+- `checkbox-box-unchecked-stroke`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## API
+<ArgsTable of={Checkbox} />

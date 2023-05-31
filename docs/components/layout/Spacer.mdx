@@ -1,0 +1,23 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Spacer } from '../../../src/layout/Spacer';
+import * as SpacerStories from '../../../src/layout/Spacer/Spacer.story';
+
+<Meta title="Docs/Components/Layout/Spacer" />
+
+# Spacer
+Component that sets component spacing. It can be used to add
+space between components such as aa menu.
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `spacer-gap`
+- `spacer-dense-gap`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## Example
+<Canvas sourceState="shown" of={SpacerStories.Simple} />
+
+## API
+<ArgsTable of={Spacer} />
