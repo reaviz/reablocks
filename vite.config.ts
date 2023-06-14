@@ -33,10 +33,11 @@ export default defineConfig(({ mode }) =>
       build: {
         minify: false,
         sourcemap: true,
+        copyPublicDir: false,
         lib: {
           entry: resolve('src', 'index.ts'),
           name: 'reablocks',
-          fileName: 'reablocks'
+          fileName: 'index'
         },
         rollupOptions: {
           plugins: [
