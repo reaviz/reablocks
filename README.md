@@ -1,5 +1,6 @@
 <div align="center">
-  <h1>reablocks</h1>
+  <img width="650" src="docs/assets/logo-light.png">
+  <br />
   UI components for React.
   <br /><br />
   <a href="https://github.com/reaviz/reablocks/actions/workflows/build.yml">
@@ -32,6 +33,7 @@
 - View the [Docs and Demos](https://reablocks.dev)
 
 ## 🪄 Features
+
 ### Components
 - Pluralization
 - Ellipsis
