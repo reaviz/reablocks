@@ -1,11 +1,13 @@
 import { List } from './List';
+import { ListHeader } from './ListHeader';
 import { ListItem } from './ListItem';
 
 export default {
   title: 'Components/Layout/List',
   component: List,
   subcomponents: {
-    ListItem
+    ListItem,
+    ListHeader
   }
 };
 
@@ -28,6 +30,15 @@ export const Dense = () => (
 export const Active = () => (
   <List style={{ width: '150px' }}>
     <ListItem active>Item 1</ListItem>
+    <ListItem>Item 2</ListItem>
+    <ListItem>Item 3</ListItem>
+  </List>
+);
+
+export const WithHeader = () => (
+  <List style={{ width: '150px' }}>
+    <ListHeader>List of things</ListHeader>
+    <ListItem>Item 1</ListItem>
     <ListItem>Item 2</ListItem>
     <ListItem>Item 3</ListItem>
   </List>

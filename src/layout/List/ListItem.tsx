@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, FC } from 'react';
+import React, { InputHTMLAttributes, FC, forwardRef } from 'react';
 import classNames from 'classnames';
 import css from './ListItem.module.css';
 
@@ -39,34 +39,40 @@ export interface ListItemProps extends InputHTMLAttributes<HTMLDivElement> {
   end?: React.ReactNode;
 }
 
-export const ListItem: FC<ListItemProps> = ({
-  className,
-  children,
-  active,
-  disabled,
-  disablePadding,
-  disableGutters,
-  start,
-  end,
-  dense,
-  onClick,
-  ...rest
-}) => (
-  <div
-    {...rest}
-    role="listitem"
-    onClick={e => !disabled && onClick?.(e)}
-    className={classNames(className, css.listItem, {
-      [css.disabled]: disabled,
-      [css.active]: active,
-      [css.clickable]: onClick && !disabled,
-      [css.disablePadding]: disablePadding,
-      [css.disableGutters]: disableGutters,
-      [css.dense]: dense
-    })}
-  >
-    {start && <div className={css.startAdornment}>{start}</div>}
-    <div className={css.content}>{children}</div>
-    {end && <div className={css.endAdornment}>{end}</div>}
-  </div>
+export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
+  (
+    {
+      className,
+      children,
+      active,
+      disabled,
+      disablePadding,
+      disableGutters,
+      start,
+      end,
+      dense,
+      onClick,
+      ...rest
+    },
+    ref
+  ) => (
+    <div
+      {...rest}
+      ref={ref}
+      role="listitem"
+      onClick={e => !disabled && onClick?.(e)}
+      className={classNames(className, css.listItem, {
+        [css.disabled]: disabled,
+        [css.active]: active,
+        [css.clickable]: onClick && !disabled,
+        [css.disablePadding]: disablePadding,
+        [css.disableGutters]: disableGutters,
+        [css.dense]: dense
+      })}
+    >
+      {start && <div className={css.startAdornment}>{start}</div>}
+      <div className={css.content}>{children}</div>
+      {end && <div className={css.endAdornment}>{end}</div>}
+    </div>
+  )
 );
