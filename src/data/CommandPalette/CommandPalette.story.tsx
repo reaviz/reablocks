@@ -12,7 +12,7 @@ export default {
 
 export const Simple = () => (
   <div style={{ width: 400 }}>
-    <CommandPalette placeholder="Search...">
+    <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection title="Recently Used">
         <CommandPaletteItem>Home</CommandPaletteItem>
         <CommandPaletteItem>Inbox</CommandPaletteItem>
@@ -30,20 +30,20 @@ export const Simple = () => (
 
 export const Sections = () => (
   <div style={{ width: 400 }}>
-    <CommandPalette placeholder="Search...">
+    <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection>
         <CommandPaletteItem disablePadding>
           <Spacer>
-            <Chip>App</Chip>
-            <Chip>Docs</Chip>
-            <Chip>Contacts</Chip>
+            <Chip>Dashboards</Chip>
+            <Chip>Integrations</Chip>
+            <Chip>Rules</Chip>
           </Spacer>
         </CommandPaletteItem>
       </CommandPaletteSection>
       <Divider />
       <CommandPaletteSection title="Recently Used">
-        <CommandPaletteItem>Home</CommandPaletteItem>
-        <CommandPaletteItem>Inbox</CommandPaletteItem>
+        <CommandPaletteItem>CISO Dashboard</CommandPaletteItem>
+        <CommandPaletteItem>Recommendations</CommandPaletteItem>
         <CommandPaletteItem>Settings</CommandPaletteItem>
       </CommandPaletteSection>
       <Divider />
@@ -56,7 +56,7 @@ export const Sections = () => (
             borderRadius: 'var(--border-radius-md)'
           }}
         >
-          Account not configured. Create a new account →
+          🚨 AWS Account not configured. Link your account →
         </div>
       </CommandPaletteSection>
     </CommandPalette>
@@ -82,7 +82,7 @@ const DemoIcon = () => (
 
 export const WithIcons = () => (
   <div style={{ width: 400 }}>
-    <CommandPalette placeholder="Search...">
+    <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection title="Recently Used">
         <CommandPaletteItem start={<DemoIcon />}>Home</CommandPaletteItem>
         <CommandPaletteItem start={<DemoIcon />}>Inbox</CommandPaletteItem>
@@ -95,7 +95,7 @@ export const WithIcons = () => (
 export const Empty = () => (
   <div style={{ width: 400 }}>
     <CommandPalette
-      placeholder="Search..."
+      placeholder="Type a command or search..."
       emptyMessage="😢 No item(s) found."
     />
   </div>
@@ -103,7 +103,7 @@ export const Empty = () => (
 
 export const NoSection = () => (
   <div style={{ width: 400 }}>
-    <CommandPalette placeholder="Search...">
+    <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteItem>Home</CommandPaletteItem>
       <CommandPaletteItem>Inbox</CommandPaletteItem>
       <CommandPaletteItem>Settings</CommandPaletteItem>
@@ -113,7 +113,7 @@ export const NoSection = () => (
 
 export const LongList = () => (
   <div style={{ width: 400 }}>
-    <CommandPalette placeholder="Search...">
+    <CommandPalette placeholder="Type a command or search...">
       {Array.from({ length: 100 }, (_, i) => (
         <CommandPaletteItem key={i}>Item {i}</CommandPaletteItem>
       ))}
@@ -123,7 +123,7 @@ export const LongList = () => (
 
 export const WithDialog = () => (
   <Dialog open size={400} showCloseButton={false} disablePadding>
-    <CommandPalette placeholder="Search...">
+    <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection title="Recently Used">
         <CommandPaletteItem>Home</CommandPaletteItem>
         <CommandPaletteItem>Inbox</CommandPaletteItem>
