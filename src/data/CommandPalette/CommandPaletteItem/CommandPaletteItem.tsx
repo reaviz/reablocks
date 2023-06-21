@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import { ListItem, ListItemProps } from '../../../layout';
+import { ListItem, ListItemProps } from '../../../layout/List';
 
 export interface CommandPaletteItemProps extends ListItemProps {
   onClick?: () => void;

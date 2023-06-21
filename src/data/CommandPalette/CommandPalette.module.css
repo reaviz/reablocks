@@ -1,3 +1,8 @@
 .card {
   width: 100%;
 }
+
+.innerCard {
+  max-height: 80vh;
+  overflow-y: auto;
+}

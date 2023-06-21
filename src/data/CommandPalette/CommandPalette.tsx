@@ -11,9 +11,11 @@ import {
 } from 'react';
 import { CommandPaletteItem } from './CommandPaletteItem';
 import { CommandPaletteInput } from './CommandPaletteInput';
-import css from './CommandPalette.module.css';
 import { useFlattenedTree } from './useFlattenedTree';
-import { Card, Divider, List, ListItem } from '../../layout';
+import { List, ListItem } from '../../layout/List';
+import { Card } from '../../layout/Card';
+import { MotionGroup } from '../../layout/Motion';
+import css from './CommandPalette.module.css';
 
 export interface CommandPaletteProps extends PropsWithChildren {
   search?: string;
@@ -66,18 +68,23 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
         onKeyPress={handleKeyDown}
       />
       {hasChildren && (
-        <Card>
-          <List>
-            {Children.map(children, (child, index) => {
-              if (isValidElement(child) && child.type === CommandPaletteItem) {
-                return cloneElement(child, {
-                  ref: (el: HTMLElement) => (itemsRef.current[index] = el),
-                  tabIndex: index === selectedItem ? 0 : -1
-                });
-              }
-              return child;
-            })}
-          </List>
+        <Card className={css.innerCard}>
+          <MotionGroup>
+            <List>
+              {Children.map(children, (child, index) => {
+                if (
+                  isValidElement(child) &&
+                  child.type === CommandPaletteItem
+                ) {
+                  return cloneElement(child, {
+                    ref: (el: HTMLElement) => (itemsRef.current[index] = el),
+                    active: index === selectedItem ? 0 : -1
+                  });
+                }
+                return child;
+              })}
+            </List>
+          </MotionGroup>
         </Card>
       )}
       {!hasChildren && emptyMessage && (

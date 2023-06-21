@@ -6,7 +6,7 @@ import { Chip } from '../../elements/Chip';
 import { Divider, Spacer } from '../../layout';
 
 export default {
-  title: 'Components/Data/CommandPalette',
+  title: 'Components/Data/Command Palette',
   component: CommandPalette
 };
 
@@ -18,6 +18,7 @@ export const Simple = () => (
         <CommandPaletteItem>Inbox</CommandPaletteItem>
         <CommandPaletteItem>Settings</CommandPaletteItem>
       </CommandPaletteSection>
+      <Divider />
       <CommandPaletteSection title="Suggestions">
         <CommandPaletteItem>Create Shortcut</CommandPaletteItem>
         <CommandPaletteItem>Export Data</CommandPaletteItem>
@@ -37,13 +38,26 @@ export const Sections = () => (
             <Chip>Docs</Chip>
             <Chip>Contacts</Chip>
           </Spacer>
-          <Divider />
         </CommandPaletteItem>
       </CommandPaletteSection>
+      <Divider />
       <CommandPaletteSection title="Recently Used">
         <CommandPaletteItem>Home</CommandPaletteItem>
         <CommandPaletteItem>Inbox</CommandPaletteItem>
         <CommandPaletteItem>Settings</CommandPaletteItem>
+      </CommandPaletteSection>
+      <Divider />
+      <CommandPaletteSection>
+        <div
+          style={{
+            background: 'var(--red-200)',
+            color: 'var(--white)',
+            padding: 'var(--spacing-md)',
+            borderRadius: 'var(--border-radius-md)'
+          }}
+        >
+          Account not configured. Create a new account →
+        </div>
       </CommandPaletteSection>
     </CommandPalette>
   </div>
@@ -70,9 +84,9 @@ export const WithIcons = () => (
   <div style={{ width: 400 }}>
     <CommandPalette placeholder="Search...">
       <CommandPaletteSection title="Recently Used">
-        <CommandPaletteItem icon={<DemoIcon />}>Home</CommandPaletteItem>
-        <CommandPaletteItem icon={<DemoIcon />}>Inbox</CommandPaletteItem>
-        <CommandPaletteItem icon={<DemoIcon />}>Settings</CommandPaletteItem>
+        <CommandPaletteItem start={<DemoIcon />}>Home</CommandPaletteItem>
+        <CommandPaletteItem start={<DemoIcon />}>Inbox</CommandPaletteItem>
+        <CommandPaletteItem start={<DemoIcon />}>Settings</CommandPaletteItem>
       </CommandPaletteSection>
     </CommandPalette>
   </div>
@@ -93,6 +107,16 @@ export const NoSection = () => (
       <CommandPaletteItem>Home</CommandPaletteItem>
       <CommandPaletteItem>Inbox</CommandPaletteItem>
       <CommandPaletteItem>Settings</CommandPaletteItem>
+    </CommandPalette>
+  </div>
+);
+
+export const LongList = () => (
+  <div style={{ width: 400 }}>
+    <CommandPalette placeholder="Search...">
+      {Array.from({ length: 100 }, (_, i) => (
+        <CommandPaletteItem key={i}>Item {i}</CommandPaletteItem>
+      ))}
     </CommandPalette>
   </div>
 );
