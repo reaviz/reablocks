@@ -1,5 +1,5 @@
 .section {
-  &:first-child {
+  &.first {
     padding-top: var(--spacing-md);
   }
 }

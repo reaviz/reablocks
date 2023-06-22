@@ -5,7 +5,8 @@ import {
   useEffect,
   KeyboardEvent,
   Children,
-  useRef
+  useRef,
+  ReactNode
 } from 'react';
 import { CommandPaletteInput } from './CommandPaletteInput';
 import { DATA_ATTRIBUTE_INDEX, useFlattenedTree } from './useFlattenedTree';
@@ -41,6 +42,11 @@ export interface CommandPaletteProps extends PropsWithChildren {
   emptyMessage?: string;
 
   /**
+   * Icon to show in the search input.
+   */
+  inputIcon?: ReactNode;
+
+  /**
    * When the search input value changes.
    */
   onSearchChange?: (value: string) => void;
@@ -55,6 +61,7 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
   search,
   placeholder,
   children,
+  inputIcon,
   autoFocus,
   emptyMessage,
   onSelectedIndexChange,
@@ -95,6 +102,7 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
         value={filterText}
         placeholder={placeholder}
         autoFocus={autoFocus}
+        icon={inputIcon}
         onChange={val => {
           setFilterText(val);
           onSearchChange?.(val);
@@ -102,18 +110,18 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
         onKeyPress={handleKeyDown}
         onBlur={() => setSelectedIndex(-1)}
       />
-      {hasChildren && (
-        <Card className={css.innerCard} disablePadding>
-          <MotionGroup>
+      <MotionGroup>
+        {hasChildren && (
+          <Card className={css.innerCard} disablePadding>
             <List>{flattenedTree}</List>
-          </MotionGroup>
-        </Card>
-      )}
-      {!hasChildren && emptyMessage && (
-        <List>
-          <ListItem>{emptyMessage}</ListItem>
-        </List>
-      )}
+          </Card>
+        )}
+        {!hasChildren && emptyMessage && (
+          <List>
+            <ListItem>{emptyMessage}</ListItem>
+          </List>
+        )}
+      </MotionGroup>
     </Card>
   );
 };

@@ -27,13 +27,14 @@ export const useFlattenedTree = (
   function flattenChildren(nodes: ReactNode) {
     const result: ReactNode[] = [];
 
-    Children.forEach(nodes, (child: ReactNode) => {
+    Children.forEach(nodes, (child: ReactNode, index) => {
       if (isValidElement(child)) {
         // @ts-ignore
         if (child.type.displayName === 'CommandPaletteSection') {
           result.push(
             cloneElement(child, {
-              children: flattenChildren(child.props.children)
+              children: flattenChildren(child.props.children),
+              index
             })
           );
           // @ts-ignore

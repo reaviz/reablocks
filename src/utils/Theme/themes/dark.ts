@@ -163,10 +163,10 @@ export const darkTheme: Theme = {
       color: darkColors.white
     },
     primary: {
-      background: darkColors.purple['300'],
-      color: darkColors.purple['300'],
-      'background-hover': darkColors.purple['200'],
-      'color-hover': darkColors.purple['200']
+      background: darkColors.blue['400'],
+      color: darkColors.blue['300'],
+      'background-hover': darkColors.blue['200'],
+      'color-hover': darkColors.white
     },
     secondary: {
       background: darkColors.blue['500'],

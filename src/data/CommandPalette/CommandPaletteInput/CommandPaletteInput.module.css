@@ -1,22 +1,33 @@
+.container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  border-bottom: solid 2px var(--body-background);
+}
+
 .input {
   color: var(--input-color);
   border: none;
+  flex: 1;
   padding: var(--spacing-md);
-  width: 100%;
   box-sizing: border-box;
-  border-bottom: solid 2px var(--body-background);
+  font-weight: normal;
+  background: none;
+  font-family: var(--font-family);
+  color: var(--input-color);
 
   &:focus-within,
   &:focus-visible {
     outline: none;
   }
 
-  font-weight: normal;
-  background: none;
-  font-family: var(--font-family);
-  color: var(--input-color);
-
   &::placeholder {
     color: var(--input-color-placeholder);
   }
+}
+
+.icon {
+  width: 15px;
+  height: 15px;
+  margin-left: var(--spacing-md);
 }
