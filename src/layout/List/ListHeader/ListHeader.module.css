@@ -1,0 +1,4 @@
+.header {
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}

@@ -7,12 +7,14 @@ export interface CommandPaletteInputProps {
   autoFocus?: boolean;
   onChange: (value: string) => void;
   onKeyPress: (event: KeyboardEvent<HTMLInputElement>) => void;
+  onBlur: (event) => void;
 }
 
 export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
   value,
   autoFocus,
   placeholder,
+  onBlur,
   onChange,
   onKeyPress
 }) => {
@@ -37,6 +39,7 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
       autoComplete="off"
       onChange={e => onChange(e.target.value)}
       onKeyDown={onKeyPress}
+      onBlur={onBlur}
     />
   );
 };

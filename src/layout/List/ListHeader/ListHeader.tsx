@@ -1,7 +1,7 @@
 import React, { FC, InputHTMLAttributes } from 'react';
 import classNames from 'classnames';
-import { Sub } from '../../typography';
-import css from './List.module.css';
+import { Sub } from '../../../typography';
+import css from './ListHeader.module.css';
 
 export type ListHeaderProps = InputHTMLAttributes<HTMLDivElement>;
 

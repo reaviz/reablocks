@@ -1,9 +1,10 @@
 import { CommandPalette } from './CommandPalette';
 import { Dialog } from '../../layers/Dialog';
+import { Chip } from '../../elements/Chip';
+import { Divider } from '../../layout/Divider';
+import { Spacer } from '../../layout/Spacer';
 import { CommandPaletteSection } from './CommandPaletteSection';
 import { CommandPaletteItem } from './CommandPaletteItem';
-import { Chip } from '../../elements/Chip';
-import { Divider, Spacer } from '../../layout';
 
 export default {
   title: 'Components/Data/Command Palette',
@@ -12,17 +13,20 @@ export default {
 
 export const Simple = () => (
   <div style={{ width: 400 }}>
-    <CommandPalette placeholder="Type a command or search...">
-      <CommandPaletteSection title="Recently Used">
-        <CommandPaletteItem>Home</CommandPaletteItem>
-        <CommandPaletteItem>Inbox</CommandPaletteItem>
-        <CommandPaletteItem>Settings</CommandPaletteItem>
+    <CommandPalette
+      placeholder="Type a command or search..."
+      onSelectedIndexChange={sel => console.log('Selection', sel)}
+    >
+      <CommandPaletteSection title="Recently Used" key="recent">
+        <CommandPaletteItem key="home">Home</CommandPaletteItem>
+        <CommandPaletteItem key="inbox">Inbox</CommandPaletteItem>
+        <CommandPaletteItem key="settings">Settings</CommandPaletteItem>
       </CommandPaletteSection>
       <Divider />
-      <CommandPaletteSection title="Suggestions">
-        <CommandPaletteItem>Create Shortcut</CommandPaletteItem>
-        <CommandPaletteItem>Export Data</CommandPaletteItem>
-        <CommandPaletteItem>Invite User</CommandPaletteItem>
+      <CommandPaletteSection title="Suggestions" key="sugs">
+        <CommandPaletteItem key="shortcut">Create Shortcut</CommandPaletteItem>
+        <CommandPaletteItem key="export">Export Data</CommandPaletteItem>
+        <CommandPaletteItem key="invite">Invite User</CommandPaletteItem>
       </CommandPaletteSection>
     </CommandPalette>
   </div>
@@ -31,7 +35,7 @@ export const Simple = () => (
 export const Sections = () => (
   <div style={{ width: 400 }}>
     <CommandPalette placeholder="Type a command or search...">
-      <CommandPaletteSection>
+      <CommandPaletteSection key="shorts">
         <CommandPaletteItem disablePadding>
           <Spacer>
             <Chip>Dashboards</Chip>
@@ -41,13 +45,13 @@ export const Sections = () => (
         </CommandPaletteItem>
       </CommandPaletteSection>
       <Divider />
-      <CommandPaletteSection title="Recently Used">
-        <CommandPaletteItem>CISO Dashboard</CommandPaletteItem>
-        <CommandPaletteItem>Recommendations</CommandPaletteItem>
-        <CommandPaletteItem>Settings</CommandPaletteItem>
+      <CommandPaletteSection title="Recently Used" key="recent">
+        <CommandPaletteItem key="ciso">CISO Dashboard</CommandPaletteItem>
+        <CommandPaletteItem key="reqs">Recommendations</CommandPaletteItem>
+        <CommandPaletteItem key="sets">Settings</CommandPaletteItem>
       </CommandPaletteSection>
       <Divider />
-      <CommandPaletteSection>
+      <CommandPaletteSection key="aws">
         <div
           style={{
             background: 'var(--red-200)',
@@ -83,10 +87,14 @@ const DemoIcon = () => (
 export const WithIcons = () => (
   <div style={{ width: 400 }}>
     <CommandPalette placeholder="Type a command or search...">
-      <CommandPaletteSection title="Recently Used">
-        <CommandPaletteItem start={<DemoIcon />}>Home</CommandPaletteItem>
-        <CommandPaletteItem start={<DemoIcon />}>Inbox</CommandPaletteItem>
-        <CommandPaletteItem start={<DemoIcon />}>Settings</CommandPaletteItem>
+      <CommandPaletteSection title="Recently Used" key="recent">
+        <CommandPaletteItem key="home" start={<DemoIcon />}>
+          Home
+        </CommandPaletteItem>
+        <CommandPaletteItem key="inbox">Inbox</CommandPaletteItem>
+        <CommandPaletteItem key="setts" end={<DemoIcon />}>
+          Settings
+        </CommandPaletteItem>
       </CommandPaletteSection>
     </CommandPalette>
   </div>
@@ -104,9 +112,9 @@ export const Empty = () => (
 export const NoSection = () => (
   <div style={{ width: 400 }}>
     <CommandPalette placeholder="Type a command or search...">
-      <CommandPaletteItem>Home</CommandPaletteItem>
-      <CommandPaletteItem>Inbox</CommandPaletteItem>
-      <CommandPaletteItem>Settings</CommandPaletteItem>
+      <CommandPaletteItem key="homeciso">Home</CommandPaletteItem>
+      <CommandPaletteItem key="inbox">Inbox</CommandPaletteItem>
+      <CommandPaletteItem key="settings">Settings</CommandPaletteItem>
     </CommandPalette>
   </div>
 );
@@ -124,10 +132,10 @@ export const LongList = () => (
 export const WithDialog = () => (
   <Dialog open size={400} showCloseButton={false} disablePadding>
     <CommandPalette placeholder="Type a command or search...">
-      <CommandPaletteSection title="Recently Used">
-        <CommandPaletteItem>Home</CommandPaletteItem>
-        <CommandPaletteItem>Inbox</CommandPaletteItem>
-        <CommandPaletteItem>Settings</CommandPaletteItem>
+      <CommandPaletteSection title="Recently Used" key="recent">
+        <CommandPaletteItem key="home">Home</CommandPaletteItem>
+        <CommandPaletteItem key="inbox">Inbox</CommandPaletteItem>
+        <CommandPaletteItem key="sets">Settings</CommandPaletteItem>
       </CommandPaletteSection>
     </CommandPalette>
   </Dialog>

@@ -1,30 +1,54 @@
 import {
   FC,
   useState,
-  useRef,
   PropsWithChildren,
   useEffect,
   KeyboardEvent,
   Children,
-  cloneElement,
-  isValidElement
+  useRef
 } from 'react';
-import { CommandPaletteItem } from './CommandPaletteItem';
 import { CommandPaletteInput } from './CommandPaletteInput';
-import { useFlattenedTree } from './useFlattenedTree';
+import { DATA_ATTRIBUTE_INDEX, useFlattenedTree } from './useFlattenedTree';
 import { List, ListItem } from '../../layout/List';
 import { Card } from '../../layout/Card';
 import { MotionGroup } from '../../layout/Motion';
 import css from './CommandPalette.module.css';
 
 export interface CommandPaletteProps extends PropsWithChildren {
+  /**
+   * Search input value.
+   */
   search?: string;
+
+  /**
+   * Placeholder text.
+   */
   placeholder?: string;
+
+  /**
+   * Selected Index.
+   */
   selected?: number;
+
+  /**
+   * Autofocus or not.
+   */
   autoFocus?: boolean;
+
+  /**
+   * Empty message to show when there are no items.
+   */
   emptyMessage?: string;
+
+  /**
+   * When the search input value changes.
+   */
   onSearchChange?: (value: string) => void;
-  onSelectedChange?: (value: number) => void;
+
+  /**
+   * When a user picks something from the list.
+   */
+  onSelectedIndexChange?: (value: number) => void;
 }
 
 export const CommandPalette: FC<CommandPaletteProps> = ({
@@ -32,58 +56,56 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
   placeholder,
   children,
   autoFocus,
-  emptyMessage
+  emptyMessage,
+  onSelectedIndexChange,
+  onSearchChange
 }) => {
-  const [selectedItem, setSelectedItem] = useState<number>(-1);
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const [filterText, setFilterText] = useState<string>(search);
-  const flattenedTree = useFlattenedTree(children);
-  const itemsRef = useRef<HTMLElement[]>([]);
+  const { flattenedTree, itemsRef } = useFlattenedTree(
+    children,
+    selectedIndex,
+    onSelectedIndexChange
+  );
   const hasChildren = Children.count(children) > 0;
+  const elementRef = useRef<HTMLDivElement | null>(null);
 
-  // Handle keyboard events
   const handleKeyDown = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'ArrowUp') {
-      setSelectedItem(prev => (prev > 0 ? prev - 1 : prev));
+      setSelectedIndex(prev => Math.max(prev - 1, -1));
     } else if (event.key === 'ArrowDown') {
-      setSelectedItem(prev =>
-        prev < itemsRef.current.length - 1 ? prev + 1 : prev
-      );
-    } else if (event.key === 'Enter' && itemsRef.current[selectedItem]) {
-      itemsRef.current[selectedItem]?.click();
+      setSelectedIndex(prev => Math.min(prev + 1, itemsRef.current.length - 1));
+    } else if (event.key === 'Enter' && itemsRef.current[selectedIndex]) {
+      onSelectedIndexChange?.(selectedIndex);
+      setSelectedIndex(-1);
     }
   };
 
   useEffect(() => {
-    // Focus the selected item
-    flattenedTree[selectedItem]?.ref.current?.focus();
-  }, [selectedItem, flattenedTree]);
+    if (selectedIndex > -1) {
+      elementRef.current
+        .querySelector(`[${DATA_ATTRIBUTE_INDEX}="${selectedIndex}"]`)
+        ?.scrollIntoView();
+    }
+  }, [selectedIndex, flattenedTree]);
 
   return (
-    <Card className={css.card} disablePadding>
+    <Card className={css.card} disablePadding ref={elementRef}>
       <CommandPaletteInput
         value={filterText}
         placeholder={placeholder}
         autoFocus={autoFocus}
-        onChange={setFilterText}
+        onChange={val => {
+          setFilterText(val);
+          onSearchChange?.(val);
+        }}
         onKeyPress={handleKeyDown}
+        onBlur={() => setSelectedIndex(-1)}
       />
       {hasChildren && (
-        <Card className={css.innerCard}>
+        <Card className={css.innerCard} disablePadding>
           <MotionGroup>
-            <List>
-              {Children.map(children, (child, index) => {
-                if (
-                  isValidElement(child) &&
-                  child.type === CommandPaletteItem
-                ) {
-                  return cloneElement(child, {
-                    ref: (el: HTMLElement) => (itemsRef.current[index] = el),
-                    active: index === selectedItem ? 0 : -1
-                  });
-                }
-                return child;
-              })}
-            </List>
+            <List>{flattenedTree}</List>
           </MotionGroup>
         </Card>
       )}
