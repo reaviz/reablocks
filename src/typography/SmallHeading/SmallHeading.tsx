@@ -3,19 +3,21 @@ import classNames from 'classnames';
 import css from './SmallHeading.module.css';
 import common from '../Typography.module.css';
 
+export type SmallHeadingColors =
+  | 'default'
+  | 'primary'
+  | 'secondary'
+  | 'error'
+  | 'success'
+  | 'warning'
+  | 'info';
+
 export interface SmallHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
    * Color variation of the title.
    */
-  color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'success'
-    | 'warning'
-    | 'info';
+  color?: SmallHeadingColors;
 
   /**
    * Font variant for the heading.
@@ -27,6 +29,7 @@ export interface SmallHeadingProps
    */
   disableMargins?: boolean;
 }
+
 export interface SmallHeadingRef {
   ref?: Ref<HTMLHeadingElement>;
 }

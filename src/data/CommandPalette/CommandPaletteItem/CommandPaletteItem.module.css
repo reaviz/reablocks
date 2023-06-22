@@ -1,0 +1,6 @@
+.item {
+  &:hover,
+  &.active {
+    background: var(--primary-background);
+  }
+}

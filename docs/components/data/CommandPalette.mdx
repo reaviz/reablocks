@@ -1,0 +1,26 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { CommandPalette } from '../../../src/data/CommandPalette';
+import * as Stories from '../../../src/data/CommandPalette/CommandPalette.story'
+
+<Meta title="Docs/Components/Data/Command Palette" />
+
+# Command Palette
+Command Palette is a component for building shortcuts for your application.
+
+## Example
+<Canvas sourceState="shown" of={Stories.Simple} />
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `spacing-md`
+- `primary-background`
+- `input-color`
+- `body-background`
+- `font-family`
+- `input-color-placeholder`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## API
+<ArgsTable of={CommandPalette} />
