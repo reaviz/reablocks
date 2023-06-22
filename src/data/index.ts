@@ -6,3 +6,4 @@ export * from './Duration';
 export * from './InfinityList';
 export * from './DateFormat';
 export * from './Sort';
+export * from './CommandPalette';
