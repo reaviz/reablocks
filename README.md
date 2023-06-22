@@ -56,11 +56,18 @@
 - Loader
 - Toggle
 - Checkbox
+- Collapse
+- Spacer
+- Typography
 - Radio Button
 - Tree
 - Date Format
 - Range
 - Sort
+- Command Palette
+- Avatar
+- Avatar Group
+- Chip
 
 ### Utilities
 - Theme Provider
