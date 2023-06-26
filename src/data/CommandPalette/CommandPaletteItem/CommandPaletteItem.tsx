@@ -3,13 +3,16 @@ import { ListItem, ListItemProps } from '../../../layout/List';
 import classNames from 'classnames';
 import { MotionItem } from '../../../layout/Motion';
 import css from './CommandPaletteItem.module.css';
+import { Kbb } from '../../../elements';
 
-export interface CommandPaletteItemProps extends ListItemProps {}
+export interface CommandPaletteItemProps extends ListItemProps {
+  hotkey?: string;
+}
 
 export const CommandPaletteItem = forwardRef<
   HTMLDivElement,
   CommandPaletteItemProps
->(({ children, active, className, onClick, ...rest }, ref) => (
+>(({ children, active, className, end, hotkey, onClick, ...rest }, ref) => (
   <MotionItem layout>
     <ListItem
       {...rest}
@@ -18,6 +21,12 @@ export const CommandPaletteItem = forwardRef<
         [css.active]: active,
         [css.clickable]: onClick
       })}
+      end={
+        <>
+          {hotkey && <Kbb>{hotkey}</Kbb>}
+          {end}
+        </>
+      }
     >
       {children}
     </ListItem>

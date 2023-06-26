@@ -9,7 +9,11 @@ import {
   ReactNode
 } from 'react';
 import { CommandPaletteInput } from './CommandPaletteInput';
-import { DATA_ATTRIBUTE_INDEX, useFlattenedTree } from './useFlattenedTree';
+import {
+  DATA_ATTRIBUTE_INDEX,
+  HotkeyIem,
+  useFlattenedTree
+} from './useFlattenedTree';
 import { List, ListItem } from '../../layout/List';
 import { Card } from '../../layout/Card';
 import { MotionGroup } from '../../layout/Motion';
@@ -55,6 +59,11 @@ export interface CommandPaletteProps extends PropsWithChildren {
    * When a user picks something from the list.
    */
   onSelectedIndexChange?: (value: number) => void;
+
+  /**
+   * When a hotkey was triggered.
+   */
+  onHotkey?: (hotkey: HotkeyIem) => void;
 }
 
 export const CommandPalette: FC<CommandPaletteProps> = ({
@@ -64,12 +73,13 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
   inputIcon,
   autoFocus,
   emptyMessage,
+  onHotkey,
   onSelectedIndexChange,
   onSearchChange
 }) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const [filterText, setFilterText] = useState<string>(search);
-  const { flattenedTree, itemsRef } = useFlattenedTree(
+  const { flattenedTree, itemsRef, hotkeys } = useFlattenedTree(
     children,
     selectedIndex,
     onSelectedIndexChange
@@ -103,6 +113,8 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
         placeholder={placeholder}
         autoFocus={autoFocus}
         icon={inputIcon}
+        hotkeys={hotkeys}
+        onHotkey={onHotkey}
         onChange={val => {
           setFilterText(val);
           onSearchChange?.(val);

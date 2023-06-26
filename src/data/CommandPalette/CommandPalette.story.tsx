@@ -87,15 +87,20 @@ export const WithIcons = () => (
 
 export const Hotkey = () => (
   <div style={{ width: 400 }}>
-    <CommandPalette placeholder="Type a command or search...">
+    <CommandPalette
+      placeholder="Type a command or search..."
+      onHotkey={item =>
+        alert(`Key '${item.hotkey}' trigged by '${item.index}'`)
+      }
+    >
       <CommandPaletteSection title="Recently Used" key="recent">
-        <CommandPaletteItem key="home" end={<Kbb>shift+s</Kbb>}>
+        <CommandPaletteItem key="home" hotkey="plus">
           Home
         </CommandPaletteItem>
-        <CommandPaletteItem key="inbox" end={<Kbb>shift+p</Kbb>}>
+        <CommandPaletteItem key="inbox" hotkey="meta+z">
           Inbox
         </CommandPaletteItem>
-        <CommandPaletteItem key="setts" end={<Kbb>shift+k</Kbb>}>
+        <CommandPaletteItem key="setts" hotkey="meta+k">
           Settings
         </CommandPaletteItem>
       </CommandPaletteSection>

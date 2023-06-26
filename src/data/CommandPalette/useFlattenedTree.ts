@@ -16,12 +16,18 @@ export interface FocusableElement {
   onClick: (() => void) | undefined;
 }
 
+export interface HotkeyIem {
+  hotkey: string;
+  index: number;
+}
+
 export const useFlattenedTree = (
   children: ReactNode,
   selectedIndex: number,
   onSelectedIndexChange: (index: number) => void
 ) => {
   const itemsRef = useRef<HTMLElement[]>([]);
+  const hotkeyRef = useRef<HotkeyIem[]>([]);
   const [flattenedTree, setFlattenedTree] = useState<ReactNode[]>([]);
 
   function flattenChildren(nodes: ReactNode) {
@@ -40,6 +46,13 @@ export const useFlattenedTree = (
           // @ts-ignore
         } else if (child.type.displayName === 'CommandPaletteItem') {
           const index = itemsRef.current.length;
+
+          if (child.props.hotkey) {
+            hotkeyRef.current.push({
+              hotkey: child.props.hotkey,
+              index
+            });
+          }
 
           const clone = cloneElement(child, {
             // NOTE: This isn't working for some reason
@@ -64,11 +77,13 @@ export const useFlattenedTree = (
 
   useEffect(() => {
     itemsRef.current = [];
+    hotkeyRef.current = [];
     setFlattenedTree(flattenChildren(children));
   }, [children, selectedIndex]);
 
   return {
     flattenedTree,
+    hotkeys: hotkeyRef.current,
     itemsRef
   };
 };
