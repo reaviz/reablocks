@@ -68,7 +68,7 @@
 - Avatar
 - Avatar Group
 - Chip
-- Kbb
+- Kbd
 
 ### Utilities
 - Theme Provider

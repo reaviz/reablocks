@@ -1,10 +1,14 @@
 .chip {
-  line-height: 10px;
   white-space: nowrap;
   border-radius: var(--border-radius-sm);
 
   kbd {
     font-family: var(--mono-font-family);
-    font-size: 0.9em;
   }
+}
+
+.container {
+  display: inline-flex;
+  gap: var(--spacing-sm);
+  align-items: center;
 }

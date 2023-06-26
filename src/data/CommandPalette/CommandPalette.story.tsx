@@ -5,7 +5,7 @@ import { Divider } from '../../layout/Divider';
 import { Spacer } from '../../layout/Spacer';
 import { CommandPaletteSection } from './CommandPaletteSection';
 import { CommandPaletteItem } from './CommandPaletteItem';
-import { Kbb } from '../../elements/Kbb';
+import { Kbb } from '../../elements/Kbd';
 
 export default {
   title: 'Components/Data/Command Palette',

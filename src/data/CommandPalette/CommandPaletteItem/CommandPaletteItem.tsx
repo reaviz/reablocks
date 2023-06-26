@@ -2,8 +2,8 @@ import React, { forwardRef } from 'react';
 import { ListItem, ListItemProps } from '../../../layout/List';
 import classNames from 'classnames';
 import { MotionItem } from '../../../layout/Motion';
+import { Kbd } from '../../../elements/Kbd';
 import css from './CommandPaletteItem.module.css';
-import { Kbb } from '../../../elements';
 
 export interface CommandPaletteItemProps extends ListItemProps {
   hotkey?: string;
@@ -23,7 +23,7 @@ export const CommandPaletteItem = forwardRef<
       })}
       end={
         <>
-          {hotkey && <Kbb>{hotkey}</Kbb>}
+          {hotkey && <Kbd keycode={hotkey} size="small" />}
           {end}
         </>
       }
