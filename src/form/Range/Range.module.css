@@ -1,5 +1,6 @@
 .range {
   position: relative;
+  box-sizing: border-box;
   width: 100%;
   height: var(--range-track-size);
   background: var(--range-track-background);
