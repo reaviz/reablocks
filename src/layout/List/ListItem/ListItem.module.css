@@ -22,7 +22,7 @@
     font-size: 14px;
     flex: 1;
     white-space: break-spaces;
-    word-break: break-all;
+    word-break: break-word;
   }
 
   &.active {
