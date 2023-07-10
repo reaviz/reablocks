@@ -22,7 +22,7 @@ export interface ContextMenuProps extends Omit<ConnectedOverlayProps, 'open'> {
   /**
    * Content to show in the context menu.
    */
-  content: ReactNode | ((args: ContextMenuContentProps) => ReactNode);
+  content: any | ((args: any) => ReactNode);
 
   /**
    * Whether the context menu is disabled.

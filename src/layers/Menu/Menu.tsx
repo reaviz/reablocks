@@ -20,7 +20,7 @@ export interface MenuProps {
   /**
    * The menu contents.
    */
-  children: ReactNode | (() => ReactNode);
+  children: any | (() => any);
 
   /**
    * CSS class applied to menu element.

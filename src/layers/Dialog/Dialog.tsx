@@ -30,7 +30,7 @@ export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
   /**
    * The content of the dialog.
    */
-  children: ReactNode | (() => ReactNode);
+  children: any | (() => any);
 
   /**
    * Whether to disable padding for the dialog content.
