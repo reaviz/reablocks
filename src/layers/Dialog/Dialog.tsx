@@ -1,20 +1,55 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, ReactNode } from 'react';
 import classNames from 'classnames';
 import { CloneElement, GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
 import FocusTrap from 'focus-trap-react';
 import { motion } from 'framer-motion';
-import css from './Dialog.module.css';
 import { DialogHeader, DialogHeaderProps } from './DialogHeader';
+import css from './Dialog.module.css';
 
 export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
+  /**
+   * The CSS class name for the root element of the component.
+   */
   className?: string;
+
+  /**
+   * The CSS class name for the inner content element of the component.
+   */
   innerClassName?: string;
+
+  /**
+   * The size of the dialog. Can be a string or a number.
+   */
   size?: string | number;
+
+  /**
+   * Whether to show the close button in the dialog header.
+   */
   showCloseButton?: boolean;
-  children?: any;
+
+  /**
+   * The content of the dialog.
+   */
+  children: ReactNode | (() => ReactNode);
+
+  /**
+   * Whether to disable padding for the dialog content.
+   */
   disablePadding?: boolean;
+
+  /**
+   * The footer of the dialog.
+   */
   footer?: any;
+
+  /**
+   * The header of the dialog.
+   */
   header?: any;
+
+  /**
+   * The React element for the dialog header.
+   */
   headerElement: ReactElement<DialogHeaderProps, typeof DialogHeader> | null;
 }
 
