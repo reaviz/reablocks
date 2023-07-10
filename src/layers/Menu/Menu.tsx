@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref, useMemo } from 'react';
+import React, { FC, forwardRef, ReactNode, Ref, useMemo } from 'react';
 import classNames from 'classnames';
 import FocusTrap from 'focus-trap-react';
 import { ConnectedOverlay, OverlayEvent, Placement, useId } from 'rdk';
@@ -20,7 +20,7 @@ export interface MenuProps {
   /**
    * The menu contents.
    */
-  children: any;
+  children: ReactNode | (() => ReactNode);
 
   /**
    * CSS class applied to menu element.
@@ -186,7 +186,7 @@ export const Menu: FC<Partial<MenuProps & { ref?: Ref<HTMLDivElement> }>> =
               onMouseEnter={onMouseEnter}
               onMouseLeave={onMouseLeave}
             >
-              {autofocus && (
+              {autofocus ? (
                 <FocusTrap
                   focusTrapOptions={{
                     escapeDeactivates: true,
@@ -200,11 +200,14 @@ export const Menu: FC<Partial<MenuProps & { ref?: Ref<HTMLDivElement> }>> =
                     tabIndex={-1}
                     style={{ maxHeight }}
                   >
-                    {children}
+                    {typeof children === 'function' ? children() : children}
                   </div>
                 </FocusTrap>
+              ) : (
+                <div className={css.inner} style={{ maxHeight }}>
+                  {typeof children === 'function' ? children() : children}
+                </div>
               )}
-              {!autofocus && <div className={css.inner}>{children}</div>}
             </motion.div>
           )}
           onClose={onClose}
