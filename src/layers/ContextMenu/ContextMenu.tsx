@@ -8,6 +8,11 @@ import css from './ContextMenu.module.css';
 
 const useGlobalMenuState = creteGlobalStateHook<any[]>([]);
 
+export interface ContextMenuContentProps {
+  close: () => void;
+  closeAll: () => void;
+}
+
 export interface ContextMenuProps extends Omit<ConnectedOverlayProps, 'open'> {
   /**
    * Child element to trigger the context menu.
@@ -17,7 +22,7 @@ export interface ContextMenuProps extends Omit<ConnectedOverlayProps, 'open'> {
   /**
    * Content to show in the context menu.
    */
-  content: ReactNode;
+  content: ReactNode | ((args: ContextMenuContentProps) => ReactNode);
 
   /**
    * Whether the context menu is disabled.
@@ -67,21 +72,26 @@ export const ContextMenu: FC<ContextMenuProps> = ({
     }
   }, [disabled, setOpen, setMenus, menus]);
 
-  const closeAllMenus = useCallback(() => {
+  const closeAll = useCallback(() => {
     setOpen(false);
     setMenus([]);
   }, [setOpen, setMenus]);
 
+  const close = useCallback(() => {
+    setOpen(false);
+    setMenus(menus.filter(m => m !== setOpen));
+  }, [menus]);
+
   const onClose = useCallback(() => {
-    closeAllMenus();
-  }, [closeAllMenus]);
+    closeAll();
+  }, [closeAll]);
 
   useEffect(() => {
     if (open) {
-      closeAllMenus();
+      closeAll();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [closeAllMenus]);
+  }, [closeAll]);
 
   return (
     <ConnectedOverlay
@@ -101,7 +111,7 @@ export const ContextMenu: FC<ContextMenuProps> = ({
           exit={{ opacity: 0, y: -25 }}
           onClick={() => autoClose && onClose?.()}
         >
-          {autofocus && (
+          {autofocus ? (
             <FocusTrap
               focusTrapOptions={{
                 escapeDeactivates: true,
@@ -110,11 +120,18 @@ export const ContextMenu: FC<ContextMenuProps> = ({
               }}
             >
               <div id={id} tabIndex={-1}>
-                {content}
+                {typeof content === 'function'
+                  ? content({ closeAll, close })
+                  : content}
               </div>
             </FocusTrap>
+          ) : (
+            <>
+              {typeof content === 'function'
+                ? content({ closeAll, close })
+                : content}
+            </>
           )}
-          {!autofocus && content}
         </motion.div>
       )}
       onOpen={onOpen}
