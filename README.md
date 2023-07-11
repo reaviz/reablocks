@@ -1,7 +1,7 @@
 <div align="center">
   <img width="650" src="docs/assets/logo-light.png">
   <br />
-  UI components for React.
+  Enterprise UI components for React.
   <br /><br />
   <a href="https://github.com/reaviz/reablocks/actions/workflows/build.yml">
     <img src="https://github.com/reaviz/reablocks/actions/workflows/build.yml/badge.svg" />
@@ -15,9 +15,6 @@
   </a>&nbsp;
   <a href="https://github.com/reaviz/reablocks/blob/master/LICENSE">
     <img src="https://badgen.now.sh/badge/license/apache2" />
-  </a>&nbsp;
-  <a href="https://bundlephobia.com/result?p=reablocks" target="_blank">
-    <img src="https://badgen.net/bundlephobia/minzip/reablocks" />
   </a>&nbsp;
   <a href="https://github.com/reaviz/reablocks">
     <img alt="GitHub stars" src="https://img.shields.io/github/stars/reaviz/reablocks?style=social" />
