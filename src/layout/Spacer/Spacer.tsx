@@ -9,17 +9,47 @@ export interface SpacerProps extends React.HTMLAttributes<HTMLDivElement> {
   dense?: boolean;
 
   /**
+   * If true, the spacer will be inline.
+   */
+  inline?: boolean;
+
+  /**
    * The direction of the spacer.
    */
   direction?: 'row' | 'column';
+
+  /**
+   * How the content is arranged inside the spacer.
+   */
+  alignItems?: 'start' | 'end' | 'center';
+
+  /**
+   * How the content is arranged inside the spacer.
+   */
+  justifyContent?: 'start' | 'end' | 'center' | 'spaceBetween';
 }
 
 export const Spacer = React.forwardRef<HTMLDivElement, SpacerProps>(
-  ({ children, className, direction, dense, ...otherProps }, ref) => (
+  (
+    {
+      children,
+      className,
+      direction,
+      dense,
+      inline,
+      alignItems,
+      justifyContent,
+      ...otherProps
+    },
+    ref
+  ) => (
     <div
       className={classNames(css.container, className, {
         [css.dense]: dense,
-        [css[direction]]: direction
+        [css.inline]: inline,
+        [css[direction]]: direction,
+        [css[`align-${alignItems}`]]: alignItems,
+        [css[`justify-${justifyContent}`]]: justifyContent
       })}
       ref={ref}
       {...otherProps}
@@ -31,5 +61,8 @@ export const Spacer = React.forwardRef<HTMLDivElement, SpacerProps>(
 
 Spacer.defaultProps = {
   dense: false,
-  direction: 'row'
+  inline: true,
+  direction: 'row',
+  alignItems: 'center',
+  justifyContent: 'start'
 };

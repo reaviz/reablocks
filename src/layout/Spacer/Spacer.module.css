@@ -1,7 +1,11 @@
 .container {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   gap: var(--spacer-gap);
+
+  &.inline {
+    display: inline-flex;
+  }
 
   &.dense {
     gap: var(--spacer-dense-gap);
@@ -13,5 +17,25 @@
 
   &.row {
     flex-direction: row;
+  }
+
+  &.align-start {
+    align-items: flex-start;
+  }
+
+  &.align-end {
+    align-items: flex-end;
+  }
+
+  &.justify-end {
+    justify-content: flex-end;
+  }
+
+  &.justify-center {
+    justify-content: center;
+  }
+
+  &.justify-spaceBetween {
+    justify-content: space-between;
   }
 }
