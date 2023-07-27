@@ -56,6 +56,14 @@
     .content {
       font-size: 95%;
     }
+
+    .startAdornment {
+      padding-right: calc(var(--spacing-sm) / 2);
+    }
+
+    .endAdornment {
+      padding-left: calc(var(--spacing-sm) / 2);
+    }
   }
 
   &.disableGutters {

@@ -48,8 +48,8 @@ export const Spacer = React.forwardRef<HTMLDivElement, SpacerProps>(
         [css.dense]: dense,
         [css.inline]: inline,
         [css[direction]]: direction,
-        [css[`align-${alignItems}`]]: alignItems,
-        [css[`justify-${justifyContent}`]]: justifyContent
+        [css[`${alignItems}Align`]]: alignItems,
+        [css[`${justifyContent}Justify`]]: justifyContent
       })}
       ref={ref}
       {...otherProps}

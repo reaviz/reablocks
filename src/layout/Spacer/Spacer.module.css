@@ -19,23 +19,23 @@
     flex-direction: row;
   }
 
-  &.align-start {
-    align-items: flex-start;
+  &.startAlign {
+    itemsalign: flex-start;
   }
 
-  &.align-end {
+  &.endAlign {
     align-items: flex-end;
   }
 
-  &.justify-end {
+  &.endJustify {
     justify-content: flex-end;
   }
 
-  &.justify-center {
+  &.centerJustify {
     justify-content: center;
   }
 
-  &.justify-spaceBetween {
+  &.spaceBetweenJustify {
     justify-content: space-between;
   }
 }
