@@ -1,33 +1,32 @@
-import React from 'react';
-import { Spacer } from './Spacer';
+import { Stack } from './Stack';
 
 export default {
-  title: 'Components/Layout/Spacer',
-  components: Spacer
+  title: 'Components/Layout/Stack',
+  components: Stack
 };
 
 export const Simple = () => (
-  <Spacer>
+  <Stack>
     <button>Button</button>
     <div>div</div>
     <span>span</span>
-  </Spacer>
+  </Stack>
 );
 
 export const Dense = () => (
-  <Spacer dense>
+  <Stack dense>
     <button>Button</button>
     <div>div</div>
     <span>span</span>
-  </Spacer>
+  </Stack>
 );
 
 export const Columns = () => (
-  <Spacer direction="column">
+  <Stack direction="column">
     <button>Button</button>
     <div>div</div>
     <span>span</span>
-  </Spacer>
+  </Stack>
 );
 
 export const Alignments = () => (
@@ -41,7 +40,7 @@ export const Alignments = () => (
     <div>Start (Row)</div>
     <div>End (Row)</div>
     <div>Center (Row)</div>
-    <Spacer
+    <Stack
       direction="row"
       alignItems="start"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -53,8 +52,8 @@ export const Alignments = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
-    <Spacer
+    </Stack>
+    <Stack
       direction="row"
       alignItems="end"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -66,8 +65,8 @@ export const Alignments = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
-    <Spacer
+    </Stack>
+    <Stack
       direction="row"
       alignItems="center"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -79,11 +78,11 @@ export const Alignments = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
+    </Stack>
     <div>Start (Column)</div>
     <div>End (Column)</div>
     <div>Center (Column)</div>
-    <Spacer
+    <Stack
       direction="column"
       alignItems="start"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -95,8 +94,8 @@ export const Alignments = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
-    <Spacer
+    </Stack>
+    <Stack
       direction="column"
       alignItems="end"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -108,8 +107,8 @@ export const Alignments = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
-    <Spacer
+    </Stack>
+    <Stack
       direction="column"
       alignItems="center"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -121,7 +120,7 @@ export const Alignments = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
+    </Stack>
   </div>
 );
 
@@ -138,7 +137,7 @@ export const JustifyContent = () => (
     <div>End (Row)</div>
     <div>Center (Row)</div>
     <div>Space Between (Row)</div>
-    <Spacer
+    <Stack
       direction="row"
       justifyContent="start"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -150,8 +149,8 @@ export const JustifyContent = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
-    <Spacer
+    </Stack>
+    <Stack
       direction="row"
       justifyContent="end"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -163,8 +162,8 @@ export const JustifyContent = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
-    <Spacer
+    </Stack>
+    <Stack
       direction="row"
       justifyContent="center"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -176,8 +175,8 @@ export const JustifyContent = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
-    <Spacer
+    </Stack>
+    <Stack
       direction="row"
       justifyContent="spaceBetween"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -189,12 +188,12 @@ export const JustifyContent = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
+    </Stack>
     <div>Start (Column)</div>
     <div>End (Column)</div>
     <div>Center (Column)</div>
     <div>Space Between (Column)</div>
-    <Spacer
+    <Stack
       direction="column"
       justifyContent="start"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -206,8 +205,8 @@ export const JustifyContent = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
-    <Spacer
+    </Stack>
+    <Stack
       direction="column"
       justifyContent="end"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -219,8 +218,8 @@ export const JustifyContent = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
-    <Spacer
+    </Stack>
+    <Stack
       direction="column"
       justifyContent="center"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -232,8 +231,8 @@ export const JustifyContent = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
-    <Spacer
+    </Stack>
+    <Stack
       direction="column"
       justifyContent="spaceBetween"
       style={{ border: '1px solid blue', borderRadius: 10, padding: 20 }}
@@ -245,6 +244,6 @@ export const JustifyContent = () => (
         world
       </div>
       <span>span</span>
-    </Spacer>
+    </Stack>
   </div>
 );

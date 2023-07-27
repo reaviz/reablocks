@@ -4,7 +4,7 @@ import { Meta } from '@storybook/addon-docs';
 
 # Theme Example
 Below is an example of a theme implemented using the design
-tokens system. This theme is the `lightTheme` that is
+tokens system. This theme is the `darkTheme` that is
 used in the Storybook stories.
 
 ```ts
@@ -339,6 +339,10 @@ export const darkTheme: Theme = {
       'radio-stroke': darkColors.slate['100'],
       'radio-indicator-active': darkColors.blue['100'],
       'radio-stroke-active': darkColors.blue['100']
+    },
+    stack: {
+      'spacer-gap': spacings.md,
+      'spacer-dense-gap': spacings.sm
     },
     select: {
       'select-input-border-radius': spacings.sm,

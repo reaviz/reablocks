@@ -54,7 +54,7 @@
 - Toggle
 - Checkbox
 - Collapse
-- Spacer
+- Stack
 - Typography
 - Radio Button
 - Tree

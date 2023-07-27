@@ -368,7 +368,7 @@ export const darkTheme: Theme = {
       'avatar-initials-color': darkColors.white,
       'avatar-border': 'solid 1px var(--body-background)'
     },
-    spacer: {
+    stack: {
       'spacer-gap': spacings.md,
       'spacer-dense-gap': spacings.sm
     },

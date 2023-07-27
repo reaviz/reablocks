@@ -1,35 +1,35 @@
 import React from 'react';
 import classNames from 'classnames';
-import css from './Spacer.module.css';
+import css from './Stack.module.css';
 
-export interface SpacerProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
-   * If true, the spacer will be dense.
+   * If true, the stack will be dense.
    */
   dense?: boolean;
 
   /**
-   * If true, the spacer will be inline.
+   * If true, the stack will be inline.
    */
   inline?: boolean;
 
   /**
-   * The direction of the spacer.
+   * The direction of the stack.
    */
   direction?: 'row' | 'column';
 
   /**
-   * How the content is arranged inside the spacer.
+   * How the content is arranged inside the stack.
    */
   alignItems?: 'start' | 'end' | 'center';
 
   /**
-   * How the content is arranged inside the spacer.
+   * How the content is arranged inside the stack.
    */
   justifyContent?: 'start' | 'end' | 'center' | 'spaceBetween';
 }
 
-export const Spacer = React.forwardRef<HTMLDivElement, SpacerProps>(
+export const Stack = React.forwardRef<HTMLDivElement, StackProps>(
   (
     {
       children,
@@ -59,7 +59,7 @@ export const Spacer = React.forwardRef<HTMLDivElement, SpacerProps>(
   )
 );
 
-Spacer.defaultProps = {
+Stack.defaultProps = {
   dense: false,
   inline: true,
   direction: 'row',

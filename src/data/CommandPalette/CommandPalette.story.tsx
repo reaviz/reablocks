@@ -2,7 +2,7 @@ import { CommandPalette } from './CommandPalette';
 import { Dialog } from '../../layers/Dialog';
 import { Chip } from '../../elements/Chip';
 import { Divider } from '../../layout/Divider';
-import { Spacer } from '../../layout/Spacer';
+import { Stack } from '../../layout/Stack';
 import { CommandPaletteSection } from './CommandPaletteSection';
 import { CommandPaletteItem } from './CommandPaletteItem';
 
@@ -36,11 +36,11 @@ export const Sections = () => (
   <div style={{ width: 400 }}>
     <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection key="shorts">
-        <Spacer style={{ margin: '0 var(--spacing-md)' }}>
+        <Stack style={{ margin: '0 var(--spacing-md)' }}>
           <Chip>Dashboards</Chip>
           <Chip>Integrations</Chip>
           <Chip>Rules</Chip>
-        </Spacer>
+        </Stack>
       </CommandPaletteSection>
       <Divider />
       <CommandPaletteSection title="Recently Used" key="recent">
