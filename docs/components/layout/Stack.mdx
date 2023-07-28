@@ -1,0 +1,23 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Stack } from '../../../src/layout/Stack';
+import * as StackStories from '../../../src/layout/Stack/Stack.story';
+
+<Meta title="Docs/Components/Layout/Stack" />
+
+# Stack
+Component that sets component spacing. It can be used to add
+space between components such as a menu.
+
+## Example
+<Canvas sourceState="shown" of={StackStories.Simple} />
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `stack-gap`
+- `stack-dense-gap`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## API
+<ArgsTable of={Stack} />

@@ -4,7 +4,7 @@ import { Meta } from '@storybook/addon-docs';
 
 # Theme Example
 Below is an example of a theme implemented using the design
-tokens system. This theme is the `lightTheme` that is
+tokens system. This theme is the `darkTheme` that is
 used in the Storybook stories.
 
 ```ts
@@ -304,11 +304,18 @@ export const darkTheme: Theme = {
       'input-border-focus': darkColors.gray['100'],
       'input-spacing-md': `${spacings.sm} ${spacings.md}`,
       'input-spacing-sm': spacings.sm,
-      'input-spacing-lg': spacings.lg
+      'input-spacing-lg': spacings.lg,
+      'input-adornment-size': fontSizes.md,
+      'input-adornment-fill': 'var(--input-color)'
     },
     list: {
+      'list-item-color': 'inherit',
       'list-item-spacing': spacings.md,
-      'list-item-dense-spacing': spacings.sm
+      'list-item-dense-spacing': spacings.sm,
+      'list-item-border-radius': '0',
+      'list-item-color-active': 'inherit',
+      'list-item-background-active': 'transparent',
+      'list-item-adornment-fill': 'currentColor'
     },
     popover: {
       'popover-background': darkColors.slate['500'],
@@ -332,6 +339,10 @@ export const darkTheme: Theme = {
       'radio-stroke': darkColors.slate['100'],
       'radio-indicator-active': darkColors.blue['100'],
       'radio-stroke-active': darkColors.blue['100']
+    },
+    stack: {
+      'stack-gap': spacings.md,
+      'stack-dense-gap': spacings.sm
     },
     select: {
       'select-input-border-radius': spacings.sm,

@@ -269,11 +269,18 @@ export const darkTheme: Theme = {
       'input-border-focus': darkColors.gray['100'],
       'input-spacing-md': `${spacings.sm} ${spacings.md}`,
       'input-spacing-sm': spacings.sm,
-      'input-spacing-lg': spacings.lg
+      'input-spacing-lg': spacings.lg,
+      'input-adornment-size': fontSizes.md,
+      'input-adornment-fill': 'var(--input-color)'
     },
     list: {
+      'list-item-color': 'inherit',
       'list-item-spacing': spacings.md,
-      'list-item-dense-spacing': spacings.sm
+      'list-item-dense-spacing': spacings.sm,
+      'list-item-border-radius': '0',
+      'list-item-color-active': 'inherit',
+      'list-item-background-active': 'transparent',
+      'list-item-adornment-fill': 'currentColor'
     },
     popover: {
       'popover-background': darkColors.slate['500'],
@@ -361,9 +368,9 @@ export const darkTheme: Theme = {
       'avatar-initials-color': darkColors.white,
       'avatar-border': 'solid 1px var(--body-background)'
     },
-    spacer: {
-      'spacer-gap': spacings.md,
-      'spacer-dense-gap': spacings.sm
+    stack: {
+      'stack-gap': spacings.md,
+      'stack-dense-gap': spacings.sm
     },
     avatarGroup: {
       'avatar-group-spacing': `calc(${spacings.md} * -1)`

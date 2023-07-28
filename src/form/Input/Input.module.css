@@ -42,6 +42,11 @@
   .startAdornment,
   .endAdornment {
     display: flex;
+
+    svg {
+      width: var(--input-adornment-size);
+      height: var(--input-adornment-size);
+    }
   }
 
   .startAdornment {
@@ -74,6 +79,7 @@
     &[disabled],
     &:read-only {
       cursor: not-allowed;
+      color: var(--disabled-color);
     }
   }
 }
