@@ -4,24 +4,24 @@ import { Theme } from './types';
 import { buildSheetRules, createSheet } from './utils';
 
 export type ThemeProviderProps = PropsWithChildren<{
-  value: Partial<Theme>;
+  theme: Partial<Theme>;
 }>;
 
-export const ThemeProvider: FC<ThemeProviderProps> = ({ children, value }) => {
+export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
   const sheetRef = useRef<CSSStyleSheet | null>(null);
 
   useLayoutEffect(() => {
     if (!sheetRef.current) {
-      sheetRef.current = createSheet(value);
+      sheetRef.current = createSheet(theme);
     } else {
-      const cssVariables = buildSheetRules(value);
+      const cssVariables = buildSheetRules(theme);
       sheetRef.current.replaceSync(`
         :root {
           ${cssVariables.map(variable => `${variable}`).join('\n')}
         }
       `);
     }
-  }, [value]);
+  }, [theme]);
 
   useLayoutEffect(() => {
     return () => {
@@ -35,6 +35,6 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, value }) => {
   });
 
   return (
-    <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
   );
 };

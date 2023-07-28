@@ -39,7 +39,7 @@ export default {
   component: ThemeProvider,
   decorators: [
     Story => (
-      <ThemeProvider value={darkTheme}>
+      <ThemeProvider theme={darkTheme}>
         <div style={{ width: '90vw' }}>
           <Story />
         </div>
