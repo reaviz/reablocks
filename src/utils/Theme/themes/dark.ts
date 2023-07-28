@@ -369,8 +369,8 @@ export const darkTheme: Theme = {
       'avatar-border': 'solid 1px var(--body-background)'
     },
     stack: {
-      'spacer-gap': spacings.md,
-      'spacer-dense-gap': spacings.sm
+      'stack-gap': spacings.md,
+      'stack-dense-gap': spacings.sm
     },
     avatarGroup: {
       'avatar-group-spacing': `calc(${spacings.md} * -1)`

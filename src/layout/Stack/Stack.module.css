@@ -1,14 +1,14 @@
 .container {
   display: flex;
   align-items: center;
-  gap: var(--spacer-gap);
+  gap: var(--stack-gap);
 
   &.inline {
     display: inline-flex;
   }
 
   &.dense {
-    gap: var(--spacer-dense-gap);
+    gap: var(--stack-dense-gap);
   }
 
   &.column {
