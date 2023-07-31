@@ -1,0 +1,30 @@
+.week {
+  display: flex;
+
+  .day {
+    flex: 1;
+    transition: border 100ms ease-in-out;
+    padding: var(--calendar-spacing);
+
+    &:not(.selected).outside {
+      opacity: 0.6;
+    }
+
+    &.range,
+    &.rangeHover {
+      border-radius: 0;
+    }
+
+    &.minDate {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+      z-index: 1;
+    }
+
+    &.maxDate {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+      z-index: 1;
+    }
+  }
+}
