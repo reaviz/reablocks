@@ -1,17 +1,16 @@
 import { ThemeProvider, darkTheme } from '../src/utils/Theme';
 import theme from './theme';
 import { Preview } from '@storybook/react';
-import { withThemeFromJSXProvider } from '@storybook/addon-styling';
+
+const withProvider = (Story, context) => (
+  <ThemeProvider theme={darkTheme}>
+    <Story {...context} />
+  </ThemeProvider>
+);
 
 const preview: Preview = {
   decorators: [
-    withThemeFromJSXProvider({
-      themes: {
-        dark: darkTheme
-      },
-      defaultTheme: 'dark',
-      Provider: ThemeProvider
-    })
+    withProvider
   ],
   parameters: {
     layout: 'centered',
