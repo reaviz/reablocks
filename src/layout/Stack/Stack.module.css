@@ -20,7 +20,7 @@
   }
 
   &.startAlign {
-    itemsalign: flex-start;
+    align-items: flex-start;
   }
 
   &.endAlign {
