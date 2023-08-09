@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Card } from '../../layout/Card';
 import { Calendar } from './Calendar';
-import { add, sub } from 'date-fns';
+import { add, addMonths, sub } from 'date-fns';
 
 export default {
   title: 'Components/Form/Calendar',
@@ -9,46 +9,43 @@ export default {
 };
 
 export const Simple = () => {
-  const [selection, setSelection] = useState<Date | null>(null);
+  const [date, setDate] = useState<Date>();
+
   return (
     <>
       <Card>
-        <Calendar
-          value={selection}
-          onChange={(date: Date) => setSelection(date)}
-        />
+        <Calendar value={date} onChange={(date: Date) => setDate(date)} />
+        <br />
+        {date?.toLocaleDateString() ?? 'No date selected'}
       </Card>
-      <br />
-      {selection?.toLocaleDateString() ?? 'No date selected'}
     </>
   );
 };
 
 export const Disabled = () => {
-  const [selection, setSelection] = useState<Date | null>(new Date());
+  const [date, setDate] = useState<Date>();
+
   return (
     <Card>
       <Calendar
-        value={selection}
+        value={date}
         disabled
-        onChange={(date: Date) => setSelection(date)}
+        onChange={(date: Date) => setDate(date)}
       />
     </Card>
   );
 };
 
 export const DefaultValue = () => {
-  const [selection, setSelection] = useState<Date | null>(new Date());
+  const [date, setDate] = useState<Date>(addMonths(new Date(), 1));
+
   return (
     <>
       <Card>
-        <Calendar
-          value={selection}
-          onChange={(date: Date) => setSelection(date)}
-        />
+        <Calendar value={date} onChange={(date: Date) => setDate(date)} />
+        <br />
+        {date?.toLocaleDateString() ?? 'No date selected'}
       </Card>
-      <br />
-      {selection?.toLocaleDateString() ?? 'No date selected'}
     </>
   );
 };
@@ -57,38 +54,38 @@ const prevMonth = sub(new Date(), { months: 1 });
 const nextMonth = add(new Date(), { months: 1 });
 
 export const MinMax = () => {
-  const [selection, setSelection] = useState<Date | null>(null);
+  const [date, setDate] = useState<Date>(new Date());
+
   return (
     <>
       <Card>
         <Calendar
-          value={selection}
+          value={date}
           min={prevMonth}
           max={nextMonth}
-          onChange={(date: Date) => setSelection(date)}
+          onChange={(date: Date) => setDate(date)}
         />
+        <br />
+        {date?.toLocaleDateString() ?? 'No date selected'}
       </Card>
-      <br />
-      {selection?.toLocaleDateString() ?? 'No date selected'}
     </>
   );
 };
 
 export const Range = () => {
-  const [minValue, setMinValue] = useState<Date | null>(null);
-  const [maxValue, setMaxValue] = useState<Date | null>(null);
+  const [range, setRange] = useState<[Date, Date]>();
 
   return (
     <Card>
       <Calendar
-        minValue={minValue}
-        maxValue={maxValue}
+        value={range}
         isRange
-        onChange={([min, max]: [Date, Date]) => {
-          setMinValue(min);
-          setMaxValue(max);
-        }}
+        onChange={val => setRange(val as [Date, Date])}
       />
+      <br />
+      {range
+        ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
+        : 'No date selected'}
     </Card>
   );
 };

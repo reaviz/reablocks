@@ -1,4 +1,5 @@
-import React, { FC, useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import { Button } from '../../elements/Button';
 import {
   add,
@@ -6,7 +7,9 @@ import {
   endOfDecade,
   getMonth,
   getYear,
-  isBefore,
+  isSameDay,
+  max as maxDate,
+  min as minDate,
   setMonth,
   setYear,
   startOfDecade,
@@ -18,6 +21,7 @@ import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
 import { SmallHeading } from '../../typography';
+
 import css from './Calendar.module.css';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
@@ -78,6 +82,7 @@ export interface CalendarProps {
 export const Calendar: FC<CalendarProps> = ({
   min,
   max,
+  value,
   disabled,
   isRange,
   previousArrow,
@@ -86,23 +91,31 @@ export const Calendar: FC<CalendarProps> = ({
   onChange,
   onViewChange
 }) => {
-  const [viewValue, setViewValue] = useState<Date>(min || new Date());
-  const [monthValue, setMonthValue] = useState<number>(getMonth(viewValue));
-  const [yearValue, setYearValue] = useState<number>(getYear(viewValue));
-  const [decadeStart, setDecadeStart] = useState<Date>(
-    startOfDecade(viewValue)
+  const date = useMemo(
+    () => (Array.isArray(value) ? value?.[0] : value) ?? new Date(),
+    [value]
   );
-  const [decadeEnd, setDecadeEnd] = useState<Date>(endOfDecade(viewValue));
+  const rangeStart = useMemo(
+    () => value?.[0] ?? date ?? new Date(),
+    [date, value]
+  );
+  const rangeEnd = useMemo(
+    () => value?.[1] ?? date ?? new Date(),
+    [date, value]
+  );
+
+  const [viewValue, setViewValue] = useState<Date>(date || new Date());
+  const [monthValue, setMonthValue] = useState<number>(getMonth(date));
+  const [yearValue, setYearValue] = useState<number>(getYear(date));
+  const [decadeStart, setDecadeStart] = useState<Date>(startOfDecade(date));
+  const [decadeEnd, setDecadeEnd] = useState<Date>(endOfDecade(date));
   const [view, setView] = useState<CalendarViewType>('days');
+  const [scrollDirection, setScrollDirection] = useState<
+    'forward' | 'back' | null
+  >(null);
 
-  useEffect(() => {
-    setMonthValue(getMonth(viewValue));
-    setYearValue(getYear(viewValue));
-    setDecadeStart(startOfDecade(viewValue));
-    setDecadeEnd(endOfDecade(viewValue));
-  }, [viewValue]);
-
-  const previousClicked = () => {
+  const previousClickHandler = useCallback(() => {
+    setScrollDirection('back');
     if (view === 'days') {
       setViewValue(sub(viewValue, { months: 1 }));
     } else if (view === 'months') {
@@ -111,9 +124,10 @@ export const Calendar: FC<CalendarProps> = ({
       setDecadeStart(subYears(decadeStart, 10));
       setDecadeEnd(subYears(decadeEnd, 10));
     }
-  };
+  }, [decadeEnd, decadeStart, view, viewValue, yearValue]);
 
-  const nextClicked = () => {
+  const nextClickHandler = useCallback(() => {
+    setScrollDirection('forward');
     if (view === 'days') {
       setViewValue(add(viewValue, { months: 1 }));
     } else if (view === 'months') {
@@ -122,46 +136,62 @@ export const Calendar: FC<CalendarProps> = ({
       setDecadeStart(addYears(decadeStart, 10));
       setDecadeEnd(addYears(decadeEnd, 10));
     }
-  };
+  }, [decadeEnd, decadeStart, view, viewValue, yearValue]);
 
-  const headerClicked = () => {
-    if (!disabled) {
-      const newView = view === 'days' ? 'months' : 'years';
-      setView(newView);
-      onViewChange?.(newView);
-    }
-  };
+  const headerClickHandler = useCallback(() => {
+    const newView = view === 'days' ? 'months' : 'years';
+    setScrollDirection(null);
+    setView(newView);
+    onViewChange?.(newView);
+  }, [onViewChange, view]);
 
-  const dayChanged = day => {
-    if (!isRange) {
-      setViewValue(day);
-      onChange?.(day);
-    } else {
-      if (!min) {
-        setViewValue(day);
-      } else if (max) {
-        setViewValue(day);
-      } else if (isBefore(min, day)) {
-        setViewValue(day);
+  const dateChangeHandler = useCallback(
+    (date: Date) => {
+      if (!isRange) {
+        onChange?.(date);
+        setMonthValue(getMonth(date));
+        setYearValue(getYear(date));
       } else {
-        setViewValue(day);
+        if (isSameDay(rangeStart, rangeEnd)) {
+          onChange?.([minDate([rangeStart, date]), maxDate([rangeEnd, date])]);
+        } else {
+          onChange?.([date, date]);
+        }
       }
+    },
+    [isRange, onChange, rangeEnd, rangeStart]
+  );
+
+  const monthsChangeHandler = useCallback(
+    month => {
+      setViewValue(setMonth(setYear(min || new Date(), yearValue), month));
+      setMonthValue(month);
+      setView('days');
+      onViewChange?.('days');
+    },
+    [min, yearValue, onViewChange]
+  );
+
+  const yearChangeHandler = useCallback(
+    year => {
+      setViewValue(setYear(min || new Date(), year));
+      setYearValue(year);
+      setView('months');
+      onViewChange?.('months');
+    },
+    [min, onViewChange]
+  );
+
+  const xAnimation = useMemo(() => {
+    switch (scrollDirection) {
+      case 'forward':
+        return '-100%';
+      case 'back':
+        return '100%';
+      default:
+        return 0;
     }
-  };
-
-  const monthsChanged = month => {
-    setViewValue(setMonth(setYear(min || new Date(), yearValue), month));
-    setMonthValue(month);
-    setView('days');
-    onViewChange?.('days');
-  };
-
-  const yearChanged = year => {
-    setViewValue(setYear(min || new Date(), year));
-    setYearValue(year);
-    setView('months');
-    onViewChange?.('months');
-  };
+  }, [scrollDirection]);
 
   return (
     <div className={css.container}>
@@ -171,7 +201,7 @@ export const Calendar: FC<CalendarProps> = ({
           disabled={disabled}
           className={css.leftArrow}
           disablePadding
-          onClick={previousClicked}
+          onClick={previousClickHandler}
         >
           {previousArrow}
         </Button>
@@ -180,7 +210,7 @@ export const Calendar: FC<CalendarProps> = ({
           fullWidth
           disabled={disabled}
           variant="text"
-          onClick={headerClicked}
+          onClick={headerClickHandler}
         >
           <SmallHeading disableMargins>
             {view === 'days' && (
@@ -202,32 +232,48 @@ export const Calendar: FC<CalendarProps> = ({
           variant="text"
           disablePadding
           disabled={disabled}
-          onClick={nextClicked}
+          onClick={nextClickHandler}
         >
           {nextArrow}
         </Button>
       </header>
-      {view === 'days' && (
-        <CalendarDays
-          value={viewValue}
-          min={min}
-          max={max}
-          disabled={disabled}
-          isRange={isRange}
-          onChange={dayChanged}
-        />
-      )}
-      {view === 'months' && (
-        <CalendarMonths value={monthValue} onChange={monthsChanged} />
-      )}
-      {view === 'years' && (
-        <CalendarYears
-          decadeStart={decadeStart}
-          decadeEnd={decadeEnd}
-          value={yearValue}
-          onChange={yearChanged}
-        />
-      )}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={view}
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0, opacity: 1 }}
+          transition={{
+            x: { type: 'keyframes' },
+            opacity: { duration: 0.2 }
+          }}
+        >
+          {view === 'days' && (
+            <CalendarDays
+              value={viewValue}
+              min={min}
+              max={max}
+              disabled={disabled}
+              isRange={isRange}
+              current={isRange ? [rangeStart, rangeEnd] : date}
+              xAnimation={xAnimation}
+              onChange={dateChangeHandler}
+            />
+          )}
+          {view === 'months' && (
+            <CalendarMonths value={monthValue} onChange={monthsChangeHandler} />
+          )}
+          {view === 'years' && (
+            <CalendarYears
+              decadeStart={decadeStart}
+              decadeEnd={decadeEnd}
+              value={yearValue}
+              xAnimation={xAnimation}
+              onChange={yearChangeHandler}
+            />
+          )}
+        </motion.div>
+      </AnimatePresence>
     </div>
   );
 };
@@ -235,5 +281,6 @@ export const Calendar: FC<CalendarProps> = ({
 Calendar.defaultProps = {
   previousArrow: '←',
   nextArrow: '→',
-  dateFormat: 'MMMM yyyy'
+  dateFormat: 'MMMM yyyy',
+  range: [new Date(), new Date()]
 };

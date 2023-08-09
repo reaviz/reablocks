@@ -91,7 +91,7 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
     return () => {
       hotkeys.forEach(hotkey => Mousetrap.unbind(hotkey.hotkey));
     };
-  }, [hotkeys]);
+  }, [onHotkey, hotkeys]);
 
   return (
     <div className={css.container}>

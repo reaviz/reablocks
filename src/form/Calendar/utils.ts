@@ -57,7 +57,7 @@ export function getWeeks(
   if (!date) {
     throw new Error('A date is required');
   } else if (!isValid(date)) {
-    console.warn(`Invalid date - setting to today`, date);
+    console.warn('Invalid date - setting to today', date);
     date = new Date();
   }
 

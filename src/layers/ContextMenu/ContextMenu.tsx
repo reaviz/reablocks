@@ -80,7 +80,7 @@ export const ContextMenu: FC<ContextMenuProps> = ({
   const close = useCallback(() => {
     setOpen(false);
     setMenus(menus.filter(m => m !== setOpen));
-  }, [menus]);
+  }, [menus, setMenus]);
 
   const onClose = useCallback(() => {
     closeAll();

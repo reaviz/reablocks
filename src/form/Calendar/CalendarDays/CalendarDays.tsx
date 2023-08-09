@@ -1,15 +1,30 @@
-import { FC, useCallback, useMemo, useState } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import classNames from 'classnames';
-import { isAfter, isBefore, isEqual, isSameDay } from 'date-fns';
+import {
+  addDays,
+  isAfter,
+  isBefore,
+  isSameDay,
+  set,
+  max as maxDate,
+  min as minDate
+} from 'date-fns';
 import { Button } from '../../../elements/Button';
 import { getWeeks } from '../utils';
+import { AnimatePresence, motion } from 'framer-motion';
+
 import css from './CalendarDays.module.css';
 
 export interface CalendarDaysProps {
   /**
    * The currently displayed month of the calendar.
    */
-  value: Date;
+  value?: Date;
+
+  /**
+   * The currently selected date.
+   */
+  current?: Date | [Date, Date];
 
   /**
    * The minimum selectable date for the calendar, as a Date object.
@@ -32,84 +47,89 @@ export interface CalendarDaysProps {
   isRange?: boolean;
 
   /**
+   * Range of selected dates
+   */
+  range?: [Date, Date];
+
+  /**
+   * X-axis block animation
+   */
+  xAnimation?: string | number;
+
+  /**
    * A callback function that is called when a day is selected.
    */
-  onChange: (day: Date) => void;
+  onChange: (date: Date) => void;
 }
 
+const ZERO_TIME = {
+  hours: 0,
+  minutes: 0,
+  seconds: 0,
+  milliseconds: 0
+};
+
 export const CalendarDays: FC<CalendarDaysProps> = ({
-  value,
+  value = new Date(),
+  current = new Date(),
   isRange,
   disabled,
-  min,
+  min: minLimit,
   max,
+  xAnimation = 0,
   onChange
 }) => {
   const [hoveringDate, setHoveringDate] = useState<Date | null>(null);
   const weeks = useMemo(() => getWeeks(value), [value]);
-  const maxDate = useMemo(() => (max === 'now' ? new Date() : max), [max]);
-
-  const isInHoveringDateRange = useCallback(
-    (date: Date) => {
-      if (!isRange || !min || maxDate || !hoveringDate) {
-        return false;
-      }
-
-      const isHoveringBefore =
-        hoveringDate && min && isBefore(hoveringDate, min);
-
-      if (isHoveringBefore) {
-        return isAfter(date, hoveringDate) && isBefore(date, min);
-      }
-
-      return isBefore(date, hoveringDate) && isAfter(date, min);
-    },
-    [hoveringDate, isRange, min]
-  );
+  const maxLimit = useMemo(() => (max === 'now' ? new Date() : max), [max]);
 
   const renderDay = useCallback(
     (day, ii) => {
-      // Determine if the minimum date is active
-      const minDateActive =
-        isRange &&
-        min &&
-        isSameDay(min, day.date) &&
-        (!hoveringDate || isBefore(min, hoveringDate));
-
-      // Determine if the maximum date is active
-      const maxDateActive =
-        isRange &&
-        maxDate &&
-        isSameDay(maxDate, day.date) &&
-        (!hoveringDate || isAfter(maxDate, hoveringDate));
-
-      // Determine if the day is within the range of selected dates
-      const rangeActive =
-        isRange &&
-        min &&
-        maxDate &&
-        isAfter(day.date, min) &&
-        isBefore(day.date, maxDate);
-
-      // Determine if the day is within the range of hovering dates
-      const rangeHovered = isRange && isInHoveringDateRange(day.date);
-
       // Determine if the day is disabled
       const isDisabled =
         disabled ||
-        (min && isBefore(day.date, min)) ||
-        (maxDate && isAfter(day.date, maxDate));
+        (minLimit && isBefore(day.date, minLimit)) ||
+        (maxLimit && isAfter(day.date, maxLimit));
+
+      // Determine that date is in selected range
+      const isSelectionStarted =
+        Array.isArray(current) && isSameDay(...current);
+      const prevDayRangeStart = set(
+        addDays(
+          hoveringDate && isSelectionStarted
+            ? minDate([current?.[0], hoveringDate])
+            : current?.[0],
+          -1
+        ),
+        ZERO_TIME
+      );
+      const nextDayRangeEnd = set(
+        addDays(
+          hoveringDate && isSelectionStarted
+            ? maxDate([current?.[1], hoveringDate])
+            : current?.[1],
+          1
+        ),
+        ZERO_TIME
+      );
+      const isSelected = Array.isArray(current)
+        ? isAfter(day.date, prevDayRangeStart) &&
+          isBefore(day.date, nextDayRangeEnd)
+        : isSameDay(current, day.date);
+
+      // Determine start/end range dates
+      const isStartRangeDate =
+        Array.isArray(current) &&
+        isSameDay(addDays(prevDayRangeStart, 1), day.date);
+      const isEndRangeDate =
+        Array.isArray(current) &&
+        isSameDay(addDays(nextDayRangeEnd, -1), day.date);
 
       // Determine the color variant of the button
-      const colorVariant = isSameDay(value, day.date) ? 'primary' : 'default';
+      const colorVariant = isSelected ? 'primary' : 'default';
 
       // Determine the button variant
-      const buttonVariant =
-        (min && isSameDay(min, day.date)) ||
-        (maxDate && isSameDay(maxDate, day.date)) ||
-        isSameDay(value, day.date)
-          ? 'filled'
-          : 'text';
+      const buttonVariant = isSelected ? 'filled' : 'text';
 
       return (
         <Button
@@ -117,10 +137,9 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
           className={classNames(css.day, {
             [css.outside]: day.isNextMonth || day.isPreviousMonth,
             [css.today]: day.isToday,
-            [css.minDate]: minDateActive,
-            [css.maxDate]: maxDateActive,
-            [css.range]: rangeActive,
-            [css.rangeHover]: rangeHovered
+            [css.range]: isRange && isSelected,
+            [css.startRangeDate]: isRange && isStartRangeDate,
+            [css.endRangeDate]: isRange && isEndRangeDate
           })}
           onMouseEnter={() => setHoveringDate(day.date)}
           onMouseLeave={() => setHoveringDate(null)}
@@ -135,16 +154,26 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         </Button>
       );
     },
-    [disabled, min, maxDate, onChange, isInHoveringDateRange, isRange]
+    [disabled, minLimit, maxLimit, hoveringDate, current, isRange, onChange]
   );
 
   return (
-    <>
-      {weeks.map((week, i) => (
-        <div key={`week-${i}`} className={css.week}>
-          {week.map(renderDay)}
-        </div>
-      ))}
-    </>
+    <AnimatePresence mode="popLayout">
+      <motion.div
+        key={value.toString()}
+        initial={{ opacity: 0, x: xAnimation }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          x: { type: 'keyframes' },
+          opacity: { duration: 0.2 }
+        }}
+      >
+        {weeks.map((week, i) => (
+          <div key={`week-${i}`} className={css.week}>
+            {week.map(renderDay)}
+          </div>
+        ))}
+      </motion.div>
+    </AnimatePresence>
   );
 };

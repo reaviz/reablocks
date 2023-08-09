@@ -15,16 +15,14 @@
       border-radius: 0;
     }
 
-    &.minDate {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-      z-index: 1;
+    &.startRangeDate {
+      border-top-left-radius: var(--button-border-radius);
+      border-bottom-left-radius: var(--button-border-radius);
     }
 
-    &.maxDate {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-      z-index: 1;
+    &.endRangeDate {
+      border-top-right-radius: var(--button-border-radius);
+      border-bottom-right-radius: var(--button-border-radius);
     }
   }
 }
