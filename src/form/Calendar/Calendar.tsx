@@ -69,6 +69,11 @@ export interface CalendarProps {
   dateFormat?: string;
 
   /**
+   * Whether to animate the calendar.
+   */
+  animated?: boolean;
+
+  /**
    * A callback function that is called when the selected date(s) change.
    */
   onChange?: (value: Date | [Date, Date]) => void;
@@ -88,6 +93,7 @@ export const Calendar: FC<CalendarProps> = ({
   previousArrow,
   nextArrow,
   dateFormat,
+  animated,
   onChange,
   onViewChange
 }) => {
@@ -185,9 +191,9 @@ export const Calendar: FC<CalendarProps> = ({
   const xAnimation = useMemo(() => {
     switch (scrollDirection) {
       case 'forward':
-        return '-100%';
-      case 'back':
         return '100%';
+      case 'back':
+        return '-100%';
       default:
         return 0;
     }
@@ -237,15 +243,16 @@ export const Calendar: FC<CalendarProps> = ({
           {nextArrow}
         </Button>
       </header>
-      <AnimatePresence mode="wait">
+      <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={view}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 1 }}
           transition={{
-            x: { type: 'keyframes' },
-            opacity: { duration: 0.2 }
+            x: { type: animated ? 'keyframes' : false },
+            opacity: { duration: 0.2, type: animated ? 'tween' : false },
+            scale: { type: animated ? 'tween' : false }
           }}
         >
           {view === 'days' && (
@@ -257,16 +264,22 @@ export const Calendar: FC<CalendarProps> = ({
               isRange={isRange}
               current={isRange ? [rangeStart, rangeEnd] : date}
               xAnimation={xAnimation}
+              animated={animated}
               onChange={dateChangeHandler}
             />
           )}
           {view === 'months' && (
-            <CalendarMonths value={monthValue} onChange={monthsChangeHandler} />
+            <CalendarMonths
+              value={monthValue}
+              animated={animated}
+              onChange={monthsChangeHandler}
+            />
           )}
           {view === 'years' && (
             <CalendarYears
               decadeStart={decadeStart}
               decadeEnd={decadeEnd}
+              animated={animated}
               value={yearValue}
               xAnimation={xAnimation}
               onChange={yearChangeHandler}
@@ -281,6 +294,7 @@ export const Calendar: FC<CalendarProps> = ({
 Calendar.defaultProps = {
   previousArrow: '←',
   nextArrow: '→',
+  animated: true,
   dateFormat: 'MMMM yyyy',
   range: [new Date(), new Date()]
 };

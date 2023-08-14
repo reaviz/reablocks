@@ -26,6 +26,11 @@ export interface CalendarYearsProps {
   xAnimation?: string | number;
 
   /**
+   * Whether to animate the calendar.
+   */
+  animated?: boolean;
+
+  /**
    * A callback function that is called when a year is selected.
    */
   onChange: (year: number) => void;
@@ -35,6 +40,7 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
   decadeStart,
   decadeEnd,
   value,
+  animated,
   xAnimation = 0,
   onChange
 }) => {
@@ -58,8 +64,8 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
         initial={{ opacity: 0, x: xAnimation }}
         animate={{ opacity: 1, x: 0 }}
         transition={{
-          x: { type: 'keyframes' },
-          opacity: { duration: 0.2 }
+          x: { type: animated ? 'keyframes' : false },
+          opacity: { duration: 0.2, type: animated ? 'tween' : false }
         }}
       >
         {years.map(year => (

@@ -57,6 +57,11 @@ export interface CalendarDaysProps {
   xAnimation?: string | number;
 
   /**
+   * Whether to animate the calendar.
+   */
+  animated?: boolean;
+
+  /**
    * A callback function that is called when a day is selected.
    */
   onChange: (date: Date) => void;
@@ -76,6 +81,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   disabled,
   min: minLimit,
   max,
+  animated,
   xAnimation = 0,
   onChange
 }) => {
@@ -164,8 +170,8 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         initial={{ opacity: 0, x: xAnimation }}
         animate={{ opacity: 1, x: 0 }}
         transition={{
-          x: { type: 'keyframes' },
-          opacity: { duration: 0.2 }
+          x: { type: animated ? 'keyframes' : false },
+          opacity: { duration: 0.2, type: animated ? 'tween' : false }
         }}
       >
         {weeks.map((week, i) => (

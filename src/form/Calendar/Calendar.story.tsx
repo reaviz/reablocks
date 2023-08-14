@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Card } from '../../layout/Card';
 import { Calendar } from './Calendar';
 import { add, addMonths, sub } from 'date-fns';
+import { Divider, Stack } from '../../layout';
 
 export default {
   title: 'Components/Form/Calendar',
@@ -15,8 +16,10 @@ export const Simple = () => {
     <>
       <Card>
         <Calendar value={date} onChange={(date: Date) => setDate(date)} />
-        <br />
-        {date?.toLocaleDateString() ?? 'No date selected'}
+        <Divider />
+        <Stack inline={false} justifyContent="center">
+          {date?.toLocaleDateString() ?? 'No date selected'}
+        </Stack>
       </Card>
     </>
   );
@@ -36,6 +39,20 @@ export const Disabled = () => {
   );
 };
 
+export const NoAnimation = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <Card>
+      <Calendar
+        value={date}
+        animated={false}
+        onChange={(date: Date) => setDate(date)}
+      />
+    </Card>
+  );
+};
+
 export const DefaultValue = () => {
   const [date, setDate] = useState<Date>(addMonths(new Date(), 1));
 
@@ -43,8 +60,10 @@ export const DefaultValue = () => {
     <>
       <Card>
         <Calendar value={date} onChange={(date: Date) => setDate(date)} />
-        <br />
-        {date?.toLocaleDateString() ?? 'No date selected'}
+        <Divider />
+        <Stack inline={false} justifyContent="center">
+          {date?.toLocaleDateString() ?? 'No date selected'}
+        </Stack>
       </Card>
     </>
   );
@@ -65,8 +84,10 @@ export const MinMax = () => {
           max={nextMonth}
           onChange={(date: Date) => setDate(date)}
         />
-        <br />
-        {date?.toLocaleDateString() ?? 'No date selected'}
+        <Divider />
+        <Stack inline={false} justifyContent="center">
+          {date?.toLocaleDateString() ?? 'No date selected'}
+        </Stack>
       </Card>
     </>
   );
@@ -82,10 +103,12 @@ export const Range = () => {
         isRange
         onChange={val => setRange(val as [Date, Date])}
       />
-      <br />
-      {range
-        ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
-        : 'No date selected'}
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {range
+          ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
     </Card>
   );
 };
