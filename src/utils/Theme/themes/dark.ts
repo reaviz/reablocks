@@ -396,6 +396,9 @@ export const darkTheme: Theme = {
       'sub-font-weight': 'var(--font-weight-bold)',
       'sub-color': darkColors.white,
       'sub-margin': '0 0 var(--spacing-xs) 0'
+    },
+    calendar: {
+      'calendar-spacing': '8px'
     }
   }
 };

@@ -1,0 +1,28 @@
+.week {
+  display: flex;
+
+  .day {
+    flex: 1;
+    transition: border 100ms ease-in-out;
+    padding: var(--calendar-spacing);
+
+    &:not(.selected).outside {
+      opacity: 0.6;
+    }
+
+    &.range,
+    &.rangeHover {
+      border-radius: 0;
+    }
+
+    &.startRangeDate {
+      border-top-left-radius: var(--button-border-radius);
+      border-bottom-left-radius: var(--button-border-radius);
+    }
+
+    &.endRangeDate {
+      border-top-right-radius: var(--button-border-radius);
+      border-bottom-right-radius: var(--button-border-radius);
+    }
+  }
+}
