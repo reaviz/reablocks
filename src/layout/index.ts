@@ -6,3 +6,4 @@ export * from './Block';
 export * from './Card';
 export * from './Stack';
 export * from './Tree';
+export * from './VerticalSpacer';

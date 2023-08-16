@@ -68,6 +68,7 @@
 - Kbd
 - Calendar
 - Pager
+- Vertical Spacer
 
 ### Utilities
 - Theme Provider
