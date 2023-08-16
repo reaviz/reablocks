@@ -66,6 +66,8 @@
 - Avatar Group
 - Chip
 - Kbd
+- Calendar
+- Pager
 
 ### Utilities
 - Theme Provider
