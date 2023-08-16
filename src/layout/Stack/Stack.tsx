@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import classNames from 'classnames';
 import css from './Stack.module.css';
 
-export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface StackProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * If true, the stack will be dense.
    */
@@ -29,7 +29,7 @@ export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   justifyContent?: 'start' | 'end' | 'center' | 'spaceBetween';
 }
 
-export const Stack = React.forwardRef<HTMLDivElement, StackProps>(
+export const Stack = forwardRef<HTMLDivElement, StackProps>(
   (
     {
       children,
@@ -61,7 +61,7 @@ export const Stack = React.forwardRef<HTMLDivElement, StackProps>(
 
 Stack.defaultProps = {
   dense: false,
-  inline: true,
+  inline: false,
   direction: 'row',
   alignItems: 'center',
   justifyContent: 'start'
