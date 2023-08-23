@@ -25,14 +25,6 @@ export const FullWidth = () => (
 
 export const Placeholder = () => <Textarea placeholder="Type your text here" />;
 
-export const Rows = () => (
-  <Stack direction="column">
-    <Textarea value="1" rows={1} />
-    <Textarea value="5" rows={5} />
-    <Textarea value="10" rows={10} />
-  </Stack>
-);
-
 export const Sizes = () => (
   <Stack direction="column">
     <Textarea value="Small" size="small" />
