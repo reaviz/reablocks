@@ -1,15 +1,12 @@
 import classNames from 'classnames';
-import React, {
-  FC,
-  TextareaHTMLAttributes,
-  useLayoutEffect,
-  useRef
-} from 'react';
+import React, { FC, useRef } from 'react';
+import TextareaAutosize, {
+  TextareaAutosizeProps
+} from 'react-textarea-autosize';
 
 import css from './Textarea.module.css';
 
-export interface TextareaProps
-  extends TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextareaProps extends TextareaAutosizeProps {
   /**
    * Mark field as errored
    */
@@ -31,17 +28,9 @@ export const Textarea: FC<TextareaProps> = ({
   size = 'small',
   className,
   error,
-  autoFocus,
   ...rest
 }) => {
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
-
-  useLayoutEffect(() => {
-    if (autoFocus) {
-      // Small timeout for page loading
-      requestAnimationFrame(() => inputRef.current?.focus());
-    }
-  }, [autoFocus]);
 
   return (
     <div
@@ -51,7 +40,7 @@ export const Textarea: FC<TextareaProps> = ({
         [css[size]]: size
       })}
     >
-      <textarea
+      <TextareaAutosize
         ref={inputRef}
         className={classNames(css.input, className)}
         {...rest}

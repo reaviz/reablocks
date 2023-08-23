@@ -65,6 +65,7 @@
     "react-fast-compare": "^3.2.2",
     "react-highlight-words": "^0.17.0",
     "react-input-autosize": "^3.0.0",
+    "react-textarea-autosize": "^8.5.3",
     "string-to-color": "^2.2.2"
   },
   "peerDependencies": {
