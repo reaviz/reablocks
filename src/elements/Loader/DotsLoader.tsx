@@ -28,7 +28,7 @@ export const DotsLoader: FC<DotsLoaderProps> = ({ className, size, speed }) => (
           duration: speed * 4,
           ease: 'easeInOut',
           times: [0, 0.2, 0.5, 0.8, 1],
-          loop: Infinity,
+          repeat: Infinity,
           repeatDelay: speed,
           delay: speed * i
         }}
