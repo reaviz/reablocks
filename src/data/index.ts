@@ -7,3 +7,4 @@ export * from './InfinityList';
 export * from './DateFormat';
 export * from './Sort';
 export * from './CommandPalette';
+export * from './Pager';
