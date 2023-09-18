@@ -1,5 +1,5 @@
+import { FC, useRef } from 'react';
 import classNames from 'classnames';
-import React, { FC, useRef } from 'react';
 import TextareaAutosize, {
   TextareaAutosizeProps
 } from 'react-textarea-autosize';
@@ -7,6 +7,11 @@ import TextareaAutosize, {
 import css from './Textarea.module.css';
 
 export interface TextareaProps extends TextareaAutosizeProps {
+  /**
+   * Additional classname for the input container element.
+   */
+  containerClassName?: string;
+
   /**
    * Mark field as errored
    */
@@ -26,6 +31,7 @@ export interface TextareaProps extends TextareaAutosizeProps {
 export const Textarea: FC<TextareaProps> = ({
   fullWidth,
   size = 'small',
+  containerClassName,
   className,
   error,
   ...rest
@@ -34,7 +40,7 @@ export const Textarea: FC<TextareaProps> = ({
 
   return (
     <div
-      className={classNames(css.root, {
+      className={classNames(css.root, containerClassName, {
         [css.fullWidth]: fullWidth,
         [css.error]: error,
         [css[size]]: size
