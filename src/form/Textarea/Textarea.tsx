@@ -40,11 +40,15 @@ export const Textarea: FC<TextareaProps> = ({
 
   return (
     <div
-      className={classNames(css.root, containerClassName, {
-        [css.fullWidth]: fullWidth,
-        [css.error]: error,
-        [css[size]]: size
-      })}
+      className={classNames(
+        css.root,
+        {
+          [css.fullWidth]: fullWidth,
+          [css.error]: error,
+          [css[size]]: size
+        },
+        containerClassName
+      )}
     >
       <TextareaAutosize
         ref={inputRef}

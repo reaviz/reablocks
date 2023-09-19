@@ -48,11 +48,15 @@ export const Toggle: FC<
       {...rest}
       ref={ref}
       tabIndex={0}
-      className={classnames(css.switch, className, {
-        [css.disabled]: disabled,
-        [css.checked]: checked,
-        [css[size]]: true
-      })}
+      className={classnames(
+        css.switch,
+        {
+          [css.disabled]: disabled,
+          [css.checked]: checked,
+          [css[size]]: true
+        },
+        className
+      )}
       onClick={() => {
         if (!disabled && onChange) {
           onChange(!checked);
