@@ -17,6 +17,11 @@ export interface PagerProps {
   className?: string;
 
   /**
+   * The class name to add to the page buttons.
+   */
+  pageClassName?: string;
+
+  /**
    * The current page number.
    */
   page: number;
@@ -59,6 +64,7 @@ export interface PagerProps {
 
 export const Pager: FC<PagerProps> = ({
   className,
+  pageClassName,
   page,
   size,
   total,
@@ -124,9 +130,13 @@ export const Pager: FC<PagerProps> = ({
               size="small"
               disabled={page === i}
               title={`Page ${i + 1}`}
-              className={classNames(css.page, {
-                [css.active]: page === i
-              })}
+              className={classNames(
+                css.page,
+                {
+                  [css.active]: page === i
+                },
+                pageClassName
+              )}
               onClick={() => onPageChange?.(i)}
             >
               {(i + 1).toLocaleString()}
