@@ -27,7 +27,8 @@
 ---
 
 ## 🚀 Quick Links
-- View the [Docs and Demos](https://reablocks.dev)
+- [Docs and Demos](https://reablocks.dev)
+- [Figma Plugin](https://www.figma.com/community/plugin/1285928654186754176/reablocks-figma-plugin)
 
 ## 🪄 Features
 
