@@ -1,31 +1,11 @@
 import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
-import css from './Sub.module.css';
+import { Typography } from '../Typography';
+
 import common from '../Typography.module.css';
+import css from './Sub.module.css';
 
-export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
-  /**
-   * Color variation of the text.
-   */
-  color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'success'
-    | 'warning'
-    | 'info';
-
-  /**
-   * Font variant for the text.
-   */
-  variant?: 'default' | 'mono';
-
-  /**
-   * Whether to disable the margins.
-   */
-  disableMargins?: boolean;
-}
+export type SubProps = Typography & React.HTMLAttributes<HTMLHeadingElement>;
 
 export interface SubRef {
   ref?: Ref<HTMLHeadingElement>;
@@ -33,10 +13,19 @@ export interface SubRef {
 
 export const Sub: FC<SubProps & SubRef> = forwardRef(
   (
-    { color, variant, disableMargins, children, className, ...rest }: SubProps,
+    {
+      color,
+      variant,
+      disableMargins,
+      children,
+      className,
+      fontWeight,
+      ...rest
+    }: SubProps,
     ref: Ref<HTMLHeadingElement>
   ) => (
     <h6
+      style={{ fontWeight }}
       ref={ref}
       className={classNames(
         common[color],

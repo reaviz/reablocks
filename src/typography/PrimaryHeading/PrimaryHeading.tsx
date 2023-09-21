@@ -1,32 +1,13 @@
 import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
-import css from './PrimaryHeading.module.css';
+import { Typography } from '../Typography';
+
 import common from '../Typography.module.css';
+import css from './PrimaryHeading.module.css';
 
-export interface PrimaryHeadingProps
-  extends React.HTMLAttributes<HTMLHeadingElement> {
-  /**
-   * Color variation of the title.
-   */
-  color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'success'
-    | 'warning'
-    | 'info';
+export type PrimaryHeadingProps = Typography &
+  React.HTMLAttributes<HTMLHeadingElement>;
 
-  /**
-   * Font variant for the heading.
-   */
-  variant?: 'default' | 'mono';
-
-  /**
-   * Whether to disable the margins.
-   */
-  disableMargins?: boolean;
-}
 export interface PrimaryHeadingRef {
   ref?: Ref<HTMLHeadingElement>;
 }
@@ -40,12 +21,14 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
         variant,
         disableMargins,
         className,
+        fontWeight,
         ...rest
       }: PrimaryHeadingProps,
       ref: Ref<HTMLHeadingElement>
     ) => (
       <h2
         ref={ref}
+        style={{ fontWeight }}
         className={classNames(
           common[color],
           common[variant],

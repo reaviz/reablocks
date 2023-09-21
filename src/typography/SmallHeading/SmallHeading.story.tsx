@@ -29,3 +29,18 @@ export const NoMargins = () => (
 export const Monospace = () => (
   <SmallHeading variant="mono">Hello world</SmallHeading>
 );
+
+export const Weights = () => (
+  <>
+    <SmallHeading>Default - Hello world</SmallHeading>
+    <SmallHeading fontWeight={100}>100 - Hello world</SmallHeading>
+    <SmallHeading fontWeight={200}>200 - Hello world</SmallHeading>
+    <SmallHeading fontWeight={300}>300 - Hello world</SmallHeading>
+    <SmallHeading fontWeight={400}>400 - Hello world</SmallHeading>
+    <SmallHeading fontWeight={500}>500 - Hello world</SmallHeading>
+    <SmallHeading fontWeight={600}>600 - Hello world</SmallHeading>
+    <SmallHeading fontWeight={700}>700 - Hello world</SmallHeading>
+    <SmallHeading fontWeight={800}>800 - Hello world</SmallHeading>
+    <SmallHeading fontWeight={900}>900 - Hello world</SmallHeading>
+  </>
+);

@@ -1,27 +1,14 @@
 import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
-import css from './Text.module.css';
+import { Typography } from '../Typography';
+
 import common from '../Typography.module.css';
+import css from './Text.module.css';
 
-export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
-  /**
-   * Color variation of the text.
-   */
-  color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'success'
-    | 'warning'
-    | 'info';
-
+export interface TextProps
+  extends Typography,
+    Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'> {
   fontStyle?: 'default' | 'thin' | 'bold' | 'extraBold' | 'italic';
-
-  /**
-   * Font variant for the text.
-   */
-  variant?: 'default' | 'mono';
 }
 
 export interface TextRef {
@@ -30,10 +17,19 @@ export interface TextRef {
 
 export const Text: FC<TextProps & TextRef> = forwardRef(
   (
-    { color, variant, fontStyle, children, className, ...rest }: TextProps,
+    {
+      color,
+      variant,
+      fontStyle,
+      children,
+      className,
+      fontWeight,
+      ...rest
+    }: TextProps,
     ref: Ref<HTMLSpanElement>
   ) => (
     <span
+      style={{ fontWeight }}
       ref={ref}
       className={classNames(
         common[color],

@@ -1,34 +1,12 @@
 import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
-import css from './SmallHeading.module.css';
+import { Typography } from '../Typography';
+
 import common from '../Typography.module.css';
+import css from './SmallHeading.module.css';
 
-export type SmallHeadingColors =
-  | 'default'
-  | 'primary'
-  | 'secondary'
-  | 'error'
-  | 'success'
-  | 'warning'
-  | 'info';
-
-export interface SmallHeadingProps
-  extends React.HTMLAttributes<HTMLHeadingElement> {
-  /**
-   * Color variation of the title.
-   */
-  color?: SmallHeadingColors;
-
-  /**
-   * Font variant for the heading.
-   */
-  variant?: 'default' | 'mono';
-
-  /**
-   * Whether to disable the margins.
-   */
-  disableMargins?: boolean;
-}
+export type SmallHeadingProps = Typography &
+  React.HTMLAttributes<HTMLHeadingElement>;
 
 export interface SmallHeadingRef {
   ref?: Ref<HTMLHeadingElement>;
@@ -42,11 +20,13 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
       variant,
       disableMargins,
       className,
+      fontWeight,
       ...rest
     }: SmallHeadingProps,
     ref: Ref<HTMLHeadingElement>
   ) => (
     <h5
+      style={{ fontWeight }}
       ref={ref}
       className={classNames(
         common[color],
