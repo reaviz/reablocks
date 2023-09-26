@@ -45,5 +45,6 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
 SmallHeading.defaultProps = {
   color: 'default',
   variant: 'default',
+  fontWeight: 'normal',
   disableMargins: false
 };

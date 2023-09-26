@@ -40,5 +40,5 @@ export const fontWeights = {
   thin: '200',
   normal: '400',
   bold: '600',
-  extraBold: '800'
+  'extra-bold': '800'
 };
