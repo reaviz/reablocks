@@ -19,17 +19,17 @@ export const Sub: FC<SubProps & SubRef> = forwardRef(
       disableMargins,
       children,
       className,
-      fontWeight,
+      fontWeight = 'bold',
       ...rest
     }: SubProps,
     ref: Ref<HTMLHeadingElement>
   ) => (
     <h6
-      style={{ fontWeight }}
       ref={ref}
       className={classNames(
         common[color],
         common[variant],
+        common[fontWeight],
         css.root,
         { [css.disableMargins]: disableMargins },
         className

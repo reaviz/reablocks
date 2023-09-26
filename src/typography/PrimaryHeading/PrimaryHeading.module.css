@@ -1,7 +1,6 @@
 .root {
   font-family: var(--font-family);
   font-size: var(--primary-heading-font-size);
-  font-weight: var(--primary-heading-font-weight);
   color: var(--primary-heading-color);
   margin: var(--primary-heading-margin);
 

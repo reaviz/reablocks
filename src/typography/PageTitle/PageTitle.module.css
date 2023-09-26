@@ -1,7 +1,6 @@
 .root {
   font-family: var(--font-family);
   font-size: var(--page-title-font-size);
-  font-weight: var(--page-title-font-weight);
   color: var(--page-title-color);
   margin: var(--page-title-margin);
 

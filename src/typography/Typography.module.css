@@ -25,3 +25,19 @@
 .mono {
   font-family: var(--mono-font-family);
 }
+
+.thin {
+  font-weight: var(--font-weight-thin);
+}
+
+.normal {
+  font-weight: var(--font-weight-normal);
+}
+
+.bold {
+  font-weight: var(--font-weight-bold);
+}
+
+.extra-bold {
+  font-weight: var(--font-weight-extraBold);
+}

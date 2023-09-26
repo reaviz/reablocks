@@ -20,17 +20,17 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
       variant,
       disableMargins,
       className,
-      fontWeight,
+      fontWeight = 'normal',
       ...rest
     }: SmallHeadingProps,
     ref: Ref<HTMLHeadingElement>
   ) => (
     <h5
-      style={{ fontWeight }}
       ref={ref}
       className={classNames(
         common[color],
         common[variant],
+        common[fontWeight],
         css.root,
         { [css.disableMargins]: disableMargins },
         className

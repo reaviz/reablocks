@@ -20,17 +20,17 @@ export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
         variant,
         disableMargins,
         className,
-        fontWeight,
+        fontWeight = 'normal',
         ...rest
       }: SecondaryHeadingProps,
       ref: Ref<HTMLHeadingElement>
     ) => (
       <h3
-        style={{ fontWeight }}
         ref={ref}
         className={classNames(
           common[color],
           common[variant],
+          common[fontWeight],
           css.root,
           { [css.disableMargins]: disableMargins },
           className

@@ -23,17 +23,17 @@ export const Text: FC<TextProps & TextRef> = forwardRef(
       fontStyle,
       children,
       className,
-      fontWeight,
+      fontWeight = 'normal',
       ...rest
     }: TextProps,
     ref: Ref<HTMLSpanElement>
   ) => (
     <span
-      style={{ fontWeight }}
       ref={ref}
       className={classNames(
         common[color],
         common[variant],
+        common[fontWeight],
         css[fontStyle],
         className
       )}

@@ -1,5 +1,3 @@
-import { Property } from 'csstype';
-
 export type TypographyColors =
   | 'default'
   | 'primary'
@@ -28,5 +26,5 @@ export interface Typography {
   /**
    * The font-weight CSS property sets the weight of the font.
    */
-  fontWeight?: Property.FontWeight;
+  fontWeight?: 'thin' | 'normal' | 'bold' | 'extra-bold';
 }

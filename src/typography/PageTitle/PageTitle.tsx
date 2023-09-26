@@ -20,17 +20,17 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
       variant,
       disableMargins,
       className,
-      fontWeight,
+      fontWeight = 'bold',
       ...rest
     }: PageTitleProps,
     ref: Ref<HTMLHeadingElement>
   ) => (
     <h1
-      style={{ fontWeight }}
       ref={ref}
       className={classNames(
         common[color],
         common[variant],
+        common[fontWeight],
         css.root,
         { [css.disableMargins]: disableMargins },
         className

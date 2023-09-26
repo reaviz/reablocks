@@ -30,15 +30,10 @@ export const Monospace = () => <Sub variant="mono">Hello world</Sub>;
 
 export const Weights = () => (
   <>
-    <Sub>Default - Hello world</Sub>
-    <Sub fontWeight={100}>100 - Hello world</Sub>
-    <Sub fontWeight={200}>200 - Hello world</Sub>
-    <Sub fontWeight={300}>300 - Hello world</Sub>
-    <Sub fontWeight={400}>400 - Hello world</Sub>
-    <Sub fontWeight={500}>500 - Hello world</Sub>
-    <Sub fontWeight={600}>600 - Hello world</Sub>
-    <Sub fontWeight={700}>700 - Hello world</Sub>
-    <Sub fontWeight={800}>800 - Hello world</Sub>
-    <Sub fontWeight={900}>900 - Hello world</Sub>
+    <Sub>default</Sub>
+    <Sub fontWeight="thin">thin</Sub>
+    <Sub fontWeight="normal">normal</Sub>
+    <Sub fontWeight="bold">bold</Sub>
+    <Sub fontWeight="extra-bold">extra-bold</Sub>
   </>
 );

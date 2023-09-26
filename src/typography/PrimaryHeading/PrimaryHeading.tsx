@@ -21,17 +21,17 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
         variant,
         disableMargins,
         className,
-        fontWeight,
+        fontWeight = 'extra-bold',
         ...rest
       }: PrimaryHeadingProps,
       ref: Ref<HTMLHeadingElement>
     ) => (
       <h2
         ref={ref}
-        style={{ fontWeight }}
         className={classNames(
           common[color],
           common[variant],
+          common[fontWeight],
           css.root,
           { [css.disableMargins]: disableMargins },
           className

@@ -32,15 +32,10 @@ export const Monospace = () => (
 
 export const Weights = () => (
   <>
-    <PrimaryHeading>Default - Hello world</PrimaryHeading>
-    <PrimaryHeading fontWeight={100}>100 - Hello world</PrimaryHeading>
-    <PrimaryHeading fontWeight={200}>200 - Hello world</PrimaryHeading>
-    <PrimaryHeading fontWeight={300}>300 - Hello world</PrimaryHeading>
-    <PrimaryHeading fontWeight={400}>400 - Hello world</PrimaryHeading>
-    <PrimaryHeading fontWeight={500}>500 - Hello world</PrimaryHeading>
-    <PrimaryHeading fontWeight={600}>600 - Hello world</PrimaryHeading>
-    <PrimaryHeading fontWeight={700}>700 - Hello world</PrimaryHeading>
-    <PrimaryHeading fontWeight={800}>800 - Hello world</PrimaryHeading>
-    <PrimaryHeading fontWeight={900}>900 - Hello world</PrimaryHeading>
+    <PrimaryHeading>default</PrimaryHeading>
+    <PrimaryHeading fontWeight="thin">thin</PrimaryHeading>
+    <PrimaryHeading fontWeight="normal">normal</PrimaryHeading>
+    <PrimaryHeading fontWeight="bold">bold</PrimaryHeading>
+    <PrimaryHeading fontWeight="extra-bold">extra-bold</PrimaryHeading>
   </>
 );
