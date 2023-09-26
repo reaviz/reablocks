@@ -1,4 +1,11 @@
-import { FC, useRef } from 'react';
+import {
+  FC,
+  forwardRef,
+  Ref,
+  RefObject,
+  useImperativeHandle,
+  useRef
+} from 'react';
 import classNames from 'classnames';
 import TextareaAutosize, {
   TextareaAutosizeProps
@@ -28,33 +35,54 @@ export interface TextareaProps extends TextareaAutosizeProps {
   size?: 'small' | 'medium' | 'large';
 }
 
-export const Textarea: FC<TextareaProps> = ({
-  fullWidth,
-  size = 'small',
-  containerClassName,
-  className,
-  error,
-  ...rest
-}) => {
-  const inputRef = useRef<HTMLTextAreaElement | null>(null);
+export interface TextAreaRef {
+  inputRef: RefObject<HTMLTextAreaElement>;
+  containerRef: RefObject<HTMLDivElement>;
+  blur?: () => void;
+  focus?: () => void;
+}
 
-  return (
-    <div
-      className={classNames(
-        css.root,
-        {
-          [css.fullWidth]: fullWidth,
-          [css.error]: error,
-          [css[size]]: size
-        },
-        containerClassName
-      )}
-    >
-      <TextareaAutosize
-        ref={inputRef}
-        className={classNames(css.input, className)}
-        {...rest}
-      />
-    </div>
-  );
-};
+export const Textarea: FC<TextareaProps> = forwardRef(
+  (
+    {
+      fullWidth,
+      size = 'small',
+      containerClassName,
+      className,
+      error,
+      ...rest
+    },
+    ref: Ref<TextAreaRef>
+  ) => {
+    const containerRef = useRef<HTMLDivElement | null>(null);
+    const inputRef = useRef<HTMLTextAreaElement | null>(null);
+
+    useImperativeHandle(ref, () => ({
+      inputRef,
+      containerRef,
+      blur: () => inputRef.current?.blur(),
+      focus: () => inputRef.current?.focus()
+    }));
+
+    return (
+      <div
+        className={classNames(
+          css.root,
+          {
+            [css.fullWidth]: fullWidth,
+            [css.error]: error,
+            [css[size]]: size
+          },
+          containerClassName
+        )}
+        ref={containerRef}
+      >
+        <TextareaAutosize
+          ref={inputRef}
+          className={classNames(css.input, className)}
+          {...rest}
+        />
+      </div>
+    );
+  }
+);
