@@ -8,7 +8,7 @@ import css from './Text.module.css';
 export interface TextProps
   extends Typography,
     Omit<React.HTMLAttributes<HTMLSpanElement>, 'color'> {
-  fontStyle?: 'normal' | 'thin' | 'bold' | 'extra-bold' | 'italic';
+  fontStyle?: 'default' | 'thin' | 'bold' | 'extraBold' | 'italic';
 }
 
 export interface TextRef {
@@ -47,6 +47,5 @@ export const Text: FC<TextProps & TextRef> = forwardRef(
 Text.defaultProps = {
   color: 'default',
   variant: 'default',
-  fontStyle: 'normal',
-  fontWeight: 'normal'
+  fontStyle: 'default'
 };

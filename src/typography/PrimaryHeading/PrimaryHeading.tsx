@@ -46,6 +46,5 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
 PrimaryHeading.defaultProps = {
   color: 'default',
   variant: 'default',
-  fontWeight: 'normal',
   disableMargins: false
 };

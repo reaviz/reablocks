@@ -45,6 +45,5 @@ export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
 SecondaryHeading.defaultProps = {
   color: 'default',
   variant: 'default',
-  fontWeight: 'normal',
   disableMargins: false
 };

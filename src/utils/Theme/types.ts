@@ -42,7 +42,7 @@ export interface Weights {
   thin?: string;
   normal?: string;
   bold?: string;
-  'extra-bold'?: string;
+  extraBold?: string;
 }
 
 export type Color = Scale;

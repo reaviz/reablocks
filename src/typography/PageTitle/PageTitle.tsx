@@ -45,6 +45,5 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
 PageTitle.defaultProps = {
   color: 'default',
   variant: 'default',
-  fontWeight: 'normal',
   disableMargins: false
 };

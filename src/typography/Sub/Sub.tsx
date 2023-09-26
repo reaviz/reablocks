@@ -44,6 +44,5 @@ export const Sub: FC<SubProps & SubRef> = forwardRef(
 Sub.defaultProps = {
   color: 'default',
   variant: 'default',
-  fontWeight: 'normal',
   disableMargins: false
 };
