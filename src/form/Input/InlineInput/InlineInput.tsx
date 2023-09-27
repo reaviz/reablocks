@@ -1,5 +1,5 @@
 import { FC, forwardRef, Ref, InputHTMLAttributes } from 'react';
-import AutosizeInput from 'react-input-autosize';
+import AutosizeInput from 'react-18-input-autosize';
 import classNames from 'classnames';
 import { InputRef } from '../Input';
 import css from './InlineInput.module.css';
