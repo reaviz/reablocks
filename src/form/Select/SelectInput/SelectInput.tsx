@@ -10,7 +10,7 @@ import React, {
 } from 'react';
 import classNames from 'classnames';
 import { SelectOptionProps, SelectValue } from '../SelectOption';
-import AutosizeInput from 'react-input-autosize';
+import { InlineInput } from '../../Input';
 import { DownArrowIcon } from '../icons/DownArrowIcon';
 import { CloseIcon } from '../icons/CloseIcon';
 import { DotsLoader } from '../../../elements/Loader/DotsLoader';
@@ -323,7 +323,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
     >
       <div className={css.inputContainer} onClick={onInputFocus}>
         {renderPrefix()}
-        <AutosizeInput
+        <InlineInput
           inputRef={el => (inputRef.current = el)}
           id={id}
           style={{ fontSize }}
@@ -342,6 +342,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
           onChange={onChange}
           onFocus={onInputFocus}
           onBlur={onBlur}
+          placeholderIsMinWidth={false}
         />
       </div>
       <div className={css.suffix}>
