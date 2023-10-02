@@ -45,6 +45,12 @@ export interface SelectProps {
   className?: string;
 
   /**
+   * Additional class names to apply to the select when the
+   * menu is open
+   */
+  activeClassName?: string;
+
+  /**
    * Set the select to disabled state.
    */
   disabled?: boolean;
@@ -194,6 +200,7 @@ export const Select: FC<Partial<SelectProps>> = ({
   multiple,
   error,
   className,
+  activeClassName,
   children,
   value,
   required,
@@ -599,6 +606,7 @@ export const Select: FC<Partial<SelectProps>> = ({
         filterable={filterable}
         refreshable={refreshable}
         className={className}
+        activeClassName={activeClassName}
         required={required}
         loading={loading}
         placeholder={placeholder}
