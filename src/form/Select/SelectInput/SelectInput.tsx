@@ -32,6 +32,7 @@ export interface SelectInputProps {
   selectedOption?: SelectOptionProps | SelectOptionProps[];
   autoFocus?: boolean;
   className?: string;
+  activeClassName?: string;
   createable?: boolean;
   filterable?: boolean;
   multiple?: boolean;
@@ -83,6 +84,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
   id,
   name,
   className,
+  activeClassName,
   inputText,
   required,
   loading,
@@ -317,7 +319,8 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
         [css.error]: error,
         [css.single]: !multiple,
         [css.multiple]: multiple,
-        [css.open]: menuOpen
+        [css.open]: menuOpen,
+        [activeClassName]: menuOpen
       })}
       onClick={onContainerClick}
     >
