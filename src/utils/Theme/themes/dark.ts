@@ -413,14 +413,15 @@ export const darkTheme: Theme = {
       'calendar-spacing': '8px'
     },
     badge: {
-      'badge-color-default': darkColors.white,
-      'badge-color-on-default': darkColors.black,
-      'badge-color-primary': 'var(--primary-background)',
-      'badge-color-on-primary': darkColors.white,
-      'badge-color-secondary': 'var(--secondary-background)',
-      'badge-color-on-secondary': darkColors.white,
-      'badge-color-error': 'var(--error-background)',
-      'badge-color-on-error': darkColors.white
+      'badge-color-background-default': darkColors.white,
+      'badge-color-default': darkColors.black,
+      'badge-color-background-primary': 'var(--primary-background)',
+      'badge-color-primary': darkColors.white,
+      'badge-color-background-secondary': 'var(--secondary-background)',
+      'badge-color-secondary': darkColors.white,
+      'badge-color-background-error': 'var(--error-background)',
+      'badge-color-error': darkColors.white,
+      'badge-border-radius': '50%'
     }
   }
 };
