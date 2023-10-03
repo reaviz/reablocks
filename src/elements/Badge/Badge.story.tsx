@@ -7,7 +7,7 @@ export default {
 
 export const Colors = () => (
   <>
-    <Badge content="756">
+    <Badge content="7">
       <NotificationIcon height={22} width={22} />
     </Badge>
     <Badge content="7" color="primary">
