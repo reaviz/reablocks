@@ -1,3 +1,7 @@
+import { Fragment } from 'react';
+import { Notifications, NotificationsContext } from '../../layers';
+import { Text } from '../../typography';
+import { Button } from '../Button';
 import { Badge } from './Badge';
 
 export default {
@@ -43,6 +47,27 @@ export const Hidden = () => (
   <>
     <Badge hidden={true}>
       <NotificationIcon height={22} width={22} />
+    </Badge>
+  </>
+);
+
+export const Custom = () => (
+  <>
+    <Badge content={<Text fontStyle="bold">10</Text>} placement="top-end">
+      <Notifications>
+        <NotificationsContext.Consumer>
+          {({ notifyError }) => (
+            <Fragment>
+              <Button
+                color="error"
+                onClick={() => notifyError('You have 10 alerts!')}
+              >
+                Alerts
+              </Button>
+            </Fragment>
+          )}
+        </NotificationsContext.Consumer>
+      </Notifications>
     </Badge>
   </>
 );

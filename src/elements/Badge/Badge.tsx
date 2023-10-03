@@ -51,7 +51,7 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
       {children}
       {!hidden && (
         <motion.span
-          initial={{ opacity: 0, scale: 0.85 }}
+          initial={{ opacity: 0, scale: 1 }}
           animate={{ opacity: 1, scale: 1 }}
           aria-hidden="true"
         >
