@@ -1,0 +1,81 @@
+import React, { FC, forwardRef, Ref } from 'react';
+import classNames from 'classnames';
+import { motion } from 'framer-motion';
+import css from './Badge.module.css';
+import common from './../../typography/Typography.module.css';
+
+export type BadgeColor = 'default' | 'primary' | 'secondary' | 'error';
+
+export type BadgePlacement =
+  | 'top-start'
+  | 'top-end'
+  | 'bottom-end'
+  | 'bottom-start';
+
+export interface BadgeProps
+  extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'content'> {
+  content?: string | React.JSX.Element;
+
+  color?: BadgeColor;
+
+  disableMargins?: boolean;
+
+  hidden?: boolean;
+
+  placement?: BadgePlacement;
+}
+
+export interface BadgeRef {
+  ref?: Ref<HTMLSpanElement>;
+}
+
+export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
+  (
+    {
+      children,
+      color,
+      className,
+      disableMargins,
+      content,
+      hidden,
+      placement,
+      ...rest
+    }: BadgeProps,
+    ref: Ref<HTMLSpanElement>
+  ) => (
+    <span
+      className={classNames(css.container, {
+        [css.disableMargins]: disableMargins
+      })}
+    >
+      {children}
+      {!hidden && (
+        <motion.span
+          initial={{ opacity: 0, scale: 0.85 }}
+          animate={{ opacity: 1, scale: 1 }}
+          aria-hidden="true"
+        >
+          <span
+            {...rest}
+            ref={ref}
+            className={classNames(className, css.badge, common[color], {
+              [css.top]: placement === 'top-start' || placement === 'top-end',
+              [css.bottom]:
+                placement === 'bottom-start' || placement === 'bottom-end',
+              [css.left]:
+                placement === 'top-start' || placement === 'bottom-start',
+              [css.right]: placement === 'top-end' || placement === 'bottom-end'
+            })}
+          >
+            {content}
+          </span>
+        </motion.span>
+      )}
+    </span>
+  )
+);
+
+Badge.defaultProps = {
+  color: 'default',
+  placement: 'top-end'
+};
