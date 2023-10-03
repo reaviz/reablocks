@@ -43,13 +43,13 @@ export const Positions = () => (
   </>
 );
 
-export const Hidden = () => (
-  <>
-    <Badge hidden={true}>
-      <NotificationIcon height={22} width={22} />
-    </Badge>
-  </>
+export const HiddenContent = () => (
+  <Badge hidden={true}>
+    <NotificationIcon height={22} width={22} />
+  </Badge>
 );
+
+export const OnlyContent = () => <Badge content="7" />;
 
 export const Custom = () => (
   <>
