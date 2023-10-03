@@ -21,7 +21,7 @@
   box-sizing: border-box;
   line-height: 1;
   padding: var(--spacing-xs);
-  border-radius: var(--border-radius-md);
+  border-radius: 50%;
   min-width: 18px;
   height: 18px;
   z-index: 1;
@@ -61,22 +61,22 @@
 
   /* Colors */
   &.default {
-    background: var(--color-default);
-    color: var(--color-on-default);
+    background: var(--badge-color-default);
+    color: var(--badge-color-on-default);
   }
 
   &.primary {
-    background: var(--color-primary);
-    color: var(--color-on-primary);
+    background: var(--badge-color-primary);
+    color: var(--badge-color-on-primary);
   }
 
   &.secondary {
-    background: var(--color-surface-secondary);
-    color: var(--color-on-surface-secondary);
+    background: var(--badge-color-secondary);
+    color: var(--badge-color-on-secondary);
   }
 
   &.error {
-    background: var(--color-error);
-    color: var(--color-on-error);
+    background: var(--badge-color-error);
+    color: var(--badge-color-on-error);
   }
 }

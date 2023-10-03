@@ -2,7 +2,6 @@ import React, { FC, forwardRef, Ref } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import css from './Badge.module.css';
-import common from './../../typography/Typography.module.css';
 
 export type BadgeColor = 'default' | 'primary' | 'secondary' | 'error';
 
@@ -58,7 +57,7 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
           <span
             {...rest}
             ref={ref}
-            className={classNames(className, css.badge, common[color], {
+            className={classNames(className, css.badge, css[color], {
               [css.top]: placement === 'top-start' || placement === 'top-end',
               [css.bottom]:
                 placement === 'bottom-start' || placement === 'bottom-end',

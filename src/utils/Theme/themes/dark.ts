@@ -411,6 +411,16 @@ export const darkTheme: Theme = {
     },
     calendar: {
       'calendar-spacing': '8px'
+    },
+    badge: {
+      'badge-color-default': darkColors.white,
+      'badge-color-on-default': darkColors.black,
+      'badge-color-primary': 'var(--primary-background)',
+      'badge-color-on-primary': darkColors.white,
+      'badge-color-secondary': 'var(--secondary-background)',
+      'badge-color-on-secondary': darkColors.white,
+      'badge-color-error': 'var(--error-background)',
+      'badge-color-on-error': darkColors.white
     }
   }
 };
