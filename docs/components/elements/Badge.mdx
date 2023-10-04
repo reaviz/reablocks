@@ -1,0 +1,30 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Badge } from '../../../src/elements/Badge';
+import * as BadgeStories from '../../../src/elements/Badge/Badge.story';
+
+<Meta title="Docs/Components/Elements/Badge" />
+
+# Badge
+Simple badge component.
+
+## Examples
+<Canvas sourceState="shown" of={BadgeStories.Colors} />
+<Canvas sourceState="shown" of={BadgeStories.Positions} />
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `badge-color-background-default`
+- `badge-color-default`
+- `badge-color-background-primary`
+- `badge-color-primary`
+- `badge-color-background-secondary`
+- `badge-color-secondary`
+- `badge-color-background-error`
+- `badge-color-error`
+- `badge-border-radius`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## API
+<ArgsTable of={Badge} />

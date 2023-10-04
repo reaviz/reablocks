@@ -70,6 +70,7 @@
 - Calendar
 - Pager
 - Vertical Spacer
+- Badge
 
 ### Utilities
 - Theme Provider

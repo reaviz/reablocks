@@ -4,3 +4,4 @@ export * from './Loader';
 export * from './Avatar';
 export * from './AvatarGroup';
 export * from './Kbd';
+export * from './Badge';
