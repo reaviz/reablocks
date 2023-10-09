@@ -122,7 +122,7 @@ export const Pager: FC<PagerProps> = ({
         {previousArrow}
       </Button>
       {startPage >= 2 && <div className={css.overflow}>&nbsp;...</div>}
-      {[...Array(total)].map((_, i) => (
+      {[...Array(pageCount)].map((_, i) => (
         <Fragment key={i}>
           {i >= startPage && i <= endPage && (
             <Button
