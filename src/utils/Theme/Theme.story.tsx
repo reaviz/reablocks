@@ -16,7 +16,7 @@ import { buildSheetRules } from './utils';
 import favoriteIcon from './icon-demo.svg';
 
 export default {
-  title: 'Components/Utils/Theme',
+  title: 'Components/Theme',
   component: ThemeProvider,
   decorators: [
     Story => (
