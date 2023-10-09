@@ -6,9 +6,8 @@
   }
 
   .label {
-    font-weight: bold;
     font-size: var(--block-label-size);
-    text-transform: uppercase;
+    font-size: var(--block-label-weight);
     display: block;
   }
 
