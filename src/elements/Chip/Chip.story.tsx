@@ -26,6 +26,16 @@ export const Sizes = () => (
   </div>
 );
 
+export const Adornment = () => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+    <Chip start={<DemoIcon />}>Icon</Chip>
+    <Chip end={<DemoIcon />}>Icon</Chip>
+    <Chip start={'$'} end={<DemoIcon />}>
+      Icon
+    </Chip>
+  </div>
+);
+
 export const StartAdornment = () => <Chip start={<DemoIcon />}>Icon</Chip>;
 
 export const EndAdornment = () => <Chip end={<DemoIcon />}>Icon</Chip>;

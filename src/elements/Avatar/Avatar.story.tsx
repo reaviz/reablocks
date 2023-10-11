@@ -7,7 +7,7 @@ export default {
   component: Avatar
 } as Meta;
 
-const Template: Story<AvatarProps> = args => <Avatar {...args} />;
+const Template = args => <Avatar {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -30,7 +30,7 @@ LargeRounded.args = {
   rounded: true
 };
 
-export const MultipleAvatars: Story<AvatarProps> = args => (
+export const MultipleAvatars = args => (
   <div style={{ display: 'flex', gap: '1em' }}>
     <Avatar {...args} name="Alice" />
     <Avatar {...args} name="Bob Meyer Bogger" />
