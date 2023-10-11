@@ -10,7 +10,12 @@ export const Simple = () => <DateFormat date={new Date()} />;
 
 export const Empty = () => <DateFormat date={null} />;
 
-export const Relative = () => <DateFormat date={new Date()} fromNow />;
+export const Relative = () => {
+  const currentDate = new Date();
+  const oldDate = new Date(currentDate);
+  oldDate.setDate(currentDate.getDate() - 93);
+  return <DateFormat date={oldDate} fromNow />;
+};
 
 export const Toggling = () => (
   <DateFormat date={new Date()} fromNow allowToggle />

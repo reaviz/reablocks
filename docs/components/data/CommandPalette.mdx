@@ -5,12 +5,23 @@ import * as Stories from '../../../src/data/CommandPalette/CommandPalette.story'
 <Meta title="Docs/Components/Data/Command Palette" />
 
 # Command Palette
-Command Palette is a component for building shortcuts for your application.
+The Command Palette component is a versatile user interface element that allows users to search for and select various commands or actions within your web application.
+It's especially useful for applications with a large number of features or options.
 
 NOTE: This is still in beta and APIs are subject to change before final version.
 
 ## Example
-<Canvas sourceState="shown" of={Stories.Simple} />
+### Simple
+Basic example with sections separators
+<Canvas of={Stories.Simple}/>
+
+### With Icons
+Commands with mapped icons
+<Canvas of={Stories.WithIcons}/>
+
+### With HotKeys
+Commands with mapped keyboard shortcuts
+<Canvas of={Stories.Hotkey}/>
 
 ## Design Tokens
 This component uses the following design tokens:
