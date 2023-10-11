@@ -1,6 +1,6 @@
 import { CommandPalette } from './CommandPalette';
 import { Dialog } from '../../layers/Dialog';
-import { Chip } from '../../elements/Chip';
+import { Chip } from '../Chip';
 import { Divider } from '../../layout/Divider';
 import { Stack } from '../../layout/Stack';
 import { CommandPaletteSection } from './CommandPaletteSection';

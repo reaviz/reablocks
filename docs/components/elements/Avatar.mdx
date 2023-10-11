@@ -5,9 +5,16 @@ import * as AvatarStories from '../../../src/elements/Avatar/Avatar.story'
 <Meta title="Docs/Components/Elements/Avatar" />
 
 # Avatar
+An avatar component commonly used to provide a visual identity for users. This is mostly used for showing user profile pictures,
+team members profile pics for a team details page.
 
 ## Example
+### Avatar showing initials from the user name
+If the user name is single word text, it will just show the first letter
 <Canvas sourceState="shown" of={AvatarStories.Default}/>
+
+### Avatar with round shape showing user profile pic
+<Canvas of={AvatarStories.RoundedWithImage}/>
 
 ## Design Tokens
 This component uses the following design tokens:

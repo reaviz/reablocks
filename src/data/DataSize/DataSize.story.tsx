@@ -22,8 +22,6 @@ export const Simple = () => (
 
 export const Empty = () => (
   <Fragment>
-    <DataSize value={null} />
-    <br />
     <DataSize value={undefined} />
     <br />
     <DataSize value={null} emptyValue="Nothing to see" />

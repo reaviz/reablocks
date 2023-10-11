@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { ListItem, ListItemProps } from '../../../layout/List';
 import classNames from 'classnames';
 import { MotionItem } from '../../../layout/Motion';
-import { Kbd } from '../../../elements/Kbd';
+import { Kbd } from '../../Kbd';
 import css from './CommandPaletteItem.module.css';
 
 export interface CommandPaletteItemProps extends ListItemProps {

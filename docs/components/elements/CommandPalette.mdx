@@ -1,0 +1,39 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { CommandPalette } from '../../../src/elements/CommandPalette';
+import * as Stories from '../../../src/elements/CommandPalette/CommandPalette.story'
+
+<Meta title="Docs/Components/Elements/Command Palette" />
+
+# Command Palette
+The Command Palette component is a versatile user interface element that allows users to search for and select various commands or actions within your web application.
+It's especially useful for applications with a large number of features or options.
+
+NOTE: This is still in beta and APIs are subject to change before final version.
+
+## Example
+### Simple
+Basic example with sections separators
+<Canvas of={Stories.Simple}/>
+
+### With Icons
+Commands with mapped icons
+<Canvas of={Stories.WithIcons}/>
+
+### With HotKeys
+Commands with mapped keyboard shortcuts
+<Canvas of={Stories.Hotkey}/>
+
+## Design Tokens
+This component uses the following design tokens:
+
+- `spacing-md`
+- `primary-background`
+- `input-color`
+- `body-background`
+- `font-family`
+- `input-color-placeholder`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## API
+<ArgsTable of={CommandPalette} />

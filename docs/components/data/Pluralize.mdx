@@ -5,10 +5,15 @@ import * as PluralizeStories from '../../../src/data/Pluralize/Pluralize.story'
 <Meta title="Docs/Components/Data/Pluralize" />
 
 # Pluralize
-Render nouns in singular or plural form.
+Render nouns in singular or plural form. You can customise the output by defining the separate label for singular and plural values.
+It is also possible to have a default string when there is no value.
 
 ## Example
+### Simple example
 <Canvas sourceState="shown" of={PluralizeStories.Simple}/>
+### Custom text for empty values
+<Canvas sourceState="shown" of={PluralizeStories.ZeroCount}/>
+
 
 ## API
 <ArgsTable of={Pluralize} />

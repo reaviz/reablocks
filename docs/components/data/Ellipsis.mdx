@@ -8,7 +8,13 @@ import * as EllipsisStories from '../../../src/data/Ellipsis/Ellipsis.story'
 Simple ellipsis component that handles expanding text.
 
 ## Example
+### Ellipsis with expandable text section
+Users click on the ellipsis to discover the hidden text.
 <Canvas sourceState="shown" of={EllipsisStories.Simple} />
+
+### Ellipsis with Unexpandable text section
+The full text will be visible in the tooltip.
+<Canvas sourceState="shown" of={EllipsisStories.Unexpandable} />
 
 ## API
 <ArgsTable of={Ellipsis} />

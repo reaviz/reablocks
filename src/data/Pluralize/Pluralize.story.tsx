@@ -35,12 +35,7 @@ export const WithCustomPlural = () => {
 export const ZeroCount = () => {
   return (
     <div>
-      <div>
-        <Pluralize count={0} singular="Example" />
-      </div>
-      <div>
-        <Pluralize count={0} singular="Example" zero="No Examples" />
-      </div>
+      <Pluralize count={0} singular="Example" zero="No Examples" />
     </div>
   );
 };
