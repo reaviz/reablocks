@@ -14,12 +14,36 @@ export const Simple = () => {
 export const Intermediate = () => {
   const [state, setState] = useState(true);
   return (
-    <Checkbox
-      checked={state}
-      label="¯\_(ツ)_/¯"
-      onChange={setState}
-      intermediate
-    />
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      <Checkbox
+        checked={state}
+        label="¯\_(ツ)_/¯"
+        onChange={setState}
+        intermediate
+      />
+      <Checkbox checked={state} label="Disabled" onChange={setState} disabled />
+      <Checkbox
+        checked={state}
+        label="Intermediate"
+        onChange={setState}
+        intermediate
+      />
+    </div>
+  );
+};
+
+export const States = () => {
+  const [state, setState] = useState(true);
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      <Checkbox checked={state} label="Disabled" onChange={setState} disabled />
+      <Checkbox
+        checked={state}
+        label="Intermediate"
+        onChange={setState}
+        intermediate
+      />
+    </div>
   );
 };
 

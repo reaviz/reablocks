@@ -5,6 +5,15 @@ import * as DrawerStories from '../../../src/layers/Drawer/Drawer.story';
 <Meta title="Docs/Components/Layers/Drawer" />
 
 # Drawer
+The Drawer component provides a hidden or off-canvas panel that can slide in or out from the edge of the screen,
+offering additional navigation or content without obstructing the main interface. One common use case is when user
+is analysing a list of entries from a table and they quickly wants to see details for some entries.
+
+## Example
+### Basic example
+<Canvas sourceState="shown" of={DrawerStories.Simple} />
+### Drawer as bottom sheet
+<Canvas of={DrawerStories.BottomSheet} />
 
 ## Design Tokens
 This component uses the following design tokens:
@@ -14,8 +23,6 @@ This component uses the following design tokens:
 
 Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
 
-## Example
-<Canvas sourceState="shown" of={DrawerStories.Simple} />
 
 ## API
 <ArgsTable of={Drawer} />

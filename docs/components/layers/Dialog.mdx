@@ -5,6 +5,14 @@ import * as DialogStories from '../../../src/layers/Dialog/Dialog.story';
 <Meta title="Docs/Components/Layers/Dialog" />
 
 # Dialog
+The Dialog component serves as a pop-up or modal window that overlays the main content,
+allowing the display of important messages, forms, or user interactions while grabbing user's focus.
+
+## Example
+### Basic Dialog
+<Canvas sourceState="shown" of={DialogStories.Simple} />
+### Dialog with Footer and Custom header
+<Canvas of={DialogStories.Footer} />
 
 ## Design Tokens
 This component uses the following design tokens:
@@ -13,9 +21,6 @@ This component uses the following design tokens:
 - `dialog-color`
 
 Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
-
-## Example
-<Canvas sourceState="shown" of={DialogStories.Simple} />
 
 ## API
 <ArgsTable of={Dialog} />

@@ -7,12 +7,19 @@ export default {
 };
 
 export const Basic = () => {
-  const [value, setValue] = useState('');
+  const [instantInput, setInstantInput] = useState('');
+  const [slowInput, setSlowInput] = useState('');
   return (
     <>
-      <DebouncedInput value={value} onValueChange={setValue} />
+      <DebouncedInput value={instantInput} onValueChange={setInstantInput} />
+      Instant input value: {instantInput}
       <br />
-      Value: {value}
+      <DebouncedInput
+        value={slowInput}
+        onValueChange={setSlowInput}
+        debounce={500}
+      />
+      Delayed input value: {slowInput}
     </>
   );
 };

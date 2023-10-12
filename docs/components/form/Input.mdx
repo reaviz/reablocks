@@ -5,19 +5,27 @@ import * as InputStories from '../../../src/form/Input/Input.story';
 <Meta title="Docs/Components/Form/Input" />
 
 # Input
-Text field to enter and submit input.
+Text field to provide an input value.
 
 ## Examples
+### Basic example
 <Canvas sourceState="shown" of={InputStories.Basic} />
-<Canvas sourceState="shown" of={InputStories.Sizes} />
-<Canvas sourceState="shown" of={InputStories.Disabled} />
-<Canvas sourceState="shown" of={InputStories.EndAdornment} />
-<Canvas sourceState="shown" of={InputStories.StartAdornment} />
-<Canvas sourceState="shown" of={InputStories.StartEndAdorment} />
-<Canvas sourceState="shown" of={InputStories.Error} />
-<Canvas sourceState="shown" of={InputStories.Placeholder} />
-<Canvas sourceState="shown" of={InputStories.DefaultValue} />
-<Canvas sourceState="shown" of={InputStories.FullWidth} />
+### Input field with size variations
+<Canvas of={InputStories.Sizes} />
+#### Full width
+<Canvas of={InputStories.FullWidth} />
+### Input field with Adornments at Start/End
+<Canvas of={InputStories.StartEndAdorment} />
+### Input field with state variations
+#### Error
+<Canvas of={InputStories.Error} />
+#### Disabled
+<Canvas of={InputStories.Disabled} />
+### Value initialisation
+#### Placeholder
+<Canvas of={InputStories.Placeholder} />
+#### Default value
+<Canvas of={InputStories.DefaultValue} />
 
 ## Design Tokens
 This component uses the following design tokens:

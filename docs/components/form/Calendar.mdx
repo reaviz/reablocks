@@ -5,14 +5,18 @@ import * as CalendarStories from '../../../src/form/Calendar/Calendar.story';
 <Meta title="Docs/Components/Form/Calendar" />
 
 # Calendar
+Calendar component is generally used in combination with other UI components like search box etc. to allow the users to
+define the time range for their action.
 
 ## Examples
+### Basic example with single date selection
 <Canvas sourceState="shown" of={CalendarStories.Simple} />
-<Canvas sourceState="shown" of={CalendarStories.Disabled} />
-<Canvas sourceState="shown" of={CalendarStories.NoAnimation} />
-<Canvas sourceState="shown" of={CalendarStories.Range} />
-<Canvas sourceState="shown" of={CalendarStories.MinMax} />
-<Canvas sourceState="shown" of={CalendarStories.DefaultValue} />
+### Date range selection
+<Canvas of={CalendarStories.Range} />
+### Restricted date range
+<Canvas of={CalendarStories.MinMax} />
+### Initialise with default date (E.g.: one month from now)
+<Canvas of={CalendarStories.DefaultValue} />
 
 ## Design Tokens
 This component uses the following design tokens:

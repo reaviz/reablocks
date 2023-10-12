@@ -22,14 +22,22 @@ const CustomNotification: FC<NotificationComponentProps> = ({
       alignItems: 'center',
       padding: '10px',
       boxSizing: 'border-box',
-      ...(variant === 'default' ? { backgroundColor: 'lightblue' } : null),
-      ...(variant === 'success' ? { backgroundColor: 'lightgreen' } : null),
-      ...(variant === 'warning' ? { backgroundColor: 'lightsalmon' } : null),
-      ...(variant === 'error' ? { backgroundColor: 'lightcoral' } : null)
+      ...(variant === 'default'
+        ? { backgroundColor: 'lightblue', color: 'black' }
+        : null),
+      ...(variant === 'success'
+        ? { backgroundColor: 'lightgreen', color: 'black' }
+        : null),
+      ...(variant === 'warning'
+        ? { backgroundColor: 'lightsalmon', color: 'black' }
+        : null),
+      ...(variant === 'error'
+        ? { backgroundColor: 'lightcoral', color: 'black' }
+        : null)
     }}
     onClick={onClose}
   >
-    {message}{' '}
+    {message}
     <div style={{ marginLeft: '5px', fontSize: '12px' }}>
       (Click me to close!)
     </div>
