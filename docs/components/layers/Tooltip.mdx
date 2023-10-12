@@ -5,6 +5,13 @@ import * as TooltipStories from '../../../src/layers/Tooltip/Tooltip.story';
 <Meta title="Docs/Components/Layers/Tooltip" />
 
 # Tooltip
+A Tooltip is a small, informative pop-up that provides context, explanations, or additional details when a user hovers over or interacts with specific elements in a user interface.
+
+## Example
+### Basic
+<Canvas sourceState="shown" of={TooltipStories.Simple} />
+### Disabled
+<Canvas of={TooltipStories.Disabled} />
 
 ## Design Tokens
 This component uses the following design tokens:
@@ -15,9 +22,6 @@ This component uses the following design tokens:
 - `tooltip-border`
 
 Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
-
-## Example
-<Canvas sourceState="shown" of={TooltipStories.Simple} />
 
 ## API
 <ArgsTable of={Tooltip} />

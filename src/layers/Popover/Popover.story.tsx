@@ -11,12 +11,12 @@ export const Simple = () => (
     <Popover
       content={
         <div style={{ textAlign: 'center' }}>
-          <h1>WHATS UP????!</h1>
-          <button type="button">Click me</button>
+          <h3>WHATS UP????!</h3>
+          <button type="button">Done</button>
         </div>
       }
     >
-      Click Me
+      <button type="button">Click me</button>
     </Popover>
   </div>
 );

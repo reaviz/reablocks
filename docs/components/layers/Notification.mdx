@@ -5,6 +5,16 @@ import * as NotificationsStories from '../../../src/layers/Notification/Notifica
 <Meta title="Docs/Components/Layers/Notification" />
 
 # Notification
+The Notification component delivers real-time messages or alerts to users, providing important updates, feedback, or information within an application.
+Notifications can be automatic or can be triggered based on some actions that the user performed.
+
+## Example
+### Notification for interface essential scenarios
+<Canvas sourceState="shown" of={NotificationsStories.Variants} />
+### Custom styled notitications
+<Canvas of={NotificationsStories.CustomComponent} />
+### Notifications with title and body
+<Canvas of={NotificationsStories.TitleAndBody} />
 
 ## Design Tokens
 This component uses the following design tokens:
@@ -17,9 +27,6 @@ This component uses the following design tokens:
 - `notification-color-success`
 
 Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
-
-## Example
-<Canvas sourceState="shown" of={NotificationsStories.Variants} />
 
 ## API
 <ArgsTable of={Notifications} />

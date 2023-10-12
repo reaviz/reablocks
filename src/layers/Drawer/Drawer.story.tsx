@@ -21,6 +21,20 @@ export const Simple = () => {
   );
 };
 
+export const BottomSheet = () => {
+  const { toggleOpen, Drawer } = useDrawer();
+  return (
+    <Fragment>
+      <Drawer position="bottom">
+        <p>Hello There!</p>
+      </Drawer>
+      <button type="button" onClick={toggleOpen}>
+        Open
+      </button>
+    </Fragment>
+  );
+};
+
 const MyHeader = () => <div>hello!</div>;
 
 export const CustomHeaderElement = () => {
@@ -50,7 +64,6 @@ export const Header = () => {
     </Fragment>
   );
 };
-
 export const CustomHeader = () => {
   const { toggleOpen, Drawer } = useDrawer();
   return (

@@ -43,7 +43,7 @@ export const Nested = () => {
         Open
       </button>
       <MenuComponent style={{ background: 'var(--slate-500)' }}>
-        <h3 style={{ margin: 0 }}>My Menu</h3>
+        <h5 style={{ margin: 4 }}>My Menu</h5>
         <div role="list">
           <div role="listitem" style={itemStyle}>
             1
@@ -51,7 +51,7 @@ export const Nested = () => {
           <NestedMenu
             label="2"
             style={itemStyle}
-            menuStyle={{ background: 'var(--slate-500)' }}
+            menuStyle={{ background: 'var(--slate-500)', marginLeft: 4 }}
           >
             <div role="listitem" style={itemStyle}>
               2.1
@@ -69,7 +69,7 @@ export const Nested = () => {
           <NestedMenu
             label="3"
             style={itemStyle}
-            menuStyle={{ background: 'var(--slate-500)' }}
+            menuStyle={{ background: 'var(--slate-500)', marginLeft: 4 }}
           >
             <div role="listitem" style={itemStyle}>
               3.1
@@ -77,7 +77,7 @@ export const Nested = () => {
             <NestedMenu
               label="3.2"
               style={itemStyle}
-              menuStyle={{ background: 'var(--slate-500)' }}
+              menuStyle={{ background: 'var(--slate-500)', marginLeft: 4 }}
             >
               <div role="listitem" style={itemStyle}>
                 3.2.1
