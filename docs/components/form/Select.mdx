@@ -6,7 +6,8 @@ import * as MultiSelectStories from '../../../src/form/Select/MultiSelect.story'
 <Meta title="Docs/Components/Form/Select" />
 
 # Select
-A select component that features:
+A select component allows the users to select a value or multiple values from the given list of options. The
+implementation features:
 
 - Single Select
 - Multi Select
@@ -18,20 +19,23 @@ A select component that features:
 - Groups Support
 - Animation
 
-## Single
+## Examples
+### Single Select
+#### Basic
 <Canvas sourceState="shown" of={SingleSelectStories.Basic} />
-<Canvas sourceState="shown" of={SingleSelectStories.CustomLabels} />
-<Canvas sourceState="shown" of={SingleSelectStories.Createable} />
-<Canvas sourceState="shown" of={SingleSelectStories.Error} />
-<Canvas sourceState="shown" of={SingleSelectStories.Groups} />
-<Canvas sourceState="shown" of={SingleSelectStories.FluidWidth} />
+#### Custom Label
+<Canvas of={SingleSelectStories.CustomLabels} />
+#### Create value if not available
+<Canvas of={SingleSelectStories.Createable} />
+#### Values with sections
+<Canvas of={SingleSelectStories.Groups} />
+#### State: Error
+<Canvas of={SingleSelectStories.Error} />
+#### State: Full Width
+<Canvas of={SingleSelectStories.FluidWidth} />
 
-## Multiple
+### Multi Select
 <Canvas sourceState="shown" of={MultiSelectStories.Basic} />
-<Canvas sourceState="shown" of={MultiSelectStories.CustomLabels} />
-<Canvas sourceState="shown" of={MultiSelectStories.Createable} />
-<Canvas sourceState="shown" of={MultiSelectStories.Error} />
-<Canvas sourceState="shown" of={MultiSelectStories.FluidWidth} />
 
 ## CSS Classes
 The select component exposes the following CSS class names for custom

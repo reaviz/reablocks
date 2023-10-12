@@ -8,6 +8,33 @@ export default {
   component: Range
 };
 
+export const Single = () => {
+  const [state, setState] = useState<number>(20);
+  return (
+    <RangeSingle
+      onChange={setState}
+      min={10}
+      max={50}
+      value={state}
+      style={{ width: 250, marginTop: 30 }}
+    />
+  );
+};
+
+export const SingleDisabled = () => {
+  const [state, setState] = useState<number>(20);
+  return (
+    <RangeSingle
+      onChange={setState}
+      min={10}
+      max={50}
+      value={state}
+      disabled
+      style={{ width: 250, marginTop: 30 }}
+    />
+  );
+};
+
 export const Double = () => {
   const [state, setState] = useState<[number, number]>([20, 40]);
 
@@ -29,33 +56,6 @@ export const DoubleDisabled = () => {
   const [state, setState] = useState<[number, number]>([20, 40]);
   return (
     <RangeDouble
-      onChange={setState}
-      min={10}
-      max={50}
-      value={state}
-      disabled
-      style={{ width: 250 }}
-    />
-  );
-};
-
-export const Single = () => {
-  const [state, setState] = useState<number>(20);
-  return (
-    <RangeSingle
-      onChange={setState}
-      min={10}
-      max={50}
-      value={state}
-      style={{ width: 250 }}
-    />
-  );
-};
-
-export const SingleDisabled = () => {
-  const [state, setState] = useState<number>(20);
-  return (
-    <RangeSingle
       onChange={setState}
       min={10}
       max={50}

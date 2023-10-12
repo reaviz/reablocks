@@ -5,17 +5,28 @@ import * as TextareaStories from '../../../src/form/Textarea/Textarea.story';
 <Meta title="Docs/Components/Form/Textarea" />
 
 # Input
-Text field to enter and submit input.
+The Textarea component is a versatile user interface element that allows users to input and edit multiline text. It's essential for forms, comments, and content input,
+offering a space-efficient and user-friendly way to capture longer text entries.
 
 ## Examples
-<Canvas sourceState="shown" of={TextareaStories.AutoFocus} />
+### Basic
 <Canvas sourceState="shown" of={TextareaStories.Basic} />
-<Canvas sourceState="shown" of={TextareaStories.DefaultValue} />
-<Canvas sourceState="shown" of={TextareaStories.Disabled} />
-<Canvas sourceState="shown" of={TextareaStories.Error} />
-<Canvas sourceState="shown" of={TextareaStories.FullWidth} />
-<Canvas sourceState="shown" of={TextareaStories.Placeholder} />
-<Canvas sourceState="shown" of={TextareaStories.Sizes} />
+### Text area size variations
+<Canvas of={TextareaStories.Sizes} />
+### Text area states
+#### Disabled
+<Canvas of={TextareaStories.Disabled} />
+#### Auto Focus
+<Canvas of={TextareaStories.AutoFocus} />
+#### Error
+<Canvas of={TextareaStories.Error} />
+#### Full Width
+<Canvas of={TextareaStories.FullWidth} />
+### Text area value initialisation
+#### Default value
+<Canvas of={TextareaStories.DefaultValue} />
+#### Placeholder text
+<Canvas of={TextareaStories.Placeholder} />
 
 ## Design Tokens
 This component uses the following design tokens:

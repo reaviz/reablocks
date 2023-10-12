@@ -17,17 +17,34 @@ export const Disabled = () => {
 };
 
 export const Sizes = () => {
-  const [state, setState] = useState(true);
+  const [selectedSize, setSelectedSize] = useState('small');
+
+  const handleSizeChange = size => {
+    setSelectedSize(size);
+  };
 
   return (
     <Fragment>
-      <Radio checked={state} onChange={setState} size="small" label="Small" />
+      <Radio
+        checked={selectedSize === 'small'}
+        onChange={() => handleSizeChange('small')}
+        size="small"
+        label="Small"
+      />
       <br />
+      <Radio
+        checked={selectedSize === 'medium'}
+        onChange={() => handleSizeChange('medium')}
+        size="medium"
+        label="Medium"
+      />
       <br />
-      <Radio checked={state} onChange={setState} size="medium" label="Medium" />
-      <br />
-      <br />
-      <Radio checked={state} onChange={setState} size="large" label="Large" />
+      <Radio
+        checked={selectedSize === 'large'}
+        onChange={() => handleSizeChange('large')}
+        size="large"
+        label="Large"
+      />
     </Fragment>
   );
 };
