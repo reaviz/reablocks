@@ -11,6 +11,7 @@ export interface DrawerProps extends Omit<GlobalOverlayProps, 'children'> {
   position?: 'start' | 'end' | 'top' | 'bottom';
   size?: string | number;
   className?: string;
+  contentClassName?: string;
   backdropClassName?: string;
   disablePadding?: boolean;
   header?: any;
@@ -21,6 +22,7 @@ export interface DrawerProps extends Omit<GlobalOverlayProps, 'children'> {
 
 export const Drawer: FC<Partial<DrawerProps>> = ({
   className,
+  contentClassName,
   headerElement,
   children,
   open,
@@ -101,7 +103,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                   ✕
                 </button>
               )}
-              <div className={css.content}>
+              <div className={classNames(css.content, contentClassName)}>
                 {typeof children === 'function' ? children() : children}
               </div>
             </motion.div>
