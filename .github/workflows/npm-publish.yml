@@ -15,7 +15,6 @@ jobs:
       - run: npm test
       - uses: JS-DevTools/npm-publish@v2
         with:
-          token: 'some_dummy_token'
-          dry-run: true
+          token: ${{ secrets.NPM_TOKEN }}
       - if: ${{ steps.publish.outputs.type }}
         run: echo "Version changed!"
