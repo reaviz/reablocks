@@ -4,19 +4,20 @@ import React, {
   FC,
   useState,
   useEffect,
-  useCallback
+  useCallback,
+  useContext
 } from 'react';
 import classNames from 'classnames';
 import { Button } from '../../elements/Button';
 import { Collapse } from '../Collapse';
-import { Arrow } from './Arrow';
+import { TreeContext } from './TreeContext';
 import css from './TreeNode.module.css';
 
 export interface TreeNodeProps {
   /**
    * Label to display for the node
    */
-  label: ReactNode;
+  label: ReactNode | string;
 
   /**
    * CSS Classname to apply to the node
@@ -58,6 +59,7 @@ export const TreeNode: FC<Partial<TreeNodeProps>> = ({
   onExpand,
   onCollapse
 }) => {
+  const { expandedIcon, collapsedIcon } = useContext(TreeContext);
   const [expanded, setExpanded] = useState<boolean>(expandedProp as boolean);
   const hasChildren = children && Children.count(children) > 0;
 
@@ -93,9 +95,7 @@ export const TreeNode: FC<Partial<TreeNodeProps>> = ({
             className={css.button}
             onClick={onButtonClick}
           >
-            <Arrow
-              className={classNames(css.icon, { [css.collapsed]: !expanded })}
-            />
+            {expanded ? expandedIcon : collapsedIcon}
           </Button>
         )}
         <span className={css.label}>{label}</span>

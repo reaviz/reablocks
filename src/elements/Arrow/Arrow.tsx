@@ -1,8 +1,20 @@
 import React, { FC } from 'react';
 
-export const Arrow: FC<{ className?: string }> = props => (
+export interface ArrowProps {
+  /**
+   * CSS Classname to apply to the arrow
+   */
+  className?: string;
+
+  /**
+   * The direction of the arrow
+   */
+  direction?: 'up' | 'right' | 'down' | 'left';
+}
+
+export const Arrow: FC<ArrowProps> = ({ direction, ...rest }) => (
   <svg
-    {...props}
+    {...rest}
     xmlns="http://www.w3.org/2000/svg"
     x="0px"
     y="0px"
