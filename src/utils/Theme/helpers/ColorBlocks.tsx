@@ -93,6 +93,49 @@ export const ColorPaletteBlock = ({ name, color }) => {
   );
 };
 
+export const ColorPaletteBlocks = ({ name, colors, prefix }) => (
+  <div
+    key={name}
+    style={{
+      marginBottom: 'var(--spacing-xl)'
+    }}
+  >
+    <h3 style={{ fontWeight: 500, margin: 0 }}>
+      {name}
+      <br />
+      <small>
+        <code>
+          {prefix ? `${prefix}.` : ''}
+          {name}
+        </code>
+      </small>
+    </h3>
+    <div
+      style={{
+        display: 'grid',
+        overflow: 'hidden',
+        borderRadius: 'var(--border-radius-md)',
+        border: 'solid 1px var(--slate-500)',
+        gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))'
+      }}
+    >
+      {typeof colors[name] === 'string' ? (
+        <ColorBlock name={`--${name}`} color={colors[name]} />
+      ) : (
+        <>
+          {Object.keys(colors[name]).map(color => (
+            <ColorPaletteBlock
+              key={`--${name}-${color}`}
+              name={`--${name}-${color}`}
+              color={colors[name][color]}
+            />
+          ))}
+        </>
+      )}
+    </div>
+  </div>
+);
+
 export const ColorBlocks = () => {
   const { colors } = useTheme();
 
@@ -108,43 +151,12 @@ export const ColorBlocks = () => {
       {colors ? (
         <>
           {Object.keys(colors).map(key => (
-            <div
+            <ColorPaletteBlocks
               key={key}
-              style={{
-                marginBottom: 'var(--spacing-xl)'
-              }}
-            >
-              <h3 style={{ fontWeight: 500, margin: 0 }}>
-                {key}
-                <br />
-                <small>
-                  <code>colors.{key}</code>
-                </small>
-              </h3>
-              <div
-                style={{
-                  display: 'grid',
-                  overflow: 'hidden',
-                  borderRadius: 'var(--border-radius-md)',
-                  border: 'solid 1px var(--slate-500)',
-                  gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))'
-                }}
-              >
-                {typeof colors[key] === 'string' ? (
-                  <ColorBlock name={`--${key}`} color={colors[key]} />
-                ) : (
-                  <>
-                    {Object.keys(colors[key]).map(color => (
-                      <ColorPaletteBlock
-                        key={`--${key}-${color}`}
-                        name={`--${key}-${color}`}
-                        color={colors[key][color]}
-                      />
-                    ))}
-                  </>
-                )}
-              </div>
-            </div>
+              name={key}
+              prefix="colors."
+              colors={colors[key]}
+            />
           ))}
         </>
       ) : (
