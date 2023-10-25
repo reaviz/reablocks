@@ -6,3 +6,4 @@ export * from './AvatarGroup';
 export * from './Kbd';
 export * from './Badge';
 export * from './CommandPalette';
+export * from './Arrow';

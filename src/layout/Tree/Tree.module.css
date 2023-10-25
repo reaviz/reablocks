@@ -9,3 +9,9 @@
   border: 1px solid transparent;
   padding: 3px 12px 4px;
 }
+
+.arrow {
+  width: 12px;
+  height: 12px;
+  fill: var(--white);
+}
