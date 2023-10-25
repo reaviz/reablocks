@@ -1,4 +1,4 @@
-import React, { FC, ReactElement, ReactNode } from 'react';
+import React, { FC, ReactElement } from 'react';
 import classNames from 'classnames';
 import { CloneElement, GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
 import FocusTrap from 'focus-trap-react';
@@ -16,6 +16,11 @@ export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
    * The CSS class name for the inner content element of the component.
    */
   innerClassName?: string;
+
+  /**
+   * The CSS class name for the content of the component.
+   */
+  contentClassName?: string;
 
   /**
    * The size of the dialog. Can be a string or a number.
@@ -58,6 +63,7 @@ export const Dialog: FC<Partial<DialogProps>> = ({
   open,
   className,
   innerClassName,
+  contentClassName,
   header,
   headerElement,
   footer,
@@ -112,7 +118,10 @@ export const Dialog: FC<Partial<DialogProps>> = ({
                     {header}
                   </CloneElement>
                 )}
-                <section id={`${id}-content`} className={css.content}>
+                <section
+                  id={`${id}-content`}
+                  className={classNames(css.content, contentClassName)}
+                >
                   {typeof children === 'function' ? children() : children}
                 </section>
                 {footer && <footer className={css.footer}>{footer}</footer>}
