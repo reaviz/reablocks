@@ -24,8 +24,8 @@ export interface TreeProps extends TreeContextProps {
 export const Tree: FC<TreeProps> = ({
   children,
   className,
-  expandedIcon = <Arrow direction="down" />,
-  collapsedIcon = <Arrow direction="right" />,
+  expandedIcon = <Arrow direction="down" className={css.arrow} />,
+  collapsedIcon = <Arrow direction="right" className={css.arrow} />,
   ...rest
 }) => {
   const values = useMemo(

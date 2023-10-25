@@ -60,11 +60,13 @@ export const TreeNode: FC<Partial<TreeNodeProps>> = ({
   onCollapse
 }) => {
   const { expandedIcon, collapsedIcon } = useContext(TreeContext);
-  const [expanded, setExpanded] = useState<boolean>(expandedProp as boolean);
+  const [expanded, setExpanded] = useState<boolean>(Boolean(expandedProp));
   const hasChildren = children && Children.count(children) > 0;
 
+  console.log(label, expanded);
+
   useEffect(() => {
-    setExpanded(expandedProp as boolean);
+    setExpanded(Boolean(expandedProp));
   }, [expandedProp]);
 
   const onButtonClick = useCallback(() => {
