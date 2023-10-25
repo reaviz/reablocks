@@ -98,24 +98,24 @@ export const ColorPaletteBlock = ({ name, color, showName = true }) => {
 export const ColorPaletteBlocks = ({
   name,
   colors,
-  prefix,
+  token = null,
   showNames = true
 }) => (
   <div
-    key={name}
     style={{
       marginBottom: 'var(--spacing-xl)'
     }}
   >
     <h3 style={{ fontWeight: 500, margin: 0 }}>
       {name}
-      <br />
-      <small>
-        <code>
-          {prefix ?? ''}
-          {name}
-        </code>
-      </small>
+      {token && (
+        <>
+          <br />
+          <small>
+            <code>{token.toLowerCase()}</code>
+          </small>
+        </>
+      )}
     </h3>
     <div
       style={{
@@ -162,7 +162,7 @@ export const ColorBlocks = () => {
             <ColorPaletteBlocks
               key={key}
               name={key}
-              prefix="colors."
+              token={`colors.${key}`}
               colors={colors[key]}
             />
           ))}
