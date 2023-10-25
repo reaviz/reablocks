@@ -47,7 +47,7 @@ export const ColorBlock = ({ name, color }) => (
   </div>
 );
 
-export const ColorPaletteBlock = ({ name, color }) => {
+export const ColorPaletteBlock = ({ name, color, showName = true }) => {
   const valid = chroma.valid(color);
   const fontColor =
     valid && !name.includes('overlay')
@@ -70,15 +70,17 @@ export const ColorPaletteBlock = ({ name, color }) => {
           height: '100%'
         }}
       >
-        <div>
-          <code
-            style={{ cursor: 'pointer', color: fontColor, fontSize: '12px' }}
-            title={`Double click to copy ${name} to your clipboard`}
-            onDoubleClick={() => navigator.clipboard.writeText(name)}
-          >
-            {name}
-          </code>
-        </div>
+        {showName && (
+          <div>
+            <code
+              style={{ cursor: 'pointer', color: fontColor, fontSize: '12px' }}
+              title={`Double click to copy ${name} to your clipboard`}
+              onDoubleClick={() => navigator.clipboard.writeText(name)}
+            >
+              {name}
+            </code>
+          </div>
+        )}
         <div>
           <code
             style={{ cursor: 'pointer', color: fontColor, fontSize: '12px' }}
@@ -93,7 +95,12 @@ export const ColorPaletteBlock = ({ name, color }) => {
   );
 };
 
-export const ColorPaletteBlocks = ({ name, colors, prefix }) => (
+export const ColorPaletteBlocks = ({
+  name,
+  colors,
+  prefix,
+  showNames = true
+}) => (
   <div
     key={name}
     style={{
@@ -105,7 +112,7 @@ export const ColorPaletteBlocks = ({ name, colors, prefix }) => (
       <br />
       <small>
         <code>
-          {prefix ? `${prefix}.` : ''}
+          {prefix ?? ''}
           {name}
         </code>
       </small>
@@ -119,15 +126,16 @@ export const ColorPaletteBlocks = ({ name, colors, prefix }) => (
         gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))'
       }}
     >
-      {typeof colors[name] === 'string' ? (
-        <ColorBlock name={`--${name}`} color={colors[name]} />
+      {typeof colors === 'string' ? (
+        <ColorBlock name={`--${name}`} color={colors} showName={showNames} />
       ) : (
         <>
-          {Object.keys(colors[name]).map(color => (
+          {Object.keys(colors).map(color => (
             <ColorPaletteBlock
               key={`--${name}-${color}`}
               name={`--${name}-${color}`}
-              color={colors[name][color]}
+              color={colors[color]}
+              showName={showNames}
             />
           ))}
         </>
