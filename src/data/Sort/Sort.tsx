@@ -35,6 +35,16 @@ export interface SortProps extends PropsWithChildren {
    * The icon to display
    */
   icon?: any;
+
+  /**
+   * The neutral icon to display.
+   */
+  neutralIcon?: (props: { className?: string }) => React.JSX.Element;
+
+  /**
+   * Additional css classnames to apply to the neutral icon.
+   */
+  neutralIconClassName?: string;
 }
 
 export const Sort: FC<SortProps> = ({
@@ -43,6 +53,8 @@ export const Sort: FC<SortProps> = ({
   direction,
   iconClassName,
   icon: Icon,
+  neutralIcon: NeutralIcon,
+  neutralIconClassName,
   children,
   onSort
 }) => {
@@ -96,6 +108,18 @@ export const Sort: FC<SortProps> = ({
           >
             <Icon
               className={classNames(css.icon, iconClassName, css.descIcon)}
+            />
+          </motion.div>
+        )}
+        {!!NeutralIcon && !direction && (
+          <motion.div
+            key="neutral"
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 10, transition: { duration: 0.05 } }}
+          >
+            <NeutralIcon
+              className={classNames(css.icon, neutralIconClassName)}
             />
           </motion.div>
         )}
