@@ -1,7 +1,5 @@
-import {
-  FC,
+import React, {
   forwardRef,
-  Ref,
   RefObject,
   useImperativeHandle,
   useRef
@@ -42,7 +40,7 @@ export interface TextAreaRef {
   focus?: () => void;
 }
 
-export const Textarea: FC<TextareaProps> = forwardRef(
+export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
   (
     {
       fullWidth,
@@ -52,7 +50,7 @@ export const Textarea: FC<TextareaProps> = forwardRef(
       error,
       ...rest
     },
-    ref: Ref<TextAreaRef>
+    ref
   ) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const inputRef = useRef<HTMLTextAreaElement | null>(null);
