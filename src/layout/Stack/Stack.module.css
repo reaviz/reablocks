@@ -19,6 +19,14 @@
     flex-direction: row;
   }
 
+  &.columnReverse {
+    flex-direction: column-reverse;
+  }
+
+  &.rowReverse {
+    flex-direction: row-reverse;
+  }
+
   &.startAlign {
     align-items: flex-start;
   }

@@ -16,7 +16,7 @@ export interface StackProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The direction of the stack.
    */
-  direction?: 'row' | 'column';
+  direction?: 'row' | 'column' | 'rowReverse' | 'columnReverse';
 
   /**
    * How the content is arranged inside the stack.
