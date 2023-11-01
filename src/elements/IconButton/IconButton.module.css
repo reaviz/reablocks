@@ -1,0 +1,74 @@
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
+
+  svg {
+    transition: fill 0.3s ease;
+  }
+
+  &.hasWords {
+    svg {
+      margin-right: var(--spacing-sm);
+    }
+  }
+
+  &.small {
+    padding: var(--spacing-sm);
+
+    svg {
+      width: 14px;
+      height: 14px;
+    }
+  }
+
+  &.medium {
+    padding: var(--spacing-md);
+  }
+
+  &.large {
+    padding: var(--spacing-md);
+
+    svg {
+      width: 23px;
+      height: 23px;
+    }
+  }
+
+  &.text {
+    svg {
+      fill: var(--button-background);
+    }
+
+    &.error {
+      color: var(--error-background);
+
+      svg {
+        fill: var(--error-background);
+      }
+    }
+
+    &:hover {
+      svg {
+        fill: var(--button-background-hover);
+      }
+
+      &.error {
+        color: var(--error-background-hover);
+
+        svg {
+          fill: var(--error-background-hover);
+        }
+      }
+    }
+  }
+
+  &[disabled] {
+    svg {
+      fill: var(--disabled-color);
+    }
+  }
+
+  .childrenContainer {
+    align-items: normal;
+  }
+}
