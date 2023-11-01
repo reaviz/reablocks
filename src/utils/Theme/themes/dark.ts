@@ -225,7 +225,10 @@ export const darkTheme: Theme = {
       'button-focus-offset': spacings.xs,
       'button-spacing-sm': `${spacings.xs} ${spacings.sm}`,
       'button-spacing-md': `${spacings.sm} ${spacings.md}`,
-      'button-spacing-lg': `${spacings.md} ${spacings.lg}`
+      'button-spacing-lg': `${spacings.md} ${spacings.lg}`,
+      'button-adornment-size-sm': fontSizes.sm,
+      'button-adornment-size-md': fontSizes.md,
+      'button-adornment-size-lg': fontSizes.lg
     },
     card: {
       'card-border': '0',

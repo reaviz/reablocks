@@ -42,6 +42,16 @@ export interface ButtonProps
    * If true, the animation of the button will be disabled.
    */
   disableAnimation?: boolean;
+
+  /**
+   * Icon to display before the Button label.
+   */
+  startIcon?: React.ReactNode;
+
+  /**
+   * Icon to display after the Button label.
+   */
+  endIcon?: React.ReactNode;
 }
 
 export interface ButtonRef {
@@ -61,6 +71,8 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
       disableMargins,
       disablePadding,
       disabled,
+      startIcon,
+      endIcon,
       ...rest
     }: ButtonProps,
     ref: Ref<HTMLButtonElement>
@@ -83,7 +95,17 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         className
       )}
     >
+      {startIcon && (
+        <div className={classNames(css.startAdornment, { [css[size]]: true })}>
+          {startIcon}
+        </div>
+      )}
       {children}
+      {endIcon && (
+        <div className={classNames(css.endAdornment, { [css[size]]: true })}>
+          {endIcon}
+        </div>
+      )}
     </motion.button>
   )
 );
