@@ -5,19 +5,19 @@ import * as IconButtonStories from '../../../src/elements/IconButton/IconButton.
 <Meta title="Docs/Components/Elements/IconButton" />
 
 # IconButton
-A button component having an icon inside, with variants of different types, colors, sizes and positions.
+A button component having an icon inside, with variants of different types, colors and sizes.
 
 ## Examples
 ### Icon Buttons with size variations
-<Canvas of={IconButtonStories.IconAndTextSizes} />
-### Icon Buttons with icon position variations
-<Canvas of={IconButtonStories.IconAndTextPositions} />
-### Icon Buttons with icons only
-<Canvas of={IconButtonStories.IconOnly} />
-### Icon Buttons with color variations
-<Canvas of={IconButtonStories.IconButtonColors} />
+<Canvas of={IconButtonStories.Sizes} />
+### Icon Buttons with color variations in background
+<Canvas of={IconButtonStories.ColorsBackground} />
+### Icon Buttons with color variations in icon
+<Canvas of={IconButtonStories.ColorsIcons} />
+### Icon Buttons with color variations in border
+<Canvas of={IconButtonStories.ColorsOutline} />
 ### Icon Buttons with type variations
-<Canvas sourceState="shown" of={IconButtonStories.IconButtonVariants} />
+<Canvas sourceState="shown" of={IconButtonStories.Variants} />
 
 
 ## Design Tokens
@@ -38,6 +38,9 @@ This component uses the following design tokens (same as the [Button](?path=/doc
 - `button-spacing-sm`
 - `button-spacing-md`
 - `button-spacing-lg`
+- `button-adornment-size-sm`
+- `button-adornment-size-md`
+- `button-adornment-size-lg`
 
 Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
 
