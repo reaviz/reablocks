@@ -38,6 +38,11 @@ export interface RadioProps {
    * Event handler for when the radio is blurred.
    */
   onBlur?: (event: React.FocusEvent<HTMLDivElement>) => void;
+
+  /**
+   * Value passed to the form when used inside a `RadioGroup`.
+   */
+  value?: string;
 }
 
 const VARIANTS = {
