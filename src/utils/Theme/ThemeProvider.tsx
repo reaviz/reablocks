@@ -32,7 +32,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
         sheetRef.current = null;
       }
     };
-  });
+  }, []);
 
   return (
     <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
