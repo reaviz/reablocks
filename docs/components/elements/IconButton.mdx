@@ -1,0 +1,48 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { IconButton } from '../../../src/elements/IconButton';
+import * as IconButtonStories from '../../../src/elements/IconButton/IconButton.story';
+
+<Meta title="Docs/Components/Elements/IconButton" />
+
+# IconButton
+A button component having an icon inside, with variants of different types, colors and sizes.
+
+## Examples
+### Icon Buttons with size variations
+<Canvas of={IconButtonStories.Sizes} />
+### Icon Buttons with color variations in background
+<Canvas of={IconButtonStories.ColorsBackground} />
+### Icon Buttons with color variations in icon
+<Canvas of={IconButtonStories.ColorsIcons} />
+### Icon Buttons with color variations in border
+<Canvas of={IconButtonStories.ColorsOutline} />
+### Icon Buttons with type variations
+<Canvas sourceState="shown" of={IconButtonStories.Variants} />
+
+
+## Design Tokens
+This component uses the following design tokens (same as the [Button](?path=/docs/docs-components-elements-button--docs) component):
+
+- `button-font-weight`
+- `button-font-family`
+- `button-background`
+- `button-background-hover`
+- `button-color`
+- `button-color-hover`
+- `button-color-on-background`
+- `button-disabled-color-on-background`
+- `button-border-radius`
+- `button-border`
+- `button-focus`
+- `button-focus-offset`
+- `button-spacing-sm`
+- `button-spacing-md`
+- `button-spacing-lg`
+- `button-adornment-size-sm`
+- `button-adornment-size-md`
+- `button-adornment-size-lg`
+
+Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+
+## API
+<ArgsTable of={IconButton} />

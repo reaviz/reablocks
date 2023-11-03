@@ -42,6 +42,16 @@ export interface ButtonProps
    * If true, the animation of the button will be disabled.
    */
   disableAnimation?: boolean;
+
+  /**
+   * Element to display before the Button content.
+   */
+  startAdornment?: any;
+
+  /**
+   * Element to display after the Button content.
+   */
+  endAdornment?: any;
 }
 
 export interface ButtonRef {
@@ -61,6 +71,8 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
       disableMargins,
       disablePadding,
       disabled,
+      startAdornment,
+      endAdornment,
       ...rest
     }: ButtonProps,
     ref: Ref<HTMLButtonElement>
@@ -83,7 +95,17 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         className
       )}
     >
+      {startAdornment && (
+        <div className={classNames(css.startAdornment, { [css[size]]: true })}>
+          {startAdornment}
+        </div>
+      )}
       {children}
+      {endAdornment && (
+        <div className={classNames(css.endAdornment, { [css[size]]: true })}>
+          {endAdornment}
+        </div>
+      )}
     </motion.button>
   )
 );
