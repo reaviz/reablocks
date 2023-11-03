@@ -34,12 +34,12 @@ export interface SortProps extends PropsWithChildren {
   /**
    * The icon to display
    */
-  icon?: any;
+  icon?: React.ComponentType<{ className?: string }>;
 
   /**
    * The neutral icon to display.
    */
-  neutralIcon?: (props: { className?: string }) => React.JSX.Element;
+  neutralIcon?: React.ComponentType<{ className?: string }>;
 
   /**
    * Additional css classnames to apply to the neutral icon.
