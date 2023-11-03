@@ -47,22 +47,22 @@ const BellIcon = () => (
 
 export const WithIcon = () => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-    <Button size="small" startIcon={<BellIcon />}>
+    <Button size="small" startAdornment={<BellIcon />}>
       Start Icon
     </Button>
-    <Button size="small" endIcon={<BellIcon />}>
+    <Button size="small" endAdornment={<BellIcon />}>
       End Icon
     </Button>
-    <Button size="medium" startIcon={<BellIcon />}>
+    <Button size="medium" startAdornment={<BellIcon />}>
       Start Icon
     </Button>
-    <Button size="medium" endIcon={<BellIcon />}>
+    <Button size="medium" endAdornment={<BellIcon />}>
       End Icon
     </Button>
-    <Button size="large" startIcon={<BellIcon />}>
+    <Button size="large" startAdornment={<BellIcon />}>
       Start Icon
     </Button>
-    <Button size="large" endIcon={<BellIcon />}>
+    <Button size="large" endAdornment={<BellIcon />}>
       End Icon
     </Button>
   </div>
