@@ -1,7 +1,6 @@
 import React, { Children, FC, useCallback, useMemo, useState } from 'react';
-import { Stack } from '../../layout';
-import { Radio } from '../Radio/Radio';
 import { RadioGroupContext, RadioGroupContextProps } from './RadioGroupContext';
+import { Stack } from '../../layout';
 
 export interface RadioGroupProps extends RadioGroupContextProps {
   /**

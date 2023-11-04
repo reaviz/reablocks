@@ -6,4 +6,3 @@ export * from './Range';
 export * from './Select';
 export * from './Textarea';
 export * from './Toggle';
-export * from './RadioGroup';

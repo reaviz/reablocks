@@ -2,7 +2,7 @@ import React, { FC, forwardRef, Ref, useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import css from './Radio.module.css';
-import { RadioGroupContext } from '../RadioGroup/RadioGroupContext';
+import { RadioGroupContext } from './RadioGroupContext';
 
 export interface RadioProps {
   /**
@@ -46,7 +46,7 @@ export interface RadioProps {
    * Value passed to the form when used inside a `RadioGroup`.
    * Required when `Radio` is used within a `RadioGroup`
    */
-  value?: string;
+  value?: any;
 }
 
 const VARIANTS = {

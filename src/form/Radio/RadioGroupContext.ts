@@ -9,7 +9,7 @@ export interface RadioGroupContextProps {
   /**
    * Default value of the Radio Button which is checked
    */
-  selectedValue: string;
+  selectedValue: any;
 }
 
 export const RadioGroupContext = createContext<RadioGroupContextProps>({
