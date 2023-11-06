@@ -30,8 +30,6 @@ export const RadioGroup: FC<RadioGroupProps> = ({
     [onChange]
   );
 
-  const childrenArray: any[] = Children.toArray(children);
-
   const values: RadioGroupContextProps = useMemo(
     () => ({
       onChange: handleValueChange,
@@ -42,11 +40,7 @@ export const RadioGroup: FC<RadioGroupProps> = ({
 
   return (
     <RadioGroupContext.Provider value={values}>
-      <Stack className={className}>
-        {childrenArray.map((child, index) => (
-          <div key={index}>{child}</div>
-        ))}
-      </Stack>
+      {children}
     </RadioGroupContext.Provider>
   );
 };
