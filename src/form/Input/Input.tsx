@@ -1,7 +1,5 @@
 import React, {
-  FC,
   forwardRef,
-  Ref,
   RefObject,
   useImperativeHandle,
   useLayoutEffect,
@@ -60,7 +58,7 @@ export interface InputRef {
   focus?: () => void;
 }
 
-export const Input: FC<InputProps> = forwardRef(
+export const Input = forwardRef<InputRef, InputProps>(
   (
     {
       className,
@@ -79,7 +77,7 @@ export const Input: FC<InputProps> = forwardRef(
       onValueChange,
       ...rest
     },
-    ref: Ref<InputRef>
+    ref
   ) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const inputRef = useRef<HTMLInputElement | null>(null);
