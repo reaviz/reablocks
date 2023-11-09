@@ -96,7 +96,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
             [css[color]]: true,
             [css[groupSize || size]]: true,
             [css[groupVariant || variant]]: true,
-            [css['group']]: !!groupVariant && !!groupSize
+            [css.group]: !!groupVariant && !!groupSize
           },
           className
         )}
