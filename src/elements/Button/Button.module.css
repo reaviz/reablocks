@@ -287,4 +287,33 @@
   .endAdornment {
     padding-left: calc(var(--list-item-spacing) / 2);
   }
+
+  &.group {
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+      border-right: 0;
+
+      &.outline {
+        border-left: var(--button-border);
+      }
+
+      &.text {
+        border-right: var(--button-border);
+        border-left-color: transparent;
+      }
+    }
+
+    &:first-child:not(:only-child) {
+      border-radius: var(--button-border-radius) 0 0 var(--button-border-radius);
+      border-right: 0;
+
+      &.text {
+        border-right: var(--button-border);
+      }
+    }
+
+    &:last-child:not(:only-child) {
+      border-radius: 0 var(--button-border-radius) var(--button-border-radius) 0;
+    }
+  }
 }

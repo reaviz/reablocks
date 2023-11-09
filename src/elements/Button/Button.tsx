@@ -1,7 +1,8 @@
-import React, { FC, forwardRef, Ref } from 'react';
+import React, { FC, forwardRef, Ref, useContext } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import css from './Button.module.css';
+import { ButtonGroupContext } from './ButtonGroupContext';
 
 export interface ButtonProps
   extends Omit<
@@ -76,38 +77,46 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
       ...rest
     }: ButtonProps,
     ref: Ref<HTMLButtonElement>
-  ) => (
-    <motion.button
-      {...rest}
-      disabled={disabled}
-      ref={ref}
-      whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
-      className={classNames(
-        css.btn,
-        {
-          [css.fullWidth]: fullWidth,
-          [css.disableMargins]: disableMargins,
-          [css.disablePadding]: disablePadding,
-          [css[color]]: true,
-          [css[size]]: true,
-          [css[variant]]: true
-        },
-        className
-      )}
-    >
-      {startAdornment && (
-        <div className={classNames(css.startAdornment, { [css[size]]: true })}>
-          {startAdornment}
-        </div>
-      )}
-      {children}
-      {endAdornment && (
-        <div className={classNames(css.endAdornment, { [css[size]]: true })}>
-          {endAdornment}
-        </div>
-      )}
-    </motion.button>
-  )
+  ) => {
+    const { variant: groupVariant, size: groupSize } =
+      useContext(ButtonGroupContext);
+
+    return (
+      <motion.button
+        {...rest}
+        disabled={disabled}
+        ref={ref}
+        whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
+        className={classNames(
+          css.btn,
+          {
+            [css.fullWidth]: fullWidth,
+            [css.disableMargins]: disableMargins,
+            [css.disablePadding]: disablePadding,
+            [css[color]]: true,
+            [css[groupSize || size]]: true,
+            [css[groupVariant || variant]]: true,
+            [css['group']]: !!groupVariant && !!groupSize
+          },
+          className
+        )}
+      >
+        {startAdornment && (
+          <div
+            className={classNames(css.startAdornment, { [css[size]]: true })}
+          >
+            {startAdornment}
+          </div>
+        )}
+        {children}
+        {endAdornment && (
+          <div className={classNames(css.endAdornment, { [css[size]]: true })}>
+            {endAdornment}
+          </div>
+        )}
+      </motion.button>
+    );
+  }
 );
 
 Button.defaultProps = {
