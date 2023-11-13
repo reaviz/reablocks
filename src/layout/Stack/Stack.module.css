@@ -35,6 +35,10 @@
     align-items: flex-end;
   }
 
+  &.stretchAlign {
+    align-items: stretch;
+  }
+
   &.endJustify {
     justify-content: flex-end;
   }
