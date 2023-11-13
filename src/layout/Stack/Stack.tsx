@@ -21,7 +21,7 @@ export interface StackProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * How the content is arranged inside the stack.
    */
-  alignItems?: 'start' | 'end' | 'center';
+  alignItems?: 'start' | 'end' | 'center' | 'stretch';
 
   /**
    * How the content is arranged inside the stack.
