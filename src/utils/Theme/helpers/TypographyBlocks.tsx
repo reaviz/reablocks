@@ -37,7 +37,15 @@ export const TypographyLetterBlock: FC<TypographyLetterBlockProps> = ({
   </div>
 );
 
-export const TypographySizeBlock = ({ sizes, className }) => (
+export interface TypographySizeBlockProps {
+  sizes: Record<string, number>;
+  className?: string;
+}
+
+export const TypographySizeBlock: FC<TypographySizeBlockProps> = ({
+  sizes,
+  className
+}) => (
   <div className={className}>
     {Object.keys(sizes).map(size => (
       <div
