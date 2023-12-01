@@ -2,7 +2,7 @@ import React from 'react';
 import { useTheme } from '../ThemeContext';
 import chroma from 'chroma-js';
 
-export const ColorBlock = ({ name, color }) => (
+export const ColorBlock = ({ name, color, className }) => (
   <div
     key={name}
     style={{
@@ -10,6 +10,7 @@ export const ColorBlock = ({ name, color }) => (
       borderRadius: 'var(--border-radius-md)',
       overflow: 'hidden'
     }}
+    className={className}
   >
     <div
       style={{
@@ -47,7 +48,12 @@ export const ColorBlock = ({ name, color }) => (
   </div>
 );
 
-export const ColorPaletteBlock = ({ name, color, showName = true }) => {
+export const ColorPaletteBlock = ({
+  name,
+  color,
+  className,
+  showName = true
+}) => {
   const valid = chroma.valid(color);
   const fontColor =
     valid && !name.includes('overlay')
@@ -59,6 +65,7 @@ export const ColorPaletteBlock = ({ name, color, showName = true }) => {
   return (
     <div
       key={name}
+      className={className}
       style={{
         borderRight: 'solid 1px var(--slate-500)'
       }}
@@ -67,7 +74,8 @@ export const ColorPaletteBlock = ({ name, color, showName = true }) => {
         style={{
           padding: 'var(--spacing-md)',
           background: color,
-          height: '100%'
+          height: '100%',
+          minHeight: 50
         }}
       >
         {showName && (
@@ -98,10 +106,12 @@ export const ColorPaletteBlock = ({ name, color, showName = true }) => {
 export const ColorPaletteBlocks = ({
   name,
   colors,
+  className,
   token = null,
   showNames = true
 }) => (
   <div
+    className={className}
     style={{
       marginBottom: 'var(--spacing-xl)'
     }}

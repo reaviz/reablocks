@@ -4,14 +4,17 @@ export interface IconBlockProps {
   name: string;
   component?: any;
   src?: any;
+  className?: string;
 }
 
 export const IconBlock: FC<IconBlockProps> = ({
   name,
   src,
+  className,
   component: Component
 }) => (
   <div
+    className={className}
     style={{
       display: 'flex',
       flexDirection: 'column',
@@ -45,9 +48,10 @@ export const IconBlock: FC<IconBlockProps> = ({
 
 export interface IconBlocksProps {
   icons: IconBlockProps[];
+  className?: string;
 }
 
-export const IconBlocks: FC<IconBlocksProps> = ({ icons }) => (
+export const IconBlocks: FC<IconBlocksProps> = ({ icons, className }) => (
   <div
     style={{
       display: 'grid',
@@ -55,6 +59,7 @@ export const IconBlocks: FC<IconBlocksProps> = ({ icons }) => (
       gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))',
       justifyItems: 'stretch'
     }}
+    className={className}
   >
     {icons.map(key => (
       <IconBlock key={key.name} {...key} />

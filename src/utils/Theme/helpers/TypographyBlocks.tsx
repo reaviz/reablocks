@@ -2,8 +2,9 @@ import React from 'react';
 import { useTheme } from '../ThemeContext';
 import { camelToDash } from '../utils';
 
-export const TypographyLetterBlock = ({ fontFamily }) => (
+export const TypographyLetterBlock = ({ fontFamily, className }) => (
   <div
+    className={className}
     style={{
       fontFamily,
       display: 'flex',
@@ -28,8 +29,8 @@ export const TypographyLetterBlock = ({ fontFamily }) => (
   </div>
 );
 
-export const TypographySizeBlock = ({ sizes }) => (
-  <div>
+export const TypographySizeBlock = ({ sizes, className }) => (
+  <div className={className}>
     {Object.keys(sizes).map(size => (
       <div
         key={size}
@@ -74,8 +75,9 @@ export const TypographySizeBlock = ({ sizes }) => (
   </div>
 );
 
-export const TypographyWeightBlock = ({ weights }) => (
+export const TypographyWeightBlock = ({ weights, className }) => (
   <div
+    className={className}
     style={{
       padding: 'var(--spacing-md)',
       borderRadius: 'var(--border-radius-md)',
