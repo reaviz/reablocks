@@ -38,7 +38,7 @@ export const TypographyLetterBlock: FC<TypographyLetterBlockProps> = ({
 );
 
 export interface TypographySizeBlockProps {
-  sizes: Record<string, number>;
+  sizes: any;
   className?: string;
 }
 
@@ -92,7 +92,7 @@ export const TypographySizeBlock: FC<TypographySizeBlockProps> = ({
 );
 
 export interface TypographyWeightBlockProps {
-  weights: Record<string, number>;
+  weights: any;
   className?: string;
 }
 
