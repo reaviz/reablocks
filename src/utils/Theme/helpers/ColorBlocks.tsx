@@ -1,8 +1,14 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useTheme } from '../ThemeContext';
 import chroma from 'chroma-js';
 
-export const ColorBlock = ({ name, color, className }) => (
+export interface ColorBlockProps {
+  name: string;
+  color: string;
+  className?: string;
+}
+
+export const ColorBlock: FC<ColorBlockProps> = ({ name, color, className }) => (
   <div
     key={name}
     style={{
@@ -48,7 +54,14 @@ export const ColorBlock = ({ name, color, className }) => (
   </div>
 );
 
-export const ColorPaletteBlock = ({
+interface ColorPaletteBlockProps {
+  name: string;
+  color: string;
+  className?: string;
+  showName?: boolean;
+}
+
+export const ColorPaletteBlock: FC<ColorPaletteBlockProps> = ({
   name,
   color,
   className,
@@ -103,7 +116,15 @@ export const ColorPaletteBlock = ({
   );
 };
 
-export const ColorPaletteBlocks = ({
+export interface ColorPaletteBlocksProps {
+  name: string;
+  colors: string | Record<string, string>;
+  className?: string;
+  token?: string | null;
+  showNames?: boolean;
+}
+
+export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
   name,
   colors,
   className,

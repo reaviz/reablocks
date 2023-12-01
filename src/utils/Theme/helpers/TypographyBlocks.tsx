@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { useTheme } from '../ThemeContext';
 import { camelToDash } from '../utils';
 
-export const TypographyLetterBlock = ({ fontFamily, className }) => (
+export interface TypographyLetterBlockProps {
+  fontFamily: string;
+  className?: string;
+}
+
+export const TypographyLetterBlock: FC<TypographyLetterBlockProps> = ({
+  fontFamily,
+  className
+}) => (
   <div
     className={className}
     style={{
@@ -75,7 +83,15 @@ export const TypographySizeBlock = ({ sizes, className }) => (
   </div>
 );
 
-export const TypographyWeightBlock = ({ weights, className }) => (
+export interface TypographyWeightBlockProps {
+  weights: Record<string, number>;
+  className?: string;
+}
+
+export const TypographyWeightBlock: FC<TypographyWeightBlockProps> = ({
+  weights,
+  className
+}) => (
   <div
     className={className}
     style={{
