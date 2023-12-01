@@ -21,7 +21,7 @@
   margin: 0 var(--spacing-sm);
   fill: var(--sort-icon-color);
 
-  &.descIcon {
+  &.ascIcon {
     transform: rotate(180deg);
   }
 }
