@@ -379,6 +379,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
             disabled={disabled}
             className={classNames(css.expand, css.btn, 'select-input-toggle')}
             onClick={onExpandClick}
+            tabIndex={-1}
           >
             {expandIcon}
           </button>
