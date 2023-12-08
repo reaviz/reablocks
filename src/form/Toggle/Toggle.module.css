@@ -1,9 +1,4 @@
 .switch {
-  /** TODO: Improve this sizing logic */
-  --toggle-width: 55px;
-  --toggle-height: 35px;
-  --toggle-handle-size: 25px;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;

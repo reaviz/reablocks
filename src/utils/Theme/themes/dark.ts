@@ -350,6 +350,9 @@ export const darkTheme: Theme = {
       'select-chip-icon-color': darkColors.slate['50']
     },
     toggle: {
+      'toggle-width': '55px',
+      'toggle-height': '35px',
+      'toggle-handle-size': '25px',
       'toggle-background': darkColors.gray['100'],
       'toggle-background-checked': darkColors.blue['50'],
       'toggle-border': 'none',
