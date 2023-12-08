@@ -1,9 +1,4 @@
 .switch {
-  /** TODO: Improve this sizing logic */
-  --toggle-width: 55px;
-  --toggle-height: 35px;
-  --toggle-handle-size: 25px;
-
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -15,39 +10,52 @@
 
   &.disabled {
     cursor: not-allowed;
-    opacity: 0.8;
+    opacity: var(--toggle-disabled-opacity, 0.8);
+    background-color: var(--toggle-disabled-background);
+
+    .handle {
+      background-color: var(--toggle-handle-disabled-background);
+    }
+
+    &.checked {
+      background-color: var(--toggle-checked-disabled-background);
+
+      .handle {
+        background-color: var(--toggle-handle-checked-disabled-background);
+      }
+    }
   }
 
   &.small {
-    height: calc(var(--toggle-height) / 2);
-    width: calc(var(--toggle-width) / 2);
+    height: calc(var(--toggle-width, 35px) / 2);
+    width: calc(var(--toggle-width, 55px) / 2);
     padding: calc(var(--toggle-spacing) / 2);
 
     .handle {
-      height: calc(var(--toggle-handle-size) / 2);
-      width: calc(var(--toggle-handle-size) / 2);
+      height: calc(var(--toggle-width, 25px) / 2);
+      width: calc(var(--toggle-width, 25px) / 2);
     }
   }
 
   &.medium {
-    height: calc(var(--toggle-height) / 1.5);
-    width: calc(var(--toggle-width) / 1.5);
+    height: calc(var(--toggle-width, 35px) / 1.5);
+    width: calc(var(--toggle-width, 55px) / 1.5);
     padding: calc(var(--toggle-spacing) / 1.5);
 
     .handle {
-      height: calc(var(--toggle-handle-size) / 1.5);
-      width: calc(var(--toggle-handle-size) / 1.5);
+      height: calc(var(--toggle-width, 25px) / 1.5);
+      width: calc(var(--toggle-width, 25px) / 1.5);
     }
   }
 
   &.large {
-    height: var(--toggle-height);
-    width: var(--toggle-width);
+    height: var(--toggle-width, 35px);
+    width: var(--toggle-width, 55px);
     padding: var(--toggle-spacing);
 
     .handle {
-      height: var(--toggle-handle-size);
-      width: var(--toggle-handle-size);
+      height: var(--toggle-width, 25px);
+      width: var(--toggle-width, 25px);
     }
   }
 
