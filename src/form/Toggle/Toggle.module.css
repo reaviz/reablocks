@@ -15,7 +15,20 @@
 
   &.disabled {
     cursor: not-allowed;
-    opacity: 0.8;
+    opacity: var(--toggle-disabled-opacity);
+    background-color: var(--toggle-disabled-background);
+
+    .handle {
+      background-color: var(--toggle-handle-disabled-background);
+    }
+
+    &.checked {
+      background-color: var(--toggle-checked-disabled-background);
+
+      .handle {
+        background-color: var(--toggle-handle-checked-disabled-background);
+      }
+    }
   }
 
   &.small {

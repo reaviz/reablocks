@@ -358,7 +358,12 @@ export const darkTheme: Theme = {
       'toggle-spacing': spacings.sm,
       'toggle-handle-background': darkColors.gray['300'],
       'toggle-handle-checked-background': darkColors.gray['300'],
-      'toggle-handle-border-radius': borders.radius.lg
+      'toggle-handle-border-radius': borders.radius.lg,
+      'toggle-disabled-background': darkColors.gray['100'],
+      'toggle-handle-disabled-background': darkColors.gray['300'],
+      'toggle-checked-disabled-background': darkColors.blue['50'],
+      'toggle-handle-checked-disabled-background': darkColors.gray['300'],
+      'toggle-disabled-opacity': '0.8'
     },
     tooltip: {
       'tooltip-background': darkColors.slate['500'],
