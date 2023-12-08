@@ -10,7 +10,7 @@
 
   &.disabled {
     cursor: not-allowed;
-    opacity: var(--toggle-disabled-opacity);
+    opacity: var(--toggle-disabled-opacity, 0.8);
     background-color: var(--toggle-disabled-background);
 
     .handle {
