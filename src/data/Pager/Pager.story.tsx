@@ -6,8 +6,44 @@ export default {
   component: Pager
 };
 
-export const Basic = () => {
+export const ShowPages = () => {
   const [page, setPage] = useState<number>(0);
 
-  return <Pager page={page} size={10} total={100} onPageChange={setPage} />;
+  return (
+    <Pager
+      page={page}
+      size={10}
+      total={100}
+      onPageChange={setPage}
+      displayMode="pages"
+    />
+  );
+};
+
+export const ShowItems = () => {
+  const [page, setPage] = useState<number>(0);
+
+  return (
+    <Pager
+      page={page}
+      size={10}
+      total={100}
+      onPageChange={setPage}
+      displayMode="items"
+    />
+  );
+};
+
+export const ShowAll = () => {
+  const [page, setPage] = useState<number>(0);
+
+  return (
+    <Pager
+      page={page}
+      size={10}
+      total={100}
+      onPageChange={setPage}
+      displayMode="all"
+    />
+  );
 };

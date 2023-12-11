@@ -16,3 +16,15 @@ export function getPageRange(page: number, totalPages: number) {
 
   return [startPage, endPage];
 }
+
+export function getItemsRange(
+  page: number,
+  perPage: number,
+  totalItems: number
+) {
+  const startItem = page * perPage + 1;
+  const endOfPage = (page + 1) * perPage;
+  const endItem = Math.min(endOfPage, totalItems);
+
+  return [startItem, endItem];
+}

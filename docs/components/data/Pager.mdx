@@ -6,9 +6,12 @@ import * as PagerStories from '../../../src/data/Pager/Pager.story'
 
 # Pager
 A simple pager for navigating between pages of data. You can customise the page navigation indicators (The pager arrows) if you want.
+You can also change the `displayMode` to customize what table information the pager shows.
 
 ## Example
-<Canvas sourceState="shown" of={PagerStories.Basic} />
+<Canvas sourceState="shown" of={PagerStories.ShowPages} />
+<Canvas sourceState="shown" of={PagerStories.ShowItems} />
+<Canvas sourceState="shown" of={PagerStories.ShowAll} />
 
 ## API
 <ArgsTable of={Pager} />

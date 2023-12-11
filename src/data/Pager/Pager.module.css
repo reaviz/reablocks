@@ -15,4 +15,8 @@
       color: var(--input-color);
     }
   }
+
+  .items {
+    margin-right: var(--spacing-sm);
+  }
 }
