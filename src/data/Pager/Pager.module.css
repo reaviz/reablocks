@@ -16,3 +16,13 @@
     }
   }
 }
+
+.pagesContainer {
+  display: flex;
+  align-items: center;
+}
+
+.pagerDisplayItems {
+  color: var(--gray-100);
+  margin-right: var(--spacing-sm);
+}
