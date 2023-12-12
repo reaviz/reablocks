@@ -123,7 +123,7 @@ export const Pager: FC<PagerProps> = ({
   return (
     <div className={classNames(css.pager, className)}>
       {(displayMode === 'items' || displayMode === 'all') && (
-        <div className={css.items}>
+        <div className={css.pagerDisplayItems}>
           {pageCount === 1 && total > 0 && (
             <Text>
               Showing {total === 1 ? total : `all ${total.toLocaleString()}`}{' '}

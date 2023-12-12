@@ -3,6 +3,11 @@
   align-items: center;
   justify-content: center;
 
+  svg {
+    height: 20px;
+    width: 20px;
+  }
+
   .page {
     padding: 0 var(--spacing-sm);
 
@@ -17,12 +22,7 @@
   align-items: center;
 }
 
-svg {
-  height: 20px;
-  width: 20px;
-}
-
-.items {
+.pagerDisplayItems {
   color: var(--gray-100);
   margin-right: var(--spacing-sm);
 }
