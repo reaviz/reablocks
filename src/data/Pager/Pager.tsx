@@ -24,6 +24,16 @@ export interface PagerProps {
   pageClassName?: string;
 
   /**
+   * The class name for the active page button.
+   */
+  activePageClassName?: string;
+
+  /**
+   * The class name to add to the pages container.
+   */
+  pagesContainerClassName?: string;
+
+  /**
    * The current page number.
    */
   page: number;
@@ -72,6 +82,8 @@ export interface PagerProps {
 export const Pager: FC<PagerProps> = ({
   className,
   pageClassName,
+  activePageClassName,
+  pagesContainerClassName,
   page,
   size,
   total,
@@ -151,7 +163,9 @@ export const Pager: FC<PagerProps> = ({
         {previousArrow}
       </Button>
       {(displayMode === 'pages' || displayMode === 'all') && (
-        <>
+        <div
+          className={classNames(css.pagesContainer, pagesContainerClassName)}
+        >
           {startPage >= 2 && <div className={css.overflow}>&nbsp;...</div>}
           {[...Array(pageCount)].map((_, i) => (
             <Fragment key={i}>
@@ -164,7 +178,7 @@ export const Pager: FC<PagerProps> = ({
                   className={classNames(
                     css.page,
                     {
-                      [css.active]: page === i
+                      [activePageClassName || css.active]: page === i
                     },
                     pageClassName
                   )}
@@ -178,7 +192,7 @@ export const Pager: FC<PagerProps> = ({
           {endPage <= pageCount - FUZZY_RANGE && (
             <div className={css.overflow}>...&nbsp;</div>
           )}
-        </>
+        </div>
       )}
       <Button
         variant="text"

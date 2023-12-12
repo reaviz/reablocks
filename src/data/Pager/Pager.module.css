@@ -12,6 +12,11 @@
   }
 }
 
+.pagesContainer {
+  display: flex;
+  align-items: center;
+}
+
 svg {
   height: 20px;
   width: 20px;
