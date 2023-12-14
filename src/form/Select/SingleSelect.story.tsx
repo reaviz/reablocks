@@ -539,3 +539,21 @@ export const Createable = () => {
     </div>
   );
 };
+
+export const TabToSelect = () => {
+  const [value, setValue] = useState<string | null>(null);
+  return (
+    <div style={{ width: 300 }}>
+      <Select
+        placeholder="Select a category..."
+        value={value}
+        onChange={v => setValue(v)}
+        tabToSelect
+      >
+        <SelectOption value="facebook">facebook</SelectOption>
+        <SelectOption value="twitter">twitter</SelectOption>
+        <SelectOption value="twitch">twitch</SelectOption>
+      </Select>
+    </div>
+  );
+};
