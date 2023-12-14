@@ -96,6 +96,11 @@ export interface SelectProps {
   clearable?: boolean;
 
   /**
+   * Whether you can use the Tab key to select the current active option.
+   */
+  tabToSelect?: boolean;
+
+  /**
    * Whether the select is in loading state or not.
    */
   loading?: boolean;
@@ -188,6 +193,7 @@ export const Select: FC<Partial<SelectProps>> = ({
   name,
   autoFocus,
   clearable,
+  tabToSelect,
   filterable,
   menuPlacement,
   closeOnSelect,
@@ -245,6 +251,16 @@ export const Select: FC<Partial<SelectProps>> = ({
     }
   );
 
+  // If a keyword is used to filter options, automatically
+  // highlight the first option for easy selection
+  useEffect(() => {
+    if (keyword && keyword.length > 0) {
+      if (index === -1 || !result[index]) {
+        setIndex(0);
+      }
+    }
+  }, [keyword, index, setIndex, result]);
+
   const groups = useMemo(() => getGroups(result), [result]);
 
   const selectedOption: SelectValue = useMemo(() => {
@@ -269,7 +285,7 @@ export const Select: FC<Partial<SelectProps>> = ({
   }, [internalValue, updateMenuWidth]);
 
   useEffect(() => {
-    // This is needed to alllow a select to have a
+    // This is needed to allow a select to have a
     // starting variable that is set from state
     if (!isEqual(value, internalValue)) {
       setInternalValue(value);
@@ -442,7 +458,12 @@ export const Select: FC<Partial<SelectProps>> = ({
       }
 
       setInternalValue(newValue);
-      resetInput();
+
+      // keep current index if allowing multiple selections
+      // unless a search keyword was used to select
+      if (!multiple || keyword) {
+        resetInput();
+      }
       onChange?.(newValue);
     },
     [
@@ -469,7 +490,8 @@ export const Select: FC<Partial<SelectProps>> = ({
       if (index > -1 || createable) {
         let newSelection;
 
-        if (createable) {
+        const hasSelection = index > -1 && result[index];
+        if (createable && !hasSelection) {
           newSelection = {
             value: inputValue,
             children: inputValue
@@ -478,10 +500,35 @@ export const Select: FC<Partial<SelectProps>> = ({
           newSelection = result[index];
         }
 
-        toggleSelectedOption(newSelection);
+        if (newSelection) {
+          toggleSelectedOption(newSelection);
+        }
       }
     },
     [createable, index, result, toggleSelectedOption]
+  );
+
+  const onTabKeyDown = useCallback(
+    (event: React.KeyboardEvent<HTMLInputElement>) => {
+      const inputElement = event.target as HTMLInputElement;
+      const inputValue = inputElement.value.trim();
+
+      if (event.shiftKey) {
+        setOpen(false);
+        return;
+      }
+
+      if (index > -1 || (createable && inputValue)) {
+        onEnterKeyUp(event);
+      }
+
+      if (multiple) {
+        event.preventDefault();
+      } else {
+        setOpen(false);
+      }
+    },
+    [index, onEnterKeyUp, setOpen, multiple, createable]
   );
 
   const onInputKeyedUp = useCallback(
@@ -507,12 +554,16 @@ export const Select: FC<Partial<SelectProps>> = ({
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       const key = event.key;
       if (key === 'Tab') {
-        setOpen(false);
+        if (tabToSelect) {
+          onTabKeyDown(event);
+        } else {
+          setOpen(false);
+        }
       }
 
       onInputKeydown?.(event);
     },
-    [onInputKeydown]
+    [onInputKeydown, onTabKeyDown, tabToSelect]
   );
 
   const onInputBlured = useCallback(
