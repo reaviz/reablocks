@@ -86,7 +86,7 @@ export const Sort: FC<SortProps> = ({
       onKeyDown={onKeydown}
     >
       {children}
-      <AnimatePresence initial={false} exitBeforeEnter>
+      <AnimatePresence initial={false} mode="wait">
         {direction === 'asc' && (
           <motion.div
             key="asc"
