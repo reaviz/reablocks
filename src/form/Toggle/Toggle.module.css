@@ -27,35 +27,35 @@
   }
 
   &.small {
-    height: calc(var(--toggle-width, 35px) / 2);
+    height: calc(var(--toggle-height, 35px) / 2);
     width: calc(var(--toggle-width, 55px) / 2);
     padding: calc(var(--toggle-spacing) / 2);
 
     .handle {
-      height: calc(var(--toggle-width, 25px) / 2);
-      width: calc(var(--toggle-width, 25px) / 2);
+      height: calc(var(--toggle-handle-size) / 2);
+      width: calc(var(--toggle-handle-size) / 2);
     }
   }
 
   &.medium {
-    height: calc(var(--toggle-width, 35px) / 1.5);
+    height: calc(var(--toggle-height, 35px) / 1.5);
     width: calc(var(--toggle-width, 55px) / 1.5);
     padding: calc(var(--toggle-spacing) / 1.5);
 
     .handle {
-      height: calc(var(--toggle-width, 25px) / 1.5);
-      width: calc(var(--toggle-width, 25px) / 1.5);
+      height: calc(var(--toggle-handle-size) / 1.5);
+      width: calc(var(--toggle-handle-size) / 1.5);
     }
   }
 
   &.large {
-    height: var(--toggle-width, 35px);
+    height: var(--toggle-height, 35px);
     width: var(--toggle-width, 55px);
     padding: var(--toggle-spacing);
 
     .handle {
-      height: var(--toggle-width, 25px);
-      width: var(--toggle-width, 25px);
+      height: var(--toggle-handle-size);
+      width: var(--toggle-handle-size);
     }
   }
 
