@@ -55,7 +55,7 @@
     "date-fns": "^2.30.0",
     "ellipsize": "^0.5.1",
     "focus-trap-react": "^8.7.1",
-    "framer-motion": "7.8.0",
+    "framer-motion": "^10.16.16",
     "fuse.js": "^6.6.2",
     "human-format": "^1.2.0",
     "mousetrap": "^1.6.5",
