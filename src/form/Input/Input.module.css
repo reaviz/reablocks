@@ -6,7 +6,9 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: nowrap;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
   box-sizing: border-box;
 
   &.small {
@@ -46,6 +48,7 @@
     svg {
       width: var(--input-adornment-size);
       height: var(--input-adornment-size);
+      fill: var(--input-adornment-fill);
     }
   }
 
