@@ -46,7 +46,7 @@ export const RangeSingle: FC<RangeProps<number>> = ({
 
   useEffect(() => {
     setRangeWidth(range.current.offsetWidth);
-    setRangeLeft(range.current.offsetLeft);
+    setRangeLeft(range.current?.getBoundingClientRect()?.left || 0);
     valueX.set(getPosition(currentValue));
   }, [range, currentValue, valueX, getPosition]);
 
