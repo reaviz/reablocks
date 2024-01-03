@@ -318,8 +318,11 @@ export const darkTheme: Theme = {
     radio: {
       'radio-label-color': darkColors.white,
       'radio-stroke': darkColors.slate['100'],
-      'radio-indicator-active': darkColors.blue['100'],
-      'radio-stroke-active': darkColors.blue['100']
+      'radio-stroke-active': darkColors.blue['100'],
+      'radio-stroke-size': '1px',
+      'radio-background': 'transparent',
+      'radio-indicator-size': '50%',
+      'radio-indicator-active': darkColors.blue['100']
     },
     select: {
       'select-input-border-radius': spacings.sm,

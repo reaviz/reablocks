@@ -16,7 +16,8 @@
 }
 
 .radio {
-  border: 1px solid var(--radio-stroke);
+  border: var(--radio-stroke-size) solid var(--radio-stroke);
+  background-color: var(--radio-background);
   border-radius: 100%;
   will-change: border-color;
   display: inline-flex;
@@ -43,8 +44,8 @@
     height: 14px;
 
     .indicator {
-      width: 6px;
-      height: 6px;
+      width: var(--radio-indicator-size);
+      height: var(--radio-indicator-size);
     }
   }
 
@@ -53,8 +54,8 @@
     height: 16px;
 
     .indicator {
-      width: 8px;
-      height: 8px;
+      width: var(--radio-indicator-size);
+      height: var(--radio-indicator-size);
     }
   }
 
@@ -63,8 +64,8 @@
     height: 20px;
 
     .indicator {
-      width: 10px;
-      height: 10px;
+      width: var(--radio-indicator-size);
+      height: var(--radio-indicator-size);
     }
   }
 
