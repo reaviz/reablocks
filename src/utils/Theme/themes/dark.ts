@@ -321,7 +321,6 @@ export const darkTheme: Theme = {
       'radio-stroke-active': darkColors.blue['100'],
       'radio-stroke-size': '1px',
       'radio-background': 'transparent',
-      'radio-indicator-size': '50%',
       'radio-indicator-active': darkColors.blue['100']
     },
     select: {
