@@ -557,3 +557,24 @@ export const TabToSelect = () => {
     </div>
   );
 };
+
+export const DefaultFilter = () => {
+  const [value, setValue] = useState<string | null>(null);
+  return (
+    <div style={{ width: 300 }}>
+      <Select
+        placeholder="Select a category..."
+        value={value}
+        onChange={v => {
+          setValue(v);
+          console.log('onChange', v);
+        }}
+        defaultFilterValue="twi"
+      >
+        <SelectOption value="facebook">facebook</SelectOption>
+        <SelectOption value="twitter">twitter</SelectOption>
+        <SelectOption value="twitch">twitch</SelectOption>
+      </Select>
+    </div>
+  );
+};
