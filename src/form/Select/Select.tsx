@@ -71,6 +71,11 @@ export interface SelectProps {
   value?: string | string[];
 
   /**
+   * The deafult value of the input filter.
+   */
+  defaultFilterValue?: string;
+
+  /**
    * Whether the select is required or not.
    */
   required?: boolean;
@@ -209,6 +214,7 @@ export const Select: FC<Partial<SelectProps>> = ({
   activeClassName,
   children,
   value,
+  defaultFilterValue,
   required,
   input,
   menu,
@@ -260,6 +266,14 @@ export const Select: FC<Partial<SelectProps>> = ({
       }
     }
   }, [keyword, index, setIndex, result]);
+
+  useEffect(() => {
+    // Run only on initial render
+    if (!value && defaultFilterValue) {
+      search(defaultFilterValue);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const groups = useMemo(() => getGroups(result), [result]);
 
