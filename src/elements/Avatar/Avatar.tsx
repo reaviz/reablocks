@@ -47,7 +47,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   ) => {
     const fontSize = size * 0.4;
 
-    const initials = useMemo(() => getInitials(name), [name]);
+    const initials = useMemo(() => getInitials(name || ''), [name]);
 
     const backgroundColor = useMemo(() => {
       if (src) {
