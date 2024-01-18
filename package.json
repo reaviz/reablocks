@@ -1,6 +1,6 @@
 {
   "name": "reablocks",
-  "version": "5.8.2",
+  "version": "5.8.3",
   "description": "Component library for React",
   "scripts": {
     "build": "vite build --mode library",
@@ -47,6 +47,7 @@
   },
   "homepage": "https://github.com/reaviz/reablocks#readme",
   "dependencies": {
+    "@marko19907/string-to-color": "^1.0.0",
     "@reaviz/react-use-fuzzy": "^1.0.3",
     "chroma-js": "^2.4.2",
     "classnames": "^2.3.1",
@@ -65,8 +66,7 @@
     "react-18-input-autosize": "^3.0.0",
     "react-fast-compare": "^3.2.2",
     "react-highlight-words": "^0.20.0",
-    "react-textarea-autosize": "^8.5.3",
-    "string-to-color": "^2.2.2"
+    "react-textarea-autosize": "^8.5.3"
   },
   "peerDependencies": {
     "react": ">=16",

@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import classNames from 'classnames';
 import getInitials from 'name-initials';
-import stc from 'string-to-color';
+import { generateColor } from '@marko19907/string-to-color';
 import css from './Avatar.module.css';
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -29,11 +29,37 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
    * Color override for the avatar.
    */
   color?: string;
+
+  /**
+   * Custom color options for the color generator.
+   */
+  colorOptions?: {
+    saturation: number;
+    lightness: number;
+    alpha: number;
+  };
 }
 
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
-  ({ name, src, color, size, rounded, className, ...rest }, ref) => {
+  (
+    { name, src, color, size, rounded, className, colorOptions, ...rest },
+    ref
+  ) => {
     const fontSize = size * 0.4;
+
+    const initials = useMemo(() => getInitials(name), [name]);
+
+    const backgroundColor = useMemo(() => {
+      if (src) {
+        return 'transparent';
+      }
+
+      if (color) {
+        return color;
+      }
+
+      return generateColor(name || '', colorOptions);
+    }, [color, name, src, colorOptions]);
 
     return (
       <div
@@ -46,11 +72,11 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
           height: `${size}px`,
           fontSize: `${fontSize}px`,
           backgroundImage: src ? `url(${src})` : 'none',
-          backgroundColor: src ? 'transparent' : color || stc(name || '')
+          backgroundColor
         }}
         ref={ref}
       >
-        {!src && name && <span>{getInitials(name)}</span>}
+        {!src && name && <span>{initials}</span>}
       </div>
     );
   }
