@@ -132,10 +132,10 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         isSameDay(addDays(nextDayRangeEnd, -1), day.date);
 
       // Determine the color variant of the button
-      const colorVariant = isSelected ? 'primary' : 'default';
+      const colorVariant = isSelected && isRange ? 'primaryDates' : 'default';
 
       // Determine the button variant
-      const buttonVariant = isSelected ? 'filled' : 'text';
+      const buttonVariant = isSelected ? 'filledDates' : 'text';
 
       return (
         <Button
@@ -147,8 +147,6 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
             [css.startRangeDate]: isRange && isStartRangeDate,
             [css.endRangeDate]: isRange && isEndRangeDate
           })}
-          onMouseEnter={() => setHoveringDate(day.date)}
-          onMouseLeave={() => setHoveringDate(null)}
           variant={buttonVariant}
           color={colorVariant}
           disableMargins
@@ -163,6 +161,9 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
     [disabled, minLimit, maxLimit, hoveringDate, current, isRange, onChange]
   );
 
+  // Added day labels
+  const dayLabels = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+
   return (
     <AnimatePresence mode="popLayout">
       <motion.div
@@ -174,6 +175,13 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
           opacity: { duration: 0.2, type: animated ? 'tween' : false }
         }}
       >
+        <div className={css.week}>
+          {dayLabels.map((label, index) => (
+            <div key={`day-label-${index}`} className={css.dayLabel}>
+              {label}
+            </div>
+          ))}
+        </div>
         {weeks.map((week, i) => (
           <div key={`week-${i}`} className={css.week}>
             {week.map(renderDay)}

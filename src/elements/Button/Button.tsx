@@ -12,12 +12,19 @@ export interface ButtonProps
   /**
    * Color variation of the button.
    */
-  color?: 'default' | 'primary' | 'secondary' | 'error' | 'success' | 'warning';
+  color?:
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'error'
+    | 'success'
+    | 'warning'
+    | 'primaryDates';
 
   /**
    * Style variant of the button.
    */
-  variant?: 'filled' | 'outline' | 'text';
+  variant?: 'filled' | 'outline' | 'text' | 'filledDates';
 
   /**
    * The size variation of the button.

@@ -4,6 +4,18 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: var(--spacing-sm);
+    padding-left: var(--spacing-md);
+    padding-right: 36px;
   }
   overflow: hidden;
+}
+
+.calenderMonths {
+  display: flex;
+  justify-content: space-around;
+}
+
+.daysContainer {
+  display: flex;
+  column-gap: 16px;
 }
