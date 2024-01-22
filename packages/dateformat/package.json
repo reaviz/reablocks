@@ -1,0 +1,49 @@
+{
+  "name": "@reablocks/dateformat",
+  "private": false,
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/reaviz/reablocks.git"
+  },
+  "type": "module",
+  "types": "dist/index.d.ts",
+  "main": "./dist/index.umd.cjs",
+  "module": "./dist/index.js",
+  "source": "src/index.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.umd.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "vite build --mode library"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "date-fns": "^2.30.0"
+  },
+  "bundledDependencies": [
+  ],
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "devDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16",
+    "typescript": "^4.9.5",
+    "vite": "^4.4.11",
+    "vite-plugin-checker": "^0.6.2",
+    "rollup-plugin-peer-deps-external": "2.2.4",
+    "vite-plugin-css-injected-by-js": "^3.3.0",
+    "vite-plugin-dts": "^3.6.0",
+    "vite-plugin-svgr": "^3.2.0",
+    "vite-tsconfig-paths": "^4.2.1"
+  }
+}
