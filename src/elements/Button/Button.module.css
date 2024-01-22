@@ -33,32 +33,32 @@
     color: var(--button-background);
 
     &.default {
-      background: #ff4d87;
-      border-color: #ff4d87;
+      background: var(--pink-200);
+      border-color: var(--pink-200);
 
       &:hover {
-        background: #ff4d87;
+        background: var(--pink-200);
         border-color: none;
       }
     }
 
     &.primaryDates {
-      background: #281e21;
-      border-color: #281e21;
+      background: var(--pink-100);
+      border-color: var(--pink-100);
 
       &:hover {
-        background: #281e21;
-        border-color: #281e21;
+        background: var(--pink-100);
+        border-color: var(--pink-100);
       }
     }
 
     &.primary {
-      background: #ff4d87;
-      border-color: #ff4d87;
+      background: var(--pink-200);
+      border-color: var(--pink-200);
 
       &:hover {
-        background: #ff4d87;
-        border-color: #ff4d87;
+        background: var(--pink-200);
+        border-color: var(--pink-200);
       }
     }
   }
@@ -196,10 +196,10 @@
     border: solid 1px transparent;
 
     &.default {
-      color: #707070;
+      color: var(--gray-100);
 
       &:hover {
-        color: #707070;
+        color: var(--gray-100);
       }
     }
 

@@ -5,7 +5,7 @@
     justify-content: space-between;
     margin-bottom: var(--spacing-sm);
     padding-left: var(--spacing-md);
-    padding-right: 36px;
+    padding-right: 16px;
   }
   overflow: hidden;
 }

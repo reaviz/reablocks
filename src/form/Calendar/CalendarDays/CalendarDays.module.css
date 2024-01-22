@@ -17,22 +17,22 @@
 
     &.startRangeDate {
       border-radius: 50%;
-      background-color: #ff4d87;
+      background-color: var(--pink-200);
       color: var(--black);
     }
 
     &.endRangeDate {
       border-radius: 50%;
-      background-color: #ff4d87;
+      background-color: var(--pink-200);
       color: var(--black);
     }
 
     &.startRangeDate:hover {
-      background-color: #ff4d87;
+      background-color: var(--pink-200);
     }
 
     &.endRangeDate:hover {
-      background-color: #ff4d87;
+      background-color: var(--pink-200);
     }
   }
 }
