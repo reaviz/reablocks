@@ -10,6 +10,7 @@ import {
   isSameDay,
   max as maxDate,
   min as minDate,
+  parseISO,
   setMonth,
   setYear,
   startOfDecade,
@@ -102,12 +103,12 @@ export const Calendar: FC<CalendarProps> = ({
     [value]
   );
   const rangeStart = useMemo(
-    () => value?.[0] ?? date ?? new Date(),
-    [date, value]
+    () => value?.[0] ?? parseISO('') ?? new Date(),
+    [value]
   );
   const rangeEnd = useMemo(
-    () => value?.[1] ?? date ?? new Date(),
-    [date, value]
+    () => value?.[1] ?? parseISO('') ?? new Date(),
+    [value]
   );
 
   const [viewValue, setViewValue] = useState<Date>(date || new Date());
