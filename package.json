@@ -1,6 +1,6 @@
 {
   "name": "reablocksabs",
-  "version": "5.8.10",
+  "version": "5.8.17",
   "description": "Component library for React",
   "scripts": {
     "build": "vite build --mode library",

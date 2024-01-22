@@ -33,32 +33,32 @@
     color: var(--button-background);
 
     &.default {
-      background: var(--pink-200);
-      border-color: var(--pink-200);
+      background: var(--pink-100);
+      border-color: var(--pink-100);
 
       &:hover {
-        background: var(--pink-200);
+        background: var(--pink-100);
         border-color: none;
       }
     }
 
     &.primaryDates {
+      background: var(--pink-500);
+      border-color: var(--pink-500);
+
+      &:hover {
+        background: var(--pink-500);
+        border-color: var(--pink-500);
+      }
+    }
+
+    &.primary {
       background: var(--pink-100);
       border-color: var(--pink-100);
 
       &:hover {
         background: var(--pink-100);
         border-color: var(--pink-100);
-      }
-    }
-
-    &.primary {
-      background: var(--pink-200);
-      border-color: var(--pink-200);
-
-      &:hover {
-        background: var(--pink-200);
-        border-color: var(--pink-200);
       }
     }
   }

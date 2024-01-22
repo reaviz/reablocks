@@ -112,8 +112,8 @@ export const darkColors: Colors = {
     900: 'rgba(0, 0, 0, 0.09)'
   },
   pink: {
-    100: '#281e21',
-    200: '#ff4d87'
+    100: '#ff4d87',
+    500: '#281e21'
   }
 };
 
