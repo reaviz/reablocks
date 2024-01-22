@@ -198,13 +198,96 @@ importers:
       human-format:
         specifier: ^1.2.0
         version: 1.2.0
+    devDependencies:
       react:
         specifier: '>=16'
         version: 18.2.0
       react-dom:
         specifier: '>=16'
         version: 18.2.0(react@18.2.0)
+      rollup-plugin-peer-deps-external:
+        specifier: 2.2.4
+        version: 2.2.4(rollup@4.9.6)
+      typescript:
+        specifier: ^4.9.5
+        version: 4.9.5
+      vite:
+        specifier: ^4.4.11
+        version: 4.5.2(@types/node@20.11.5)
+      vite-plugin-checker:
+        specifier: ^0.6.2
+        version: 0.6.2(eslint@8.56.0)(typescript@4.9.5)(vite@4.5.2)
+      vite-plugin-css-injected-by-js:
+        specifier: ^3.3.0
+        version: 3.3.1(vite@4.5.2)
+      vite-plugin-dts:
+        specifier: ^3.6.0
+        version: 3.7.1(rollup@4.9.6)(typescript@4.9.5)(vite@4.5.2)
+      vite-plugin-svgr:
+        specifier: ^3.2.0
+        version: 3.3.0(rollup@4.9.6)(typescript@4.9.5)(vite@4.5.2)
+      vite-tsconfig-paths:
+        specifier: ^4.2.1
+        version: 4.3.1(typescript@4.9.5)(vite@4.5.2)
+
+  packages/dateformat:
+    dependencies:
+      classnames:
+        specifier: ^2.3.1
+        version: 2.5.1
+      date-fns:
+        specifier: ^2.30.0
+        version: 2.30.0
     devDependencies:
+      react:
+        specifier: '>=16'
+        version: 18.2.0
+      react-dom:
+        specifier: '>=16'
+        version: 18.2.0(react@18.2.0)
+      rollup-plugin-peer-deps-external:
+        specifier: 2.2.4
+        version: 2.2.4(rollup@4.9.6)
+      typescript:
+        specifier: ^4.9.5
+        version: 4.9.5
+      vite:
+        specifier: ^4.4.11
+        version: 4.5.2(@types/node@20.11.5)
+      vite-plugin-checker:
+        specifier: ^0.6.2
+        version: 0.6.2(eslint@8.56.0)(typescript@4.9.5)(vite@4.5.2)
+      vite-plugin-css-injected-by-js:
+        specifier: ^3.3.0
+        version: 3.3.1(vite@4.5.2)
+      vite-plugin-dts:
+        specifier: ^3.6.0
+        version: 3.7.1(rollup@4.9.6)(typescript@4.9.5)(vite@4.5.2)
+      vite-plugin-svgr:
+        specifier: ^3.2.0
+        version: 3.3.0(rollup@4.9.6)(typescript@4.9.5)(vite@4.5.2)
+      vite-tsconfig-paths:
+        specifier: ^4.2.1
+        version: 4.3.1(typescript@4.9.5)(vite@4.5.2)
+
+  packages/duration:
+    dependencies:
+      classnames:
+        specifier: ^2.3.1
+        version: 2.5.1
+      human-format:
+        specifier: ^1.2.0
+        version: 1.2.0
+      pluralize:
+        specifier: ^8.0.0
+        version: 8.0.0
+    devDependencies:
+      react:
+        specifier: '>=16'
+        version: 18.2.0
+      react-dom:
+        specifier: '>=16'
+        version: 18.2.0(react@18.2.0)
       rollup-plugin-peer-deps-external:
         specifier: 2.2.4
         version: 2.2.4(rollup@4.9.6)
