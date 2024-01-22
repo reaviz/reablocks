@@ -1,9 +1,7 @@
 name: publish npm package
 
 on:
-  workflow_dispatch:
-    branches:
-      - master
+  workflow_dispatch
 
 jobs:
   publish:

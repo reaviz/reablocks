@@ -4,7 +4,7 @@
   .day {
     flex: 1;
     transition: border 100ms ease-in-out;
-    padding: 9px;
+    padding: var(--calendar-spacing);
 
     &:not(.selected).outside {
       opacity: 0.6;
@@ -17,22 +17,24 @@
 
     &.startRangeDate {
       border-radius: 50%;
-      background-color: var(--pink-100);
+      background-color: var(--calender-selectedDate-background);
       color: var(--black);
     }
 
     &.endRangeDate {
       border-radius: 50%;
-      background-color: var(--pink-100);
+      background-color: var(--calender-selectedDate-background);
       color: var(--black);
     }
 
     &.startRangeDate:hover {
-      background-color: var(--pink-100);
+      background-color: var(--calender-selectedDate-background);
+      color: var(--black);
     }
 
     &.endRangeDate:hover {
-      background-color: var(--pink-100);
+      background-color: var(--calender-selectedDate-background);
+      color: var(--black);
     }
   }
 }

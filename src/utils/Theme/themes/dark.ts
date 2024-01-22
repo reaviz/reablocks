@@ -112,8 +112,11 @@ export const darkColors: Colors = {
     900: 'rgba(0, 0, 0, 0.09)'
   },
   pink: {
-    100: '#ff4d87',
-    500: '#281e21'
+    500: '#281e21',
+    400: '#B4005E',
+    300: '#DB4274',
+    200: '#EB477C',
+    100: '#ff4d87'
   }
 };
 
@@ -428,7 +431,10 @@ export const darkTheme: Theme = {
       'sub-margin': '0 0 var(--spacing-xs) 0'
     },
     calendar: {
-      'calendar-spacing': '8px'
+      'calendar-spacing': '8px',
+      'calender-selectedDate-background': darkColors.pink['100'],
+      'calender-selectedRange-background': darkColors.pink['500'],
+      'calender-date-color': darkColors.gray['100']
     },
     badge: {
       'badge-color-background-default': darkColors.white,

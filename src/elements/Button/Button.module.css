@@ -29,40 +29,6 @@
     font-size: var(--font-size-lg);
   }
 
-  &.filledDates {
-    color: var(--button-background);
-
-    &.default {
-      background: var(--pink-100);
-      border-color: var(--pink-100);
-
-      &:hover {
-        background: var(--pink-100);
-        border-color: none;
-      }
-    }
-
-    &.primaryDates {
-      background: var(--pink-500);
-      border-color: var(--pink-500);
-
-      &:hover {
-        background: var(--pink-500);
-        border-color: var(--pink-500);
-      }
-    }
-
-    &.primary {
-      background: var(--pink-100);
-      border-color: var(--pink-100);
-
-      &:hover {
-        background: var(--pink-100);
-        border-color: var(--pink-100);
-      }
-    }
-  }
-
   &.filled {
     color: var(--button-color-on-background);
 
@@ -196,10 +162,10 @@
     border: solid 1px transparent;
 
     &.default {
-      color: var(--gray-100);
+      color: var(--calender-date-color);
 
       &:hover {
-        color: var(--gray-100);
+        color: var(--calender-date-color);
       }
     }
 

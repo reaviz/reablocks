@@ -7,7 +7,8 @@ import {
   isSameDay,
   set,
   max as maxDate,
-  min as minDate
+  min as minDate,
+  format
 } from 'date-fns';
 import { Button } from '../../../elements/Button';
 import { getWeeks } from '../utils';
@@ -132,10 +133,10 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         isSameDay(addDays(nextDayRangeEnd, -1), day.date);
 
       // Determine the color variant of the button
-      const colorVariant = isSelected && isRange ? 'primaryDates' : 'default';
+      // const colorVariant = isSelected && isRange ? 'primary' : 'default';
 
-      // Determine the button variant
-      const buttonVariant = isSelected ? 'filledDates' : 'text';
+      // // Determine the button variant
+      // const buttonVariant = isSelected ? 'filled' : 'text';
 
       return (
         <Button
@@ -147,12 +148,28 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
             [css.startRangeDate]: isRange && isStartRangeDate,
             [css.endRangeDate]: isRange && isEndRangeDate
           })}
-          variant={buttonVariant}
-          color={colorVariant}
+          variant={'text'}
+          color={'default'}
           disableMargins
           disabled={isDisabled}
           title={day.formattedDate}
           onClick={() => onChange(day.date)}
+          style={{
+            ...(isSelected &&
+              !isRange && {
+                backgroundColor: 'var(--calender-selectedDate-background)',
+                color: 'var(--calender-selectedRange-background)',
+                borderColor: 'var(--calender-selectedDate-background)',
+                borderRadius: '50%'
+              }),
+            ...(isSelected &&
+              isRange &&
+              !isStartRangeDate &&
+              !isEndRangeDate && {
+                backgroundColor: 'var(--calender-selectedRange-background)',
+                borderColor: 'var(--calender-selectedRange-background)'
+              })
+          }}
         >
           {day.dayOfMonth}
         </Button>
@@ -162,7 +179,18 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   );
 
   // Added day labels
-  const dayLabels = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
+  const dayLabels = useMemo(() => {
+    const firstDayOfWeek = new Date(value);
+    firstDayOfWeek.setDate(1);
+    firstDayOfWeek.setDate(1 - firstDayOfWeek.getDay());
+
+    const labels = [];
+    for (let i = 0; i < 7; i++) {
+      labels.push(format(firstDayOfWeek, 'E', { locale: undefined }));
+      firstDayOfWeek.setDate(firstDayOfWeek.getDate() + 1);
+    }
+    return labels;
+  }, [value]);
 
   return (
     <AnimatePresence mode="popLayout">
