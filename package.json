@@ -3,7 +3,7 @@
   "version": "5.8.6",
   "description": "Component library for React",
   "scripts": {
-    "build": "vite build --mode library",
+    "build": "pnpm --recursive run build",
     "build-storybook": "storybook build",
     "copy": "cp CNAME storybook-static/",
     "lint": "eslint --ext js,ts,tsx",
