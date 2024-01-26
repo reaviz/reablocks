@@ -112,7 +112,7 @@ export const Calendar: FC<CalendarProps> = ({
   animated,
   onChange,
   onViewChange,
-  isMultiMonths = true,
+  isMultiMonths = false,
   selectedRangeColor,
   selectedRangerBorderColor
 }) => {
