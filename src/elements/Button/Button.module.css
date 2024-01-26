@@ -162,10 +162,10 @@
     border: solid 1px transparent;
 
     &.default {
-      color: var(--calender-date-color);
+      color: var(--button-color);
 
       &:hover {
-        color: var(--calender-date-color);
+        color: var(--button-color);
       }
     }
 

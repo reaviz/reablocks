@@ -4,6 +4,9 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: var(--spacing-sm);
+  }
+
+  .multi {
     padding-left: var(--spacing-md);
     padding-right: 16px;
   }

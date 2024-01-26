@@ -10,7 +10,6 @@ import {
   isSameDay,
   max as maxDate,
   min as minDate,
-  parseISO,
   setMonth,
   setYear,
   startOfDecade,
@@ -24,6 +23,7 @@ import { CalendarYears } from './CalendarYears';
 import { SmallHeading } from '../../typography';
 
 import css from './Calendar.module.css';
+import classNames from 'classnames';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -55,6 +55,11 @@ export interface CalendarProps {
   isRange?: boolean;
 
   /**
+   * Whether the calendar show two months.
+   */
+  isMultiMonths?: boolean;
+
+  /**
    * The text or icon to use for next.
    */
   nextArrow?: React.ReactNode | string;
@@ -68,6 +73,16 @@ export interface CalendarProps {
    * The date format to use for the calendar. Defaults 'MMMM yyyy'.
    */
   dateFormat?: string;
+
+  /**
+   * To style calender selected range.
+   */
+  selectedRangeColor?: string;
+
+  /**
+   * To style calender selected range border.
+   */
+  selectedRangerBorderColor?: string;
 
   /**
    * Whether to animate the calendar.
@@ -96,19 +111,22 @@ export const Calendar: FC<CalendarProps> = ({
   dateFormat,
   animated,
   onChange,
-  onViewChange
+  onViewChange,
+  isMultiMonths = true,
+  selectedRangeColor,
+  selectedRangerBorderColor
 }) => {
   const date = useMemo(
     () => (Array.isArray(value) ? value?.[0] : value) ?? new Date(),
     [value]
   );
   const rangeStart = useMemo(
-    () => value?.[0] ?? parseISO('') ?? new Date(),
-    [value]
+    () => value?.[0] ?? date ?? new Date(),
+    [date, value]
   );
   const rangeEnd = useMemo(
-    () => value?.[1] ?? parseISO('') ?? new Date(),
-    [value]
+    () => value?.[1] ?? date ?? new Date(),
+    [date, value]
   );
 
   const [viewValue, setViewValue] = useState<Date>(date || new Date());
@@ -202,14 +220,15 @@ export const Calendar: FC<CalendarProps> = ({
 
   return (
     <div className={css.container}>
-      <header className={css.header}>
+      <header
+        className={classNames(css.header, { [css.multi]: isMultiMonths })}
+      >
         <Button
           variant="text"
           disabled={disabled}
           className={css.leftArrow}
           disablePadding
           onClick={previousClickHandler}
-          style={{ color: 'var(--white)' }}
         >
           {previousArrow}
         </Button>
@@ -222,7 +241,7 @@ export const Calendar: FC<CalendarProps> = ({
         >
           <SmallHeading disableMargins>
             {view === 'days' &&
-              (isRange ? (
+              (isMultiMonths ? (
                 <div className={css.calenderMonths}>
                   <DateFormat
                     date={sub(viewValue, { months: 1 })}
@@ -256,7 +275,6 @@ export const Calendar: FC<CalendarProps> = ({
           disablePadding
           disabled={disabled}
           onClick={nextClickHandler}
-          style={{ color: 'var(--white)' }}
         >
           {nextArrow}
         </Button>
@@ -274,7 +292,7 @@ export const Calendar: FC<CalendarProps> = ({
           }}
         >
           {view === 'days' &&
-            (isRange ? (
+            (isMultiMonths ? (
               <div className={css.daysContainer}>
                 <CalendarDays
                   value={sub(viewValue, { months: 1 })}
@@ -282,10 +300,13 @@ export const Calendar: FC<CalendarProps> = ({
                   max={max}
                   disabled={disabled}
                   isRange={isRange}
-                  current={[rangeStart, rangeEnd]}
+                  current={isRange ? [rangeStart, rangeEnd] : date}
                   xAnimation={xAnimation}
                   animated={animated}
                   onChange={dateChangeHandler}
+                  isMultiMonths={isMultiMonths}
+                  selectedRangeColor={selectedRangeColor}
+                  selectedRangerBorderColor={selectedRangerBorderColor}
                 />
                 <CalendarDays
                   value={viewValue}
@@ -293,10 +314,13 @@ export const Calendar: FC<CalendarProps> = ({
                   max={max}
                   disabled={disabled}
                   isRange={isRange}
-                  current={[rangeStart, rangeEnd]}
+                  current={isRange ? [rangeStart, rangeEnd] : date}
                   xAnimation={xAnimation}
                   animated={animated}
                   onChange={dateChangeHandler}
+                  isMultiMonths={isMultiMonths}
+                  selectedRangeColor={selectedRangeColor}
+                  selectedRangerBorderColor={selectedRangerBorderColor}
                 />
               </div>
             ) : (
@@ -306,10 +330,13 @@ export const Calendar: FC<CalendarProps> = ({
                 max={max}
                 disabled={disabled}
                 isRange={isRange}
-                current={date}
+                current={isRange ? [rangeStart, rangeEnd] : date}
                 xAnimation={xAnimation}
                 animated={animated}
                 onChange={dateChangeHandler}
+                isMultiMonths={isMultiMonths}
+                selectedRangeColor={selectedRangeColor}
+                selectedRangerBorderColor={selectedRangerBorderColor}
               />
             ))}
 
@@ -337,8 +364,8 @@ export const Calendar: FC<CalendarProps> = ({
 };
 
 Calendar.defaultProps = {
-  previousArrow: '<',
-  nextArrow: '>',
+  previousArrow: '←',
+  nextArrow: '→',
   animated: true,
   dateFormat: 'MMMM yyyy',
   range: [new Date(), new Date()]

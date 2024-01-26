@@ -53,6 +53,21 @@ export interface CalendarDaysProps {
   range?: [Date, Date];
 
   /**
+   * Whether the calendar show two months.
+   */
+  isMultiMonths?: boolean;
+
+  /**
+   * To style calender selected range.
+   */
+  selectedRangeColor?: string;
+
+  /**
+   * To style calender selected range border.
+   */
+  selectedRangerBorderColor?: string;
+
+  /**
    * X-axis block animation
    */
   xAnimation?: string | number;
@@ -84,9 +99,14 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   max,
   animated,
   xAnimation = 0,
-  onChange
+  onChange,
+  isMultiMonths,
+  selectedRangeColor,
+  selectedRangerBorderColor
 }) => {
   const [hoveringDate, setHoveringDate] = useState<Date | null>(null);
+  const [isMultiDateSelected, setIsMultiDateSelected] =
+    useState<boolean>(false);
   const weeks = useMemo(() => getWeeks(value), [value]);
   const maxLimit = useMemo(() => (max === 'now' ? new Date() : max), [max]);
 
@@ -133,10 +153,20 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         isSameDay(addDays(nextDayRangeEnd, -1), day.date);
 
       // Determine the color variant of the button
-      // const colorVariant = isSelected && isRange ? 'primary' : 'default';
+      const colorVariant = isSelected ? 'primary' : 'default';
 
       // // Determine the button variant
-      // const buttonVariant = isSelected ? 'filled' : 'text';
+      const buttonVariant = isSelected ? 'filled' : 'text';
+
+      const isMultiSelectedDateStyle = {
+        ...(isSelected &&
+          isMultiMonths &&
+          !isStartRangeDate &&
+          !isEndRangeDate && {
+            backgroundColor: selectedRangeColor,
+            borderColor: selectedRangerBorderColor
+          })
+      };
 
       return (
         <Button
@@ -145,37 +175,45 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
             [css.outside]: day.isNextMonth || day.isPreviousMonth,
             [css.today]: day.isToday,
             [css.range]: isRange && isSelected,
-            [css.startRangeDate]: isRange && isStartRangeDate,
-            [css.endRangeDate]: isRange && isEndRangeDate
+            [isMultiMonths ? css.multiStartRangeDate : css.startRangeDate]:
+              isRange && isStartRangeDate && isMultiDateSelected,
+            [isMultiMonths && css.selectedEndRangeDate]:
+              isRange && isEndRangeDate && isMultiDateSelected,
+            [isMultiMonths ? css.multiEndRangeDate : css.endRangeDate]:
+              isRange && isEndRangeDate
           })}
-          variant={'text'}
-          color={'default'}
+          onMouseEnter={() => setHoveringDate(day.date)}
+          onMouseLeave={() => setHoveringDate(null)}
+          variant={!isMultiMonths ? buttonVariant : 'text'}
+          color={!isMultiMonths ? colorVariant : 'default'}
           disableMargins
           disabled={isDisabled}
           title={day.formattedDate}
-          onClick={() => onChange(day.date)}
-          style={{
-            ...(isSelected &&
-              !isRange && {
-                backgroundColor: 'var(--calender-selectedDate-background)',
-                color: 'var(--calender-selectedRange-background)',
-                borderColor: 'var(--calender-selectedDate-background)',
-                borderRadius: '50%'
-              }),
-            ...(isSelected &&
-              isRange &&
-              !isStartRangeDate &&
-              !isEndRangeDate && {
-                backgroundColor: 'var(--calender-selectedRange-background)',
-                borderColor: 'var(--calender-selectedRange-background)'
-              })
+          onClick={() => {
+            onChange(day.date);
+            if (isMultiMonths) {
+              setIsMultiDateSelected(true);
+            }
           }}
+          style={isMultiSelectedDateStyle}
         >
           {day.dayOfMonth}
         </Button>
       );
     },
-    [disabled, minLimit, maxLimit, hoveringDate, current, isRange, onChange]
+    [
+      disabled,
+      minLimit,
+      maxLimit,
+      current,
+      hoveringDate,
+      isMultiMonths,
+      selectedRangeColor,
+      selectedRangerBorderColor,
+      isRange,
+      isMultiDateSelected,
+      onChange
+    ]
   );
 
   // Added day labels

@@ -16,23 +16,45 @@
     }
 
     &.startRangeDate {
-      border-radius: 50%;
-      background-color: var(--calender-selectedDate-background);
-      color: var(--black);
+      border-top-left-radius: var(--button-border-radius);
+      border-bottom-left-radius: var(--button-border-radius);
     }
 
     &.endRangeDate {
+      border-top-right-radius: var(--button-border-radius);
+      border-bottom-right-radius: var(--button-border-radius);
+    }
+
+    &.multiStartRangeDate {
       border-radius: 50%;
       background-color: var(--calender-selectedDate-background);
       color: var(--black);
     }
 
-    &.startRangeDate:hover {
+    &.multiEndRangeDate {
+      border-radius: 50%;
+      background-color: transparent;
+      color: var(--white);
+      border: 1px solid var(--calender-selectedDate-background);
+    }
+
+    &.multiStartRangeDate:hover {
       background-color: var(--calender-selectedDate-background);
       color: var(--black);
     }
 
-    &.endRangeDate:hover {
+    &.multiEndRangeDate:hover {
+      background-color: transparent;
+      color: var(--white);
+    }
+
+    &.selectedEndRangeDate {
+      border-radius: 50%;
+      background-color: var(--calender-selectedDate-background);
+      color: var(--black);
+    }
+
+    &.selectedEndRangeDate:hover {
       background-color: var(--calender-selectedDate-background);
       color: var(--black);
     }
