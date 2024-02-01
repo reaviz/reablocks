@@ -68,6 +68,8 @@ export interface Colors {
   pink?: Color;
   slate?: Color;
   overlay?: Color;
+  primary?: Color;
+  secondary?: Color;
 }
 
 export interface FontFamilies {
