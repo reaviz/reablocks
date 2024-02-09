@@ -1,4 +1,11 @@
-import React, { FC, useState, useRef, useEffect, ReactNode } from 'react';
+import React, {
+  FC,
+  useState,
+  useRef,
+  useEffect,
+  ReactNode,
+  useCallback
+} from 'react';
 import classNames from 'classnames';
 import {
   Placement,
@@ -92,7 +99,7 @@ export interface TooltipProps {
   followCursor?: boolean;
 
   /**
-   * Add pointer events or not. Usually not for tooltips.
+   * Add pointer events or not.
    */
   pointerEvents?: string;
 
@@ -152,6 +159,14 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
     }
   );
 
+  const handleClose = useCallback(() => {
+    clearTimeout(timeout.current);
+    timeout.current = setTimeout(() => {
+      deactivateTooltip(ref.current, isPopover);
+      onClose?.();
+    }, leaveDelay);
+  }, [deactivateTooltip, isPopover, onClose, leaveDelay]);
+
   useEffect(() => {
     // componentDidUpdateLogic style logic
     if (!mounted.current) {
@@ -191,6 +206,12 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
 
         return (
           <motion.div
+            onMouseOver={() => {
+              clearTimeout(timeout.current);
+            }}
+            onMouseLeave={() => {
+              handleClose();
+            }}
             className={classNames(css.tooltip, className)}
             initial={{
               opacity: 0,
@@ -218,8 +239,8 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
         );
       }}
       onOpen={() => {
+        clearTimeout(timeout.current);
         if (!internalVisible) {
-          clearTimeout(timeout.current);
           timeout.current = setTimeout(() => {
             if (!disabled) {
               deactivateAllTooltips(isPopover);
@@ -235,11 +256,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
           e?.nativeEvent?.type !== 'click' ||
           (e?.nativeEvent?.type === 'click' && closeOnClick)
         ) {
-          clearTimeout(timeout.current);
-          timeout.current = setTimeout(() => {
-            deactivateTooltip(ref.current, isPopover);
-            onClose?.();
-          }, leaveDelay);
+          handleClose();
         }
       }}
     >
