@@ -207,10 +207,14 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
         return (
           <motion.div
             onMouseOver={() => {
-              clearTimeout(timeout.current);
+              if (!isPopover) {
+                clearTimeout(timeout.current);
+              }
             }}
             onMouseLeave={() => {
-              handleClose();
+              if (!isPopover) {
+                handleClose();
+              }
             }}
             className={classNames(css.tooltip, className)}
             initial={{
