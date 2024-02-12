@@ -99,7 +99,7 @@ export interface TooltipProps {
   followCursor?: boolean;
 
   /**
-   * Add pointer events or not.
+   * Add pointer events or not. Usually not for tooltips.
    */
   pointerEvents?: string;
 
@@ -207,12 +207,13 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
         return (
           <motion.div
             onMouseOver={() => {
-              if (!isPopover) {
+              // keep popover open when interacting with it
+              if (isPopover && trigger === 'hover') {
                 clearTimeout(timeout.current);
               }
             }}
             onMouseLeave={() => {
-              if (!isPopover) {
+              if (isPopover && trigger === 'hover') {
                 handleClose();
               }
             }}
