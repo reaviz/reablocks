@@ -208,12 +208,20 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
           <motion.div
             onMouseOver={() => {
               // keep popover open when interacting with it
-              if (isPopover && trigger === 'hover') {
+              if (
+                isPopover &&
+                (trigger === 'hover' ||
+                  (Array.isArray(trigger) && trigger.includes('hover')))
+              ) {
                 clearTimeout(timeout.current);
               }
             }}
             onMouseLeave={() => {
-              if (isPopover && trigger === 'hover') {
+              if (
+                isPopover &&
+                (trigger === 'hover' ||
+                  (Array.isArray(trigger) && trigger.includes('hover')))
+              ) {
                 handleClose();
               }
             }}
