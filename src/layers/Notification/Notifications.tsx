@@ -58,40 +58,35 @@ export const Notifications: FC<NotificationsProps> = ({
 
   const notify = useCallback(
     (title: string, options: NotificationOptions = {}) => {
-      // If we are flooded with the same message over and over,
-      // dont add more of the same type. Mainly used for error use cases.
-      if (preventFlooding) {
-        const has = notifications.find(n => n.title === title);
-
-        if (has) {
-          return false;
+      setNotifications(notifications => {
+        // If we are flooded with the same message over and over,
+        // don't add more of the same type. Mainly used for error use cases.
+        if (preventFlooding && notifications.find(n => n.title === title)) {
+          return notifications;
         }
-      }
 
-      const id = nextId++;
+        const id = nextId++;
 
-      const obj = {
-        title,
-        id,
-        variant: 'default',
-        timeout,
-        showClose,
-        ...options
-      };
+        const obj = {
+          title,
+          id,
+          variant: 'default',
+          timeout,
+          showClose,
+          ...options
+        };
 
-      const sorted = [obj, ...notifications];
+        const sorted = [obj, ...notifications];
 
-      // Clear old notifications if we hit limit
-      if (sorted.length > limit) {
-        sorted.pop();
-      }
+        // Clear old notifications if we hit limit
+        if (sorted.length > limit) {
+          sorted.pop();
+        }
 
-      // Update the container instance
-      setNotifications(sorted);
-
-      return id;
+        return sorted;
+      });
     },
-    [limit, notifications, preventFlooding, showClose, timeout]
+    [limit, preventFlooding, showClose, timeout]
   );
 
   const notifyError = useCallback(
