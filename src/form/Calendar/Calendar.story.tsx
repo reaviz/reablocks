@@ -13,15 +13,13 @@ export const Simple = () => {
   const [date, setDate] = useState<Date>();
 
   return (
-    <>
-      <Card>
-        <Calendar value={date} onChange={(date: Date) => setDate(date)} />
-        <Divider />
-        <Stack inline={false} justifyContent="center">
-          {date?.toLocaleDateString() ?? 'No date selected'}
-        </Stack>
-      </Card>
-    </>
+    <Card>
+      <Calendar value={date} onChange={(date: Date) => setDate(date)} />
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </Card>
   );
 };
 
@@ -57,15 +55,13 @@ export const DefaultValue = () => {
   const [date, setDate] = useState<Date>(addMonths(new Date(), 1));
 
   return (
-    <>
-      <Card>
-        <Calendar value={date} onChange={(date: Date) => setDate(date)} />
-        <Divider />
-        <Stack inline={false} justifyContent="center">
-          {date?.toLocaleDateString() ?? 'No date selected'}
-        </Stack>
-      </Card>
-    </>
+    <Card>
+      <Calendar value={date} onChange={(date: Date) => setDate(date)} />
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </Card>
   );
 };
 
@@ -76,20 +72,18 @@ export const MinMax = () => {
   const [date, setDate] = useState<Date>(new Date());
 
   return (
-    <>
-      <Card>
-        <Calendar
-          value={date}
-          min={prevMonth}
-          max={nextMonth}
-          onChange={(date: Date) => setDate(date)}
-        />
-        <Divider />
-        <Stack inline={false} justifyContent="center">
-          {date?.toLocaleDateString() ?? 'No date selected'}
-        </Stack>
-      </Card>
-    </>
+    <Card>
+      <Calendar
+        value={date}
+        min={prevMonth}
+        max={nextMonth}
+        onChange={(date: Date) => setDate(date)}
+      />
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </Card>
   );
 };
 
@@ -97,19 +91,17 @@ export const WithLabels = () => {
   const [date, setDate] = useState<Date>();
 
   return (
-    <>
-      <Card>
-        <Calendar
-          value={date}
-          onChange={(date: Date) => setDate(date)}
-          showDayOfWeek
-        />
-        <Divider />
-        <Stack inline={false} justifyContent="center">
-          {date?.toLocaleDateString() ?? 'No date selected'}
-        </Stack>
-      </Card>
-    </>
+    <Card>
+      <Calendar
+        value={date}
+        onChange={(date: Date) => setDate(date)}
+        showDayOfWeek
+      />
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </Card>
   );
 };
 
