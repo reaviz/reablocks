@@ -47,10 +47,6 @@
     &.roundEndDateTop {
       border-top-right-radius: var(--calendar-day-radius);
     }
-
-    &.hideDay {
-      visibility: hidden !important;
-    }
   }
 }
 
@@ -60,7 +56,7 @@
   gap: var(--spacing-sm);
   width: 100%;
   padding: var(--spacing-md) 0;
-  border-top: 1px solid var(--slate-500);
+  border-top: 1px solid var(--calendar-divider);
 
   .dayOfWeek {
     text-align: center;

@@ -426,6 +426,7 @@ export const darkTheme: Theme = {
     calendar: {
       'calendar-spacing': '8px',
       'calendar-gap': '0px',
+      'calendar-divider': darkColors.slate['500'],
       'calendar-day-radius': 'var(--button-border-radius)',
       'calendar-day-color': 'var(--button-color)',
       'calendar-day-background-selected': 'var(--primary-background)',

@@ -125,9 +125,12 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   const renderDay = useCallback(
     (day, ii) => {
       // Determine if the day should be shown or not
-      const hideDay =
+      if (
         (day.isPreviousMonth && hidePrevMonthDays) ||
-        (day.isNextMonth && hideNextMonthDays);
+        (day.isNextMonth && hideNextMonthDays)
+      ) {
+        return <div />;
+      }
 
       // Determine if the day is disabled
       const isDisabled =
@@ -214,8 +217,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
               hasNoRange,
             [css.endRangeDate]: isRange && isEndRangeDate,
             [css.roundEndDateTop]:
-              (isRange && isEndRangeDate && rangeConnectsTop) || hasNoRange,
-            [css.hideDay]: hideDay
+              (isRange && isEndRangeDate && rangeConnectsTop) || hasNoRange
           })}
           onMouseEnter={() => handleHover(day.date)}
           onMouseLeave={() => handleHover(null)}
