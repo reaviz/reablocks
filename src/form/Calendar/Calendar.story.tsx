@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Card } from '../../layout/Card';
 import { Calendar } from './Calendar';
+import { CalendarRange } from './CalendarRange';
 import { add, addMonths, sub } from 'date-fns';
 import { Divider, Stack } from '../../layout';
 
@@ -102,6 +103,28 @@ export const Range = () => {
         value={range}
         isRange
         onChange={val => setRange(val as [Date, Date])}
+      />
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {range
+          ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
+export const Multiview = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <Card>
+      <CalendarRange
+        value={range}
+        onChange={val => setRange(val as [Date, Date])}
+        numMonths={3}
+        enableDayOfWeek
+        isRange
       />
       <Divider />
       <Stack inline={false} justifyContent="center">

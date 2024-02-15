@@ -1,12 +1,14 @@
 .week {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
 
   .day {
     flex: 1;
     transition: border 100ms ease-in-out;
     padding: var(--calendar-spacing);
+    text-align: center;
 
-    &:not(.selected).outside {
+    &:not(.range).outside {
       opacity: 0.6;
     }
 
@@ -17,12 +19,34 @@
 
     &.startRangeDate {
       border-top-left-radius: var(--button-border-radius);
+    }
+
+    &.roundStartDateBottom {
       border-bottom-left-radius: var(--button-border-radius);
     }
 
     &.endRangeDate {
-      border-top-right-radius: var(--button-border-radius);
       border-bottom-right-radius: var(--button-border-radius);
     }
+
+    &.roundEndDateTop {
+      border-top-right-radius: var(--button-border-radius);
+    }
+
+    &.hideDay {
+      visibility: hidden !important;
+    }
+  }
+}
+
+.weekLabels {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-sm);
+  width: 100%;
+  margin: var(--spacing-md) 0 var(--spacing-sm);
+
+  .dayOfWeek {
+    text-align: center;
   }
 }

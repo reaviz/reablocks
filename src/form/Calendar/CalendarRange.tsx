@@ -1,8 +1,7 @@
-import { AnimatePresence, motion } from 'framer-motion';
-import React, { FC, useCallback, useMemo, useState } from 'react';
-import { Button } from '../../elements/Button';
+import { FC, Fragment, useCallback, useMemo, useState } from 'react';
 import {
   add,
+  addMonths,
   addYears,
   endOfDecade,
   getMonth,
@@ -16,80 +15,25 @@ import {
   sub,
   subYears
 } from 'date-fns';
-import { DateFormat } from '../../data/DateFormat';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Button } from '../../elements/Button';
+import { CalendarProps, CalendarViewType } from './Calendar';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
+import { DateFormat } from '../../data/DateFormat';
 import { SmallHeading } from '../../typography';
-
 import css from './Calendar.module.css';
 
-export type CalendarViewType = 'days' | 'months' | 'years';
-
-export interface CalendarProps {
+export interface CalendarRangeProps extends CalendarProps {
   /**
-   * The selected date(s) for the calendar.
+   * The number of months to display in the range.
+   * Defaults to 2.
    */
-  value?: Date | [Date, Date];
-
-  /**
-   * The minimum selectable date for the calendar.
-   */
-  min?: Date;
-
-  /**
-   * The maximum selectable date for the calendar.
-   * Can also be set to 'now' to use the current date.
-   */
-  max?: Date | 'now';
-
-  /**
-   * Whether the calendar is disabled.
-   */
-  disabled?: boolean;
-
-  /**
-   * Whether the calendar is a range picker.
-   */
-  isRange?: boolean;
-
-  /**
-   * The text or icon to use for next.
-   */
-  nextArrow?: React.ReactNode | string;
-
-  /**
-   * The text or icon to use for previous.
-   */
-  previousArrow?: React.ReactNode | string;
-
-  /**
-   * The date format to use for the calendar. Defaults 'MMMM yyyy'.
-   */
-  dateFormat?: string;
-
-  /**
-   * Whether to display day of week labels
-   */
-  enableDayOfWeek?: boolean;
-
-  /**
-   * Whether to animate the calendar.
-   */
-  animated?: boolean;
-
-  /**
-   * A callback function that is called when the selected date(s) change.
-   */
-  onChange?: (value: Date | [Date, Date]) => void;
-
-  /**
-   * A callback function that is called when the calendar view changes.
-   */
-  onViewChange?: (view: CalendarViewType) => void;
+  numMonths?: number;
 }
 
-export const Calendar: FC<CalendarProps> = ({
+export const CalendarRange: FC<CalendarRangeProps> = ({
   min,
   max,
   value,
@@ -100,7 +44,9 @@ export const Calendar: FC<CalendarProps> = ({
   dateFormat,
   animated,
   onChange,
-  onViewChange
+  onViewChange,
+  numMonths,
+  enableDayOfWeek
 }) => {
   const date = useMemo(
     () => (Array.isArray(value) ? value?.[0] : value) ?? new Date(),
@@ -121,9 +67,16 @@ export const Calendar: FC<CalendarProps> = ({
   const [decadeStart, setDecadeStart] = useState<Date>(startOfDecade(date));
   const [decadeEnd, setDecadeEnd] = useState<Date>(endOfDecade(date));
   const [view, setView] = useState<CalendarViewType>('days');
+  const [hoveringDate, setHoveringDate] = useState<Date | null>(null);
   const [scrollDirection, setScrollDirection] = useState<
     'forward' | 'back' | null
   >(null);
+
+  if (numMonths < 0) {
+    return null;
+  }
+
+  const displayMonths = Array.from(Array(numMonths).keys());
 
   const previousClickHandler = useCallback(() => {
     setScrollDirection('back');
@@ -225,11 +178,16 @@ export const Calendar: FC<CalendarProps> = ({
         >
           <SmallHeading disableMargins>
             {view === 'days' && (
-              <DateFormat
-                date={viewValue}
-                format={dateFormat}
-                allowToggle={false}
-              />
+              <div className={css.multiviewLabel}>
+                {displayMonths.map(i => (
+                  <DateFormat
+                    key={`label-${i}`}
+                    date={addMonths(viewValue, i)}
+                    format={dateFormat}
+                    allowToggle={false}
+                  />
+                ))}
+              </div>
             )}
             {view === 'months' && <>{yearValue}</>}
             {view === 'years' && (
@@ -251,6 +209,7 @@ export const Calendar: FC<CalendarProps> = ({
       <AnimatePresence initial={false} mode="wait">
         <motion.div
           key={view}
+          className={css.calendars}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0, opacity: 1 }}
@@ -260,19 +219,27 @@ export const Calendar: FC<CalendarProps> = ({
             scale: { type: animated ? 'tween' : false }
           }}
         >
-          {view === 'days' && (
-            <CalendarDays
-              value={viewValue}
-              min={min}
-              max={max}
-              disabled={disabled}
-              isRange={isRange}
-              current={isRange ? [rangeStart, rangeEnd] : date}
-              xAnimation={xAnimation}
-              animated={animated}
-              onChange={dateChangeHandler}
-            />
-          )}
+          {view === 'days' &&
+            displayMonths.map(month => (
+              <Fragment key={`calendar-${month}`}>
+                <CalendarDays
+                  value={addMonths(viewValue, month)}
+                  min={min}
+                  max={max}
+                  disabled={disabled}
+                  isRange={isRange}
+                  current={isRange ? [rangeStart, rangeEnd] : date}
+                  xAnimation={xAnimation}
+                  animated={animated}
+                  onChange={dateChangeHandler}
+                  hover={hoveringDate}
+                  onHover={setHoveringDate}
+                  hidePrevMonthDays={month > 0}
+                  hideNextMonthDays={month < numMonths - 1}
+                  enableDayOfWeek={enableDayOfWeek}
+                />
+              </Fragment>
+            ))}
           {view === 'months' && (
             <CalendarMonths
               value={monthValue}
@@ -296,10 +263,11 @@ export const Calendar: FC<CalendarProps> = ({
   );
 };
 
-Calendar.defaultProps = {
+CalendarRange.defaultProps = {
   previousArrow: '←',
   nextArrow: '→',
   animated: true,
   dateFormat: 'MMMM yyyy',
-  range: [new Date(), new Date()]
+  range: [new Date(), new Date()],
+  numMonths: 2
 };
