@@ -246,7 +246,7 @@ export const Calendar: FC<CalendarProps> = ({
         >
           <SmallHeading disableMargins>
             {view === 'days' && (
-              <div className={css.multiviewLabel}>
+              <div className={css.monthLabel}>
                 {displayMonths.map(i => (
                   <DateFormat
                     key={`label-${i}`}
