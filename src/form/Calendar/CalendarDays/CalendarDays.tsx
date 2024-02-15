@@ -60,7 +60,7 @@ export interface CalendarDaysProps {
   /**
    * Whether to display day of week labels
    */
-  enableDayOfWeek?: boolean;
+  showDayOfWeek?: boolean;
 
   /**
    * Whether the calendar is a range picker.
@@ -112,7 +112,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   max,
   animated,
   xAnimation = 0,
-  enableDayOfWeek,
+  showDayOfWeek,
   hidePrevMonthDays,
   hideNextMonthDays,
   onChange,
@@ -254,7 +254,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
           opacity: { duration: 0.2, type: animated ? 'tween' : false }
         }}
       >
-        {enableDayOfWeek && (
+        {showDayOfWeek && (
           <div className={css.weekLabels}>
             {DAY_OF_WEEK_LABELS.map(day => (
               <div key={`day-${day}`} className={css.dayOfWeek}>

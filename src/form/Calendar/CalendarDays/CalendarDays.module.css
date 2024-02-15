@@ -1,6 +1,11 @@
 .week {
+  --button-border-radius: var(--calendar-day-radius);
+  --button-color: var(--calendar-day-color);
+
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  gap: var(--calendar-gap);
+  margin-bottom: var(--calendar-gap);
 
   .day {
     flex: 1;
@@ -8,29 +13,43 @@
     padding: var(--calendar-spacing);
     text-align: center;
 
-    &:not(.range).outside {
-      opacity: 0.6;
+    &:not(:disabled) {
+      background: var(--calendar-day-background);
     }
 
-    &.range,
-    &.rangeHover {
+    &:hover:not(:disabled) {
+      border-color: var(--calendar-day-border-hover);
+    }
+
+    &:not(.range).outside {
+      color: color-mix(in srgb, var(--button-color) 60%, transparent);
+    }
+
+    &.range {
       border-radius: 0;
+      /* !important to override default button styling */
+      background: var(--calendar-day-background-selected) !important;
+      border-color: var(--calendar-day-border-selected) !important;
+
+      &:hover {
+        border-color: var(--calendar-day-border-hover) !important;
+      }
     }
 
     &.startRangeDate {
-      border-top-left-radius: var(--button-border-radius);
+      border-top-left-radius: var(--calendar-day-radius);
     }
 
     &.roundStartDateBottom {
-      border-bottom-left-radius: var(--button-border-radius);
+      border-bottom-left-radius: var(--calendar-day-radius);
     }
 
     &.endRangeDate {
-      border-bottom-right-radius: var(--button-border-radius);
+      border-bottom-right-radius: var(--calendar-day-radius);
     }
 
     &.roundEndDateTop {
-      border-top-right-radius: var(--button-border-radius);
+      border-top-right-radius: var(--calendar-day-radius);
     }
 
     &.hideDay {
@@ -44,9 +63,11 @@
   grid-template-columns: repeat(7, 1fr);
   gap: var(--spacing-sm);
   width: 100%;
-  margin: var(--spacing-md) 0 var(--spacing-sm);
+  padding: var(--spacing-md) 0;
+  border-top: 1px solid var(--slate-500);
 
   .dayOfWeek {
     text-align: center;
+    font-weight: var(--font-weight-bold);
   }
 }

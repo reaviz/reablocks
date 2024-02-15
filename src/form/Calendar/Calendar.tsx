@@ -3,6 +3,7 @@ import React, { FC, useCallback, useMemo, useState } from 'react';
 import { Button } from '../../elements/Button';
 import {
   add,
+  addMonths,
   addYears,
   endOfDecade,
   getMonth,
@@ -19,6 +20,7 @@ import {
 import { DateFormat } from '../../data/DateFormat';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
+import { CalendarRange } from './CalendarRange';
 import { CalendarYears } from './CalendarYears';
 import { SmallHeading } from '../../typography';
 
@@ -64,6 +66,16 @@ export interface CalendarProps {
   previousArrow?: React.ReactNode | string;
 
   /**
+   * The number of calendar months to display.
+   */
+  numMonths?: number;
+
+  /**
+   * Defaults view to show past or future months if multiple months shown.
+   */
+  direction?: 'past' | 'future';
+
+  /**
    * The date format to use for the calendar. Defaults 'MMMM yyyy'.
    */
   dateFormat?: string;
@@ -71,7 +83,7 @@ export interface CalendarProps {
   /**
    * Whether to display day of week labels
    */
-  enableDayOfWeek?: boolean;
+  showDayOfWeek?: boolean;
 
   /**
    * Whether to animate the calendar.
@@ -95,9 +107,12 @@ export const Calendar: FC<CalendarProps> = ({
   value,
   disabled,
   isRange,
+  numMonths,
+  direction,
   previousArrow,
   nextArrow,
   dateFormat,
+  showDayOfWeek,
   animated,
   onChange,
   onViewChange
@@ -124,6 +139,12 @@ export const Calendar: FC<CalendarProps> = ({
   const [scrollDirection, setScrollDirection] = useState<
     'forward' | 'back' | null
   >(null);
+
+  const displayMonths = Array.from(Array(numMonths).keys());
+  const showPast = direction === 'past';
+  if (showPast) {
+    displayMonths.reverse();
+  }
 
   const previousClickHandler = useCallback(() => {
     setScrollDirection('back');
@@ -225,11 +246,16 @@ export const Calendar: FC<CalendarProps> = ({
         >
           <SmallHeading disableMargins>
             {view === 'days' && (
-              <DateFormat
-                date={viewValue}
-                format={dateFormat}
-                allowToggle={false}
-              />
+              <div className={css.multiviewLabel}>
+                {displayMonths.map(i => (
+                  <DateFormat
+                    key={`label-${i}`}
+                    date={addMonths(viewValue, showPast ? -i : i)}
+                    format={dateFormat}
+                    allowToggle={false}
+                  />
+                ))}
+              </div>
             )}
             {view === 'months' && <>{yearValue}</>}
             {view === 'years' && (
@@ -260,7 +286,7 @@ export const Calendar: FC<CalendarProps> = ({
             scale: { type: animated ? 'tween' : false }
           }}
         >
-          {view === 'days' && (
+          {view === 'days' && numMonths === 1 && (
             <CalendarDays
               value={viewValue}
               min={min}
@@ -268,6 +294,23 @@ export const Calendar: FC<CalendarProps> = ({
               disabled={disabled}
               isRange={isRange}
               current={isRange ? [rangeStart, rangeEnd] : date}
+              showDayOfWeek={showDayOfWeek}
+              xAnimation={xAnimation}
+              animated={animated}
+              onChange={dateChangeHandler}
+            />
+          )}
+          {view === 'days' && numMonths !== 1 && (
+            <CalendarRange
+              value={viewValue}
+              min={min}
+              max={max}
+              disabled={disabled}
+              isRange={isRange}
+              numMonths={numMonths}
+              direction={direction}
+              current={isRange ? [rangeStart, rangeEnd] : date}
+              showDayOfWeek={showDayOfWeek}
               xAnimation={xAnimation}
               animated={animated}
               onChange={dateChangeHandler}
@@ -301,5 +344,7 @@ Calendar.defaultProps = {
   nextArrow: '→',
   animated: true,
   dateFormat: 'MMMM yyyy',
-  range: [new Date(), new Date()]
+  range: [new Date(), new Date()],
+  numMonths: 1,
+  direction: 'future'
 };
