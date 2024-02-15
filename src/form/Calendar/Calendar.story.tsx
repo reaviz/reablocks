@@ -93,6 +93,26 @@ export const MinMax = () => {
   );
 };
 
+export const WithLabels = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          value={date}
+          onChange={(date: Date) => setDate(date)}
+          showDayOfWeek
+        />
+        <Divider />
+        <Stack inline={false} justifyContent="center">
+          {date?.toLocaleDateString() ?? 'No date selected'}
+        </Stack>
+      </Card>
+    </>
+  );
+};
+
 export const Range = () => {
   const [range, setRange] = useState<[Date, Date]>();
 
@@ -122,8 +142,29 @@ export const Multiview = () => {
         value={range}
         onChange={val => setRange(val as [Date, Date])}
         numMonths={2}
+        showDayOfWeek
+        isRange
+      />
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {range
+          ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
+export const MultiviewPast = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <Card>
+      <Calendar
+        value={range}
+        onChange={val => setRange(val as [Date, Date])}
+        numMonths={2}
         direction="past"
-        max="now"
         showDayOfWeek
         isRange
       />

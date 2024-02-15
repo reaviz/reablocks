@@ -13,10 +13,6 @@
     padding: var(--calendar-spacing);
     text-align: center;
 
-    &:not(:disabled) {
-      background: var(--calendar-day-background);
-    }
-
     &:hover:not(:disabled) {
       border-color: var(--calendar-day-border-hover);
     }

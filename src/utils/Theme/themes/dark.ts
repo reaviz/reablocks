@@ -428,7 +428,6 @@ export const darkTheme: Theme = {
       'calendar-gap': '0px',
       'calendar-day-radius': 'var(--button-border-radius)',
       'calendar-day-color': 'var(--button-color)',
-      'calendar-day-background': 'transparent',
       'calendar-day-background-selected': 'var(--primary-background)',
       'calendar-day-border-selected': 'var(--primary-background)',
       'calendar-day-background-hover': 'var(--primary-background)',

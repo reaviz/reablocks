@@ -32,14 +32,14 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
 
   return (
     <div className={css.calendar}>
-      {displayMonths.map(month => (
-        <Fragment key={`calendar-${month}`}>
+      {displayMonths.map((offset, idx) => (
+        <Fragment key={`calendar-${offset}`}>
           <CalendarDays
-            value={addMonths(value, showPast ? -month : month)}
+            value={addMonths(value, showPast ? -offset : offset)}
             hover={hoveringDate}
             onHover={setHoveringDate}
-            hidePrevMonthDays={month > 0}
-            hideNextMonthDays={month < numMonths - 1}
+            hidePrevMonthDays={idx > 0}
+            hideNextMonthDays={idx < numMonths - 1}
             numMonths={numMonths}
             onChange={onChange}
             {...rest}
