@@ -35,6 +35,34 @@ export const SingleDisabled = () => {
   );
 };
 
+export const CustomFloatStep = () => {
+  const [state, setState] = useState<number>(3.5);
+  return (
+    <RangeSingle
+      onChange={setState}
+      min={0.5}
+      max={10}
+      step={0.5}
+      value={state}
+      style={{ width: 250, marginTop: 30 }}
+    />
+  );
+};
+
+export const CustomIntegerStep = () => {
+  const [state, setState] = useState<number>(75);
+  return (
+    <RangeSingle
+      onChange={setState}
+      min={50}
+      max={250}
+      step={25}
+      value={state}
+      style={{ width: 250, marginTop: 30 }}
+    />
+  );
+};
+
 export const Double = () => {
   const [state, setState] = useState<[number, number]>([20, 40]);
 
@@ -46,6 +74,42 @@ export const Double = () => {
       onChange={debounceRange}
       min={10}
       max={50}
+      value={state}
+      style={{ width: 250 }}
+    />
+  );
+};
+
+export const DoubleFloatStep = () => {
+  const [state, setState] = useState<[number, number]>([5, 10]);
+
+  const debounceRange = () =>
+    debounce((min: number, max: number) => setState([min, max]));
+
+  return (
+    <RangeDouble
+      onChange={debounceRange}
+      min={0.5}
+      max={12.5}
+      step={0.1}
+      value={state}
+      style={{ width: 250 }}
+    />
+  );
+};
+
+export const DoubleIntegerStep = () => {
+  const [state, setState] = useState<[number, number]>([20, 40]);
+
+  const debounceRange = () =>
+    debounce((min: number, max: number) => setState([min, max]));
+
+  return (
+    <RangeDouble
+      onChange={debounceRange}
+      min={10}
+      max={50}
+      step={5}
       value={state}
       style={{ width: 250 }}
     />
