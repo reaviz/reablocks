@@ -1,4 +1,11 @@
-import React, { useCallback, useEffect, useRef, useState, FC } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  FC,
+  useMemo
+} from 'react';
 import classNames from 'classnames';
 import { motion, useMotionValue } from 'framer-motion';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
@@ -12,7 +19,8 @@ export const RangeSingle: FC<RangeProps<number>> = ({
   className,
   min,
   max,
-  value
+  value,
+  step = 1
 }) => {
   const [currentValue, setCurrentValue] = useState<number>(value);
 
@@ -22,10 +30,23 @@ export const RangeSingle: FC<RangeProps<number>> = ({
 
   const valueX = useMotionValue(0);
 
+  const fractionDigits = useMemo(
+    () => step.toString()?.[1]?.length || 0,
+    [step]
+  );
+
   const getValue = (xPosition: number): number => {
     const draggedWidth = xPosition - rangeLeft;
     const draggedWidthPercentage = (draggedWidth * 100) / rangeWidth;
-    return Math.round(min + ((max - min) * draggedWidthPercentage) / 100);
+    const scaledStep = (step / (max - min)) * 100;
+    const scaledValue =
+      Math.round(draggedWidthPercentage / scaledStep) * scaledStep;
+    const rawValue = min + ((max - min) * scaledValue) / 100;
+    // Fix floating point precision. Example 3.50000000000000004
+    const newValue =
+      fractionDigits > 0 ? +rawValue.toFixed(fractionDigits) : rawValue;
+
+    return Math.max(min, Math.min(newValue, max));
   };
 
   const getPosition = useCallback(
@@ -88,6 +109,7 @@ export const RangeSingle: FC<RangeProps<number>> = ({
             type="range"
             min={min}
             max={max}
+            step={0.5}
             value={currentValue}
             disabled={disabled}
             onChange={e => updateCurrentValue(e.target.valueAsNumber)}

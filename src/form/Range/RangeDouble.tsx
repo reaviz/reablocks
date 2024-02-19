@@ -1,10 +1,15 @@
-import React, { useCallback, useEffect, useRef, useState, FC } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  FC,
+  useMemo
+} from 'react';
 import classNames from 'classnames';
 import { motion, useMotionValue } from 'framer-motion';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
 import css from './Range.module.css';
-
-const MIN_VALUE_BETWEEN = 1;
 
 export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   disabled,
@@ -14,13 +19,15 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   min,
   max,
   value,
-  onChange
+  onChange,
+  step = 1
 }) => {
+  const minValueBetween = step;
   const [minValue, maxValue] = value;
   const initialMinValue = Math.max(minValue, min);
   const initalMaxValue = Math.min(
-    maxValue < initialMinValue + MIN_VALUE_BETWEEN
-      ? initialMinValue + MIN_VALUE_BETWEEN
+    maxValue < initialMinValue + minValueBetween
+      ? initialMinValue + minValueBetween
       : maxValue,
     max
   );
@@ -35,10 +42,25 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   const minX = useMotionValue(0);
   const maxX = useMotionValue(0);
 
+  const fractionDigits = useMemo(
+    () => step.toString()?.[1]?.length || 0,
+    [step]
+  );
+
   const getValue = (xPosition: number): number => {
     const draggedWidth = xPosition - rangeLeft;
     const draggedWidthPercentage = (draggedWidth * 100) / rangeWidth;
-    return Math.round(min + ((max - min) * draggedWidthPercentage) / 100);
+
+    const scaledStep = (step / (max - min)) * 100;
+    const scaledValue =
+      Math.round(draggedWidthPercentage / scaledStep) * scaledStep;
+    const scaledValueWithStep = (scaledValue / 100) * (max - min) + min;
+    const rawValue = Math.round(scaledValueWithStep / step) * step;
+    // Fix floating point precision. Example 3.50000000000000004
+    const newValue =
+      fractionDigits > 0 ? +rawValue.toFixed(fractionDigits) : rawValue;
+
+    return Math.max(min, Math.min(newValue, max));
   };
 
   const getPosition = useCallback(
@@ -46,30 +68,30 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
     [min, max, rangeWidth]
   );
 
-  const minSpaceBetween = getPosition(min + MIN_VALUE_BETWEEN);
+  const minSpaceBetween = getPosition(min + minValueBetween);
 
   const updateCurrentMin = useCallback(
     (newMin: number, notifyChange = false) => {
       newMin = Math.max(newMin, min);
-      if (newMin <= currentMax - MIN_VALUE_BETWEEN) {
+      if (newMin <= currentMax - minValueBetween) {
         setCurrentMin(newMin);
         minX.set(getPosition(newMin));
         notifyChange && onChange?.([newMin, currentMax]);
       }
     },
-    [currentMax, min, minX, getPosition, onChange]
+    [currentMax, min, minX, getPosition, onChange, minValueBetween]
   );
 
   const updateCurrentMax = useCallback(
     (newMax: number, notifyChange = false) => {
       newMax = Math.min(newMax, max);
-      if (newMax >= currentMin + MIN_VALUE_BETWEEN) {
+      if (newMax >= currentMin + minValueBetween) {
         setCurrentMax(newMax);
         maxX.set(getPosition(newMax));
         notifyChange && onChange?.([currentMin, newMax]);
       }
     },
-    [currentMin, max, maxX, getPosition, onChange]
+    [currentMin, max, maxX, getPosition, onChange, minValueBetween]
   );
 
   useEffect(() => {

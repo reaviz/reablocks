@@ -29,6 +29,12 @@ export interface RangeProps<Value> {
   max: number;
 
   /**
+   * The value will be a multiple of step
+   * The default is 1
+   */
+  step?: number;
+
+  /**
    * The value of the range
    */
   value: Value;
