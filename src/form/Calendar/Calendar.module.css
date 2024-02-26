@@ -7,16 +7,4 @@
     justify-content: space-between;
     margin-bottom: var(--spacing-sm);
   }
-
-  .monthLabel {
-    display: flex;
-    flex-grow: 1;
-    justify-content: space-around;
-    gap: var(--spacing-lg);
-  }
-
-  .calendars {
-    display: flex;
-    gap: var(--spacing-lg);
-  }
 }

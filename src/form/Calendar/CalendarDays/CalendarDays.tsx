@@ -123,13 +123,13 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   const maxLimit = useMemo(() => (max === 'now' ? new Date() : max), [max]);
 
   const renderDay = useCallback(
-    (day, ii) => {
+    day => {
       // Determine if the day should be shown or not
       if (
         (day.isPreviousMonth && hidePrevMonthDays) ||
         (day.isNextMonth && hideNextMonthDays)
       ) {
-        return <div />;
+        return <div key={day.dayOfMonth} />;
       }
 
       // Determine if the day is disabled
@@ -206,7 +206,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
 
       return (
         <Button
-          key={`day-${ii}`}
+          key={day.formattedDate}
           className={classNames(css.day, {
             [css.outside]: day.isNextMonth || day.isPreviousMonth,
             [css.today]: day.isToday,

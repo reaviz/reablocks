@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Card } from '../../layout/Card';
 import { Calendar } from './Calendar';
+import { CalendarRange } from './CalendarRange';
 import { add, addMonths, sub } from 'date-fns';
 import { Divider, Stack } from '../../layout';
 
@@ -130,12 +131,10 @@ export const Multiview = () => {
 
   return (
     <Card>
-      <Calendar
+      <CalendarRange
         value={range}
         onChange={val => setRange(val as [Date, Date])}
-        numMonths={2}
         showDayOfWeek
-        isRange
       />
       <Divider />
       <Stack inline={false} justifyContent="center">
@@ -152,13 +151,11 @@ export const MultiviewPast = () => {
 
   return (
     <Card>
-      <Calendar
+      <CalendarRange
         value={range}
         onChange={val => setRange(val as [Date, Date])}
-        numMonths={2}
         direction="past"
         showDayOfWeek
-        isRange
       />
       <Divider />
       <Stack inline={false} justifyContent="center">
