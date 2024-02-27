@@ -21,6 +21,16 @@
       color: color-mix(in srgb, var(--button-color) 60%, transparent);
     }
 
+    &.selectedDay {
+      /* !important to override default button styling */
+      background: var(--calendar-day-background-selected) !important;
+      border-color: var(--calendar-day-border-selected) !important;
+
+      &:hover {
+        border-color: var(--calendar-day-border-hover) !important;
+      }
+    }
+
     &.range {
       border-radius: 0;
       /* !important to override default button styling */

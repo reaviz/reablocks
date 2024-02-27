@@ -2,9 +2,9 @@ import { FC, Fragment, useCallback, useMemo, useState } from 'react';
 import {
   add,
   addMonths,
-  isSameDay,
-  max as maxDate,
   min as minDate,
+  max as maxDate,
+  isBefore,
   sub
 } from 'date-fns';
 import { AnimatePresence, motion } from 'framer-motion';
@@ -17,7 +17,16 @@ import { Stack } from '../../layout/Stack';
 import css from './CalendarRange.module.css';
 
 export interface CalendarRangeProps
-  extends Omit<CalendarProps, 'isRange' | 'onViewChange'> {
+  extends Omit<CalendarProps, 'value' | 'isRange' | 'onViewChange'> {
+  /**
+   * The selected date(s) for the calendar.
+   */
+  value?:
+    | [Date, Date]
+    | [undefined, undefined]
+    | [Date | undefined]
+    | undefined;
+
   /**
    * The number of calendar months to display.
    */
@@ -57,17 +66,11 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   ...rest
 }) => {
   const date = useMemo(
-    () => (Array.isArray(value) ? value?.[0] : value) ?? new Date(),
+    () => (Array.isArray(value) ? value[0] : new Date()),
     [value]
   );
-  const rangeStart = useMemo(
-    () => value?.[0] ?? date ?? new Date(),
-    [date, value]
-  );
-  const rangeEnd = useMemo(
-    () => value?.[1] ?? date ?? new Date(),
-    [date, value]
-  );
+  const rangeStart = useMemo(() => (value ? value[0] : undefined), [value]);
+  const rangeEnd = useMemo(() => (value ? value[1] : undefined), [value]);
 
   const [viewValue, setViewValue] = useState<Date>(date || new Date());
   const [scrollDirection, setScrollDirection] = useState<
@@ -83,10 +86,13 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
 
   const dateChangeHandler = useCallback(
     (date: Date) => {
-      if (isSameDay(rangeStart, rangeEnd)) {
-        onChange?.([minDate([rangeStart, date]), maxDate([rangeEnd, date])]);
+      if (!rangeStart) {
+        onChange?.([date, undefined]);
+      } else if (!rangeEnd) {
+        const range = [rangeStart, date];
+        onChange?.([minDate(range), maxDate(range)]);
       } else {
-        onChange?.([date, date]);
+        onChange?.([date, undefined]);
       }
     },
     [onChange, rangeEnd, rangeStart]
@@ -192,7 +198,6 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                   min={min}
                   max={max}
                   disabled={disabled}
-                  isRange={true}
                   current={[rangeStart, rangeEnd]}
                   showDayOfWeek={showDayOfWeek}
                   xAnimation={xAnimation}
@@ -202,6 +207,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                   hidePrevMonthDays={idx > 0}
                   hideNextMonthDays={idx < monthsToDisplay - 1}
                   onChange={dateChangeHandler}
+                  isRange
                   {...rest}
                 />
               </Fragment>

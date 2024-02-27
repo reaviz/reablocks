@@ -48,6 +48,10 @@ export const NoAnimation = () => {
         animated={false}
         onChange={(date: Date) => setDate(date)}
       />
+      <Divider />
+      <Stack justifyContent="center">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
     </Card>
   );
 };
@@ -59,7 +63,7 @@ export const DefaultValue = () => {
     <Card>
       <Calendar value={date} onChange={(date: Date) => setDate(date)} />
       <Divider />
-      <Stack inline={false} justifyContent="center">
+      <Stack justifyContent="center">
         {date?.toLocaleDateString() ?? 'No date selected'}
       </Stack>
     </Card>
@@ -81,7 +85,7 @@ export const MinMax = () => {
         onChange={(date: Date) => setDate(date)}
       />
       <Divider />
-      <Stack inline={false} justifyContent="center">
+      <Stack justifyContent="center">
         {date?.toLocaleDateString() ?? 'No date selected'}
       </Stack>
     </Card>
@@ -99,7 +103,7 @@ export const WithLabels = () => {
         showDayOfWeek
       />
       <Divider />
-      <Stack inline={false} justifyContent="center">
+      <Stack justifyContent="center">
         {date?.toLocaleDateString() ?? 'No date selected'}
       </Stack>
     </Card>
@@ -113,11 +117,11 @@ export const Range = () => {
     <Card>
       <Calendar
         value={range}
+        onChange={val => setRange(val as [Date, Date | undefined])}
         isRange
-        onChange={val => setRange(val as [Date, Date])}
       />
       <Divider />
-      <Stack inline={false} justifyContent="center">
+      <Stack justifyContent="center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
           : 'No date selected'}
@@ -137,7 +141,7 @@ export const Multiview = () => {
         showDayOfWeek
       />
       <Divider />
-      <Stack inline={false} justifyContent="center">
+      <Stack justifyContent="center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
           : 'No date selected'}
@@ -158,7 +162,7 @@ export const MultiviewPast = () => {
         showDayOfWeek
       />
       <Divider />
-      <Stack inline={false} justifyContent="center">
+      <Stack justifyContent="center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
           : 'No date selected'}

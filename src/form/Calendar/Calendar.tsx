@@ -7,9 +7,8 @@ import {
   endOfDecade,
   getMonth,
   getYear,
-  isSameDay,
-  max as maxDate,
   min as minDate,
+  max as maxDate,
   setMonth,
   setYear,
   startOfDecade,
@@ -30,7 +29,12 @@ export interface CalendarProps {
   /**
    * The selected date(s) for the calendar.
    */
-  value?: Date | [Date, Date];
+  value?:
+    | Date
+    | [Date, Date]
+    | [Date, undefined]
+    | [undefined, undefined]
+    | undefined;
 
   /**
    * The minimum selectable date for the calendar.
@@ -104,19 +108,19 @@ export const Calendar: FC<CalendarProps> = ({
   onViewChange
 }) => {
   const date = useMemo(
-    () => (Array.isArray(value) ? value?.[0] : value) ?? new Date(),
+    () => (Array.isArray(value) ? value[0] : value ?? new Date()),
     [value]
   );
   const rangeStart = useMemo(
-    () => value?.[0] ?? date ?? new Date(),
-    [date, value]
+    () => (isRange && Array.isArray(value) ? value?.[0] : undefined),
+    [value]
   );
   const rangeEnd = useMemo(
-    () => value?.[1] ?? date ?? new Date(),
-    [date, value]
+    () => (isRange && Array.isArray(value) ? value?.[1] : undefined),
+    [value]
   );
 
-  const [viewValue, setViewValue] = useState<Date>(date || new Date());
+  const [viewValue, setViewValue] = useState<Date>(date);
   const [monthValue, setMonthValue] = useState<number>(getMonth(date));
   const [yearValue, setYearValue] = useState<number>(getYear(date));
   const [decadeStart, setDecadeStart] = useState<Date>(startOfDecade(date));
@@ -163,12 +167,13 @@ export const Calendar: FC<CalendarProps> = ({
         onChange?.(date);
         setMonthValue(getMonth(date));
         setYearValue(getYear(date));
+      } else if (!rangeStart) {
+        onChange?.([date, undefined]);
+      } else if (!rangeEnd) {
+        const range = [rangeStart, date];
+        onChange?.([minDate(range), maxDate(range)]);
       } else {
-        if (isSameDay(rangeStart, rangeEnd)) {
-          onChange?.([minDate([rangeStart, date]), maxDate([rangeEnd, date])]);
-        } else {
-          onChange?.([date, date]);
-        }
+        onChange?.([date, undefined]);
       }
     },
     [isRange, onChange, rangeEnd, rangeStart]
@@ -267,7 +272,7 @@ export const Calendar: FC<CalendarProps> = ({
               max={max}
               disabled={disabled}
               isRange={isRange}
-              current={isRange ? [rangeStart, rangeEnd] : date}
+              current={isRange ? [rangeStart, rangeEnd] : value}
               showDayOfWeek={showDayOfWeek}
               xAnimation={xAnimation}
               animated={animated}
@@ -301,6 +306,5 @@ Calendar.defaultProps = {
   previousArrow: '←',
   nextArrow: '→',
   animated: true,
-  dateFormat: 'MMMM yyyy',
-  range: [new Date(), new Date()]
+  dateFormat: 'MMMM yyyy'
 };
