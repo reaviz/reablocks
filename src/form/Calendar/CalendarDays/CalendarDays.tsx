@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { isAfter, isBefore, isSameDay } from 'date-fns';
 import { Button } from '../../../elements/Button';
 import {
+  daysOfWeek,
   getDayAttributes,
   getWeeks,
   isNextWeekEmpty,
@@ -49,19 +50,24 @@ export interface CalendarDaysProps {
   disabled?: boolean;
 
   /**
-   * Whether to display days of previous month
+   * Whether to display days of previous month.
    */
   hidePrevMonthDays?: boolean;
 
   /**
-   * Whether to display days of next month
+   * Whether to display days of next month.
    */
   hideNextMonthDays?: boolean;
 
   /**
-   * Whether to display day of week labels
+   * Whether to display day of week labels.
    */
   showDayOfWeek?: boolean;
+
+  /**
+   * Customize the labels for the days of the week.
+   */
+  dayOfWeekLabels?: string[];
 
   /**
    * Whether the calendar is a range picker.
@@ -94,8 +100,6 @@ export interface CalendarDaysProps {
   onHover?: (date: Date | null) => void;
 }
 
-const DAY_OF_WEEK_LABELS = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
-
 export const CalendarDays: FC<CalendarDaysProps> = ({
   value,
   current,
@@ -107,6 +111,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   animated,
   xAnimation = 0,
   showDayOfWeek,
+  dayOfWeekLabels = daysOfWeek,
   hidePrevMonthDays,
   hideNextMonthDays,
   onChange,
@@ -154,10 +159,9 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       // depending on the current selection and whether corner connects
       // with the above or below day.
       const hasNoRange = isRangeStart && isRangeEnd;
-      const currentRange: [Date, Date] = [
-        current[0],
-        current[1] ?? currentHover
-      ];
+      const currentRange: [Date, Date] = Array.isArray(current)
+        ? [current[0], current[1] ?? currentHover]
+        : [current ?? hoveringDate, current ?? hoveringDate];
       const rangeConnectsBottom =
         isRangeStart &&
         isNextWeekEmpty(day.date, currentRange, hideNextMonthDays);
@@ -238,9 +242,9 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       >
         {showDayOfWeek && (
           <div className={css.weekLabels}>
-            {DAY_OF_WEEK_LABELS.map(day => (
+            {dayOfWeekLabels.map(day => (
               <div key={`day-${day}`} className={css.dayOfWeek}>
-                {day}
+                {day.substring(0, 2)}
               </div>
             ))}
           </div>

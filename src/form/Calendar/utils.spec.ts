@@ -1,10 +1,39 @@
 import { differenceInDays } from 'date-fns';
 import {
   getDayAttributes,
+  getDayLabels,
   getWeeks,
   isNextWeekEmpty,
   isPreviousWeekEmpty
 } from './utils';
+
+describe('getDayLabels', () => {
+  test('should return english labels by default', () => {
+    const labels = getDayLabels();
+
+    expect(labels).toEqual(['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']);
+  });
+
+  test('should return correct labels given a language', () => {
+    const labels = getDayLabels('fr');
+
+    expect(labels).toEqual([
+      'dim.',
+      'lun.',
+      'mar.',
+      'mer.',
+      'jeu.',
+      'ven.',
+      'sam.'
+    ]);
+  });
+
+  test('should return correct labels given a locale', () => {
+    const labels = getDayLabels('de-DE');
+
+    expect(labels).toEqual(['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa']);
+  });
+});
 
 const expectContigousDays = month => {
   const firstDayOfCalendar = month[0][0].date;

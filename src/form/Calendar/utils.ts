@@ -40,6 +40,18 @@ export function getMonthNames(
 
 export const monthNames = getMonthNames();
 
+export function getDayLabels(locale?: string) {
+  return Array.from(
+    { length: 7 },
+    (_, i) =>
+      new Intl.DateTimeFormat(locale ?? navigator.language, {
+        weekday: 'short'
+      }).format(new Date(1970, 0, 4 + i)) // 1970/01/04 is a Sunday
+  );
+}
+
+export const daysOfWeek = getDayLabels();
+
 export interface Day {
   date: Date;
   dayOfMonth: number;
