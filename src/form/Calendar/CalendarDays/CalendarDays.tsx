@@ -170,20 +170,6 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         isRangeEnd &&
         isPreviousWeekEmpty(day.date, currentRange, hidePrevMonthDays);
 
-      if (isSameDay(day.date, new Date(2024, 1, 15))) {
-        console.log(
-          day.date,
-          'is next week empty :',
-          isNextWeekEmpty(day.date, currentRange, hideNextMonthDays)
-        );
-      } else if (isSameDay(day.date, new Date(2024, 1, 24))) {
-        console.log(
-          day.date,
-          'is prev week empty :',
-          isPreviousWeekEmpty(day.date, currentRange, hidePrevMonthDays)
-        );
-      }
-
       // Determine the color variant of the button
       const colorVariant = isActive ? 'primary' : 'default';
 

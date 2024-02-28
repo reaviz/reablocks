@@ -22,10 +22,10 @@ import {
  * Reference: https://www.abeautifulsite.net/posts/getting-localized-month-and-day-names-in-the-browser/
  */
 export function getMonthNames(
-  locale = 'en',
+  locale?: string,
   format: 'long' | 'numeric' | '2-digit' | 'short' | 'narrow' = 'short'
 ) {
-  const formatter = new Intl.DateTimeFormat(locale, {
+  const formatter = new Intl.DateTimeFormat(locale ?? navigator.language, {
     month: format,
     timeZone: 'UTC'
   });
