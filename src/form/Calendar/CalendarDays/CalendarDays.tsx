@@ -1,17 +1,13 @@
 import { FC, useCallback, useMemo, useState } from 'react';
 import classNames from 'classnames';
-import {
-  addDays,
-  isAfter,
-  isBefore,
-  isSameDay,
-  max as maxDate,
-  min as minDate,
-  isSameMonth,
-  isValid
-} from 'date-fns';
+import { isAfter, isBefore, isSameDay } from 'date-fns';
 import { Button } from '../../../elements/Button';
-import { getWeeks } from '../utils';
+import {
+  getDayAttributes,
+  getWeeks,
+  isNextWeekEmpty,
+  isPreviousWeekEmpty
+} from '../utils';
 import { AnimatePresence, motion } from 'framer-motion';
 
 import css from './CalendarDays.module.css';
@@ -146,67 +142,43 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
 
       // Determine if date is in selected (or to be selected) range
       const currentHover = hover || hoveringDate;
-      const isSelectionStarted = Array.isArray(current) && isValid(current[0]);
-      const isSelectionComplete = isSelectionStarted && isValid(current[1]);
-
-      const isInRange = (date: Date, range: [Date, Date]) => {
-        const startDate = minDate(range);
-        const endDate = maxDate(range);
-
-        return (
-          isAfter(date, addDays(startDate, -1)) &&
-          isBefore(date, addDays(endDate, 1))
-        );
-      };
-
-      let isActive = false;
-      let isRangeStart = false;
-      let isRangeEnd = false;
-
-      if (!isRange && isValid(current)) {
-        // if not a range
-        isActive = isSameDay(day.date, current as Date);
-      } else if (!isSelectionStarted) {
-        // if selection has not started
-        isActive = isSameDay(day.date, currentHover);
-        isRangeStart = isActive;
-        isRangeEnd = isActive;
-      } else if (isSelectionComplete) {
-        // if a range has been selected
-        isActive = isInRange(day.date, current);
-        isRangeStart = isSameDay(day.date, current[0]);
-        isRangeEnd = isSameDay(day.date, current[1]);
-      } else {
-        // if in the process of selecting a range
-        const activeRange: [Date, Date] = [
-          current[0],
-          currentHover ?? current[0]
-        ];
-        isActive = isInRange(day.date, activeRange);
-        isRangeStart = isSameDay(day.date, minDate(activeRange));
-        isRangeEnd = isSameDay(day.date, maxDate(activeRange));
-      }
+      const { isActive, isRangeStart, isRangeEnd } = getDayAttributes(
+        day.date,
+        current,
+        currentHover,
+        isRange
+      );
 
       // Determine styling of range start and end dates -
       // this is used to correctly round the corners of the range
       // depending on the current selection and whether corner connects
       // with the above or below day.
       const hasNoRange = isRangeStart && isRangeEnd;
-      const nextWeek = addDays(day.date, 7);
-      const nextWeekInRange =
-        isRangeStart &&
-        isBefore(nextWeek, isSelectionComplete ? current[1] : currentHover);
+      const currentRange: [Date, Date] = [
+        current[0],
+        current[1] ?? currentHover
+      ];
       const rangeConnectsBottom =
-        !nextWeekInRange &&
-        (isSameMonth(day.date, nextWeek) || !hideNextMonthDays);
+        isRangeStart &&
+        isNextWeekEmpty(day.date, currentRange, hideNextMonthDays);
 
-      const prevWeek = addDays(day.date, -7);
-      const prevWeekInRange =
-        isRangeEnd &&
-        isAfter(prevWeek, isSelectionStarted ? current[0] : currentHover);
       const rangeConnectsTop =
-        !prevWeekInRange &&
-        (isSameMonth(day.date, prevWeek) || !hidePrevMonthDays);
+        isRangeEnd &&
+        isPreviousWeekEmpty(day.date, currentRange, hidePrevMonthDays);
+
+      if (isSameDay(day.date, new Date(2024, 1, 15))) {
+        console.log(
+          day.date,
+          'is next week empty :',
+          isNextWeekEmpty(day.date, currentRange, hideNextMonthDays)
+        );
+      } else if (isSameDay(day.date, new Date(2024, 1, 24))) {
+        console.log(
+          day.date,
+          'is prev week empty :',
+          isPreviousWeekEmpty(day.date, currentRange, hidePrevMonthDays)
+        );
+      }
 
       // Determine the color variant of the button
       const colorVariant = isActive ? 'primary' : 'default';
@@ -223,10 +195,9 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
             [css.range]: isRange && isActive,
             [css.startRangeDate]: isRange && isRangeStart,
             [css.roundStartDateBottom]:
-              (isRange && isRangeStart && rangeConnectsBottom) || hasNoRange,
+              (isRange && rangeConnectsBottom) || hasNoRange,
             [css.endRangeDate]: isRange && isRangeEnd,
-            [css.roundEndDateTop]:
-              (isRange && isRangeEnd && rangeConnectsTop) || hasNoRange
+            [css.roundEndDateTop]: (isRange && rangeConnectsTop) || hasNoRange
           })}
           onMouseEnter={() => handleHover(day.date)}
           onMouseLeave={() => handleHover(null)}
