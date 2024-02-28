@@ -424,7 +424,15 @@ export const darkTheme: Theme = {
       'sub-margin': '0 0 var(--spacing-xs) 0'
     },
     calendar: {
-      'calendar-spacing': '8px'
+      'calendar-spacing': '8px',
+      'calendar-gap': '0px',
+      'calendar-divider': darkColors.slate['500'],
+      'calendar-day-radius': 'var(--button-border-radius)',
+      'calendar-day-color': 'var(--button-color)',
+      'calendar-day-background-selected': 'var(--primary-background)',
+      'calendar-day-border-selected': 'var(--primary-background)',
+      'calendar-day-background-hover': 'var(--primary-background)',
+      'calendar-day-border-hover': 'var(--primary-background)'
     },
     badge: {
       'badge-color-background-default': darkColors.white,

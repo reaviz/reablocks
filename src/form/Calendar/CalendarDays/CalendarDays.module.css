@@ -1,28 +1,75 @@
 .week {
-  display: flex;
+  --button-border-radius: var(--calendar-day-radius);
+  --button-color: var(--calendar-day-color);
+
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--calendar-gap);
+  margin-bottom: var(--calendar-gap);
 
   .day {
     flex: 1;
     transition: border 100ms ease-in-out;
     padding: var(--calendar-spacing);
+    text-align: center;
 
-    &:not(.selected).outside {
-      opacity: 0.6;
+    &:hover:not(:disabled) {
+      border-color: var(--calendar-day-border-hover);
     }
 
-    &.range,
-    &.rangeHover {
+    &:not(.range).outside {
+      color: color-mix(in srgb, var(--button-color) 60%, transparent);
+    }
+
+    &.selectedDay {
+      /* !important to override default button styling */
+      background: var(--calendar-day-background-selected) !important;
+      border-color: var(--calendar-day-border-selected) !important;
+
+      &:hover {
+        border-color: var(--calendar-day-border-hover) !important;
+      }
+    }
+
+    &.range {
       border-radius: 0;
+      /* !important to override default button styling */
+      background: var(--calendar-day-background-selected) !important;
+      border-color: var(--calendar-day-border-selected) !important;
+
+      &:hover {
+        border-color: var(--calendar-day-border-hover) !important;
+      }
     }
 
     &.startRangeDate {
-      border-top-left-radius: var(--button-border-radius);
-      border-bottom-left-radius: var(--button-border-radius);
+      border-top-left-radius: var(--calendar-day-radius);
+    }
+
+    &.roundStartDateBottom {
+      border-bottom-left-radius: var(--calendar-day-radius);
     }
 
     &.endRangeDate {
-      border-top-right-radius: var(--button-border-radius);
-      border-bottom-right-radius: var(--button-border-radius);
+      border-bottom-right-radius: var(--calendar-day-radius);
     }
+
+    &.roundEndDateTop {
+      border-top-right-radius: var(--calendar-day-radius);
+    }
+  }
+}
+
+.weekLabels {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: var(--spacing-sm);
+  width: 100%;
+  padding: var(--spacing-md) 0;
+  border-top: 1px solid var(--calendar-divider);
+
+  .dayOfWeek {
+    text-align: center;
+    font-weight: var(--font-weight-bold);
   }
 }

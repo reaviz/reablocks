@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Card } from '../../layout/Card';
 import { Calendar } from './Calendar';
+import { CalendarRange } from './CalendarRange';
 import { add, addMonths, sub } from 'date-fns';
 import { Divider, Stack } from '../../layout';
 
@@ -13,15 +14,13 @@ export const Simple = () => {
   const [date, setDate] = useState<Date>();
 
   return (
-    <>
-      <Card>
-        <Calendar value={date} onChange={(date: Date) => setDate(date)} />
-        <Divider />
-        <Stack inline={false} justifyContent="center">
-          {date?.toLocaleDateString() ?? 'No date selected'}
-        </Stack>
-      </Card>
-    </>
+    <Card>
+      <Calendar value={date} onChange={(date: Date) => setDate(date)} />
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </Card>
   );
 };
 
@@ -49,6 +48,10 @@ export const NoAnimation = () => {
         animated={false}
         onChange={(date: Date) => setDate(date)}
       />
+      <Divider />
+      <Stack justifyContent="center">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
     </Card>
   );
 };
@@ -57,15 +60,13 @@ export const DefaultValue = () => {
   const [date, setDate] = useState<Date>(addMonths(new Date(), 1));
 
   return (
-    <>
-      <Card>
-        <Calendar value={date} onChange={(date: Date) => setDate(date)} />
-        <Divider />
-        <Stack inline={false} justifyContent="center">
-          {date?.toLocaleDateString() ?? 'No date selected'}
-        </Stack>
-      </Card>
-    </>
+    <Card>
+      <Calendar value={date} onChange={(date: Date) => setDate(date)} />
+      <Divider />
+      <Stack justifyContent="center">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </Card>
   );
 };
 
@@ -76,20 +77,36 @@ export const MinMax = () => {
   const [date, setDate] = useState<Date>(new Date());
 
   return (
-    <>
-      <Card>
-        <Calendar
-          value={date}
-          min={prevMonth}
-          max={nextMonth}
-          onChange={(date: Date) => setDate(date)}
-        />
-        <Divider />
-        <Stack inline={false} justifyContent="center">
-          {date?.toLocaleDateString() ?? 'No date selected'}
-        </Stack>
-      </Card>
-    </>
+    <Card>
+      <Calendar
+        value={date}
+        min={prevMonth}
+        max={nextMonth}
+        onChange={(date: Date) => setDate(date)}
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
+export const WithLabels = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <Card>
+      <Calendar
+        value={date}
+        onChange={(date: Date) => setDate(date)}
+        showDayOfWeek
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </Card>
   );
 };
 
@@ -100,11 +117,52 @@ export const Range = () => {
     <Card>
       <Calendar
         value={range}
+        onChange={val => setRange(val as [Date, Date | undefined])}
         isRange
-        onChange={val => setRange(val as [Date, Date])}
       />
       <Divider />
-      <Stack inline={false} justifyContent="center">
+      <Stack justifyContent="center">
+        {range
+          ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
+export const Multiview = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <Card>
+      <CalendarRange
+        value={range}
+        onChange={val => setRange(val as [Date, Date])}
+        showDayOfWeek
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {range
+          ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
+export const MultiviewPast = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <Card>
+      <CalendarRange
+        value={range}
+        onChange={val => setRange(val as [Date, Date])}
+        direction="past"
+        showDayOfWeek
+      />
+      <Divider />
+      <Stack justifyContent="center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
           : 'No date selected'}
