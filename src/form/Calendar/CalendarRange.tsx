@@ -152,12 +152,11 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         </Stack>
         <SmallHeading className={css.monthLabel} disableMargins>
           {displayMonths.map(i => (
-            <DateFormat
-              key={`label-${i}`}
-              date={addMonths(viewValue, showPast ? -i : i)}
-              format={dateFormat}
-              allowToggle={false}
-            />
+            <span key={addMonths(viewValue, showPast ? -i : i).toDateString()}>
+              {new Intl.DateTimeFormat(navigator.language, {
+                month: 'long'
+              }).format(addMonths(viewValue, showPast ? -i : i))}
+            </span>
           ))}
         </SmallHeading>
         <Stack>

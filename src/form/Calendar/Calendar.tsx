@@ -229,13 +229,10 @@ export const Calendar: FC<CalendarProps> = ({
           fullWidth
         >
           <SmallHeading disableMargins>
-            {view === 'days' && (
-              <DateFormat
-                date={viewValue}
-                format={dateFormat}
-                allowToggle={false}
-              />
-            )}
+            {view === 'days' &&
+              new Intl.DateTimeFormat(navigator.language, {
+                month: 'long'
+              }).format(viewValue)}
             {view === 'months' && <>{yearValue}</>}
             {view === 'years' && (
               <>
