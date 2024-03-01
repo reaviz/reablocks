@@ -1,8 +1,9 @@
 import React, { FC, forwardRef, Ref, useContext } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import css from './Button.module.css';
 import { ButtonGroupContext } from './ButtonGroupContext';
+import { useComponentTheme } from '../../utils/Theme/TW';
+import { twMerge } from 'tailwind-merge';
 
 export interface ButtonProps
   extends Omit<
@@ -78,8 +79,12 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
     }: ButtonProps,
     ref: Ref<HTMLButtonElement>
   ) => {
+    const theme = useComponentTheme('button');
+
     const { variant: groupVariant, size: groupSize } =
       useContext(ButtonGroupContext);
+
+    const isGroup = !!groupVariant && !!groupSize;
 
     return (
       <motion.button
@@ -87,30 +92,40 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         disabled={disabled}
         ref={ref}
         whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
-        className={classNames(
-          css.btn,
-          {
-            [css.fullWidth]: fullWidth,
-            [css.disableMargins]: disableMargins,
-            [css.disablePadding]: disablePadding,
-            [css[color]]: true,
-            [css[groupSize || size]]: true,
-            [css[groupVariant || variant]]: true,
-            [css.group]: !!groupVariant && !!groupSize
-          },
+        className={twMerge(
+          theme.base,
+          theme.disabled,
+          fullWidth && theme.fullWidth,
+          theme.variants[groupVariant || variant],
+          theme.colors[color],
+          theme.sizes[groupSize || size],
+          isGroup && theme.group,
+          isGroup && groupVariant === 'text' && theme.groupText,
           className
         )}
       >
         {startAdornment && (
           <div
-            className={classNames(css.startAdornment, { [css[size]]: true })}
+            className={classNames(
+              twMerge(
+                theme.adornment.base,
+                theme.adornment.start,
+                theme.adornment.sizes[size]
+              )
+            )}
           >
             {startAdornment}
           </div>
         )}
         {children}
         {endAdornment && (
-          <div className={classNames(css.endAdornment, { [css[size]]: true })}>
+          <div
+            className={twMerge(
+              theme.adornment.base,
+              theme.adornment.start,
+              theme.adornment.sizes[size]
+            )}
+          >
             {endAdornment}
           </div>
         )}

@@ -1,4 +1,5 @@
 import { Button } from './Button';
+import { ReaBlocksTheme, ThemeProvider } from '../../utils/Theme/TW';
 
 export default {
   title: 'Components/Elements/Button',
@@ -30,6 +31,14 @@ export const Sizes = () => (
     <Button size="small">Small</Button>
     <Button size="medium">Medium</Button>
     <Button size="large">Large</Button>
+  </div>
+);
+
+export const FullWidth = () => (
+  <div
+    style={{ display: 'flex', width: '400px', alignItems: 'center', gap: 10 }}
+  >
+    <Button fullWidth>Full Width</Button>
   </div>
 );
 
@@ -67,3 +76,41 @@ export const WithIcon = () => (
     </Button>
   </div>
 );
+
+export const CustomTheme = () => {
+  const customTheme: ReaBlocksTheme = {
+    components: {
+      button: {
+        base: 'bg-green-400 text-black dark:text-white',
+        variants: {
+          filled:
+            'bg-purple-100 hover:bg-purple-50 dark:bg-green-500 dark:hover:bg-green-200',
+          outline:
+            'bg-transparent dark:border-green-400 border dark:text-green-100',
+          text: 'bg-transparent border-0 dark:text-green-100'
+        },
+        sizes: {
+          small: 'p-2',
+          medium: 'p-3',
+          large: 'p-4'
+        }
+      }
+    }
+  };
+
+  return (
+    <ThemeProvider theme={customTheme}>
+      <div style={{ display: 'flex', gap: 10 }}>
+        <Button variant="filled">Filled</Button>
+        <Button variant="outline">Outline</Button>
+        <Button variant="text">Text</Button>
+      </div>
+      <br />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <Button size="small">Small</Button>
+        <Button size="medium">Medium</Button>
+        <Button size="large">Large</Button>
+      </div>
+    </ThemeProvider>
+  );
+};

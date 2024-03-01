@@ -1,0 +1,6 @@
+/* Need to generate styles for predefined themes */
+/* npx tailwindcss -i ./src/input.css -o ./src/output.css */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';

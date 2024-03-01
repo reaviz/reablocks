@@ -1,16 +1,30 @@
-import { ThemeProvider, darkTheme } from '../src/utils/Theme';
 import theme from './theme';
 import { Preview } from '@storybook/react';
+import { withThemeByClassName } from '@storybook/addon-themes';
+
+import { ThemeProvider, darkTheme } from '../src/utils/Theme';
+import { ThemeProvider as TWThemeProvider } from '../src/utils/Theme/TW';
+
+import '../src/index.css';
 
 const withProvider = (Story, context) => (
   <ThemeProvider theme={darkTheme}>
-    <Story {...context} />
+    <TWThemeProvider>
+      <Story {...context} />
+    </TWThemeProvider>
   </ThemeProvider>
 );
 
 const preview: Preview = {
   decorators: [
-    withProvider
+    withProvider,
+    withThemeByClassName({
+      themes: {
+        light: 'light',
+        dark: 'dark',
+      },
+      defaultTheme: 'dark',
+    }),
   ],
   parameters: {
     layout: 'centered',
