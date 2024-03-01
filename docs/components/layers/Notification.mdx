@@ -8,6 +8,43 @@ import * as NotificationsStories from '../../../src/layers/Notification/Notifica
 The Notification component delivers real-time messages or alerts to users, providing important updates, feedback, or information within an application.
 Notifications can be automatic or can be triggered based on some actions that the user performed.
 
+## Quick Start
+Render `Notifications` component at the top of your application so that it does not conflict with other absolutely positioned DOM elements.
+
+```jsx
+import { Notifications } from 'reablocks';
+
+const App = () => {
+  return (
+    <div className='app-container'>
+      <Notifications>
+        <Application />
+       </Notifications>
+    </div>
+  );
+};
+```
+
+Use `useNotification` hook to access notify and clearAllNotifications functions
+
+```jsx
+import { useNotification, Button } from 'reablocks';
+
+const Component = () => {
+   const { notify, clearAllNotifications } = useNotification();
+  return (
+    <>
+      <Button onClick={() => notify('Some text')}>
+        Test
+      </Button>
+      <Button onClick={() => clearAllNotifications()}>
+         Clear
+      </Button>
+    </>
+  );
+};
+```
+
 ## Example
 ### Notification for interface essential scenarios
 <Canvas sourceState="shown" of={NotificationsStories.Variants} />
