@@ -1,7 +1,8 @@
 import {
-  buttonTheme,
+  darkButtonTheme,
+  lightButtonTheme,
   ReaBlocksButtonTheme
-} from '../../../elements/Button/ButtonTheme';
+} from '../../../elements/Button/DarkButtonTheme';
 
 export interface ReaBlocksComponents {
   button: string;
@@ -14,8 +15,14 @@ export interface ReaBlocksTheme {
   };
 }
 
+export const lightTheme: ReaBlocksTheme = {
+  components: {
+    button: lightButtonTheme
+  }
+};
+
 export const theme: ReaBlocksTheme = {
   components: {
-    button: buttonTheme
+    button: darkButtonTheme
   }
 };

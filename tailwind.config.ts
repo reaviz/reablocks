@@ -1,5 +1,4 @@
 import { type Config } from 'tailwindcss';
-import { twAdditionalConfiguration } from './src/utils/Theme/TW';
 
 const config: Config = {
   content: [
@@ -8,9 +7,7 @@ const config: Config = {
   ],
   darkMode: 'selector',
   theme: {
-    extend: {
-      ...twAdditionalConfiguration,
-    },
+    extend: {},
   },
   plugins: [],
 };
