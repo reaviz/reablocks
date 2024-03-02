@@ -1,4 +1,4 @@
-export interface ReaBlocksButtonTheme {
+export interface ButtonTheme {
   base?: string;
   disabled?: string;
   fullWidth?: string;
@@ -33,11 +33,12 @@ export interface ReaBlocksButtonTheme {
   };
 }
 
-const baseTheme: ReaBlocksButtonTheme = {
+const baseTheme: ButtonTheme = {
   base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded',
   disabled: 'disabled:cursor-not-allowed',
   fullWidth: 'block w-full',
-  group: 'rounded-none first:rounded-s last:rounded-e',
+  group:
+    'rounded-none first:rounded-s last:rounded-e border-s-0 first:border-s',
   groupText:
     'border border-y-transparent border-l-transparent last:border-r-transparent hover:bg-initial',
   adornment: {
@@ -59,24 +60,24 @@ export const lightButtonTheme = {
   base: [baseTheme.base, 'text-black'].join(' '),
   disabled: [
     baseTheme.disabled,
-    'disabled:bg-gray-400 disabled:text-gray-50'
+    'data-[variant=filled]:disabled:bg-gray-400 disabled:text-gray-50'
   ].join(' '),
   fullWidth: baseTheme.fullWidth,
   group: baseTheme.group,
-  groupText: baseTheme.groupText,
   adornment: baseTheme.adornment,
   sizes: baseTheme.sizes,
+  groupText: [baseTheme.groupText, 'border-s-black first:border-s-0'].join(' '),
   variants: {
-    filled: 'bg-blue-50 border-blue-500 hover:bg-blue-100',
-    outline: 'bg-transparent border-grey border',
-    text: 'bg-transparent border-0'
+    filled: 'bg-blue-400 border-blue-500 hover:bg-blue-500',
+    outline: 'bg-opacity-0 border-gray-900 border',
+    text: 'bg-opacity-0 border-0'
   },
   colors: {
-    primary: 'bg-blue-50 hover:bg-blue-100',
-    secondary: 'bg-gray-100 hover:bg-gray-100',
-    success: 'bg-green-50 hover:bg-green-100',
-    warning: 'bg-orange-50 hover:bg-orange-100',
-    error: 'bg-red-50 hover:bg-red-100'
+    primary: 'bg-blue-400 hover:bg-blue-500',
+    secondary: 'bg-gray-400 hover:bg-gray-500',
+    success: 'bg-green-400 hover:bg-green-500',
+    warning: 'bg-orange-400 hover:bg-orange-500',
+    error: 'bg-red-400 hover:bg-red-500'
   }
 };
 
@@ -84,7 +85,7 @@ export const darkButtonTheme = {
   base: [baseTheme.base, 'text-gray-100'].join(' '),
   disabled: [
     baseTheme.disabled,
-    'disabled:bg-gray-500 disabled:text-gray-50 border-gray-500'
+    'data-[variant=filled]:disabled:bg-gray-400 disabled:text-gray-50 border-gray-500'
   ].join(' '),
   fullWidth: baseTheme.fullWidth,
   group: baseTheme.group,
@@ -93,8 +94,8 @@ export const darkButtonTheme = {
   sizes: baseTheme.sizes,
   variants: {
     filled: 'bg-gray-800 text-white hover:bg-gray-700 border-gray-800',
-    outline: 'bg-transparent border-grey border',
-    text: 'bg-transparent border-0'
+    outline: 'bg-opacity-0 border-grey border',
+    text: 'bg-opacity-0 border-0'
   },
   colors: {
     primary: 'bg-blue-600 hover:bg-blue-700 border-blue-600 text-white',

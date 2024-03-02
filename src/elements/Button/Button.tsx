@@ -92,6 +92,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         disabled={disabled}
         ref={ref}
         whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
+        data-variant={groupVariant || variant}
         className={twMerge(
           theme.base,
           theme.disabled,

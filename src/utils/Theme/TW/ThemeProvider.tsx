@@ -1,6 +1,12 @@
-import React, { createContext, FC, useContext, useState } from 'react';
+import React, {
+  createContext,
+  FC,
+  useContext,
+  useEffect,
+  useState
+} from 'react';
 import { ReaBlocksComponents, ReaBlocksTheme } from './theme';
-import { theme as defaultTheme } from './theme';
+import { darkTheme as defaultTheme } from './theme';
 import { mergeDeep } from '../../helpers/mergeDeep';
 
 interface ThemeContextProps {
@@ -19,6 +25,12 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
   const [activeTheme, setActiveTheme] = useState(
     theme ? mergeDeep(defaultTheme, theme) : defaultTheme
   );
+
+  useEffect(() => {
+    if (theme) {
+      setActiveTheme(mergeDeep(defaultTheme, theme));
+    }
+  }, [theme]);
 
   const updateTheme = (newTheme: ReaBlocksTheme) => {
     setActiveTheme({ ...activeTheme, ...newTheme });

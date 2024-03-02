@@ -7,7 +7,10 @@ const config: Config = {
   ],
   darkMode: 'selector',
   theme: {
-    extend: {},
+    extend: {
+      // Define next colors to be used in the project
+      // primary, secondary, success, error, warning, info, disabled
+    },
   },
   plugins: [],
 };

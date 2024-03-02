@@ -81,13 +81,11 @@ export const CustomTheme = () => {
   const customTheme: ReaBlocksTheme = {
     components: {
       button: {
-        base: 'bg-green-400 text-black dark:text-white',
+        base: 'bg-lime-600 text-gray-300',
         variants: {
-          filled:
-            'bg-purple-100 hover:bg-purple-50 dark:bg-green-500 dark:hover:bg-green-200',
-          outline:
-            'bg-transparent dark:border-green-400 border dark:text-green-100',
-          text: 'bg-transparent border-0 dark:text-green-100'
+          filled: 'bg-lime-600 hover:bg-lime-700',
+          outline: 'bg-transparent border-lime-600 border',
+          text: 'bg-transparent border-0'
         },
         sizes: {
           small: 'p-2',
