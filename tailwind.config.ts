@@ -19,6 +19,8 @@ const config: Config = {
         warning: colors.orange,
         info: {},
         disabled: colors.gray['400'],
+        // text-disabled
+        // bg-disabled
       }
     },
   },
