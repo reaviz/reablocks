@@ -1,30 +1,22 @@
-import React, {
-  createContext,
-  FC,
-  useContext,
-  useEffect,
-  useState
-} from 'react';
-import { ReaBlocksComponents, ReaBlocksTheme } from './theme';
+import React, { createContext, FC, useEffect, useState } from 'react';
+import { ReaBlocksTheme } from './theme';
 import { darkTheme as defaultTheme } from './theme';
 import { mergeDeep } from '../../helpers/mergeDeep';
 
-interface ThemeContextProps {
+export interface ThemeContextProps {
   activeTheme: ReaBlocksTheme;
   updateTheme: (newTheme: ReaBlocksTheme) => void;
 }
 
-const ThemeContext = createContext<ThemeContextProps>(null);
+export const ThemeContext = createContext<ThemeContextProps>(null);
 
 interface ThemeProviderProps {
-  theme?: ReaBlocksTheme;
+  theme: ReaBlocksTheme;
   children: React.ReactNode;
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
-  const [activeTheme, setActiveTheme] = useState(
-    theme ? mergeDeep(defaultTheme, theme) : defaultTheme
-  );
+  const [activeTheme, setActiveTheme] = useState(theme);
 
   useEffect(() => {
     if (theme) {
@@ -41,25 +33,4 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
       {children}
     </ThemeContext.Provider>
   );
-};
-
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-
-  if (!context) {
-    throw new Error('useTheme must be used within a ThemeProvider');
-  }
-
-  return context;
-};
-
-export const useComponentTheme = (component: keyof ReaBlocksComponents) => {
-  const { activeTheme } = useTheme();
-
-  const componentTheme = activeTheme.components[component];
-  if (!componentTheme) {
-    throw new Error(`component ${component} does not exist in theme`);
-  }
-
-  return componentTheme;
 };

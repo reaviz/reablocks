@@ -73,11 +73,11 @@ export const lightButtonTheme = {
     text: 'bg-opacity-0 border-0'
   },
   colors: {
-    primary: 'bg-blue-400 hover:bg-blue-500',
-    secondary: 'bg-gray-400 hover:bg-gray-500',
-    success: 'bg-green-400 hover:bg-green-500',
-    warning: 'bg-orange-400 hover:bg-orange-500',
-    error: 'bg-red-400 hover:bg-red-500'
+    primary: 'bg-primary-400 hover:bg-primary-500',
+    secondary: 'bg-secondary-400 hover:bg-secondary-500',
+    success: 'bg-success-400 hover:bg-success-500',
+    warning: 'bg-warning-400 hover:bg-warning-500',
+    error: 'bg-error-400 hover:bg-error-500'
   }
 };
 
@@ -98,10 +98,14 @@ export const darkButtonTheme = {
     text: 'bg-opacity-0 border-0'
   },
   colors: {
-    primary: 'bg-blue-600 hover:bg-blue-700 border-blue-600 text-white',
-    secondary: 'bg-blue-700 hover:bg-blue-800 border-blue-700 text-white',
-    success: 'bg-green-700 hover:bg-green-800 border-green-700 text-white',
-    warning: 'bg-orange-700 hover:bg-orange-800 border-orange-700 text-white',
-    error: 'bg-red-700 hover:bg-red-800 border-red-700 text-white'
+    primary:
+      'bg-primary-600 hover:bg-primary-700 border-primary-600 text-white',
+    secondary:
+      'bg-secondary-700 hover:bg-secondary-800 border-secondary-700 text-white',
+    success:
+      'bg-success-700 hover:bg-success-800 border-success-700 text-white',
+    warning:
+      'bg-warning-700 hover:bg-warning-800 border-warning-700 text-white',
+    error: 'bg-error-700 hover:bg-error-800 border-error-700 text-white'
   }
 };
