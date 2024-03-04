@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref, useCallback } from 'react';
+import React, { FC, forwardRef, LegacyRef } from 'react';
 import classNames from 'classnames';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { useTheme } from '../../utils/Theme';
@@ -57,7 +57,7 @@ export interface CheckboxProps {
 }
 
 export interface CheckboxRef {
-  ref?: Ref<HTMLDivElement>;
+  ref?: LegacyRef<HTMLDivElement>;
 }
 
 export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
@@ -75,7 +75,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
       labelClassName,
       ...rest
     },
-    ref: Ref<HTMLDivElement>
+    ref
   ) => {
     const theme = useTheme();
     const pathLength = useMotionValue(0);

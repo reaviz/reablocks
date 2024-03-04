@@ -5,10 +5,14 @@ import {
   getDaysInMonth,
   getDate,
   getISODay,
+  isAfter,
+  isBefore,
   isValid,
   isSameDay,
   isSameMonth,
   startOfMonth,
+  min,
+  max,
   subDays
 } from 'date-fns';
 
@@ -18,10 +22,10 @@ import {
  * Reference: https://www.abeautifulsite.net/posts/getting-localized-month-and-day-names-in-the-browser/
  */
 export function getMonthNames(
-  locale = 'en',
+  locale?: string,
   format: 'long' | 'numeric' | '2-digit' | 'short' | 'narrow' = 'short'
 ) {
-  const formatter = new Intl.DateTimeFormat(locale, {
+  const formatter = new Intl.DateTimeFormat(locale ?? navigator.language, {
     month: format,
     timeZone: 'UTC'
   });
@@ -35,6 +39,18 @@ export function getMonthNames(
 }
 
 export const monthNames = getMonthNames();
+
+export function getDayLabels(locale?: string) {
+  return Array.from(
+    { length: 7 },
+    (_, i) =>
+      new Intl.DateTimeFormat(locale ?? navigator.language, {
+        weekday: 'short'
+      }).format(new Date(1970, 0, 4 + i)) // 1970/01/04 is a Sunday
+  );
+}
+
+export const daysOfWeek = getDayLabels();
 
 export interface Day {
   date: Date;
@@ -104,4 +120,94 @@ export function getWeeks(
   }
 
   return weeks;
+}
+
+/**
+ * Get attributes for the day:
+ * - isActive: if the day is within the selected range
+ * - isRangeStart: if the day is the start of the range
+ * - isRangeEnd: if the day is the end of the range
+ *
+ * "Range" here refers to a selection OR a selected date to hovered date.
+ */
+export function getDayAttributes(
+  day: Date,
+  current:
+    | Date
+    | [Date, Date]
+    | [Date, undefined]
+    | [undefined, undefined]
+    | undefined,
+  hover: Date,
+  isRange: boolean
+) {
+  let isActive = false;
+  let isRangeStart = false;
+  let isRangeEnd = false;
+
+  const isInRange = (date: Date, range: [Date, Date]) => {
+    const startDate = min(range);
+    const endDate = max(range);
+
+    return (
+      isAfter(date, addDays(startDate, -1)) &&
+      isBefore(date, addDays(endDate, 1))
+    );
+  };
+
+  const isSelectionStarted = Array.isArray(current) && isValid(current[0]);
+  const isSelectionComplete = isSelectionStarted && isValid(current[1]);
+
+  if (!isRange && isValid(current)) {
+    // if not a range
+    isActive = isSameDay(day, current as Date);
+  } else if (!isSelectionStarted) {
+    // if selection has not started
+    isActive = isSameDay(day, hover);
+    isRangeStart = isActive;
+    isRangeEnd = isActive;
+  } else if (isSelectionComplete) {
+    // if a range has been selected
+    isActive = isInRange(day, current);
+    isRangeStart = isSameDay(day, current[0]);
+    isRangeEnd = isSameDay(day, current[1]);
+  } else {
+    // if in the process of selecting a range
+    const activeRange: [Date, Date] = [current[0], hover ?? current[0]];
+    isActive = isInRange(day, activeRange);
+    isRangeStart = isSameDay(day, min(activeRange));
+    isRangeEnd = isSameDay(day, max(activeRange));
+  }
+
+  return { isActive, isRangeStart, isRangeEnd };
+}
+
+/**
+ * Get whether the space below the current day is empty or not
+ */
+export function isNextWeekEmpty(
+  day: Date,
+  range: [Date, Date],
+  hideNextMonth: boolean
+) {
+  const nextWeek = addDays(day, 7);
+  const nextWeekInRange =
+    isBefore(nextWeek, max(range)) || isSameDay(nextWeek, max(range));
+
+  return !(nextWeekInRange && (isSameMonth(day, nextWeek) || !hideNextMonth));
+}
+
+/**
+ * Get whether the space above the current day is empty or not
+ */
+export function isPreviousWeekEmpty(
+  day: Date,
+  range: [Date, Date],
+  hidePrevMonth: boolean
+) {
+  const prevWeek = addDays(day, -7);
+  const prevWeekInRange =
+    isAfter(prevWeek, min(range)) || isSameDay(prevWeek, min(range));
+
+  return !(prevWeekInRange && (isSameMonth(day, prevWeek) || !hidePrevMonth));
 }

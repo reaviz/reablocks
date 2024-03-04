@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref } from 'react';
+import React, { FC, forwardRef, LegacyRef } from 'react';
 import classNames from 'classnames';
 import css from './SecondaryHeading.module.css';
 import common from '../Typography.module.css';
@@ -27,8 +27,9 @@ export interface SecondaryHeadingProps
    */
   disableMargins?: boolean;
 }
+
 export interface SecondaryHeadingRef {
-  ref?: Ref<HTMLHeadingElement>;
+  ref?: LegacyRef<HTMLHeadingElement>;
 }
 
 export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
@@ -42,7 +43,7 @@ export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
         className,
         ...rest
       }: SecondaryHeadingProps,
-      ref: Ref<HTMLHeadingElement>
+      ref
     ) => (
       <h3
         ref={ref}

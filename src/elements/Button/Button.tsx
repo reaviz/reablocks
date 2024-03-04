@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref, useContext } from 'react';
+import React, { FC, forwardRef, LegacyRef, useContext } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { ButtonGroupContext } from './ButtonGroupContext';
@@ -57,7 +57,7 @@ export interface ButtonProps
 }
 
 export interface ButtonRef {
-  ref?: Ref<HTMLButtonElement>;
+  ref?: LegacyRef<HTMLButtonElement>;
 }
 
 export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
@@ -77,7 +77,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
       endAdornment,
       ...rest
     }: ButtonProps,
-    ref: Ref<HTMLButtonElement>
+    ref
   ) => {
     const theme = useComponentTheme('button');
 

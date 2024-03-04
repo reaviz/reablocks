@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref } from 'react';
+import React, { FC, forwardRef, LegacyRef } from 'react';
 import classNames from 'classnames';
 import css from './PrimaryHeading.module.css';
 import common from '../Typography.module.css';
@@ -28,7 +28,7 @@ export interface PrimaryHeadingProps
   disableMargins?: boolean;
 }
 export interface PrimaryHeadingRef {
-  ref?: Ref<HTMLHeadingElement>;
+  ref?: LegacyRef<HTMLHeadingElement>;
 }
 
 export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
@@ -42,7 +42,7 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
         className,
         ...rest
       }: PrimaryHeadingProps,
-      ref: Ref<HTMLHeadingElement>
+      ref
     ) => (
       <h2
         ref={ref}

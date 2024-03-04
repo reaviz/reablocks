@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref } from 'react';
+import React, { FC, forwardRef, LegacyRef } from 'react';
 import classnames from 'classnames';
 import { motion } from 'framer-motion';
 import css from './Toggle.module.css';
@@ -35,15 +35,12 @@ export interface ToggleProps {
   onBlur?: (event: React.FocusEvent<HTMLDivElement>) => void;
 }
 
-export const Toggle: FC<
-  ToggleProps & {
-    ref?: Ref<HTMLDivElement>;
-  }
-> = forwardRef(
-  (
-    { checked, disabled, onChange, onBlur, className, size, ...rest },
-    ref: Ref<HTMLDivElement>
-  ) => (
+export interface ToggleRef {
+  ref?: LegacyRef<HTMLDivElement>;
+}
+
+export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef(
+  ({ checked, disabled, onChange, onBlur, className, size, ...rest }, ref) => (
     <div
       {...rest}
       ref={ref}

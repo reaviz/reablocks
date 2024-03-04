@@ -3,6 +3,7 @@ import { Meta } from '@storybook/addon-docs';
 <Meta title="Docs/Theme/Example" />
 
 # Theme Example
+
 Below is an example of a theme implemented using the design
 tokens system. This theme is the `darkTheme` that is
 used in the Storybook stories.
@@ -148,7 +149,6 @@ export const darkColors: Colors = {
   }
 };
 
-
 /**
  * Dark theme example.
  */
@@ -260,7 +260,18 @@ export const darkTheme: Theme = {
       'button-focus-offset': spacings.xs,
       'button-spacing-sm': `${spacings.xs} ${spacings.sm}`,
       'button-spacing-md': `${spacings.sm} ${spacings.md}`,
-      'button-spacing-lg': `${spacings.md} ${spacings.lg}`,
+      'button-spacing-lg': `${spacings.md} ${spacings.lg}`
+    },
+    calendar: {
+      'calendar-spacing': '8px',
+      'calendar-gap': '0px',
+      'calendar-divider': darkColors.slate['500'],
+      'calendar-day-radius': 'var(--button-border-radius)',
+      'calendar-day-color': 'var(--button-color)',
+      'calendar-day-background-selected': 'var(--primary-background)',
+      'calendar-day-border-selected': 'var(--primary-background)',
+      'calendar-day-background-hover': 'var(--primary-background)',
+      'calendar-day-border-hover': 'var(--primary-background)'
     },
     card: {
       'card-border': '0',

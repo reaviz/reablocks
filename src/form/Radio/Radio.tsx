@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref, useContext, useMemo } from 'react';
+import React, { FC, forwardRef, LegacyRef, useContext, useMemo } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import css from './Radio.module.css';
@@ -55,7 +55,7 @@ const VARIANTS = {
 };
 
 export interface RadioRef {
-  ref?: Ref<HTMLDivElement>;
+  ref?: LegacyRef<HTMLDivElement>;
 }
 
 export const Radio: FC<RadioProps & RadioRef> = forwardRef(
@@ -71,7 +71,7 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
       value,
       ...rest
     },
-    ref: Ref<HTMLDivElement>
+    ref
   ) => {
     const { onChange: onGroupValueChange, selectedValue } =
       useContext(RadioGroupContext);
