@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref } from 'react';
+import React, { FC, forwardRef, LegacyRef } from 'react';
 import classNames from 'classnames';
 import css from './Sub.module.css';
 import common from '../Typography.module.css';
@@ -28,13 +28,13 @@ export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
 }
 
 export interface SubRef {
-  ref?: Ref<HTMLHeadingElement>;
+  ref?: LegacyRef<HTMLHeadingElement>;
 }
 
 export const Sub: FC<SubProps & SubRef> = forwardRef(
   (
     { color, variant, disableMargins, children, className, ...rest }: SubProps,
-    ref: Ref<HTMLHeadingElement>
+    ref
   ) => (
     <h6
       ref={ref}

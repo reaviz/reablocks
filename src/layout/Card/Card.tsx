@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref, FC } from 'react';
+import React, { forwardRef, LegacyRef, FC } from 'react';
 import classNames from 'classnames';
 import css from './Card.module.css';
 
@@ -34,7 +34,7 @@ export interface CardProps extends React.DOMAttributes<any> {
   header?: string | React.JSX.Element | React.JSX.Element[];
 }
 
-export type CardRefProps = CardProps & { ref?: Ref<HTMLDivElement> };
+export type CardRefProps = CardProps & { ref?: LegacyRef<HTMLDivElement> };
 
 export const Card: FC<CardRefProps> = forwardRef(
   (
@@ -47,7 +47,7 @@ export const Card: FC<CardRefProps> = forwardRef(
       contentClassName,
       ...rest
     }: CardProps,
-    ref: Ref<HTMLDivElement>
+    ref
   ) => (
     <section
       {...rest}
