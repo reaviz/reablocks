@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
-import css from './Divider.module.css';
+import { useComponentTheme } from '../../utils/Theme/TW';
+import { twMerge } from 'tailwind-merge';
+import { DividerTheme } from './DividerTheme';
 
 export interface DividerProps {
   /**
@@ -30,16 +31,21 @@ export const Divider: FC<DividerProps> = ({
   disableMargins,
   orientation,
   ...rest
-}) => (
-  <hr
-    {...rest}
-    className={classNames(css.divider, className, {
-      [css.disableMargins]: disableMargins,
-      [css.vertical]: orientation === 'vertical',
-      [css.horizontal]: orientation === 'horizontal'
-    })}
-  />
-);
+}) => {
+  const theme: DividerTheme = useComponentTheme('divider');
+
+  return (
+    <hr
+      {...rest}
+      className={twMerge(
+        theme.base,
+        theme.orientation[orientation],
+        disableMargins && theme.disableMargins,
+        className
+      )}
+    />
+  );
+};
 
 Divider.defaultProps = {
   orientation: 'horizontal',
