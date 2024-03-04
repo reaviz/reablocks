@@ -32,7 +32,7 @@ export const Divider: FC<DividerProps> = ({
   orientation,
   ...rest
 }) => {
-  const theme: DividerTheme = useComponentTheme('divider');
+  const theme = useComponentTheme('divider') as DividerTheme;
 
   return (
     <hr
