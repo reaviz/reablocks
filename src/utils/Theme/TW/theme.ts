@@ -9,6 +9,14 @@ import {
   SelectTheme
 } from '../../../form/Select/SelectTheme';
 import {
+  darkDialogHeaderTheme,
+  darkDialogTheme,
+  DialogHeaderTheme,
+  DialogTheme,
+  lightDialogHeaderTheme,
+  lightDialogTheme
+} from '../../../layers/Dialog';
+import {
   darkDividerTheme,
   DividerTheme,
   lightDividerTheme
@@ -17,6 +25,8 @@ import {
 export interface ReablocksTheme {
   components: {
     button: ButtonTheme;
+    dialog: DialogTheme;
+    dialogHeader: DialogHeaderTheme;
     divider: DividerTheme;
     select: SelectTheme;
   };
@@ -25,6 +35,8 @@ export interface ReablocksTheme {
 export const lightTheme: ReablocksTheme = {
   components: {
     button: lightButtonTheme,
+    dialog: lightDialogTheme,
+    dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
     select: lightSelectTheme
   }
@@ -33,6 +45,8 @@ export const lightTheme: ReablocksTheme = {
 export const darkTheme: ReablocksTheme = {
   components: {
     button: darkButtonTheme,
+    dialog: darkDialogTheme,
+    dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,
     select: darkSelectTheme
   }
