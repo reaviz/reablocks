@@ -5,10 +5,10 @@ import { Button } from '../../elements/Button';
 import { Stack } from '../../layout';
 import { Text } from '../../typography';
 import { Pluralize } from '../Pluralize';
-import { ReactComponent as EndArrow } from './assets/arrow-end.svg';
-import { ReactComponent as NextArrow } from './assets/arrow-next.svg';
-import { ReactComponent as PreviousArrow } from './assets/arrow-previous.svg';
-import { ReactComponent as StartArrow } from './assets/arrow-start.svg';
+import EndArrow from './assets/arrow-end.svg?react';
+import NextArrow from './assets/arrow-next.svg?react';
+import PreviousArrow from './assets/arrow-previous.svg?react';
+import StartArrow from './assets/arrow-start.svg?react';
 import { FUZZY_RANGE, getItemsRange, getPageRange } from './utils';
 import css from './Pager.module.css';
 
