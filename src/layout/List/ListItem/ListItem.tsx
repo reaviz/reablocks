@@ -59,7 +59,8 @@ export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
     <div
       {...rest}
       ref={ref}
-      role="listitem"
+      role={onClick ? 'button' : 'listitem'}
+      tabIndex={onClick ? 0 : undefined}
       onClick={e => !disabled && onClick?.(e)}
       className={classNames(className, css.listItem, {
         [css.disabled]: disabled,

@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref } from 'react';
+import React, { FC, forwardRef, LegacyRef } from 'react';
 import classNames from 'classnames';
 import css from './PageTitle.module.css';
 import common from '../Typography.module.css';
@@ -27,8 +27,9 @@ export interface PageTitleProps
    */
   disableMargins?: boolean;
 }
+
 export interface PageTitleRef {
-  ref?: Ref<HTMLHeadingElement>;
+  ref?: LegacyRef<HTMLHeadingElement>;
 }
 
 export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
@@ -41,7 +42,7 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
       className,
       ...rest
     }: PageTitleProps,
-    ref: Ref<HTMLHeadingElement>
+    ref
   ) => (
     <h1
       ref={ref}

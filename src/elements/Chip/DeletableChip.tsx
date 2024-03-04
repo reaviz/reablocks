@@ -18,10 +18,7 @@ export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
 }
 
 export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
-  (
-    { children, disabled, deleteIcon, onDelete, size, ...rest },
-    ref: Ref<HTMLDivElement>
-  ) => (
+  ({ children, disabled, deleteIcon, onDelete, size, ...rest }, ref) => (
     <Chip
       ref={ref}
       size={size}

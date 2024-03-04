@@ -1,5 +1,10 @@
 import { Button } from './Button';
-import { ReaBlocksTheme, ThemeProvider } from '../../utils/Theme/TW';
+import {
+  darkTheme,
+  extendTheme,
+  ReaBlocksTheme,
+  ThemeProvider
+} from '../../utils/Theme/TW';
 
 export default {
   title: 'Components/Elements/Button',
@@ -97,7 +102,7 @@ export const CustomTheme = () => {
   };
 
   return (
-    <ThemeProvider theme={customTheme}>
+    <ThemeProvider theme={extendTheme(darkTheme, customTheme)}>
       <div style={{ display: 'flex', gap: 10 }}>
         <Button variant="filled">Filled</Button>
         <Button variant="outline">Outline</Button>

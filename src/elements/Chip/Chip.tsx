@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, ReactElement, Ref } from 'react';
+import React, { FC, forwardRef, LegacyRef, ReactElement } from 'react';
 import classNames from 'classnames';
 import css from './Chip.module.css';
 
@@ -52,7 +52,7 @@ export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export interface ChipRef {
-  ref?: Ref<HTMLDivElement>;
+  ref?: LegacyRef<HTMLDivElement>;
 }
 
 export const Chip: FC<ChipProps & ChipRef> = forwardRef(
@@ -71,7 +71,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       onClick,
       ...rest
     },
-    ref: Ref<HTMLDivElement>
+    ref
   ) => (
     <div
       {...rest}

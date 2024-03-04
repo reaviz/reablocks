@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref } from 'react';
+import React, { FC, forwardRef, LegacyRef } from 'react';
 import classNames from 'classnames';
 import css from './SmallHeading.module.css';
 import common from '../Typography.module.css';
@@ -31,7 +31,7 @@ export interface SmallHeadingProps
 }
 
 export interface SmallHeadingRef {
-  ref?: Ref<HTMLHeadingElement>;
+  ref?: LegacyRef<HTMLHeadingElement>;
 }
 
 export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
@@ -44,7 +44,7 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
       className,
       ...rest
     }: SmallHeadingProps,
-    ref: Ref<HTMLHeadingElement>
+    ref
   ) => (
     <h5
       ref={ref}

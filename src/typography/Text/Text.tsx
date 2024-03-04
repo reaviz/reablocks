@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref } from 'react';
+import React, { FC, forwardRef, LegacyRef } from 'react';
 import classNames from 'classnames';
 import css from './Text.module.css';
 import common from '../Typography.module.css';
@@ -25,13 +25,13 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 export interface TextRef {
-  ref?: Ref<HTMLSpanElement>;
+  ref?: LegacyRef<HTMLSpanElement>;
 }
 
 export const Text: FC<TextProps & TextRef> = forwardRef(
   (
     { color, variant, fontStyle, children, className, ...rest }: TextProps,
-    ref: Ref<HTMLSpanElement>
+    ref
   ) => (
     <span
       ref={ref}

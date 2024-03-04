@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref } from 'react';
+import React, { FC, forwardRef, LegacyRef } from 'react';
 import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import css from './Badge.module.css';
@@ -25,7 +25,7 @@ export interface BadgeProps
 }
 
 export interface BadgeRef {
-  ref?: Ref<HTMLSpanElement>;
+  ref?: LegacyRef<HTMLSpanElement>;
 }
 
 export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
@@ -40,7 +40,7 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
       placement,
       ...rest
     }: BadgeProps,
-    ref: Ref<HTMLSpanElement>
+    ref
   ) => (
     <span
       className={classNames(css.container, {

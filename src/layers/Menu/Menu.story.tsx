@@ -186,6 +186,37 @@ export const Simple = () => {
   );
 };
 
+export const Selectable = () => {
+  const [open, setOpen] = useState(false);
+  const buttonRef = useRef(null);
+
+  return (
+    <>
+      <button type="button" ref={buttonRef} onClick={() => setOpen(!open)}>
+        Open
+      </button>
+      <Menu open={open} onClose={() => setOpen(false)} reference={buttonRef}>
+        <Card disablePadding>
+          <List>
+            <ListItem start={<Icon />} onClick={() => console.log('1')}>
+              Menu Item 1
+            </ListItem>
+            <ListItem start={<Icon />} onClick={() => console.log('2')}>
+              Menu Item 2
+            </ListItem>
+            <ListItem start={<Icon />} onClick={() => console.log('3')}>
+              Menu Item 3
+            </ListItem>
+            <ListItem start={<Icon />} onClick={() => console.log('4')}>
+              Menu Item 4
+            </ListItem>
+          </List>
+        </Card>
+      </Menu>
+    </>
+  );
+};
+
 const Icon = () => (
   <svg
     width="16"
