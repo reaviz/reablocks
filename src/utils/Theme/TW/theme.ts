@@ -2,7 +2,7 @@ import {
   darkButtonTheme,
   lightButtonTheme,
   ButtonTheme
-} from '../../../elements/Button/DarkButtonTheme';
+} from '../../../elements/Button/ButtonTheme';
 
 export interface ReaBlocksComponents {
   button: string;
