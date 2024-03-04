@@ -1,39 +1,39 @@
 export interface ButtonTheme {
-  base?: string;
-  disabled?: string;
-  fullWidth?: string;
-  group?: string;
-  groupText?: string;
-  adornment?: {
-    base?: string;
-    start?: string;
-    end?: string;
-    sizes?: {
-      small?: string;
-      medium?: string;
-      large?: string;
+  base: string;
+  disabled: string;
+  fullWidth: string;
+  group: string;
+  groupText: string;
+  adornment: {
+    base: string;
+    start: string;
+    end: string;
+    sizes: {
+      small: string;
+      medium: string;
+      large: string;
     };
   };
-  variants?: {
-    filled?: string;
-    outline?: string;
-    text?: string;
+  variants: {
+    filled: string;
+    outline: string;
+    text: string;
   };
-  colors?: {
+  colors: {
     primary?: string;
     secondary?: string;
     success?: string;
     warning?: string;
     error?: string;
   };
-  sizes?: {
-    small?: string;
-    medium?: string;
-    large?: string;
+  sizes: {
+    small: string;
+    medium: string;
+    large: string;
   };
 }
 
-const baseTheme: ButtonTheme = {
+const baseTheme: Partial<ButtonTheme> = {
   base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded',
   disabled: 'disabled:cursor-not-allowed',
   fullWidth: 'block w-full',
@@ -43,6 +43,8 @@ const baseTheme: ButtonTheme = {
     'border border-y-transparent border-l-transparent last:border-r-transparent hover:bg-initial',
   adornment: {
     base: 'flex',
+    start: '',
+    end: '',
     sizes: {
       small: '[&>svg]:w-3 [&>svg]:h-3',
       medium: '[&>svg]:w-4 [&>svg]:h-4',
@@ -56,7 +58,7 @@ const baseTheme: ButtonTheme = {
   }
 };
 
-export const lightButtonTheme = {
+export const lightButtonTheme: ButtonTheme = {
   base: [baseTheme.base, 'text-black'].join(' '),
   disabled: [
     baseTheme.disabled,
@@ -81,7 +83,7 @@ export const lightButtonTheme = {
   }
 };
 
-export const darkButtonTheme = {
+export const darkButtonTheme: ButtonTheme = {
   base: [baseTheme.base, 'text-gray-100'].join(' '),
   disabled: [
     baseTheme.disabled,

@@ -2,7 +2,20 @@ import {
   darkButtonTheme,
   lightButtonTheme,
   ButtonTheme
-} from '../../../elements/Button/ButtonTheme';
+} from '../../../elements';
+import {
+  darkSelectTheme,
+  lightSelectTheme,
+  SelectTheme
+} from '../../../form/Select/SelectTheme';
+import {
+  darkDialogHeaderTheme,
+  darkDialogTheme,
+  DialogHeaderTheme,
+  DialogTheme,
+  lightDialogHeaderTheme,
+  lightDialogTheme
+} from '../../../layers/Dialog';
 import {
   darkDividerTheme,
   DividerTheme,
@@ -14,33 +27,35 @@ import {
   ListTheme
 } from '../../../layout/List/ListTheme';
 
-export interface ReaBlocksComponents {
-  button: string;
-  divider?: string;
-  list?: string;
-}
-
-export interface ReaBlocksTheme {
+export interface ReablocksTheme {
   components: {
     button: ButtonTheme;
-    divider?: DividerTheme;
-    list?: ListTheme;
-    // select: ReaBlockSelectTheme;
+    dialog: DialogTheme;
+    dialogHeader: DialogHeaderTheme;
+    divider: DividerTheme;
+    select: SelectTheme;
+    list: ListTheme;
   };
 }
 
-export const lightTheme: ReaBlocksTheme = {
+export const lightTheme: ReablocksTheme = {
   components: {
     button: lightButtonTheme,
+    dialog: lightDialogTheme,
+    dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
+    select: lightSelectTheme,
     list: lightListTheme
   }
 };
 
-export const darkTheme: ReaBlocksTheme = {
+export const darkTheme: ReablocksTheme = {
   components: {
     button: darkButtonTheme,
+    dialog: darkDialogTheme,
+    dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,
+    select: darkSelectTheme,
     list: darkListTheme
   }
 };
