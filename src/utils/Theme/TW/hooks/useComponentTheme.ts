@@ -1,8 +1,8 @@
-import { ReaBlocksTheme } from '../theme';
+import { ReablocksTheme } from '../theme';
 import { useTheme } from './useTheme';
 
 export const useComponentTheme = (
-  component: keyof ReaBlocksTheme['components']
+  component: keyof ReablocksTheme['components']
 ) => {
   const { activeTheme } = useTheme();
 

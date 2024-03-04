@@ -1,9 +1,9 @@
 import React, { FC, forwardRef, LegacyRef, useContext } from 'react';
-import classNames from 'classnames';
 import { motion } from 'framer-motion';
 import { ButtonGroupContext } from './ButtonGroupContext';
 import { useComponentTheme } from '../../utils/Theme/TW';
 import { twMerge } from 'tailwind-merge';
+import { ButtonTheme } from './ButtonTheme';
 
 export interface ButtonProps
   extends Omit<
@@ -79,7 +79,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
     }: ButtonProps,
     ref
   ) => {
-    const theme = useComponentTheme('button');
+    const theme = useComponentTheme('button') as ButtonTheme;
 
     const { variant: groupVariant, size: groupSize } =
       useContext(ButtonGroupContext);
@@ -107,12 +107,10 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
       >
         {startAdornment && (
           <div
-            className={classNames(
-              twMerge(
-                theme.adornment.base,
-                theme.adornment.start,
-                theme.adornment.sizes[size]
-              )
+            className={twMerge(
+              theme.adornment.base,
+              theme.adornment.start,
+              theme.adornment.sizes[size]
             )}
           >
             {startAdornment}

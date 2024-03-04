@@ -9,21 +9,21 @@ import {
   SelectTheme
 } from '../../../form/Select/SelectTheme';
 
-export interface ReaBlocksTheme {
+export interface ReablocksTheme {
   components: {
     button: ButtonTheme;
     select: SelectTheme;
   };
 }
 
-export const lightTheme: ReaBlocksTheme = {
+export const lightTheme: ReablocksTheme = {
   components: {
     button: lightButtonTheme,
     select: lightSelectTheme
   }
 };
 
-export const darkTheme: ReaBlocksTheme = {
+export const darkTheme: ReablocksTheme = {
   components: {
     button: darkButtonTheme,
     select: darkSelectTheme

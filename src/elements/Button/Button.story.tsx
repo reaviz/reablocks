@@ -2,7 +2,7 @@ import { Button } from './Button';
 import {
   darkTheme,
   extendTheme,
-  ReaBlocksTheme,
+  PartialReablocksTheme,
   ThemeProvider
 } from '../../utils/Theme/TW';
 
@@ -83,7 +83,7 @@ export const WithIcon = () => (
 );
 
 export const CustomTheme = () => {
-  const customTheme: ReaBlocksTheme = {
+  const customTheme: PartialReablocksTheme = {
     components: {
       button: {
         base: 'bg-lime-600 text-gray-300',

@@ -330,18 +330,9 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
         ...(menuOpen ? [activeClassName, theme.selectInput?.open] : []),
         className
       )}
-      // className={classNames(css.container, 'select-input', className, {
-      //   [css.disabled]: disabled,
-      //   [css.unfilterable]: !filterable,
-      //   [css.error]: error,
-      //   [css.single]: !multiple,
-      //   [css.multiple]: multiple,
-      //   [css.open]: menuOpen,
-      //   [activeClassName]: menuOpen
-      // })}
       onClick={onContainerClick}
     >
-      <div className={theme.selectInput.inputContainer} onClick={onInputFocus}>
+      <div className={theme.selectInput?.inputContainer} onClick={onInputFocus}>
         {renderPrefix()}
         <InlineInput
           inputRef={el => (inputRef.current = el)}
