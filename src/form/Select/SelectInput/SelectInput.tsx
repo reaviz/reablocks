@@ -272,7 +272,11 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
       if (multipleOptions?.length) {
         return (
           <div
-            className={twMerge(theme.selectInput?.prefix, 'select-input-value')}
+            className={twMerge(
+              theme.prefix,
+              multiple && theme.multiple?.prefix,
+              'select-input-value'
+            )}
           >
             {multipleOptions.map(option => (
               <CloneElement<SelectInputChipProps>
@@ -294,7 +298,11 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
       if (singleOption?.inputLabel && !inputText) {
         return (
           <div
-            className={twMerge(theme.selectInput?.prefix, 'select-input-value')}
+            className={twMerge(
+              theme.prefix,
+              theme.single?.prefix,
+              'select-input-value'
+            )}
           >
             {singleOption?.inputLabel}
           </div>
@@ -315,24 +323,29 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
     selectedOption
   ]);
 
-  const theme = useComponentTheme('select') as SelectTheme;
+  const { selectInput: theme }: SelectTheme = useComponentTheme('select');
 
   return (
     <div
       ref={containerRef}
       className={twMerge(
-        theme.selectInput?.base,
-        disabled && theme.selectInput?.disabled,
-        !filterable && theme.selectInput?.unfilterable,
-        error && theme.selectInput?.unfilterable,
-        !multiple && theme.selectInput?.single,
-        multiple && theme.selectInput?.multiple,
-        ...(menuOpen ? [activeClassName, theme.selectInput?.open] : []),
+        theme.base,
+        disabled && theme.disabled,
+        !filterable && theme.unfilterable,
+        error && theme.error,
+        ...(menuOpen ? [activeClassName, theme.open] : []),
         className
       )}
       onClick={onContainerClick}
     >
-      <div className={theme.selectInput?.inputContainer} onClick={onInputFocus}>
+      <div
+        className={twMerge(
+          theme.inputContainer,
+          multiple && theme.multiple?.inputContainer,
+          !multiple && theme.single?.inputContainer
+        )}
+        onClick={onInputFocus}
+      >
         {renderPrefix()}
         <InlineInput
           inputRef={el => (inputRef.current = el)}
@@ -344,7 +357,8 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
           autoFocus={autoFocus}
           placeholder={placeholderText}
           inputClassName={twMerge(
-            theme.selectInput?.input,
+            theme.input,
+            theme.placeholder,
             'select-input-input'
           )}
           value={inputTextValue}
@@ -359,15 +373,15 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
           placeholderIsMinWidth={false}
         />
       </div>
-      <div className={theme.selectInput?.suffix?.container}>
+      <div className={theme.suffix?.container}>
         {refreshable && !loading && (
           <button
             type="button"
             title="Refresh Options"
             disabled={disabled}
             className={twMerge(
-              theme.selectInput?.suffix?.button,
-              theme.selectInput?.suffix?.refresh,
+              theme.suffix?.button,
+              theme.suffix?.refresh,
               'select-input-refresh'
             )}
             onClick={onRefresh}
@@ -375,17 +389,15 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
             {refreshIcon}
           </button>
         )}
-        {loading && (
-          <div className={theme.selectInput?.suffix?.loader}>{loadingIcon}</div>
-        )}
+        {loading && <div className={theme.suffix?.loader}>{loadingIcon}</div>}
         {showClear && (
           <button
             type="button"
             title="Clear selection"
             disabled={disabled}
             className={twMerge(
-              theme.selectInput.suffix.button,
-              theme.selectInput?.suffix?.close,
+              theme.suffix?.button,
+              theme.suffix?.close,
               'select-input-clear'
             )}
             onClick={onClearValues}
@@ -399,8 +411,8 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
             title="Toggle options menu"
             disabled={disabled}
             className={twMerge(
-              theme.selectInput?.suffix?.button,
-              theme.selectInput?.suffix?.expand,
+              theme.suffix?.button,
+              theme.suffix?.expand,
               'select-input-toggle'
             )}
             onClick={onExpandClick}

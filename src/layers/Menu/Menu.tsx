@@ -1,10 +1,11 @@
 import React, { FC, forwardRef, LegacyRef, useMemo } from 'react';
-import classNames from 'classnames';
 import FocusTrap from 'focus-trap-react';
 import { ConnectedOverlay, OverlayEvent, Placement, useId } from 'rdk';
 import { Modifiers } from 'popper.js';
 import { motion } from 'framer-motion';
-import css from './Menu.module.css';
+import { twMerge } from 'tailwind-merge';
+import { MenuTheme } from './MenuTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export interface MenuProps {
   /**
@@ -169,6 +170,8 @@ export const Menu: FC<Partial<MenuProps & MenuRef>> = forwardRef(
       return modifiers;
     }, [modifiers, autoWidth, minWidth, maxWidth]);
 
+    const theme: MenuTheme = useComponentTheme('menu');
+
     return (
       <ConnectedOverlay
         open={open}
@@ -184,7 +187,7 @@ export const Menu: FC<Partial<MenuProps & MenuRef>> = forwardRef(
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className={classNames(css.container, className)}
+            className={twMerge(theme.base, className)}
             style={style}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
@@ -199,7 +202,7 @@ export const Menu: FC<Partial<MenuProps & MenuRef>> = forwardRef(
               >
                 <div
                   id={id}
-                  className={css.inner}
+                  className={theme.inner}
                   tabIndex={-1}
                   style={{ maxHeight }}
                 >
@@ -207,7 +210,7 @@ export const Menu: FC<Partial<MenuProps & MenuRef>> = forwardRef(
                 </div>
               </FocusTrap>
             ) : (
-              <div className={css.inner} style={{ maxHeight }}>
+              <div className={theme.inner} style={{ maxHeight }}>
                 {typeof children === 'function' ? children() : children}
               </div>
             )}

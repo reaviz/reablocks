@@ -58,7 +58,7 @@ export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
     ref
   ) => {
     const theme: ListTheme = useComponentTheme('list');
-    console.log(end);
+
     return (
       <div
         {...rest}
