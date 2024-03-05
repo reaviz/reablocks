@@ -12,6 +12,11 @@ import {
   SelectTheme
 } from '../../../form';
 import {
+  CalendarTheme,
+  darkCalendarTheme,
+  lightCalendarTheme
+} from '../../../form/Calendar/CalendarTheme';
+import {
   darkDialogHeaderTheme,
   darkDialogTheme,
   darkMenuTheme,
@@ -59,6 +64,7 @@ export interface ReablocksTheme {
     verticalSpacer: VerticalSpacerTheme;
     notification: NotificationTheme;
     input: InputTheme;
+    calendar: CalendarTheme;
   };
 }
 
@@ -75,7 +81,8 @@ export const lightTheme: ReablocksTheme = {
     card: lightCardTheme,
     verticalSpacer: lightVerticalSpacerTheme,
     notification: lightNotificationTheme,
-    input: lightInputTheme
+    input: lightInputTheme,
+    calendar: lightCalendarTheme
   }
 };
 
@@ -92,6 +99,7 @@ export const darkTheme: ReablocksTheme = {
     card: darkCardTheme,
     verticalSpacer: darkVerticalSpacerTheme,
     notification: darkNotificationTheme,
-    input: darkInputTheme
+    input: darkInputTheme,
+    calendar: darkCalendarTheme
   }
 };
