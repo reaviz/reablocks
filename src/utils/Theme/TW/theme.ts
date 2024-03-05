@@ -29,6 +29,11 @@ import {
   lightListTheme,
   ListTheme
 } from '../../../layout/List/ListTheme';
+import {
+  darkStackTheme,
+  lightStackTheme,
+  StackTheme
+} from '../../../layout/Stack/StackTheme';
 import { CardTheme, darkCardTheme, lightCardTheme } from '../../../layout';
 
 export interface ReablocksTheme {
@@ -40,6 +45,7 @@ export interface ReablocksTheme {
     select: SelectTheme;
     list: ListTheme;
     menu: MenuTheme;
+    stack: StackTheme;
     card: CardTheme;
   };
 }
@@ -53,6 +59,7 @@ export const lightTheme: ReablocksTheme = {
     select: lightSelectTheme,
     list: lightListTheme,
     menu: lightMenuTheme,
+    stack: lightStackTheme,
     card: lightCardTheme
   }
 };
@@ -66,6 +73,7 @@ export const darkTheme: ReablocksTheme = {
     select: darkSelectTheme,
     list: darkListTheme,
     menu: darkMenuTheme,
+    stack: darkStackTheme,
     card: darkCardTheme
   }
 };
