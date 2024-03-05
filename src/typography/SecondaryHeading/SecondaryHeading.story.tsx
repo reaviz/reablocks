@@ -1,8 +1,20 @@
 import { SecondaryHeading } from './SecondaryHeading';
+import React from 'react';
 
 export default {
   title: 'Components/Typography/SecondaryHeading',
-  component: SecondaryHeading
+  component: SecondaryHeading,
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{
+          color: context.globals.theme === 'light' ? 'black' : 'inherit'
+        }}
+      >
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export const Simple = () => <SecondaryHeading>Hello world</SecondaryHeading>;

@@ -32,6 +32,11 @@ import {
   VerticalSpacerTheme
 } from '../../../layout';
 import { CardTheme, darkCardTheme, lightCardTheme } from '../../../layout';
+import {
+  darkTypographyTheme,
+  lightTypographyTheme,
+  TypographyTheme
+} from '../../../typography';
 
 export interface ReablocksTheme {
   components: {
@@ -45,6 +50,7 @@ export interface ReablocksTheme {
     stack: StackTheme;
     card: CardTheme;
     verticalSpacer: VerticalSpacerTheme;
+    typographyTheme: TypographyTheme;
   };
 }
 
@@ -59,7 +65,8 @@ export const lightTheme: ReablocksTheme = {
     menu: lightMenuTheme,
     stack: lightStackTheme,
     card: lightCardTheme,
-    verticalSpacer: lightVerticalSpacerTheme
+    verticalSpacer: lightVerticalSpacerTheme,
+    typographyTheme: lightTypographyTheme
   }
 };
 
@@ -74,6 +81,7 @@ export const darkTheme: ReablocksTheme = {
     menu: darkMenuTheme,
     stack: darkStackTheme,
     card: darkCardTheme,
-    verticalSpacer: darkVerticalSpacerTheme
+    verticalSpacer: darkVerticalSpacerTheme,
+    typographyTheme: darkTypographyTheme
   }
 };

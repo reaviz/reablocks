@@ -1,7 +1,6 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
-import classNames from 'classnames';
-import css from './SmallHeading.module.css';
-import common from '../Typography.module.css';
+import { useComponentTheme } from '../../utils/Theme/TW';
+import { twMerge } from 'tailwind-merge';
 
 export type SmallHeadingColors =
   | 'default'
@@ -45,21 +44,24 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
       ...rest
     }: SmallHeadingProps,
     ref
-  ) => (
-    <h5
-      ref={ref}
-      className={classNames(
-        common[color],
-        common[variant],
-        css.root,
-        { [css.disableMargins]: disableMargins },
-        className
-      )}
-      {...rest}
-    >
-      {children}
-    </h5>
-  )
+  ) => {
+    const theme = useComponentTheme('typographyTheme');
+    return (
+      <h5
+        ref={ref}
+        className={twMerge(
+          theme.colors[color],
+          theme.variant[variant],
+          theme.smallHeading,
+          disableMargins && theme.disableMargins,
+          className
+        )}
+        {...rest}
+      >
+        {children}
+      </h5>
+    );
+  }
 );
 
 SmallHeading.defaultProps = {

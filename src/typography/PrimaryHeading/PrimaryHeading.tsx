@@ -1,7 +1,6 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
-import classNames from 'classnames';
-import css from './PrimaryHeading.module.css';
-import common from '../Typography.module.css';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export interface PrimaryHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -43,21 +42,24 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
         ...rest
       }: PrimaryHeadingProps,
       ref
-    ) => (
-      <h2
-        ref={ref}
-        className={classNames(
-          common[color],
-          common[variant],
-          css.root,
-          { [css.disableMargins]: disableMargins },
-          className
-        )}
-        {...rest}
-      >
-        {children}
-      </h2>
-    )
+    ) => {
+      const theme = useComponentTheme('typographyTheme');
+      return (
+        <h2
+          ref={ref}
+          className={twMerge(
+            theme.colors[color],
+            theme.variant[variant],
+            theme.primaryHeading,
+            disableMargins && theme.disableMargins,
+            className
+          )}
+          {...rest}
+        >
+          {children}
+        </h2>
+      );
+    }
   );
 
 PrimaryHeading.defaultProps = {

@@ -1,8 +1,20 @@
 import { SmallHeading } from './SmallHeading';
+import React from 'react';
 
 export default {
   title: 'Components/Typography/SmallHeading',
-  component: SmallHeading
+  component: SmallHeading,
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{
+          color: context.globals.theme === 'light' ? 'black' : 'inherit'
+        }}
+      >
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export const Simple = () => <SmallHeading>Hello world</SmallHeading>;
