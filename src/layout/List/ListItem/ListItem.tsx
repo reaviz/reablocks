@@ -1,6 +1,7 @@
-import React, { InputHTMLAttributes, FC, forwardRef } from 'react';
-import classNames from 'classnames';
-import css from './ListItem.module.css';
+import React, { InputHTMLAttributes, forwardRef } from 'react';
+import { twMerge } from 'tailwind-merge';
+import { ListTheme } from '../ListTheme';
+import { useComponentTheme } from '../../../utils/Theme/TW';
 
 export interface ListItemProps extends InputHTMLAttributes<HTMLDivElement> {
   /**
@@ -55,25 +56,58 @@ export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
       ...rest
     },
     ref
-  ) => (
-    <div
-      {...rest}
-      ref={ref}
-      role={onClick ? 'button' : 'listitem'}
-      tabIndex={onClick ? 0 : undefined}
-      onClick={e => !disabled && onClick?.(e)}
-      className={classNames(className, css.listItem, {
-        [css.disabled]: disabled,
-        [css.active]: active,
-        [css.clickable]: onClick && !disabled,
-        [css.disablePadding]: disablePadding,
-        [css.disableGutters]: disableGutters,
-        [css.dense]: dense
-      })}
-    >
-      {start && <div className={css.startAdornment}>{start}</div>}
-      <div className={css.content}>{children}</div>
-      {end && <div className={css.endAdornment}>{end}</div>}
-    </div>
-  )
+  ) => {
+    const theme: ListTheme = useComponentTheme('list');
+    console.log(end);
+    return (
+      <div
+        {...rest}
+        ref={ref}
+        role={onClick ? 'button' : 'listitem'}
+        tabIndex={onClick ? 0 : undefined}
+        onClick={e => !disabled && onClick?.(e)}
+        className={twMerge(
+          theme.listItem.base,
+          dense && theme.listItem.dense.base,
+          disabled && theme.listItem.disabled,
+          active && theme.listItem.active,
+          onClick && !disabled && theme.listItem.clickable,
+          disablePadding && theme.listItem.disablePadding,
+          disableGutters && theme.listItem.disableGutters,
+          className
+        )}
+      >
+        {start && (
+          <div
+            className={twMerge(
+              theme.listItem.adornment.base,
+              theme.listItem.adornment.start,
+              dense && theme.listItem.dense.startAdornment
+            )}
+          >
+            {start}
+          </div>
+        )}
+        <div
+          className={twMerge(
+            theme.listItem.content,
+            dense && theme.listItem.dense.content
+          )}
+        >
+          {children}
+        </div>
+        {end && (
+          <div
+            className={twMerge(
+              theme.listItem.adornment.base,
+              theme.listItem.adornment.end,
+              dense && theme.listItem.dense.endAdornment
+            )}
+          >
+            {end}
+          </div>
+        )}
+      </div>
+    );
+  }
 );

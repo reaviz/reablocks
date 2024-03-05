@@ -1,7 +1,8 @@
 import React, { FC, InputHTMLAttributes } from 'react';
-import classNames from 'classnames';
 import { Sub } from '../../../typography';
-import css from './ListHeader.module.css';
+import { ListTheme } from '../ListTheme';
+import { useComponentTheme } from '../../../utils/Theme/TW';
+import { twMerge } from 'tailwind-merge';
 
 export type ListHeaderProps = InputHTMLAttributes<HTMLDivElement>;
 
@@ -9,8 +10,11 @@ export const ListHeader: FC<ListHeaderProps> = ({
   className,
   children,
   ...rest
-}) => (
-  <Sub {...(rest as any)} className={classNames(className, css.header)}>
-    {children}
-  </Sub>
-);
+}) => {
+  const theme: ListTheme = useComponentTheme('list');
+  return (
+    <Sub {...(rest as any)} className={twMerge(className, theme.header)}>
+      {children}
+    </Sub>
+  );
+};
