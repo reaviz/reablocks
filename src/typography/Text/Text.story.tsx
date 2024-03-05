@@ -1,8 +1,20 @@
 import { Text } from './Text';
+import React from 'react';
 
 export default {
   title: 'Components/Typography/Text',
-  component: Text
+  component: Text,
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{
+          color: context.globals.theme === 'light' ? 'black' : 'inherit'
+        }}
+      >
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export const Simple = () => <Text>Hello world</Text>;

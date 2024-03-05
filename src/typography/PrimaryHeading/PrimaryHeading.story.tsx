@@ -1,8 +1,20 @@
 import { PrimaryHeading } from './PrimaryHeading';
+import React from 'react';
 
 export default {
   title: 'Components/Typography/PrimaryHeading',
-  component: PrimaryHeading
+  component: PrimaryHeading,
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{
+          color: context.globals.theme === 'light' ? 'black' : 'inherit'
+        }}
+      >
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export const Simple = () => <PrimaryHeading>Hello world</PrimaryHeading>;

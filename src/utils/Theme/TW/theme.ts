@@ -49,6 +49,11 @@ import {
   lightStackTheme,
   StackTheme
 } from '../../../layout';
+import {
+  darkTypographyTheme,
+  lightTypographyTheme,
+  TypographyTheme
+} from '../../../typography';
 
 export interface ReablocksTheme {
   components: {
@@ -65,6 +70,7 @@ export interface ReablocksTheme {
     notification: NotificationTheme;
     input: InputTheme;
     calendar: CalendarTheme;
+    typographyTheme: TypographyTheme;
   };
 }
 
@@ -82,7 +88,8 @@ export const lightTheme: ReablocksTheme = {
     verticalSpacer: lightVerticalSpacerTheme,
     notification: lightNotificationTheme,
     input: lightInputTheme,
-    calendar: lightCalendarTheme
+    calendar: lightCalendarTheme,
+    typographyTheme: lightTypographyTheme
   }
 };
 
@@ -100,6 +107,7 @@ export const darkTheme: ReablocksTheme = {
     verticalSpacer: darkVerticalSpacerTheme,
     notification: darkNotificationTheme,
     input: darkInputTheme,
-    calendar: darkCalendarTheme
+    calendar: darkCalendarTheme,
+    typographyTheme: darkTypographyTheme
   }
 };

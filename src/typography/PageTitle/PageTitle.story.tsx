@@ -1,8 +1,20 @@
 import { PageTitle } from './PageTitle';
+import React from 'react';
 
 export default {
   title: 'Components/Typography/PageTitle',
-  component: PageTitle
+  component: PageTitle,
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{
+          color: context.globals.theme === 'light' ? 'black' : 'inherit'
+        }}
+      >
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export const Simple = () => <PageTitle>Hello world</PageTitle>;

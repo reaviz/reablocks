@@ -1,7 +1,6 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
-import classNames from 'classnames';
-import css from './SecondaryHeading.module.css';
-import common from '../Typography.module.css';
+import { useComponentTheme } from '../../utils/Theme/TW';
+import { twMerge } from 'tailwind-merge';
 
 export interface SecondaryHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -44,21 +43,24 @@ export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
         ...rest
       }: SecondaryHeadingProps,
       ref
-    ) => (
-      <h3
-        ref={ref}
-        className={classNames(
-          common[color],
-          common[variant],
-          css.root,
-          { [css.disableMargins]: disableMargins },
-          className
-        )}
-        {...rest}
-      >
-        {children}
-      </h3>
-    )
+    ) => {
+      const theme = useComponentTheme('typographyTheme');
+      return (
+        <h3
+          ref={ref}
+          className={twMerge(
+            theme.colors[color],
+            theme.variant[variant],
+            theme.secondaryHeading,
+            disableMargins && theme.disableMargins,
+            className
+          )}
+          {...rest}
+        >
+          {children}
+        </h3>
+      );
+    }
   );
 
 SecondaryHeading.defaultProps = {
