@@ -12,12 +12,15 @@ import {
   darkDialogHeaderTheme,
   darkDialogTheme,
   darkMenuTheme,
+  darkNotificationTheme,
   DialogHeaderTheme,
   DialogTheme,
   lightDialogHeaderTheme,
   lightDialogTheme,
   lightMenuTheme,
-  MenuTheme
+  lightNotificationTheme,
+  MenuTheme,
+  NotificationTheme
 } from '../../../layers';
 import {
   darkDividerTheme,
@@ -47,6 +50,7 @@ export interface ReablocksTheme {
     menu: MenuTheme;
     stack: StackTheme;
     card: CardTheme;
+    notification: NotificationTheme;
   };
 }
 
@@ -60,7 +64,8 @@ export const lightTheme: ReablocksTheme = {
     list: lightListTheme,
     menu: lightMenuTheme,
     stack: lightStackTheme,
-    card: lightCardTheme
+    card: lightCardTheme,
+    notification: lightNotificationTheme
   }
 };
 
@@ -74,6 +79,7 @@ export const darkTheme: ReablocksTheme = {
     list: darkListTheme,
     menu: darkMenuTheme,
     stack: darkStackTheme,
-    card: darkCardTheme
+    card: darkCardTheme,
+    notification: darkNotificationTheme
   }
 };
