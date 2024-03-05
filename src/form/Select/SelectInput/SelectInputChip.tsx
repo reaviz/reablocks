@@ -34,7 +34,7 @@ export const SelectInputChip: FC<Partial<SelectInputChipProps>> = ({
   const label =
     typeof origLabel === 'string' ? ellipsize(origLabel, maxLength) : origLabel;
 
-  const { selectInput: theme } = useComponentTheme('select') as SelectTheme;
+  const { selectInput: theme }: SelectTheme = useComponentTheme('select');
 
   return (
     <span

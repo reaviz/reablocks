@@ -112,7 +112,7 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
     [selectedOption, multiple]
   );
 
-  const { selectMenu: theme } = useComponentTheme('select') as SelectTheme;
+  const { selectMenu: theme }: SelectTheme = useComponentTheme('select');
 
   const renderListItems = useCallback(
     (items: SelectOptionProps[], group?: GroupOption) =>

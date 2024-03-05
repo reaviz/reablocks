@@ -26,16 +26,16 @@ const baseTheme: SelectMenuTheme = {
 
 export const lightSelectMenuTheme: SelectMenuTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-blue-100 border-blue-200 text-black'].join(' '),
+  base: [baseTheme.base, 'bg-white border-gray-400 text-black'].join(' '),
   option: {
     ...baseTheme.option,
     base: [baseTheme.option.base, 'text-black'].join(' '),
-    hover: [baseTheme.option.hover, 'hover:bg-blue-200'].join(' '),
-    active: [baseTheme.option.active, 'bg-primary-200'].join(' '),
-    selected: [
-      baseTheme.option.selected,
-      'bg-primary-300 hover:bg-primary-400'
-    ].join(' ')
+    hover: [
+      baseTheme.option.hover,
+      'hover:bg-indigo-600 hover:text-white'
+    ].join(' '),
+    active: [baseTheme.option.active, 'bg-indigo-600 text-white'].join(' '),
+    selected: [baseTheme.option.selected, 'bg-indigo-600 text-white'].join(' ')
   }
 };
 

@@ -323,7 +323,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
     selectedOption
   ]);
 
-  const { selectInput: theme } = useComponentTheme('select') as SelectTheme;
+  const { selectInput: theme }: SelectTheme = useComponentTheme('select');
 
   return (
     <div
@@ -338,7 +338,14 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
       )}
       onClick={onContainerClick}
     >
-      <div className={theme.inputContainer} onClick={onInputFocus}>
+      <div
+        className={twMerge(
+          theme.inputContainer,
+          multiple && theme.multiple?.inputContainer,
+          !multiple && theme.single?.inputContainer
+        )}
+        onClick={onInputFocus}
+      >
         {renderPrefix()}
         <InlineInput
           inputRef={el => (inputRef.current = el)}
