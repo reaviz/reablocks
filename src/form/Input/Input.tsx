@@ -5,8 +5,9 @@ import React, {
   useLayoutEffect,
   useRef
 } from 'react';
-import classNames from 'classnames';
-import css from './Input.module.css';
+import { twMerge } from 'tailwind-merge';
+import { InputTheme } from './InputTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
@@ -96,22 +97,31 @@ export const Input = forwardRef<InputRef, InputProps>(
       }
     }, [autoFocus]);
 
+    const theme: InputTheme = useComponentTheme('input');
+
     return (
       <div
-        className={classNames(css.container, containerClassname, {
-          [css.fullWidth]: fullWidth,
-          [css.error]: error,
-          [css[size]]: size
-        })}
+        className={twMerge(
+          theme.base,
+          fullWidth && theme.fullWidth,
+          error && theme.error,
+          theme.sizes[size],
+          disabled && theme.disabled,
+          containerClassname
+        )}
         ref={containerRef}
       >
-        {start && <div className={css.startAdornment}>{start}</div>}
+        {start && (
+          <div className={twMerge(theme.adornment.base, theme.adornment.start)}>
+            {start}
+          </div>
+        )}
         <input
           {...rest}
           ref={inputRef}
           value={value}
           disabled={disabled}
-          className={classNames(className, css.input)}
+          className={twMerge(theme.input, className)}
           onFocus={event => {
             if (selectOnFocus) {
               event.target.select();
@@ -123,7 +133,11 @@ export const Input = forwardRef<InputRef, InputProps>(
             onChange?.(event);
           }}
         />
-        {end && <div className={css.endAdornment}>{end}</div>}
+        {end && (
+          <div className={twMerge(theme.adornment.base, theme.adornment.end)}>
+            {end}
+          </div>
+        )}
       </div>
     );
   }

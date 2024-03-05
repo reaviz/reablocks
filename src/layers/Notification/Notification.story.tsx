@@ -1,6 +1,7 @@
 import React, { FC, Fragment } from 'react';
 import { NotificationComponentProps, Notifications } from './Notifications';
 import { NotificationsContext } from './NotificationsContext';
+import { Button } from '../../elements';
 
 export default {
   title: 'Components/Layers/Notification',
@@ -49,12 +50,12 @@ export const Title = () => (
     <NotificationsContext.Consumer>
       {({ notify, clearAllNotifications }) => (
         <Fragment>
-          <button onClick={() => notify(`Hello! ${Math.random()}`)}>
+          <Button onClick={() => notify(`Hello! ${Math.random()}`)}>
             Show
-          </button>
+          </Button>
           <br />
           <br />
-          <button onClick={() => clearAllNotifications()}>Clear</button>
+          <Button onClick={() => clearAllNotifications()}>Clear</Button>
         </Fragment>
       )}
     </NotificationsContext.Consumer>
@@ -66,16 +67,16 @@ export const TitleAndBody = () => (
     <NotificationsContext.Consumer>
       {({ notify, clearAllNotifications: clearAll }) => (
         <Fragment>
-          <button
+          <Button
             onClick={() =>
               notify('New Message Alert!', { body: 'You have a new message' })
             }
           >
             Title + Text Body
-          </button>
+          </Button>
           <br />
           <br />
-          <button
+          <Button
             onClick={() =>
               notify('Welcome', {
                 body: <h3>Hello Friend!</h3>
@@ -83,10 +84,10 @@ export const TitleAndBody = () => (
             }
           >
             Title and Body Content
-          </button>
+          </Button>
           <br />
           <br />
-          <button onClick={() => clearAll()}>Clear</button>
+          <Button onClick={() => clearAll()}>Clear</Button>
         </Fragment>
       )}
     </NotificationsContext.Consumer>
@@ -103,20 +104,30 @@ export const Variants = () => (
         clearAllNotifications: clearAll
       }) => (
         <Fragment>
-          <button onClick={() => notifySuccess('Something good happened!')}>
+          <Button
+            color="success"
+            className="mx-1"
+            onClick={() => notifySuccess('Something good happened!')}
+          >
             Success
-          </button>
-          <button onClick={() => notifyError('Something bad happened!')}>
+          </Button>
+          <Button
+            color="error"
+            className="mx-1"
+            onClick={() => notifyError('Something bad happened!')}
+          >
             Error
-          </button>
-          <button
+          </Button>
+          <Button
+            color="warning"
+            className="mx-1"
             onClick={() => notifyWarning('Something questionable happened!')}
           >
             Warning
-          </button>
+          </Button>
           <br />
           <br />
-          <button onClick={() => clearAll()}>Clear</button>
+          <Button onClick={() => clearAll()}>Clear</Button>
         </Fragment>
       )}
     </NotificationsContext.Consumer>
@@ -128,7 +139,7 @@ export const FloodPrevention = () => (
     <NotificationsContext.Consumer>
       {({ notify, clearAllNotifications: clearAll }) => (
         <Fragment>
-          <button
+          <Button
             onClick={() => {
               for (let i = 0; i < 20; i++) {
                 setTimeout(() => notify('Something bad happened!'), 50);
@@ -136,10 +147,10 @@ export const FloodPrevention = () => (
             }}
           >
             Flood
-          </button>
+          </Button>
           <br />
           <br />
-          <button onClick={() => clearAll()}>Clear</button>
+          <Button onClick={() => clearAll()}>Clear</Button>
         </Fragment>
       )}
     </NotificationsContext.Consumer>
@@ -158,19 +169,33 @@ export const CustomComponent = () => (
     <NotificationsContext.Consumer>
       {({ notify, clearAllNotifications }) => (
         <Fragment>
-          <button onClick={() => notify('Default')}>Custom Default</button>
-          <button onClick={() => notify('Success', { variant: 'success' })}>
+          <Button className="mx-1" onClick={() => notify('Default')}>
+            Custom Default
+          </Button>
+          <Button
+            color="success"
+            className="mx-1"
+            onClick={() => notify('Success', { variant: 'success' })}
+          >
             Custom Success
-          </button>
-          <button onClick={() => notify('Warning', { variant: 'warning' })}>
+          </Button>
+          <Button
+            color="warning"
+            className="mx-1"
+            onClick={() => notify('Warning', { variant: 'warning' })}
+          >
             Custom Warning
-          </button>
-          <button onClick={() => notify('Error', { variant: 'error' })}>
+          </Button>
+          <Button
+            color="error"
+            className="mx-1"
+            onClick={() => notify('Error', { variant: 'error' })}
+          >
             Custom Error
-          </button>
+          </Button>
           <br />
           <br />
-          <button onClick={() => clearAllNotifications()}>Clear</button>
+          <Button onClick={() => clearAllNotifications()}>Clear</Button>
         </Fragment>
       )}
     </NotificationsContext.Consumer>

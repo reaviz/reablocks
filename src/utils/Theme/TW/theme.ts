@@ -4,34 +4,46 @@ import {
   ButtonTheme
 } from '../../../elements';
 import {
+  darkInputTheme,
   darkSelectTheme,
+  InputTheme,
+  lightInputTheme,
   lightSelectTheme,
   SelectTheme
-} from '../../../form/Select/SelectTheme';
+} from '../../../form';
 import {
   darkDialogHeaderTheme,
   darkDialogTheme,
   darkMenuTheme,
+  darkNotificationTheme,
   DialogHeaderTheme,
   DialogTheme,
   lightDialogHeaderTheme,
   lightDialogTheme,
   lightMenuTheme,
-  MenuTheme
+  lightNotificationTheme,
+  MenuTheme,
+  NotificationTheme
 } from '../../../layers';
 import {
   darkDividerTheme,
   DividerTheme,
   lightDividerTheme
 } from '../../../layout';
-import { darkListTheme, lightListTheme, ListTheme } from '../../../layout';
-import { darkStackTheme, lightStackTheme, StackTheme } from '../../../layout';
 import {
   darkVerticalSpacerTheme,
   lightVerticalSpacerTheme,
-  VerticalSpacerTheme
+  VerticalSpacerTheme,
+  CardTheme,
+  darkCardTheme,
+  lightCardTheme,
+  darkListTheme,
+  lightListTheme,
+  ListTheme,
+  darkStackTheme,
+  lightStackTheme,
+  StackTheme
 } from '../../../layout';
-import { CardTheme, darkCardTheme, lightCardTheme } from '../../../layout';
 import {
   darkTypographyTheme,
   lightTypographyTheme,
@@ -50,6 +62,8 @@ export interface ReablocksTheme {
     stack: StackTheme;
     card: CardTheme;
     verticalSpacer: VerticalSpacerTheme;
+    notification: NotificationTheme;
+    input: InputTheme;
     typographyTheme: TypographyTheme;
   };
 }
@@ -66,6 +80,8 @@ export const lightTheme: ReablocksTheme = {
     stack: lightStackTheme,
     card: lightCardTheme,
     verticalSpacer: lightVerticalSpacerTheme,
+    notification: lightNotificationTheme,
+    input: lightInputTheme,
     typographyTheme: lightTypographyTheme
   }
 };
@@ -82,6 +98,8 @@ export const darkTheme: ReablocksTheme = {
     stack: darkStackTheme,
     card: darkCardTheme,
     verticalSpacer: darkVerticalSpacerTheme,
+    notification: darkNotificationTheme,
+    input: darkInputTheme,
     typographyTheme: darkTypographyTheme
   }
 };

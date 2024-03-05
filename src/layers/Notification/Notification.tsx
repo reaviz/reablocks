@@ -1,8 +1,9 @@
 import React, { FC, ReactNode, useCallback, useEffect, useRef } from 'react';
-import classNames from 'classnames';
 import { NotificationOptions } from './NotificationsContext';
 import { motion } from 'framer-motion';
-import css from './Notification.module.css';
+import { twMerge } from 'tailwind-merge';
+import { NotificationTheme } from './NotificationTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export interface NotificationProps extends NotificationOptions {
   id: number;
@@ -35,6 +36,8 @@ export const Notification: FC<NotificationProps> = ({
     return () => clearTimer();
   }, [clearTimer, startTimer]);
 
+  const theme: NotificationTheme = useComponentTheme('notification');
+
   return (
     <motion.div
       layout
@@ -47,17 +50,16 @@ export const Notification: FC<NotificationProps> = ({
       {component}
       {!component && (
         <div
-          className={classNames(css.notification, className, {
-            [css.default]: variant === 'default',
-            [css.error]: variant === 'error',
-            [css.success]: variant === 'success',
-            [css.warning]: variant === 'warning'
-          })}
+          className={twMerge(
+            theme.notification?.base,
+            theme.notification?.variants?.[variant],
+            className
+          )}
         >
-          <div className={css.content}>
-            {title && <div className={css.header}>{title}</div>}
+          <div className={theme.notification?.content}>
+            {title && <div className={theme.notification.header}>{title}</div>}
             {body && (
-              <div className={css.body}>
+              <div className={theme.notification.body}>
                 {typeof body === 'string' ? (
                   <span dangerouslySetInnerHTML={{ __html: body } as any} />
                 ) : (
@@ -66,11 +68,11 @@ export const Notification: FC<NotificationProps> = ({
               </div>
             )}
           </div>
-          <div className={css.close}>
+          <div className={theme.notification?.closeContainer}>
             {showClose && (
               <button
                 type="button"
-                className={css.closeButton}
+                className={theme.notification?.closeButton}
                 onClick={() => onClose?.(id)}
               >
                 ✕
