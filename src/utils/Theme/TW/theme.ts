@@ -4,10 +4,13 @@ import {
   ButtonTheme
 } from '../../../elements';
 import {
+  darkInputTheme,
   darkSelectTheme,
+  InputTheme,
+  lightInputTheme,
   lightSelectTheme,
   SelectTheme
-} from '../../../form/Select/SelectTheme';
+} from '../../../form';
 import {
   darkDialogHeaderTheme,
   darkDialogTheme,
@@ -55,6 +58,7 @@ export interface ReablocksTheme {
     card: CardTheme;
     verticalSpacer: VerticalSpacerTheme;
     notification: NotificationTheme;
+    input: InputTheme;
   };
 }
 
@@ -70,7 +74,8 @@ export const lightTheme: ReablocksTheme = {
     stack: lightStackTheme,
     card: lightCardTheme,
     verticalSpacer: lightVerticalSpacerTheme,
-    notification: lightNotificationTheme
+    notification: lightNotificationTheme,
+    input: lightInputTheme
   }
 };
 
@@ -86,6 +91,7 @@ export const darkTheme: ReablocksTheme = {
     stack: darkStackTheme,
     card: darkCardTheme,
     verticalSpacer: darkVerticalSpacerTheme,
-    notification: darkNotificationTheme
+    notification: darkNotificationTheme,
+    input: darkInputTheme
   }
 };
