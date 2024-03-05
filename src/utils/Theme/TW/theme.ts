@@ -27,14 +27,20 @@ import {
   DividerTheme,
   lightDividerTheme
 } from '../../../layout';
-import { darkListTheme, lightListTheme, ListTheme } from '../../../layout';
-import { darkStackTheme, lightStackTheme, StackTheme } from '../../../layout';
 import {
   darkVerticalSpacerTheme,
   lightVerticalSpacerTheme,
-  VerticalSpacerTheme
+  VerticalSpacerTheme,
+  CardTheme,
+  darkCardTheme,
+  lightCardTheme,
+  darkListTheme,
+  lightListTheme,
+  ListTheme,
+  darkStackTheme,
+  lightStackTheme,
+  StackTheme
 } from '../../../layout';
-import { CardTheme, darkCardTheme, lightCardTheme } from '../../../layout';
 
 export interface ReablocksTheme {
   components: {
