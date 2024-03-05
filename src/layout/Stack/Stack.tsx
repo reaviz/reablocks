@@ -44,7 +44,7 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(
     ref
   ) => {
     const theme = useComponentTheme('stack');
-    console.log('direction->', direction, theme[direction]);
+
     return (
       <div
         className={twMerge(

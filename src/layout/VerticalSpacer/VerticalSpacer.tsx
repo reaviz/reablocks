@@ -1,6 +1,6 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
-import classNames from 'classnames';
-import css from './VerticalSpacer.module.css';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export interface VerticalSpacerProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -12,15 +12,17 @@ export interface VerticalSpacerProps extends HTMLAttributes<HTMLDivElement> {
 export type VerticalSpaceType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export const VerticalSpacer = forwardRef<HTMLDivElement, VerticalSpacerProps>(
-  ({ space, className, ...rest }, ref) => (
-    <div
-      className={classNames(className, {
-        [css[space]]: true
-      })}
-      ref={ref}
-      {...rest}
-    />
-  )
+  ({ space, className, ...rest }, ref) => {
+    const theme = useComponentTheme('verticalSpacer');
+
+    return (
+      <div
+        className={twMerge(className, theme.size[space])}
+        ref={ref}
+        {...rest}
+      />
+    );
+  }
 );
 
 VerticalSpacer.defaultProps = {
