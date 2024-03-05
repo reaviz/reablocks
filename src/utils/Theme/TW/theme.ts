@@ -26,17 +26,14 @@ import {
   darkDividerTheme,
   DividerTheme,
   lightDividerTheme
-} from '../../../layout/Divider/DividerTheme';
+} from '../../../layout';
+import { darkListTheme, lightListTheme, ListTheme } from '../../../layout';
+import { darkStackTheme, lightStackTheme, StackTheme } from '../../../layout';
 import {
-  darkListTheme,
-  lightListTheme,
-  ListTheme
-} from '../../../layout/List/ListTheme';
-import {
-  darkStackTheme,
-  lightStackTheme,
-  StackTheme
-} from '../../../layout/Stack/StackTheme';
+  darkVerticalSpacerTheme,
+  lightVerticalSpacerTheme,
+  VerticalSpacerTheme
+} from '../../../layout';
 import { CardTheme, darkCardTheme, lightCardTheme } from '../../../layout';
 
 export interface ReablocksTheme {
@@ -50,6 +47,7 @@ export interface ReablocksTheme {
     menu: MenuTheme;
     stack: StackTheme;
     card: CardTheme;
+    verticalSpacer: VerticalSpacerTheme;
     notification: NotificationTheme;
   };
 }
@@ -65,6 +63,7 @@ export const lightTheme: ReablocksTheme = {
     menu: lightMenuTheme,
     stack: lightStackTheme,
     card: lightCardTheme,
+    verticalSpacer: lightVerticalSpacerTheme,
     notification: lightNotificationTheme
   }
 };
@@ -80,6 +79,7 @@ export const darkTheme: ReablocksTheme = {
     menu: darkMenuTheme,
     stack: darkStackTheme,
     card: darkCardTheme,
+    verticalSpacer: darkVerticalSpacerTheme,
     notification: darkNotificationTheme
   }
 };

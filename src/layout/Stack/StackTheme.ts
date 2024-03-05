@@ -52,6 +52,5 @@ export const lightStackTheme = {
 };
 
 export const darkStackTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, ''].join(' ')
+  ...baseTheme
 };
