@@ -11,11 +11,14 @@ import {
 import {
   darkDialogHeaderTheme,
   darkDialogTheme,
+  darkMenuTheme,
   DialogHeaderTheme,
   DialogTheme,
   lightDialogHeaderTheme,
-  lightDialogTheme
-} from '../../../layers/Dialog';
+  lightDialogTheme,
+  lightMenuTheme,
+  MenuTheme
+} from '../../../layers';
 import {
   darkDividerTheme,
   DividerTheme,
@@ -35,6 +38,7 @@ export interface ReablocksTheme {
     divider: DividerTheme;
     select: SelectTheme;
     list: ListTheme;
+    menu: MenuTheme;
   };
 }
 
@@ -45,7 +49,8 @@ export const lightTheme: ReablocksTheme = {
     dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
     select: lightSelectTheme,
-    list: lightListTheme
+    list: lightListTheme,
+    menu: lightMenuTheme
   }
 };
 
@@ -56,6 +61,7 @@ export const darkTheme: ReablocksTheme = {
     dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,
     select: darkSelectTheme,
-    list: darkListTheme
+    list: darkListTheme,
+    menu: darkMenuTheme
   }
 };
