@@ -3,17 +3,23 @@ import {
   lightSelectInputTheme,
   SelectInputTheme
 } from './SelectInput';
+import {
+  darkSelectMenuTheme,
+  lightSelectMenuTheme,
+  SelectMenuTheme
+} from './SelectMenu';
 
 export interface SelectTheme {
   selectInput: SelectInputTheme;
+  selectMenu: SelectMenuTheme;
 }
 
-const baseSelectTheme: Partial<SelectTheme> = {};
-
 export const lightSelectTheme: SelectTheme = {
-  selectInput: lightSelectInputTheme
+  selectInput: lightSelectInputTheme,
+  selectMenu: lightSelectMenuTheme
 };
 
 export const darkSelectTheme: SelectTheme = {
-  selectInput: darkSelectInputTheme
+  selectInput: darkSelectInputTheme,
+  selectMenu: darkSelectMenuTheme
 };

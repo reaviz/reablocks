@@ -2,8 +2,9 @@ import React, { FC } from 'react';
 import { SelectOptionProps } from '../SelectOption';
 import ellipsize from 'ellipsize';
 import { CloseIcon } from '../icons/CloseIcon';
-import css from './SelectInputChip.module.css';
-import classNames from 'classnames';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../../utils/Theme/TW';
+import { SelectTheme } from '../SelectTheme';
 
 export interface SelectInputChipProps {
   option: SelectOptionProps;
@@ -33,16 +34,29 @@ export const SelectInputChip: FC<Partial<SelectInputChipProps>> = ({
   const label =
     typeof origLabel === 'string' ? ellipsize(origLabel, maxLength) : origLabel;
 
+  const { selectInput: theme } = useComponentTheme('select') as SelectTheme;
+
   return (
     <span
-      className={classNames(css.tag, className, 'select-input-chip')}
+      className={twMerge(
+        theme.chip.base,
+        theme.chip.hover,
+        theme.chip.focused,
+        theme.chip.disabled,
+        className,
+        'select-input-chip'
+      )}
       title={origLabel as string}
       tabIndex={-1}
       onKeyDown={event => onTagKeyDown(event, option)}
     >
       {label}
       {!disabled && clearable && (
-        <button type="button" onClick={() => onSelectedChange(option)}>
+        <button
+          type="button"
+          onClick={() => onSelectedChange(option)}
+          className={twMerge(theme.chip.removeButton)}
+        >
           {closeIcon}
         </button>
       )}
