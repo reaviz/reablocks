@@ -1,6 +1,7 @@
 import React, { forwardRef, LegacyRef, FC } from 'react';
-import classNames from 'classnames';
-import css from './Card.module.css';
+import { twMerge } from 'tailwind-merge';
+import { CardTheme } from './CardTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export interface CardProps extends React.DOMAttributes<any> {
   /**
@@ -48,26 +49,32 @@ export const Card: FC<CardRefProps> = forwardRef(
       ...rest
     }: CardProps,
     ref
-  ) => (
-    <section
-      {...rest}
-      ref={ref}
-      className={classNames(className, css.card, {
-        [css.disablePadding]: disablePadding
-      })}
-    >
-      {header && (
-        <header className={classNames(css.header, headerClassName)}>
-          {header && typeof header === 'string' ? (
-            <h3 className={css.headerText}>{header}</h3>
-          ) : (
-            header
-          )}
-        </header>
-      )}
-      <div className={classNames(css.content, contentClassName)}>
-        {children}
-      </div>
-    </section>
-  )
+  ) => {
+    const theme: CardTheme = useComponentTheme('card');
+
+    return (
+      <section
+        {...rest}
+        ref={ref}
+        className={twMerge(
+          theme.base,
+          disablePadding && theme.disablePadding,
+          className
+        )}
+      >
+        {header && (
+          <header className={twMerge(theme.header, headerClassName)}>
+            {header && typeof header === 'string' ? (
+              <h3 className={theme.headerText}>{header}</h3>
+            ) : (
+              header
+            )}
+          </header>
+        )}
+        <div className={twMerge(theme.content, contentClassName)}>
+          {children}
+        </div>
+      </section>
+    );
+  }
 );
