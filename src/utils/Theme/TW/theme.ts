@@ -26,6 +26,11 @@ import {
   lightListTheme,
   ListTheme
 } from '../../../layout/List/ListTheme';
+import {
+  darkStackTheme,
+  lightStackTheme,
+  StackTheme
+} from '../../../layout/Stack/StackTheme';
 
 export interface ReablocksTheme {
   components: {
@@ -35,6 +40,7 @@ export interface ReablocksTheme {
     divider: DividerTheme;
     select: SelectTheme;
     list: ListTheme;
+    stack: StackTheme;
   };
 }
 
@@ -45,7 +51,8 @@ export const lightTheme: ReablocksTheme = {
     dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
     select: lightSelectTheme,
-    list: lightListTheme
+    list: lightListTheme,
+    stack: lightStackTheme
   }
 };
 
@@ -56,6 +63,7 @@ export const darkTheme: ReablocksTheme = {
     dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,
     select: darkSelectTheme,
-    list: darkListTheme
+    list: darkListTheme,
+    stack: darkStackTheme
   }
 };
