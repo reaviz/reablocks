@@ -19,12 +19,15 @@ import {
 import {
   darkDialogHeaderTheme,
   darkDialogTheme,
+  darkDrawerTheme,
   darkMenuTheme,
   darkNotificationTheme,
   DialogHeaderTheme,
   DialogTheme,
+  DrawerTheme,
   lightDialogHeaderTheme,
   lightDialogTheme,
+  lightDrawerTheme,
   lightMenuTheme,
   lightNotificationTheme,
   MenuTheme,
@@ -61,6 +64,7 @@ export interface ReablocksTheme {
     dialog: DialogTheme;
     dialogHeader: DialogHeaderTheme;
     divider: DividerTheme;
+    drawer: DrawerTheme;
     select: SelectTheme;
     list: ListTheme;
     menu: MenuTheme;
@@ -80,6 +84,7 @@ export const lightTheme: ReablocksTheme = {
     dialog: lightDialogTheme,
     dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
+    drawer: lightDrawerTheme,
     select: lightSelectTheme,
     list: lightListTheme,
     menu: lightMenuTheme,
@@ -99,6 +104,7 @@ export const darkTheme: ReablocksTheme = {
     dialog: darkDialogTheme,
     dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,
+    drawer: darkDrawerTheme,
     select: darkSelectTheme,
     list: darkListTheme,
     menu: darkMenuTheme,

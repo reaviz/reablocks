@@ -10,8 +10,6 @@ const config: Config = {
   darkMode: 'selector',
   theme: {
     extend: {
-      // Define next colors to be used in the project
-      // primary, secondary, success, error, warning, info, disabled
       colors: {
         primary: colors.blue,
         secondary: colors.gray,
@@ -19,9 +17,15 @@ const config: Config = {
         error: colors.red,
         warning: colors.orange,
         info: {},
-        disabled: colors.gray['400'],
-        // text-disabled
-        // bg-disabled
+        disabled: colors.gray['400'], // text-disabled
+        light: {
+          background: colors.gray['100'],
+          disabled: colors.gray['200'],
+        },
+        dark: {
+          background: colors.zinc['800'],
+          disabled: colors.zinc['600'],
+        }
       }
     },
   },

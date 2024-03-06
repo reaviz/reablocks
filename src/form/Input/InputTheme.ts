@@ -41,18 +41,18 @@ export const lightInputTheme: InputTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'bg-white border border-gray-400 text-black focus-within:ring-gray-500 focus-within:border-gray-500'
+    'bg-light-background border border-gray-400 text-black focus-within:ring-gray-500 focus-within:border-gray-500'
   ].join(' '),
   input: [baseTheme.input, 'text-black placeholder:text-slate-700'].join(' '),
-  disabled: [baseTheme.disabled, 'disabled-within:bg-gray-200'].join(' ')
+  disabled: [baseTheme.disabled, 'disabled-within:bg-light-disabled'].join(' ')
 };
 
 export const darkInputTheme: InputTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'bg-zinc-900 border border-gray-700 text-white focus-within:ring-gray-500 focus-within:border-gray-500'
+    'bg-dark-background-800 border border-gray-700 text-white focus-within:ring-gray-500 focus-within:border-gray-500'
   ].join(' '),
   input: [baseTheme.input, ' placeholder-zinc-400'].join(' '),
-  disabled: [baseTheme.disabled, 'disabled-within:bg-zinc-600'].join(' ')
+  disabled: [baseTheme.disabled, 'disabled-within:bg-dark-disabled'].join(' ')
 };

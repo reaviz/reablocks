@@ -41,7 +41,9 @@ export const lightNotificationTheme: NotificationTheme = {
   ...baseTheme,
   notification: {
     ...baseTheme.notification,
-    base: [baseTheme.notification.base, 'bg-white text-black'].join(' '),
+    base: [baseTheme.notification.base, 'bg-light-background text-black'].join(
+      ' '
+    ),
     closeButton: [
       baseTheme.notification.closeButton,
       'text-slate-700 hover:text-slate-900'
@@ -67,7 +69,7 @@ export const darkNotificationTheme: NotificationTheme = {
     ...baseTheme.notification,
     base: [
       baseTheme.notification.base,
-      'bg-zinc-800 border-gray-400 text-white'
+      'bg-dark-background border-gray-400 text-white'
     ].join(' '),
     closeButton: [
       baseTheme.notification.closeButton,
