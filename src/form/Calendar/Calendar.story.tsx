@@ -119,6 +119,7 @@ export const Range = () => {
         value={range}
         onChange={val => setRange(val as [Date, Date | undefined])}
         isRange
+        showDayOfWeek
       />
       <Divider />
       <Stack justifyContent="center">

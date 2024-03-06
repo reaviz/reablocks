@@ -29,6 +29,11 @@ import {
   lightCalendarTheme
 } from '../../../form/Calendar/CalendarTheme';
 import {
+  CalendarRangeTheme,
+  darkCalendarRangeTheme,
+  lightCalendarRangeTheme
+} from '../../../form/Calendar/CalendarRangeTheme';
+import {
   darkDialogHeaderTheme,
   darkDialogTheme,
   darkDrawerTheme,
@@ -92,6 +97,7 @@ export interface ReablocksTheme {
     notification: NotificationTheme;
     input: InputTheme;
     calendar: CalendarTheme;
+    calendarRange: CalendarRangeTheme;
     commandPalette: CommandPaletteTheme;
     typography: TypographyTheme;
     radio: RadioTheme;
@@ -117,6 +123,7 @@ export const lightTheme: ReablocksTheme = {
     notification: lightNotificationTheme,
     input: lightInputTheme,
     calendar: lightCalendarTheme,
+    calendarRange: lightCalendarRangeTheme,
     commandPalette: lightCommandPaletteTheme,
     typography: lightTypographyTheme,
     radio: lightRadioTheme,
@@ -142,6 +149,7 @@ export const darkTheme: ReablocksTheme = {
     notification: darkNotificationTheme,
     input: darkInputTheme,
     calendar: darkCalendarTheme,
+    calendarRange: darkCalendarRangeTheme,
     commandPalette: darkCommandPaletteTheme,
     typography: darkTypographyTheme,
     radio: darkRadioTheme,

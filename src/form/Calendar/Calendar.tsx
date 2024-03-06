@@ -101,7 +101,6 @@ export const Calendar: FC<CalendarProps> = ({
   isRange,
   previousArrow,
   nextArrow,
-  dateFormat,
   showDayOfWeek,
   animated,
   onChange,

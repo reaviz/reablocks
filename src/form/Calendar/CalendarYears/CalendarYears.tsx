@@ -1,10 +1,9 @@
-import React, { FC, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Button } from '../../../elements/Button';
 import { useComponentTheme } from '../../../utils/Theme/TW';
 import { CalendarTheme } from '../CalendarTheme';
 import { twMerge } from 'tailwind-merge';
-import css from './CalendarYears.module.css';
 
 export interface CalendarYearsProps {
   /**
@@ -75,7 +74,8 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
         {yearDates.map(year => (
           <Button
             key={year}
-            className={css.year}
+            className={twMerge(years.year)}
+            color={value === year ? 'primary' : 'default'}
             variant={value === year ? 'filled' : 'text'}
             disableMargins
             title={year}
