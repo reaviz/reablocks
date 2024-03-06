@@ -32,8 +32,7 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
           className={classNames(
             css.deleteButton,
             { [css[size]]: true },
-            { [`text-${color}-500`]: rest?.variant === 'outline' },
-            { ['text-white']: rest?.variant === 'filled' }
+            'text-inherit'
           )}
           onClick={event => {
             if (!disabled) {
