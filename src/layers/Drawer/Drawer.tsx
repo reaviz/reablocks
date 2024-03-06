@@ -1,11 +1,12 @@
 import React, { FC, ReactElement } from 'react';
-import classNames from 'classnames';
 import FocusTrap from 'focus-trap-react';
 import { CloneElement, GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
 import { motion } from 'framer-motion';
 import { variants } from './variants';
-import css from './Drawer.module.css';
 import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
+import { twMerge } from 'tailwind-merge';
+import { DrawerTheme } from './DrawerTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export interface DrawerProps extends Omit<GlobalOverlayProps, 'children'> {
   position?: 'start' | 'end' | 'top' | 'bottom';
@@ -45,6 +46,8 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
     height: position === 'top' || position === 'bottom' ? size : 'auto'
   };
 
+  const theme: DrawerTheme = useComponentTheme('drawer');
+
   return (
     <GlobalOverlay
       open={open}
@@ -74,13 +77,12 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                 when: 'beforeChildren'
               }}
               style={{ ...style, zIndex: overlayIndex }}
-              className={classNames(css.drawer, className, {
-                [css.left]: position === 'start',
-                [css.right]: position === 'end',
-                [css.top]: position === 'top',
-                [css.bottom]: position === 'bottom',
-                [css.disablePadding]: disablePadding
-              })}
+              className={twMerge(
+                theme.base,
+                theme.positions[position],
+                disablePadding && theme.disablePadding,
+                className
+              )}
             >
               {(header || headerElement) && (
                 <CloneElement<DrawerHeaderProps>
@@ -94,16 +96,16 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
               {!header && !headerElement && showCloseButton && (
                 <button
                   type="button"
-                  className={classNames(
-                    css.closeButton,
-                    css.headerlessCloseButton
+                  className={twMerge(
+                    theme.closeButton.base,
+                    theme.closeButton.headerless
                   )}
                   onClick={onClose}
                 >
                   ✕
                 </button>
               )}
-              <div className={classNames(css.content, contentClassName)}>
+              <div className={twMerge(theme.content, contentClassName)}>
                 {typeof children === 'function' ? children() : children}
               </div>
             </motion.div>

@@ -43,7 +43,7 @@ export const Simple = () => {
         </div>
       </RadioGroup>
       <br />
-      <div>Selected Color: {selectedColor}</div>
+      <div style={{ color: 'green' }}>Selected Color: {selectedColor}</div>
     </>
   );
 };

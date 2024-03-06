@@ -1,8 +1,9 @@
 import React, { PropsWithChildren, forwardRef } from 'react';
 import { List, ListHeader } from '../../../layout/List';
-import classNames from 'classnames';
 import { MotionGroup, MotionItem } from '../../../layout/Motion';
-import css from './CommandPaletteSection.module.css';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../../utils/Theme/TW';
+import { CommandPaletteTheme } from '../CommandPaletteTheme';
 
 export interface CommandPaletteSectionProps extends PropsWithChildren {
   /**
@@ -24,19 +25,26 @@ export interface CommandPaletteSectionProps extends PropsWithChildren {
 export const CommandPaletteSection = forwardRef<
   HTMLDivElement,
   CommandPaletteSectionProps
->(({ children, className, title, index, ...rest }, ref) => (
-  <MotionItem layout>
-    <List
-      ref={ref}
-      {...rest}
-      className={classNames(css.section, className, {
-        [css.first]: index === 0
-      })}
-    >
-      {title && <ListHeader>{title}</ListHeader>}
-      <MotionGroup>{children}</MotionGroup>
-    </List>
-  </MotionItem>
-));
+>(({ children, className, title, index, ...rest }, ref) => {
+  const { section: sectionTheme }: CommandPaletteTheme =
+    useComponentTheme('commandPalette');
+
+  return (
+    <MotionItem layout>
+      <List
+        ref={ref}
+        {...rest}
+        className={twMerge(
+          sectionTheme.base,
+          index === 0 && sectionTheme.first,
+          className
+        )}
+      >
+        {title && <ListHeader>{title}</ListHeader>}
+        <MotionGroup>{children}</MotionGroup>
+      </List>
+    </MotionItem>
+  );
+});
 
 CommandPaletteSection.displayName = 'CommandPaletteSection';

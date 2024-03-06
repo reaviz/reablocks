@@ -16,10 +16,10 @@ const baseTheme: CardTheme = {
 
 export const lightCardTheme: CardTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-white text-black'].join(' ')
+  base: [baseTheme.base, 'bg-light-background text-black'].join(' ')
 };
 
 export const darkCardTheme: CardTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-zinc-800 text-white'].join(' ')
+  base: [baseTheme.base, 'bg-dark-background text-white'].join(' ')
 };

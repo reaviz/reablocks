@@ -10,7 +10,8 @@ import React, {
 import { SearchIcon } from './SearchIcon';
 import { HotkeyIem } from '../useFlattenedTree';
 import Mousetrap from 'mousetrap';
-import css from './CommandPaletteInput.module.css';
+import { CommandPaletteTheme } from '../CommandPaletteTheme';
+import { useComponentTheme } from '../../../utils/Theme/TW';
 
 export interface CommandPaletteInputProps {
   /**
@@ -93,11 +94,14 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
     };
   }, [onHotkey, hotkeys]);
 
+  const { input: inputTheme }: CommandPaletteTheme =
+    useComponentTheme('commandPalette');
+
   return (
-    <div className={css.container}>
-      {icon && <span className={css.icon}>{icon}</span>}
+    <div className={inputTheme.base}>
+      {icon && <span className={inputTheme.icon}>{icon}</span>}
       <input
-        className={css.input}
+        className={inputTheme.input}
         ref={inputRef}
         type="text"
         value={value}

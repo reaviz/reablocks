@@ -79,7 +79,8 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
     }: ButtonProps,
     ref
   ) => {
-    const theme = useComponentTheme('button') as ButtonTheme;
+    // const theme = useComponentTheme('button') as ButtonTheme;
+    const theme = useComponentTheme('button');
 
     const { variant: groupVariant, size: groupSize } =
       useContext(ButtonGroupContext);

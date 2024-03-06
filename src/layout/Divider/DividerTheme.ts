@@ -18,10 +18,10 @@ const baseTheme: DividerTheme = {
 
 export const lightDividerTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-zinc-600'].join(' ')
+  base: [baseTheme.base, 'bg-zinc-400'].join(' ')
 };
 
 export const darkDividerTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-zinc-800'].join(' ')
+  base: [baseTheme.base, 'bg-zinc-600'].join(' ')
 };

@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
-import css from './Drawer.module.css';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../utils/Theme/TW';
+import { DrawerTheme } from './DrawerTheme';
 
 export interface DrawerHeaderProps {
   children?: any;
@@ -14,19 +15,27 @@ export const DrawerHeader: FC<Partial<DrawerHeaderProps>> = ({
   className,
   showCloseButton,
   onClose
-}) => (
-  <header className={classNames(css.header, className)}>
-    <div>
-      {typeof children === 'string' ? (
-        <h1 className={css.headerText}>{children}</h1>
-      ) : (
-        children
+}) => {
+  const theme: DrawerTheme = useComponentTheme('drawer');
+
+  return (
+    <header className={twMerge(theme.header.base, className)}>
+      <div>
+        {typeof children === 'string' ? (
+          <h1 className={theme.header.text}>{children}</h1>
+        ) : (
+          children
+        )}
+      </div>
+      {showCloseButton && (
+        <button
+          type="button"
+          className={theme.closeButton.base}
+          onClick={onClose}
+        >
+          ✕
+        </button>
       )}
-    </div>
-    {showCloseButton && (
-      <button type="button" className={css.closeButton} onClick={onClose}>
-        ✕
-      </button>
-    )}
-  </header>
-);
+    </header>
+  );
+};

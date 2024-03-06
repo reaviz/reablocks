@@ -1,7 +1,9 @@
-import { AnimatePresence, motion } from 'framer-motion';
 import React, { FC, useMemo } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Button } from '../../../elements/Button';
-
+import { useComponentTheme } from '../../../utils/Theme/TW';
+import { CalendarTheme } from '../CalendarTheme';
+import { twMerge } from 'tailwind-merge';
 import css from './CalendarYears.module.css';
 
 export interface CalendarYearsProps {
@@ -44,7 +46,9 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
   xAnimation = 0,
   onChange
 }) => {
-  const years = useMemo(() => {
+  const { years } = useComponentTheme('calendar') as CalendarTheme;
+
+  const yearDates = useMemo(() => {
     const arr = [];
     const start = decadeStart.getFullYear();
     const end = decadeEnd.getFullYear();
@@ -59,7 +63,7 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
   return (
     <AnimatePresence mode="popLayout">
       <motion.div
-        className={css.years}
+        className={twMerge(years.root)}
         key={`${decadeStart.toString()}-${decadeEnd.toString()}`}
         initial={{ opacity: 0, x: xAnimation }}
         animate={{ opacity: 1, x: 0 }}
@@ -68,7 +72,7 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
           opacity: { duration: 0.2, type: animated ? 'tween' : false }
         }}
       >
-        {years.map(year => (
+        {yearDates.map(year => (
           <Button
             key={year}
             className={css.year}

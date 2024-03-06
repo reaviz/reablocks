@@ -35,7 +35,8 @@ export const Sub: FC<SubProps & SubRef> = forwardRef(
     { color, variant, disableMargins, children, className, ...rest }: SubProps,
     ref
   ) => {
-    const theme = useComponentTheme('typographyTheme');
+    const theme = useComponentTheme('typography');
+
     return (
       <h6
         ref={ref}

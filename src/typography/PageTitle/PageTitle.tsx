@@ -43,7 +43,8 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
     }: PageTitleProps,
     ref
   ) => {
-    const theme = useComponentTheme('typographyTheme');
+    const theme = useComponentTheme('typography');
+
     return (
       <h1
         ref={ref}

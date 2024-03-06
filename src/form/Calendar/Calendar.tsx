@@ -15,13 +15,13 @@ import {
   sub,
   subYears
 } from 'date-fns';
-import { DateFormat } from '../../data/DateFormat';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
 import { SmallHeading } from '../../typography';
-
-import css from './Calendar.module.css';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../utils/Theme/TW';
+import { CalendarTheme } from './CalendarTheme';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -107,6 +107,8 @@ export const Calendar: FC<CalendarProps> = ({
   onChange,
   onViewChange
 }) => {
+  const theme = useComponentTheme('calendar') as CalendarTheme;
+
   const date = useMemo(
     () => (Array.isArray(value) ? value[0] : value ?? new Date()),
     [value]
@@ -211,8 +213,8 @@ export const Calendar: FC<CalendarProps> = ({
   }, [scrollDirection]);
 
   return (
-    <div className={css.container}>
-      <header className={css.header}>
+    <div className={twMerge(theme.base)}>
+      <header className={twMerge(theme.header)}>
         <Button
           variant="text"
           disabled={disabled}
@@ -228,7 +230,7 @@ export const Calendar: FC<CalendarProps> = ({
           disablePadding
           fullWidth
         >
-          <SmallHeading disableMargins>
+          <SmallHeading disableMargins className={twMerge(theme.title)}>
             {view === 'days' &&
               new Intl.DateTimeFormat(navigator.language, {
                 month: 'long'
@@ -252,6 +254,7 @@ export const Calendar: FC<CalendarProps> = ({
       </header>
       <AnimatePresence initial={false} mode="wait">
         <motion.div
+          className={twMerge(theme.content)}
           key={view}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}

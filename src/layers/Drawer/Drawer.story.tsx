@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { useDrawer } from './useDrawer';
 import { Drawer } from './Drawer';
+import { Button } from '../../elements';
 
 export default {
   title: 'Components/Layers/Drawer',
@@ -14,9 +15,9 @@ export const Simple = () => {
       <Drawer>
         <p>Hello There!</p>
       </Drawer>
-      <button type="button" onClick={toggleOpen}>
+      <Button type="button" onClick={toggleOpen}>
         Open
-      </button>
+      </Button>
     </Fragment>
   );
 };
@@ -28,9 +29,9 @@ export const BottomSheet = () => {
       <Drawer position="bottom">
         <p>Hello There!</p>
       </Drawer>
-      <button type="button" onClick={toggleOpen}>
+      <Button type="button" onClick={toggleOpen}>
         Open
-      </button>
+      </Button>
     </Fragment>
   );
 };
@@ -44,9 +45,9 @@ export const CustomHeaderElement = () => {
       <Drawer headerElement={<MyHeader />}>
         <p>Hello There!</p>
       </Drawer>
-      <button type="button" onClick={toggleOpen}>
+      <Button type="button" onClick={toggleOpen}>
         Open
-      </button>
+      </Button>
     </Fragment>
   );
 };
@@ -58,9 +59,9 @@ export const Header = () => {
       <Drawer header="Hello!!!!">
         <p>Hello There!</p>
       </Drawer>
-      <button type="button" onClick={toggleOpen}>
+      <Button type="button" onClick={toggleOpen}>
         Open
-      </button>
+      </Button>
     </Fragment>
   );
 };
@@ -71,9 +72,9 @@ export const CustomHeader = () => {
       <Drawer header={<h3>Hello!!!!</h3>}>
         <p>Hello There!</p>
       </Drawer>
-      <button type="button" onClick={toggleOpen}>
+      <Button type="button" onClick={toggleOpen}>
         Open
-      </button>
+      </Button>
     </Fragment>
   );
 };

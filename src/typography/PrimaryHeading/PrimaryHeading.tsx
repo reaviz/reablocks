@@ -43,7 +43,8 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
       }: PrimaryHeadingProps,
       ref
     ) => {
-      const theme = useComponentTheme('typographyTheme');
+      const theme = useComponentTheme('typography');
+
       return (
         <h2
           ref={ref}

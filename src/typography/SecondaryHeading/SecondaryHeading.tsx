@@ -44,7 +44,8 @@ export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
       }: SecondaryHeadingProps,
       ref
     ) => {
-      const theme = useComponentTheme('typographyTheme');
+      const theme = useComponentTheme('typography');
+
       return (
         <h3
           ref={ref}

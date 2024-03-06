@@ -1,25 +1,45 @@
 import {
   darkButtonTheme,
   lightButtonTheme,
-  ButtonTheme
+  ButtonTheme,
+  CommandPaletteTheme,
+  lightCommandPaletteTheme,
+  darkCommandPaletteTheme
 } from '../../../elements';
 import {
   darkInputTheme,
+  darkRadioTheme,
+  darkRangeTheme,
   darkSelectTheme,
+  darkToggleTheme,
   InputTheme,
   lightInputTheme,
+  lightRadioTheme,
+  lightRangeTheme,
   lightSelectTheme,
-  SelectTheme
+  lightToggleTheme,
+  RadioTheme,
+  RangeTheme,
+  SelectTheme,
+  ToggleTheme
 } from '../../../form';
+import {
+  CalendarTheme,
+  darkCalendarTheme,
+  lightCalendarTheme
+} from '../../../form/Calendar/CalendarTheme';
 import {
   darkDialogHeaderTheme,
   darkDialogTheme,
+  darkDrawerTheme,
   darkMenuTheme,
   darkNotificationTheme,
   DialogHeaderTheme,
   DialogTheme,
+  DrawerTheme,
   lightDialogHeaderTheme,
   lightDialogTheme,
+  lightDrawerTheme,
   lightMenuTheme,
   lightNotificationTheme,
   MenuTheme,
@@ -62,6 +82,7 @@ export interface ReablocksTheme {
     dialog: DialogTheme;
     dialogHeader: DialogHeaderTheme;
     divider: DividerTheme;
+    drawer: DrawerTheme;
     select: SelectTheme;
     list: ListTheme;
     menu: MenuTheme;
@@ -70,7 +91,12 @@ export interface ReablocksTheme {
     verticalSpacer: VerticalSpacerTheme;
     notification: NotificationTheme;
     input: InputTheme;
-    typographyTheme: TypographyTheme;
+    calendar: CalendarTheme;
+    commandPalette: CommandPaletteTheme;
+    typography: TypographyTheme;
+    radio: RadioTheme;
+    range: RangeTheme;
+    toggle: ToggleTheme;
   };
 }
 
@@ -81,6 +107,7 @@ export const lightTheme: ReablocksTheme = {
     dialog: lightDialogTheme,
     dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
+    drawer: lightDrawerTheme,
     select: lightSelectTheme,
     list: lightListTheme,
     menu: lightMenuTheme,
@@ -89,7 +116,12 @@ export const lightTheme: ReablocksTheme = {
     verticalSpacer: lightVerticalSpacerTheme,
     notification: lightNotificationTheme,
     input: lightInputTheme,
-    typographyTheme: lightTypographyTheme
+    calendar: lightCalendarTheme,
+    commandPalette: lightCommandPaletteTheme,
+    typography: lightTypographyTheme,
+    radio: lightRadioTheme,
+    range: lightRangeTheme,
+    toggle: lightToggleTheme
   }
 };
 
@@ -100,6 +132,7 @@ export const darkTheme: ReablocksTheme = {
     dialog: darkDialogTheme,
     dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,
+    drawer: darkDrawerTheme,
     select: darkSelectTheme,
     list: darkListTheme,
     menu: darkMenuTheme,
@@ -108,6 +141,11 @@ export const darkTheme: ReablocksTheme = {
     verticalSpacer: darkVerticalSpacerTheme,
     notification: darkNotificationTheme,
     input: darkInputTheme,
-    typographyTheme: darkTypographyTheme
+    calendar: darkCalendarTheme,
+    commandPalette: darkCommandPaletteTheme,
+    typography: darkTypographyTheme,
+    radio: darkRadioTheme,
+    range: darkRangeTheme,
+    toggle: darkToggleTheme
   }
 };

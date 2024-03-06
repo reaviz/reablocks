@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo, useState } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import classNames from 'classnames';
 import { isAfter, isBefore, isSameDay } from 'date-fns';
 import { Button } from '../../../elements/Button';
@@ -10,6 +10,9 @@ import {
   isPreviousWeekEmpty
 } from '../utils';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useComponentTheme } from '../../../utils/Theme/TW';
+import { CalendarTheme } from '../CalendarTheme';
+import { twMerge } from 'tailwind-merge';
 
 import css from './CalendarDays.module.css';
 
@@ -117,6 +120,8 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   onChange,
   onHover
 }) => {
+  const { days } = useComponentTheme('calendar') as CalendarTheme;
+
   const [hoveringDate, setHoveringDate] = useState<Date | null>(hover);
   const weeks = useMemo(() => getWeeks(value), [value]);
   const maxLimit = useMemo(() => (max === 'now' ? new Date() : max), [max]);
@@ -227,7 +232,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         }}
       >
         {showDayOfWeek && (
-          <div className={css.weekLabels}>
+          <div className={twMerge(days.header)}>
             {dayOfWeekLabels.map(day => (
               <div key={`day-${day}`} className={css.dayOfWeek}>
                 {day.substring(0, 2)}
@@ -236,7 +241,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
           </div>
         )}
         {weeks.map((week, i) => (
-          <div key={`week-${i}`} className={css.week}>
+          <div key={`week-${i}`} className={twMerge(days.day)}>
             {week.map(renderDay)}
           </div>
         ))}
