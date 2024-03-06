@@ -115,7 +115,7 @@ export const darkChipTheme: ChipTheme = {
   },
   colors: {
     default: {
-      base: 'bg-gray-600 border-gray-600 text-gray-600',
+      base: 'bg-gray-600 border-gray-600 text-gray-300',
       selectable: 'hover:cursor-pointer hover:bg-gray-500',
       selected: 'bg-gray-500'
     },
