@@ -70,33 +70,33 @@ export const lightChipTheme: ChipTheme = {
       focus: 'focus-visible:outline-gray-500'
     },
     primary: {
-      base: 'bg-primary-700 border-primary-700',
+      base: 'bg-primary-700 border-primary-700 text-primary-700',
       selectable: 'hover:cursor-pointer hover:bg-primary-600',
       selected: 'bg-primary-600',
       focus: 'focus-visible:outline-primary-500'
     },
     secondary: {
-      base: 'bg-secondary-700',
+      base: 'bg-secondary-700 border-secondary-700 text-secondary-700',
       selectable: 'hover:cursor-pointer hover:bg-secondary-600',
       selected: 'bg-secondary-600'
     },
     success: {
-      base: 'bg-success-700',
+      base: 'bg-success-700   border-success-700 text-success-700',
       selectable: 'hover:cursor-pointer hover:bg-success-600',
       selected: 'bg-success-600'
     },
     warning: {
-      base: 'bg-warning-700',
+      base: 'bg-warning-700 border-warning-700 text-warning-700',
       selectable: 'hover:cursor-pointer hover:bg-warning-600',
       selected: 'bg-warning-600'
     },
     error: {
-      base: 'bg-error-700',
+      base: 'bg-error-700 border-error-700 text-error-700',
       selectable: 'hover:cursor-pointer hover:bg-error-600',
       selected: 'bg-error-600'
     },
     info: {
-      base: 'bg-info-700',
+      base: 'bg-info-700 border-info-700 text-info-700',
       selectable: 'hover:cursor-pointer hover:bg-info-600',
       selected: 'bg-info-600'
     }
