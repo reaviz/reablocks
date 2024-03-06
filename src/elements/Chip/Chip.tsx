@@ -1,5 +1,6 @@
 import React, { FC, forwardRef, LegacyRef, ReactElement } from 'react';
-import classNames from 'classnames';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../utils/Theme/TW';
 import css from './Chip.module.css';
 
 export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -59,8 +60,8 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
   (
     {
       children,
-      color,
-      variant,
+      color = 'default',
+      variant = 'filled',
       size,
       selected,
       disabled,
@@ -72,31 +73,54 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       ...rest
     },
     ref
-  ) => (
-    <div
-      {...rest}
-      ref={ref}
-      tabIndex={onClick ? 0 : -1}
-      onClick={onClick}
-      className={classNames(
-        css.chip,
-        {
-          [css[color]]: true,
-          [css[variant]]: true,
-          [css[size]]: true,
-          [css.selected]: !!selected,
-          [css.disabled]: disabled,
-          [css.selectable]: onClick && !disabled,
-          [css.disableMargins]: disableMargins
-        },
-        className
-      )}
-    >
-      {start && <div className={css.startAdornment}>{start}</div>}
-      <div className={css.content}>{children}</div>
-      {end && <div className={css.endAdornment}>{end}</div>}
-    </div>
-  )
+  ) => {
+    const theme = useComponentTheme('chip');
+
+    return (
+      <div
+        {...rest}
+        ref={ref}
+        tabIndex={onClick ? 0 : -1}
+        onClick={onClick}
+        className={twMerge(
+          theme.base,
+          theme.colors[color]?.base,
+          theme.variants[variant],
+          theme.sizes[size],
+          theme.focus,
+          !!onClick && !disabled && theme.colors[color]?.selectable,
+          selected && theme.colors[color]?.selected,
+          disableMargins && 'm-0',
+          css.chip,
+          className
+        )}
+      >
+        {start && (
+          <div
+            className={twMerge(
+              theme.adornment.base,
+              theme.adornment.start,
+              theme.adornment.sizes[size]
+            )}
+          >
+            {start}
+          </div>
+        )}
+        <div className={'flex items-center'}>{children}</div>
+        {end && (
+          <div
+            className={twMerge(
+              theme.adornment.base,
+              theme.adornment.end,
+              theme.adornment.sizes[size]
+            )}
+          >
+            {end}
+          </div>
+        )}
+      </div>
+    );
+  }
 );
 
 Chip.defaultProps = {

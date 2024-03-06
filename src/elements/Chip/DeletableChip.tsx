@@ -18,15 +18,17 @@ export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
 }
 
 export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
-  ({ children, disabled, deleteIcon, onDelete, size, ...rest }, ref) => (
+  ({ children, disabled, deleteIcon, onDelete, size, color, ...rest }, ref) => (
     <Chip
       ref={ref}
       size={size}
       disabled={disabled}
+      color={color}
       end={
         <Button
           tabIndex={0}
           variant="text"
+          color={color}
           size={size}
           className={classNames(css.deleteButton, { [css[size]]: true })}
           onClick={event => {

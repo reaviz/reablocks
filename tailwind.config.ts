@@ -18,7 +18,7 @@ const config: Config = {
         success: colors.green,
         error: colors.red,
         warning: colors.orange,
-        info: {},
+        info: colors.sky,
         disabled: colors.gray['400'],
         // text-disabled
         // bg-disabled
