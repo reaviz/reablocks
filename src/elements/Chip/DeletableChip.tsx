@@ -58,5 +58,5 @@ DeletableChip.defaultProps = {
   color: 'default',
   size: 'medium',
   variant: 'filled',
-  deleteIcon: <CloseIcon />
+  deleteIcon: <CloseIcon height={12} width={12} />
 };

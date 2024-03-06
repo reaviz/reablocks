@@ -1,12 +1,17 @@
 import React, { FC } from 'react';
 
-export const CloseIcon: FC = () => (
+export type CloseIconProps = {
+  height?: number;
+  width?: number;
+};
+
+export const CloseIcon: FC<CloseIconProps> = ({ height = 32, width = 32 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     x="0px"
     y="0px"
-    width="12"
-    height="12"
+    width={width}
+    height={height}
     viewBox="0 0 32 32"
     fill="currentColor"
   >
