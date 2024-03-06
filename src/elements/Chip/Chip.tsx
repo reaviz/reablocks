@@ -85,11 +85,11 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
         className={twMerge(
           theme.base,
           theme.colors[color]?.base,
-          theme.variants[variant],
           theme.sizes[size],
           theme.focus,
           !!onClick && !disabled && theme.colors[color]?.selectable,
           selected && theme.colors[color]?.selected,
+          theme.variants[variant],
           disableMargins && 'm-0',
           css.chip,
           'transition-colors duration-300 ease',
