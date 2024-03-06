@@ -6,10 +6,10 @@ import React, {
   FC,
   useMemo
 } from 'react';
-import classNames from 'classnames';
 import { motion, useMotionValue } from 'framer-motion';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
-import css from './Range.module.css';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export const RangeSingle: FC<RangeProps<number>> = ({
   disabled,
@@ -76,18 +76,16 @@ export const RangeSingle: FC<RangeProps<number>> = ({
   const [focused, setFocused] = useState(false);
   const tooltipVisible = dragging || focused || hovering;
 
+  const theme = useComponentTheme('range');
+
   return (
     <div
       ref={range}
       style={style}
-      className={classNames([css.range, className], {
-        [css.rangeDisabled]: disabled
-      })}
+      className={twMerge(theme.base, disabled && theme.disabled, className)}
     >
       <motion.div
-        className={classNames(css.handleDrag, handleClassName, {
-          [css.handleDragHighlight]: tooltipVisible
-        })}
+        className={twMerge(theme.drag, handleClassName)}
         drag={!disabled ? 'x' : null}
         dragMomentum={false}
         style={{ x: valueX }}
@@ -104,9 +102,15 @@ export const RangeSingle: FC<RangeProps<number>> = ({
           right: rangeWidth
         }}
       >
-        <div className={css.handle}>
+        <div
+          className={twMerge(
+            theme.inputWrapper.base,
+            disabled && theme.inputWrapper.disabled
+          )}
+        >
           <input
             type="range"
+            className={theme.input}
             min={min}
             max={max}
             step={0.5}
