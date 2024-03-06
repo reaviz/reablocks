@@ -32,7 +32,8 @@ export const Text: FC<TextProps & TextRef> = forwardRef(
     { color, variant, fontStyle, children, className, ...rest }: TextProps,
     ref
   ) => {
-    const theme = useComponentTheme('typographyTheme');
+    const theme = useComponentTheme('typography');
+
     return (
       <span
         ref={ref}

@@ -45,7 +45,8 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
     }: SmallHeadingProps,
     ref
   ) => {
-    const theme = useComponentTheme('typographyTheme');
+    const theme = useComponentTheme('typography');
+
     return (
       <h5
         ref={ref}

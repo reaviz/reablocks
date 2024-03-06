@@ -5,9 +5,11 @@ import {
 } from '../../../elements';
 import {
   darkInputTheme,
+  darkRadioTheme,
   darkSelectTheme,
   InputTheme,
   lightInputTheme,
+  lightRadioTheme,
   lightSelectTheme,
   SelectTheme
 } from '../../../form';
@@ -74,7 +76,7 @@ export interface ReablocksTheme {
     notification: NotificationTheme;
     input: InputTheme;
     calendar: CalendarTheme;
-    typographyTheme: TypographyTheme;
+    typography: TypographyTheme;
   };
 }
 
@@ -94,7 +96,8 @@ export const lightTheme: ReablocksTheme = {
     notification: lightNotificationTheme,
     input: lightInputTheme,
     calendar: lightCalendarTheme,
-    typographyTheme: lightTypographyTheme
+    typography: lightTypographyTheme,
+    radio: lightRadioTheme
   }
 };
 
@@ -114,6 +117,7 @@ export const darkTheme: ReablocksTheme = {
     notification: darkNotificationTheme,
     input: darkInputTheme,
     calendar: darkCalendarTheme,
-    typographyTheme: darkTypographyTheme
+    typography: darkTypographyTheme,
+    radio: darkRadioTheme
   }
 };
