@@ -1,6 +1,0 @@
-.chip {
-  svg {
-    transition: fill 0.15s ease-in-out;
-    will-change: fill;
-  }
-}

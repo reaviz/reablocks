@@ -33,7 +33,11 @@ export interface ChipTheme {
 }
 
 const baseTheme: Partial<ChipTheme> = {
-  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded border border-transparent box-border leading-none text-white',
+  base: `
+  inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1
+  rounded border border-transparent box-border leading-none text-white transition-colors 
+  duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill]
+  `,
   colors: {
     default: {
       selectable: 'hover:cursor-pointer'

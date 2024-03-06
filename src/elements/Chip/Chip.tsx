@@ -1,7 +1,6 @@
 import React, { FC, forwardRef, LegacyRef, ReactElement } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '../../utils/Theme/TW';
-import css from './Chip.module.css';
 
 export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -91,8 +90,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
           selected && theme.colors[color]?.selected,
           theme.variants[variant],
           disableMargins && 'm-0',
-          css.chip,
-          'transition-colors duration-300 ease',
+          'transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill]',
           className
         )}
       >
