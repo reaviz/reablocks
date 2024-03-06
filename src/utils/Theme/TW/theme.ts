@@ -69,10 +69,16 @@ import {
   lightTypographyTheme,
   TypographyTheme
 } from '../../../typography';
+import {
+  darkChipTheme,
+  lightChipTheme,
+  ChipTheme
+} from '../../../elements/Chip/ChipTheme';
 
 export interface ReablocksTheme {
   components: {
     button: ButtonTheme;
+    chip: ChipTheme;
     dialog: DialogTheme;
     dialogHeader: DialogHeaderTheme;
     divider: DividerTheme;
@@ -97,6 +103,7 @@ export interface ReablocksTheme {
 export const lightTheme: ReablocksTheme = {
   components: {
     button: lightButtonTheme,
+    chip: lightChipTheme,
     dialog: lightDialogTheme,
     dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
@@ -121,6 +128,7 @@ export const lightTheme: ReablocksTheme = {
 export const darkTheme: ReablocksTheme = {
   components: {
     button: darkButtonTheme,
+    chip: darkChipTheme,
     dialog: darkDialogTheme,
     dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,

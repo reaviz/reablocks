@@ -103,6 +103,8 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
           theme.sizes[groupSize || size],
           isGroup && theme.group,
           isGroup && groupVariant === 'text' && theme.groupText,
+          disableMargins && 'm-0',
+          disablePadding && 'p-0',
           className
         )}
       >
