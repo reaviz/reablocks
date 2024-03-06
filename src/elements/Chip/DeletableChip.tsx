@@ -28,9 +28,13 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
         <Button
           tabIndex={0}
           variant="text"
-          color={color}
           size={size}
-          className={classNames(css.deleteButton, { [css[size]]: true })}
+          className={classNames(
+            css.deleteButton,
+            { [css[size]]: true },
+            { [`text-${color}-500`]: rest?.variant === 'outline' },
+            { ['text-white']: rest?.variant === 'filled' }
+          )}
           onClick={event => {
             if (!disabled) {
               event.stopPropagation();

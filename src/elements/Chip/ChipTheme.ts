@@ -44,9 +44,9 @@ const baseTheme: Partial<ChipTheme> = {
     }
   },
   sizes: {
-    small: 'text-xs px-5px py-0.5 leading-[normal]',
-    medium: 'text-sm px-2.5 py-5px leading-[normal]',
-    large: 'text-base px-5 py-2.5 leading-[normal]'
+    small: 'text-[10px] px-1 py-0.5',
+    medium: 'text-xs px-2 py-1',
+    large: 'text-sm px-2 py-2'
   },
   focus:
     'focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-2'
@@ -58,13 +58,13 @@ export const lightChipTheme: ChipTheme = {
   sizes: baseTheme.sizes,
   focus: baseTheme.focus,
   variants: {
-    filled: '',
+    filled: 'text-white',
     outline: 'bg-opacity-0 border',
     text: 'bg-opacity-0 border-0'
   },
   colors: {
     default: {
-      base: 'bg-gray-700 border-gray-700',
+      base: 'bg-gray-700 border-gray-700 text-gray-700',
       selectable: 'hover:cursor-pointer hover:bg-gray-600',
       selected: 'bg-gray-600',
       focus: 'focus-visible:outline-gray-500'
@@ -115,37 +115,37 @@ export const darkChipTheme: ChipTheme = {
   },
   colors: {
     default: {
-      base: 'bg-gray-600 border-gray-700 text-gray-600',
+      base: 'bg-gray-600 border-gray-600 text-gray-600',
       selectable: 'hover:cursor-pointer hover:bg-gray-500',
       selected: 'bg-gray-500'
     },
     primary: {
-      base: 'bg-primary-600 border-primary-700 text-primary-600',
+      base: 'bg-primary-600 border-primary-600 text-primary-600',
       selectable: 'hover:cursor-pointer hover:bg-primary-500',
       selected: 'bg-primary-500'
     },
     secondary: {
-      base: 'bg-secondary-600 border-secondary-700 text-secondary-600',
+      base: 'bg-secondary-600 border-secondary-600 text-secondary-600',
       selectable: 'hover:cursor-pointer hover:bg-secondary-500',
       selected: 'bg-secondary-500'
     },
     success: {
-      base: 'bg-success-600 border-success-700 text-success-600',
+      base: 'bg-success-600 border-success-600 text-success-600',
       selectable: 'hover:cursor-pointer hover:bg-success-500',
       selected: 'bg-success-500'
     },
     warning: {
-      base: 'bg-warning-600 border-warning-700 text-warning-600',
+      base: 'bg-warning-600 border-warning-600 text-warning-600',
       selectable: 'hover:cursor-pointer hover:bg-warning-500',
       selected: 'bg-warning-500'
     },
     error: {
-      base: 'bg-error-600 border-error-700 text-error-600',
+      base: 'bg-error-600 border-error-600 text-error-600',
       selectable: 'hover:cursor-pointer hover:bg-error-500',
       selected: 'bg-error-500'
     },
     info: {
-      base: 'bg-info-600 border-info-700 text-info-600',
+      base: 'bg-info-600 border-info-600 text-info-600',
       selectable: 'hover:cursor-pointer hover:bg-info-500',
       selected: 'bg-info-500'
     }

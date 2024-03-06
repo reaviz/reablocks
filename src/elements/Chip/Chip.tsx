@@ -92,6 +92,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
           selected && theme.colors[color]?.selected,
           disableMargins && 'm-0',
           css.chip,
+          'transition-colors duration-300 ease',
           className
         )}
       >
