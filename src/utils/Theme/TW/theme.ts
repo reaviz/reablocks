@@ -11,6 +11,7 @@ import {
   lightInputTheme,
   lightRadioTheme,
   lightSelectTheme,
+  RadioTheme,
   SelectTheme
 } from '../../../form';
 import {
@@ -77,6 +78,7 @@ export interface ReablocksTheme {
     input: InputTheme;
     calendar: CalendarTheme;
     typography: TypographyTheme;
+    radio: RadioTheme;
   };
 }
 
