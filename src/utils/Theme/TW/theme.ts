@@ -1,7 +1,10 @@
 import {
   darkButtonTheme,
   lightButtonTheme,
-  ButtonTheme
+  ButtonTheme,
+  CommandPaletteTheme,
+  lightCommandPaletteTheme,
+  darkCommandPaletteTheme
 } from '../../../elements';
 import {
   darkInputTheme,
@@ -83,6 +86,7 @@ export interface ReablocksTheme {
     notification: NotificationTheme;
     input: InputTheme;
     calendar: CalendarTheme;
+    commandPalette: CommandPaletteTheme;
     typography: TypographyTheme;
     radio: RadioTheme;
     range: RangeTheme;
@@ -106,6 +110,7 @@ export const lightTheme: ReablocksTheme = {
     notification: lightNotificationTheme,
     input: lightInputTheme,
     calendar: lightCalendarTheme,
+    commandPalette: lightCommandPaletteTheme,
     typography: lightTypographyTheme,
     radio: lightRadioTheme,
     range: lightRangeTheme,
@@ -129,6 +134,7 @@ export const darkTheme: ReablocksTheme = {
     notification: darkNotificationTheme,
     input: darkInputTheme,
     calendar: darkCalendarTheme,
+    commandPalette: darkCommandPaletteTheme,
     typography: darkTypographyTheme,
     radio: darkRadioTheme,
     range: darkRangeTheme,

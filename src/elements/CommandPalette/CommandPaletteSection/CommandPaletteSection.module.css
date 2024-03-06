@@ -1,5 +1,0 @@
-.section {
-  &.first {
-    padding-top: var(--spacing-md);
-  }
-}

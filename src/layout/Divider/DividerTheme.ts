@@ -23,5 +23,5 @@ export const lightDividerTheme = {
 
 export const darkDividerTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-dark-background'].join(' ')
+  base: [baseTheme.base, 'bg-zinc-600'].join(' ')
 };

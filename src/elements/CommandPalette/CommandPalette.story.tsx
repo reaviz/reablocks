@@ -151,7 +151,7 @@ export const WithDialog = () => (
 const InboxIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="var(--card-color)"
+    fill="currentColor"
     viewBox="0 0 32 32"
     width="22px"
     height="22px"
@@ -163,7 +163,7 @@ const InboxIcon = () => (
 const HomeIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="var(--card-color)"
+    fill="currentColor"
     viewBox="0 0 32 32"
     width="22px"
     height="22px"
@@ -175,7 +175,7 @@ const HomeIcon = () => (
 const SettingsIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="var(--card-color)"
+    fill="currentColor"
     viewBox="0 0 32 32"
     width="22px"
     height="22px"

@@ -51,7 +51,7 @@ export const darkInputTheme: InputTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'bg-dark-background-800 border border-gray-700 text-white focus-within:ring-gray-500 focus-within:border-gray-500'
+    'bg-dark-background border border-gray-700 text-white focus-within:ring-gray-500 focus-within:border-gray-500'
   ].join(' '),
   input: [baseTheme.input, ' placeholder-zinc-400'].join(' '),
   disabled: [baseTheme.disabled, 'disabled-within:bg-dark-disabled'].join(' ')
