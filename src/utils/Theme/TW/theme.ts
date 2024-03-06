@@ -7,12 +7,15 @@ import {
   darkInputTheme,
   darkRadioTheme,
   darkSelectTheme,
+  darkToggleTheme,
   InputTheme,
   lightInputTheme,
   lightRadioTheme,
   lightSelectTheme,
+  lightToggleTheme,
   RadioTheme,
-  SelectTheme
+  SelectTheme,
+  ToggleTheme
 } from '../../../form';
 import {
   CalendarTheme,
@@ -79,6 +82,7 @@ export interface ReablocksTheme {
     calendar: CalendarTheme;
     typography: TypographyTheme;
     radio: RadioTheme;
+    toggle: ToggleTheme;
   };
 }
 
@@ -99,7 +103,8 @@ export const lightTheme: ReablocksTheme = {
     input: lightInputTheme,
     calendar: lightCalendarTheme,
     typography: lightTypographyTheme,
-    radio: lightRadioTheme
+    radio: lightRadioTheme,
+    toggle: lightToggleTheme
   }
 };
 
@@ -120,6 +125,7 @@ export const darkTheme: ReablocksTheme = {
     input: darkInputTheme,
     calendar: darkCalendarTheme,
     typography: darkTypographyTheme,
-    radio: darkRadioTheme
+    radio: darkRadioTheme,
+    toggle: darkToggleTheme
   }
 };
