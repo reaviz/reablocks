@@ -64,8 +64,11 @@ import {
 } from '../../../layers';
 import {
   darkDividerTheme,
+  darkTreeTheme,
   DividerTheme,
-  lightDividerTheme
+  lightDividerTheme,
+  lightTreeTheme,
+  TreeTheme
 } from '../../../layout';
 import {
   darkVerticalSpacerTheme,
@@ -118,6 +121,7 @@ export interface ReablocksTheme {
     range: RangeTheme;
     toggle: ToggleTheme;
     tooltip: TooltipTheme;
+    tree: TreeTheme;
     popover: PopoverTheme;
   };
 }
@@ -148,6 +152,7 @@ export const lightTheme: ReablocksTheme = {
     range: lightRangeTheme,
     toggle: lightToggleTheme,
     tooltip: lightTooltipTheme,
+    tree: lightTreeTheme,
     popover: lightPopoverTheme
   }
 };
@@ -178,6 +183,7 @@ export const darkTheme: ReablocksTheme = {
     range: darkRangeTheme,
     toggle: darkToggleTheme,
     tooltip: darkTooltipTheme,
+    tree: darkTreeTheme,
     popover: darkPopoverTheme
   }
 };
