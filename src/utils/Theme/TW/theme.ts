@@ -16,7 +16,10 @@ import {
   darkAvatarGroupTheme,
   lightBadgeTheme,
   BadgeTheme,
-  darkBadgeTheme
+  darkBadgeTheme,
+  DotsLoaderTheme,
+  lightDotsLoaderTheme,
+  darkDotsLoaderTheme
 } from '../../../elements';
 import {
   darkInputTheme,
@@ -115,6 +118,7 @@ export interface ReablocksTheme {
     dialog: DialogTheme;
     dialogHeader: DialogHeaderTheme;
     divider: DividerTheme;
+    dotsLoader: DotsLoaderTheme;
     drawer: DrawerTheme;
     select: SelectTheme;
     list: ListTheme;
@@ -149,6 +153,7 @@ export const lightTheme: ReablocksTheme = {
     dialog: lightDialogTheme,
     dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
+    dotsLoader: lightDotsLoaderTheme,
     drawer: lightDrawerTheme,
     select: lightSelectTheme,
     list: lightListTheme,
@@ -183,6 +188,7 @@ export const darkTheme: ReablocksTheme = {
     dialog: darkDialogTheme,
     dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,
+    dotsLoader: darkDotsLoaderTheme,
     drawer: darkDrawerTheme,
     select: darkSelectTheme,
     list: darkListTheme,
