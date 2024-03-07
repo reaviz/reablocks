@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import React, { FC } from 'react';
 import { Button } from '../../../elements/Button';
 import { monthNames } from '../utils';
 import { useComponentTheme } from '../../../utils/Theme/TW';

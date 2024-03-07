@@ -143,7 +143,14 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
           )}
         </ListItem>
       )),
-    [checkOptionSelected, disabled, index, inputSearchText, onSelectedChange]
+    [
+      checkOptionSelected,
+      disabled,
+      index,
+      inputSearchText,
+      onSelectedChange,
+      theme.option
+    ]
   );
 
   return (

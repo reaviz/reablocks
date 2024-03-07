@@ -30,6 +30,7 @@ export const useFlattenedTree = (
   const hotkeyRef = useRef<HotkeyIem[]>([]);
   const [flattenedTree, setFlattenedTree] = useState<ReactNode[]>([]);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function flattenChildren(nodes: ReactNode) {
     const result: ReactNode[] = [];
 
@@ -79,7 +80,7 @@ export const useFlattenedTree = (
     itemsRef.current = [];
     hotkeyRef.current = [];
     setFlattenedTree(flattenChildren(children));
-  }, [children, selectedIndex]);
+  }, [children, flattenChildren, selectedIndex]);
 
   return {
     flattenedTree,

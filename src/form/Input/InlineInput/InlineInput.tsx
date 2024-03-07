@@ -1,4 +1,4 @@
-import { FC, forwardRef, Ref, InputHTMLAttributes } from 'react';
+import React, { FC, forwardRef, Ref, InputHTMLAttributes } from 'react';
 import AutosizeInput from 'react-18-input-autosize';
 import { InputRef } from '../Input';
 import { twMerge } from 'tailwind-merge';

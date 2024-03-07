@@ -114,11 +114,11 @@ export const Calendar: FC<CalendarProps> = ({
   );
   const rangeStart = useMemo(
     () => (isRange && Array.isArray(value) ? value?.[0] : undefined),
-    [value]
+    [isRange, value]
   );
   const rangeEnd = useMemo(
     () => (isRange && Array.isArray(value) ? value?.[1] : undefined),
-    [value]
+    [isRange, value]
   );
 
   const [viewValue, setViewValue] = useState<Date>(date);
