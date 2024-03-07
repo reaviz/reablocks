@@ -106,6 +106,11 @@ import {
   lightChipTheme,
   ChipTheme
 } from '../../../elements/Chip/ChipTheme';
+import {
+  darkEllipsisTheme,
+  EllipsisTheme,
+  lightEllipsisTheme
+} from '../../../data';
 
 export interface ReablocksTheme {
   components: {
@@ -120,6 +125,7 @@ export interface ReablocksTheme {
     divider: DividerTheme;
     dotsLoader: DotsLoaderTheme;
     drawer: DrawerTheme;
+    ellipsis: EllipsisTheme;
     select: SelectTheme;
     list: ListTheme;
     menu: MenuTheme;
@@ -155,6 +161,7 @@ export const lightTheme: ReablocksTheme = {
     divider: lightDividerTheme,
     dotsLoader: lightDotsLoaderTheme,
     drawer: lightDrawerTheme,
+    ellipsis: lightEllipsisTheme,
     select: lightSelectTheme,
     list: lightListTheme,
     menu: lightMenuTheme,
@@ -190,6 +197,7 @@ export const darkTheme: ReablocksTheme = {
     divider: darkDividerTheme,
     dotsLoader: darkDotsLoaderTheme,
     drawer: darkDrawerTheme,
+    ellipsis: darkEllipsisTheme,
     select: darkSelectTheme,
     list: darkListTheme,
     menu: darkMenuTheme,
