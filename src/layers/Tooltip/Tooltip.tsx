@@ -1,5 +1,4 @@
 import React, { FC, useState, useRef, useEffect, ReactNode } from 'react';
-import classNames from 'classnames';
 import {
   Placement,
   ReferenceObject,
@@ -7,8 +6,10 @@ import {
   TriggerTypes
 } from 'rdk';
 import { motion } from 'framer-motion';
+import { twMerge } from 'tailwind-merge';
 import { useTooltipState } from './useTooltipState';
-import css from './Tooltip.module.css';
+import { TooltipTheme } from './TooltipTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export interface TooltipProps {
   /**
@@ -168,6 +169,8 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
     };
   }, [deactivateTooltip, isPopover, visible]);
 
+  const theme: TooltipTheme = useComponentTheme('tooltip');
+
   return (
     <ConnectedOverlay
       {...rest}
@@ -175,9 +178,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
       trigger={trigger}
       followCursor={followCursor}
       triggerClassName={triggerClassName}
-      portalClassName={classNames({
-        [css.disablePointer]: pointerEvents === 'none'
-      })}
+      portalClassName={pointerEvents === 'none' && theme.disablePointer}
       open={internalVisible}
       closeOnBodyClick={closeOnBodyClick}
       closeOnEscape={closeOnEscape}
@@ -191,7 +192,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
 
         return (
           <motion.div
-            className={classNames(css.tooltip, className)}
+            className={twMerge(theme.base, className)}
             initial={{
               opacity: 0,
               scale: 0.3,

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Tooltip } from './Tooltip';
+import { Button } from '../../elements';
 
 export default {
   title: 'Components/Layers/Tooltip',
@@ -7,7 +8,14 @@ export default {
 };
 
 export const Simple = () => (
-  <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
+  <div
+    style={{
+      textAlign: 'center',
+      width: '100%',
+      margin: '50px',
+      color: 'green'
+    }}
+  >
     <Tooltip content="Hi there">Hover me</Tooltip>
     <br />
     <br />
@@ -19,7 +27,7 @@ export const Simple = () => (
 export const Disabled = () => (
   <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
     <Tooltip content="Hi there" disabled={true}>
-      <button disabled>Hover me</button>
+      <Button disabled>Hover me</Button>
     </Tooltip>
   </div>
 );
