@@ -37,6 +37,8 @@ import {
   lightCalendarRangeTheme
 } from '../../../form/Calendar/CalendarRangeTheme';
 import {
+  ContextMenuTheme,
+  darkContextMenuTheme,
   darkDialogHeaderTheme,
   darkDialogTheme,
   darkDrawerTheme,
@@ -47,6 +49,7 @@ import {
   DialogHeaderTheme,
   DialogTheme,
   DrawerTheme,
+  lightContextMenuTheme,
   lightDialogHeaderTheme,
   lightDialogTheme,
   lightDrawerTheme,
@@ -94,6 +97,7 @@ export interface ReablocksTheme {
     avatar: AvatarTheme;
     button: ButtonTheme;
     chip: ChipTheme;
+    contextMenu: ContextMenuTheme;
     dialog: DialogTheme;
     dialogHeader: DialogHeaderTheme;
     divider: DividerTheme;
@@ -123,6 +127,7 @@ export const lightTheme: ReablocksTheme = {
     avatar: lightAvatarTheme,
     button: lightButtonTheme,
     chip: lightChipTheme,
+    contextMenu: lightContextMenuTheme,
     dialog: lightDialogTheme,
     dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
@@ -152,6 +157,7 @@ export const darkTheme: ReablocksTheme = {
     avatar: darkAvatarTheme,
     button: darkButtonTheme,
     chip: darkChipTheme,
+    contextMenu: darkContextMenuTheme,
     dialog: darkDialogTheme,
     dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,

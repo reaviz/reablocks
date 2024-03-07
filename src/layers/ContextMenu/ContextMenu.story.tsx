@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from '../../elements';
 import { Card } from '../../layout/Card';
 import { List, ListItem } from '../../layout/List';
 import { ContextMenu } from './ContextMenu';
@@ -22,7 +23,7 @@ export const Simple = () => (
         </Card>
       }
     >
-      <button>👋 right click me</button>
+      <Button>👋 right click me</Button>
     </ContextMenu>
   </div>
 );
@@ -32,7 +33,7 @@ export const Unstyled = () => (
     <ContextMenu
       content={<div style={{ padding: 20 }}>something cool here</div>}
     >
-      <button>👋 right click me</button>
+      <Button>👋 right click me</Button>
     </ContextMenu>
   </div>
 );
@@ -51,7 +52,7 @@ export const Multiple = () => (
         </Card>
       }
     >
-      <button>👋 right click me</button>
+      <Button>👋 right click me</Button>
     </ContextMenu>
     <br />
     <br />
@@ -68,7 +69,7 @@ export const Multiple = () => (
         </Card>
       }
     >
-      <button>👋 right click me too!</button>
+      <Button>👋 right click me too!</Button>
     </ContextMenu>
   </div>
 );
