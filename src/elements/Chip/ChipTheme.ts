@@ -30,12 +30,20 @@ export interface ChipTheme {
     large: string;
   };
   focus: string;
+  deleteButton: {
+    base: string;
+    sizes: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+  };
 }
 
 const baseTheme: Partial<ChipTheme> = {
   base: `
   inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1
-  rounded border border-transparent box-border leading-none text-white transition-colors 
+  rounded border border-transparent box-border leading-none text-white transition-colors
   duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill]
   `,
   colors: {
@@ -77,7 +85,15 @@ const baseTheme: Partial<ChipTheme> = {
     large: 'text-sm px-2 py-2'
   },
   focus:
-    'focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-2'
+    'focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-2',
+  deleteButton: {
+    base: 'text-inherit',
+    sizes: {
+      small: 'leading-[10px] max-h-2.5',
+      medium: 'leading-3 max-h-3',
+      large: 'leading-[14px] max-h-3.5'
+    }
+  }
 };
 
 export const lightChipTheme: ChipTheme = {
@@ -149,7 +165,8 @@ export const lightChipTheme: ChipTheme = {
       ].join(' '),
       selected: '!bg-info-600 text-white'
     }
-  }
+  },
+  deleteButton: baseTheme.deleteButton
 };
 
 export const darkChipTheme: ChipTheme = {
@@ -219,5 +236,6 @@ export const darkChipTheme: ChipTheme = {
       ].join(' '),
       selected: '!bg-info-500 text-white'
     }
-  }
+  },
+  deleteButton: baseTheme.deleteButton
 };
