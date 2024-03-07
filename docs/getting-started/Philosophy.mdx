@@ -5,11 +5,10 @@ import { Meta } from '@storybook/addon-docs';
 # Philosophy
 When you first see this library, one of the first questions you
 might ask yourself is why another component library; don't we have enough? It's true,
-there are a LOT of component libraries out there such as MUI, AntD,
-Tailwind, and the list continues. These libraries are very mature and
-can help you build a great looking application without too much work,
-but they come with a number of drawbacks. Let's dive into why we created
-this now.
+there are a LOT of component libraries out there such as MUI, AntD, and the list continues.
+These libraries are very mature and can help you build a great looking application
+without too much work, but they come with a number of drawbacks. Let's dive
+into why we created this now.
 
 ## Design Style Opinions
 Libraries such as MUI look great out of the box, but they are extremely
@@ -50,14 +49,10 @@ To this day, almost every React-based component library still uses CSS-IN-JS.
 There are many die-hard CSS-IN-JS fans out there that could debate this all day long,
 it's almost like debating React vs Angular vs Vue though.
 
-Reablocks is designed to use native CSS features such as CSS variables.
-Out of the box, we provide helpers such as our design tokens provider to
-help you standardize and provide a convenient way to define those variables
-but you don't have to use it and under the hood it's just printing out standard CSS.
-
-The one drawback to this approach is if you have to support really old browsers,
-then this won't work. If that's the case, this library isn't for you. Once you don't
-have to support those, please give us a look again though!
+Reablocks is designed to use Tailwind CSS for its styling solution. Tailwind
+is a utility-first CSS framework that provides a standard way to style components
+and is very easy to learn. It's also very easy to customize and has a great
+community behind it. We believe this is the best solution for styling components.
 
 ## Documentation
 Almost all of the libraries I mentioned have great documentation and examples.
