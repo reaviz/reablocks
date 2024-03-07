@@ -39,7 +39,13 @@
   "keywords": [
     "react",
     "reactjs",
-    "tree"
+    "component library",
+    "ui components",
+    "tailwind",
+    "tailwind css",
+    "tailwind components",
+    "tailwind elements",
+    "tailwind library"
   ],
   "license": "Apache-2.0",
   "bugs": {

@@ -5,13 +5,41 @@ import { Meta } from '@storybook/addon-docs';
 # Setup
 
 ## Installing
+
+### Install Tailwind
+```bash
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+Next you will need to configure a `tailwind.config.js` file in the root of your project.
+
+```javascript
+module.exports = {
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};
+```
+
+Lastly setup the Tailwind directives inside your main css file.
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### Install Reablocks
 You can install reablocks with [NPM](https://www.npmjs.com/package/reablocks) or Yarn.
 
-- NPM: `npm install reablocks --save`
-- YARN: `yarn add reablocks`
-
-## Getting Started
-TODO
+```bash
+npm install reablocks --save
+```
 
 ## Developing
 
