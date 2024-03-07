@@ -6,8 +6,12 @@
       "vite/client",
       "vitest/globals"
     ],
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "jsx": "react-jsx",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "jsx": "preserve",
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "declaration": true,
@@ -16,7 +20,10 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
-    "rootDirs": ["src", "docs"],
+    "rootDirs": [
+      "src",
+      "docs"
+    ],
     "noImplicitAny": false,
     "noImplicitThis": false,
     "noUnusedLocals": false,
@@ -30,9 +37,21 @@
     "suppressExcessPropertyErrors": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "ignoreDeprecations": "5.0"
+    "ignoreDeprecations": "5.0",
+    "strict": false,
+    "noEmit": true,
+    "incremental": true,
+    "isolatedModules": true
   },
-  "types": ["node"],
-  "include": ["src/**/*", "demo/**/*"],
-  "exclude": ["node_modules", "dist"]
+  "types": [
+    "node"
+  ],
+  "include": [
+    "src/**/*",
+    "demo/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
