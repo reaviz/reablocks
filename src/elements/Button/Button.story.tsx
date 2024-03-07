@@ -31,6 +31,20 @@ export const Colors = () => (
   </div>
 );
 
+export const Disabled = () => (
+  <div style={{ display: 'flex', gap: 10 }}>
+    <Button variant="filled" disabled>
+      Filled
+    </Button>
+    <Button variant="outline" disabled>
+      Outline
+    </Button>
+    <Button variant="text" disabled>
+      Text
+    </Button>
+  </div>
+);
+
 export const Sizes = () => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
     <Button size="small">Small</Button>

@@ -62,7 +62,7 @@ export const lightButtonTheme: ButtonTheme = {
   base: [baseTheme.base, 'text-black'].join(' '),
   disabled: [
     baseTheme.disabled,
-    'data-[variant=filled]:disabled:bg-gray-400 disabled:text-gray-50'
+    'data-[variant=filled]:disabled:bg-gray-400 data-[variant=filled]:disabled:text-gray-500 disabled:text-gray-400'
   ].join(' '),
   fullWidth: baseTheme.fullWidth,
   group: baseTheme.group,
@@ -87,7 +87,7 @@ export const darkButtonTheme: ButtonTheme = {
   base: [baseTheme.base, 'text-gray-100'].join(' '),
   disabled: [
     baseTheme.disabled,
-    'data-[variant=filled]:disabled:bg-gray-400 disabled:text-gray-50 border-gray-500'
+    'data-[variant=filled]:disabled:bg-gray-600 disabled:text-gray-400 border-gray-500'
   ].join(' '),
   fullWidth: baseTheme.fullWidth,
   group: baseTheme.group,

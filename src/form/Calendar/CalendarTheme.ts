@@ -32,12 +32,11 @@ const baseTheme: CalendarTheme = {
   content: 'flex',
 
   days: {
-    header:
-      'text-center grid grid-cols-7 opacity-50 mb-1 border-t border-slate-500 pt-2',
+    header: 'text-center grid grid-cols-7 opacity-50 mb-1 border-t pt-2',
     dayOfWeek: 'text-center font-bold',
     week: 'grid grid-cols-7',
     day: 'flex p-2',
-    outside: 'text-gray-100/60',
+    outside: '',
     startRangeDate: 'rounded-tl-md rounded-tr-none rounded-br-none',
     cornerStartDateBottom: 'rounded-bl-none',
     endRangeDate: 'rounded-br-md rounded-bl-none rounded-tl-none',
@@ -57,11 +56,19 @@ const baseTheme: CalendarTheme = {
 };
 
 export const lightCalendarTheme: CalendarTheme = {
-  ...baseTheme
-  // TODO: Add light theme colors
+  ...baseTheme,
+  days: {
+    ...baseTheme.days,
+    header: [baseTheme.days.header, 'border-zinc-400 text-black'].join(' '),
+    outside: [baseTheme.days.outside, 'text-gray-700/60'].join(' ')
+  }
 };
 
 export const darkCalendarTheme: CalendarTheme = {
-  ...baseTheme
-  // TODO: Add dark theme colors
+  ...baseTheme,
+  days: {
+    ...baseTheme.days,
+    header: [baseTheme.days.header, 'border-zinc-400'].join(' '),
+    outside: [baseTheme.days.outside, 'text-gray-100/60'].join(' ')
+  }
 };
