@@ -6,7 +6,6 @@ import { Meta } from '@storybook/addon-docs';
 If you read our Philosophy documentation, Reablocks is a Storybook-first library.
 To set up Storybook with Reablocks, follow the steps below depending on your setup.
 
-### Design Tokens Approach
 If you are choosing to use the `DesignTokensProvider`, we need import
 it as a decorator. This will automatically apply your design tokens to
 every story.
@@ -43,19 +42,4 @@ export const parameters = {
     hideNoControlsWarning: true
   }
 };
-```
-
-### CSS Variables Approach
-If you choose to use the CSS variables approach, if you don't
-already have a file called `preview-head.html` in your `.storybook`
-folder, lets make one and define the design tokens you will
-be using in your application like:
-
-```html
-<style>
-  body {
-    --spacing-md: 25px;
-    --divider-bg: #ccc;
-  }
-</style>
 ```
