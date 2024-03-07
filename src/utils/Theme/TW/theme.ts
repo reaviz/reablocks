@@ -75,9 +75,12 @@ import {
   TooltipTheme
 } from '../../../layers';
 import {
+  CollapseTheme,
+  darkCollapseTheme,
   darkDividerTheme,
   darkTreeTheme,
   DividerTheme,
+  lightCollapseTheme,
   lightDividerTheme,
   lightTreeTheme,
   TreeTheme
@@ -138,6 +141,7 @@ export interface ReablocksTheme {
     calendar: CalendarTheme;
     calendarRange: CalendarRangeTheme;
     commandPalette: CommandPaletteTheme;
+    collapse: CollapseTheme;
     typography: TypographyTheme;
     radio: RadioTheme;
     range: RangeTheme;
@@ -174,6 +178,7 @@ export const lightTheme: ReablocksTheme = {
     calendar: lightCalendarTheme,
     calendarRange: lightCalendarRangeTheme,
     commandPalette: lightCommandPaletteTheme,
+    collapse: lightCollapseTheme,
     typography: lightTypographyTheme,
     radio: lightRadioTheme,
     range: lightRangeTheme,
@@ -210,6 +215,7 @@ export const darkTheme: ReablocksTheme = {
     calendar: darkCalendarTheme,
     calendarRange: darkCalendarRangeTheme,
     commandPalette: darkCommandPaletteTheme,
+    collapse: darkCollapseTheme,
     typography: darkTypographyTheme,
     radio: darkRadioTheme,
     range: darkRangeTheme,

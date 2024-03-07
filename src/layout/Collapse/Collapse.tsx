@@ -1,8 +1,9 @@
-import React, { FC, PropsWithChildren } from 'react';
+import React, { FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import classNames from 'classnames';
 import isFunction from 'lodash/isFunction';
-import css from './Collapse.module.css';
+import { CollapseTheme } from './CollapseTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
+import { twMerge } from 'tailwind-merge';
 
 const VARIANTS = {
   open: {
@@ -39,21 +40,25 @@ export const Collapse: FC<CollapseProps> = ({
   expanded,
   className,
   ...rest
-}) => (
-  <AnimatePresence initial={false}>
-    {expanded && (
-      <motion.section
-        {...(rest as any)}
-        className={classNames(className, css.section)}
-        key="content"
-        initial="collapsed"
-        animate="open"
-        exit="collapsed"
-        variants={VARIANTS}
-        transition={TRANSITION}
-      >
-        {isFunction(children) ? children() : children}
-      </motion.section>
-    )}
-  </AnimatePresence>
-);
+}) => {
+  const theme: CollapseTheme = useComponentTheme('collapse');
+
+  return (
+    <AnimatePresence initial={false}>
+      {expanded && (
+        <motion.section
+          {...(rest as any)}
+          className={twMerge(theme.base, className)}
+          key="content"
+          initial="collapsed"
+          animate="open"
+          exit="collapsed"
+          variants={VARIANTS}
+          transition={TRANSITION}
+        >
+          {isFunction(children) ? children() : children}
+        </motion.section>
+      )}
+    </AnimatePresence>
+  );
+};
