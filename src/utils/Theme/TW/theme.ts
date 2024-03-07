@@ -10,7 +10,10 @@ import {
   darkAvatarTheme,
   KbdTheme,
   lightKbdTheme,
-  darkKbdTheme
+  darkKbdTheme,
+  AvatarGroupTheme,
+  lightAvatarGroupTheme,
+  darkAvatarGroupTheme
 } from '../../../elements';
 import {
   darkInputTheme,
@@ -101,6 +104,7 @@ import {
 export interface ReablocksTheme {
   components: {
     avatar: AvatarTheme;
+    avatarGroup: AvatarGroupTheme;
     button: ButtonTheme;
     chip: ChipTheme;
     contextMenu: ContextMenuTheme;
@@ -133,6 +137,7 @@ export interface ReablocksTheme {
 export const lightTheme: ReablocksTheme = {
   components: {
     avatar: lightAvatarTheme,
+    avatarGroup: lightAvatarGroupTheme,
     button: lightButtonTheme,
     chip: lightChipTheme,
     contextMenu: lightContextMenuTheme,
@@ -165,6 +170,7 @@ export const lightTheme: ReablocksTheme = {
 export const darkTheme: ReablocksTheme = {
   components: {
     avatar: darkAvatarTheme,
+    avatarGroup: darkAvatarGroupTheme,
     button: darkButtonTheme,
     chip: darkChipTheme,
     contextMenu: darkContextMenuTheme,

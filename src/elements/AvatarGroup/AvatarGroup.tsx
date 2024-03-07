@@ -1,7 +1,8 @@
 import React, { Children, forwardRef, Ref } from 'react';
-import classNames from 'classnames';
 import { useInfinityList } from '../../data/InfinityList';
-import css from './AvatarGroup.module.css';
+import { AvatarGroupTheme } from './AvatarGroupTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
+import { twMerge } from 'tailwind-merge';
 
 export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -32,14 +33,16 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
       size
     });
 
+    const theme: AvatarGroupTheme = useComponentTheme('avatarGroup');
+
     return (
-      <div {...rest} ref={ref} className={classNames(className, css.group)}>
+      <div {...rest} ref={ref} className={twMerge(theme.base, className)}>
         {data.map((child, index) => (
-          <div key={index} className={css.avatar}>
+          <div key={index} className={theme.avatar}>
             {child}
           </div>
         ))}
-        {hasMore && <span className={css.overflow}>+{remaining} more</span>}
+        {hasMore && <span className={theme.overflow}>+{remaining} more</span>}
       </div>
     );
   }
