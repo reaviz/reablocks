@@ -110,6 +110,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
   onRefresh,
   chip
 }) => {
+  const { selectInput: theme }: SelectTheme = useComponentTheme('select');
   const containerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<any | null>(null);
 
@@ -320,10 +321,11 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
     multiple,
     onSelectedChange,
     onTagKeyDown,
-    selectedOption
+    selectedOption,
+    theme.multiple,
+    theme.prefix,
+    theme.single
   ]);
-
-  const { selectInput: theme }: SelectTheme = useComponentTheme('select');
 
   return (
     <div

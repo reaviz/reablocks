@@ -1,4 +1,4 @@
-import { FC, useMemo } from 'react';
+import React, { FC, useMemo } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Button } from '../../../elements/Button';
 import { useComponentTheme } from '../../../utils/Theme/TW';

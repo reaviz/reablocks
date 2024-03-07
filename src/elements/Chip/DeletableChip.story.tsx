@@ -10,3 +10,17 @@ export const Simple = () => (
     Deletable
   </DeletableChip>
 );
+
+export const Sizes = () => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+    <DeletableChip size="small" onDelete={() => console.log('on delete')}>
+      Deletable
+    </DeletableChip>
+    <DeletableChip size="medium" onDelete={() => console.log('on delete')}>
+      Deletable
+    </DeletableChip>
+    <DeletableChip size="large" onDelete={() => console.log('on delete')}>
+      Deletable
+    </DeletableChip>
+  </div>
+);

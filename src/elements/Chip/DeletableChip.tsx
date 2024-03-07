@@ -1,9 +1,10 @@
-import React, { FC, forwardRef, Ref, ReactElement } from 'react';
+import React, { FC, forwardRef, ReactElement } from 'react';
+import { twMerge } from 'tailwind-merge';
 import { Button } from '../Button';
 import { Chip, ChipProps, ChipRef } from './Chip';
 import { CloseIcon } from '../../form/Select/icons';
-import classNames from 'classnames';
-import css from './DeletableChip.module.css';
+import { ChipTheme } from './ChipTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
   /**
@@ -18,40 +19,43 @@ export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
 }
 
 export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
-  ({ children, disabled, deleteIcon, onDelete, size, color, ...rest }, ref) => (
-    <Chip
-      ref={ref}
-      size={size}
-      disabled={disabled}
-      color={color}
-      end={
-        <Button
-          tabIndex={0}
-          variant="text"
-          size={size}
-          className={classNames(
-            css.deleteButton,
-            { [css[size]]: true },
-            'text-inherit'
-          )}
-          onClick={event => {
-            if (!disabled) {
-              event.stopPropagation();
-              onDelete?.();
-            }
-          }}
-          disabled={disabled}
-          disableMargins
-          disablePadding
-        >
-          {deleteIcon}
-        </Button>
-      }
-      {...rest}
-    >
-      {children}
-    </Chip>
-  )
+  ({ children, disabled, deleteIcon, onDelete, size, color, ...rest }, ref) => {
+    const theme: ChipTheme = useComponentTheme('chip');
+
+    return (
+      <Chip
+        ref={ref}
+        size={size}
+        disabled={disabled}
+        color={color}
+        end={
+          <Button
+            tabIndex={0}
+            variant="text"
+            size={size}
+            className={twMerge(
+              theme.deleteButton.base,
+              theme.deleteButton[size]
+            )}
+            onClick={event => {
+              if (!disabled) {
+                event.stopPropagation();
+                onDelete?.();
+              }
+            }}
+            disabled={disabled}
+            disableMargins
+            disablePadding
+          >
+            {deleteIcon}
+          </Button>
+        }
+        {...rest}
+      >
+        {children}
+      </Chip>
+    );
+  }
 );
 
 DeletableChip.defaultProps = {

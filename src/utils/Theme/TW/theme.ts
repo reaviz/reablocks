@@ -7,7 +7,10 @@ import {
   darkCommandPaletteTheme,
   AvatarTheme,
   lightAvatarTheme,
-  darkAvatarTheme
+  darkAvatarTheme,
+  KbdTheme,
+  lightKbdTheme,
+  darkKbdTheme
 } from '../../../elements';
 import {
   darkInputTheme,
@@ -64,8 +67,11 @@ import {
 } from '../../../layers';
 import {
   darkDividerTheme,
+  darkTreeTheme,
   DividerTheme,
-  lightDividerTheme
+  lightDividerTheme,
+  lightTreeTheme,
+  TreeTheme
 } from '../../../layout';
 import {
   darkVerticalSpacerTheme,
@@ -107,6 +113,7 @@ export interface ReablocksTheme {
     menu: MenuTheme;
     stack: StackTheme;
     card: CardTheme;
+    kbd: KbdTheme;
     verticalSpacer: VerticalSpacerTheme;
     notification: NotificationTheme;
     input: InputTheme;
@@ -118,6 +125,7 @@ export interface ReablocksTheme {
     range: RangeTheme;
     toggle: ToggleTheme;
     tooltip: TooltipTheme;
+    tree: TreeTheme;
     popover: PopoverTheme;
   };
 }
@@ -137,6 +145,7 @@ export const lightTheme: ReablocksTheme = {
     menu: lightMenuTheme,
     stack: lightStackTheme,
     card: lightCardTheme,
+    kbd: lightKbdTheme,
     verticalSpacer: lightVerticalSpacerTheme,
     notification: lightNotificationTheme,
     input: lightInputTheme,
@@ -148,6 +157,7 @@ export const lightTheme: ReablocksTheme = {
     range: lightRangeTheme,
     toggle: lightToggleTheme,
     tooltip: lightTooltipTheme,
+    tree: lightTreeTheme,
     popover: lightPopoverTheme
   }
 };
@@ -167,6 +177,7 @@ export const darkTheme: ReablocksTheme = {
     menu: darkMenuTheme,
     stack: darkStackTheme,
     card: darkCardTheme,
+    kbd: darkKbdTheme,
     verticalSpacer: darkVerticalSpacerTheme,
     notification: darkNotificationTheme,
     input: darkInputTheme,
@@ -178,6 +189,7 @@ export const darkTheme: ReablocksTheme = {
     range: darkRangeTheme,
     toggle: darkToggleTheme,
     tooltip: darkTooltipTheme,
+    tree: darkTreeTheme,
     popover: darkPopoverTheme
   }
 };

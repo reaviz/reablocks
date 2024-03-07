@@ -1,4 +1,4 @@
-import { FC, useCallback, useMemo, useState } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import { isAfter, isBefore, isSameDay } from 'date-fns';
 import { Button } from '../../../elements/Button';
 import {
@@ -214,7 +214,10 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       isRange,
       onChange,
       onHover,
-      hoveringDate
+      hoveringDate,
+      days,
+      hideNextMonthDays,
+      hidePrevMonthDays
     ]
   );
 
