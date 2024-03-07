@@ -4,7 +4,10 @@ import {
   ButtonTheme,
   CommandPaletteTheme,
   lightCommandPaletteTheme,
-  darkCommandPaletteTheme
+  darkCommandPaletteTheme,
+  AvatarTheme,
+  lightAvatarTheme,
+  darkAvatarTheme
 } from '../../../elements';
 import {
   darkInputTheme,
@@ -88,6 +91,7 @@ import {
 
 export interface ReablocksTheme {
   components: {
+    avatar: AvatarTheme;
     button: ButtonTheme;
     chip: ChipTheme;
     dialog: DialogTheme;
@@ -116,6 +120,7 @@ export interface ReablocksTheme {
 
 export const lightTheme: ReablocksTheme = {
   components: {
+    avatar: lightAvatarTheme,
     button: lightButtonTheme,
     chip: lightChipTheme,
     dialog: lightDialogTheme,
@@ -144,6 +149,7 @@ export const lightTheme: ReablocksTheme = {
 
 export const darkTheme: ReablocksTheme = {
   components: {
+    avatar: darkAvatarTheme,
     button: darkButtonTheme,
     chip: darkChipTheme,
     dialog: darkDialogTheme,

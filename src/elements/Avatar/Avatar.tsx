@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
-import classNames from 'classnames';
 import getInitials from 'name-initials';
 import { generateColor } from '@marko19907/string-to-color';
-import css from './Avatar.module.css';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../utils/Theme/TW';
+import { AvatarTheme } from './AvatarTheme';
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -61,12 +62,12 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       return generateColor(name || '', colorOptions);
     }, [color, name, src, colorOptions]);
 
+    const theme: AvatarTheme = useComponentTheme('avatar');
+
     return (
       <div
         {...rest}
-        className={classNames(css.avatar, className, {
-          [css.rounded]: rounded
-        })}
+        className={twMerge(theme.base, rounded && theme.rounded, className)}
         style={{
           width: `${size}px`,
           height: `${size}px`,
