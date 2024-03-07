@@ -97,6 +97,7 @@ import {
   lightChipTheme,
   ChipTheme
 } from '../../../elements/Chip/ChipTheme';
+import { PagerTheme, darkPagerTheme, lightPagerTheme } from '../../../data';
 
 export interface ReablocksTheme {
   components: {
@@ -127,6 +128,7 @@ export interface ReablocksTheme {
     tooltip: TooltipTheme;
     tree: TreeTheme;
     popover: PopoverTheme;
+    pager: PagerTheme;
   };
 }
 
@@ -158,7 +160,8 @@ export const lightTheme: ReablocksTheme = {
     toggle: lightToggleTheme,
     tooltip: lightTooltipTheme,
     tree: lightTreeTheme,
-    popover: lightPopoverTheme
+    popover: lightPopoverTheme,
+    pager: lightPagerTheme
   }
 };
 
@@ -190,6 +193,7 @@ export const darkTheme: ReablocksTheme = {
     toggle: darkToggleTheme,
     tooltip: darkTooltipTheme,
     tree: darkTreeTheme,
-    popover: darkPopoverTheme
+    popover: darkPopoverTheme,
+    pager: darkPagerTheme
   }
 };

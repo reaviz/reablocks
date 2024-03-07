@@ -1,6 +1,5 @@
 import React, { FC, Fragment, ReactNode, useCallback } from 'react';
 import classNames from 'classnames';
-
 import { Button } from '../../elements/Button';
 import { Stack } from '../../layout';
 import { Text } from '../../typography';
@@ -10,6 +9,8 @@ import NextArrow from './assets/arrow-next.svg?react';
 import PreviousArrow from './assets/arrow-previous.svg?react';
 import StartArrow from './assets/arrow-start.svg?react';
 import { FUZZY_RANGE, getItemsRange, getPageRange } from './utils';
+import { useComponentTheme } from '../../utils/Theme/TW';
+import { twMerge } from 'tailwind-merge';
 import css from './Pager.module.css';
 
 export interface PagerProps {
@@ -99,6 +100,7 @@ export const Pager: FC<PagerProps> = ({
   const canNext = page < pageCount - 1;
   const [startPage, endPage] = getPageRange(page, pageCount - 1);
   const [startItem, endItem] = getItemsRange(page, size, total);
+  const theme = useComponentTheme('pager');
 
   const previousPage = useCallback(() => {
     if (canPrevious) {
@@ -121,7 +123,7 @@ export const Pager: FC<PagerProps> = ({
   }
 
   return (
-    <div className={classNames(css.pager, className)}>
+    <div className={classNames(twMerge(theme.base), className)}>
       {(displayMode === 'items' || displayMode === 'all') && (
         <div className={css.pagerDisplayItems}>
           {pageCount === 1 && total > 0 && (
@@ -164,9 +166,11 @@ export const Pager: FC<PagerProps> = ({
       </Button>
       {(displayMode === 'pages' || displayMode === 'all') && (
         <div
-          className={classNames(css.pagesContainer, pagesContainerClassName)}
+          className={classNames(twMerge(theme.pages), pagesContainerClassName)}
         >
-          {startPage >= 2 && <div className={css.overflow}>&nbsp;...</div>}
+          {startPage >= 2 && (
+            <div className={twMerge(theme.ellipsis)}>&nbsp;...</div>
+          )}
           {[...Array(pageCount)].map((_, i) => (
             <Fragment key={i}>
               {i >= startPage && i <= endPage && (
@@ -174,7 +178,7 @@ export const Pager: FC<PagerProps> = ({
                   variant="text"
                   size="small"
                   disabled={page === i}
-                  title={`Page ${i + 1}`}
+                  title={`Page ${(i + 1).toLocaleString()}`}
                   className={classNames(
                     css.page,
                     {
@@ -190,7 +194,7 @@ export const Pager: FC<PagerProps> = ({
             </Fragment>
           ))}
           {endPage <= pageCount - FUZZY_RANGE && (
-            <div className={css.overflow}>...&nbsp;</div>
+            <div className={twMerge(theme.ellipsis)}>...&nbsp;</div>
           )}
         </div>
       )}
