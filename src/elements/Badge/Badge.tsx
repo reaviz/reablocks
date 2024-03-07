@@ -1,7 +1,8 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
-import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import css from './Badge.module.css';
+import { BadgeTheme } from './BadgeTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
+import { twMerge } from 'tailwind-merge';
 
 export type BadgeColor = 'default' | 'primary' | 'secondary' | 'error';
 
@@ -41,37 +42,38 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
       ...rest
     }: BadgeProps,
     ref
-  ) => (
-    <span
-      className={classNames(css.container, {
-        [css.disableMargins]: disableMargins
-      })}
-    >
-      {children}
-      {!hidden && (
-        <motion.span
-          initial={{ opacity: 0, scale: 1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          aria-hidden="true"
-        >
-          <span
-            {...rest}
-            ref={ref}
-            className={classNames(className, css.badge, css[color], {
-              [css.top]: placement === 'top-start' || placement === 'top-end',
-              [css.bottom]:
-                placement === 'bottom-start' || placement === 'bottom-end',
-              [css.left]:
-                placement === 'top-start' || placement === 'bottom-start',
-              [css.right]: placement === 'top-end' || placement === 'bottom-end'
-            })}
+  ) => {
+    const theme: BadgeTheme = useComponentTheme('badge');
+
+    return (
+      <span
+        className={twMerge(theme.base, disableMargins && theme.disableMargins)}
+      >
+        {children}
+        {!hidden && (
+          <motion.span
+            initial={{ opacity: 0, scale: 1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            aria-hidden="true"
           >
-            {content}
-          </span>
-        </motion.span>
-      )}
-    </span>
-  )
+            <span
+              {...rest}
+              ref={ref}
+              className={twMerge(
+                theme.badge,
+                theme.position,
+                theme.colors[color],
+                theme.positions[placement],
+                className
+              )}
+            >
+              {content}
+            </span>
+          </motion.span>
+        )}
+      </span>
+    );
+  }
 );
 
 Badge.defaultProps = {

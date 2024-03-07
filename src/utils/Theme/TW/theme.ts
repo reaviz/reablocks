@@ -10,7 +10,19 @@ import {
   darkAvatarTheme,
   KbdTheme,
   lightKbdTheme,
-  darkKbdTheme
+  darkKbdTheme,
+  AvatarGroupTheme,
+  lightAvatarGroupTheme,
+  darkAvatarGroupTheme,
+  lightBadgeTheme,
+  BadgeTheme,
+  darkBadgeTheme,
+  DotsLoaderTheme,
+  lightDotsLoaderTheme,
+  darkDotsLoaderTheme,
+  ArrowTheme,
+  lightArrowTheme,
+  darkArrowTheme
 } from '../../../elements';
 import {
   darkInputTheme,
@@ -66,9 +78,12 @@ import {
   TooltipTheme
 } from '../../../layers';
 import {
+  CollapseTheme,
+  darkCollapseTheme,
   darkDividerTheme,
   darkTreeTheme,
   DividerTheme,
+  lightCollapseTheme,
   lightDividerTheme,
   lightTreeTheme,
   TreeTheme
@@ -97,18 +112,30 @@ import {
   lightChipTheme,
   ChipTheme
 } from '../../../elements/Chip/ChipTheme';
-import { PagerTheme, darkPagerTheme, lightPagerTheme } from '../../../data';
+import {
+  darkEllipsisTheme,
+  EllipsisTheme,
+  lightEllipsisTheme,
+  PagerTheme,
+  darkPagerTheme,
+  lightPagerTheme
+} from '../../../data';
 
 export interface ReablocksTheme {
   components: {
     avatar: AvatarTheme;
+    avatarGroup: AvatarGroupTheme;
+    arrow: ArrowTheme;
+    badge: BadgeTheme;
     button: ButtonTheme;
     chip: ChipTheme;
     contextMenu: ContextMenuTheme;
     dialog: DialogTheme;
     dialogHeader: DialogHeaderTheme;
     divider: DividerTheme;
+    dotsLoader: DotsLoaderTheme;
     drawer: DrawerTheme;
+    ellipsis: EllipsisTheme;
     select: SelectTheme;
     list: ListTheme;
     menu: MenuTheme;
@@ -121,6 +148,7 @@ export interface ReablocksTheme {
     calendar: CalendarTheme;
     calendarRange: CalendarRangeTheme;
     commandPalette: CommandPaletteTheme;
+    collapse: CollapseTheme;
     typography: TypographyTheme;
     radio: RadioTheme;
     range: RangeTheme;
@@ -135,13 +163,18 @@ export interface ReablocksTheme {
 export const lightTheme: ReablocksTheme = {
   components: {
     avatar: lightAvatarTheme,
+    avatarGroup: lightAvatarGroupTheme,
+    arrow: lightArrowTheme,
+    badge: lightBadgeTheme,
     button: lightButtonTheme,
     chip: lightChipTheme,
     contextMenu: lightContextMenuTheme,
     dialog: lightDialogTheme,
     dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
+    dotsLoader: lightDotsLoaderTheme,
     drawer: lightDrawerTheme,
+    ellipsis: lightEllipsisTheme,
     select: lightSelectTheme,
     list: lightListTheme,
     menu: lightMenuTheme,
@@ -154,6 +187,7 @@ export const lightTheme: ReablocksTheme = {
     calendar: lightCalendarTheme,
     calendarRange: lightCalendarRangeTheme,
     commandPalette: lightCommandPaletteTheme,
+    collapse: lightCollapseTheme,
     typography: lightTypographyTheme,
     radio: lightRadioTheme,
     range: lightRangeTheme,
@@ -168,13 +202,18 @@ export const lightTheme: ReablocksTheme = {
 export const darkTheme: ReablocksTheme = {
   components: {
     avatar: darkAvatarTheme,
+    avatarGroup: darkAvatarGroupTheme,
+    arrow: darkArrowTheme,
+    badge: darkBadgeTheme,
     button: darkButtonTheme,
     chip: darkChipTheme,
     contextMenu: darkContextMenuTheme,
     dialog: darkDialogTheme,
     dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,
+    dotsLoader: darkDotsLoaderTheme,
     drawer: darkDrawerTheme,
+    ellipsis: darkEllipsisTheme,
     select: darkSelectTheme,
     list: darkListTheme,
     menu: darkMenuTheme,
@@ -187,6 +226,7 @@ export const darkTheme: ReablocksTheme = {
     calendar: darkCalendarTheme,
     calendarRange: darkCalendarRangeTheme,
     commandPalette: darkCommandPaletteTheme,
+    collapse: darkCollapseTheme,
     typography: darkTypographyTheme,
     radio: darkRadioTheme,
     range: darkRangeTheme,
