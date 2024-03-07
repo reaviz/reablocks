@@ -39,6 +39,7 @@ import {
   darkDrawerTheme,
   darkMenuTheme,
   darkNotificationTheme,
+  darkPopoverTheme,
   darkTooltipTheme,
   DialogHeaderTheme,
   DialogTheme,
@@ -48,9 +49,11 @@ import {
   lightDrawerTheme,
   lightMenuTheme,
   lightNotificationTheme,
+  lightPopoverTheme,
   lightTooltipTheme,
   MenuTheme,
   NotificationTheme,
+  PopoverTheme,
   TooltipTheme
 } from '../../../layers';
 import {
@@ -107,6 +110,7 @@ export interface ReablocksTheme {
     range: RangeTheme;
     toggle: ToggleTheme;
     tooltip: TooltipTheme;
+    popover: PopoverTheme;
   };
 }
 
@@ -133,7 +137,8 @@ export const lightTheme: ReablocksTheme = {
     radio: lightRadioTheme,
     range: lightRangeTheme,
     toggle: lightToggleTheme,
-    tooltip: lightTooltipTheme
+    tooltip: lightTooltipTheme,
+    popover: lightPopoverTheme
   }
 };
 
@@ -160,6 +165,7 @@ export const darkTheme: ReablocksTheme = {
     radio: darkRadioTheme,
     range: darkRangeTheme,
     toggle: darkToggleTheme,
-    tooltip: darkTooltipTheme
+    tooltip: darkTooltipTheme,
+    popover: darkPopoverTheme
   }
 };

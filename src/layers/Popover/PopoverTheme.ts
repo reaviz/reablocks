@@ -1,19 +1,19 @@
-export interface TooltipTheme {
+export interface PopoverTheme {
   base: string;
-  disablePointer: string;
+  disablePadding: string;
 }
 
-const baseTheme: TooltipTheme = {
+const baseTheme: PopoverTheme = {
   base: 'whitespace-nowrap text-center will-change-[transform,opacity] p-1.5 rounded',
-  disablePointer: 'pointer-events-none'
+  disablePadding: 'p-0'
 };
 
-export const lightTooltipTheme: TooltipTheme = {
+export const lightPopoverTheme: PopoverTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-neutral-300 text-black'].join(' ')
 };
 
-export const darkTooltipTheme: TooltipTheme = {
+export const darkPopoverTheme: PopoverTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-neutral-800 text-white'].join(' ')
 };

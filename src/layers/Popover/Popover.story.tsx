@@ -1,5 +1,6 @@
 import React from 'react';
 import { Popover } from './Popover';
+import { Button } from '../../elements';
 
 export default {
   title: 'Components/Layers/Popover',
@@ -12,11 +13,11 @@ export const Simple = () => (
       content={
         <div style={{ textAlign: 'center' }}>
           <h3>WHATS UP????!</h3>
-          <button type="button">Done</button>
+          <Button type="button">Done</Button>
         </div>
       }
     >
-      <button type="button">Click me</button>
+      <Button type="button">Click me</Button>
     </Popover>
   </div>
 );

@@ -1,9 +1,10 @@
 import React, { FC } from 'react';
 import { TooltipProps, Tooltip } from '../Tooltip';
 import FocusTrap from 'focus-trap-react';
-import classNames from 'classnames';
 import { useId } from 'rdk';
-import css from './Popover.module.css';
+import { twMerge } from 'tailwind-merge';
+import { PopoverTheme } from './PopoverTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export interface PopoverProps extends Partial<TooltipProps> {
   /**
@@ -36,6 +37,7 @@ export const Popover: FC<PopoverProps> = ({
   ...rest
 }) => {
   const id = useId();
+  const theme: PopoverTheme = useComponentTheme('popover');
 
   return (
     <Tooltip
@@ -44,9 +46,11 @@ export const Popover: FC<PopoverProps> = ({
       pointerEvents="initial"
       leaveDelay={leaveDelay}
       isPopover
-      className={classNames(css.popover, className, {
-        [css.disablePadding]: disablePadding
-      })}
+      className={twMerge(
+        theme.base,
+        disablePadding && theme.disablePadding,
+        className
+      )}
       content={() => {
         const isContentFunction = typeof content === 'function';
         const children = isContentFunction ? content() : content;
