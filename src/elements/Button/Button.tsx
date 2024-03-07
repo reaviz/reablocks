@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { ButtonGroupContext } from './ButtonGroupContext';
 import { useComponentTheme } from '../../utils/Theme/TW';
 import { twMerge } from 'tailwind-merge';
-import { ButtonTheme } from './ButtonTheme';
 
 export interface ButtonProps
   extends Omit<
@@ -79,7 +78,6 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
     }: ButtonProps,
     ref
   ) => {
-    // const theme = useComponentTheme('button') as ButtonTheme;
     const theme = useComponentTheme('button');
 
     const { variant: groupVariant, size: groupSize } =
