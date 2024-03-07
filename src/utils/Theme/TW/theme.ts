@@ -7,7 +7,10 @@ import {
   darkCommandPaletteTheme,
   AvatarTheme,
   lightAvatarTheme,
-  darkAvatarTheme
+  darkAvatarTheme,
+  KbdTheme,
+  lightKbdTheme,
+  darkKbdTheme
 } from '../../../elements';
 import {
   darkInputTheme,
@@ -110,6 +113,7 @@ export interface ReablocksTheme {
     menu: MenuTheme;
     stack: StackTheme;
     card: CardTheme;
+    kbd: KbdTheme;
     verticalSpacer: VerticalSpacerTheme;
     notification: NotificationTheme;
     input: InputTheme;
@@ -141,6 +145,7 @@ export const lightTheme: ReablocksTheme = {
     menu: lightMenuTheme,
     stack: lightStackTheme,
     card: lightCardTheme,
+    kbd: lightKbdTheme,
     verticalSpacer: lightVerticalSpacerTheme,
     notification: lightNotificationTheme,
     input: lightInputTheme,
@@ -172,6 +177,7 @@ export const darkTheme: ReablocksTheme = {
     menu: darkMenuTheme,
     stack: darkStackTheme,
     card: darkCardTheme,
+    kbd: darkKbdTheme,
     verticalSpacer: darkVerticalSpacerTheme,
     notification: darkNotificationTheme,
     input: darkInputTheme,
