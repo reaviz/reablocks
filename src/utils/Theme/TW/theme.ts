@@ -118,7 +118,10 @@ import {
   lightEllipsisTheme,
   PagerTheme,
   darkPagerTheme,
-  lightPagerTheme
+  lightPagerTheme,
+  RedactTheme,
+  lightRedactTheme,
+  darkRedactTheme
 } from '../../../data';
 
 export interface ReablocksTheme {
@@ -152,6 +155,7 @@ export interface ReablocksTheme {
     typography: TypographyTheme;
     radio: RadioTheme;
     range: RangeTheme;
+    redact: RedactTheme;
     toggle: ToggleTheme;
     tooltip: TooltipTheme;
     tree: TreeTheme;
@@ -191,6 +195,7 @@ export const lightTheme: ReablocksTheme = {
     typography: lightTypographyTheme,
     radio: lightRadioTheme,
     range: lightRangeTheme,
+    redact: lightRedactTheme,
     toggle: lightToggleTheme,
     tooltip: lightTooltipTheme,
     tree: lightTreeTheme,
@@ -230,6 +235,7 @@ export const darkTheme: ReablocksTheme = {
     typography: darkTypographyTheme,
     radio: darkRadioTheme,
     range: darkRangeTheme,
+    redact: darkRedactTheme,
     toggle: darkToggleTheme,
     tooltip: darkTooltipTheme,
     tree: darkTreeTheme,
