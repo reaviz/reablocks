@@ -3,7 +3,16 @@ import { DateFormat } from './DateFormat';
 
 export default {
   title: 'Components/Data/DateFormat',
-  component: DateFormat
+  component: DateFormat,
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{ color: context.globals.theme === 'light' ? 'black' : 'white' }}
+      >
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export const Simple = () => <DateFormat date={new Date()} />;

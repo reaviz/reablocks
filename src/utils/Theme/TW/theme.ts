@@ -81,11 +81,14 @@ import {
   TooltipTheme
 } from '../../../layers';
 import {
+  BlockTheme,
   CollapseTheme,
+  darkBlockTheme,
   darkCollapseTheme,
   darkDividerTheme,
   darkTreeTheme,
   DividerTheme,
+  lightBlockTheme,
   lightCollapseTheme,
   lightDividerTheme,
   lightTreeTheme,
@@ -127,7 +130,10 @@ import {
   darkRedactTheme,
   SortTheme,
   lightSortTheme,
-  darkSortTheme
+  darkSortTheme,
+  DateFormatTheme,
+  lightDateFormatTheme,
+  darkDateFormatTheme
 } from '../../../data';
 
 export interface ReablocksTheme {
@@ -137,9 +143,11 @@ export interface ReablocksTheme {
     arrow: ArrowTheme;
     badge: BadgeTheme;
     button: ButtonTheme;
+    block: BlockTheme;
     chip: ChipTheme;
     contextMenu: ContextMenuTheme;
     checkbox: CheckboxTheme;
+    dateFormat: DateFormatTheme;
     dialog: DialogTheme;
     dialogHeader: DialogHeaderTheme;
     divider: DividerTheme;
@@ -179,9 +187,11 @@ export const lightTheme: ReablocksTheme = {
     arrow: lightArrowTheme,
     badge: lightBadgeTheme,
     button: lightButtonTheme,
+    block: lightBlockTheme,
     chip: lightChipTheme,
     contextMenu: lightContextMenuTheme,
     checkbox: lightCheckboxTheme,
+    dateFormat: lightDateFormatTheme,
     dialog: lightDialogTheme,
     dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
@@ -221,9 +231,11 @@ export const darkTheme: ReablocksTheme = {
     arrow: darkArrowTheme,
     badge: darkBadgeTheme,
     button: darkButtonTheme,
+    block: darkBlockTheme,
     chip: darkChipTheme,
     contextMenu: darkContextMenuTheme,
     checkbox: darkCheckboxTheme,
+    dateFormat: darkDateFormatTheme,
     dialog: darkDialogTheme,
     dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,

@@ -1,8 +1,18 @@
 import { Block } from './Block';
+import React from 'react';
 
 export default {
   title: 'Components/Layout/Block',
-  component: Block
+  component: Block,
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{ color: context.globals.theme === 'light' ? 'black' : 'white' }}
+      >
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export const Labelless = () => (

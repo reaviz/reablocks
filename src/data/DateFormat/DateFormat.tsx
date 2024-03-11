@@ -6,10 +6,11 @@ import React, {
   useRef,
   useMemo
 } from 'react';
-import classNames from 'classnames';
 import { formatRelative, getInterval } from './relative';
 import { safeFormat } from './formatting';
-import css from './DateFormat.module.css';
+import { twMerge } from 'tailwind-merge';
+import { DateFormatTheme } from './DateFormatTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export interface DateFormatProps {
   /**
@@ -133,6 +134,8 @@ export const DateFormat: FC<DateFormatProps> = ({
     return () => clearTimeout(cur);
   });
 
+  const theme: DateFormatTheme = useComponentTheme('dateFormat');
+
   if (!date) {
     return <>{emptyMessage}</>;
   }
@@ -141,7 +144,11 @@ export const DateFormat: FC<DateFormatProps> = ({
     <time
       title={allowToggle ? 'Toggle relative / absolute time' : undefined}
       role="button"
-      className={classNames(className, { [css.btn]: allowToggle })}
+      className={twMerge(
+        theme.base,
+        allowToggle && theme.interactive,
+        className
+      )}
       onClick={onToggle}
     >
       {isRelative ? curRelative : formatted}
