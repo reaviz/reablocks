@@ -25,12 +25,15 @@ import {
   darkArrowTheme
 } from '../../../elements';
 import {
+  CheckboxTheme,
+  darkCheckboxTheme,
   darkInputTheme,
   darkRadioTheme,
   darkRangeTheme,
   darkSelectTheme,
   darkToggleTheme,
   InputTheme,
+  lightCheckboxTheme,
   lightInputTheme,
   lightRadioTheme,
   lightRangeTheme,
@@ -136,6 +139,7 @@ export interface ReablocksTheme {
     button: ButtonTheme;
     chip: ChipTheme;
     contextMenu: ContextMenuTheme;
+    checkbox: CheckboxTheme;
     dialog: DialogTheme;
     dialogHeader: DialogHeaderTheme;
     divider: DividerTheme;
@@ -177,6 +181,7 @@ export const lightTheme: ReablocksTheme = {
     button: lightButtonTheme,
     chip: lightChipTheme,
     contextMenu: lightContextMenuTheme,
+    checkbox: lightCheckboxTheme,
     dialog: lightDialogTheme,
     dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
@@ -218,6 +223,7 @@ export const darkTheme: ReablocksTheme = {
     button: darkButtonTheme,
     chip: darkChipTheme,
     contextMenu: darkContextMenuTheme,
+    checkbox: darkCheckboxTheme,
     dialog: darkDialogTheme,
     dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,

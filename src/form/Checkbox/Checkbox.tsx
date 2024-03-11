@@ -1,8 +1,8 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
-import classNames from 'classnames';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import { useTheme } from '../../utils/Theme';
-import css from './Checkbox.module.css';
+import { twMerge } from 'tailwind-merge';
+import { CheckboxTheme } from './CheckboxTheme';
+import { useComponentTheme } from '../../utils/Theme/TW';
 
 export interface CheckboxProps {
   /**
@@ -77,7 +77,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
     },
     ref
   ) => {
-    const theme = useTheme();
+    const theme: CheckboxTheme = useComponentTheme('checkbox');
     const pathLength = useMotionValue(0);
     const opacity = useTransform(pathLength, [0.05, 0.15], [0, 1]);
 
@@ -87,32 +87,18 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
       unchecked: { pathLength: 0 }
     };
 
-    const boxVariants = {
-      hover: {
-        strokeWidth: 1,
-        stroke: theme.components.checkbox['checkbox-box-checked-stroke']
-      },
-      pressed: { scale: 0.95 },
-      checked: {
-        stroke: theme.components.checkbox['checkbox-box-checked-stroke']
-      },
-      unchecked: {
-        stroke: theme.components.checkbox['checkbox-box-unchecked-stroke']
-      }
-    };
-
     return (
-      <div className={classNames(css.container, containerClassName)}>
+      <div className={twMerge(theme.base, containerClassName)}>
         <motion.div
           {...rest}
           ref={ref}
           tabIndex={disabled ? -1 : 0}
-          className={classNames(css.checkbox, className, {
-            [css.disabled]: disabled,
-            [css.small]: size === 'small',
-            [css.medium]: size === 'medium',
-            [css.large]: size === 'large'
-          })}
+          className={twMerge(
+            theme.checkbox,
+            disabled && theme.disabled,
+            theme.sizes[size],
+            className
+          )}
           onClick={e => {
             if (!disabled && onChange) {
               e.stopPropagation();
@@ -134,14 +120,14 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           >
             <motion.path
               d="M 0 0 L 0 16 L 16 16 L 16 0 Z"
-              variants={boxVariants}
+              variants={theme.boxVariants}
             />
             {intermediate ? (
               <motion.path
                 d="M 5.36396 8.17792 L 10.6044 8.17792"
                 fill="transparent"
                 strokeWidth="1"
-                className={css.check}
+                className={theme.check}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}
                 custom={checked}
@@ -151,7 +137,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
                 d="M 5.36396 8.17792 L 7.34236 9.91424 L 10.6044 5.832"
                 fill="transparent"
                 strokeWidth="1"
-                className={css.check}
+                className={theme.check}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}
                 custom={checked}
@@ -161,9 +147,12 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
         </motion.div>
         {label && (
           <span
-            className={classNames(css.label, labelClassName, {
-              [css.clickable]: !disabled && onChange
-            })}
+            className={twMerge(
+              theme.label.base,
+              disabled && theme.disabled,
+              !disabled && onChange && theme.label.clickable,
+              labelClassName
+            )}
             onClick={() => {
               if (!disabled && onChange) {
                 onChange?.(!checked);
