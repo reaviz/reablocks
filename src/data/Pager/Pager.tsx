@@ -165,7 +165,7 @@ export const Pager: FC<PagerProps> = ({
         {previousArrow}
       </Button>
       {(displayMode === 'pages' || displayMode === 'all') && (
-        <div className={twMerge(theme.pages, pagesContainerClassName)}>
+        <div className={twMerge(theme.pages.base, pagesContainerClassName)}>
           {startPage >= 2 && (
             <div className={twMerge(theme.ellipsis)}>&nbsp;...</div>
           )}
@@ -178,8 +178,9 @@ export const Pager: FC<PagerProps> = ({
                   disabled={page === i}
                   title={`Page ${(i + 1).toLocaleString()}`}
                   className={twMerge(
-                    theme.page,
-                    page === i && (activePageClassName || theme.active),
+                    theme.pages.page.base,
+                    page === i &&
+                      (activePageClassName || theme.pages.page.active),
                     pageClassName
                   )}
                   onClick={() => onPageChange?.(i)}

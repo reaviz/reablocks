@@ -1,9 +1,13 @@
 export interface PagerTheme {
   base: string;
-  pages: string;
+  pages: {
+    base: string;
+    page: {
+      base: string;
+      active: string;
+    };
+  };
   ellipsis: string;
-  page: string;
-  active: string;
   pagerDisplayItems: string;
   control: string;
   firstPage: string;
@@ -15,10 +19,14 @@ export interface PagerTheme {
 const baseTheme: PagerTheme = {
   base: 'items-center flex user-select-none',
   arrows: 'h-8 w-8',
-  pages: 'inline-flex',
+  pages: {
+    base: 'inline-flex',
+    page: {
+      base: 'py-1',
+      active: 'font-bold'
+    }
+  },
   ellipsis: 'cursor-pointer',
-  page: 'py-1',
-  active: 'font-bold',
   pagerDisplayItems: 'mr-1.5',
   control: '[&>svg]:w-5 [&>svg]:h-5',
   firstPage: '',
@@ -29,15 +37,26 @@ const baseTheme: PagerTheme = {
 
 export const lightPagerTheme: PagerTheme = {
   ...baseTheme,
-  active: [baseTheme.active, '!text-black'].join(' '),
+  pages: {
+    ...baseTheme.pages,
+    page: {
+      ...baseTheme.pages.page,
+      active: [baseTheme.pages.page.active, '!text-black'].join(' ')
+    }
+  },
   ellipsis: [baseTheme.ellipsis, 'text-gray-800'].join(' '),
   pagerDisplayItems: [baseTheme.pagerDisplayItems, 'text-slate-600'].join(' ')
 };
 
 export const darkPagerTheme: PagerTheme = {
   ...(baseTheme as PagerTheme),
-  active: [baseTheme.active, '!text-white'].join(' '),
-  page: [baseTheme.page, 'text-slate-500'].join(' '),
+  pages: {
+    ...baseTheme.pages,
+    page: {
+      base: [baseTheme.pages.page.base, 'text-slate-500'].join(' '),
+      active: [baseTheme.pages.page.active, '!text-white'].join(' ')
+    }
+  },
   control: [baseTheme.control, 'text-slate-200'].join(' '),
   pagerDisplayItems: [baseTheme.pagerDisplayItems, 'text-slate-500'].join(' ')
 };

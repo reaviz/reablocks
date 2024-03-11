@@ -81,11 +81,14 @@ import {
   TooltipTheme
 } from '../../../layers';
 import {
+  BlockTheme,
   CollapseTheme,
+  darkBlockTheme,
   darkCollapseTheme,
   darkDividerTheme,
   darkTreeTheme,
   DividerTheme,
+  lightBlockTheme,
   lightCollapseTheme,
   lightDividerTheme,
   lightTreeTheme,
@@ -137,6 +140,7 @@ export interface ReablocksTheme {
     arrow: ArrowTheme;
     badge: BadgeTheme;
     button: ButtonTheme;
+    block: BlockTheme;
     chip: ChipTheme;
     contextMenu: ContextMenuTheme;
     checkbox: CheckboxTheme;
@@ -179,6 +183,7 @@ export const lightTheme: ReablocksTheme = {
     arrow: lightArrowTheme,
     badge: lightBadgeTheme,
     button: lightButtonTheme,
+    block: lightBlockTheme,
     chip: lightChipTheme,
     contextMenu: lightContextMenuTheme,
     checkbox: lightCheckboxTheme,
@@ -221,6 +226,7 @@ export const darkTheme: ReablocksTheme = {
     arrow: darkArrowTheme,
     badge: darkBadgeTheme,
     button: darkButtonTheme,
+    block: darkBlockTheme,
     chip: darkChipTheme,
     contextMenu: darkContextMenuTheme,
     checkbox: darkCheckboxTheme,
