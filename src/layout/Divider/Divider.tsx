@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
 import { DividerTheme } from './DividerTheme';
 

@@ -17,7 +17,7 @@ import { RefreshIcon } from '../icons/RefreshIcon';
 import { SelectInputChip, SelectInputChipProps } from './SelectInputChip';
 import { CloneElement } from 'rdk';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../../utils/Theme/TW';
+import { useComponentTheme } from '../../../utils';
 import { SelectTheme } from '../SelectTheme';
 
 export interface SelectInputProps {

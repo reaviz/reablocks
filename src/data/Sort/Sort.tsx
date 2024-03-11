@@ -4,7 +4,7 @@ import { DownArrowIcon } from './DownArrowIcon';
 import { getNextDirection, SortDirection } from './utils';
 import { twMerge } from 'tailwind-merge';
 import { SortTheme } from './SortTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface SortProps extends PropsWithChildren {
   /**

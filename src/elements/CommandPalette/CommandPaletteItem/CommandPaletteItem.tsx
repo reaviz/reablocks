@@ -1,9 +1,9 @@
 import React, { forwardRef } from 'react';
-import { ListItem, ListItemProps } from '../../../layout/List';
-import { MotionItem } from '../../../layout/Motion';
+import { ListItem, ListItemProps } from '../../../layout';
+import { MotionItem } from '../../../layout';
 import { Kbd } from '../../Kbd';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../../utils/Theme/TW';
+import { useComponentTheme } from '../../../utils';
 import { CommandPaletteTheme } from '../CommandPaletteTheme';
 
 export interface CommandPaletteItemProps extends ListItemProps {

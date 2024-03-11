@@ -9,7 +9,7 @@ import TextareaAutosize, {
 } from 'react-textarea-autosize';
 import { twMerge } from 'tailwind-merge';
 import { TextareaTheme } from './TextareaTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface TextareaProps extends TextareaAutosizeProps {
   /**

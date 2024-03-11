@@ -3,7 +3,7 @@ import AutosizeInput from 'react-18-input-autosize';
 import { InputRef } from '../Input';
 import { twMerge } from 'tailwind-merge';
 import { InputTheme } from '../InputTheme';
-import { useComponentTheme } from '../../../utils/Theme/TW';
+import { useComponentTheme } from '../../../utils';
 
 export interface InlineInputProps
   extends InputHTMLAttributes<HTMLInputElement> {

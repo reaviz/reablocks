@@ -6,7 +6,7 @@ import { variants } from './variants';
 import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
 import { twMerge } from 'tailwind-merge';
 import { DrawerTheme } from './DrawerTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface DrawerProps extends Omit<GlobalOverlayProps, 'children'> {
   position?: 'start' | 'end' | 'top' | 'bottom';

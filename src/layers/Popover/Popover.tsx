@@ -4,7 +4,7 @@ import FocusTrap from 'focus-trap-react';
 import { useId } from 'rdk';
 import { twMerge } from 'tailwind-merge';
 import { PopoverTheme } from './PopoverTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface PopoverProps extends Partial<TooltipProps> {
   /**

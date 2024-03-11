@@ -2,7 +2,7 @@ import React, { FC, forwardRef, LegacyRef, useContext, useMemo } from 'react';
 import { motion } from 'framer-motion';
 import { RadioGroupContext } from './RadioGroupContext';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 import { RadioTheme } from './RadioTheme';
 
 export interface RadioProps {

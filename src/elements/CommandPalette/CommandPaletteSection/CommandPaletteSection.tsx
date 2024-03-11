@@ -1,8 +1,8 @@
 import React, { PropsWithChildren, forwardRef } from 'react';
-import { List, ListHeader } from '../../../layout/List';
-import { MotionGroup, MotionItem } from '../../../layout/Motion';
+import { List, ListHeader } from '../../../layout';
+import { MotionGroup, MotionItem } from '../../../layout';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../../utils/Theme/TW';
+import { useComponentTheme } from '../../../utils';
 import { CommandPaletteTheme } from '../CommandPaletteTheme';
 
 export interface CommandPaletteSectionProps extends PropsWithChildren {

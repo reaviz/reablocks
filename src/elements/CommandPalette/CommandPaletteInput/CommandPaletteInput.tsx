@@ -11,7 +11,7 @@ import { SearchIcon } from './SearchIcon';
 import { HotkeyIem } from '../useFlattenedTree';
 import Mousetrap from 'mousetrap';
 import { CommandPaletteTheme } from '../CommandPaletteTheme';
-import { useComponentTheme } from '../../../utils/Theme/TW';
+import { useComponentTheme } from '../../../utils';
 
 export interface CommandPaletteInputProps {
   /**

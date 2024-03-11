@@ -2,7 +2,7 @@ import React, { FC, useMemo } from 'react';
 import { Arrow } from '../../elements/Arrow';
 import { TreeContext, TreeContextProps } from './TreeContext';
 import { TreeTheme } from './TreeTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
 
 export interface TreeProps extends TreeContextProps {

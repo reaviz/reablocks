@@ -5,7 +5,7 @@ import FocusTrap from 'focus-trap-react';
 import creteGlobalStateHook from 'create-global-state-hook';
 import { twMerge } from 'tailwind-merge';
 import { ContextMenuTheme } from './ContextMenuTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 const useGlobalMenuState = creteGlobalStateHook<any[]>([]);
 

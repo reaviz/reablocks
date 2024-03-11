@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import { isAfter, isBefore, isSameDay } from 'date-fns';
-import { Button } from '../../../elements/Button';
+import { isAfter, isBefore } from 'date-fns';
+import { Button } from '../../../elements';
 import {
   daysOfWeek,
   getDayAttributes,
@@ -9,7 +9,7 @@ import {
   isPreviousWeekEmpty
 } from '../utils';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useComponentTheme } from '../../../utils/Theme/TW';
+import { useComponentTheme } from '../../../utils';
 import { CalendarTheme } from '../CalendarTheme';
 import { twMerge } from 'tailwind-merge';
 

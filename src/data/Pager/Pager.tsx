@@ -1,5 +1,5 @@
 import React, { FC, Fragment, ReactNode, useCallback } from 'react';
-import { Button } from '../../elements/Button';
+import { Button } from '../../elements';
 import { Stack } from '../../layout';
 import { Text } from '../../typography';
 import { Pluralize } from '../Pluralize';
@@ -8,7 +8,7 @@ import NextArrow from './assets/arrow-next.svg?react';
 import PreviousArrow from './assets/arrow-previous.svg?react';
 import StartArrow from './assets/arrow-start.svg?react';
 import { FUZZY_RANGE, getItemsRange, getPageRange } from './utils';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
 
 export interface PagerProps {

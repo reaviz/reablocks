@@ -12,7 +12,7 @@ import { Collapse } from '../Collapse';
 import { TreeContext } from './TreeContext';
 import { twMerge } from 'tailwind-merge';
 import { TreeTheme } from './TreeTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface TreeNodeProps {
   /**

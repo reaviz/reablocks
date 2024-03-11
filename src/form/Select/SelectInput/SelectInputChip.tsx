@@ -1,9 +1,9 @@
 import React, { FC } from 'react';
 import { SelectOptionProps } from '../SelectOption';
 import ellipsize from 'ellipsize';
-import { CloseIcon } from '../icons/CloseIcon';
+import { CloseIcon } from '../icons';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../../utils/Theme/TW';
+import { useComponentTheme } from '../../../utils';
 import { SelectTheme } from '../SelectTheme';
 
 export interface SelectInputChipProps {

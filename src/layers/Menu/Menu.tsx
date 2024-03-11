@@ -5,7 +5,7 @@ import { Modifiers } from 'popper.js';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { MenuTheme } from './MenuTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface MenuProps {
   /**

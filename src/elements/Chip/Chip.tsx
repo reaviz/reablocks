@@ -1,6 +1,6 @@
 import React, { FC, forwardRef, LegacyRef, ReactElement } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
   /**

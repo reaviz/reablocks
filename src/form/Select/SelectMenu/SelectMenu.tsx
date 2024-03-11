@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 import { SelectOptionProps, SelectValue } from '../SelectOption';
 import Highlighter from 'react-highlight-words';
 import { GroupOptions, GroupOption } from '../utils';
-import { List, ListItem } from '../../../layout/List';
-import { useComponentTheme } from '../../../utils/Theme/TW';
+import { List, ListItem } from '../../../layout';
+import { useComponentTheme } from '../../../utils';
 import { SelectTheme } from '../SelectTheme';
 import { twMerge } from 'tailwind-merge';
 

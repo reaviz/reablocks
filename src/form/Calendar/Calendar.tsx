@@ -20,7 +20,7 @@ import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
 import { SmallHeading } from '../../typography';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 import { CalendarTheme } from './CalendarTheme';
 
 export type CalendarViewType = 'days' | 'months' | 'years';

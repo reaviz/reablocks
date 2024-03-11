@@ -16,7 +16,7 @@ import {
 import { AnimatePresence, motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { NotificationTheme } from './NotificationTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface NotificationComponentProps {
   message: string;

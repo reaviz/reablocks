@@ -1,10 +1,7 @@
 import { Button } from './Button';
-import {
-  darkTheme,
-  extendTheme,
-  PartialReablocksTheme,
-  ThemeProvider
-} from '../../utils/Theme/TW';
+import { extendTheme, PartialReablocksTheme } from '../../utils';
+import { ThemeProvider } from '../../utils/Theme/ThemeProvider';
+import { darkTheme } from '../../utils';
 
 export default {
   title: 'Components/Elements/Button',

@@ -1,7 +1,7 @@
 import React, { FC, useState, useMemo } from 'react';
 import ellipsize from 'ellipsize';
 import { EllipsisTheme } from './EllipsisTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface EllipsisProps {
   /**

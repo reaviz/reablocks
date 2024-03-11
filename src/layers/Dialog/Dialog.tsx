@@ -5,7 +5,7 @@ import FocusTrap from 'focus-trap-react';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { DialogHeader, DialogHeaderProps } from './DialogHeader';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
   /**

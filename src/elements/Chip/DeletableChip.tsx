@@ -2,9 +2,9 @@ import React, { FC, forwardRef, ReactElement } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { Button } from '../Button';
 import { Chip, ChipProps, ChipRef } from './Chip';
-import { CloseIcon } from '../../form/Select/icons';
+import { CloseIcon } from '../../form';
 import { ChipTheme } from './ChipTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
   /**

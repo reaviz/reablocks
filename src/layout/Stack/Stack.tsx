@@ -1,5 +1,5 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
 
 export interface StackProps extends HTMLAttributes<HTMLDivElement> {

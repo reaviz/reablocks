@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { Button } from '../../../elements/Button';
+import { Button } from '../../../elements';
 import { monthNames } from '../utils';
-import { useComponentTheme } from '../../../utils/Theme/TW';
+import { useComponentTheme } from '../../../utils';
 import { CalendarTheme } from '../CalendarTheme';
 import { twMerge } from 'tailwind-merge';
 

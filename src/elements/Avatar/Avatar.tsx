@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import getInitials from 'name-initials';
 import { generateColor } from '@marko19907/string-to-color';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 import { AvatarTheme } from './AvatarTheme';
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {

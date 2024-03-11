@@ -9,7 +9,7 @@ import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { useTooltipState } from './useTooltipState';
 import { TooltipTheme } from './TooltipTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface TooltipProps {
   /**

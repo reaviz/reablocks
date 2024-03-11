@@ -1,2 +1,2 @@
-export * from './dark';
-export * from './common';
+export * from './theme';
+export * from './extendTheme';

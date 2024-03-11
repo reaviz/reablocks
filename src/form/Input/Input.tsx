@@ -7,7 +7,7 @@ import React, {
 } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { InputTheme } from './InputTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {

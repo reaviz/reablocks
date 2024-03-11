@@ -5,6 +5,7 @@
   "scripts": {
     "build": "vite build --mode library",
     "build-storybook": "storybook build",
+    "build:styles": "npx tailwindcss -i ./src/index.css -o ./dist/src/styles/style.css",
     "copy": "cp CNAME storybook-static/",
     "lint": "eslint --ext js,ts,tsx",
     "lint:fix": "eslint --ext js,ts,tsx --fix src",

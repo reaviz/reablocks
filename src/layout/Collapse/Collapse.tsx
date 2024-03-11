@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import isFunction from 'lodash/isFunction';
 import { CollapseTheme } from './CollapseTheme';
-import { useComponentTheme } from '../../utils/Theme/TW';
+import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
 
 const VARIANTS = {
