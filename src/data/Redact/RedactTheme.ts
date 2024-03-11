@@ -9,9 +9,11 @@ const baseTheme: RedactTheme = {
 };
 
 export const lightRedactTheme: RedactTheme = {
-  ...baseTheme
+  ...baseTheme,
+  base: [baseTheme.base, 'text-black'].join(' ')
 };
 
 export const darkRedactTheme: RedactTheme = {
-  ...baseTheme
+  ...baseTheme,
+  base: [baseTheme.base, 'text-white'].join(' ')
 };
