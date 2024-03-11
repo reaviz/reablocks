@@ -56,6 +56,7 @@ export interface InputRef {
   containerRef: RefObject<HTMLDivElement>;
   blur?: () => void;
   focus?: () => void;
+  select?: () => void;
 }
 
 export const Input = forwardRef<InputRef, InputProps>(
