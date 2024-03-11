@@ -86,7 +86,8 @@ export const Input = forwardRef<InputRef, InputProps>(
       inputRef,
       containerRef,
       blur: () => inputRef.current?.blur(),
-      focus: () => inputRef.current?.focus()
+      focus: () => inputRef.current?.focus(),
+      select: () => inputRef.current?.select()
     }));
 
     useLayoutEffect(() => {
