@@ -130,7 +130,10 @@ import {
   darkRedactTheme,
   SortTheme,
   lightSortTheme,
-  darkSortTheme
+  darkSortTheme,
+  DateFormatTheme,
+  lightDateFormatTheme,
+  darkDateFormatTheme
 } from '../../../data';
 
 export interface ReablocksTheme {
@@ -144,6 +147,7 @@ export interface ReablocksTheme {
     chip: ChipTheme;
     contextMenu: ContextMenuTheme;
     checkbox: CheckboxTheme;
+    dateFormat: DateFormatTheme;
     dialog: DialogTheme;
     dialogHeader: DialogHeaderTheme;
     divider: DividerTheme;
@@ -187,6 +191,7 @@ export const lightTheme: ReablocksTheme = {
     chip: lightChipTheme,
     contextMenu: lightContextMenuTheme,
     checkbox: lightCheckboxTheme,
+    dateFormat: lightDateFormatTheme,
     dialog: lightDialogTheme,
     dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
@@ -230,6 +235,7 @@ export const darkTheme: ReablocksTheme = {
     chip: darkChipTheme,
     contextMenu: darkContextMenuTheme,
     checkbox: darkCheckboxTheme,
+    dateFormat: darkDateFormatTheme,
     dialog: darkDialogTheme,
     dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,
