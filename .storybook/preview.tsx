@@ -1,6 +1,7 @@
 import theme from './theme';
 import { Preview } from '@storybook/react';
 import { withThemeByClassName } from '@storybook/addon-themes';
+import { DocsContainer } from '@storybook/addon-docs';
 
 import { ThemeProvider, darkTheme as oldTheme } from '../src/utils/Theme';
 import { darkTheme, lightTheme, ThemeProvider as TWThemeProvider } from '../src/utils/Theme/TW';
@@ -32,10 +33,19 @@ const preview: Preview = {
   ],
   parameters: {
     layout: 'centered',
-    actions: {argTypesRegex: '^on.*'},
-    controls: {hideNoControlsWarning: true},
+    actions: { argTypesRegex: '^on.*' },
+    controls: { hideNoControlsWarning: true },
     docs: {
-      theme
+      theme,
+      container: ({ children, ...props }: any) => (
+        <DocsContainer {...props}>
+          <ThemeProvider theme={oldTheme}>
+            <TWThemeProvider theme={darkTheme}>
+              {children}
+            </TWThemeProvider>
+          </ThemeProvider>
+        </DocsContainer>
+      ),
     },
     options: {
       storySort: {
