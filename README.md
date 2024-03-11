@@ -71,6 +71,7 @@
 - Pager
 - Vertical Spacer
 - Badge
+- Tabs
 
 ### Utilities
 - Theme Provider

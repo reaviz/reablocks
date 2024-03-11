@@ -1,0 +1,25 @@
+import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Tabs, Tab, TabList, TabPanel } from '../../../src/layout/Tabs';
+import * as TabsStories from '../../../src/layout/Tabs/Tabs.story';
+
+<Meta title="Docs/Components/Layout/Tabs" />
+
+# Tabs
+The tabs component is a simple way to organize content into different sections.
+
+## Example
+<Canvas sourceState="shown" of={TabsStories.Simple} />
+
+## API
+
+### Tabs
+<ArgsTable of={Tabs} />
+
+### TabList
+<ArgsTable of={TabList} />
+
+### Tab
+<ArgsTable of={Tab} />
+
+### TabPanel
+<ArgsTable of={TabPanel} />
