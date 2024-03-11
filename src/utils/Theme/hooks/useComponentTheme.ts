@@ -8,7 +8,7 @@ export const useComponentTheme = <T extends keyof ReablocksTheme['components']>(
 
   const componentTheme = activeTheme.components[component];
   if (!componentTheme) {
-    throw new Error(`component ${component} does not exist in theme`);
+    throw new Error(`Component ${component} does not exist in theme`);
   }
 
   return componentTheme;

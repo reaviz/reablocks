@@ -22,8 +22,12 @@ import {
   darkDotsLoaderTheme,
   ArrowTheme,
   lightArrowTheme,
-  darkArrowTheme
+  darkArrowTheme,
+  darkChipTheme,
+  lightChipTheme,
+  ChipTheme
 } from '../../../elements';
+
 import {
   CheckboxTheme,
   darkCheckboxTheme,
@@ -45,18 +49,15 @@ import {
   RangeTheme,
   SelectTheme,
   TextareaTheme,
-  ToggleTheme
-} from '../../../form';
-import {
+  ToggleTheme,
   CalendarTheme,
   darkCalendarTheme,
-  lightCalendarTheme
-} from '../../../form/Calendar/CalendarTheme';
-import {
+  lightCalendarTheme,
   CalendarRangeTheme,
   darkCalendarRangeTheme,
   lightCalendarRangeTheme
-} from '../../../form/Calendar/CalendarRangeTheme';
+} from '../../../form';
+
 import {
   ContextMenuTheme,
   darkContextMenuTheme,
@@ -83,6 +84,7 @@ import {
   PopoverTheme,
   TooltipTheme
 } from '../../../layers';
+
 import {
   BlockTheme,
   CollapseTheme,
@@ -95,8 +97,12 @@ import {
   lightCollapseTheme,
   lightDividerTheme,
   lightTreeTheme,
+  TabsTheme,
+  darkTabsTheme,
+  lightTabsTheme,
   TreeTheme
 } from '../../../layout';
+
 import {
   darkVerticalSpacerTheme,
   lightVerticalSpacerTheme,
@@ -111,16 +117,13 @@ import {
   lightStackTheme,
   StackTheme
 } from '../../../layout';
+
 import {
   darkTypographyTheme,
   lightTypographyTheme,
   TypographyTheme
 } from '../../../typography';
-import {
-  darkChipTheme,
-  lightChipTheme,
-  ChipTheme
-} from '../../../elements/Chip/ChipTheme';
+
 import {
   darkEllipsisTheme,
   EllipsisTheme,
@@ -181,6 +184,7 @@ export interface ReablocksTheme {
     tree: TreeTheme;
     popover: PopoverTheme;
     pager: PagerTheme;
+    tabs: TabsTheme;
   };
 }
 
@@ -225,7 +229,8 @@ export const lightTheme: ReablocksTheme = {
     tooltip: lightTooltipTheme,
     tree: lightTreeTheme,
     popover: lightPopoverTheme,
-    pager: lightPagerTheme
+    pager: lightPagerTheme,
+    tabs: lightTabsTheme
   }
 };
 
@@ -270,6 +275,7 @@ export const darkTheme: ReablocksTheme = {
     tooltip: darkTooltipTheme,
     tree: darkTreeTheme,
     popover: darkPopoverTheme,
-    pager: darkPagerTheme
+    pager: darkPagerTheme,
+    tabs: darkTabsTheme
   }
 };
