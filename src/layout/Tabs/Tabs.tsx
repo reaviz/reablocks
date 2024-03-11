@@ -3,6 +3,7 @@ import React, {
   FC,
   Fragment,
   PropsWithChildren,
+  useEffect,
   useState
 } from 'react';
 import { useComponentTheme } from '../../utils/Theme';
@@ -24,6 +25,11 @@ export interface TabsProps extends PropsWithChildren {
   selectedIndex?: number;
 
   /**
+   * The default index of the tabs. Default is 0.
+   */
+  defaultIndex?: number;
+
+  /**
    * The callback to be called when a tab is selected.
    */
   onSelect?: (index: number) => void;
@@ -32,13 +38,21 @@ export interface TabsProps extends PropsWithChildren {
 export const Tabs: FC<TabsProps> = ({
   children,
   className,
+  defaultIndex = 0,
   selectedIndex,
   onSelect
 }) => {
   const theme: TabsTheme = useComponentTheme('tabs');
   const [internalActive, setInternalActive] = useState<number>(
-    selectedIndex || 0
+    selectedIndex || defaultIndex
   );
+
+  useEffect(() => {
+    // Handle controlled scenarios
+    if (selectedIndex !== undefined) {
+      setInternalActive(selectedIndex);
+    }
+  }, [selectedIndex]);
 
   const childs = Children.toArray(children);
 
