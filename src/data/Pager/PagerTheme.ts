@@ -20,7 +20,7 @@ const baseTheme: PagerTheme = {
   page: 'py-1',
   active: 'font-bold',
   pagerDisplayItems: 'mr-1.5',
-  control: '[&>svg]:w-5 h-5',
+  control: '[&>svg]:w-5 [&>svg]:h-5',
   firstPage: '',
   prevPage: '',
   lastPage: '',

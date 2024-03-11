@@ -49,12 +49,12 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(
       <div
         className={twMerge(
           theme.base,
-          className,
           dense && theme.dense,
           inline && theme.inline,
           theme.direction[direction],
           theme.alignItems[alignItems],
-          theme.justifyContent[justifyContent]
+          theme.justifyContent[justifyContent],
+          className
         )}
         ref={ref}
         {...otherProps}

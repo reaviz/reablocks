@@ -121,7 +121,10 @@ import {
   lightPagerTheme,
   RedactTheme,
   lightRedactTheme,
-  darkRedactTheme
+  darkRedactTheme,
+  SortTheme,
+  lightSortTheme,
+  darkSortTheme
 } from '../../../data';
 
 export interface ReablocksTheme {
@@ -142,6 +145,7 @@ export interface ReablocksTheme {
     select: SelectTheme;
     list: ListTheme;
     menu: MenuTheme;
+    sort: SortTheme;
     stack: StackTheme;
     card: CardTheme;
     kbd: KbdTheme;
@@ -182,6 +186,7 @@ export const lightTheme: ReablocksTheme = {
     select: lightSelectTheme,
     list: lightListTheme,
     menu: lightMenuTheme,
+    sort: lightSortTheme,
     stack: lightStackTheme,
     card: lightCardTheme,
     kbd: lightKbdTheme,
@@ -222,6 +227,7 @@ export const darkTheme: ReablocksTheme = {
     select: darkSelectTheme,
     list: darkListTheme,
     menu: darkMenuTheme,
+    sort: darkSortTheme,
     stack: darkStackTheme,
     card: darkCardTheme,
     kbd: darkKbdTheme,
