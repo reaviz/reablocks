@@ -5,7 +5,8 @@ import plugin from 'tailwindcss/plugin';
 const config: Config = {
   content: [
     './.storybook/**/*.{js,jsx,ts,tsx}',
-    './src/**/*.{js,jsx,ts,tsx}',
+    './src/**/*.{js,jsx,ts,tsx,mdx}',
+    './docs/**/*.{js,jsx,ts,tsx,mdx}',
   ],
   darkMode: 'selector',
   theme: {
