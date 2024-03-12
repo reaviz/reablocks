@@ -7,6 +7,12 @@ import classNames from 'classnames';
 
 export interface TabListProps extends PropsWithChildren {
   /**
+   * The id of the tab list.
+   * @private
+   */
+  id?: string;
+
+  /**
    * The class name to be added to the tab list.
    */
   className?: string;
@@ -31,6 +37,7 @@ export interface TabListProps extends PropsWithChildren {
 }
 
 export const TabList: FC<TabListProps> = ({
+  id,
   children,
   direction,
   className,
@@ -56,6 +63,7 @@ export const TabList: FC<TabListProps> = ({
         <Tab
           key={index}
           {...rest}
+          id={id}
           selected={index === selectedIndex}
           onSelect={() => onSelect(index)}
         >

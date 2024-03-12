@@ -12,6 +12,7 @@ import { TabPanel } from './TabPanel';
 import { twMerge } from 'tailwind-merge';
 import { TabList } from './TabList';
 import { AnimatePresence } from 'framer-motion';
+import { useId } from 'rdk';
 
 export interface TabsProps extends PropsWithChildren {
   /**
@@ -54,6 +55,7 @@ export const Tabs: FC<TabsProps> = ({
   selectedIndex,
   onSelect
 }) => {
+  const id = useId();
   const theme: TabsTheme = useComponentTheme('tabs');
   const [internalActive, setInternalActive] = useState<number>(
     selectedIndex || defaultIndex
@@ -81,6 +83,7 @@ export const Tabs: FC<TabsProps> = ({
       <TabList
         {...tabList}
         direction={direction}
+        id={id}
         selectedIndex={internalActive}
         onSelect={idx => {
           setInternalActive(idx);

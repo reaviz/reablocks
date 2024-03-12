@@ -7,6 +7,7 @@ export interface TabsTheme {
       selected: string;
       disabled: string;
     };
+    indicator: string;
   };
   panel: string;
 }
@@ -14,12 +15,13 @@ export interface TabsTheme {
 const baseTheme: TabsTheme = {
   base: 'flex flex-col',
   list: {
-    base: 'flex text-center flex-wrap -mb-px',
+    base: 'flex text-center flex-wrap -mb-px position-relative',
     tab: {
       base: 'rounded-none border-b-2 border-transparent',
       selected: '',
       disabled: 'cursor-not-allowed opacity-50'
-    }
+    },
+    indicator: 'h-[2px] position-absolute bottom-0 left-0 right-0'
   },
   panel: 'mt-2'
 };
@@ -29,9 +31,9 @@ export const lightTabsTheme: TabsTheme = {
   list: {
     ...baseTheme.list,
     base: `border-b border-gray-100 ${baseTheme.list.base}`,
+    indicator: `bg-primary-500 ${baseTheme.list.indicator}`,
     tab: {
-      ...baseTheme.list.tab,
-      selected: 'border-b-2 border-primary-500'
+      ...baseTheme.list.tab
     }
   }
 };
@@ -41,9 +43,9 @@ export const darkTabsTheme: TabsTheme = {
   list: {
     ...baseTheme.list,
     base: `border-b border-gray-500 ${baseTheme.list.base}`,
+    indicator: `bg-primary-500 ${baseTheme.list.indicator}`,
     tab: {
-      ...baseTheme.list.tab,
-      selected: 'border-b-2 border-primary-500'
+      ...baseTheme.list.tab
     }
   }
 };
