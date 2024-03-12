@@ -1,41 +1,39 @@
 import React from 'react';
-import { useTheme } from '../ThemeContext';
 import { ColorBlock } from './ColorBlocks';
+import tailwindConfig from '../../../../tailwind.config';
 
 export const PaletteBlocks = () => {
-  const theme = useTheme();
+  const palettes = tailwindConfig.theme.extend.colors;
+  palettes['disabled'] = [palettes['disabled']];
 
   return (
     <div
       style={{
-        padding: 'var(--spacing-sm) var(--spacing-md)',
+        padding: '4px 8px',
         color: 'var(--body-color)',
-        fontFamily: 'var(--font-family)',
         width: '100%'
       }}
     >
-      {Object.keys(theme.palettes!).map(key => (
+      {Object.keys(palettes).map(key => (
         <div key={key}>
-          <h3 style={{ fontWeight: 500, margin: 0 }}>
+          <h3 style={{ fontWeight: 500, fontSize: '24px', margin: 0 }}>
             {key}
-            <br />
-            <small>
-              <code>palettes.{key}</code>
-            </small>
           </h3>
           <div
             style={{
-              marginBottom: 'var(--spacing-xl)',
+              marginBottom: '20px',
               display: 'grid',
               gap: 12,
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
+              gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
+              borderRadius: '4px'
             }}
           >
-            {Object.keys(theme.palettes[key]).map(item => (
+            {Object.keys(palettes[key]).map(item => (
               <ColorBlock
-                key={`--${key}-${item}`}
-                name={`--${key}-${item}`}
-                color={theme.palettes![key][item]}
+                key={`${key}-${item}`}
+                name={`${key}-${item}`}
+                color={palettes![key][item]}
+                className="rounded border border-slate-500"
               />
             ))}
           </div>

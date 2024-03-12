@@ -166,6 +166,16 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
 
 export const ColorBlocks = () => {
   const colors = TWConfig.colors;
+  // Delete palette colors
+  delete colors['primary'];
+  delete colors['secondary'];
+  delete colors['success'];
+  delete colors['error'];
+  delete colors['warning'];
+  delete colors['info'];
+  delete colors['disabled'];
+  delete colors['light'];
+  delete colors['dark'];
 
   return (
     <div
