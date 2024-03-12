@@ -6,7 +6,8 @@ import {
   SpacingBlocks,
   BorderBlocks,
   IconBlocks,
-  PaletteBlocks
+  PaletteBlocks,
+  ShadowBlocks
 } from './helpers';
 import favoriteIcon from './icon-demo.svg';
 import tailwindConfig from '../../../tailwind.config';
@@ -73,7 +74,7 @@ export const Borders = () => <BorderBlocks />;
 
 // export const Gradients = () => <GradientBlocks />;
 
-// export const Shadows = () => <ShadowBlocks />;
+export const Shadows = () => <ShadowBlocks />;
 
 // export const Components = () => <ComponentBlocks />;
 
