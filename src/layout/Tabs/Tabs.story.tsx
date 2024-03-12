@@ -39,3 +39,16 @@ export const Disabled = () => (
     <TabPanel>Tab 3 Content</TabPanel>
   </Tabs>
 );
+
+export const Rtl = () => (
+  <Tabs direction="rtl" style={{ width: 500 }}>
+    <TabList>
+      <Tab>Tab 1</Tab>
+      <Tab disabled>Tab 2</Tab>
+      <Tab>Tab 3</Tab>
+    </TabList>
+    <TabPanel>Tab 1 Content</TabPanel>
+    <TabPanel>Tab 2 Content</TabPanel>
+    <TabPanel>Tab 3 Content</TabPanel>
+  </Tabs>
+);
