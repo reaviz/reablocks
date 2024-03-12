@@ -1,9 +1,8 @@
 import React, { FC, PropsWithChildren } from 'react';
 import { Button } from '../../elements';
-import { twMerge } from 'tailwind-merge';
 import { TabsTheme } from './TabsTheme';
 import { useComponentTheme } from '../../utils/Theme';
-import classNames from 'classnames';
+import { cn } from '../../utils/helpers';
 
 export interface TabProps extends PropsWithChildren {
   /**
@@ -44,12 +43,10 @@ export const Tab: FC<TabProps> = ({
 
   return (
     <Button
-      className={twMerge(
-        classNames(theme.list.tab.base, className, {
-          [theme.list.tab.disabled]: disabled,
-          [theme.list.tab.selected]: selected
-        })
-      )}
+      className={cn(theme.list.tab.base, className, {
+        [theme.list.tab.disabled]: disabled,
+        [theme.list.tab.selected]: selected
+      })}
       disabled={disabled}
       role="tab"
       variant="text"

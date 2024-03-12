@@ -31,7 +31,7 @@ export const lightTabsTheme: TabsTheme = {
     base: `border-b border-gray-100 ${baseTheme.list.base}`,
     tab: {
       ...baseTheme.list.tab,
-      selected: 'border-b-2 border-blue-500'
+      selected: 'border-b-2 border-primary-500'
     }
   }
 };
@@ -43,7 +43,7 @@ export const darkTabsTheme: TabsTheme = {
     base: `border-b border-gray-500 ${baseTheme.list.base}`,
     tab: {
       ...baseTheme.list.tab,
-      selected: 'border-b-2 border-blue-500'
+      selected: 'border-b-2 border-primary-500'
     }
   }
 };
