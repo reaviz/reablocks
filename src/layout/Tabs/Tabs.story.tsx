@@ -27,6 +27,32 @@ export const Simple = () => (
   </Tabs>
 );
 
+export const DefaultIndex = () => (
+  <Tabs defaultIndex={1}>
+    <TabList>
+      <Tab>Tab 1</Tab>
+      <Tab>Tab 2</Tab>
+      <Tab>Tab 3</Tab>
+    </TabList>
+    <TabPanel>Tab 1 Content</TabPanel>
+    <TabPanel>Tab 2 Content</TabPanel>
+    <TabPanel>Tab 3 Content</TabPanel>
+  </Tabs>
+);
+
+export const DefaultSelection = () => (
+  <Tabs selectedIndex={2}>
+    <TabList>
+      <Tab>Tab 1</Tab>
+      <Tab>Tab 2</Tab>
+      <Tab>Tab 3</Tab>
+    </TabList>
+    <TabPanel>Tab 1 Content</TabPanel>
+    <TabPanel>Tab 2 Content</TabPanel>
+    <TabPanel>Tab 3 Content</TabPanel>
+  </Tabs>
+);
+
 export const Disabled = () => (
   <Tabs>
     <TabList>
