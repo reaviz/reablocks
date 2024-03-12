@@ -45,7 +45,29 @@ const preview: Preview = {
     },
     options: {
       storySort: {
-        order: ['Docs', ['Intro', 'Support', 'Getting Started', ['Setup', 'Philosophy', 'Storybook', 'Migration']], 'Components', '*']
+        order: [
+          'Docs',
+          [
+            'Intro',
+            'Support',
+            'Getting Started',
+            [
+              'Setup',
+              'Philosophy',
+              'Storybook',
+              'Migration'
+            ],
+            'Theme',
+            [
+              'Getting Started',
+              'API',
+              'Blocks',
+              'Example'
+            ]
+          ],
+          'Components',
+          '*'
+        ]
       }
     }
   }

@@ -30,6 +30,16 @@ export interface TabsProps extends PropsWithChildren {
   defaultIndex?: number;
 
   /**
+   * The direction of the tabs. Default is 'ltr'.
+   */
+  direction?: 'ltr' | 'rtl';
+
+  /**
+   * The style to be added to the tabs.
+   */
+  style?: React.CSSProperties;
+
+  /**
    * The callback to be called when a tab is selected.
    */
   onSelect?: (index: number) => void;
@@ -38,6 +48,8 @@ export interface TabsProps extends PropsWithChildren {
 export const Tabs: FC<TabsProps> = ({
   children,
   className,
+  style,
+  direction = 'ltr',
   defaultIndex = 0,
   selectedIndex,
   onSelect
@@ -65,9 +77,10 @@ export const Tabs: FC<TabsProps> = ({
     .map((child: any) => child.props);
 
   return (
-    <div className={twMerge(theme.base, className)}>
+    <div className={twMerge(theme.base, className)} style={style}>
       <TabList
         {...tabList}
+        direction={direction}
         selectedIndex={internalActive}
         onSelect={idx => {
           setInternalActive(idx);

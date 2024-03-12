@@ -3,6 +3,7 @@ import { Tab } from './Tab';
 import { useComponentTheme } from '../../utils/Theme';
 import { TabsTheme } from './TabsTheme';
 import { twMerge } from 'tailwind-merge';
+import classNames from 'classnames';
 
 export interface TabListProps extends PropsWithChildren {
   /**
@@ -17,6 +18,12 @@ export interface TabListProps extends PropsWithChildren {
   selectedIndex?: number;
 
   /**
+   * The direction of the tabs. Default is 'ltr'.
+   * @private
+   */
+  direction?: 'ltr' | 'rtl';
+
+  /**
    * The callback to be called when a tab is selected.
    * @private
    */
@@ -25,6 +32,7 @@ export interface TabListProps extends PropsWithChildren {
 
 export const TabList: FC<TabListProps> = ({
   children,
+  direction,
   className,
   selectedIndex,
   onSelect
@@ -36,7 +44,14 @@ export const TabList: FC<TabListProps> = ({
     .map((child: any) => child.props);
 
   return (
-    <nav role="tablist" className={twMerge(className, theme.list.base)}>
+    <nav
+      role="tablist"
+      className={twMerge(
+        classNames(className, theme.list.base, {
+          'justify-end': direction === 'rtl'
+        })
+      )}
+    >
       {childs.map(({ children, ...rest }, index) => (
         <Tab
           key={index}
