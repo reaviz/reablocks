@@ -1,36 +1,35 @@
 import React from 'react';
-import { useTheme } from '../ThemeContext';
+import TWConfig from '../config';
 
 export const BorderBlocks = () => {
-  const { borders } = useTheme();
+  const borders = TWConfig.borderRadius;
 
   return (
     <div
       style={{
-        padding: 'var(--spacing-sm) var(--spacing-md)',
-        fontFamily: 'var(--font-family)',
+        padding: '2px 4px',
         color: 'var(--body-color)',
         width: '100%'
       }}
     >
       {borders ? (
         <>
-          {Object.keys(borders.radius).map(key => (
+          {Object.keys(borders).map(key => (
             <div
               key={key}
               style={{
-                marginBottom: 'var(--spacing-xl)',
-                padding: 'var(--spacing-lg)',
+                marginBottom: '20px',
+                padding: '16px',
                 display: 'flex',
                 alignItems: 'center',
-                borderRadius: 'var(--border-radius-md)',
-                border: 'solid 1px var(--slate-500)'
+                borderRadius: '4px',
+                border: 'solid 1px var(--border-color)'
               }}
             >
               <h3
                 style={{
                   fontWeight: 500,
-                  marginRight: 'var(--spacing-xl)',
+                  marginRight: '20px',
                   maxWidth: 300
                 }}
               >
@@ -38,19 +37,19 @@ export const BorderBlocks = () => {
                   style={{ cursor: 'pointer' }}
                   title={`Double click to copy --border-radius-${key} to your clipboard`}
                   onDoubleClick={() =>
-                    navigator.clipboard.writeText(`--border-radius-${key}`)
+                    navigator.clipboard.writeText(`rounded-${key}`)
                   }
                 >
-                  --border-radius-{key}
+                  rounded-{key}
                 </span>
                 <br />
                 <small
                   style={{ cursor: 'pointer' }}
                   onDoubleClick={() =>
-                    navigator.clipboard.writeText(borders.radius[key])
+                    navigator.clipboard.writeText(borders[key])
                   }
                 >
-                  <code>{borders.radius[key]}</code>
+                  <code>{borders[key]}</code>
                 </small>
               </h3>
               <div
@@ -62,9 +61,9 @@ export const BorderBlocks = () => {
               >
                 <div
                   style={{
-                    padding: 'var(--spacing-sm)',
-                    borderRadius: borders.radius[key],
-                    border: 'solid 1px var(--blue-100)'
+                    padding: '12px',
+                    borderRadius: borders[key],
+                    border: 'solid 1px blue'
                   }}
                 >
                   Content

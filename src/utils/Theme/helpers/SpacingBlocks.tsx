@@ -1,14 +1,13 @@
 import React from 'react';
-import { useTheme } from '../ThemeContext';
+import TWConfig from '../config';
 
 export const SpacingBlocks = () => {
-  const { spacings } = useTheme();
+  const spacings = TWConfig.spacing;
 
   return (
     <div
       style={{
-        padding: 'var(--spacing-sm) var(--spacing-md)',
-        fontFamily: 'var(--font-family)',
+        padding: '6px 12px',
         color: 'var(--body-color)',
         width: '100%'
       }}
@@ -19,23 +18,21 @@ export const SpacingBlocks = () => {
             <div
               key={key}
               style={{
-                marginBottom: 'var(--spacing-xl)',
-                padding: 'var(--spacing-lg)',
+                marginBottom: '16px',
+                padding: '20px',
                 display: 'flex',
                 alignItems: 'center',
-                borderRadius: 'var(--border-radius-md)',
-                border: 'solid 1px var(--slate-500)'
+                borderRadius: '4px',
+                border: 'solid 1px var(--border-color)'
               }}
             >
               <h3 style={{ fontWeight: 500, marginRight: 50 }}>
                 <code
                   style={{ cursor: 'pointer' }}
-                  title={`Double click to copy --spacing-${key} to your clipboard`}
-                  onDoubleClick={() =>
-                    navigator.clipboard.writeText(`--spacing-${key}`)
-                  }
+                  title={`Double click to copy ${key} to your clipboard`}
+                  onDoubleClick={() => navigator.clipboard.writeText(key)}
                 >
-                  --spacing-{key}
+                  {key}
                 </code>
                 <br />
                 <small
@@ -57,7 +54,7 @@ export const SpacingBlocks = () => {
                 <div
                   style={{
                     padding: spacings[key],
-                    border: 'solid 1px var(--blue-100)'
+                    border: 'solid 1px blue'
                   }}
                 >
                   Content
