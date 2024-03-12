@@ -1,14 +1,14 @@
 import React from 'react';
-import { useTheme } from '../ThemeContext';
+import TWConfig from '../config';
 
 export const ShadowBlocks = () => {
-  const { shadows } = useTheme();
+  const shadows = TWConfig.boxShadow;
+  console.log('shadows', shadows);
 
   return (
     <div
       style={{
-        padding: 'var(--spacing-sm) var(--spacing-md)',
-        fontFamily: 'var(--font-family)',
+        padding: '4px 8px',
         color: 'var(--body-color)',
         width: '100%'
       }}
@@ -19,12 +19,12 @@ export const ShadowBlocks = () => {
             <div
               key={key}
               style={{
-                marginBottom: 'var(--spacing-xl)',
-                padding: 'var(--spacing-lg) var(--spacing-xl)',
+                marginBottom: '20px',
+                padding: '16px 20px',
                 display: 'flex',
                 alignItems: 'center',
-                borderRadius: 'var(--border-radius-md)',
-                border: 'solid 1px var(--slate-500)'
+                borderRadius: '6px',
+                border: 'solid 1px var(--border-color)'
               }}
             >
               <h3 style={{ fontWeight: 500, marginRight: 50, maxWidth: 300 }}>
@@ -58,7 +58,9 @@ export const ShadowBlocks = () => {
               >
                 <div
                   style={{
-                    padding: 'var(--spacing-md)',
+                    backgroundColor: '#191919',
+                    padding: '12px',
+                    fontSize: '16px',
                     boxShadow: shadows[key]
                   }}
                 >
