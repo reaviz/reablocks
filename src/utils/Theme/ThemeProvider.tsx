@@ -4,7 +4,7 @@ import { mergeDeep } from '../helpers';
 import { darkTheme as defaultTheme } from './themes';
 
 export interface ThemeContextProps {
-  activeTheme: ReablocksTheme;
+  theme: ReablocksTheme;
   updateTheme: (newTheme: ReablocksTheme) => void;
 }
 
@@ -29,7 +29,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ activeTheme, updateTheme }}>
+    <ThemeContext.Provider value={{ theme: activeTheme, updateTheme }}>
       {children}
     </ThemeContext.Provider>
   );
