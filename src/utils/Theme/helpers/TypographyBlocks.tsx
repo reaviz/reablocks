@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import { useTheme } from '../ThemeContext';
-import { camelToDash } from '../utils';
+import TWConfig from '../config';
 
 export interface TypographyLetterBlockProps {
   fontFamily: string;
@@ -17,16 +16,16 @@ export const TypographyLetterBlock: FC<TypographyLetterBlockProps> = ({
       fontFamily,
       display: 'flex',
       alignItems: 'center',
-      marginLeft: 'var(--spacing-lg)'
+      marginLeft: '20px'
     }}
   >
     <div style={{ fontSize: 128 }}>Aa</div>
     <div
       style={{
-        marginLeft: 'var(--spacing-lg)',
-        paddingLeft: 'var(--spacing-lg)',
+        marginLeft: '20px',
+        paddingLeft: '20px',
         fontSize: 22,
-        borderLeft: 'solid 1px var(--slate-500)'
+        borderLeft: 'solid 1px var(--border-color)'
       }}
     >
       <h2 style={{ margin: 0 }}>{fontFamily}</h2>
@@ -51,37 +50,36 @@ export const TypographySizeBlock: FC<TypographySizeBlockProps> = ({
       <div
         key={size}
         style={{
-          fontSize: sizes[size],
+          fontSize: sizes[size][0],
+          lineHeight: sizes[size][1].lineHeight,
           display: 'flex',
           alignItems: 'center',
-          margin: 'var(--spacing-lg)'
+          margin: '20px'
         }}
       >
         <div
           style={{
-            fontSize: 12,
-            width: 110,
-            marginRight: 'var(--spacing-md)',
+            fontSize: 16,
+            minWidth: 110,
+            marginRight: '6px',
             color: 'var(--body-color)'
           }}
         >
           <code
-            style={{ cursor: 'pointer' }}
-            onDoubleClick={() =>
-              navigator.clipboard.writeText(`--font-size-${size}`)
-            }
+            style={{ cursor: 'pointer', fontSize: 14 }}
+            onDoubleClick={() => navigator.clipboard.writeText(`font-${size}`)}
           >
-            {sizes[size]}
+            font-{size}
           </code>
           <br />
           <small>
             <code
               style={{ cursor: 'pointer' }}
               onDoubleClick={() =>
-                navigator.clipboard.writeText(`--font-size-${size}`)
+                navigator.clipboard.writeText(sizes[size][0])
               }
             >
-              --font-size-{size}
+              {sizes[size][0]}
             </code>
           </small>
         </div>
@@ -103,9 +101,9 @@ export const TypographyWeightBlock: FC<TypographyWeightBlockProps> = ({
   <div
     className={className}
     style={{
-      padding: 'var(--spacing-md)',
-      borderRadius: 'var(--border-radius-md)',
-      border: 'solid 1px var(--slate-500)'
+      padding: '6px',
+      borderRadius: '6px',
+      border: 'solid 1px var(--border-color)'
     }}
   >
     {Object.keys(weights).map((weight, i) => (
@@ -114,21 +112,25 @@ export const TypographyWeightBlock: FC<TypographyWeightBlockProps> = ({
         style={{
           display: 'flex',
           alignItems: 'center',
-          marginBottom: 'var(--spacing-lg)'
+          marginBottom: '16px'
         }}
       >
         <code style={{ width: '25%', minWidth: 200 }}>
-          <div style={{ fontSize: 'var(--font-size-md)' }}>
-            {weights[weight]}
-          </div>
           <span
-            style={{ cursor: 'pointer' }}
+            style={{ fontSize: '16px', cursor: 'pointer' }}
             onDoubleClick={() =>
-              navigator.clipboard.writeText(`--font-weight-${weight}`)
+              navigator.clipboard.writeText(`font-${weight}`)
             }
           >
-            --font-weight-{weight}
+            font-{weight}
           </span>
+          <br />
+          <div
+            style={{ fontSize: '14px', cursor: 'pointer' }}
+            onDoubleClick={() => navigator.clipboard.writeText(weights[weight])}
+          >
+            {weights[weight]}
+          </div>
         </code>
         <div style={{ fontWeight: weights[weight] }}>
           The quick brown fox jumps over the lazy dog.
@@ -139,38 +141,40 @@ export const TypographyWeightBlock: FC<TypographyWeightBlockProps> = ({
 );
 
 export const TypographyBlocks = () => {
-  const {
-    typography: { families, sizes, weights }
-  } = useTheme();
+  const families = TWConfig.fontFamily;
+  const sizes = TWConfig.fontSize;
+  const weights = TWConfig.fontWeight;
 
   return (
     <div
       style={{
-        fontFamily: 'var(--font-family)',
         color: 'var(--body-color)',
         width: '100%'
       }}
     >
-      <h1>Typography</h1>
-      <h2>Font Families</h2>
+      <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '8px' }}>
+        Typography
+      </h1>
+      <h2 style={{ fontSize: '20px', fontWeight: '500' }}>Font Families</h2>
+      <br />
       {Object.keys(families).map(family => (
         <div
           key={family}
           style={{
-            marginBottom: 'var(--spacing-xl)'
+            marginBottom: '24px'
           }}
         >
-          <h3 style={{ fontWeight: 500, fontSize: 'var(--font-size-lg)' }}>
+          <h3 style={{ fontWeight: 600, fontSize: '20px' }}>
             <small>
-              <code>--{camelToDash(family)}</code>
+              <code>font-{family}</code>
             </small>
             <br />
           </h3>
           <div
             style={{
-              padding: 'var(--spacing-md)',
-              borderRadius: 'var(--border-radius-md)',
-              border: 'solid 1px var(--slate-500)'
+              padding: '10px',
+              borderRadius: '8px',
+              border: 'solid 1px var(--border-color)'
             }}
           >
             <TypographyLetterBlock fontFamily={families[family]} />
@@ -178,7 +182,7 @@ export const TypographyBlocks = () => {
               style={{
                 background: 'none',
                 border: 'none',
-                borderTop: 'solid 1px var(--slate-500)'
+                borderTop: 'solid 1px var(--border-color)'
               }}
             />
             <TypographySizeBlock sizes={sizes} />

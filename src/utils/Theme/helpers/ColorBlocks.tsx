@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import { useTheme } from '../ThemeContext';
 import chroma from 'chroma-js';
+import TWConfig from '../config';
 
 export interface ColorBlockProps {
   name: string;
@@ -12,23 +12,23 @@ export const ColorBlock: FC<ColorBlockProps> = ({ name, color, className }) => (
   <div
     key={name}
     style={{
-      border: 'solid 1px var(--slate-500)',
-      borderRadius: 'var(--border-radius-md)',
+      border: 'solid 1px --border-color',
+      borderRadius: '4px',
       overflow: 'hidden'
     }}
     className={className}
   >
     <div
       style={{
-        padding: 'var(--spacing-lg)',
+        padding: '20px',
         background: color,
-        color: 'var(--body-color)',
-        borderBottom: 'solid 1px var(--slate-500)'
+        color: '#161616',
+        borderBottom: 'solid 1px var(--border-color)'
       }}
     />
     <div
       style={{
-        padding: 'var(--spacing-sm) var(--spacing-md)',
+        padding: '6px',
         fontSize: '12px'
       }}
     >
@@ -80,12 +80,12 @@ export const ColorPaletteBlock: FC<ColorPaletteBlockProps> = ({
       key={name}
       className={className}
       style={{
-        borderRight: 'solid 1px var(--slate-500)'
+        borderRight: 'solid 1px var(--border-color)'
       }}
     >
       <div
         style={{
-          padding: 'var(--spacing-md)',
+          padding: '6px',
           background: color,
           height: '100%',
           minHeight: 50
@@ -128,43 +128,32 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
   name,
   colors,
   className,
-  token = null,
   showNames = true
 }) => (
   <div
     className={className}
     style={{
-      marginBottom: 'var(--spacing-xl)'
+      marginBottom: '24px'
     }}
   >
-    <h3 style={{ fontWeight: 500, margin: 0 }}>
-      {name}
-      {token && (
-        <>
-          <br />
-          <small>
-            <code>{token.toLowerCase()}</code>
-          </small>
-        </>
-      )}
-    </h3>
+    <h3 style={{ fontWeight: 500, margin: 0 }}>{name}</h3>
     <div
       style={{
         display: 'grid',
         overflow: 'hidden',
-        borderRadius: 'var(--border-radius-md)',
-        border: 'solid 1px var(--slate-500)',
+        borderRadius: '6px',
+        border: 'solid 1px var(--border-color)',
         gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))'
       }}
     >
       {typeof colors === 'string' ? (
-        <ColorBlock name={`--${name}`} color={colors} showName={showNames} />
+        <ColorBlock name={`${name}`} color={colors} showName={showNames} />
       ) : (
         <>
           {Object.keys(colors).map(color => (
             <ColorPaletteBlock
-              key={`--${name}-${color}`}
-              name={`--${name}-${color}`}
+              key={`${name}-${color}`}
+              name={`${name}-${color}`}
               color={colors[color]}
               showName={showNames}
             />
@@ -176,13 +165,22 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
 );
 
 export const ColorBlocks = () => {
-  const { colors } = useTheme();
+  const colors = TWConfig.colors;
+  // Delete palette colors
+  delete colors['primary'];
+  delete colors['secondary'];
+  delete colors['success'];
+  delete colors['error'];
+  delete colors['warning'];
+  delete colors['info'];
+  delete colors['disabled'];
+  delete colors['light'];
+  delete colors['dark'];
 
   return (
     <div
       style={{
-        padding: 'var(--spacing-sm) var(--spacing-md)',
-        fontFamily: 'var(--font-family)',
+        padding: '6px 12px',
         color: 'var(--body-color)',
         width: '100%'
       }}
@@ -190,12 +188,7 @@ export const ColorBlocks = () => {
       {colors ? (
         <>
           {Object.keys(colors).map(key => (
-            <ColorPaletteBlocks
-              key={key}
-              name={key}
-              token={`colors.${key}`}
-              colors={colors[key]}
-            />
+            <ColorPaletteBlocks key={key} name={key} colors={colors[key]} />
           ))}
         </>
       ) : (
