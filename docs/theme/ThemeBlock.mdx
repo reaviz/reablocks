@@ -31,6 +31,10 @@ import {
   IconBlocks
 } from 'reablocks';
 
+import resolveConfig from 'tailwindcss/resolveConfig';
+import tailwindConfig from '../path_to_tw_config/tailwind.config';
+const { theme: TWConfig } = resolveConfig(tailwindConfig);
+
 export default {
   title: 'General/Theme',
   component: ThemeProvider,
@@ -45,28 +49,36 @@ export default {
   ]
 };
 
+
+const colors = TWConfig.colors;
 export const Colors = () => (
-  <ColorBlocks />
+  <ColorBlocks colors={colors} />
 );
 
 export const Palettes = () => (
-  <PaletteBlocks />
+  <PaletteBlocks palettes={colors} />
 );
 
+const families = TWConfig.fontFamily;
+const sizes = TWConfig.fontSize;
+const weights = TWConfig.fontWeight;
 export const Typography = () => (
-  <TypographyBlocks />
+  <TypographyBlocks families={families} sizes={sizes} weights={weights} />
 );
 
+const spacings = TWConfig.spacing;
 export const Spacings = () => (
-  <SpacingBlocks />
+  <SpacingBlocks spacings={spacings} />
 );
 
+const borders = TWConfig.borderRadius;
 export const Borders = () => (
-  <BorderBlocks />
+  <BorderBlocks borders={borders} />
 );
 
+const shadows = TWConfig.boxShadow;
 export const Shadows = () => (
-  <ShadowBlocks />
+  <ShadowBlocks shadows={shadows} />
 );
 
 
