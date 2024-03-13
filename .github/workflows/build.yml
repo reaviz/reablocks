@@ -28,6 +28,9 @@ jobs:
       - name: Build Prod
         run: npm run build
 
+      - name: Build Styles
+        run: npm run build:styles
+
       - name: Build Storybook
         run: npm run build-storybook
 
