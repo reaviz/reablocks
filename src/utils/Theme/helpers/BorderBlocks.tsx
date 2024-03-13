@@ -1,9 +1,6 @@
 import React from 'react';
-import TWConfig from '../config';
 
-export const BorderBlocks = () => {
-  const borders = TWConfig.borderRadius;
-
+export const BorderBlocks = ({ borders }) => {
   return (
     <div
       style={{

@@ -1,11 +1,12 @@
 import React from 'react';
 import { ColorBlock } from './ColorBlocks';
-import tailwindConfig from '../../../../tailwind.config';
+import { RecursiveKeyValuePair, ResolvableTo } from 'tailwindcss/types/config';
 
-export const PaletteBlocks = () => {
-  const palettes = tailwindConfig.theme.extend.colors;
-  palettes['disabled'] = [palettes['disabled']];
-
+export const PaletteBlocks = ({
+  palettes
+}: {
+  palettes: ResolvableTo<RecursiveKeyValuePair>;
+}) => {
   return (
     <div
       style={{

@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import chroma from 'chroma-js';
-import TWConfig from '../config';
+import { RecursiveKeyValuePair, ResolvableTo } from 'tailwindcss/types/config';
 
 export interface ColorBlockProps {
   name: string;
@@ -164,19 +164,11 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
   </div>
 );
 
-export const ColorBlocks = () => {
-  const colors = TWConfig.colors;
-  // Delete palette colors
-  delete colors['primary'];
-  delete colors['secondary'];
-  delete colors['success'];
-  delete colors['error'];
-  delete colors['warning'];
-  delete colors['info'];
-  delete colors['disabled'];
-  delete colors['light'];
-  delete colors['dark'];
-
+export const ColorBlocks = ({
+  colors
+}: {
+  colors: ResolvableTo<RecursiveKeyValuePair>;
+}) => {
   return (
     <div
       style={{

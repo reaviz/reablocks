@@ -7,98 +7,665 @@ Below is the TypeScript API for the theme. You can
 use this to define your theme and pass it to the provider.
 
 ```ts
-export interface Palette {
-  background?: string;
-  color?: string;
-}
-
-export interface Palettes {
-  body?: Palette;
-  primary?: Palette;
-  secondary?: Palette;
-  error?: Palette;
-  warning?: Palette;
-  success?: Palette;
-}
-
-export interface Scale {
-  100?: string;
-  200?: string;
-  300?: string;
-  400?: string;
-  500?: string;
-  600?: string;
-  700?: string;
-  800?: string;
-  900?: string;
-}
-
-export interface Sizes {
-  xs?: number | string;
-  sm?: number | string;
-  md?: number | string;
-  lg?: number | string;
-  xl?: number | string;
-  xxl?: number | string;
-}
-
-export interface Weights {
-  thin?: string;
-  normal?: string;
-  bold?: string;
-  extraBold?: string;
-}
-
-export type Color = Scale;
-
-export type Spacings = Sizes;
-
-export interface Borders {
-  radius?: Sizes;
-}
-
-export type Shadows = Scale;
-
-export interface Colors {
-  red?: Color;
-  purple?: Color;
-  blue?: Color;
-  green?: Color;
-  yellow?: Color;
-  orange?: Color;
-  gray?: Color;
-  pink?: Color;
-  slate?: Color;
-  overlay?: Color;
-}
-
-export interface FontFamilies {
-  fontFamily?: string;
-  monoFontFamily?: string;
-}
-
-export interface Typography {
-  families?: FontFamilies;
-  sizes?: Sizes;
-  weights?: Weights;
-}
-
-export interface Components {
-  [key: string]: {
-    [key: string]: string;
+export interface ReablocksTheme {
+  components: {
+    avatar: AvatarTheme;
+    avatarGroup: AvatarGroupTheme;
+    arrow: ArrowTheme;
+    badge: BadgeTheme;
+    button: ButtonTheme;
+    block: BlockTheme;
+    chip: ChipTheme;
+    contextMenu: ContextMenuTheme;
+    checkbox: CheckboxTheme;
+    dateFormat: DateFormatTheme;
+    dialog: DialogTheme;
+    dialogHeader: DialogHeaderTheme;
+    divider: DividerTheme;
+    dotsLoader: DotsLoaderTheme;
+    drawer: DrawerTheme;
+    ellipsis: EllipsisTheme;
+    select: SelectTheme;
+    list: ListTheme;
+    menu: MenuTheme;
+    sort: SortTheme;
+    stack: StackTheme;
+    card: CardTheme;
+    kbd: KbdTheme;
+    verticalSpacer: VerticalSpacerTheme;
+    notification: NotificationTheme;
+    input: InputTheme;
+    calendar: CalendarTheme;
+    calendarRange: CalendarRangeTheme;
+    commandPalette: CommandPaletteTheme;
+    collapse: CollapseTheme;
+    textarea: TextareaTheme;
+    typography: TypographyTheme;
+    radio: RadioTheme;
+    range: RangeTheme;
+    redact: RedactTheme;
+    toggle: ToggleTheme;
+    tooltip: TooltipTheme;
+    tree: TreeTheme;
+    popover: PopoverTheme;
+    pager: PagerTheme;
+    tabs: TabsTheme;
   };
 }
 
-export type Gradients = Omit<Colors, 'overlay'>;
+interface AvatarTheme {
+  base: string;
+  rounded: string;
+}
 
-export interface DesignTokens {
-  palettes?: Palettes;
-  colors?: Colors;
-  spacings?: Spacings;
-  borders?: Borders;
-  gradients?: Gradients;
-  shadows?: Shadows;
-  typography?: Typography;
-  components?: Components;
+interface AvatarGroupTheme {
+  base: string;
+  avatar: string;
+  overflow: string;
+}
+
+interface ArrowTheme {
+  base: string;
+  up: string;
+  down: string;
+  right: string;
+  left: string;
+}
+
+interface BadgeTheme {
+  base: string;
+  disableMargins: string;
+  badge: string;
+  position: string;
+  colors: {
+    default: string;
+    primary: string;
+    secondary: string;
+    error: string;
+  };
+  positions: {
+    'top-start': string;
+    'top-end': string;
+    'bottom-start': string;
+    'bottom-end': string;
+  };
+}
+
+interface ButtonTheme {
+  base: string;
+  disabled: string;
+  fullWidth: string;
+  group: string;
+  groupText: string;
+  adornment: {
+    base: string;
+    start: string;
+    end: string;
+    sizes: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+  };
+  variants: {
+    filled: string;
+    outline: string;
+    text: string;
+  };
+  colors: {
+    primary?: string;
+    secondary?: string;
+    success?: string;
+    warning?: string;
+    error?: string;
+  };
+  sizes: {
+    small: string;
+    medium: string;
+    large: string;
+  };
+}
+
+interface BlockTheme {
+  base: string;
+  disableMargin: string;
+  label: string;
+  centerAlign: string;
+  endAlign: string;
+  horizontal: {
+    base: string;
+    label: string;
+  };
+  vertical: {
+    base: string;
+    label: string;
+  };
+}
+
+interface ChipTheme {
+  base: string;
+  adornment: {
+    base: string;
+    start: string;
+    end: string;
+    sizes: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+  };
+  variants: {
+    filled: string;
+    outline: string;
+    text: string;
+  };
+  colors: {
+    default: { base?: string; selectable?: string; selected?: string };
+    primary?: { base?: string; selectable?: string; selected?: string };
+    secondary?: { base?: string; selectable?: string; selected?: string };
+    success?: { base?: string; selectable?: string; selected?: string };
+    warning?: { base?: string; selectable?: string; selected?: string };
+    error?: { base?: string; selectable?: string; selected?: string };
+    info?: { base?: string; selectable?: string; selected?: string };
+  };
+  sizes: {
+    small: string;
+    medium: string;
+    large: string;
+  };
+  focus: string;
+  deleteButton: {
+    base: string;
+    sizes: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+  };
+}
+
+interface ContextMenuTheme {
+  enabled: string;
+}
+
+interface CheckboxTheme {
+  base: string;
+  label: {
+    base: string;
+    clickable: string;
+  };
+  check: string;
+  checkbox: string;
+  disabled: string;
+  sizes: {
+    small: string;
+    medium: string;
+    large: string;
+  };
+  boxVariants: {
+    hover: {
+      strokeWidth: number;
+      stroke: string;
+    };
+  };
+}
+
+interface DateFormatTheme {
+  base: string;
+  interactive: string;
+}
+
+interface DialogTheme {
+  base: string;
+  inner: string;
+  content: string;
+  footer: string;
+}
+
+interface DialogHeaderTheme {
+  base: string;
+  text: string;
+  closeButton: string;
+}
+
+interface DividerTheme {
+  base?: string;
+  orientation?: {
+    vertical?: string;
+    horizontal?: string;
+  };
+  disableMargins?: string;
+}
+
+interface DotsLoaderTheme {
+  base: string;
+  dot: string;
+  sizes: {
+    small: string;
+    medium: string;
+    large: string;
+  };
+}
+
+interface DrawerTheme {
+  base: string;
+  header: {
+    base: string;
+    text: string;
+  };
+  content: string;
+  disablePadding: string;
+  closeButton: {
+    base: string;
+    headerless: string;
+  };
+  positions: {
+    top: string;
+    end: string;
+    bottom: string;
+    start: string;
+  };
+}
+
+interface EllipsisTheme {
+  dots: string;
+}
+
+interface SelectTheme {
+  selectInput: SelectInputTheme;
+  selectMenu: SelectMenuTheme;
+}
+
+interface SelectInputTheme {
+  base: string;
+  inputContainer: string;
+  input: string;
+  placeholder: string;
+  prefix: string;
+  suffix: {
+    container: string;
+    button: string;
+    refresh: string;
+    loader: string;
+    close: string;
+    expand: string;
+  };
+  disabled: string;
+  unfilterable: string;
+  error: string;
+  single: {
+    prefix: string;
+    inputContainer: string;
+    input: string;
+  };
+  multiple: {
+    prefix: string;
+    inputContainer: string;
+  };
+  open: string;
+  chip: {
+    base: string;
+    hover: string;
+    focused: string;
+    disabled: string;
+    removeButton: string;
+  };
+}
+
+interface SelectMenuTheme {
+  base: string;
+  groupItem: string;
+  groupTitle: string;
+  option: {
+    base: string;
+    hover: string;
+    selected: string;
+    active: string;
+    disabled: string;
+  };
+}
+
+interface ListTheme {
+  base?: string;
+  header?: string;
+  listItem?: {
+    base?: string;
+    disabled?: string;
+    active?: string;
+    clickable?: string;
+    disablePadding?: string;
+    disableGutters?: string;
+    dense?: {
+      base?: string;
+      content?: string;
+      startAdornment?: string;
+      endAdornment?: string;
+    };
+    adornment?: {
+      base?: string;
+      start?: string;
+      end?: string;
+      svg?: string;
+    };
+    content?: string;
+  };
+}
+
+interface MenuTheme {
+  base: string;
+  inner: string;
+}
+
+interface SortTheme {
+  base: string;
+  disabled: string;
+  hasValue: string;
+  icon: {
+    base: string;
+    ascending: string;
+  };
+}
+
+interface StackTheme {
+  base?: string;
+  dense?: string;
+  inline?: string;
+  direction?: {
+    row?: string;
+    column?: string;
+    rowReverse?: string;
+    columnReverse?: string;
+  };
+  alignItems?: {
+    start?: string;
+    end?: string;
+    center?: string;
+    stretch?: string;
+  };
+  justifyContent?: {
+    start?: string;
+    end?: string;
+    center?: string;
+    spaceBetween?: string;
+  };
+}
+
+interface CardTheme {
+  base: string;
+  disablePadding: string;
+  header: string;
+  headerText: string;
+  content: string;
+}
+
+interface KbdTheme {
+  base: string;
+  chip: string;
+}
+
+interface VerticalSpacerTheme {
+  base?: string;
+  size?: {
+    xs?: string;
+    sm?: string;
+    md?: string;
+    lg?: string;
+    xl?: string;
+    xxl?: string;
+  };
+}
+
+interface NotificationTheme {
+  container: string;
+  positions: string;
+  notification: {
+    base: string;
+    variants: {
+      success: string;
+      error: string;
+      warning: string;
+    };
+    header: string;
+    content: string;
+    body: string;
+    closeContainer: string;
+    closeButton: string;
+  };
+}
+
+interface InputTheme {
+  base: string;
+  input: string;
+  inline: string;
+  disabled: string;
+  fullWidth: string;
+  error: string;
+  sizes: {
+    small: string;
+    medium: string;
+    large: string;
+  };
+  adornment: {
+    base: string;
+    start: string;
+    end: string;
+  };
+}
+
+interface CalendarTheme {
+  base: string;
+  header: string;
+  title: string;
+  content: string;
+  days: {
+    header: string;
+    dayOfWeek: string;
+    week: string;
+    day: string;
+    outside: string;
+    startRangeDate: string;
+    cornerStartDateBottom: string;
+    endRangeDate: string;
+    cornerEndDateTop: string;
+    range: string;
+  };
+  months: {
+    root: string;
+    month: string;
+  };
+  years: {
+    root: string;
+    year: string;
+  };
+}
+
+interface CalendarRangeTheme extends Omit<CalendarTheme, 'months' | 'years'> {}
+
+interface CommandPaletteTheme {
+  base: string;
+  inner: string;
+  input: {
+    base: string;
+    input: string;
+    icon: string;
+  };
+  item: {
+    base: string;
+    active: string;
+    clickable: string;
+  };
+  section: {
+    base: string;
+    first: string;
+  };
+}
+
+interface CollapseTheme {
+  base: string;
+}
+
+interface TextareaTheme {
+  base: string;
+  input: string;
+  fullWidth: string;
+  error: string;
+  disabled: string;
+  sizes: {
+    small: string;
+    medium: string;
+    large: string;
+  };
+}
+
+interface TypographyTheme {
+  base?: string;
+  text?: {
+    thin?: string;
+    bold?: string;
+    extraBold?: string;
+    italic?: string;
+  };
+  variant?: {
+    default?: string;
+    mono?: string;
+  };
+  colors?: {
+    primary: string;
+    secondary: string;
+    success: string;
+    warning: string;
+    error: string;
+    info: string;
+  };
+  sub: string;
+  smallHeading: string;
+  secondaryHeading: string;
+  primaryHeading: string;
+  pageTitle: string;
+  disableMargins?: string;
+}
+
+interface RadioTheme {
+  base: string;
+  radio: {
+    base: string;
+    disabled: string;
+    checked: string;
+  };
+  indicator: {
+    base: string;
+    sizes: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+  };
+  label: {
+    base: string;
+    clickable: string;
+  };
+  sizes: {
+    small: string;
+    medium: string;
+    large: string;
+  };
+}
+
+interface RangeTheme {
+  base: string;
+  drag: string;
+  rangeHighlight: string;
+  disabled: string;
+  inputWrapper: {
+    base: string;
+    disabled: string;
+  };
+  input: string;
+  tooltip: string;
+}
+
+interface RedactTheme {
+  base: string;
+  interactive: string;
+}
+
+interface ToggleTheme {
+  base: string;
+  disabled: string;
+  checked: string;
+  handle: {
+    base: string;
+    sizes: {
+      small: string;
+      medium: string;
+      large: string;
+    };
+  };
+  sizes: {
+    small: string;
+    medium: string;
+    large: string;
+  };
+}
+
+interface TooltipTheme {
+  base: string;
+  disablePointer: string;
+}
+
+interface TreeTheme {
+  base: string;
+  tree: string;
+  arrow: string;
+  node: {
+    base: string;
+    collapsed: string;
+    disabled: string;
+    leaf: string;
+    label: string;
+    button: {
+      base: string;
+      icon: string;
+    };
+  };
+  nodeBlock: string;
+  subtree: string;
+}
+
+interface PagerTheme {
+  base: string;
+  pages: {
+    base: string;
+    page: {
+      base: string;
+      active: string;
+    };
+  };
+  ellipsis: string;
+  pagerDisplayItems: string;
+  control: string;
+  firstPage: string;
+  prevPage: string;
+  lastPage: string;
+  nextPage: string;
+}
+
+interface PopoverTheme {
+  base: string;
+  disablePadding: string;
+}
+
+interface TabsTheme {
+  base: string;
+  list: {
+    base: string;
+    tab: {
+      base: string;
+      selected: string;
+      disabled: string;
+    };
+    indicator: string;
+  };
+  panel: string;
 }
 ```

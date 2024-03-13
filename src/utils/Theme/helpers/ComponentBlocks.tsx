@@ -1,39 +1,20 @@
 import React from 'react';
-import { useTheme } from '../ThemeContext';
-import chroma from 'chroma-js';
+import { darkTheme } from '../themes';
 
 export const ComponentBlocks = () => {
-  const { components } = useTheme();
+  const components = darkTheme.components;
 
   function renderValue(value) {
-    if (chroma.valid(value)) {
+    if (typeof value === 'string') {
       return (
-        <div style={{ display: 'flex', alignContent: 'center' }}>
-          <div
-            style={{
-              background: value,
-              borderRadius: 'var(--border-radius-sm)',
-              height: 15,
-              width: 15,
-              marginRight: 'var(--spacing-sm)',
-              border: 'solid 1px var(--slate-500)'
-            }}
-          />
-          <code
+        <code>
+          <span
             style={{ cursor: 'pointer' }}
+            title={`Double click to copy ${value} to your clipboard`}
             onDoubleClick={() => navigator.clipboard.writeText(value)}
           >
             {value}
-          </code>
-        </div>
-      );
-    } else {
-      return (
-        <code
-          style={{ cursor: 'pointer' }}
-          onDoubleClick={() => navigator.clipboard.writeText(value)}
-        >
-          {value}
+          </span>
         </code>
       );
     }
@@ -42,8 +23,7 @@ export const ComponentBlocks = () => {
   return (
     <div
       style={{
-        padding: 'var(--spacing-sm) var(--spacing-md)',
-        fontFamily: 'var(--font-family)',
+        padding: '4px 8px',
         color: 'var(--body-color)',
         width: '100%'
       }}
@@ -65,12 +45,12 @@ export const ComponentBlocks = () => {
               <div
                 key={key}
                 style={{
-                  marginBottom: 'var(--spacing-lg)',
-                  padding: 'var(--spacing-lg) var(--spacing-xl)',
+                  marginBottom: '20px',
+                  padding: '20px 16px',
                   display: 'grid',
-                  gridTemplateColumns: 'repeat(auto-fit, 200px)',
-                  borderRadius: 'var(--border-radius-md)',
-                  border: 'solid 1px var(--slate-500)'
+                  gridTemplateColumns: 'repeat(auto-fit, 300px)',
+                  borderRadius: '4px',
+                  border: 'solid 1px var(--border-color)'
                 }}
               >
                 {Object.keys(components[key]).map(kk => (
@@ -82,7 +62,7 @@ export const ComponentBlocks = () => {
                         navigator.clipboard.writeText(`--${kk}`)
                       }
                     >
-                      --{kk}
+                      {kk}
                     </h5>
                     {renderValue(components[key][kk])}
                   </div>

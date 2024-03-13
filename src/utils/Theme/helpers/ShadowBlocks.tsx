@@ -1,10 +1,6 @@
 import React from 'react';
-import TWConfig from '../config';
 
-export const ShadowBlocks = () => {
-  const shadows = TWConfig.boxShadow;
-  console.log('shadows', shadows);
-
+export const ShadowBlocks = ({ shadows }) => {
   return (
     <div
       style={{

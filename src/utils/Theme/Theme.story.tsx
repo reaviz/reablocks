@@ -11,6 +11,7 @@ import {
 } from './helpers';
 import favoriteIcon from './icon-demo.svg';
 import tailwindConfig from '../../../tailwind.config';
+import TWConfig from './config';
 
 export default {
   title: 'Components/Theme',
@@ -62,21 +63,38 @@ export const Model = () => (
   </div>
 );
 
-export const Colors = () => <ColorBlocks />;
+const colors = TWConfig.colors;
+// Delete palette colors
+delete colors['primary'];
+delete colors['secondary'];
+delete colors['success'];
+delete colors['error'];
+delete colors['warning'];
+delete colors['info'];
+delete colors['disabled'];
+delete colors['light'];
+delete colors['dark'];
+export const Colors = () => <ColorBlocks colors={colors} />;
 
-export const Palettes = () => <PaletteBlocks />;
+const palettes = tailwindConfig.theme.extend.colors;
+palettes['disabled'] = [palettes['disabled']];
+export const Palettes = () => <PaletteBlocks palettes={palettes as any} />;
 
-export const Typography = () => <TypographyBlocks />;
+const families = TWConfig.fontFamily;
+const sizes = TWConfig.fontSize;
+const weights = TWConfig.fontWeight;
+export const Typography = () => (
+  <TypographyBlocks families={families} sizes={sizes} weights={weights} />
+);
 
-export const Spacings = () => <SpacingBlocks />;
+const spacings = TWConfig.spacing;
+export const Spacings = () => <SpacingBlocks spacings={spacings} />;
 
-export const Borders = () => <BorderBlocks />;
+const borders = TWConfig.borderRadius;
+export const Borders = () => <BorderBlocks borders={borders} />;
 
-// export const Gradients = () => <GradientBlocks />;
-
-export const Shadows = () => <ShadowBlocks />;
-
-// export const Components = () => <ComponentBlocks />;
+const shadows = TWConfig.boxShadow;
+export const Shadows = () => <ShadowBlocks shadows={shadows} />;
 
 export const Icons = () => (
   <>

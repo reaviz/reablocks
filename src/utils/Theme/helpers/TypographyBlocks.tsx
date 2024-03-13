@@ -1,5 +1,4 @@
 import React, { FC } from 'react';
-import TWConfig from '../config';
 
 export interface TypographyLetterBlockProps {
   fontFamily: string;
@@ -140,11 +139,7 @@ export const TypographyWeightBlock: FC<TypographyWeightBlockProps> = ({
   </div>
 );
 
-export const TypographyBlocks = () => {
-  const families = TWConfig.fontFamily;
-  const sizes = TWConfig.fontSize;
-  const weights = TWConfig.fontWeight;
-
+export const TypographyBlocks = ({ families, sizes, weights }) => {
   return (
     <div
       style={{

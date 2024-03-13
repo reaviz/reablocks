@@ -13,30 +13,77 @@ It also provides Storybook blocks for you to use in your storybook.
 Initalize it in the root of your application like:
 
 ```tsx
-import { ThemeProvider } from 'reablocks';
+import { ThemeProvider, darkTheme } from 'reablocks';
 
 export const App = () => (
-  <ThemeProvider theme={myTheme}>
+  <ThemeProvider theme={darkTheme}>
     <YourComponents />
   </ThemeProvider>
 );
 ```
 
-Later on you can use the hook to get the design tokens:
+Also you can extend the theme like:
 
 ```tsx
-import { useTheme } from 'reablocks';
+import { ThemeProvider, darkTheme, extendTheme, PartialReablocksTheme } from 'reablocks';
 
-export const MyComponent = () => {
-  //-> All tokens available
-  const tokens = useTheme();
-};
+export const App = () => (
+  const customTheme: PartialReablocksTheme = {
+    components: {
+      button: {
+        base: 'bg-lime-600 text-gray-300',
+        variants: {
+          filled: 'bg-lime-600 hover:bg-lime-700',
+          outline: 'bg-transparent border-lime-600 border',
+          text: 'bg-transparent border-0'
+        },
+        sizes: {
+          small: 'p-2',
+          medium: 'p-3',
+          large: 'p-4'
+        }
+      }
+    }
+  };
+
+  <ThemeProvider theme={extendTheme(darkTheme, customTheme)}>
+    <YourComponents />
+  </ThemeProvider>
+);
 ```
 
-You can also use it via CSS variables like:
+To define the custom tokens you can use tailwindcss like:
 
-```css
-.body {
-  color: var(--body-color);
-}
+```ts
+import { type Config } from 'tailwindcss';
+import colors from 'tailwindcss/colors';
+
+const config: Config = {
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    'node_modules/reablocks/**/*.js'
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#f3f4f6',
+          100: '#e7e9ed',
+          200: '#c3c8d3',
+          300: '#9fa6b9',
+          400: '#565f86',
+          500: '#0d1733',
+          600: '#0c1530',
+          700: '#0a1228',
+          800: '#080f20',
+          900: '#060c19',
+        },
+        secondary: colors.slate,
+      }
+    },
+  },
+};
+
+export default config;
+
 ```

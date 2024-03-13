@@ -1,9 +1,6 @@
 import React from 'react';
-import TWConfig from '../config';
 
-export const SpacingBlocks = () => {
-  const spacings = TWConfig.spacing;
-
+export const SpacingBlocks = ({ spacings }) => {
   return (
     <div
       style={{

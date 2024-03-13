@@ -12,8 +12,6 @@ the following block components:
 - Border Block
 - Shadow Block
 - Palette Block
-- Components Block
-- Gradients Block
 - Icons Block ( icons not included )
 
 ## Example
@@ -28,7 +26,6 @@ import {
   PaletteBlocks,
   BorderBlocks,
   ShadowBlocks,
-  ComponentBlocks,
   ThemeProvider,
   darkTheme,
   IconBlocks
@@ -68,17 +65,10 @@ export const Borders = () => (
   <BorderBlocks />
 );
 
-export const Gradients = () => (
-  <GradientBlocks />
-);
-
 export const Shadows = () => (
   <ShadowBlocks />
 );
 
-export const Components = () => (
-  <ComponentBlocks />
-);
 
 const icons = [
   {
