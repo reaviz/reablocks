@@ -43,8 +43,8 @@ const baseTheme: Partial<ButtonTheme> = {
     'border border-y-transparent border-l-transparent last:border-r-transparent hover:bg-initial',
   adornment: {
     base: 'flex',
-    start: '',
-    end: '',
+    start: 'pr-1',
+    end: 'pl-1',
     sizes: {
       small: '[&>svg]:w-3 [&>svg]:h-3',
       medium: '[&>svg]:w-4 [&>svg]:h-4',
