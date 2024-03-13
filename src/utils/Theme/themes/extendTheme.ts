@@ -1,4 +1,4 @@
-import { ReablocksTheme } from '../themes';
+import { ReablocksTheme } from './theme';
 import { mergeDeep } from '../../helpers';
 
 type DeepPartial<T> = {
