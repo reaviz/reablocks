@@ -122,7 +122,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
           <div
             className={twMerge(
               theme.adornment.base,
-              theme.adornment.start,
+              theme.adornment.end,
               theme.adornment.sizes[size]
             )}
           >
