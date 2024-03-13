@@ -1,5 +1,4 @@
 import React from 'react';
-import resolveConfig from 'tailwindcss/resolveConfig';
 import {
   TypographyBlocks,
   ColorBlocks,
@@ -23,45 +22,6 @@ export default {
     )
   ]
 };
-
-export const Model = () => (
-  <div
-    style={{
-      display: 'flex',
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0
-    }}
-  >
-    <div
-      style={{
-        padding: '0 var(--spacing-lg)',
-        overflow: 'auto',
-        width: '50%'
-      }}
-    >
-      <h3>Model</h3>
-      <pre>
-        <code>{JSON.stringify(tailwindConfig, null, 2)}</code>
-      </pre>
-    </div>
-    <div
-      style={{
-        borderLeft: 'solid 1px var(--slate-500)',
-        padding: '0 var(--spacing-lg)',
-        overflow: 'auto',
-        width: '50%'
-      }}
-    >
-      <h3>Output</h3>
-      <pre>
-        <code>{JSON.stringify(resolveConfig(tailwindConfig), null, 2)}</code>
-      </pre>
-    </div>
-  </div>
-);
 
 const colors = TWConfig.colors;
 // Delete palette colors
