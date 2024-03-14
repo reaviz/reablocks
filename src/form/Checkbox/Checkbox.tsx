@@ -46,12 +46,17 @@ export interface CheckboxProps {
   labelClassName?: string;
 
   /**
-   * Custom svg path for checked state label.
+   * Custom svg path for border.
+   */
+  borderPath?: string;
+
+  /**
+   * Custom svg path for checked state.
    */
   checkedPath?: string;
 
   /**
-   * Custom svg path for intermediate state label.
+   * Custom svg path for intermediate state.
    */
   intermediatePath?: string;
 
@@ -83,6 +88,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
       className,
       containerClassName,
       labelClassName,
+      borderPath = 'M 0 0 L 0 16 L 16 16 L 16 0 Z',
       checkedPath = 'M 5.36396 8.17792 L 7.34236 9.91424 L 10.6044 5.832',
       intermediatePath = 'M 5.36396 8.17792 L 10.6044 8.17792',
       ...rest
@@ -130,10 +136,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             whileTap={!disabled ? 'pressed' : undefined}
             viewBox="0 0 16 16"
           >
-            <motion.path
-              d="M 0 0 L 0 16 L 16 16 L 16 0 Z"
-              variants={theme.boxVariants}
-            />
+            <motion.path d={borderPath} variants={theme.boxVariants} />
             {intermediate ? (
               <motion.path
                 d={intermediatePath}
