@@ -1,6 +1,6 @@
 import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { oneDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { ReablocksTheme } from '../themes';
 
 export const ComponentBlocks = ({
@@ -32,7 +32,7 @@ export const ComponentBlocks = ({
               >
                 {key}
               </h3>
-              <SyntaxHighlighter language="javascript" style={oneDark}>
+              <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
                 {JSON.stringify(components[key], null, 2)}
               </SyntaxHighlighter>
             </div>
