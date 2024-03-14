@@ -73,6 +73,7 @@
     "react-18-input-autosize": "^3.0.0",
     "react-fast-compare": "^3.2.2",
     "react-highlight-words": "^0.20.0",
+    "react-syntax-highlighter": "^15.5.0",
     "react-textarea-autosize": "^8.5.3",
     "tailwind-merge": "^2.2.1"
   },
@@ -93,6 +94,7 @@
     "@types/classnames": "^2.3.1",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
+    "@types/react-syntax-highlighter": "^15.5.11",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
     "@vitejs/plugin-react": "^4.2.1",

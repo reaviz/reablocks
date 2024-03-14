@@ -6,11 +6,13 @@ import {
   BorderBlocks,
   IconBlocks,
   PaletteBlocks,
-  ShadowBlocks
+  ShadowBlocks,
+  ComponentBlocks
 } from './helpers';
 import favoriteIcon from './icon-demo.svg';
 import tailwindConfig from '../../../tailwind.config';
 import TWConfig from './config';
+import { darkTheme } from './themes';
 
 export default {
   title: 'Components/Theme',
@@ -56,6 +58,9 @@ export const Borders = () => <BorderBlocks borders={borders} />;
 const shadows = TWConfig.boxShadow;
 export const Shadows = () => <ShadowBlocks shadows={shadows} />;
 
+export const Components = () => (
+  <ComponentBlocks components={darkTheme.components} />
+);
 export const Icons = () => (
   <>
     <h2>Icon Block Helper ( icons not included )</h2>
