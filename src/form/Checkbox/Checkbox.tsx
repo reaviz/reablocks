@@ -46,6 +46,16 @@ export interface CheckboxProps {
   labelClassName?: string;
 
   /**
+   * Custom svg path for checked state label.
+   */
+  checkedPath?: string;
+
+  /**
+   * Custom svg path for intermediate state label.
+   */
+  intermediatePath?: string;
+
+  /**
    * Event handler for when the checkbox is changed.
    */
   onChange?: (value: boolean) => void;
@@ -73,6 +83,8 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
       className,
       containerClassName,
       labelClassName,
+      checkedPath = 'M 5.36396 8.17792 L 7.34236 9.91424 L 10.6044 5.832',
+      intermediatePath = 'M 5.36396 8.17792 L 10.6044 8.17792',
       ...rest
     },
     ref
@@ -124,7 +136,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             />
             {intermediate ? (
               <motion.path
-                d="M 5.36396 8.17792 L 10.6044 8.17792"
+                d={intermediatePath}
                 fill="transparent"
                 strokeWidth="1"
                 className={theme.check}
@@ -134,7 +146,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
               />
             ) : (
               <motion.path
-                d="M 5.36396 8.17792 L 7.34236 9.91424 L 10.6044 5.832"
+                d={checkedPath}
                 fill="transparent"
                 strokeWidth="1"
                 className={theme.check}

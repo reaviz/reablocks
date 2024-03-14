@@ -19,6 +19,15 @@ export interface CheckboxTheme {
       strokeWidth: number;
       stroke: string;
     };
+    pressed: {
+      scale: number;
+    };
+    checked: {
+      stroke: string;
+    };
+    unchecked: {
+      stroke: string;
+    };
   };
 }
 
