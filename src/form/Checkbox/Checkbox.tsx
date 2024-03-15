@@ -136,7 +136,11 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             whileTap={!disabled ? 'pressed' : undefined}
             viewBox="0 0 16 16"
           >
-            <motion.path d={borderPath} variants={theme.boxVariants} />
+            <motion.path
+              className={theme.border}
+              d={borderPath}
+              variants={theme.boxVariants}
+            />
             {intermediate ? (
               <motion.path
                 d={intermediatePath}
