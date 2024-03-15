@@ -1,6 +1,6 @@
 {
   "name": "reablocks",
-  "version": "6.0.0-alpha.1",
+  "version": "6.0.0-alpha.3",
   "description": "Component library for React",
   "scripts": {
     "build": "vite build --mode library",

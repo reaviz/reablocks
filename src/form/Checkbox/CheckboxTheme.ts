@@ -6,6 +6,7 @@ export interface CheckboxTheme {
     base: string;
     clickable: string;
   };
+  border: string;
   check: string;
   checkbox: string;
   disabled: string;
@@ -18,6 +19,18 @@ export interface CheckboxTheme {
     hover: {
       strokeWidth: number;
       stroke: string;
+      fill: string;
+    };
+    pressed: {
+      scale: number;
+    };
+    checked: {
+      stroke: string;
+      fill: string;
+    };
+    unchecked: {
+      stroke: string;
+      fill: string;
     };
   };
 }
@@ -29,6 +42,7 @@ const baseTheme: Partial<CheckboxTheme> = {
     clickable: 'cursor-pointer'
   },
   check: '',
+  border: '',
   checkbox:
     'flex items-center justify-center cursor-pointer focus-visible:outline-none',
   disabled: 'opacity-60 cursor-not-allowed',

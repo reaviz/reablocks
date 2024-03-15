@@ -46,6 +46,21 @@ export interface CheckboxProps {
   labelClassName?: string;
 
   /**
+   * Custom svg path for border.
+   */
+  borderPath?: string;
+
+  /**
+   * Custom svg path for checked state.
+   */
+  checkedPath?: string;
+
+  /**
+   * Custom svg path for intermediate state.
+   */
+  intermediatePath?: string;
+
+  /**
    * Event handler for when the checkbox is changed.
    */
   onChange?: (value: boolean) => void;
@@ -73,6 +88,9 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
       className,
       containerClassName,
       labelClassName,
+      borderPath = 'M 0 0 L 0 16 L 16 16 L 16 0 Z',
+      checkedPath = 'M 5.36396 8.17792 L 7.34236 9.91424 L 10.6044 5.832',
+      intermediatePath = 'M 5.36396 8.17792 L 10.6044 8.17792',
       ...rest
     },
     ref
@@ -119,12 +137,13 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             viewBox="0 0 16 16"
           >
             <motion.path
-              d="M 0 0 L 0 16 L 16 16 L 16 0 Z"
+              className={theme.border}
+              d={borderPath}
               variants={theme.boxVariants}
             />
             {intermediate ? (
               <motion.path
-                d="M 5.36396 8.17792 L 10.6044 8.17792"
+                d={intermediatePath}
                 fill="transparent"
                 strokeWidth="1"
                 className={theme.check}
@@ -134,7 +153,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
               />
             ) : (
               <motion.path
-                d="M 5.36396 8.17792 L 7.34236 9.91424 L 10.6044 5.832"
+                d={checkedPath}
                 fill="transparent"
                 strokeWidth="1"
                 className={theme.check}
