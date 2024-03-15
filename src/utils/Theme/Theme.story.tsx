@@ -12,7 +12,7 @@ import {
 import favoriteIcon from './icon-demo.svg';
 import tailwindConfig from '../../../tailwind.config';
 import TWConfig from './config';
-import { darkTheme } from './themes';
+import { useTheme } from './hooks';
 
 export default {
   title: 'Components/Theme',
@@ -42,25 +42,25 @@ const palettes = tailwindConfig.theme.extend.colors;
 palettes['disabled'] = [palettes['disabled']];
 export const Palettes = () => <PaletteBlocks palettes={palettes as any} />;
 
-const families = TWConfig.fontFamily;
-const sizes = TWConfig.fontSize;
-const weights = TWConfig.fontWeight;
 export const Typography = () => (
-  <TypographyBlocks families={families} sizes={sizes} weights={weights} />
+  <TypographyBlocks
+    families={TWConfig.fontFamily}
+    sizes={TWConfig.fontSize}
+    weights={TWConfig.fontWeight}
+  />
 );
 
-const spacings = TWConfig.spacing;
-export const Spacings = () => <SpacingBlocks spacings={spacings} />;
+export const Spacings = () => <SpacingBlocks spacings={TWConfig.spacing} />;
 
-const borders = TWConfig.borderRadius;
-export const Borders = () => <BorderBlocks borders={borders} />;
+export const Borders = () => <BorderBlocks borders={TWConfig.borderRadius} />;
 
-const shadows = TWConfig.boxShadow;
-export const Shadows = () => <ShadowBlocks shadows={shadows} />;
+export const Shadows = () => <ShadowBlocks shadows={TWConfig.boxShadow} />;
 
-export const Components = () => (
-  <ComponentBlocks components={darkTheme.components} />
-);
+export const Components = () => {
+  const { theme } = useTheme();
+
+  return <ComponentBlocks components={theme.components} />;
+};
 export const Icons = () => (
   <>
     <h2>Icon Block Helper ( icons not included )</h2>

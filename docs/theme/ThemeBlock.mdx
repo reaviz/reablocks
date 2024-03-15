@@ -12,6 +12,7 @@ the following block components:
 - Border Block
 - Shadow Block
 - Palette Block
+- Components Block
 - Icons Block ( icons not included )
 
 ## Example
@@ -28,7 +29,8 @@ import {
   ShadowBlocks,
   ThemeProvider,
   darkTheme,
-  IconBlocks
+  IconBlocks,
+  useTheme
 } from 'reablocks';
 
 import resolveConfig from 'tailwindcss/resolveConfig';
@@ -49,53 +51,51 @@ export default {
   ]
 };
 
+export const Colors = () => <ColorBlocks colors={TWConfig.colors} />;
 
-const colors = TWConfig.colors;
-export const Colors = () => (
-  <ColorBlocks colors={colors} />
-);
+const palettes = tailwindConfig.theme.extend.colors;
+palettes['disabled'] = [palettes['disabled']];
+export const Palettes = () => <PaletteBlocks palettes={palettes as any} />;
 
-export const Palettes = () => (
-  <PaletteBlocks palettes={colors} />
-);
-
-const families = TWConfig.fontFamily;
-const sizes = TWConfig.fontSize;
-const weights = TWConfig.fontWeight;
 export const Typography = () => (
-  <TypographyBlocks families={families} sizes={sizes} weights={weights} />
+  <TypographyBlocks
+    families={TWConfig.fontFamily}
+    sizes={TWConfig.fontSize}
+    weights={TWConfig.fontWeight}
+  />
 );
 
-const spacings = TWConfig.spacing;
-export const Spacings = () => (
-  <SpacingBlocks spacings={spacings} />
-);
+export const Spacings = () => <SpacingBlocks spacings={TWConfig.spacing} />;
 
-const borders = TWConfig.borderRadius;
-export const Borders = () => (
-  <BorderBlocks borders={borders} />
-);
+export const Borders = () => <BorderBlocks borders={TWConfig.borderRadius} />;
 
-const shadows = TWConfig.boxShadow;
-export const Shadows = () => (
-  <ShadowBlocks shadows={shadows} />
-);
+export const Shadows = () => <ShadowBlocks shadows={TWConfig.boxShadow} />;
 
+export const Components = () => {
+  const { theme } = useTheme();
 
-const icons = [
-  {
-    name: 'favorite',
-    src: favoriteIconSrc
-  },
-   {
-    name: 'favorite',
-    component: FavoriteIconComponent
-  }
-];
-
+  return (
+    <ComponentBlocks components={theme.components} />
+  )
+};
 export const Icons = () => (
-  <IconBlocks icons={icons} />
+  <>
+    <h2>Icon Block Helper ( icons not included )</h2>
+    <IconBlocks
+      icons={[
+        {
+          name: 'favorite',
+          src: favoriteIcon
+        },
+        {
+          name: 'another favorite',
+          src: favoriteIcon
+        }
+      ]}
+    />
+  </>
 );
+
 ````
 
 NOTE: This example uses the `ThemeProvider` in the story decorator,
