@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Tree, TreeNode } from '../../../src/layout/Tree';
+import { darkTreeTheme, Tree, TreeNode } from '../../../src/layout/Tree';
 import * as TreeStories from '../../../src/layout/Tree/Tree.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Layout/Tree" />
 
@@ -9,6 +10,13 @@ Simple tree component for showing hierarchical data.
 
 ## Example
 <Canvas sourceState="shown" of={TreeStories.Simple} />
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={darkTreeTheme} />
+
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 ### Tree

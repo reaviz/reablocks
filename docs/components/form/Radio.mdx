@@ -1,8 +1,9 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Radio } from '../../../src/form/Radio';
+import { darkRadioTheme, Radio } from '../../../src/form/Radio';
 import { RadioGroup } from '../../../src/form/Radio';
 import * as RadioStories from '../../../src/form/Radio/Radio.story';
 import * as RadioGroupStories from '../../../src/form/Radio/RadioGroup.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Form/Radio" />
 
@@ -21,18 +22,12 @@ ensuring users choose a single item from a list, providing clear decision-making
 ### Group of Radio buttons with a single form control
 <Canvas of={RadioGroupStories.Simple} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `radio-label-color`
-- `radio-stroke`
-- `radio-stroke-active`
-- `radio-stroke-size`
-- `radio-background`
-- `radio-indicator-size`
-- `radio-indicator-active`
+<ThemeRender theme={darkRadioTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 ### Radio

@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Popover } from '../../../src/layers/Popover';
+import { darkPopoverTheme, Popover } from '../../../src/layers/Popover';
 import * as PopoverStories from '../../../src/layers/Popover/Popover.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Layers/Popover" />
 
@@ -10,15 +11,12 @@ The Popover component displays addtional contextual information, content, or opt
 ## Example
 <Canvas sourceState="shown" of={PopoverStories.Simple} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `popover-background`
-- `popover-color`
-- `popover-border-radius`
+<ThemeRender theme={darkPopoverTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
-
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 
 ## API

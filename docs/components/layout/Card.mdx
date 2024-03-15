@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Card } from '../../../src/layout/Card';
+import { Card, darkCardTheme } from '../../../src/layout/Card';
 import * as CardStories from '../../../src/layout/Card/Card.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Layout/Card" />
 
@@ -10,14 +11,12 @@ Cards are a fundamental building block for compositions, such as forms, or secti
 ## Example
 <Canvas sourceState="shown" of={CardStories.Basic}/>
 
-## Design Tokens
-The card component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `card-background`
-- `card-border-radius`
-- `card-spacing`
+<ThemeRender theme={darkCardTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Card} />

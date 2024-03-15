@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Block } from '../../../src/layout/Block';
+import { Block, darkBlockTheme } from '../../../src/layout/Block';
 import * as BlockStories from '../../../src/layout/Block/Block.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Layout/Block" />
 
@@ -10,15 +11,12 @@ Simple block component.
 ## Example
 <Canvas sourceState="shown" of={BlockStories.Label} />
 
-## Design Tokens
-The card component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `block-spacing`
-- `block-label-spacing`
-- `block-label-size`
-- `block-label-weight`
+<ThemeRender theme={darkBlockTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Block} />

@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { RangeSingle } from '../../../src/form/Range';
+import { darkRangeTheme, RangeSingle } from '../../../src/form/Range';
 import * as RangeStories from '../../../src/form/Range/Range.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Form/Range" />
 
@@ -13,18 +14,12 @@ This component allows the users to define a value or a range using a slider.
 ### Range selection
 <Canvas sourceState="shown" of={RangeStories.Double} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `range-track-background`
-- `range-track-border-radius`
-- `range-track-size`
-- `range-handle-size`
-- `range-handle-border-radius`
-- `range-track-active-background`
-- `range-handle-background`
+<ThemeRender theme={darkRangeTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 ### RangeSingle

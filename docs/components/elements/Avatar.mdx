@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Avatar } from '../../../src/elements/Avatar';
+import { Avatar, darkAvatarTheme } from '../../../src/elements/Avatar';
 import * as AvatarStories from '../../../src/elements/Avatar/Avatar.story'
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Avatar" />
 
@@ -16,13 +17,12 @@ If the user name is single word text, it will just show the first letter
 ### Avatar with round shape showing user profile pic
 <Canvas of={AvatarStories.RoundedWithImage}/>
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `avatar-initials-color`
-- `avatar-border`
+<ThemeRender theme={darkAvatarTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Avatar} />

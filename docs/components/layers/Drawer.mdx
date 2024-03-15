@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Drawer } from '../../../src/layers/Drawer';
+import { darkDrawerTheme, Drawer } from '../../../src/layers/Drawer';
 import * as DrawerStories from '../../../src/layers/Drawer/Drawer.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Layers/Drawer" />
 
@@ -15,13 +16,12 @@ is analysing a list of entries from a table and they quickly wants to see detail
 ### Drawer as bottom sheet
 <Canvas of={DrawerStories.BottomSheet} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `drawer-background`
-- `drawer-color`
+<ThemeRender theme={darkDrawerTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 
 ## API

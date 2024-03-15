@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { CommandPalette } from '../../../src/elements/CommandPalette';
+import { CommandPalette, darkCommandPaletteTheme } from '../../../src/elements/CommandPalette';
 import * as Stories from '../../../src/elements/CommandPalette/CommandPalette.story'
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Command Palette" />
 
@@ -11,17 +12,12 @@ It's especially useful for applications with a large number of features or optio
 ## Example
 <Canvas of={Stories.Simple}/>
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `spacing-md`
-- `primary-background`
-- `input-color`
-- `body-background`
-- `font-family`
-- `input-color-placeholder`
+<ThemeRender theme={darkCommandPaletteTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={CommandPalette} />

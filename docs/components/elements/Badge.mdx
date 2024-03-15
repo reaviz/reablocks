@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Badge } from '../../../src/elements/Badge';
+import { Badge, darkBadgeTheme } from '../../../src/elements/Badge';
 import * as BadgeStories from '../../../src/elements/Badge/Badge.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Badge" />
 
@@ -14,20 +15,12 @@ new alert counts etc.
 ### Badge position variations
 <Canvas of={BadgeStories.Positions} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `badge-color-background-default`
-- `badge-color-default`
-- `badge-color-background-primary`
-- `badge-color-primary`
-- `badge-color-background-secondary`
-- `badge-color-secondary`
-- `badge-color-background-error`
-- `badge-color-error`
-- `badge-border-radius`
+<ThemeRender theme={darkBadgeTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Badge} />

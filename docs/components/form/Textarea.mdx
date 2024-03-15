@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Textarea } from '../../../src/form/Textarea';
+import { darkTextareaTheme, Textarea } from '../../../src/form/Textarea';
 import * as TextareaStories from '../../../src/form/Textarea/Textarea.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Form/Textarea" />
 
@@ -28,21 +29,12 @@ offering a space-efficient and user-friendly way to capture longer text entries.
 #### Placeholder text
 <Canvas of={TextareaStories.Placeholder} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `textarea-background`
-- `textarea-border`
-- `textarea-border-radius`
-- `textarea-border-focus`
-- `textarea-color`
-- `textarea-color-placeholder`
-- `textarea-placeholder-style`
-- `textarea-spacing-md`
-- `textarea-spacing-sm`
-- `textarea-spacing-lg`
+<ThemeRender theme={darkTextareaTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Textarea} />

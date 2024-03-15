@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Kbd } from '../../../src/elements/Kbd';
+import { darkKbdTheme, Kbd } from '../../../src/elements/Kbd';
 import * as Stories from '../../../src/elements/Kbd/Kbd.story'
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Kbd" />
 
@@ -11,13 +12,12 @@ the [Command Palette](?path=/docs/docs-components-elements-command-palette--docs
 ## Example
 <Canvas sourceState="shown" of={Stories.Basic}/>
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `border-radius-sm`
-- `mono-font-family`
+<ThemeRender theme={darkKbdTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Kbd} />

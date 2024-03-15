@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Chip } from '../../../src/elements/Chip';
+import { Chip, darkChipTheme } from '../../../src/elements/Chip';
 import * as ChipStories from '../../../src/elements/Chip/Chip.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Chip" />
 
@@ -20,17 +21,12 @@ along with other chip components.
 ### Selecteable
 <Canvas of={ChipStories.Selectable} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `chip-font-family`
-- `chip-background`
-- `chip-background-hover`
-- `chip-color`
-- `chip-color-hover`
-- `chip-border-radius`
+<ThemeRender theme={darkChipTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Chip} />

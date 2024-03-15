@@ -1,8 +1,9 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Button } from '../../../src/elements/Button';
+import { Button, darkButtonTheme } from '../../../src/elements/Button';
 import { ButtonGroup } from '../../../src/elements/Button';
 import * as ButtonStories from '../../../src/elements/Button/Button.story';
 import * as ButtonGroupStories from '../../../src/elements/Button/ButtonGroup.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Button" />
 
@@ -21,29 +22,12 @@ Simple button component with variants with different types, colors and sizes.
 ### Group of Buttons
 <Canvas of={ButtonGroupStories.Colors} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `button-font-weight`
-- `button-font-family`
-- `button-background`
-- `button-background-hover`
-- `button-color`
-- `button-color-hover`
-- `button-color-on-background`
-- `button-disabled-color-on-background`
-- `button-border-radius`
-- `button-border`
-- `button-focus`
-- `button-focus-offset`
-- `button-spacing-sm`
-- `button-spacing-md`
-- `button-spacing-lg`
-- `button-adornment-size-sm`
-- `button-adornment-size-md`
-- `button-adornment-size-lg`
+<ThemeRender theme={darkButtonTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 ### Button

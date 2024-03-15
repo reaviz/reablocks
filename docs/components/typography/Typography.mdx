@@ -1,10 +1,11 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { PageTitle, PrimaryHeading, SecondaryHeading, Text, Sub } from '../../../src/typography';
+import { PageTitle, PrimaryHeading, SecondaryHeading, Text, Sub, darkTypographyTheme } from '../../../src/typography';
 import * as PageTitleStories from '../../../src/typography/PageTitle/PageTitle.story'
 import * as PrimaryHeadingStories from '../../../src/typography/PrimaryHeading/PrimaryHeading.story'
 import * as SecondaryHeadingStories from '../../../src/typography/SecondaryHeading/SecondaryHeading.story'
 import * as TextStories from '../../../src/typography/Text/Text.story'
 import * as SubStories from '../../../src/typography/Sub/Sub.story'
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Typography" />
 
@@ -35,32 +36,12 @@ of components for different heading sizes and text styles.
 ### Sub
 <Canvas sourceState="shown" of={SubStories.Simple}/>
 
-## Design Tokens
-The typography component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `page-title-font-size`
-- `page-title-font-weight`
-- `page-title-color`
-- `page-title-margin`
-- `primary-heading-font-size`
-- `primary-heading-font-weight`
-- `primary-heading-color`
-- `primary-heading-margin`
-- `secondary-heading-font-size`
-- `secondary-heading`
-- `secondary-heading-font-weight`
-- `secondary-heading-color`
-- `secondary-heading-margin`
-- `small-heading-font-size`
-- `small-heading-font-weight`
-- `small-heading-color`
-- `small-heading-margin`
-- `sub-font-size`
-- `sub-font-weight`
-- `sub-color`
-- `sub-margin`
+<ThemeRender theme={darkTypographyTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 ### PageTitle

@@ -38,12 +38,12 @@ const baseTheme: TypographyTheme = {
     mono: 'font-mono'
   },
   colors: {
-    primary: 'text-blue-800',
-    secondary: 'text-blue-800',
-    success: 'text-green-600',
-    warning: 'text-orange-600',
-    error: 'text-red-600',
-    info: 'text-blue-500'
+    primary: 'text-primary-800',
+    secondary: 'text-secondary-600',
+    success: 'text-success-600',
+    warning: 'text-warning-600',
+    error: 'text-error-600',
+    info: 'text-info-500'
   },
   sub: 'text-xs font-semibold mb-0.5',
   smallHeading: 'text-base font-normal mb-1',

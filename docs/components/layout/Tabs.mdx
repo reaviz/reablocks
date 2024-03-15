@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Tabs, Tab, TabList, TabPanel } from '../../../src/layout/Tabs';
+import { Tabs, Tab, TabList, TabPanel, darkTabsTheme } from '../../../src/layout/Tabs';
 import * as TabsStories from '../../../src/layout/Tabs/Tabs.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Layout/Tabs" />
 
@@ -9,6 +10,13 @@ The tabs component is a simple way to organize content into different sections.
 
 ## Example
 <Canvas sourceState="shown" of={TabsStories.Simple} />
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={darkTabsTheme} />
+
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 

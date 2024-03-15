@@ -1,7 +1,8 @@
 import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs';
-import { Select, SelectOption, SelectMenu, SelectInput, SelectInputChip } from '../../../src/form/Select';
+import { Select, SelectOption, SelectMenu, SelectInput, SelectInputChip, darkSelectTheme } from '../../../src/form/Select';
 import * as SingleSelectStories from '../../../src/form/Select/SingleSelect.story';
 import * as MultiSelectStories from '../../../src/form/Select/MultiSelect.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Form/Select" />
 
@@ -55,34 +56,12 @@ styling.
 - `select-menu-group`
 - `select-menu-group-header`
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `select-input-border-radius`
-- `select-input-background`
-- `select-input-border`
-- `select-input-color`
-- `select-input-spacing`
-- `select-input-error`
-- `select-input-placeholder-color`
-- `select-input-disabled-color`
-- `select-input-icon-color`
-- `select-menu-background`
-- `select-menu-border`
-- `select-menu-border-radius`
-- `select-menu-item-color`
-- `select-menu-group-color`
-- `select-menu-item-spacing`
-- `select-menu-item-active-background`
-- `select-menu-item-active-color`
-- `select-menu-item-selected-color`
-- `select-menu-item-selected-background`
-- `select-chip-background`
-- `select-chip-border`
-- `select-chip-color`
-- `select-chip-icon-color`
+<ThemeRender theme={darkSelectTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-startedpage).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 

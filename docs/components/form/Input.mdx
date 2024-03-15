@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Input } from '../../../src/form/Input';
+import { darkInputTheme, Input } from '../../../src/form/Input';
 import * as InputStories from '../../../src/form/Input/Input.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Form/Input" />
 
@@ -27,18 +28,12 @@ Text field to provide an input value.
 #### Default value
 <Canvas of={InputStories.DefaultValue} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `input-background`
-- `input-color`
-- `input-border-radius`
-- `input-border`
-- `input-spacing-md`
-- `input-spacing-sm`
-- `input-spacing-lg`
+<ThemeRender theme={darkInputTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Input} />

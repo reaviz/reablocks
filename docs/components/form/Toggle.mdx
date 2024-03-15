@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Toggle } from '../../../src/form/Toggle';
+import { darkToggleTheme, Toggle } from '../../../src/form/Toggle';
 import * as ToggleStories from '../../../src/form/Toggle/Toggle.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Form/Toggle" />
 
@@ -16,25 +17,12 @@ It's commonly used for settings, preferences, and quick mode changes.
 ### Toggle state: disabled
 <Canvas sourceState="shown" of={ToggleStories.Disabled} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `toggle-width`
-- `toggle-height`
-- `ttoggle-handle-size`
-- `toggle-background`
-- `toggle-border-radius`
-- `toggle-spacing`
-- `toggle-handle-background`
-- `toggle-handle-checked-background`
-- `toggle-handle-border-radius`
-- `toggle-disabled-background`
-- `toggle-handle-disabled-background`
-- `toggle-checked-disabled-background`
-- `toggle-handle-checked-disabled-background`
-- `toggle-disabled-opacity`
+<ThemeRender theme={darkToggleTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Toggle} />

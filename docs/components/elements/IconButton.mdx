@@ -1,6 +1,8 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
 import { IconButton } from '../../../src/elements/IconButton';
+import { darkButtonTheme } from '../../../src/elements/Button';
 import * as IconButtonStories from '../../../src/elements/IconButton/IconButton.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/IconButton" />
 
@@ -20,29 +22,12 @@ A button component having an icon inside, with variants of different types, colo
 <Canvas sourceState="shown" of={IconButtonStories.Variants} />
 
 
-## Design Tokens
-This component uses the following design tokens (same as the [Button](?path=/docs/docs-components-elements-button--docs) component):
+## Theme
+This component uses the following default theme:
 
-- `button-font-weight`
-- `button-font-family`
-- `button-background`
-- `button-background-hover`
-- `button-color`
-- `button-color-hover`
-- `button-color-on-background`
-- `button-disabled-color-on-background`
-- `button-border-radius`
-- `button-border`
-- `button-focus`
-- `button-focus-offset`
-- `button-spacing-sm`
-- `button-spacing-md`
-- `button-spacing-lg`
-- `button-adornment-size-sm`
-- `button-adornment-size-md`
-- `button-adornment-size-lg`
+<ThemeRender theme={darkButtonTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={IconButton} />

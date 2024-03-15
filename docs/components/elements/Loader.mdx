@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { DotsLoader } from '../../../src/elements/Loader';
+import { darkDotsLoaderTheme, DotsLoader } from '../../../src/elements/Loader';
 import * as DotsLoaderStories from '../../../src/elements/Loader/DotsLoader.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Loader" />
 
@@ -10,12 +11,12 @@ A placholder component to show when the UI is being rendered for firt time load 
 ## Example
 <Canvas sourceState="shown" of={DotsLoaderStories.Simple} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `loader-background`
+<ThemeRender theme={darkDotsLoaderTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={DotsLoader} />

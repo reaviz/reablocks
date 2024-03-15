@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Divider } from '../../../src/layout/Divider';
+import { darkDividerTheme, Divider } from '../../../src/layout/Divider';
 import * as DividerStories from '../../../src/layout/Divider/Divider.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Layout/Divider" />
 
@@ -10,13 +11,12 @@ A simple divider component that supports horizontal and vertical.
 ## Example
 <Canvas sourceState="shown" of={DividerStories.Horizontal} />
 
-## Design tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `divider-spacing`: Margins to be applied to the component.
-- `divider-bg`: Color to be applied to the component.
+<ThemeRender theme={darkDividerTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Divider} />

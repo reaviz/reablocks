@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { AvatarGroup } from '../../../src/elements/AvatarGroup';
+import { AvatarGroup, darkAvatarGroupTheme } from '../../../src/elements/AvatarGroup';
 import * as AvatarGroupStories from '../../../src/elements/AvatarGroup/AvatarGroup.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/AvatarGroup" />
 
@@ -10,12 +11,12 @@ A component to display a group of avatars with a maximum size.
 ## Example
 <Canvas sourceState="shown" of={AvatarGroupStories.Basic} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `avatar-group-spacing`
+<ThemeRender theme={darkAvatarGroupTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={AvatarGroup} />

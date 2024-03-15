@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Checkbox } from '../../../src/form/Checkbox';
+import { Checkbox, darkCheckboxTheme } from '../../../src/form/Checkbox';
 import * as CheckboxStories from '../../../src/form/Checkbox/Checkbox.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Form/Checkbox" />
 
@@ -15,15 +16,12 @@ Checkbox components in UI/UX serve to enable or disable specific options or choi
 ### Checkboxes with state variations
 <Canvas of={CheckboxStories.States} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `checkbox-label-color`
-- `checkbox-check-stroke`
-- `checkbox-box-checked-stroke`
-- `checkbox-box-unchecked-stroke`
+<ThemeRender theme={darkCheckboxTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Checkbox} />

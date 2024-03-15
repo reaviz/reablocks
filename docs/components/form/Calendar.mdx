@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Calendar } from '../../../src/form/Calendar';
+import { Calendar, darkCalendarTheme } from '../../../src/form/Calendar';
 import * as CalendarStories from '../../../src/form/Calendar/Calendar.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Form/Calendar" />
 
@@ -24,20 +25,12 @@ define the time range for their action.
 ### Multiview calendar example
 <Canvas of={CalendarStories.Multiview} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `calendar-spacing`
-- `calendar-gap`
-- `calendar-divider`
-- `calendar-day-radius`
-- `calendar-day-color`
-- `calendar-day-background-selected`
-- `calendar-day-border-selected`
-- `calendar-day-background-hover`
-- `calendar-day-border-hover`
+<ThemeRender theme={darkCalendarTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Calendar} />

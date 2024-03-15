@@ -1,6 +1,7 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Stack } from '../../../src/layout/Stack';
+import { darkStackTheme, Stack } from '../../../src/layout/Stack';
 import * as StackStories from '../../../src/layout/Stack/Stack.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Layout/Stack" />
 
@@ -11,13 +12,12 @@ space between components such as a menu.
 ## Example
 <Canvas sourceState="shown" of={StackStories.Simple} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `stack-gap`
-- `stack-dense-gap`
+<ThemeRender theme={darkStackTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
 <ArgTypes of={Stack} />
