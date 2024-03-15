@@ -1,26 +1,26 @@
 export interface ListTheme {
-  base?: string;
-  header?: string;
-  listItem?: {
-    base?: string;
-    disabled?: string;
-    active?: string;
-    clickable?: string;
-    disablePadding?: string;
-    disableGutters?: string;
-    dense?: {
-      base?: string;
-      content?: string;
-      startAdornment?: string;
-      endAdornment?: string;
+  base: string;
+  header: string;
+  listItem: {
+    base: string;
+    disabled: string;
+    active: string;
+    clickable: string;
+    disablePadding: string;
+    disableGutters: string;
+    dense: {
+      base: string;
+      content: string;
+      startAdornment: string;
+      endAdornment: string;
     };
-    adornment?: {
-      base?: string;
-      start?: string;
-      end?: string;
-      svg?: string;
+    adornment: {
+      base: string;
+      start: string;
+      end: string;
+      svg: string;
     };
-    content?: string;
+    content: string;
   };
 }
 

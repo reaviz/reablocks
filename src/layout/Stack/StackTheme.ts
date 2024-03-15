@@ -1,24 +1,24 @@
 export interface StackTheme {
-  base?: string;
-  dense?: string;
-  inline?: string;
-  direction?: {
-    row?: string;
-    column?: string;
-    rowReverse?: string;
-    columnReverse?: string;
+  base: string;
+  dense: string;
+  inline: string;
+  direction: {
+    row: string;
+    column: string;
+    rowReverse: string;
+    columnReverse: string;
   };
-  alignItems?: {
-    start?: string;
-    end?: string;
-    center?: string;
-    stretch?: string;
+  alignItems: {
+    start: string;
+    end: string;
+    center: string;
+    stretch: string;
   };
-  justifyContent?: {
-    start?: string;
-    end?: string;
-    center?: string;
-    spaceBetween?: string;
+  justifyContent: {
+    start: string;
+    end: string;
+    center: string;
+    spaceBetween: string;
   };
 }
 

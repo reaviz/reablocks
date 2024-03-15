@@ -17,7 +17,7 @@ export const VerticalSpacer = forwardRef<HTMLDivElement, VerticalSpacerProps>(
 
     return (
       <div
-        className={twMerge(className, theme.size[space])}
+        className={twMerge(className, theme.base, theme.size[space])}
         ref={ref}
         {...rest}
       />
