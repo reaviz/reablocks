@@ -57,6 +57,7 @@ export interface InputRef {
   containerRef: RefObject<HTMLDivElement>;
   blur?: () => void;
   focus?: () => void;
+  select?: () => void;
 }
 
 export const Input = forwardRef<InputRef, InputProps>(
@@ -87,7 +88,8 @@ export const Input = forwardRef<InputRef, InputProps>(
       inputRef,
       containerRef,
       blur: () => inputRef.current?.blur(),
-      focus: () => inputRef.current?.focus()
+      focus: () => inputRef.current?.focus(),
+      select: () => inputRef.current?.select()
     }));
 
     useLayoutEffect(() => {
