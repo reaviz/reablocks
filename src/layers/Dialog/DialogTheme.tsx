@@ -3,6 +3,11 @@ export interface DialogTheme {
   inner: string;
   content: string;
   footer: string;
+  header: {
+    base: string;
+    text: string;
+    closeButton: string;
+  };
 }
 
 const baseTheme: DialogTheme = {
@@ -10,7 +15,13 @@ const baseTheme: DialogTheme = {
   inner:
     'flex flex-col box-border outline-0 pointer-events-auto overflow-auto max-w-[80vw] max-h-[80vw]',
   content: 'p-[20px] flex-auto overflow-auto',
-  footer: 'flex p-[20px] pb-[10px]'
+  footer: 'flex p-[20px] pb-[10px]',
+  header: {
+    base: 'flex justify-between pt-[20px] px-[20px] pb-[10px]',
+    text: 'flex-1 m-0 p-0 inline-flex',
+    closeButton:
+      'p-0 m-0 ml-[15px] opacity-80 h-auto w-auto inline-flex bg-none border-none cursor-pointer items-center text-white text-[16px] focus:outline-none'
+  }
 };
 
 export const lightDialogTheme: DialogTheme = {

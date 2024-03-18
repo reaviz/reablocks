@@ -61,18 +61,15 @@ import {
 import {
   ContextMenuTheme,
   darkContextMenuTheme,
-  darkDialogHeaderTheme,
   darkDialogTheme,
   darkDrawerTheme,
   darkMenuTheme,
   darkNotificationTheme,
   darkPopoverTheme,
   darkTooltipTheme,
-  DialogHeaderTheme,
   DialogTheme,
   DrawerTheme,
   lightContextMenuTheme,
-  lightDialogHeaderTheme,
   lightDialogTheme,
   lightDrawerTheme,
   lightMenuTheme,
@@ -155,7 +152,6 @@ export interface ReablocksTheme {
     checkbox: CheckboxTheme;
     dateFormat: DateFormatTheme;
     dialog: DialogTheme;
-    dialogHeader: DialogHeaderTheme;
     divider: DividerTheme;
     dotsLoader: DotsLoaderTheme;
     drawer: DrawerTheme;
@@ -201,7 +197,6 @@ export const lightTheme: ReablocksTheme = {
     checkbox: lightCheckboxTheme,
     dateFormat: lightDateFormatTheme,
     dialog: lightDialogTheme,
-    dialogHeader: lightDialogHeaderTheme,
     divider: lightDividerTheme,
     dotsLoader: lightDotsLoaderTheme,
     drawer: lightDrawerTheme,
@@ -247,7 +242,6 @@ export const darkTheme: ReablocksTheme = {
     checkbox: darkCheckboxTheme,
     dateFormat: darkDateFormatTheme,
     dialog: darkDialogTheme,
-    dialogHeader: darkDialogHeaderTheme,
     divider: darkDividerTheme,
     dotsLoader: darkDotsLoaderTheme,
     drawer: darkDrawerTheme,

@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { twMerge } from 'tailwind-merge';
-
-import { useComponentTheme } from '../../../utils';
+import { useComponentTheme } from '../../utils';
 
 export interface DialogHeaderProps {
   children?: any;
@@ -18,25 +17,29 @@ export const DialogHeader: FC<Partial<DialogHeaderProps>> = ({
   disablePadding,
   onClose
 }) => {
-  const theme = useComponentTheme('dialogHeader');
+  const theme = useComponentTheme('dialog');
 
   return (
     <header
       className={twMerge(
-        theme.base,
+        theme.header.base,
         className,
         disablePadding && 'pt-0 pb-0 pl-0 pr-0'
       )}
     >
       <div>
         {typeof children === 'string' ? (
-          <h1 className={theme.text}>{children}</h1>
+          <h1 className={theme.header.text}>{children}</h1>
         ) : (
           children
         )}
       </div>
       {showCloseButton && (
-        <button type="button" className={theme.closeButton} onClick={onClose}>
+        <button
+          type="button"
+          className={theme.header.closeButton}
+          onClick={onClose}
+        >
           ✕
         </button>
       )}
