@@ -52,7 +52,7 @@ const baseTheme: SelectInputTheme = {
   },
   disabled: 'cursor-not-allowed text-disabled',
   unfilterable: 'caret-transparent',
-  error: 'border border-solid border-error-500',
+  error: 'border border-solid',
   open: 'rounded rounded-ee-none rounded-es-none',
   single: {
     prefix: 'overflow-hidden whitespace-nowrap text-ellipsis max-w-full',
@@ -79,6 +79,7 @@ export const lightSelectInputTheme: SelectInputTheme = {
     ' '
   ),
   disabled: [baseTheme.disabled, 'bg-gray-300'].join(' '),
+  error: [baseTheme.error, 'border-error-500'].join(' '),
   placeholder: [baseTheme.placeholder, 'placeholder:text-slate-700'].join(' '),
   input: [baseTheme.input, 'text-black'].join(' '),
   chip: {
@@ -96,6 +97,7 @@ export const darkSelectInputTheme: SelectInputTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-dark-background border-gray-700'].join(' '),
   disabled: [baseTheme.disabled, 'bg-dark-disabled'].join(' '),
+  error: [baseTheme.error, 'border-error-500'].join(' '),
   chip: {
     ...baseTheme.chip,
     base: [baseTheme.chip.base, 'bg-zinc-600 text-white'].join(' '),
@@ -104,5 +106,45 @@ export const darkSelectInputTheme: SelectInputTheme = {
     removeButton: [baseTheme.chip.removeButton, '[&>svg]:fill-slate-400'].join(
       ' '
     )
+  }
+};
+
+export const cssVarsSelectInputTheme: SelectInputTheme = {
+  ...baseTheme,
+  base: [
+    baseTheme.base,
+    'bg-[var(--select-input-background)] p-[var(--select-input-spacing)] rounded-[var(--select-input-border-radius)] [border:_var(--select-input-border)]'
+  ].join(' '),
+  disabled: [
+    baseTheme.disabled,
+    'text-[var(--select-input-disabled-color)]'
+  ].join(' '),
+  placeholder: [
+    baseTheme.placeholder,
+    'text-[var(--select-input-placeholder-color)]'
+  ].join(' '),
+  error: [baseTheme.error, 'border-[var(--select-input-error)]'].join(' '),
+  input: [baseTheme.input, 'text-[var(--select-input-color)]'].join(' '),
+  suffix: {
+    ...baseTheme.suffix,
+    close: [
+      baseTheme.suffix.close,
+      '[&>svg]:fill-[var(--select-input-icon-color)]'
+    ].join(' '),
+    expand: [
+      baseTheme.suffix.expand,
+      '[&>svg]:fill-[var(--select-input-icon-color)]'
+    ].join(' ')
+  },
+  chip: {
+    ...baseTheme.chip,
+    base: [
+      baseTheme.chip.base,
+      'bg-[var(--select-chip-background)] text-[var(--select-chip-color)] [border:_var(--select-chip-border)]'
+    ].join(' '),
+    removeButton: [
+      baseTheme.chip.removeButton,
+      '[&>svg]:fill-[var(--select-chip-icon-color)]'
+    ].join(' ')
   }
 };

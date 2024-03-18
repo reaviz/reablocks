@@ -60,7 +60,6 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   ...rest
 }) => {
   const theme = useComponentTheme('calendarRange') as CalendarRangeTheme;
-  console.log('teheme', theme);
   const date = useMemo(
     () => (Array.isArray(value) ? value[0] : new Date()),
     [value]

@@ -57,3 +57,31 @@ export const darkSelectMenuTheme: SelectMenuTheme = {
     ].join(' ')
   }
 };
+
+export const cssVarsSelectMenuTheme: SelectMenuTheme = {
+  ...baseTheme,
+  base: [
+    baseTheme.base,
+    'bg-[var(--select-menu-background)] [border:_var(--select-menu-border)]'
+  ].join(' '),
+  groupTitle: [baseTheme.groupTitle, 'text-gray-600'].join(' '),
+  option: {
+    ...baseTheme.option,
+    base: [
+      baseTheme.option.base,
+      'text-[var(--select-menu-item-color)] [padding:_var(--select-menu-item-spacing)]'
+    ].join(' '),
+    hover: [
+      baseTheme.option.hover,
+      'hover:bg-[var(--select-menu-item-active-background)] text-[var(--select-menu-item-active-color)]'
+    ].join(' '),
+    active: [
+      baseTheme.option.active,
+      'hover:bg-[var(--select-menu-item-active-background)] text-[var(--select-menu-item-active-color)]'
+    ].join(' '),
+    selected: [
+      baseTheme.option.selected,
+      'bg-[var(--select-menu-item-selected-background)] text-[var(--select-menu-item-selected-color)]'
+    ].join(' ')
+  }
+};

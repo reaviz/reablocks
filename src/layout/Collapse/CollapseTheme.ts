@@ -13,3 +13,7 @@ export const lightCollapseTheme: CollapseTheme = {
 export const darkCollapseTheme: CollapseTheme = {
   ...baseTheme
 };
+
+export const cssVarsCollapseTheme: CollapseTheme = {
+  ...baseTheme
+};

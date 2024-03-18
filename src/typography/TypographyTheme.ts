@@ -60,3 +60,30 @@ export const lightTypographyTheme = {
 export const darkTypographyTheme = {
   ...baseTheme
 };
+
+export const cssVarsTypographyTheme = {
+  ...baseTheme,
+  colors: {
+    primary: 'text-[var(--primary-color)]',
+    secondary: 'text-[var(--secondary-color)]',
+    success: 'text-[var(--success-color)]',
+    warning: 'text-[var(--warning-color)]',
+    error: 'text-[var(--error-color)]',
+    info: 'text-[var(--info-color)]'
+  },
+  pageTitle:
+    '[font-family:_var(--font-family)] [font-size:_var(--page-title-font-size)] [font-weight:_var(--page-title-font-weight)] color-[var(--page-title-color)] [margin:_var(--page-title-margin)]',
+  primaryHeading:
+    '[font-family:_var(--font-family)] [font-size:_var(--primary-heading-font-size)] [font-weight:_var(--primary-heading-font-weight)] text-[var(--primary-heading-color)] [margin:_var(--primary-heading-margin)]',
+  secondaryHeading:
+    '[font-family:_var(--font-family)] [font-size:_var(--secondary-heading-font-size)] [font-weight:_var(--secondary-heading-font-weight)] text-[var(--secondary-heading-color)] [margin:_var(--secondary-heading-margin)]',
+  smallHeading:
+    '[font-family:_var(--font-family)] [font-size:_var(--small-heading-font-size)] [font-weight:_var(--small-heading-font-weight)] text-[var(--small-heading-color)] [margin:_var(--small-heading-margin)]',
+  sub: '[font-size:_var(--sub-font-size)] [font-weight:_var(--sub-font-weight)] text-[var(--sub-color)] [margin:_var(--sub-margin)]',
+  text: {
+    ...baseTheme.text,
+    thin: '[font-weight:_var(--font-weight-thin)]',
+    bold: '[font-weight:_var(--font-weight-bold)]',
+    extraBold: '[font-weight:_var(--font-weight-extraBold)]'
+  }
+};

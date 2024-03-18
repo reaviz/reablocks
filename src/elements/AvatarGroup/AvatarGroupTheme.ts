@@ -19,3 +19,11 @@ export const darkAvatarGroupTheme: AvatarGroupTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'text-white'].join(' ')
 };
+
+export const cssVarsAvatarGroupTheme: AvatarGroupTheme = {
+  ...baseTheme,
+  base: [
+    baseTheme.base,
+    'text-[var(--avatar-initials-color)] border-[var(--avatar-border)]'
+  ].join(' ')
+};

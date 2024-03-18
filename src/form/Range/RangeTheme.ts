@@ -46,3 +46,23 @@ export const darkRangeTheme: RangeTheme = {
   rangeHighlight: [baseTheme.rangeHighlight, 'bg-primary-600'].join(' '),
   tooltip: [baseTheme.tooltip, 'text-white bg-dark-background'].join(' ')
 };
+
+export const cssVarsRangeTheme: RangeTheme = {
+  ...baseTheme,
+  base: [
+    baseTheme.base,
+    'h-[var(--range-track-size)] bg-[var(--range-track-background)] rounded-[var(--range-track-border-radius)]'
+  ].join(' '),
+  drag: [
+    baseTheme.drag,
+    'top-[calc(-1_*_(var(--range-handle-size)_-_var(--range-track-size))_/_2)] left-[calc(-1_*_var(--range-handle-size)_/_2)] w-[var(--range-handle-size)] h-[var(--range-handle-size)] bg-[var(--range-handle-background)] rounded-[var(--range-handle-border-radius)]'
+  ].join(' '),
+  rangeHighlight: [
+    baseTheme.rangeHighlight,
+    'h-[var(--range-track-size)] bg-[var(--range-track-active-background)]'
+  ].join(' '),
+  tooltip: [
+    baseTheme.tooltip,
+    'rounded-[var(--border-radius-md)] [padding:_var(--spacing-md)] bg-[var(--tooltip-background)] text-[var(--tooltip-color)]'
+  ].join(' ')
+};

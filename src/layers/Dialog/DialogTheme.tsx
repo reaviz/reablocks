@@ -33,3 +33,11 @@ export const darkDialogTheme: DialogTheme = {
   ...baseTheme,
   inner: [baseTheme.inner, 'bg-dark-background text-white'].join(' ')
 };
+
+export const cssVarsDialogTheme: DialogTheme = {
+  ...baseTheme,
+  inner: [
+    baseTheme.inner,
+    'bg-[var(--dialog-background)] text-[var(--dialog-color)]'
+  ].join(' ')
+};

@@ -15,3 +15,8 @@ export const lightCommandPaletteSectionTheme: CommandPaletteSectionTheme = {
 export const darkCommandPaletteSectionTheme: CommandPaletteSectionTheme = {
   ...baseTheme
 };
+
+export const cssVarsCommandPaletteSectionTheme: CommandPaletteSectionTheme = {
+  ...baseTheme,
+  first: 'pt-[var(--spacing-md)]'
+};

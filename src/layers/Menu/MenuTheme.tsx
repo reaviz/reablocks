@@ -15,3 +15,7 @@ export const lightMenuTheme: MenuTheme = {
 export const darkMenuTheme: MenuTheme = {
   ...baseTheme
 };
+
+export const cssVarsMenuTheme: MenuTheme = {
+  ...baseTheme
+};

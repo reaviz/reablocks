@@ -29,3 +29,15 @@ export const lightVerticalSpacerTheme = {
 export const darkVerticalSpacerTheme = {
   ...baseTheme
 };
+
+export const cssVarsVerticalSpacerTheme = {
+  ...baseTheme,
+  size: {
+    xs: 'h-[var(--spacing-xs)]',
+    sm: 'h-[var(--spacing-sm)]',
+    md: 'h-[var(--spacing-md)]',
+    lg: 'h-[var(--spacing-lg)]',
+    xl: 'h-[var(--spacing-xl)]',
+    xxl: 'h-[var(--spacing-xxl)]'
+  }
+};

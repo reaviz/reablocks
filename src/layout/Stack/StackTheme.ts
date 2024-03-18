@@ -54,3 +54,9 @@ export const lightStackTheme = {
 export const darkStackTheme = {
   ...baseTheme
 };
+
+export const cssVarsStackTheme = {
+  ...baseTheme,
+  base: [baseTheme.base, 'gap-[var(--stack-gap)]'].join(' '),
+  dense: [baseTheme.dense, 'gap-[var(--stack-dense-gap)]'].join(' ')
+};

@@ -25,7 +25,16 @@ import {
   darkArrowTheme,
   darkChipTheme,
   lightChipTheme,
-  ChipTheme
+  ChipTheme,
+  cssVarsAvatarTheme,
+  cssVarsAvatarGroupTheme,
+  cssVarsArrowTheme,
+  cssVarsBadgeTheme,
+  cssVarsButtonTheme,
+  cssVarsChipTheme,
+  cssVarsLoaderTheme,
+  cssVarsKbdTheme,
+  cssVarsCommandPaletteTheme
 } from '../../../elements';
 
 import {
@@ -55,11 +64,27 @@ import {
   lightCalendarTheme,
   CalendarRangeTheme,
   darkCalendarRangeTheme,
-  lightCalendarRangeTheme
+  lightCalendarRangeTheme,
+  cssVarsCheckboxTheme,
+  cssVarsSelectTheme,
+  cssVarsInputTheme,
+  cssVarsCalendarTheme,
+  cssVarsCalendarRangeTheme,
+  cssVarsTextareaTheme,
+  cssVarsRadioTheme,
+  cssVarsRangeTheme,
+  cssVarsToggleTheme
 } from '../../../form';
 
 import {
   ContextMenuTheme,
+  cssVarsContextMenuTheme,
+  cssVarsDialogTheme,
+  cssVarsDrawerTheme,
+  cssVarsMenuTheme,
+  cssVarsNotificationTheme,
+  cssVarsPopoverTheme,
+  cssVarsTooltipTheme,
   darkContextMenuTheme,
   darkDialogTheme,
   darkDrawerTheme,
@@ -97,7 +122,16 @@ import {
   TabsTheme,
   darkTabsTheme,
   lightTabsTheme,
-  TreeTheme
+  TreeTheme,
+  cssVarsBlockTheme,
+  cssVarsListTheme,
+  cssVarsStackTheme,
+  cssVarsCardTheme,
+  cssVarsVerticalSpacerTheme,
+  cssVarsCollapseTheme,
+  cssVarsTreeTheme,
+  cssVarsTabsTheme,
+  cssVarsDividerTheme
 } from '../../../layout';
 
 import {
@@ -116,6 +150,7 @@ import {
 } from '../../../layout';
 
 import {
+  cssVarsTypographyTheme,
   darkTypographyTheme,
   lightTypographyTheme,
   TypographyTheme
@@ -136,7 +171,12 @@ import {
   darkSortTheme,
   DateFormatTheme,
   lightDateFormatTheme,
-  darkDateFormatTheme
+  darkDateFormatTheme,
+  cssVarsDateFormatTheme,
+  cssVarsEllipsisTheme,
+  cssVarsSortTheme,
+  cssVarsRedactTheme,
+  cssVarsPagerTheme
 } from '../../../data';
 
 export interface ReablocksTheme {
@@ -271,5 +311,50 @@ export const darkTheme: ReablocksTheme = {
     popover: darkPopoverTheme,
     pager: darkPagerTheme,
     tabs: darkTabsTheme
+  }
+};
+
+export const cssVarsTheme: ReablocksTheme = {
+  components: {
+    avatar: cssVarsAvatarTheme,
+    avatarGroup: cssVarsAvatarGroupTheme,
+    arrow: cssVarsArrowTheme,
+    badge: cssVarsBadgeTheme,
+    button: cssVarsButtonTheme,
+    block: cssVarsBlockTheme,
+    chip: cssVarsChipTheme,
+    contextMenu: cssVarsContextMenuTheme,
+    checkbox: cssVarsCheckboxTheme,
+    dateFormat: cssVarsDateFormatTheme,
+    dialog: cssVarsDialogTheme,
+    divider: cssVarsDividerTheme,
+    dotsLoader: cssVarsLoaderTheme,
+    drawer: cssVarsDrawerTheme,
+    ellipsis: cssVarsEllipsisTheme,
+    select: cssVarsSelectTheme,
+    list: cssVarsListTheme,
+    menu: cssVarsMenuTheme,
+    sort: cssVarsSortTheme,
+    stack: cssVarsStackTheme,
+    card: cssVarsCardTheme,
+    kbd: cssVarsKbdTheme,
+    verticalSpacer: cssVarsVerticalSpacerTheme,
+    notification: cssVarsNotificationTheme,
+    input: cssVarsInputTheme,
+    calendar: cssVarsCalendarTheme,
+    calendarRange: cssVarsCalendarRangeTheme,
+    commandPalette: cssVarsCommandPaletteTheme,
+    collapse: cssVarsCollapseTheme,
+    textarea: cssVarsTextareaTheme,
+    typography: cssVarsTypographyTheme,
+    radio: cssVarsRadioTheme,
+    range: cssVarsRangeTheme,
+    redact: cssVarsRedactTheme,
+    toggle: cssVarsToggleTheme,
+    tooltip: cssVarsTooltipTheme,
+    tree: cssVarsTreeTheme,
+    popover: cssVarsPopoverTheme,
+    pager: cssVarsPagerTheme,
+    tabs: cssVarsTabsTheme
   }
 };

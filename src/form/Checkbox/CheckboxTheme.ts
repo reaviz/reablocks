@@ -98,3 +98,16 @@ export const darkCheckboxTheme: CheckboxTheme = {
     }
   }
 } as CheckboxTheme;
+
+export const cssVarsCheckboxTheme: CheckboxTheme = {
+  ...baseTheme,
+  checkbox: [baseTheme.checkbox, 'fill-transparent'].join(' '),
+  check: [baseTheme.check, 'stroke-[var(--checkbox-check-stroke)]'].join(' '),
+  label: {
+    ...baseTheme.label,
+    base: [
+      baseTheme.label.base,
+      'text-[var(--checkbox-label-color)] ml-[var(--spacing-md)]'
+    ].join(' ')
+  }
+} as CheckboxTheme;

@@ -56,3 +56,30 @@ export const darkInputTheme: InputTheme = {
   input: [baseTheme.input, ' placeholder-zinc-400'].join(' '),
   disabled: [baseTheme.disabled, 'disabled-within:bg-dark-disabled'].join(' ')
 };
+
+export const cssVarsInputTheme: InputTheme = {
+  ...baseTheme,
+  base: [
+    baseTheme.base,
+    'bg-[var(--input-background)] rounded-[var(--input-border-radius)] [border:_var(--input-border)] focus-within:border-[var(--input-border-focus)]'
+  ].join(' '),
+  error: [baseTheme.error, 'border-[var(--error-background)]'].join(' '),
+  sizes: {
+    small: '[padding:_var(--input-spacing-sm)]',
+    medium: '[padding: var(--input-spacing-md)]',
+    large: 'padding: var(--input-spacing-lg)'
+  },
+  adornment: {
+    base: [
+      baseTheme.adornment.base,
+      '[&>svg]:w-[var(--input-adornment-size)] [&>svg]:h-[var(--input-adornment-size)] [&>svg]:fill-[var(--input-adornment-fill)]'
+    ].join(' '),
+    start: '[padding-right:_calc(var(--list-item-spacing)_/_2)]',
+    end: '[padding-left:_calc(var(--list-item-spacing)_/_2)]'
+  },
+  input: [
+    baseTheme.input,
+    'placeholder-[var(--input-color-placeholder)] '
+  ].join(' '),
+  disabled: [baseTheme.disabled, 'text-[var(--disabled-color)]'].join(' ')
+};

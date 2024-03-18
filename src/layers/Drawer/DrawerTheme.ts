@@ -47,3 +47,15 @@ export const darkDrawerTheme: DrawerTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-dark-background text-white'].join(' ')
 };
+
+export const cssVarsDrawerTheme: DrawerTheme = {
+  ...baseTheme,
+  base: [
+    baseTheme.base,
+    'bg-[var(--drawer-background)] text-[var(--drawer-color)]'
+  ].join(' '),
+  closeButton: {
+    ...baseTheme.closeButton,
+    base: [baseTheme.closeButton.base, 'text-[var(--drawer-color)]'].join(' ')
+  }
+};

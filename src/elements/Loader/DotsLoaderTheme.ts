@@ -27,3 +27,13 @@ export const darkDotsLoaderTheme: DotsLoaderTheme = {
   ...baseTheme,
   dot: [baseTheme.dot, 'bg-white'].join(' ')
 };
+
+export const cssVarsLoaderTheme: DotsLoaderTheme = {
+  ...baseTheme,
+  dot: [baseTheme.dot, 'bg-[var(--loader-background)]'].join(' '),
+  sizes: {
+    small: 'w-1 h-1 ml-var(--spacing-sm)',
+    medium: 'w-1.5 h-1.5 ml-var(--spacing-md)',
+    large: 'w-2 h-2 ml-var(--spacing-lg)'
+  }
+};

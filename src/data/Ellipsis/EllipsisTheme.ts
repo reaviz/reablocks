@@ -13,3 +13,7 @@ export const lightEllipsisTheme: EllipsisTheme = {
 export const darkEllipsisTheme: EllipsisTheme = {
   ...baseTheme
 };
+
+export const cssVarsEllipsisTheme: EllipsisTheme = {
+  ...baseTheme
+};

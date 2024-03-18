@@ -27,3 +27,11 @@ export const darkCommandPaletteItemTheme: CommandPaletteItemTheme = {
     'hover:bg-primary-600 text-gray-400 hover:text-white'
   ].join(' ')
 };
+
+export const cssVarsCommandPaletteItemTheme: CommandPaletteItemTheme = {
+  ...baseTheme,
+  clickable: [
+    baseTheme.clickable,
+    'hover:bg-[var(--primary-background)] text-[var(--primary-color-hover)]'
+  ].join(' ')
+};

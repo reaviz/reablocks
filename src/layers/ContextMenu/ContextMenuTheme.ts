@@ -13,3 +13,7 @@ export const lightContextMenuTheme: ContextMenuTheme = {
 export const darkContextMenuTheme: ContextMenuTheme = {
   ...baseTheme
 };
+
+export const cssVarsContextMenuTheme: ContextMenuTheme = {
+  ...baseTheme
+};

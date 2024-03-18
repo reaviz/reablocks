@@ -23,3 +23,12 @@ export const darkCardTheme: CardTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-dark-background text-white'].join(' ')
 };
+
+export const cssVarsCardTheme: CardTheme = {
+  ...baseTheme,
+  base: [
+    baseTheme.base,
+    '[padding:_var(--card-spacing)] bg-[var(--card-background)] text-[var(--card-color)] [border:_var(--card-border)] rounded-[var(--card-border-radius)]'
+  ].join(' '),
+  headerText: [baseTheme.headerText, 'mb-[var(--spacing-md)]'].join(' ')
+};

@@ -17,3 +17,7 @@ export const darkRedactTheme: RedactTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'text-white'].join(' ')
 };
+
+export const cssVarsRedactTheme: RedactTheme = {
+  ...baseTheme
+};

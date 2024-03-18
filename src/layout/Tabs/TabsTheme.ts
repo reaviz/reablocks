@@ -49,3 +49,7 @@ export const darkTabsTheme: TabsTheme = {
     }
   }
 };
+
+export const cssVarsTabsTheme: TabsTheme = {
+  ...baseTheme
+};

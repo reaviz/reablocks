@@ -111,3 +111,60 @@ export const darkButtonTheme: ButtonTheme = {
     error: 'bg-error-700 hover:bg-error-800 border-error-700 text-white'
   }
 };
+
+export const cssVarsButtonTheme: ButtonTheme = {
+  base: [
+    baseTheme.base,
+    '[border:_var(--button-border)] rounded-[var(--button-border)] [font-family:_var(--button-font-family)] [font-weight:_var(--button-font-weight)]'
+  ].join(' '),
+  disabled: [
+    baseTheme.disabled,
+    'data-[variant=filled]:disabled:bg-[var(--disabled-background)] disabled:text-[var(--button-disabled-color-on-background)] border-[var(--disabled-background)]'
+  ].join(' '),
+  fullWidth: baseTheme.fullWidth,
+  group: baseTheme.group,
+  groupText: baseTheme.groupText,
+  sizes: {
+    small: 'text-[var(--font-size-sm)] p-[var(--button-spacing-sm)]',
+    medium: 'text-[var(--font-size-md)] p-[var(--button-spacing-md)]',
+    large: 'text-[var(--font-size-lg)] p-[var(--button-spacing-lg)]'
+  },
+  adornment: {
+    ...baseTheme.adornment,
+    start: [
+      baseTheme.adornment.start,
+      '[padding-right:_calc(var(--list-item-spacing)_/_2)]'
+    ].join(' '),
+    end: [
+      baseTheme.adornment.start,
+      '[padding-left:_calc(var(--list-item-spacing)_/_2)]'
+    ].join(' '),
+    sizes: {
+      small:
+        '[&>svg]:w-[var(--button-adornment-size-sm)] [&>svg]:h-[var(--button-adornment-size-sm)]',
+      medium:
+        '[&>svg]:w-[var(--button-adornment-size-md)] [&>svg]:h-[var(--button-adornment-size-md)]',
+      large:
+        '[&>svg]:w-[var(--button-adornment-size-lg)] [&>svg]:h-[var(--button-adornment-size-lg)]'
+    }
+  },
+  variants: {
+    filled:
+      'bg-[var(--button-background)] text-[var(--button-color-on-background)] hover:bg-[var(--button-background-hover)] border-[var(--button-background)] hover:border-[var(--button-background-hover)]',
+    outline:
+      'bg-opacity-0 border-[var(--button-background)] hover:border-[var(--button-background-hover)] text-[var(--button-color)] hover:text-[var(--button-color-hover)] border',
+    text: 'bg-opacity-0 border-0'
+  },
+  colors: {
+    primary:
+      'bg-[var(--primary-background)] hover:bg-[var(--primary-background-hover)] border-[var(--primary-background)] border-[var(--primary-background-hover)] text-[var(--button-color-on-background)]',
+    secondary:
+      'bg-[var(--secondary-background)] hover:bg-[var(--secondary-background-hover)] border-[var(--secondary-background)] hover:border-[var(--secondary-background-hover)] text-[var(--button-color-on-background)]',
+    success:
+      'bg-[var(--success-background)] hover:bg-[var(--success-background-hover)] border-[var(--success-background)] hover:border-[var(--success-background-hover)] text-[var(--button-color-on-background)]',
+    warning:
+      'bg-[var(--warning-background)] hover:bg-[var(--warning-background-hover)] border-[var(--warning-background)] hover:border-[var(--warning-background-hover)] text-[var(--button-color-on-background)]',
+    error:
+      'bg-[var(--error-background)] hover:bg-[var(--error-background-hover)] border-[var(--error-background)] hover:border-[var(--error-background-hover)] text-[var(--button-color-on-background)]'
+  }
+};

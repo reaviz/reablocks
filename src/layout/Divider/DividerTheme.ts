@@ -25,3 +25,18 @@ export const darkDividerTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-zinc-600'].join(' ')
 };
+
+export const cssVarsDividerTheme = {
+  ...baseTheme,
+  base: [baseTheme.base, 'bg-[var(--divider-background)]'].join(' '),
+  orientation: {
+    horizontal: [
+      baseTheme.orientation.horizontal,
+      'my-[var(--divider-spacing)]'
+    ].join(' '),
+    vertical: [
+      baseTheme.orientation.horizontal,
+      ' mx-[var(--divider-spacing)]'
+    ].join(' ')
+  }
+};

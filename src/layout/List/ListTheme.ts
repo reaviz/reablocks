@@ -62,3 +62,54 @@ export const darkListTheme = {
   base: [baseTheme.base, 'text-white'].join(' '),
   header: [baseTheme.header, 'text-white'].join(' ')
 };
+
+export const cssVarsListTheme = {
+  ...baseTheme,
+  base: [baseTheme.base, 'text-[var(--list-item-color)]'].join(' '),
+  header: [
+    baseTheme.header,
+    'pl-[var(--spacing-md)] pr-[var(--spacing-md)]'
+  ].join(' '),
+
+  listItem: {
+    ...baseTheme.listItem,
+    base: [
+      baseTheme.listItem.base,
+      'p-[var(--list-item-spacing)] text-[var(--list-item-color)] rounded-[var(--list-item-border-radius)]'
+    ].join(' '),
+    clickable: [
+      baseTheme.listItem.clickable,
+      'hover:text-[var(--list-item-color-active)] hover:bg-[var(--list-item-background-active)]'
+    ].join(' '),
+    dense: {
+      ...baseTheme.listItem.dense,
+      base: [
+        baseTheme.listItem.dense.base,
+        '[padding:_var(--list-item-dense-spacing)]'
+      ].join(' '),
+      startAdornment: [
+        baseTheme.listItem.dense.startAdornment,
+        '[padding-right:_calc(var(--spacing-md)_/_2)]'
+      ].join(' '),
+      endAdornment: [
+        baseTheme.listItem.dense.endAdornment,
+        '[padding-left:_calc(var(--spacing-md)_/_2)]'
+      ].join(' ')
+    },
+    adornment: {
+      ...baseTheme.listItem.adornment,
+      start: [
+        baseTheme.listItem.adornment.start,
+        '[padding-right:_calc(var(--spacing-sm)_/_2)]'
+      ].join(' '),
+      end: [
+        baseTheme.listItem.adornment.start,
+        '[padding-left:_calc(var(--spacing-sm)_/_2)]'
+      ].join(' '),
+      svg: [
+        baseTheme.listItem.adornment.svg,
+        'fill:[var(--list-item-adornment-fill)]'
+      ].join(' ')
+    }
+  }
+};

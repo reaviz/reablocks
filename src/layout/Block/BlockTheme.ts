@@ -37,3 +37,24 @@ export const lightBlockTheme: BlockTheme = {
 export const darkBlockTheme: BlockTheme = {
   ...baseTheme
 };
+
+export const cssVarsBlockTheme: BlockTheme = {
+  ...baseTheme,
+  base: 'mb-[var(--block-spacing)]',
+  label: [
+    baseTheme.label,
+    '[font-size:_var(--block-label-size)] [font-weight:_var(--block-label-weight)]'
+  ].join(' '),
+  horizontal: {
+    ...baseTheme.horizontal,
+    label: [baseTheme.horizontal.label, 'mr-[var(--block-label-spacing)]'].join(
+      ' '
+    )
+  },
+  vertical: {
+    ...baseTheme.vertical,
+    label: [baseTheme.vertical.label, 'mb-[var(--block-label-spacing)]'].join(
+      ' '
+    )
+  }
+};

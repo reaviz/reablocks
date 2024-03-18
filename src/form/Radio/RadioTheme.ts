@@ -83,3 +83,39 @@ export const darkRadioTheme: RadioTheme = {
     base: [baseTheme.indicator.base, 'bg-primary-600'].join(' ')
   }
 };
+
+export const cssVarsRadioTheme: RadioTheme = {
+  ...baseTheme,
+  label: {
+    ...baseTheme.label,
+    base: [
+      baseTheme.label.base,
+      'text-[var(--radio-label-color)] ml-[var(--spacing-md)]'
+    ].join(' ')
+  },
+  radio: {
+    ...baseTheme.radio,
+    base: [
+      baseTheme.radio.base,
+      'bg-[var(--radio-background)] [border:_var(--radio-stroke-size)_solid_var(--radio-stroke)]'
+    ].join(' '),
+    checked: [
+      baseTheme.radio.checked,
+      'border-[var(--radio-stroke-active)]'
+    ].join(' ')
+  },
+  indicator: {
+    ...baseTheme.indicator,
+    base: [baseTheme.indicator.base, 'bg-[var(--radio-indicator-active)]'].join(
+      ' '
+    ),
+    sizes: {
+      small:
+        'w-[var(--radio-indicator-size,_6px)] h-[var(--radio-indicator-size,_6px)]',
+      medium:
+        'w-[var(--radio-indicator-size,_8px)] h-[var(--radio-indicator-size,_8px)]',
+      large:
+        'w-[var(--radio-indicator-size,_10px)] h-[var(--radio-indicator-size,_10px)]'
+    }
+  }
+};

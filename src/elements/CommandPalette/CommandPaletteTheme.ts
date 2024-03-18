@@ -1,15 +1,18 @@
 import {
   CommandPaletteInputTheme,
+  cssVarsCommandPaletteInputTheme,
   darkCommandPaletteInputTheme,
   lightCommandPaletteInputTheme
 } from './CommandPaletteInput';
 import {
   CommandPaletteItemTheme,
+  cssVarsCommandPaletteItemTheme,
   darkCommandPaletteItemTheme,
   lightCommandPaletteItemTheme
 } from './CommandPaletteItem';
 import {
   CommandPaletteSectionTheme,
+  cssVarsCommandPaletteSectionTheme,
   darkCommandPaletteSectionTheme,
   lightCommandPaletteSectionTheme
 } from './CommandPaletteSection';
@@ -41,4 +44,12 @@ export const darkCommandPaletteTheme: CommandPaletteTheme = {
   input: darkCommandPaletteInputTheme,
   item: darkCommandPaletteItemTheme,
   section: darkCommandPaletteSectionTheme
+};
+
+export const cssVarsCommandPaletteTheme: CommandPaletteTheme = {
+  base: [baseTheme.base, 'border-zinc-700'].join(' '),
+  inner: baseTheme.inner,
+  input: cssVarsCommandPaletteInputTheme,
+  item: cssVarsCommandPaletteItemTheme,
+  section: cssVarsCommandPaletteSectionTheme
 };

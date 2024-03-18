@@ -17,3 +17,11 @@ export const darkAvatarTheme: AvatarTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'text-white'].join(' ')
 };
+
+export const cssVarsAvatarTheme: AvatarTheme = {
+  ...baseTheme,
+  base: [
+    baseTheme.base,
+    'text-[var(--avatar-initials-color)] border-[var(--avatar-border)]'
+  ].join(' ')
+};

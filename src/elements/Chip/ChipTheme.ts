@@ -239,3 +239,89 @@ export const darkChipTheme: ChipTheme = {
   },
   deleteButton: baseTheme.deleteButton
 };
+
+export const cssVarsChipTheme: ChipTheme = {
+  base: [
+    baseTheme.base,
+    '[font-family:_var(--chip-font-family)] rounded-[var(--chip-border-radius)]'
+  ].join(' '),
+  adornment: {
+    ...baseTheme.adornment,
+    start: [baseTheme.adornment.start, 'pr-[var(--spacing-xs)]'].join(' '),
+    end: [baseTheme.adornment.end, 'pl-[var(--spacing-xs)]'].join(' ')
+  },
+  sizes: {
+    small: [baseTheme.sizes.small, 'p-[var(--spacing-xs)]'].join(' '),
+    medium: [
+      baseTheme.sizes.medium,
+      'py-[var(--spacing-xs)] px-[var(--spacing-xs)]'
+    ].join(' '),
+    large: [baseTheme.sizes.large, 'p-[var(--spacing-md)]'].join(' ')
+  },
+  focus: baseTheme.focus,
+  variants: {
+    filled: '[&>svg]:fill-[var(--chip-color)]',
+    outline:
+      'bg-opacity-0 border hover:bg-transparent border-[var(--chip-background)] text-[var(--chip-color)] [&>svg]:fill-[var(--chip-color)]',
+    text: 'bg-opacity-0 border-0 [&>svg]:fill-[var(--chip-color)]'
+  },
+  colors: {
+    default: {
+      base: 'bg-[var(--chip-background)] border-[var(--chip-background)] text-[var(--chip-color)] ',
+      selectable: [
+        baseTheme.colors.default.selectable,
+        'hover:bg-gray-500 hover:border-gray-500'
+      ].join(' '),
+      selected: '!bg-gray-500 text-white'
+    },
+    primary: {
+      base: 'bg-[color:var(--primary-background)] border-[color:var(--primary-background)]',
+      selectable: [
+        baseTheme.colors.default.selectable,
+        'hover:bg-[color:var(--primary-background-hover)] hover:border-[color:var(--primary-background-hover)]'
+      ].join(' '),
+      selected: '!bg-[color:var(--primary-background-hover)] text-white'
+    },
+    secondary: {
+      base: 'bg-[color:var(--secondary-background)] border-[color:var(--secondary-background)]',
+      selectable: [
+        baseTheme.colors.default.selectable,
+        'hover:bg-[color:var(--secondary-background-hover)] hover:border-[color:var(--secondary-background-hover)]'
+      ].join(' '),
+      selected: '!bg-[color:var(--secondary-background-hover)] text-white'
+    },
+    success: {
+      base: 'bg-[color:var(--success-background)] border-[color:var(--success-background)]',
+      selectable: [
+        baseTheme.colors.default.selectable,
+        'hover:bg-[color:var(--success-background-hover)] hover:border-[color:var(--success-background-hover)]'
+      ].join(' '),
+      selected: '!bg-[color:var(--success-background-hover)] text-white'
+    },
+    warning: {
+      base: 'bg-[color:var(--warning-background)] border-[color:var(--warning-background)]',
+      selectable: [
+        baseTheme.colors.default.selectable,
+        'hover:bg-[color:var(--warning-background-hover)] hover:border-[color:var(--warning-background-hover)]'
+      ].join(' '),
+      selected: '!bg-[color:var(--warning-background-hover)] text-white'
+    },
+    error: {
+      base: 'bg-[color:var(--error-background)] border-[color:var(--error-background)]',
+      selectable: [
+        baseTheme.colors.default.selectable,
+        'hover:bg-[color:var(--error-background-hover)] hover:border-[color:var(--error-background-hover)]'
+      ].join(' '),
+      selected: '!bg-[color:var(--error-background-hover)] text-white'
+    },
+    info: {
+      base: 'bg-[color:var(--info-background)] border-[color:var(--info-background)]',
+      selectable: [
+        baseTheme.colors.default.selectable,
+        'hover:bg-[color:var(--info-background-hover)] hover:border-[color:var(--info-background-hover)]'
+      ].join(' '),
+      selected: '!bg-[color:var(--info-background-hover)] text-white'
+    }
+  },
+  deleteButton: baseTheme.deleteButton
+};

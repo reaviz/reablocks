@@ -28,3 +28,12 @@ export const darkCommandPaletteInputTheme: CommandPaletteInputTheme = {
     'bg-dark-background text-white placeholder:text-slate-500'
   ].join(' ')
 };
+
+export const cssVarsCommandPaletteInputTheme: CommandPaletteInputTheme = {
+  ...baseTheme,
+  base: [baseTheme.base, 'border-[var(--body-background)]'].join(' '),
+  input: [
+    baseTheme.input,
+    'text-[var(--input-color)] placeholder:text-[var(--input-color-placeholder)] [padding:_var(--spacing-md)] [font-family:_var(--font-family)]'
+  ].join(' ')
+};
