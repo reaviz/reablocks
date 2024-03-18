@@ -30,7 +30,7 @@ export const darkVerticalSpacerTheme = {
   ...baseTheme
 };
 
-export const cssVarsVerticalSpacerTheme = {
+export const legacyVerticalSpacerTheme = {
   ...baseTheme,
   size: {
     xs: 'h-[var(--spacing-xs)]',

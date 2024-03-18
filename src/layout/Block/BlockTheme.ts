@@ -38,7 +38,7 @@ export const darkBlockTheme: BlockTheme = {
   ...baseTheme
 };
 
-export const cssVarsBlockTheme: BlockTheme = {
+export const legacyBlockTheme: BlockTheme = {
   ...baseTheme,
   base: 'mb-[var(--block-spacing)]',
   label: [

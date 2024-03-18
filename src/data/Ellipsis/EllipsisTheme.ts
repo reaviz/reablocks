@@ -14,6 +14,6 @@ export const darkEllipsisTheme: EllipsisTheme = {
   ...baseTheme
 };
 
-export const cssVarsEllipsisTheme: EllipsisTheme = {
+export const legacyEllipsisTheme: EllipsisTheme = {
   ...baseTheme
 };

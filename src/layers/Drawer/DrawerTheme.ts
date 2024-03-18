@@ -48,7 +48,7 @@ export const darkDrawerTheme: DrawerTheme = {
   base: [baseTheme.base, 'bg-dark-background text-white'].join(' ')
 };
 
-export const cssVarsDrawerTheme: DrawerTheme = {
+export const legacyDrawerTheme: DrawerTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,

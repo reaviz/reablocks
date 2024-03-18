@@ -26,7 +26,7 @@ export const darkSelectTheme: SelectTheme = {
   selectMenu: darkSelectMenuTheme
 };
 
-export const cssVarsSelectTheme: SelectTheme = {
+export const legacySelectTheme: SelectTheme = {
   selectInput: cssVarsSelectInputTheme,
   selectMenu: cssVarsSelectMenuTheme
 };

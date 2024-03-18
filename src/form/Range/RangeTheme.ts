@@ -47,7 +47,7 @@ export const darkRangeTheme: RangeTheme = {
   tooltip: [baseTheme.tooltip, 'text-white bg-dark-background'].join(' ')
 };
 
-export const cssVarsRangeTheme: RangeTheme = {
+export const legacyRangeTheme: RangeTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,

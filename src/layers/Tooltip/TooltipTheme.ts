@@ -18,7 +18,7 @@ export const darkTooltipTheme: TooltipTheme = {
   base: [baseTheme.base, 'bg-neutral-800 text-white'].join(' ')
 };
 
-export const cssVarsTooltipTheme: TooltipTheme = {
+export const legacyTooltipTheme: TooltipTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,

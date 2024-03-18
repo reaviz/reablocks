@@ -46,7 +46,7 @@ export const darkCommandPaletteTheme: CommandPaletteTheme = {
   section: darkCommandPaletteSectionTheme
 };
 
-export const cssVarsCommandPaletteTheme: CommandPaletteTheme = {
+export const legacyCommandPaletteTheme: CommandPaletteTheme = {
   base: [baseTheme.base, 'border-zinc-700'].join(' '),
   inner: baseTheme.inner,
   input: cssVarsCommandPaletteInputTheme,

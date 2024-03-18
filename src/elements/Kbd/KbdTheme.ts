@@ -16,7 +16,7 @@ export const darkKbdTheme: KbdTheme = {
   ...baseTheme
 };
 
-export const cssVarsKbdTheme: KbdTheme = {
+export const legacyKbdTheme: KbdTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'gap-[var(--spacing-sm);]'].join(' '),
   chip: [

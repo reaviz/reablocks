@@ -57,7 +57,7 @@ export const darkInputTheme: InputTheme = {
   disabled: [baseTheme.disabled, 'disabled-within:bg-dark-disabled'].join(' ')
 };
 
-export const cssVarsInputTheme: InputTheme = {
+export const legacyInputTheme: InputTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,

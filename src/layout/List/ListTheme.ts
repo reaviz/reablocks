@@ -63,7 +63,7 @@ export const darkListTheme = {
   header: [baseTheme.header, 'text-white'].join(' ')
 };
 
-export const cssVarsListTheme = {
+export const legacyListTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'text-[var(--list-item-color)]'].join(' '),
   header: [

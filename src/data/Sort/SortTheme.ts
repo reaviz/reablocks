@@ -28,7 +28,7 @@ export const darkSortTheme: SortTheme = {
   base: [baseTheme.base, 'text-white'].join(' ')
 };
 
-export const cssVarsSortTheme: SortTheme = {
+export const legacySortTheme: SortTheme = {
   ...baseTheme,
   icon: {
     ...baseTheme.icon,

@@ -62,7 +62,7 @@ export const darkTreeTheme: TreeTheme = {
   }
 };
 
-export const cssVarsTreeTheme: TreeTheme = {
+export const legacyTreeTheme: TreeTheme = {
   ...baseTheme,
   node: {
     ...baseTheme.node,

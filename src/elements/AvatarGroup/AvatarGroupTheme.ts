@@ -20,7 +20,7 @@ export const darkAvatarGroupTheme: AvatarGroupTheme = {
   base: [baseTheme.base, 'text-white'].join(' ')
 };
 
-export const cssVarsAvatarGroupTheme: AvatarGroupTheme = {
+export const legacyAvatarGroupTheme: AvatarGroupTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,

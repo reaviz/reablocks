@@ -16,6 +16,6 @@ export const darkMenuTheme: MenuTheme = {
   ...baseTheme
 };
 
-export const cssVarsMenuTheme: MenuTheme = {
+export const legacyMenuTheme: MenuTheme = {
   ...baseTheme
 };

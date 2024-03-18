@@ -73,7 +73,7 @@ export const darkCalendarTheme: CalendarTheme = {
   }
 };
 
-export const cssVarsCalendarTheme: CalendarTheme = {
+export const legacyCalendarTheme: CalendarTheme = {
   ...baseTheme,
   header: [
     baseTheme.header,

@@ -90,7 +90,7 @@ export const darkNotificationTheme: NotificationTheme = {
   }
 };
 
-export const cssVarsNotificationTheme: NotificationTheme = {
+export const legacyNotificationTheme: NotificationTheme = {
   ...baseTheme,
   notification: {
     ...baseTheme.notification,

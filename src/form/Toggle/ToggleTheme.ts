@@ -56,7 +56,7 @@ export const darkToggleTheme: ToggleTheme = {
   }
 };
 
-export const cssVarsToggleTheme: ToggleTheme = {
+export const legacyToggleTheme: ToggleTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,

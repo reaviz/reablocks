@@ -24,7 +24,7 @@ export const darkArrowTheme: ArrowTheme = {
   base: [baseTheme.base, 'text-white'].join(' ')
 };
 
-export const cssVarsArrowTheme: ArrowTheme = {
+export const legacyArrowTheme: ArrowTheme = {
   ...baseTheme,
   base: [baseTheme.base].join(' ')
 };

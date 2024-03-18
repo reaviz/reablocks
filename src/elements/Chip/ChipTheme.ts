@@ -240,7 +240,7 @@ export const darkChipTheme: ChipTheme = {
   deleteButton: baseTheme.deleteButton
 };
 
-export const cssVarsChipTheme: ChipTheme = {
+export const legacyChipTheme: ChipTheme = {
   base: [
     baseTheme.base,
     '[font-family:_var(--chip-font-family)] rounded-[var(--chip-border-radius)]'

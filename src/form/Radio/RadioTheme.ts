@@ -84,7 +84,7 @@ export const darkRadioTheme: RadioTheme = {
   }
 };
 
-export const cssVarsRadioTheme: RadioTheme = {
+export const legacyRadioTheme: RadioTheme = {
   ...baseTheme,
   label: {
     ...baseTheme.label,

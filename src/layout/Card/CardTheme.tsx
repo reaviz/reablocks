@@ -24,7 +24,7 @@ export const darkCardTheme: CardTheme = {
   base: [baseTheme.base, 'bg-dark-background text-white'].join(' ')
 };
 
-export const cssVarsCardTheme: CardTheme = {
+export const legacyCardTheme: CardTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,

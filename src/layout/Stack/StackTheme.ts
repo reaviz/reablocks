@@ -55,7 +55,7 @@ export const darkStackTheme = {
   ...baseTheme
 };
 
-export const cssVarsStackTheme = {
+export const legacyStackTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'gap-[var(--stack-gap)]'].join(' '),
   dense: [baseTheme.dense, 'gap-[var(--stack-dense-gap)]'].join(' ')

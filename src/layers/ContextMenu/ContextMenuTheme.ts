@@ -14,6 +14,6 @@ export const darkContextMenuTheme: ContextMenuTheme = {
   ...baseTheme
 };
 
-export const cssVarsContextMenuTheme: ContextMenuTheme = {
+export const legacyContextMenuTheme: ContextMenuTheme = {
   ...baseTheme
 };

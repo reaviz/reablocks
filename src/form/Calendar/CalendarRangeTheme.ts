@@ -30,7 +30,7 @@ export const darkCalendarRangeTheme: CalendarRangeTheme = {
   days: darkCalendarTheme.days
 };
 
-export const cssVarsCalendarRangeTheme: CalendarRangeTheme = {
+export const legacyCalendarRangeTheme: CalendarRangeTheme = {
   base: baseTheme.base,
   header: baseTheme.header,
   title: baseTheme.title,

@@ -14,6 +14,6 @@ export const darkCollapseTheme: CollapseTheme = {
   ...baseTheme
 };
 
-export const cssVarsCollapseTheme: CollapseTheme = {
+export const legacyCollapseTheme: CollapseTheme = {
   ...baseTheme
 };

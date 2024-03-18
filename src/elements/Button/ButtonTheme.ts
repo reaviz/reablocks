@@ -112,7 +112,7 @@ export const darkButtonTheme: ButtonTheme = {
   }
 };
 
-export const cssVarsButtonTheme: ButtonTheme = {
+export const legacyButtonTheme: ButtonTheme = {
   base: [
     baseTheme.base,
     '[border:_var(--button-border)] rounded-[var(--button-border)] [font-family:_var(--button-font-family)] [font-weight:_var(--button-font-weight)]'

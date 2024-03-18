@@ -16,7 +16,7 @@ export const darkDateFormatTheme: DateFormatTheme = {
   ...baseTheme
 };
 
-export const cssVarsDateFormatTheme: DateFormatTheme = {
+export const legacyDateFormatTheme: DateFormatTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'text-[var(--color-primary)]'].join(' ')
 };

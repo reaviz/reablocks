@@ -61,7 +61,7 @@ export const darkTypographyTheme = {
   ...baseTheme
 };
 
-export const cssVarsTypographyTheme = {
+export const legacyTypographyTheme = {
   ...baseTheme,
   colors: {
     primary: 'text-[var(--primary-color)]',

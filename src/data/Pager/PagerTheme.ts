@@ -61,7 +61,7 @@ export const darkPagerTheme: PagerTheme = {
   pagerDisplayItems: [baseTheme.pagerDisplayItems, 'text-slate-500'].join(' ')
 };
 
-export const cssVarsPagerTheme: PagerTheme = {
+export const legacyPagerTheme: PagerTheme = {
   ...(baseTheme as PagerTheme),
   pages: {
     ...baseTheme.pages,

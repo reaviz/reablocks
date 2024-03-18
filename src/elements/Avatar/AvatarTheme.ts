@@ -18,7 +18,7 @@ export const darkAvatarTheme: AvatarTheme = {
   base: [baseTheme.base, 'text-white'].join(' ')
 };
 
-export const cssVarsAvatarTheme: AvatarTheme = {
+export const legacyAvatarTheme: AvatarTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,

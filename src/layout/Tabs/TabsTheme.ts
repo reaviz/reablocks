@@ -50,6 +50,6 @@ export const darkTabsTheme: TabsTheme = {
   }
 };
 
-export const cssVarsTabsTheme: TabsTheme = {
+export const legacyTabsTheme: TabsTheme = {
   ...baseTheme
 };

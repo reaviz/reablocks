@@ -18,7 +18,7 @@ export const darkPopoverTheme: PopoverTheme = {
   base: [baseTheme.base, 'bg-neutral-800 text-white'].join(' ')
 };
 
-export const cssVarsPopoverTheme: PopoverTheme = {
+export const legacyPopoverTheme: PopoverTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,

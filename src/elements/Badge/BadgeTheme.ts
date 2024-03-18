@@ -63,7 +63,7 @@ export const darkBadgeTheme: BadgeTheme = {
   }
 };
 
-export const cssVarsBadgeTheme: BadgeTheme = {
+export const legacyBadgeTheme: BadgeTheme = {
   base: baseTheme.base,
   disableMargins: baseTheme.disableMargins,
   badge: [

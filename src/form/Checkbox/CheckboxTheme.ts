@@ -99,7 +99,7 @@ export const darkCheckboxTheme: CheckboxTheme = {
   }
 } as CheckboxTheme;
 
-export const cssVarsCheckboxTheme: CheckboxTheme = {
+export const legacyCheckboxTheme: CheckboxTheme = {
   ...baseTheme,
   checkbox: [baseTheme.checkbox, 'fill-transparent'].join(' '),
   check: [baseTheme.check, 'stroke-[var(--checkbox-check-stroke)]'].join(' '),

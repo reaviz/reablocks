@@ -1,4 +1,4 @@
-import { cssVarsInputTheme, darkInputTheme, lightInputTheme } from '../Input';
+import { legacyInputTheme, darkInputTheme, lightInputTheme } from '../Input';
 
 export interface TextareaTheme {
   base: string;
@@ -37,25 +37,25 @@ export const darkTextareaTheme: TextareaTheme = {
   sizes: darkInputTheme.sizes
 } as TextareaTheme;
 
-export const cssVarsTextareaTheme: TextareaTheme = {
+export const legacyTextareaTheme: TextareaTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    cssVarsInputTheme.base,
+    legacyInputTheme.base,
     'bg-[var(--textarea-background)] rounded-[var(--textarea-border-radius)] [border:_var(--textarea-border)] focus:border-[var(--textarea-border-focus)]'
   ].join(' '),
   input: [
     baseTheme.input,
-    cssVarsInputTheme.input,
+    legacyInputTheme.input,
     '[font-family:_var(--font-family)] text-[var(--textarea-color)] placeholder-[var(--textarea-color-placeholder)]'
   ].join(' '),
   disabled: [
     baseTheme.disabled,
-    cssVarsInputTheme.disabled,
+    legacyInputTheme.disabled,
     'text-[var(--disabled-color)]'
   ].join(' '),
-  fullWidth: cssVarsInputTheme.fullWidth,
-  error: cssVarsInputTheme.error,
+  fullWidth: legacyInputTheme.fullWidth,
+  error: legacyInputTheme.error,
   sizes: {
     small: '[padding:_var(--textarea-spacing-sm)]',
     medium: '[padding: var(--textarea-spacing-md)]',

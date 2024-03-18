@@ -26,7 +26,7 @@ export const darkDividerTheme = {
   base: [baseTheme.base, 'bg-zinc-600'].join(' ')
 };
 
-export const cssVarsDividerTheme = {
+export const legacyDividerTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-[var(--divider-background)]'].join(' '),
   orientation: {
