@@ -8,30 +8,44 @@ import ThemeRender from '../../ThemeRender.tsx';
 <Meta title="Docs/Components/Elements/Button" />
 
 # Button
-Simple button component with variants with different types, colors and sizes.
 
+The "Button" component is a fundamental UI element designed for interactions, offering a variety of styles, sizes, and colors to accommodate different use cases within an application. 
+Additionally, a "ButtonGroup" is provided to layout multiple buttons in a cohesive unit, enhancing the visual consistency and usability of grouped actions.
 ## Examples
-### Buttons with type variations
+### Basic Usage
+The Button component supports several variants including "filled", "outline", and "text", allowing for flexibility in design and application:
 <Canvas sourceState="shown" of={ButtonStories.Variants} />
-### Buttons with size variations
+
+### Advanced Customization
+#### Sizes and Colors
+Buttons can be customized further with size and color variations, providing a wide range of styling options to match your UI design:
 <Canvas of={ButtonStories.Sizes} />
-### Buttons with color variations
+
 <Canvas of={ButtonStories.Colors} />
-### Buttons with Icon
+
+#### Buttons with Icon
+Incorporating icons with text can enhance button functionality and user understanding:
 <Canvas of={ButtonStories.WithIcon} />
-### Group of Buttons
+#### Group of Buttons
+The ButtonGroup component allows for organizing multiple buttons together, which is particularly useful for related actions:
 <Canvas of={ButtonGroupStories.Colors} />
 
-## Theme
-This component uses the following default theme:
+## Theme Customization
+The Button component comes with a default theme that can be customized for consistency with your application's design language:
 
 <ThemeRender theme={darkButtonTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
+Customize the `Button` and `ButtonGroup` components through the following properties:
 ### Button
 <ArgTypes of={Button} />
 
 ### ButtonGroup
 <ArgTypes of={ButtonGroup} />
+
+## Design and Usability Tips
+
+- **Focus Indicators:** Maintain visible focus indicators for keyboard navigation, aiding in accessibility and indicating the current interactive element to users.
+- **Efficient Space Use:** Optimize button sizes and padding to use space efficiently while ensuring touch targets meet accessibility standards (minimum 44x44 pixels).

@@ -6,23 +6,35 @@ import ThemeRender from '../../ThemeRender.tsx';
 <Meta title="Docs/Components/Form/Toggle" />
 
 # Toggle
-The Toggle component provides a user-friendly way to switch between two states, such as on/off or enabled/disabled, enhancing interactivity in user interfaces.
-It's commonly used for settings, preferences, and quick mode changes.
+The Toggle component is a streamlined interface element that enables users to swiftly switch between two states, such as on/off or enabled/disabled. 
+It's especially valuable in settings and preference panels for toggling features or modes with a simple click.
 
 ## Examples
-### Basic example
+### Basic Usage
+This basic example demonstrates a toggle that users can interact with to switch states. It's a fundamental illustration of the Toggle component's functionality:
 <Canvas sourceState="shown" of={ToggleStories.Simple} />
-### Toggle size variations
+
+### Advanced Customization
+#### Toggle Size Variations
+Showcase the Toggle component in different sizes—small, medium, and large—to accommodate various design requirements and enhance interface flexibility:
 <Canvas sourceState="shown" of={ToggleStories.Sizes} />
-### Toggle state: disabled
+
+#### Disabled Toggle State
+Illustrates a Toggle component in a disabled state, which is non-interactive and signifies an option that is temporarily unavailable:
 <Canvas sourceState="shown" of={ToggleStories.Disabled} />
 
-## Theme
-This component uses the following default theme:
+## Theme Customization
+The Toggle component is designed with a default theme that can be customized to match your application's aesthetic:
 
 <ThemeRender theme={darkToggleTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
+Tailor the Toggle component's functionality with a suite of configurable properties:
 <ArgTypes of={Toggle} />
+
+## Design and Usability Tips
+
+- **Clear State Indication:** Design the Toggle with distinct colors or icons for each state (on/off) to clarify its current status at a glance. This immediate visual feedback is crucial for intuitive interaction.
+- **Accessible Labeling:** While the Toggle inherently suggests binary choices, pairing it with accessible, descriptive labels ensures that all users, including those using screen readers, understand the context and implications of the toggle state.

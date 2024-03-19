@@ -3,21 +3,27 @@ import { Meta } from '@storybook/addon-docs';
 <Meta title="Docs/Theme/Blocks" />
 
 # Theme Blocks
-A set of components to use in Storybook to display theme. It provides
-the following block components:
+Theme blocks are a collection of components designed to display the various elements of your theme within Storybook. 
+These components offer a visual representation of your design system, including typography, colors, spacing, borders, shadows, palette variations, and more. 
+By incorporating these blocks into your Storybook, you can easily document and showcase your theme's design tokens.
 
-- Typography Block
-- Color Block
-- Spacing Block
-- Border Block
-- Shadow Block
-- Palette Block
-- Components Block
-- Icons Block ( icons not included )
+### Available Theme Block Components
+- **Typography Block:** Demonstrates the font families, sizes, and weights available in your theme.
+- **Color Block:** Displays the color palette defined in your theme, including primary, secondary, and any other custom colors.
+- **Spacing Block:** Visualizes the spacing scale used in your theme, helpful for understanding and using consistent spacing throughout your UI.
+- **Border Block:** Shows the available border radius options, aiding in the application of consistent border styles.
+- **Shadow Block:** Exhibits the shadow options defined in your theme, making it easy to apply consistent shadow effects.
+- **Palette Block:** Presents variations of your color palette, useful for exploring different shades and tints within your theme.
+- **Components Block:** A comprehensive showcase of the styled components within your theme, including buttons, inputs, and more.
+- **Icons Block:** Displays the icons used in your theme. **NOTE** that icons are not included and must be supplied.
 
-## Example
-Here is an example Storybook story that uses the theme Blocks.
+&nbsp;
 
+## Implementing Theme Blocks in a Storybook Story
+#### Below is an example that demonstrates how to use the theme block components in a Storybook story. 
+
+**NOTE:** This example utilizes the `ThemeProvider` in the story decorator, allowing each story to inherit the dark theme context. 
+Alternatively, you could use `ThemeProvider` in your `.storybook/preview.js` file to apply the theme globally to all stories.
 ```tsx
 import React from 'react';
 import {
@@ -97,7 +103,3 @@ export const Icons = () => (
 );
 
 ````
-
-NOTE: This example uses the `ThemeProvider` in the story decorator,
-but you can also use it in the `preview.js` file to wrap all stories.
-
