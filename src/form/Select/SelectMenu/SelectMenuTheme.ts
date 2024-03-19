@@ -62,7 +62,7 @@ export const cssVarsSelectMenuTheme: SelectMenuTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'bg-[var(--select-menu-background)] [border:_var(--select-menu-border)]'
+    'bg-[var(--select-menu-background)] [border:_var(--select-menu-border)] rounded-[var(--select-menu-border-radius)]'
   ].join(' '),
   groupTitle: [baseTheme.groupTitle, 'text-gray-600'].join(' '),
   option: {
@@ -73,7 +73,7 @@ export const cssVarsSelectMenuTheme: SelectMenuTheme = {
     ].join(' '),
     hover: [
       baseTheme.option.hover,
-      'hover:bg-[var(--select-menu-item-active-background)] text-[var(--select-menu-item-active-color)]'
+      'hover:bg-[var(--select-menu-item-active-background)] hover:text-[var(--select-menu-item-active-color)]'
     ].join(' '),
     active: [
       baseTheme.option.active,

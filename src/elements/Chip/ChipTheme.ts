@@ -254,7 +254,7 @@ export const legacyChipTheme: ChipTheme = {
     small: [baseTheme.sizes.small, 'p-[var(--spacing-xs)]'].join(' '),
     medium: [
       baseTheme.sizes.medium,
-      'py-[var(--spacing-xs)] px-[var(--spacing-xs)]'
+      'py-[var(--spacing-xs)] px-[var(--spacing-md)]'
     ].join(' '),
     large: [baseTheme.sizes.large, 'p-[var(--spacing-md)]'].join(' ')
   },

@@ -40,7 +40,7 @@ const baseTheme: SelectInputTheme = {
     'flex-wrap flex items-center overflow-hidden flex-1 max-w-full [&>div]:max-w-full',
   input:
     'p-0 bg-transparent text-xs text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-none disabled:text-disabled',
-  placeholder: 'placeholder:text-slate-400',
+  placeholder: '',
   prefix: 'overflow-hidden whitespace-nowrap text-ellipsis',
   suffix: {
     container: 'flex items-center justify-center',

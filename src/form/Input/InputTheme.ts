@@ -66,8 +66,8 @@ export const legacyInputTheme: InputTheme = {
   error: [baseTheme.error, 'border-[var(--error-background)]'].join(' '),
   sizes: {
     small: '[padding:_var(--input-spacing-sm)]',
-    medium: '[padding: var(--input-spacing-md)]',
-    large: 'padding: var(--input-spacing-lg)'
+    medium: '[padding:_var(--input-spacing-md)]',
+    large: 'padding:_var(--input-spacing-lg)'
   },
   adornment: {
     base: [
