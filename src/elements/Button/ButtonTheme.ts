@@ -125,9 +125,9 @@ export const legacyButtonTheme: ButtonTheme = {
   group: baseTheme.group,
   groupText: baseTheme.groupText,
   sizes: {
-    small: 'text-[var(--font-size-sm)] p-[var(--button-spacing-sm)]',
-    medium: 'text-[var(--font-size-md)] p-[var(--button-spacing-md)]',
-    large: 'text-[var(--font-size-lg)] p-[var(--button-spacing-lg)]'
+    small: '[font-size:_var(--font-size-sm)] p-[var(--button-spacing-sm)]',
+    medium: '[font-size:_var(--font-size-md)] p-[var(--button-spacing-md)]',
+    large: '[font-size:_var(--font-size-lg)] p-[var(--button-spacing-lg)]'
   },
   adornment: {
     ...baseTheme.adornment,
