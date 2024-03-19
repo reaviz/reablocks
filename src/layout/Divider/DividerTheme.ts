@@ -35,7 +35,7 @@ export const legacyDividerTheme = {
       'my-[var(--divider-spacing)]'
     ].join(' '),
     vertical: [
-      baseTheme.orientation.horizontal,
+      baseTheme.orientation.vertical,
       ' mx-[var(--divider-spacing)]'
     ].join(' ')
   }
