@@ -1,4 +1,6 @@
 import { differenceInDays } from 'date-fns';
+import { describe, test, expect } from 'vitest';
+
 import {
   getDayAttributes,
   getDayLabels,
