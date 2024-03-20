@@ -1,4 +1,5 @@
 import { Meta } from '@storybook/addon-docs';
+import DiffRender from '../DiffRender.tsx';
 
 <Meta title="Docs/Getting Started/Migration" />
 
@@ -12,6 +13,160 @@ that the old themeing approach using CSS variables is deprecated.
 
 To get started with the transition to 6.x, let's follow the steps below:
 
+## 1. Follow Getting Started guide to install Tailwind
+#### **1.1** Install Tailwind CSS:
+
+Follow this guide: [Getting Started](http://localhost:9009/?path=/docs/docs-getting-started-setup--docs#installing-tailwind-css)
+
+## 2. Install **Tailwind CSS Variables** as dev dependency
+#### **2.1** Install package
 ```shell
-TODO install tailwind
+  npm install -D @mertasan/tailwindcss-variables
 ```
+
+#### **2.2** Add the plugin to your `tailwind.config.js`
+```js
+import tailwindcssVariables from '@mertasan/tailwindcss-variables';
+// ...
+module.exports = {
+// ...
+  plugins: [
+    tailwindcssVariables
+  ]
+}
+```
+
+## 3. Define legacy theme variables
+#### **3.1** Rename your old theme to `legacyTheme.tx`
+
+#### **3.2** Import legacyTheme in `tailwind.config.js` and define the theme variables.
+
+```js
+
+import defaultTheme from 'tailwindcss/defaultTheme';
+import tailwindcssVariables from '@mertasan/tailwindcss-variables';
+import { legacyTheme } from './src/Theme/legacyTheme.ts';
+
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    './src/**/*.{js,jsx,ts,tsx,css}',
+    './node_modules/reablocks/**/*.{js,tsx,cjs}'
+  ],
+  theme: {
+    extend: {
+      colors: legacyTheme.colors,
+      spacing: legacyTheme.spacings,
+      fontSize: legacyTheme.typography.sizes,
+      fontFamily: {
+        'mono': ['"Monaco, monospace"', ...defaultTheme.fontFamily.sans]
+      },
+      fontWeight: legacyTheme.typography.weights,
+    },
+    variables: {
+      DEFAULT: {
+        ...legacyTheme.colors,
+        spacing: legacyTheme.spacings,
+        'font-size': legacyTheme.typography.sizes,
+        'font-weight': legacyTheme.typography.weights,
+        'shadow': legacyTheme.shadows,
+        'gradient': legacyTheme.gradients,
+        border: legacyTheme.borders,
+        // Legacy theme components variables
+        ...Object.values(legacyTheme.components).reduce((acc, obj) => ({ ...acc, ...obj }), {}),
+      }
+    }
+  },
+  plugins: [
+    tailwindcssVariables
+  ]
+}
+```
+Note: Prefer to use plugin without `require`, because it's will not work in Storybook ThemeBlocks.
+
+***Wrong:***
+```js
+{
+  plugins: [
+    require('@mertasan/tailwindcss-variables')
+  ]
+}
+```
+***Right:***
+```js
+import tailwindcssVariables from '@mertasan/tailwindcss-variables';
+
+{
+  plugins: [
+    tailwindcssVariables
+  ]
+}
+```
+
+#### **3.3** Create `config.ts` file to have access to Tailwind tokens from code.
+
+```js
+import resolveConfig from 'tailwindcss/resolveConfig';
+import tailwindConfig from '../path_to_config/tailwind.config.js';
+
+const { theme: TWConfig } = resolveConfig(tailwindConfig);
+
+export default TWConfig;
+
+````
+#### **3.4** Note. If you are using Reablocks Storybook blocks need to be updated to use the new themeing approach.
+
+```diff
+import TWConfig from './config';
+
+- export const Colors = () => <ColorBlocks />;
++ export const Colors = () => <ColorBlocks colors={TWConfig.colors} />;
+```
+
+## 4. Define new theme and update it in your ThemeProvider
+
+#### **4.1** Create `theme.ts` file and define the new theme.
+Note: Here is used `legacyThemeVars` to extend the new theme with the old theme variables, also available `darkTheme` and `lightTheme` themes (these themes doesn't support legacy css variable).
+```js
+import { extendTheme, legacyThemeVars, PartialReablocksTheme } from 'reablocks';
+
+const theme: PartialReablocksTheme = {
+  // Override the default theme here, Example:
+}
+
+export const projectNameTheme = extendTheme(legacyThemeVars, theme);
+```
+
+#### **4.2** Update theme in your `ThemeProvider`.
+
+```diff
+import { projectNameTheme } from './path_to_theme/theme.ts';
+
+- <ThemeProvider theme={oldTheme}>
++ <ThemeProvider theme={projectNameTheme}>
+```
+
+## 5. Update your components to use the new theme approach with Tailwind
+
+```js
+import { extendTheme, legacyThemeVars, PartialReablocksTheme } from 'reablocks';
+
+const theme: PartialReablocksTheme = {
+  input: {
+    base: `${legacyThemeVars.components.input.base} text-white`, // use concatenation to extend the default legacyThemeVars theme
+    input: `placeholder:font-normal` // full override of the default legacyThemeVars theme styles for input
+  }
+}
+
+export const projectNameTheme = extendTheme(legacyThemeVars, theme);
+```
+
+<DiffRender
+  code={`import { projectNameTheme } from './path_to_theme/theme.ts';
+
+    - <ThemeProvider theme={oldTheme}>
+    + <ThemeProvider theme={darkTheme}>
+`}
+  removedLines={[3]}
+  addedLines={[4]}
+/>
