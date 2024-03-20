@@ -3,28 +3,28 @@ import DiffRender from '../DiffRender.tsx';
 
 <Meta title="Docs/Getting Started/Migration" />
 
-# Migration
+# Migrating from 5.x to 6.x
+We're excited to announce that version 6.x of our Storybook library introduces a groundbreaking approach to theming with Tailwind CSS. 
+This upgrade allows you to leverage the full capabilities of Tailwind CSS, offering a more flexible and powerful way to style your components. 
+As part of this transition, we're moving away from the previous CSS variables method to embrace a more dynamic and efficient workflow.
 
-## Migrating from 5.x to 6.x
-In 6.x, we introduced a new way to theme reablocks using
-Tailwind. This means that you can now use the full power of
-Tailwind to style your blocks and components. This also means
-that the old themeing approach using CSS variables is deprecated.
+## Getting Started with the Migration
+To ensure a seamless transition to version 6.x, please follow the steps outlined below. 
 
-To get started with the transition to 6.x, let's follow the steps below:
+### Step 1:Install Tailwind CSS
+Begin by installing Tailwind CSS in your project:
+#### **1.** Install Tailwind CSS: 
+Refer to the Tailwind CSS [Getting Started](http://localhost:9009/?path=/docs/docs-getting-started-setup--docs#installing-tailwind-css) guide for installation instructions.
 
-## 1. Follow Getting Started guide to install Tailwind
-#### **1.1** Install Tailwind CSS:
-
-Follow this guide: [Getting Started](http://localhost:9009/?path=/docs/docs-getting-started-setup--docs#installing-tailwind-css)
-
-## 2. Install **Tailwind CSS Variables** as dev dependency
-#### **2.1** Install package
+### Step 2:Integrate Tailwind CSS Variables
+Next, incorporate Tailwind CSS Variables into your project as a development dependency:
+#### **1.** Install the Tailwind CSS Variables package:
 ```shell
   npm install -D @mertasan/tailwindcss-variables
 ```
 
-#### **2.2** Add the plugin to your `tailwind.config.js`
+#### **2.** Configure the plugin in your `tailwind.config.js`:
+Instead of using `require`, import the plugin directly to ensure compatibility with Storybook ThemeBlocks.
 ```js
 import tailwindcssVariables from '@mertasan/tailwindcss-variables';
 // ...
@@ -36,10 +36,11 @@ module.exports = {
 }
 ```
 
-## 3. Define legacy theme variables
-#### **3.1** Rename your old theme to `legacyTheme.tx`
+### Step 3:Migrate Legacy Theme Variables
+Adapt your existing theme variables for compatibility with the new system:
+#### **1.** Rename your old theme file to `legacyTheme.ts`.
 
-#### **3.2** Import legacyTheme in `tailwind.config.js` and define the theme variables.
+#### **2.** Import legacyTheme in `tailwind.config.js` and define the theme variables:
 
 ```js
 
@@ -103,8 +104,7 @@ import tailwindcssVariables from '@mertasan/tailwindcss-variables';
 }
 ```
 
-#### **3.3** Create `config.ts` file to have access to Tailwind tokens from code.
-
+#### **3.** Access Tailwind tokens in your code through a `config.ts file`:
 ```js
 import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from '../path_to_config/tailwind.config.js';
@@ -114,7 +114,7 @@ const { theme: TWConfig } = resolveConfig(tailwindConfig);
 export default TWConfig;
 
 ````
-#### **3.4** Note. If you are using Reablocks Storybook blocks need to be updated to use the new themeing approach.
+**Note:** If you're using Reablocks Storybook blocks, ensure they are updated to utilize the new theming approach:
 
 ```diff
 import TWConfig from './config';
@@ -123,10 +123,12 @@ import TWConfig from './config';
 + export const Colors = () => <ColorBlocks colors={TWConfig.colors} />;
 ```
 
-## 4. Define new theme and update it in your ThemeProvider
+### Step 4: Establish a New Theme
+Define and integrate your new theme, optionally extending it with legacy variables:
 
-#### **4.1** Create `theme.ts` file and define the new theme.
-Note: Here is used `legacyThemeVars` to extend the new theme with the old theme variables, also available `darkTheme` and `lightTheme` themes (these themes doesn't support legacy css variable).
+#### **1.** Create a `theme.ts` file and outline your new theme structure:
+**Note:** Here is used `legacyThemeVars` to extend the new theme with the old theme variables, also available `darkTheme` and `lightTheme` themes (these themes doesn't support legacy css variable).
+
 ```js
 import { extendTheme, legacyThemeVars, PartialReablocksTheme } from 'reablocks';
 
@@ -137,7 +139,7 @@ const theme: PartialReablocksTheme = {
 export const projectNameTheme = extendTheme(legacyThemeVars, theme);
 ```
 
-#### **4.2** Update theme in your `ThemeProvider`.
+#### **2.** Update theme in your `ThemeProvider`:
 
 ```diff
 import { projectNameTheme } from './path_to_theme/theme.ts';
@@ -146,8 +148,8 @@ import { projectNameTheme } from './path_to_theme/theme.ts';
 + <ThemeProvider theme={projectNameTheme}>
 ```
 
-## 5. Update your components to use the new theme approach with Tailwind
-
+### Step 5: Update Components to the New Theming Approach
+Finally, adapt your components to utilize the new theme, leveraging Tailwind and the extended theme variables:
 ```js
 import { extendTheme, legacyThemeVars, PartialReablocksTheme } from 'reablocks';
 
@@ -170,3 +172,8 @@ export const projectNameTheme = extendTheme(legacyThemeVars, theme);
   removedLines={[3]}
   addedLines={[4]}
 />
+
+## Seamless Transition & Support
+
+This guide aims to make your migration to 6.x as straightforward as possible. 
+By following these steps, you'll be able to take full advantage of the new theming capabilities offered by Tailwind CSS within our Storybook library. If you encounter any issues or have questions, please don't hesitate to reach out to our [Good Code](https://goodcode.us?utm=reablocks) team for support.
