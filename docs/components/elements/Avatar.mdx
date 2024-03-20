@@ -6,23 +6,34 @@ import ThemeRender from '../../ThemeRender.tsx';
 <Meta title="Docs/Components/Elements/Avatar" />
 
 # Avatar
-An avatar component commonly used to provide a visual identity for users. This is mostly used for showing user profile pictures,
-team members profile pics for a team details page.
 
-## Example
-### Avatar showing initials from the user name
-If the user name is single word text, it will just show the first letter
+The "Avatar" component is a versatile UI element designed to display visual identifiers for users, such as profile pictures or initials. 
+It's widely used across applications to personalize user experiences, especially in sections related to user profiles, comments, or team pages.
+## Examples
+### Basic Usage
+#### Displaying User Initials
+The Avatar component can automatically generate and display initials based on the user's name. 
+For names comprising multiple words, it uses the first letter of each word. For single-word names, only the first letter is displayed:
 <Canvas sourceState="shown" of={AvatarStories.Default}/>
 
-### Avatar with round shape showing user profile pic
+#### Displaying Profile Pictures
+When a URL to a user's profile picture is available, 
+the Avatar component can display the image within a circular frame, adhering to the common design pattern for user avatars:
 <Canvas of={AvatarStories.RoundedWithImage}/>
 
-## Theme
-This component uses the following default theme:
+## Theme Customization
+The Avatar component comes with a default theme that can be customized. 
+The base theme includes styles for center alignment, background cover, and text styling, with an option to make the avatar rounded:
 
 <ThemeRender theme={darkAvatarTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
+Customize the Avatar component through the following properties:
 <ArgTypes of={Avatar} />
+
+## Design and Usability Tips
+
+- **Optimal Resolution:** For user avatars, ensure that images are displayed at an optimal resolution to maintain visual clarity without unnecessarily burdening the page load times. 
+Consider implementing a standard size for avatars across your application to create a consistent and professional appearance.

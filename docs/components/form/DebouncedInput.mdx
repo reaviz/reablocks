@@ -5,10 +5,20 @@ import * as InputStories from '../../../src/form/Input/DebouncedInput/DebouncedI
 <Meta title="Docs/Components/Form/Debounced Input" />
 
 # Debounced Input
-Text input fields which processes the submit text after the defined time duration.
-
+The Debounced Input component is designed to optimize user input in applications by delaying the processing of text after a specified duration. 
+This feature is particularly useful in scenarios where real-time input processing may be resource-intensive, such as live search functionalities or validations.
 ## Examples
+### Basic Usage
+This example illustrates the use of Debounced Input for both immediate and delayed text processing. 
+Instant input processes text changes immediately, while delayed input waits for a specified duration before processing the text, minimizing unnecessary computations or API calls:
 <Canvas sourceState="shown" of={InputStories.Basic} />
 
 ## API
+The Debounced Input component offers several configurable properties to tailor its functionality and appearance to suit your application's needs:
 <ArgTypes of={DebouncedInput} />
+
+## Design and Usability Tips
+- **Visual Feedback:** Implement visual cues to indicate when the input is being processed or debounced, such as a loader icon or changing the input border color. This feedback reassures users that their input is recognized and will be processed shortly.
+- **Adaptive Debouncing:** Dynamically adjust the debounce duration based on the use case. For example, increase the duration for live search functionalities to reduce server load, but keep it minimal for local validations to maintain responsiveness.
+
+

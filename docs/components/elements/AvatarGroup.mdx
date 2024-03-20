@@ -6,17 +6,26 @@ import ThemeRender from '../../ThemeRender.tsx';
 <Meta title="Docs/Components/Elements/AvatarGroup" />
 
 # AvatarGroup
-A component to display a group of avatars with a maximum size.
-
-## Example
+The "AvatarGroup" component is designed to efficiently display a collection of user avatars, making it ideal for showcasing team members, participant lists, or any group of users. 
+It smartly handles large numbers of avatars by showing a set maximum number on the screen, with an additional indicator for the number of hidden avatars.
+## Examples
+### Basic Usage
+The AvatarGroup component arranges multiple Avatar components together, indicating excess avatars when surpassing the specified maximum size:
 <Canvas sourceState="shown" of={AvatarGroupStories.Basic} />
 
-## Theme
-This component uses the following default theme:
+## Theme Customization
+AvatarGroup supports theming to ensure its appearance aligns with the overall design of your application. 
+The default theme settings include:
 
 <ThemeRender theme={darkAvatarGroupTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
+Customization options available through the AvatarGroup component's properties:
 <ArgTypes of={AvatarGroup} />
+
+## Design and Usability Tips
+
+- **Expandable Details:** Provide a mechanism (e.g., tooltip or modal) to view all avatars in a group on click or hover, ensuring users can access every member's profile without cluttering the UI.
+- **Customizable Views:** Allow users to customize the visibility and ordering of avatars in a group, accommodating personal preferences and improving the experience.

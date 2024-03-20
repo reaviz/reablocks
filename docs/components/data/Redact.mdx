@@ -7,9 +7,17 @@ import * as RedactStories from '../../../src/data/Redact/Redact.story'
 # Redact
 The "Redact" component is a simple and intuitive way to redact info in scenarios where you need to hide confidential information, such as passwords, personal details, or any other sensitive text.
 It uses [coverup](https://www.npmjs.com/package/coverup).
-
-## Example
+## Examples
+### Basic Usage
+To redact text, simply pass the sensitive string you wish to hide to the value prop of the Redact component. 
+The component obscures the text, showing only a predefined number of characters as a placeholder:
 <Canvas sourceState="shown" of={RedactStories.Basic} />
 
 ## API
+The Redact component is highly customizable through the following properties:
 <ArgTypes of={Redact} />
+
+## Design and Usability Tips
+
+- **Toggle Simplicity:** Make toggling the visibility of redacted information simple and intuitive, using icons or textual cues that clearly indicate the action.
+- **Sensitive Information Awareness:** Educate users about the sensitivity of the information being redacted, potentially through tooltips or help icons, to foster understanding and cautious interaction.
