@@ -3,17 +3,16 @@ import { Meta } from '@storybook/addon-docs';
 <Meta title="Docs/Getting Started/Setup" />
 
 # Setup
-
-## Installing
-
-### Install Tailwind
+This section will guide you through the initial steps required to integrate Tailwind CSS into your project. Tailwind CSS is a utility-first CSS framework that can be customized to fit the design needs of your project. Follow these instructions to ensure a smooth setup.
+&nbsp;
+### Installing Tailwind CSS
+**1.** Open your terminal, navigate to your project's root directory, and run the following command:
 ```bash
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
 
-Next you will need to configure a `tailwind.config.js` file in the root of your project.
-
+**2.** Still in the terminal, initialize Tailwind CSS by running:
 ```javascript
 module.exports = {
   content: [
@@ -26,38 +25,68 @@ module.exports = {
   plugins: [],
 };
 ```
+**Result:** This command creates a 'tailwind.config.js' and a 'postcss.config.js' file in your project root.
 
-Lastly setup the Tailwind directives inside your main css file.
+&nbsp;
+
+**3.** After installing Tailwind CSS, you need to inject its styles into your project. Do this by adding Tailwind's directives to your main CSS file. These directives include `@tailwind base;`, `@tailwind components;`, and `@tailwind utilities;`. Here's how:
+-  Open or create your main CSS file. This file is typically located at `src/index.css` or `src/styles.css`.
+-  Add the following Tailwind directives at the top of your CSS file:
+
 
 ```css
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 ```
+**Result:** These directives inject Tailwind's base styles, component classes, and utility classes into your stylesheet, making them available throughout your project.
+
+&nbsp;
 
 ### Install Reablocks
-You can install reablocks with [NPM](https://www.npmjs.com/package/reablocks) or Yarn.
+
+Reablocks is a set of reusable blocks designed to work seamlessly with Tailwind CSS. You can install Reablocks using [NPM](https://www.npmjs.com/package/reablocks) or Yarn, depending on your project setup:
+- **Using NPM:**
 
 ```bash
 npm install reablocks --save
+```
+- **Using Yarn:**
+
+```bash
+yarn add reablocks
 ```
 
 ## Developing
 
 If you want to run the project locally, its really easy!
 
-The project uses Storybook for its demos and development
-environment. To run it locally:
+The project uses Storybook for its demos and development environment. To run it locally:
 
-- Clone repo
-- `npm install`
-- `npm start`
+- **Clone the repository.**
+First, clone the repository to your local machine using Git:
 
-Once started the browser will open to the storybook url.
-From here you can tweak components and see them build
-and reload in real time.
+```bash
+git clone git@github.com:reaviz/reablocks.git
+```
+- **Install dependencies.**
+Navigate to the project directory and install the necessary dependencies:
+```bash
+npm install
+```
+- **Start Storybook.**
+Once the installation is complete, start the Storybook development server:
 
-We use Rollup to build and package for distribution.
-You can run this by doing `npm run build` and it will
-create a `dist` folder with the type definitions, bundled
-javascript and css files.
+```bash
+npm start
+```
+
+**Result:** This command runs Storybook locally and opens it in your default web browser, typically at `http://localhost:6006.` You can now view your components, experiment with their properties, and see changes in real-time.
+&nbsp;
+### Building for Distribution with Rollup
+Our project uses Rollup for bundling and preparing the package for distribution. To build the project, simply run:
+
+```bash
+npm run build
+```
+**Result:** This command generates a `dist` folder containing the bundled JavaScript, CSS files, and type definitions, ready for deployment or distribution.

@@ -6,34 +6,53 @@ import ThemeRender from '../../ThemeRender.tsx';
 <Meta title="Docs/Components/Form/Input" />
 
 # Input
-Text field to provide an input value.
-
+The Input component is a fundamental element in form design, allowing users to enter data. 
+Its versatility supports a variety of applications, from simple text entries to complex data inputs.
 ## Examples
-### Basic example
+### Basic Usage
+A straightforward implementation of the Input component for basic text entry:
 <Canvas sourceState="shown" of={InputStories.Basic} />
-### Input field with size variations
+
+### Advanced Customization
+#### Size Variations
+Adjust the size of the input field (small, medium, large) to accommodate different content lengths and interface designs:
 <Canvas of={InputStories.Sizes} />
-#### Full width
+
+#### Full Width
+Extend the input field to the full width of its container, ideal for forms or sections requiring larger text entries:
 <Canvas of={InputStories.FullWidth} />
-### Input field with Adornments at Start/End
+
+#### Adornments at Start/End
+Enhance input fields with icons or text at the start or end to provide context or additional functionalities:
 <Canvas of={InputStories.StartEndAdorment} />
-### Input field with state variations
-#### Error
+
+#### State Variations
+Implement variations for error states and disabled inputs, providing visual feedback and interaction cues.
+
+- **Error**
 <Canvas of={InputStories.Error} />
-#### Disabled
+- **Disabled**
 <Canvas of={InputStories.Disabled} />
-### Value initialisation
-#### Placeholder
+
+### Value Initialization
+Set initial values or placeholders to guide user input or display default values:
+- **Placeholder**
 <Canvas of={InputStories.Placeholder} />
-#### Default value
+- **Default value**
 <Canvas of={InputStories.DefaultValue} />
 
-## Theme
-This component uses the following default theme:
-
+## Theme Customization
+Customize the Input component's appearance to align with your application's theme:
 <ThemeRender theme={darkInputTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
+Fine-tune the Input component's behavior and appearance with these configurable properties:
 <ArgTypes of={Input} />
+
+## Design and Usability Tips
+
+- **Consistent Field Width:** Design input fields with a width that hints at the expected length of the answer. For example, shorter fields for postal codes or longer fields for descriptions. This visual cue helps users gauge the expected input at a glance.
+- **Error State Feedback:** Clearly indicate error states through text messages. Place error messages close to the related input field, and ensure they provide constructive feedback on how to resolve the issue.
+

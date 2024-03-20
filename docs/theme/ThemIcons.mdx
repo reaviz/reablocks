@@ -3,17 +3,18 @@ import { Meta } from '@storybook/addon-docs';
 <Meta title="Docs/Theme/Icons" />
 
 # Theme Icons
-Out of the box, reablocks doesn't include any icons, however, you
+Out of the box, reablocks **doesn't** include any icons, however, you
 can you use any icon library you want. This is because reablocks
 wants to stay true to our core values of being unopinionated and
 lightweight.
 
-reablocks offers helpers to make it easier to document icons
+Reablocks offers helpers to make it easier to document icons
 in your Storybook. Below is an example of how to use the helper components.
 
-To get started, let's create a file called `icons.ts` that
-will glob and load all of your icons. Below is an example of how
-to do this in [Vite](https://vitejs.dev/).
+### Creating an Icon Loader
+Begin by creating a file to load and organize your SVG icons. 
+If you're using [Vite](https://vitejs.dev/), you can take advantage of its glob import feature to dynamically load your icons. 
+Create a file named `icons.ts` (or `icons.js` if you're using JavaScript) in your project.
 
 ```tsx
 import React from 'react';
@@ -28,9 +29,11 @@ export const icons = Object.keys(iconPaths).map(key => ({
   })
 }));
 ```
+**Result:** This script dynamically loads all SVG icons from the specified directory, prepares them as React components, and exports them in a format compatible with reablocks' `IconBlocks` component.
 
-then later create a file called `Icons.stories.mdx` and import
-the icons and the `IconBlocks` component.
+### Documenting Icons in Storybook
+With your icons prepared, the next step is to document them in Storybook. 
+Create a Storybook MDX file named `Icons.stories.mdx` to showcase your icons library.
 
 ```tsx
 import { Meta } from '@storybook/addon-docs';
@@ -49,5 +52,6 @@ body {
 ## Icons
 <IconBlocks icons={icons} />
 ```
-
-and now you have a icons library list in your Storybook.
+**Result:** This MDX file does the following:
+- Imports the icons you prepared earlier.
+- Uses the IconBlocks component from reablocks to display each icon alongside its name.

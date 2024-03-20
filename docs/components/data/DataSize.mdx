@@ -5,21 +5,22 @@ import * as DateSizeStories from '../../../src/data/DataSize/DataSize.story'
 <Meta title="Docs/Components/Data/DataSize" />
 
 # Data Size
-Data size is a component that renders bytes in a human readable format using
-[human-format](https://www.npmjs.com/package/human-format).
-
-You can use the component directly like in the example below or via
-the API that is exported.
-
-## Example
-### Basic exmaple
+The Data Size component is designed to display data sizes in a human-readable format. 
+Leveraging the [human-format](https://www.npmjs.com/package/human-format) library, it simplifies the representation of byte values into more understandable formats such as bytes (B), kilobytes (KiB), megabytes (MiB), and so forth, up to yottabytes (YiB).
+## Examples
+### Basic Usage
+You can directly use the `DataSize` component to render data sizes. 
+Here's a basic example demonstrating how various byte values are converted into human-readable formats:
 <Canvas sourceState="shown" of={DateSizeStories.Simple} />
 
-### Null/Undefined values
-Define placholder strings to show when values are null or undefined
+### Handling Null/Undefined Values
+The component allows for a customizable placeholder string to be displayed when the input value is `null` or `undefined`, 
+enhancing the flexibility in various use cases:
 <Canvas of={DateSizeStories.Empty} />
 
 ### Function API
+For more advanced scenarios or when you need to programmatically format data sizes within your application logic, 
+you can use the `formatSize` function provided by the API:
 ```ts
 import { formatSize, FormatSizeTypes } from 'reablocks';
 
@@ -30,4 +31,9 @@ function formatSomething(size: FormatSizeTypes) {
 ```
 
 ## API
+The `DataSize` component and the `formatSize` function come with several configurable options:
 <ArgTypes of={DataSize} />
+
+## Design and Usability Tips
+
+- **Intuitive Units:** Automatically adjust units for data size to the most intuitive option (e.g., automatically displaying in MB instead of KB for large files), enhancing readability.

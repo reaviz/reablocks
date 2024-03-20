@@ -7,8 +7,8 @@ import ThemeRender from '../../ThemeRender.tsx';
 <Meta title="Docs/Components/Form/Select" />
 
 # Select
-A select component allows the users to select a value or multiple values from the given list of options. The
-implementation features:
+The Select component enhances user interaction by allowing the selection of a value or multiple values from a list of options. 
+It's designed with flexibility in mind, supporting a wide range of features such as:
 
 - Single Select
 - Multi Select
@@ -19,23 +19,25 @@ implementation features:
 - Async Support
 - Groups Support
 - Animation
-
 ## Examples
-### Single Select
-#### Basic
+### Basic Usage
+#### Single Select
+A straightforward implementation for choosing a single option from a dropdown list:
 <Canvas sourceState="shown" of={SingleSelectStories.Basic} />
-#### Custom Label
+- **Custom Label**
 <Canvas of={SingleSelectStories.CustomLabels} />
-#### Create value if not available
+- **Create value if not available**
 <Canvas of={SingleSelectStories.Createable} />
-#### Values with sections
+- **Values with sections**
 <Canvas of={SingleSelectStories.Groups} />
-#### State: Error
+- **State: Error**
 <Canvas of={SingleSelectStories.Error} />
-#### State: Full Width
+- **State: Full Width**
 <Canvas of={SingleSelectStories.FluidWidth} />
 
-### Multi Select
+### Advanced Customization
+#### Multi-Select
+Allows users to select multiple options, ideal for filtering mechanisms or gathering multiple interests/preferences.
 <Canvas sourceState="shown" of={MultiSelectStories.Basic} />
 
 ## CSS Classes
@@ -56,15 +58,15 @@ styling.
 - `select-menu-group`
 - `select-menu-group-header`
 
-## Theme
-This component uses the following default theme:
+## Theme Customization
+The Select component adheres to a comprehensive theme, ensuring it seamlessly integrates into any application's design:
 
 <ThemeRender theme={darkSelectTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
-
+Configure the Select component to suit your application's needs with these properties:
 ### Select
 <ArgTypes of={Select} />
 
@@ -79,3 +81,8 @@ Learn more about how to customize in the [Theme documentation](?path=/docs/docs-
 
 ### SelectInputChip
 <ArgTypes of={SelectInputChip} />
+
+## Design and Usability Tips
+
+- **Immediate Feedback:** Provide visual cues for actions such as hovering, selection, and focusing, enhancing the user's interaction with the component.
+- **Keyboard Navigation:** Support full keyboard navigation including arrow keys for option selection and Esc to close the dropdown, ensuring accessibility.

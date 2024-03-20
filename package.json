@@ -1,12 +1,11 @@
 {
   "name": "reablocks",
-  "version": "6.0.0-alpha.7",
+  "version": "6.0.0-alpha.8",
   "description": "Component library for React",
   "scripts": {
     "build": "vite build --mode library",
     "build-storybook": "storybook build",
     "build:styles": "tailwindcss -i ./src/index.css -o ./dist/index.css",
-    "copy": "cp CNAME storybook-static/",
     "lint": "eslint --ext js,ts,tsx",
     "lint:fix": "eslint --ext js,ts,tsx --fix src",
     "lint:prettier": "prettier --loglevel warn --write 'src/**/*.{ts,tsx,js,jsx}'",
