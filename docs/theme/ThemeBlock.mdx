@@ -20,10 +20,12 @@ By incorporating these blocks into your Storybook, you can easily document and s
 &nbsp;
 
 ## Implementing Theme Blocks in a Storybook Story
+
 #### Below is an example that demonstrates how to use the theme block components in a Storybook story.
 
 **NOTE:** This example utilizes the `ThemeProvider` in the story decorator, allowing each story to inherit the dark theme context.
 Alternatively, you could use `ThemeProvider` in your `.storybook/preview.js` file to apply the theme globally to all stories.
+
 ```tsx
 import React from 'react';
 import {
@@ -36,7 +38,8 @@ import {
   ThemeProvider,
   darkTheme,
   IconBlocks,
-  useTheme
+  useTheme,
+  extractTheme
 } from 'reablocks';
 
 import resolveConfig from 'tailwindcss/resolveConfig';
@@ -57,45 +60,39 @@ export default {
   ]
 };
 
-export const Colors = () => <ColorBlocks colors={TWConfig.colors} />;
+const {
+  colors,
+  palettes,
+  borderRadius,
+  boxShadow,
+  spacing,
+  fontFamily,
+  fontSize,
+  fontWeight
+} = extractTheme(TWConfig, tailwindConfig);
 
-const palettes = tailwindConfig.theme.extend.colors;
-palettes['disabled'] = [palettes['disabled']];
-export const Palettes = () => <PaletteBlocks palettes={palettes as any} />;
+export const Colors = () => <ColorBlocks colors={colors} />;
+
+export const Palettes = () => <PaletteBlocks palettes={palettes} />;
 
 export const Typography = () => (
   <TypographyBlocks
-    families={TWConfig.fontFamily}
-    sizes={TWConfig.fontSize}
-    weights={TWConfig.fontWeight}
+    families={fontFamily}
+    sizes={fontSize}
+    weights={fontWeight}
   />
 );
 
-export const Spacings = () => <SpacingBlocks spacings={TWConfig.spacing} />;
+export const Spacings = () => <SpacingBlocks spacings={spacing} />;
 
-export const Borders = () => <BorderBlocks borders={TWConfig.borderRadius} />;
+export const Borders = () => <BorderBlocks borders={borderRadius} />;
 
-export const Shadows = () => <ShadowBlocks shadows={TWConfig.boxShadow} />;
+export const Shadows = () => <ShadowBlocks shadows={boxShadow} />;
 
 export const Components = () => {
   const { theme } = useTheme();
-
-  return (
-    <ComponentBlocks components={theme.components} />
-  )
+  return <ComponentBlocks components={theme.components} />;
 };
-export const Icons = () => (
-  <>
-    <h2>Icon Block Helper ( icons not included )</h2>
-    <IconBlocks
-      icons={[
-        {
-          name: 'favorite',
-          src: favoriteIcon
-        },
-        {
-          name: 'another favorite',
-          src: favoriteIcon
         }
       ]}
     />
