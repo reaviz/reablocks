@@ -73,11 +73,11 @@ export const Tabs: FC<TabsProps> = ({
     const childs = Children.toArray(children);
 
     const [tabList] = childs
-      .filter((child: any) => child.type?.name === 'TabList')
+      .filter((child: any) => child.type?.name === TabList.name)
       .map((child: any) => child.props);
 
     const panels = childs
-      .filter((child: any) => child.type?.name === 'TabPanel')
+      .filter((child: any) => child.type?.name === TabPanel.name)
       .map((child: any) => child.props);
 
     return [tabList, panels];
