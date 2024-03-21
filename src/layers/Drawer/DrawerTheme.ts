@@ -21,7 +21,7 @@ export interface DrawerTheme {
 const baseTheme: DrawerTheme = {
   base: 'fixed overflow-y-auto overflow-x-hidden',
   header: {
-    base: 'flex items-center justify-between px-8 py-5',
+    base: 'flex items-center justify-between px-8 py-5 text-3xl font-bold',
     text: 'flex-1 m-0'
   },
   content: 'px-8 py-5',
