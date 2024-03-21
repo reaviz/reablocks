@@ -5,7 +5,7 @@ export interface CommandPaletteSectionTheme {
 
 const baseTheme: CommandPaletteSectionTheme = {
   base: '',
-  first: 'pl-2 pt-2.5'
+  first: 'pt-2.5'
 };
 
 export const lightCommandPaletteSectionTheme: CommandPaletteSectionTheme = {

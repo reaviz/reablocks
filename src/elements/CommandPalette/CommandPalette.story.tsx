@@ -36,7 +36,7 @@ export const Sections = () => (
   <div style={{ width: 400 }}>
     <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection key="shorts">
-        <Stack style={{ margin: '0 var(--spacing-md)' }}>
+        <Stack className="px-2">
           <Chip>Dashboards</Chip>
           <Chip>Integrations</Chip>
           <Chip>Rules</Chip>
