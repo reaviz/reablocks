@@ -19,7 +19,7 @@ export const Profile = () => {
           <ListItem onClick={() => null}>About</ListItem>
         </List>
       </aside>
-      <div className="w-full min-h-screen md:w-2/3 lg:w-3/4">
+      <div className="w-full md:w-2/3 lg:w-3/4">
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
           <Avatar name="Austin McDaniel" size={64} />
           <br />

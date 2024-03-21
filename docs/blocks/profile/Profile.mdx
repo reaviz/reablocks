@@ -18,7 +18,7 @@ The Simple Profile block offers a straightforward layout for displaying and edit
     </Tab>
   </TabList>
   <TabPanel>
-    <div className="flex flex-col border justify-center items-center min-h-[540px] border-gray-500">
+    <div className="flex flex-col border justify-center items-center border-gray-500">
       <Profile />
     </div>
   </TabPanel>
@@ -45,7 +45,7 @@ export const Profile = () => {
           <ListItem onClick={() => null}>About</ListItem>
         </List>
       </aside>
-      <div className="w-full min-h-screen md:w-2/3 lg:w-3/4">
+      <div className="w-full md:w-2/3 lg:w-3/4">
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
           <Avatar name="Austin McDaniel" size={64} />
           <br />
