@@ -1,21 +1,35 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { DotsLoader } from '../../../src/elements/Loader';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import { darkDotsLoaderTheme, DotsLoader } from '../../../src/elements/Loader';
 import * as DotsLoaderStories from '../../../src/elements/Loader/DotsLoader.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Loader" />
 
 # Loader
-A placholder component to show when the UI is being rendered for firt time load or when data is being fetched.
+The Loader component acts as a visual placeholder, signaling to users that data is being loaded or UI components are in the process of rendering. 
+This component is especially crucial for enhancing user experience during initial page loads or data fetching processes, reducing perceived wait times through engaging animations.
 
-## Example
+### Basic Usage
+
+Employ the Loader to maintain user engagement during wait times. Here's how to integrate a simple `DotsLoader` into your application:
 <Canvas sourceState="shown" of={DotsLoaderStories.Simple} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme Customization
 
-- `loader-background`
+Tailor the Loader's appearance to fit your application's aesthetic with our customizable theme options. 
+The default theme includes flexible settings for base alignment, dot style, and size variations:
+<ThemeRender theme={darkDotsLoaderTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
-<ArgsTable of={DotsLoader} />
+
+Optimize the Loader's functionality and style to meet your specific requirements with these configurable properties:
+<ArgTypes of={DotsLoader} />
+
+## Design and Usability Tips
+
+- **Visibility:** Place the Loader in a central, visible location to reassure users that the application is actively processing their request.
+
+- **Contextual Use:** Select Loader sizes and speeds appropriate to the context. 
+For example, use smaller, faster loaders for inline loading states, and larger, more deliberate animations for page-wide loads.

@@ -1,4 +1,5 @@
 import { SmallHeading } from './SmallHeading';
+import React from 'react';
 
 export default {
   title: 'Components/Typography/SmallHeading',

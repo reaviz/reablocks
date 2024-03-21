@@ -1,4 +1,5 @@
 import { Text } from './Text';
+import React from 'react';
 
 export default {
   title: 'Components/Typography/Text',

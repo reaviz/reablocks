@@ -1,4 +1,5 @@
 import { SecondaryHeading } from './SecondaryHeading';
+import React from 'react';
 
 export default {
   title: 'Components/Typography/SecondaryHeading',

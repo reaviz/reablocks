@@ -1,19 +1,28 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
 import { Pluralize } from '../../../src/data/Pluralize';
 import * as PluralizeStories from '../../../src/data/Pluralize/Pluralize.story'
 
 <Meta title="Docs/Components/Data/Pluralize" />
 
 # Pluralize
-Render nouns in singular or plural form. You can customise the output by defining the separate label for singular and plural values.
-It is also possible to have a default string when there is no value.
-
-## Example
-### Basic example
+The Pluralize component dynamically renders words in their singular or plural form depending on the provided item count. 
+It supports customization for singular, plural, and zero-item states, making it ideal for UIs that need to display varying amounts of items or data points.
+## Examples
+### Basic Usage
+#### Singular and Plural Forms
+In this basic example, we show how to render a word in both its singular and plural forms based on the count. 
+The component automatically appends an "s" to the singular form for the plural representation if the plural form is not explicitly provided:
 <Canvas sourceState="shown" of={PluralizeStories.Simple}/>
-### Custom text for empty values
+
+#### Custom Text for Zero Values
+You can specify custom text to display when the count is zero, providing a more descriptive or friendly message.
 <Canvas sourceState="shown" of={PluralizeStories.ZeroCount}/>
 
 
 ## API
-<ArgsTable of={Pluralize} />
+The Pluralize component's functionality is controlled through several properties:
+<ArgTypes of={Pluralize} />
+
+## Design and Usability Tips
+
+- **Contextual Awareness:** Ensure pluralized text dynamically adjusts to reflect the current state or count accurately, avoiding confusion or misinterpretation.

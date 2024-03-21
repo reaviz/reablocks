@@ -1,43 +1,54 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Calendar } from '../../../src/form/Calendar';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import { Calendar, darkCalendarTheme } from '../../../src/form/Calendar';
 import * as CalendarStories from '../../../src/form/Calendar/Calendar.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Form/Calendar" />
 
 # Calendar
-Calendar component is generally used in combination with other UI components like search box etc. to allow the users to
-define the time range for their action.
-
+The Calendar component is a versatile UI tool designed for date selection within web applications. 
+It can be utilized independently or integrated with other UI elements like search boxes to define time ranges for various actions. 
+This component is pivotal in applications requiring date inputs, such as booking systems, event planners, and analytics dashboards.
 ## Examples
-### Basic example with single date selection
+### Basic Usage
+This example demonstrates a simple calendar allowing for a single date selection, updating a display with the selected date or indicating when no date is chosen:
 <Canvas sourceState="shown" of={CalendarStories.Simple} />
-### Date range selection
+
+### Advanced Customization
+#### Date Range Selection
+Enable users to select a range of dates, useful for applications requiring start and end date inputs:
 <Canvas of={CalendarStories.Range} />
-### Restricted date range
+
+#### Restricted Date Range
+Limit selection within a specific date range, enhancing usability by preventing invalid date choices:
 <Canvas of={CalendarStories.MinMax} />
-### Initialise with default date (E.g.: one month from now)
+
+### Initialize with Default Date
+Automatically set the calendar to a specific date upon initialization, such as one month from the current date, guiding users towards a default selection:
 <Canvas of={CalendarStories.DefaultValue} />
-### Example with day of week labels
+
+### Day of week labels
+Enhance usability by displaying day-of-week labels, offering users a clearer context for date selection. This variant is particularly useful for scheduling or planning applications where the day of the week is a critical factor:
 <Canvas of={CalendarStories.WithLabels} />
-### Allow range selection
+
+### Range Selection
+Implement range selection functionality within the calendar for scenarios requiring a start and end date, such as booking periods or event planning. This feature enhances the component's flexibility, accommodating a broader range of use cases:
 <Canvas of={CalendarStories.Range} />
-### Multiview calendar example
+
+### Multiview Calendar
+Showcase a multiview calendar for comparing dates across multiple months simultaneously. This variant is exceptionally beneficial for long-term planning or date comparisons, providing a comprehensive overview of available dates:
 <Canvas of={CalendarStories.Multiview} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme Customization
+The Calendar component comes with a default theme designed for adaptability and ease of integration:
+<ThemeRender theme={darkCalendarTheme} />
 
-- `calendar-spacing`
-- `calendar-gap`
-- `calendar-divider`
-- `calendar-day-radius`
-- `calendar-day-color`
-- `calendar-day-background-selected`
-- `calendar-day-border-selected`
-- `calendar-day-background-hover`
-- `calendar-day-border-hover`
-
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
-<ArgsTable of={Calendar} />
+Optimize the Calendar component with a comprehensive set of configurable properties:
+<ArgTypes of={Calendar} />
+
+## Design and Usability Tips
+
+- **Efficient Navigation:** Ensure the calendar supports comprehensive keyboard navigation, enabling users to select dates without mouse interaction, crucial for accessibility and power users.

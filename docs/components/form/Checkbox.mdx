@@ -1,29 +1,38 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Checkbox } from '../../../src/form/Checkbox';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import { Checkbox, darkCheckboxTheme } from '../../../src/form/Checkbox';
 import * as CheckboxStories from '../../../src/form/Checkbox/Checkbox.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Form/Checkbox" />
 
 # Checkbox
-Checkbox components in UI/UX serve to enable or disable specific options or choices, enhancing user control and interaction with selectable items.
-
+The Checkbox component is an essential element in UI/UX design, allowing users to make selections among a set of options. 
+It enhances user control by enabling or disabling specific choices, thereby facilitating interactive and dynamic forms, settings, and controls within applications.
 ## Examples
-### Basic example
+### Basic Usage
+This basic example showcases a checkbox that users can click to enable or disable an option. It demonstrates the component's primary functionality - toggling between checked and unchecked states:
 <Canvas sourceState="shown" of={CheckboxStories.Simple} />
-### Checkboxes with size variations
+
+### Advanced Customization
+#### Size Variations
+Customize the size of the Checkbox to match the design requirements of your application, offering variations like small, medium, and large for better visual integration and user experience:
 <Canvas of={CheckboxStories.Sizes} />
-### Checkboxes with state variations
+
+### State Variations
+Implement checkboxes with additional states such as disabled for non-interactive scenarios and intermediate for partially selected groups or indeterminate states:
 <Canvas of={CheckboxStories.States} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme Customization
+The Checkbox component features a default theme that can be customized to align with your application's aesthetics. Here's an overview of the theme structure:
 
-- `checkbox-label-color`
-- `checkbox-check-stroke`
-- `checkbox-box-checked-stroke`
-- `checkbox-box-unchecked-stroke`
+<ThemeRender theme={darkCheckboxTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
-<ArgsTable of={Checkbox} />
+Fine-tune the Checkbox component's functionality and style with a wide array of configurable properties:
+<ArgTypes of={Checkbox} />
+
+## Design and Usability Tips
+- **Visual Clarity:** Ensure checkboxes are large enough to be easily tapped on touch devices, adhering to accessible design principles. A minimum touch target size of 44x44 pixels is recommended. This enhances usability across various devices, particularly for users with motor impairments.
+- **Label Legibility:** Accompany every checkbox with a clear and concise label. Labels should be directly clickable to toggle the checkbox state, reducing the precision required for interaction and thus improving the overall user experience.

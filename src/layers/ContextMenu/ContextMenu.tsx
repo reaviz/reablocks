@@ -2,9 +2,10 @@ import React, { FC, ReactNode, useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ConnectedOverlay, ConnectedOverlayProps, useId } from 'rdk';
 import FocusTrap from 'focus-trap-react';
-import classNames from 'classnames';
 import creteGlobalStateHook from 'create-global-state-hook';
-import css from './ContextMenu.module.css';
+import { twMerge } from 'tailwind-merge';
+import { ContextMenuTheme } from './ContextMenuTheme';
+import { useComponentTheme } from '../../utils';
 
 const useGlobalMenuState = creteGlobalStateHook<any[]>([]);
 
@@ -92,16 +93,18 @@ export const ContextMenu: FC<ContextMenuProps> = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [closeAll]);
+  const theme: ContextMenuTheme = useComponentTheme('contextMenu');
 
   return (
     <ConnectedOverlay
       placement="bottom-start"
       triggerElement="span"
       {...rest}
-      triggerClassName={classNames(triggerClassName, {
-        [triggerOpenClassName]: open,
-        [css.enabled]: !disabled
-      })}
+      triggerClassName={twMerge(
+        triggerClassName,
+        !disabled && theme.enabled,
+        open && triggerOpenClassName
+      )}
       trigger="contextmenu"
       open={open}
       content={() => (

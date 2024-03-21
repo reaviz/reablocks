@@ -4,6 +4,7 @@ import { List, ListItem } from '../../layout/List';
 import { Menu } from './Menu';
 import { NestedMenu } from './NestedMenu';
 import { useMenu } from './useMenu';
+import { Button } from '../../elements';
 
 export default {
   title: 'Components/Layers/Menu',
@@ -18,9 +19,9 @@ export const Unstyled = () => {
 
   return (
     <Fragment>
-      <button type="button" ref={ref} onClick={toggleOpen}>
+      <Button type="button" ref={ref} onClick={toggleOpen}>
         Open
-      </button>
+      </Button>
       <MenuComponent style={{ background: 'var(--slate-50+0)' }}>
         <p>Unstyled Menu</p>
         <ul>
@@ -39,9 +40,9 @@ export const Nested = () => {
 
   return (
     <Fragment>
-      <button type="button" ref={ref} onClick={toggleOpen}>
+      <Button type="button" ref={ref} onClick={toggleOpen}>
         Open
-      </button>
+      </Button>
       <MenuComponent style={{ background: 'var(--slate-500)' }}>
         <h5 style={{ margin: 4 }}>My Menu</h5>
         <div role="list">
@@ -110,14 +111,14 @@ export const AutoWidth = () => {
 
   return (
     <Fragment>
-      <button
+      <Button
         type="button"
         ref={ref}
         onClick={toggleOpen}
         style={{ width: '300px' }}
       >
         Open
-      </button>
+      </Button>
       <MenuComponent style={{ background: 'var(--slate-500)' }} autoWidth>
         <Card disablePadding>
           <List>
@@ -137,14 +138,14 @@ export const AutoWidthModifiers = () => {
 
   return (
     <Fragment>
-      <button
+      <Button
         type="button"
         ref={ref}
         onClick={toggleOpen}
         style={{ width: '300px' }}
       >
         Open
-      </button>
+      </Button>
       <MenuComponent
         style={{ background: 'var(--slate-500)' }}
         autoWidth
@@ -169,9 +170,9 @@ export const Simple = () => {
 
   return (
     <>
-      <button type="button" ref={buttonRef} onClick={() => setOpen(!open)}>
+      <Button type="button" ref={buttonRef} onClick={() => setOpen(!open)}>
         Open
-      </button>
+      </Button>
       <Menu open={open} onClose={() => setOpen(false)} reference={buttonRef}>
         <Card disablePadding>
           <List>
@@ -192,9 +193,9 @@ export const Selectable = () => {
 
   return (
     <>
-      <button type="button" ref={buttonRef} onClick={() => setOpen(!open)}>
+      <Button type="button" ref={buttonRef} onClick={() => setOpen(!open)}>
         Open
-      </button>
+      </Button>
       <Menu open={open} onClose={() => setOpen(false)} reference={buttonRef}>
         <Card disablePadding>
           <List>

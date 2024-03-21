@@ -176,7 +176,7 @@ export const LongInputNames = () => {
 export const MultipleValuesOverflow = () => {
   const [value, setValue] = useState<string[]>(['dod', 'dhs', 'soc']);
   return (
-    <div style={{ width: 300 }}>
+    <div style={{ width: 350 }}>
       <Select
         multiple
         closeOnSelect={false}

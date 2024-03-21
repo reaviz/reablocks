@@ -1,10 +1,11 @@
-import React, { FC, forwardRef, ReactNode, Ref, useMemo } from 'react';
-import classNames from 'classnames';
+import React, { FC, forwardRef, LegacyRef, useMemo } from 'react';
 import FocusTrap from 'focus-trap-react';
 import { ConnectedOverlay, OverlayEvent, Placement, useId } from 'rdk';
 import { Modifiers } from 'popper.js';
 import { motion } from 'framer-motion';
-import css from './Menu.module.css';
+import { twMerge } from 'tailwind-merge';
+import { MenuTheme } from './MenuTheme';
+import { useComponentTheme } from '../../utils';
 
 export interface MenuProps {
   /**
@@ -98,123 +99,128 @@ export interface MenuProps {
   onMouseLeave: (event) => void;
 }
 
-export const Menu: FC<Partial<MenuProps & { ref?: Ref<HTMLDivElement> }>> =
-  forwardRef(
-    (
-      {
-        reference,
-        children,
-        style,
-        className,
-        placement,
-        closeOnEscape,
-        open,
-        appendToBody,
-        closeOnBodyClick,
-        maxHeight,
-        autofocus,
-        modifiers,
-        autoWidth,
-        minWidth,
-        maxWidth,
-        onClose,
-        onMouseEnter,
-        onMouseLeave
-      },
-      ref: Ref<HTMLDivElement>
-    ) => {
-      const id = useId();
+export interface MenuRef {
+  ref?: LegacyRef<HTMLDivElement>;
+}
 
-      const internalModifiers = useMemo(() => {
-        if (autoWidth) {
-          const sameWidth = {
-            enabled: true,
-            order: 840,
-            fn: data => {
-              const { width, left, right } = data.offsets.reference;
-              const passedOffset = modifiers?.offset?.offset;
-              let passedXOffset = 0;
-              let menuWidth = width;
+export const Menu: FC<Partial<MenuProps & MenuRef>> = forwardRef(
+  (
+    {
+      reference,
+      children,
+      style,
+      className,
+      placement,
+      closeOnEscape,
+      open,
+      appendToBody,
+      closeOnBodyClick,
+      maxHeight,
+      autofocus,
+      modifiers,
+      autoWidth,
+      minWidth,
+      maxWidth,
+      onClose,
+      onMouseEnter,
+      onMouseLeave
+    },
+    ref
+  ) => {
+    const id = useId();
 
-              if (maxWidth && menuWidth > maxWidth) {
-                menuWidth = maxWidth;
-              } else if (minWidth && menuWidth < minWidth) {
-                menuWidth = minWidth;
-              }
+    const internalModifiers = useMemo(() => {
+      if (autoWidth) {
+        const sameWidth = {
+          enabled: true,
+          order: 840,
+          fn: data => {
+            const { width, left, right } = data.offsets.reference;
+            const passedOffset = modifiers?.offset?.offset;
+            let passedXOffset = 0;
+            let menuWidth = width;
 
-              if (passedOffset) {
-                if (typeof passedOffset === 'number') {
-                  passedXOffset = passedOffset;
-                } else {
-                  const [skidding] = passedOffset.split(',');
-                  passedXOffset = parseInt(skidding.trim(), 10);
-                }
-              }
-
-              data.styles.width = menuWidth;
-              data.offsets.popper.width = menuWidth;
-              data.offsets.popper.left = left + passedXOffset;
-              data.offsets.popper.right = right + passedXOffset;
-
-              return data;
+            if (maxWidth && menuWidth > maxWidth) {
+              menuWidth = maxWidth;
+            } else if (minWidth && menuWidth < minWidth) {
+              menuWidth = minWidth;
             }
-          };
 
-          return modifiers ? { ...modifiers, sameWidth } : { sameWidth };
-        }
+            if (passedOffset) {
+              if (typeof passedOffset === 'number') {
+                passedXOffset = passedOffset;
+              } else {
+                const [skidding] = passedOffset.split(',');
+                passedXOffset = parseInt(skidding.trim(), 10);
+              }
+            }
 
-        return modifiers;
-      }, [modifiers, autoWidth, minWidth, maxWidth]);
+            data.styles.width = menuWidth;
+            data.offsets.popper.width = menuWidth;
+            data.offsets.popper.left = left + passedXOffset;
+            data.offsets.popper.right = right + passedXOffset;
 
-      return (
-        <ConnectedOverlay
-          open={open}
-          closeOnBodyClick={closeOnBodyClick}
-          appendToBody={appendToBody}
-          reference={reference}
-          placement={placement}
-          modifiers={internalModifiers}
-          closeOnEscape={closeOnEscape}
-          content={() => (
-            <motion.div
-              ref={ref}
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              className={classNames(css.container, className)}
-              style={style}
-              onMouseEnter={onMouseEnter}
-              onMouseLeave={onMouseLeave}
-            >
-              {autofocus ? (
-                <FocusTrap
-                  focusTrapOptions={{
-                    escapeDeactivates: true,
-                    clickOutsideDeactivates: true,
-                    fallbackFocus: `#${id}`
-                  }}
+            return data;
+          }
+        };
+
+        return modifiers ? { ...modifiers, sameWidth } : { sameWidth };
+      }
+
+      return modifiers;
+    }, [modifiers, autoWidth, minWidth, maxWidth]);
+
+    const theme: MenuTheme = useComponentTheme('menu');
+
+    return (
+      <ConnectedOverlay
+        open={open}
+        closeOnBodyClick={closeOnBodyClick}
+        appendToBody={appendToBody}
+        reference={reference}
+        placement={placement}
+        modifiers={internalModifiers}
+        closeOnEscape={closeOnEscape}
+        content={() => (
+          <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            className={twMerge(theme.base, className)}
+            style={style}
+            onMouseEnter={onMouseEnter}
+            onMouseLeave={onMouseLeave}
+          >
+            {autofocus ? (
+              <FocusTrap
+                focusTrapOptions={{
+                  escapeDeactivates: true,
+                  clickOutsideDeactivates: true,
+                  fallbackFocus: `#${id}`
+                }}
+              >
+                <div
+                  id={id}
+                  className={theme.inner}
+                  tabIndex={-1}
+                  style={{ maxHeight }}
                 >
-                  <div
-                    id={id}
-                    className={css.inner}
-                    tabIndex={-1}
-                    style={{ maxHeight }}
-                  >
-                    {typeof children === 'function' ? children() : children}
-                  </div>
-                </FocusTrap>
-              ) : (
-                <div className={css.inner} style={{ maxHeight }}>
                   {typeof children === 'function' ? children() : children}
                 </div>
-              )}
-            </motion.div>
-          )}
-          onClose={onClose}
-        />
-      );
-    }
-  );
+              </FocusTrap>
+            ) : (
+              <div className={theme.inner} style={{ maxHeight }}>
+                {typeof children === 'function' ? children() : children}
+              </div>
+            )}
+          </motion.div>
+        )}
+        onClose={onClose}
+      />
+    );
+  }
+);
 
 Menu.defaultProps = {
   placement: 'bottom-start',

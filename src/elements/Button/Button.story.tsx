@@ -1,4 +1,7 @@
 import { Button } from './Button';
+import { extendTheme, PartialReablocksTheme } from '../../utils';
+import { ThemeProvider } from '../../utils/Theme/ThemeProvider';
+import { darkTheme } from '../../utils';
 
 export default {
   title: 'Components/Elements/Button',
@@ -25,11 +28,57 @@ export const Colors = () => (
   </div>
 );
 
+export const TextColors = () => (
+  <div style={{ display: 'flex', gap: 10 }}>
+    <Button variant="text">Default</Button>
+    <Button variant="text" color="primary">
+      Primary
+    </Button>
+    <Button variant="text" color="secondary">
+      Secondary
+    </Button>
+    <Button variant="text" color="success">
+      Success
+    </Button>
+    <Button variant="text" color="warning">
+      Warning
+    </Button>
+    <Button variant="text" color="error">
+      Error
+    </Button>
+    <Button variant="text" disabled>
+      Disabled
+    </Button>
+  </div>
+);
+
+export const Disabled = () => (
+  <div style={{ display: 'flex', gap: 10 }}>
+    <Button variant="filled" disabled>
+      Filled
+    </Button>
+    <Button variant="outline" disabled>
+      Outline
+    </Button>
+    <Button variant="text" disabled>
+      Text
+    </Button>
+  </div>
+);
+
 export const Sizes = () => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
     <Button size="small">Small</Button>
     <Button size="medium">Medium</Button>
     <Button size="large">Large</Button>
+  </div>
+);
+
+export const FullWidth = () => (
+  <div
+    style={{ display: 'flex', width: '400px', alignItems: 'center', gap: 10 }}
+  >
+    <Button fullWidth>Full Width</Button>
   </div>
 );
 
@@ -67,3 +116,41 @@ export const WithIcon = () => (
     </Button>
   </div>
 );
+
+export const CustomTheme = () => {
+  const customTheme: PartialReablocksTheme = {
+    components: {
+      button: {
+        base: 'bg-lime-600 text-gray-300',
+        sizes: {
+          small: 'p-2',
+          medium: 'p-3',
+          large: 'p-4'
+        },
+        colors: {
+          default: {
+            filled: 'bg-lime-600 hover:bg-lime-700',
+            outline: 'border-lime-600',
+            text: 'text-gray-300'
+          }
+        }
+      }
+    }
+  };
+
+  return (
+    <ThemeProvider theme={extendTheme(darkTheme, customTheme)}>
+      <div style={{ display: 'flex', gap: 10 }}>
+        <Button variant="filled">Filled</Button>
+        <Button variant="outline">Outline</Button>
+        <Button variant="text">Text</Button>
+      </div>
+      <br />
+      <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+        <Button size="small">Small</Button>
+        <Button size="medium">Medium</Button>
+        <Button size="large">Large</Button>
+      </div>
+    </ThemeProvider>
+  );
+};

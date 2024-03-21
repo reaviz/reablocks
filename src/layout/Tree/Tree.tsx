@@ -1,8 +1,9 @@
 import React, { FC, useMemo } from 'react';
-import classNames from 'classnames';
 import { Arrow } from '../../elements/Arrow';
 import { TreeContext, TreeContextProps } from './TreeContext';
-import css from './Tree.module.css';
+import { TreeTheme } from './TreeTheme';
+import { useComponentTheme } from '../../utils';
+import { twMerge } from 'tailwind-merge';
 
 export interface TreeProps extends TreeContextProps {
   /**
@@ -24,10 +25,18 @@ export interface TreeProps extends TreeContextProps {
 export const Tree: FC<TreeProps> = ({
   children,
   className,
-  expandedIcon = <Arrow direction="down" className={css.arrow} />,
-  collapsedIcon = <Arrow direction="right" className={css.arrow} />,
+  expandedIcon,
+  collapsedIcon,
   ...rest
 }) => {
+  const theme: TreeTheme = useComponentTheme('tree');
+  expandedIcon = expandedIcon ?? (
+    <Arrow direction="down" className={theme.arrow} />
+  );
+  collapsedIcon = collapsedIcon ?? (
+    <Arrow direction="right" className={theme.arrow} />
+  );
+
   const values = useMemo(
     () => ({
       expandedIcon,
@@ -38,8 +47,8 @@ export const Tree: FC<TreeProps> = ({
 
   return (
     <TreeContext.Provider value={values}>
-      <div className={classNames(css.tree, className)} {...rest}>
-        <ul className={css.container}>{children}</ul>
+      <div className={twMerge(theme.tree, className)} {...rest}>
+        <ul className={theme.base}>{children}</ul>
       </div>
     </TreeContext.Provider>
   );

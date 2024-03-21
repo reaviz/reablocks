@@ -1,4 +1,5 @@
 import { Sub } from './Sub';
+import React from 'react';
 
 export default {
   title: 'Components/Typography/Sub',

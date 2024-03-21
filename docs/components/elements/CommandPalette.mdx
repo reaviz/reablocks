@@ -1,39 +1,30 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { CommandPalette } from '../../../src/elements/CommandPalette';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import { CommandPalette, darkCommandPaletteTheme } from '../../../src/elements/CommandPalette';
 import * as Stories from '../../../src/elements/CommandPalette/CommandPalette.story'
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Command Palette" />
 
 # Command Palette
-The Command Palette component is a versatile user interface element that allows users to search for and select various commands or actions within your web application.
-It's especially useful for applications with a large number of features or options.
-
-NOTE: This is still in beta and APIs are subject to change before final version.
-
-## Example
-### Basic
-Basic example with sections separators
+The Command Palette enables efficient user interaction by consolidating application commands in a searchable, centralized interface. 
+It's akin to a spotlight search, providing immediate access to features, documents, settings, or actions directly from the keyboard.
+## Examples
+### Basic Usage
+This example showcases a basic Command Palette setup with sections for "Recently Used" commands and "Suggestions":
 <Canvas of={Stories.Simple}/>
 
-### With Icons
-Commands with mapped icons
-<Canvas of={Stories.WithIcons}/>
+## Theme Customization
+The default theme for the Command Palette is designed for clarity and ease of use, 
+but can be customized to match your application's design language:
 
-### With HotKeys
-Commands with mapped keyboard shortcuts
-<Canvas of={Stories.Hotkey}/>
+<ThemeRender theme={darkCommandPaletteTheme} />
 
-## Design Tokens
-This component uses the following design tokens:
-
-- `spacing-md`
-- `primary-background`
-- `input-color`
-- `body-background`
-- `font-family`
-- `input-color-placeholder`
-
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
-<ArgsTable of={CommandPalette} />
+Customize the Command Palette through the following properties:
+<ArgTypes of={CommandPalette} />
+
+## Design and Usability Tips
+- **Intuitive Access:** Ensure the Command Palette is easily accessible through a well-known keyboard shortcut (e.g., Cmd/Ctrl + P), making it discoverable and convenient.
+- **Clear Categorization:** Organize commands into clear categories or sections to help users quickly find what they need.

@@ -6,10 +6,10 @@ import React, {
   FC,
   useMemo
 } from 'react';
-import classNames from 'classnames';
 import { motion, useMotionValue } from 'framer-motion';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
-import css from './Range.module.css';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../utils';
 
 export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   disabled,
@@ -119,18 +119,16 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   const maxTooltipVisible = draggingMax || focusedMax || hoveringMax;
   const maxPercentage = ((currentMax - min) / (max - min)) * 100;
 
+  const theme = useComponentTheme('range');
+
   return (
     <div
       style={style}
       ref={range}
-      className={classNames([css.range, className], {
-        [css.rangeDisabled]: disabled
-      })}
+      className={twMerge(theme.base, disabled && theme.disabled, className)}
     >
       <motion.div
-        className={classNames(css.handleDrag, handleClassName, {
-          [css.handleDragHighlight]: minTooltipVisible
-        })}
+        className={twMerge(theme.drag, handleClassName)}
         drag={!disabled ? 'x' : null}
         dragMomentum={false}
         style={{ x: minX }}
@@ -148,9 +146,15 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
         }}
         dragElastic={false}
       >
-        <div className={css.handle}>
+        <div
+          className={twMerge(
+            theme.inputWrapper.base,
+            disabled && theme.inputWrapper.disabled
+          )}
+        >
           <input
             type="range"
+            className={theme.input}
             min={min}
             max={max}
             value={currentMin}
@@ -163,9 +167,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
         <RangeTooltip visible={minTooltipVisible}>{currentMin}</RangeTooltip>
       </motion.div>
       <motion.div
-        className={classNames(css.handleDrag, {
-          [css.handleDragHighlight]: maxTooltipVisible
-        })}
+        className={twMerge(theme.drag)}
         drag={!disabled ? 'x' : null}
         dragMomentum={false}
         style={{ x: maxX }}
@@ -183,9 +185,15 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
         }}
         dragElastic={false}
       >
-        <div className={css.handle}>
+        <div
+          className={twMerge(
+            theme.inputWrapper.base,
+            disabled && theme.inputWrapper.disabled
+          )}
+        >
           <input
             type="range"
+            className={theme.input}
             min={min}
             max={max}
             value={currentMax}
@@ -198,7 +206,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
         <RangeTooltip visible={maxTooltipVisible}>{currentMax}</RangeTooltip>
       </motion.div>
       <div
-        className={css.rangeHighlight}
+        className={theme.rangeHighlight}
         style={{
           width: `${maxPercentage - minPercentage}%`,
           marginLeft: `${minPercentage}%`

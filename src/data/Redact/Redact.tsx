@@ -1,7 +1,8 @@
 import React, { FC, useMemo, useState } from 'react';
-import classNames from 'classnames';
 import coverup from 'coverup';
-import css from './Redact.module.css';
+import { twMerge } from 'tailwind-merge';
+import { RedactTheme } from './RedactTheme';
+import { useComponentTheme } from '../../utils';
 
 export interface RedactProps {
   /**
@@ -55,11 +56,17 @@ export const Redact: FC<RedactProps> = ({
     [value, character, compactLength]
   );
 
+  const theme: RedactTheme = useComponentTheme('redact');
+
   return (
     <span
       title={allowToggle ? tooltipText : undefined}
       role="button"
-      className={classNames(className, { [css.btn]: allowToggle })}
+      className={twMerge(
+        theme.base,
+        allowToggle && theme.interactive,
+        className
+      )}
       onClick={() => allowToggle && setVisible(!visible)}
     >
       {visible ? value : masked}

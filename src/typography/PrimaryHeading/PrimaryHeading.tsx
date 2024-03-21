@@ -1,7 +1,6 @@
-import React, { FC, forwardRef, Ref } from 'react';
-import classNames from 'classnames';
-import css from './PrimaryHeading.module.css';
-import common from '../Typography.module.css';
+import React, { FC, forwardRef, LegacyRef } from 'react';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../utils';
 
 export interface PrimaryHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -28,7 +27,7 @@ export interface PrimaryHeadingProps
   disableMargins?: boolean;
 }
 export interface PrimaryHeadingRef {
-  ref?: Ref<HTMLHeadingElement>;
+  ref?: LegacyRef<HTMLHeadingElement>;
 }
 
 export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
@@ -42,22 +41,26 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
         className,
         ...rest
       }: PrimaryHeadingProps,
-      ref: Ref<HTMLHeadingElement>
-    ) => (
-      <h2
-        ref={ref}
-        className={classNames(
-          common[color],
-          common[variant],
-          css.root,
-          { [css.disableMargins]: disableMargins },
-          className
-        )}
-        {...rest}
-      >
-        {children}
-      </h2>
-    )
+      ref
+    ) => {
+      const theme = useComponentTheme('typography');
+
+      return (
+        <h2
+          ref={ref}
+          className={twMerge(
+            theme.colors[color],
+            theme.variant[variant],
+            theme.primaryHeading,
+            disableMargins && theme.disableMargins,
+            className
+          )}
+          {...rest}
+        >
+          {children}
+        </h2>
+      );
+    }
   );
 
 PrimaryHeading.defaultProps = {

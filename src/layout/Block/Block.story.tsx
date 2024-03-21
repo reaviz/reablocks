@@ -1,4 +1,5 @@
 import { Block } from './Block';
+import React from 'react';
 
 export default {
   title: 'Components/Layout/Block',

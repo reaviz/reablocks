@@ -3,21 +3,20 @@ import {
   TypographyBlocks,
   ColorBlocks,
   SpacingBlocks,
-  PaletteBlocks,
   BorderBlocks,
+  IconBlocks,
+  PaletteBlocks,
   ShadowBlocks,
-  ComponentBlocks,
-  GradientBlocks,
-  IconBlocks
-} from './helpers';
-import { ThemeProvider } from './ThemeProvider';
-import { darkTheme } from './themes';
-import { buildSheetRules } from './utils';
+  ComponentBlocks
+} from './blocks';
 import favoriteIcon from './icon-demo.svg';
+import tailwindConfig from '../../../tailwind.config';
+import TWConfig from './config';
+import { useTheme } from './hooks';
+import { extractTheme } from './themes';
 
 export default {
   title: 'Components/Theme',
-  component: ThemeProvider,
   decorators: [
     Story => (
       <div style={{ width: '95vw' }}>
@@ -27,62 +26,39 @@ export default {
   ]
 };
 
-export const Model = () => (
-  <div
-    style={{
-      display: 'flex',
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      bottom: 0,
-      left: 0
-    }}
-  >
-    <div
-      style={{
-        padding: '0 var(--spacing-lg)',
-        overflow: 'auto',
-        width: '50%'
-      }}
-    >
-      <h3>Model</h3>
-      <pre>
-        <code>{JSON.stringify(darkTheme, null, 2)}</code>
-      </pre>
-    </div>
-    <div
-      style={{
-        borderLeft: 'solid 1px var(--slate-500)',
-        padding: '0 var(--spacing-lg)',
-        overflow: 'auto',
-        width: '50%'
-      }}
-    >
-      <h3>Output</h3>
-      <pre>
-        {buildSheetRules(darkTheme).map(k => (
-          <div>{k}</div>
-        ))}
-      </pre>
-    </div>
-  </div>
+const {
+  colors,
+  palettes,
+  borderRadius,
+  boxShadow,
+  spacing,
+  fontFamily,
+  fontSize,
+  fontWeight
+} = extractTheme(TWConfig, tailwindConfig);
+
+export const Colors = () => <ColorBlocks colors={colors} />;
+
+export const Palettes = () => <PaletteBlocks palettes={palettes} />;
+
+export const Typography = () => (
+  <TypographyBlocks
+    families={fontFamily}
+    sizes={fontSize}
+    weights={fontWeight}
+  />
 );
 
-export const Colors = () => <ColorBlocks />;
+export const Spacings = () => <SpacingBlocks spacings={spacing} />;
 
-export const Palettes = () => <PaletteBlocks />;
+export const Borders = () => <BorderBlocks borders={borderRadius} />;
 
-export const Typography = () => <TypographyBlocks />;
+export const Shadows = () => <ShadowBlocks shadows={boxShadow} />;
 
-export const Spacings = () => <SpacingBlocks />;
-
-export const Borders = () => <BorderBlocks />;
-
-export const Gradients = () => <GradientBlocks />;
-
-export const Shadows = () => <ShadowBlocks />;
-
-export const Components = () => <ComponentBlocks />;
+export const Components = () => {
+  const { theme } = useTheme();
+  return <ComponentBlocks components={theme.components} />;
+};
 
 export const Icons = () => (
   <>

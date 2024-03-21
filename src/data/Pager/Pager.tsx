@@ -1,16 +1,15 @@
 import React, { FC, Fragment, ReactNode, useCallback } from 'react';
-import classNames from 'classnames';
-
-import { Button } from '../../elements/Button';
+import { Button } from '../../elements';
 import { Stack } from '../../layout';
 import { Text } from '../../typography';
 import { Pluralize } from '../Pluralize';
-import { ReactComponent as EndArrow } from './assets/arrow-end.svg';
-import { ReactComponent as NextArrow } from './assets/arrow-next.svg';
-import { ReactComponent as PreviousArrow } from './assets/arrow-previous.svg';
-import { ReactComponent as StartArrow } from './assets/arrow-start.svg';
+import EndArrow from './assets/arrow-end.svg?react';
+import NextArrow from './assets/arrow-next.svg?react';
+import PreviousArrow from './assets/arrow-previous.svg?react';
+import StartArrow from './assets/arrow-start.svg?react';
 import { FUZZY_RANGE, getItemsRange, getPageRange } from './utils';
-import css from './Pager.module.css';
+import { useComponentTheme } from '../../utils';
+import { twMerge } from 'tailwind-merge';
 
 export interface PagerProps {
   /**
@@ -99,6 +98,7 @@ export const Pager: FC<PagerProps> = ({
   const canNext = page < pageCount - 1;
   const [startPage, endPage] = getPageRange(page, pageCount - 1);
   const [startItem, endItem] = getItemsRange(page, size, total);
+  const theme = useComponentTheme('pager');
 
   const previousPage = useCallback(() => {
     if (canPrevious) {
@@ -121,9 +121,9 @@ export const Pager: FC<PagerProps> = ({
   }
 
   return (
-    <div className={classNames(css.pager, className)}>
+    <div className={twMerge(theme.base, className)}>
       {(displayMode === 'items' || displayMode === 'all') && (
-        <div className={css.pagerDisplayItems}>
+        <div className={theme.pagerDisplayItems}>
           {pageCount === 1 && total > 0 && (
             <Text>
               Showing {total === 1 ? total : `all ${total.toLocaleString()}`}{' '}
@@ -142,6 +142,7 @@ export const Pager: FC<PagerProps> = ({
       )}
       {startArrow && (
         <Button
+          className={twMerge(theme.control, theme.firstPage)}
           variant="text"
           size="small"
           disablePadding
@@ -153,6 +154,7 @@ export const Pager: FC<PagerProps> = ({
         </Button>
       )}
       <Button
+        className={twMerge(theme.control, theme.prevPage)}
         variant="text"
         size="small"
         disablePadding
@@ -163,10 +165,10 @@ export const Pager: FC<PagerProps> = ({
         {previousArrow}
       </Button>
       {(displayMode === 'pages' || displayMode === 'all') && (
-        <div
-          className={classNames(css.pagesContainer, pagesContainerClassName)}
-        >
-          {startPage >= 2 && <div className={css.overflow}>&nbsp;...</div>}
+        <div className={twMerge(theme.pages.base, pagesContainerClassName)}>
+          {startPage >= 2 && (
+            <div className={twMerge(theme.ellipsis)}>&nbsp;...</div>
+          )}
           {[...Array(pageCount)].map((_, i) => (
             <Fragment key={i}>
               {i >= startPage && i <= endPage && (
@@ -174,12 +176,11 @@ export const Pager: FC<PagerProps> = ({
                   variant="text"
                   size="small"
                   disabled={page === i}
-                  title={`Page ${i + 1}`}
-                  className={classNames(
-                    css.page,
-                    {
-                      [activePageClassName || css.active]: page === i
-                    },
+                  title={`Page ${(i + 1).toLocaleString()}`}
+                  className={twMerge(
+                    theme.pages.page.base,
+                    page === i &&
+                      (activePageClassName || theme.pages.page.active),
                     pageClassName
                   )}
                   onClick={() => onPageChange?.(i)}
@@ -190,11 +191,12 @@ export const Pager: FC<PagerProps> = ({
             </Fragment>
           ))}
           {endPage <= pageCount - FUZZY_RANGE && (
-            <div className={css.overflow}>...&nbsp;</div>
+            <div className={twMerge(theme.ellipsis)}>...&nbsp;</div>
           )}
         </div>
       )}
       <Button
+        className={twMerge(theme.control, theme.nextPage)}
         variant="text"
         title="Next Page"
         size="small"
@@ -206,6 +208,7 @@ export const Pager: FC<PagerProps> = ({
       </Button>
       {endArrow && (
         <Button
+          className={twMerge(theme.control, theme.lastPage)}
           size="small"
           title="Last Page"
           disablePadding

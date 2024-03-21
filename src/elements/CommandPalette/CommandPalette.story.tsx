@@ -36,7 +36,7 @@ export const Sections = () => (
   <div style={{ width: 400 }}>
     <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection key="shorts">
-        <Stack style={{ margin: '0 var(--spacing-md)' }}>
+        <Stack className="px-2">
           <Chip>Dashboards</Chip>
           <Chip>Integrations</Chip>
           <Chip>Rules</Chip>
@@ -50,15 +50,7 @@ export const Sections = () => (
       </CommandPaletteSection>
       <Divider />
       <CommandPaletteSection key="aws">
-        <div
-          style={{
-            margin: '0 var(--spacing-md) var(--spacing-md) var(--spacing-md)',
-            background: 'var(--red-200)',
-            color: 'var(--white)',
-            padding: 'var(--spacing-md)',
-            borderRadius: 'var(--border-radius-md)'
-          }}
-        >
+        <div className="m-2 mt-0 p-2 bg-red-600 rounded">
           🚨 AWS Account not configured. Link your account →
         </div>
       </CommandPaletteSection>
@@ -151,7 +143,7 @@ export const WithDialog = () => (
 const InboxIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="var(--card-color)"
+    fill="currentColor"
     viewBox="0 0 32 32"
     width="22px"
     height="22px"
@@ -163,7 +155,7 @@ const InboxIcon = () => (
 const HomeIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="var(--card-color)"
+    fill="currentColor"
     viewBox="0 0 32 32"
     width="22px"
     height="22px"
@@ -175,7 +167,7 @@ const HomeIcon = () => (
 const SettingsIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    fill="var(--card-color)"
+    fill="currentColor"
     viewBox="0 0 32 32"
     width="22px"
     height="22px"

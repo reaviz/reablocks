@@ -15,13 +15,13 @@ import {
   sub,
   subYears
 } from 'date-fns';
-import { DateFormat } from '../../data/DateFormat';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
 import { SmallHeading } from '../../typography';
-
-import css from './Calendar.module.css';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../utils';
+import { CalendarTheme } from './CalendarTheme';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -101,23 +101,24 @@ export const Calendar: FC<CalendarProps> = ({
   isRange,
   previousArrow,
   nextArrow,
-  dateFormat,
   showDayOfWeek,
   animated,
   onChange,
   onViewChange
 }) => {
+  const theme = useComponentTheme('calendar') as CalendarTheme;
+
   const date = useMemo(
     () => (Array.isArray(value) ? value[0] : value ?? new Date()),
     [value]
   );
   const rangeStart = useMemo(
     () => (isRange && Array.isArray(value) ? value?.[0] : undefined),
-    [value]
+    [isRange, value]
   );
   const rangeEnd = useMemo(
     () => (isRange && Array.isArray(value) ? value?.[1] : undefined),
-    [value]
+    [isRange, value]
   );
 
   const [viewValue, setViewValue] = useState<Date>(date);
@@ -211,12 +212,13 @@ export const Calendar: FC<CalendarProps> = ({
   }, [scrollDirection]);
 
   return (
-    <div className={css.container}>
-      <header className={css.header}>
+    <div className={twMerge(theme.base)}>
+      <header className={twMerge(theme.header.base)}>
         <Button
           variant="text"
           disabled={disabled}
           onClick={previousClickHandler}
+          className={twMerge(theme.header.prev)}
           disablePadding
         >
           {previousArrow}
@@ -225,10 +227,11 @@ export const Calendar: FC<CalendarProps> = ({
           disabled={disabled}
           variant="text"
           onClick={headerClickHandler}
+          className={twMerge(theme.header.mid)}
           disablePadding
           fullWidth
         >
-          <SmallHeading disableMargins>
+          <SmallHeading disableMargins className={twMerge(theme.title)}>
             {view === 'days' &&
               new Intl.DateTimeFormat(navigator.language, {
                 month: 'long'
@@ -245,6 +248,7 @@ export const Calendar: FC<CalendarProps> = ({
           variant="text"
           disabled={disabled}
           onClick={nextClickHandler}
+          className={twMerge(theme.header.next)}
           disablePadding
         >
           {nextArrow}
@@ -252,6 +256,7 @@ export const Calendar: FC<CalendarProps> = ({
       </header>
       <AnimatePresence initial={false} mode="wait">
         <motion.div
+          className={twMerge(theme.content)}
           key={view}
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}

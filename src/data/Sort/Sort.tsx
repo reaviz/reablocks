@@ -1,9 +1,10 @@
 import React, { FC, PropsWithChildren, useCallback } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import classNames from 'classnames';
 import { DownArrowIcon } from './DownArrowIcon';
 import { getNextDirection, SortDirection } from './utils';
-import css from './Sort.module.css';
+import { twMerge } from 'tailwind-merge';
+import { SortTheme } from './SortTheme';
+import { useComponentTheme } from '../../utils';
 
 export interface SortProps extends PropsWithChildren {
   /**
@@ -73,12 +74,18 @@ export const Sort: FC<SortProps> = ({
     [disabled, direction, onSort]
   );
 
+  const theme: SortTheme = useComponentTheme('sort');
+
   return (
     <div
-      className={classNames(css.button, className, {
-        [css.disabled]: disabled,
-        [css.hasValue]: direction !== undefined && direction !== null
-      })}
+      className={twMerge(
+        theme.base,
+        disabled && theme.disabled,
+        disabled &&
+          direction !== undefined &&
+          direction !== null &&
+          theme.hasValue
+      )}
       role="button"
       tabIndex={-1}
       aria-label="Toggle sort direction"
@@ -95,7 +102,11 @@ export const Sort: FC<SortProps> = ({
             exit={{ opacity: 0, y: 10, transition: { duration: 0.05 } }}
           >
             <Icon
-              className={classNames(css.icon, iconClassName, css.ascIcon)}
+              className={twMerge(
+                theme.icon.base,
+                theme.icon.ascending,
+                iconClassName
+              )}
             />
           </motion.div>
         )}
@@ -106,9 +117,7 @@ export const Sort: FC<SortProps> = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10, transition: { duration: 0.05 } }}
           >
-            <Icon
-              className={classNames(css.icon, iconClassName, css.descIcon)}
-            />
+            <Icon className={twMerge(theme.icon.base, iconClassName)} />
           </motion.div>
         )}
         {!!NeutralIcon && !direction && (
@@ -119,7 +128,7 @@ export const Sort: FC<SortProps> = ({
             exit={{ opacity: 0, y: 10, transition: { duration: 0.05 } }}
           >
             <NeutralIcon
-              className={classNames(css.icon, neutralIconClassName)}
+              className={twMerge(theme.icon.base, neutralIconClassName)}
             />
           </motion.div>
         )}

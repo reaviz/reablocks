@@ -1,14 +1,22 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
 import { Sort } from '../../../src/data/Sort';
 import * as SortStories from '../../../src/data/Sort/Sort.story';
 
 <Meta title="Docs/Components/Data/Sort" />
 
 # Sort
-A simple component that shows the sort direction and allows toggling.
-
-## Example
+The "Sort" component is a straightforward, user-friendly tool designed for toggling the sort direction of data within your application.
+ Ideal for data tables or lists that require sorting capabilities, it provides visual indicators for the current sort direction and allows users to change the sort order with a simple click.
+## Examples
+### Basic Usage
+To use the Sort component, manage the sort direction state in your component or page and pass it along with a callback function to handle changes in sort direction. 
+This example demonstrates how to integrate the Sort component with ascending ('asc') and descending ('desc') sort directions:
 <Canvas sourceState="shown" of={SortStories.Simple} />
 
 ## API
-<ArgsTable of={Sort} />
+Customize the Sort component using the following properties:
+<ArgTypes of={Sort} />
+
+## Design and Usability Tips
+
+- **Sort Confirmation:** Provide immediate visual feedback when a sort order is applied, such as highlighting the active sort column or displaying a sorted icon, reinforcing the user's action.

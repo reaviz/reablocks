@@ -3,8 +3,9 @@ import classNames from 'classnames';
 import { CloneElement, GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
 import FocusTrap from 'focus-trap-react';
 import { motion } from 'framer-motion';
+import { twMerge } from 'tailwind-merge';
 import { DialogHeader, DialogHeaderProps } from './DialogHeader';
-import css from './Dialog.module.css';
+import { useComponentTheme } from '../../utils';
 
 export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
   /**
@@ -76,6 +77,7 @@ export const Dialog: FC<Partial<DialogProps>> = ({
   closeOnEscape
 }) => {
   const id = useId();
+  const theme = useComponentTheme('dialog');
 
   return (
     <GlobalOverlay
@@ -100,19 +102,17 @@ export const Dialog: FC<Partial<DialogProps>> = ({
               exit={{ opacity: 0, y: '20%' }}
               transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
               style={{ zIndex: overlayIndex }}
-              className={classNames(css.dialog, className, {
-                [css.disableHeader]: !header,
-                [css.disablePadding]: disablePadding
-              })}
+              className={twMerge(theme.base, className)}
             >
               <div
-                className={classNames(css.inner, innerClassName)}
+                className={twMerge(theme.inner, innerClassName)}
                 style={{ width: size }}
               >
                 {(header || headerElement) && (
                   <CloneElement<DialogHeaderProps>
                     element={headerElement}
                     showCloseButton={showCloseButton}
+                    disablePadding={disablePadding}
                     onClose={onClose}
                   >
                     {header}
@@ -120,11 +120,16 @@ export const Dialog: FC<Partial<DialogProps>> = ({
                 )}
                 <section
                   id={`${id}-content`}
-                  className={classNames(css.content, contentClassName)}
+                  className={classNames(
+                    theme.content,
+                    contentClassName,
+                    !header && 'p-[20px]',
+                    disablePadding && 'pt-0 pb-0 pl-0 pr-0'
+                  )}
                 >
                   {typeof children === 'function' ? children() : children}
                 </section>
-                {footer && <footer className={css.footer}>{footer}</footer>}
+                {footer && <footer className={theme.footer}>{footer}</footer>}
               </div>
             </motion.div>
           </div>

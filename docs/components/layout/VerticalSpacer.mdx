@@ -1,6 +1,7 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { VerticalSpacer } from '../../../src/layout/VerticalSpacer';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import { darkVerticalSpacerTheme, VerticalSpacer } from '../../../src/layout/VerticalSpacer';
 import * as VerticalSpacerStories from '../../../src/layout/VerticalSpacer/VerticalSpacer.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Layout/Vertical Spacer" />
 
@@ -10,5 +11,12 @@ Simple component to add vertical spacing between elements.
 ## Example
 <Canvas sourceState="shown" of={VerticalSpacerStories.Simple} />
 
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={darkVerticalSpacerTheme} />
+
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
+
 ## API
-<ArgsTable of={VerticalSpacer} />
+<ArgTypes of={VerticalSpacer} />

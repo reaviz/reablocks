@@ -1,20 +1,29 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
 import { Ellipsis } from '../../../src/data/Ellipsis';
 import * as EllipsisStories from '../../../src/data/Ellipsis/Ellipsis.story'
 
 <Meta title="Docs/Components/Data/Ellipsis" />
 
 # Ellipsis
-Simple ellipsis component that handles expanding text.
-
-## Example
-### Ellipsis with expandable text section
-Users click on the ellipsis to discover the hidden text.
+The Ellipsis component is designed to manage long strings of text by truncating them and optionally allowing users to expand the text to view in full. 
+This component is particularly useful for maintaining a clean UI when dealing with potentially lengthy content such as descriptions, comments, or articles.
+## Examples
+### Basic Usage
+#### Expandable Text Section
+In this example, the text is truncated with an ellipsis, 
+and users can click on the ellipsis to reveal the hidden text:
 <Canvas sourceState="shown" of={EllipsisStories.Simple} />
 
-### Ellipsis with Unexpandable text section
-The full text will be visible in the tooltip.
+#### Unexpandable Text Section
+For cases where the full text should not be expanded within the component 
+but is visible via a tooltip on hover:
 <Canvas sourceState="shown" of={EllipsisStories.Unexpandable} />
 
 ## API
-<ArgsTable of={Ellipsis} />
+The `Ellipsis` component offers flexibility through several properties that adjust its behavior and presentation:
+<ArgTypes of={Ellipsis} />
+
+## Design and Usability Tips
+
+- **Content Access:** Ensure the full content is accessible through interaction (click to expand) or tooltips, preventing loss of critical information.
+- **Adaptive Text:** Adjust the amount of truncated text based on the context and importance, ensuring key information is always visible to the user.

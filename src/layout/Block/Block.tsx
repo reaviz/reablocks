@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
-import classNames from 'classnames';
-import css from './Block.module.css';
+import { twMerge } from 'tailwind-merge';
+import { BlockTheme } from './BlockTheme';
+import { useComponentTheme } from '../../utils';
 
 export interface BlockProps extends React.HTMLAttributes<HTMLElement> {
   /**
@@ -62,29 +63,40 @@ export const Block: FC<BlockProps> = ({
   alignment,
   onTitleClick,
   ...rest
-}) => (
-  <section
-    {...rest}
-    className={classNames(css.container, className, {
-      [css.disableMargin]: disableMargin,
-      [css.horizontal]: direction === 'horizontal',
-      [css.vertical]: direction === 'vertical',
-      [css.endAlign]: alignment === 'end',
-      [css.centerAlign]: alignment === 'center'
-    })}
-  >
-    {label && (
-      <label
-        className={classNames(css.label, labelClassName)}
-        onClick={onTitleClick}
-      >
-        {label}
-        {`${required ? ' *' : ''}`}
-      </label>
-    )}
-    {children}
-  </section>
-);
+}) => {
+  const theme: BlockTheme = useComponentTheme('block');
+
+  return (
+    <section
+      {...rest}
+      className={twMerge(
+        theme.base,
+        disableMargin && theme.disableMargin,
+        direction === 'horizontal' && theme.horizontal.base,
+        direction === 'vertical' && theme.vertical.base,
+        alignment === 'end' && theme.endAlign,
+        alignment === 'center' && theme.centerAlign,
+        className
+      )}
+    >
+      {label && (
+        <label
+          className={twMerge(
+            theme.label,
+            direction === 'horizontal' && theme.horizontal.label,
+            direction === 'vertical' && theme.vertical.label,
+            labelClassName
+          )}
+          onClick={onTitleClick}
+        >
+          {label}
+          {`${required ? ' *' : ''}`}
+        </label>
+      )}
+      {children}
+    </section>
+  );
+};
 
 Block.defaultProps = {
   direction: 'vertical',

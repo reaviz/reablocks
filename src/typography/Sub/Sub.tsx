@@ -1,7 +1,6 @@
-import React, { FC, forwardRef, Ref } from 'react';
-import classNames from 'classnames';
-import css from './Sub.module.css';
-import common from '../Typography.module.css';
+import React, { FC, forwardRef, LegacyRef } from 'react';
+import { useComponentTheme } from '../../utils';
+import { twMerge } from 'tailwind-merge';
 
 export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
@@ -28,28 +27,32 @@ export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
 }
 
 export interface SubRef {
-  ref?: Ref<HTMLHeadingElement>;
+  ref?: LegacyRef<HTMLHeadingElement>;
 }
 
 export const Sub: FC<SubProps & SubRef> = forwardRef(
   (
     { color, variant, disableMargins, children, className, ...rest }: SubProps,
-    ref: Ref<HTMLHeadingElement>
-  ) => (
-    <h6
-      ref={ref}
-      className={classNames(
-        common[color],
-        common[variant],
-        css.root,
-        { [css.disableMargins]: disableMargins },
-        className
-      )}
-      {...rest}
-    >
-      {children}
-    </h6>
-  )
+    ref
+  ) => {
+    const theme = useComponentTheme('typography');
+
+    return (
+      <h6
+        ref={ref}
+        className={twMerge(
+          theme.colors[color],
+          theme.variant[variant],
+          theme.sub,
+          disableMargins && theme.disableMargins,
+          className
+        )}
+        {...rest}
+      >
+        {children}
+      </h6>
+    );
+  }
 );
 
 Sub.defaultProps = {

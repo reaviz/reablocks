@@ -1,6 +1,7 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Notifications } from '../../../src/layers/Notification';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import { darkNotificationTheme, Notifications } from '../../../src/layers/Notification';
 import * as NotificationsStories from '../../../src/layers/Notification/Notification.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Layers/Notification" />
 
@@ -53,17 +54,12 @@ const Component = () => {
 ### Notifications with title and body
 <Canvas of={NotificationsStories.TitleAndBody} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme
+This component uses the following default theme:
 
-- `notification-background`
-- `notification-color`
-- `notification-border`
-- `notification-color-error`
-- `notification-color-warning`
-- `notification-color-success`
+<ThemeRender theme={darkNotificationTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
-<ArgsTable of={Notifications} />
+<ArgTypes of={Notifications} />

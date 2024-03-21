@@ -1,20 +1,14 @@
-import { FC, Fragment, useCallback, useMemo, useState } from 'react';
-import {
-  add,
-  addMonths,
-  min as minDate,
-  max as maxDate,
-  isBefore,
-  sub
-} from 'date-fns';
+import React, { FC, Fragment, useCallback, useMemo, useState } from 'react';
+import { add, addMonths, min as minDate, max as maxDate, sub } from 'date-fns';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Button } from '../../elements/Button';
-import { CalendarProps } from '../Calendar';
+import { Button } from '../../elements';
+import { CalendarProps } from './Calendar';
 import { CalendarDays } from './CalendarDays';
-import { DateFormat } from '../../data/DateFormat';
 import { SmallHeading } from '../../typography';
-import { Stack } from '../../layout/Stack';
-import css from './CalendarRange.module.css';
+import { Stack } from '../../layout';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../utils';
+import { CalendarRangeTheme } from './CalendarRangeTheme';
 
 export interface CalendarRangeProps
   extends Omit<CalendarProps, 'value' | 'isRange' | 'onViewChange'> {
@@ -65,6 +59,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   direction,
   ...rest
 }) => {
+  const theme = useComponentTheme('calendarRange') as CalendarRangeTheme;
   const date = useMemo(
     () => (Array.isArray(value) ? value[0] : new Date()),
     [value]
@@ -130,13 +125,14 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   }, [scrollDirection]);
 
   return (
-    <div className={css.container}>
-      <header className={css.header}>
+    <div className={twMerge(theme.base)}>
+      <header className={twMerge(theme.header.base)}>
         <Stack>
           <Button
             variant="text"
             disabled={disabled}
             onClick={previousYearClickHandler}
+            className={twMerge(theme.header.prev)}
             disablePadding
           >
             {previousYearArrow}
@@ -145,12 +141,13 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             variant="text"
             disabled={disabled}
             onClick={previousClickHandler}
+            className={twMerge(theme.header.mid)}
             disablePadding
           >
             {previousArrow}
           </Button>
         </Stack>
-        <SmallHeading className={css.monthLabel} disableMargins>
+        <SmallHeading className={twMerge(theme.title)} disableMargins>
           {displayMonths.map(i => (
             <span key={addMonths(viewValue, showPast ? -i : i).toDateString()}>
               {new Intl.DateTimeFormat(navigator.language, {
@@ -164,6 +161,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             variant="text"
             disabled={disabled}
             onClick={nextClickHandler}
+            className={twMerge(theme.header.next)}
             disablePadding
           >
             {nextArrow}
@@ -189,7 +187,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             scale: { type: animated ? 'tween' : false }
           }}
         >
-          <div className={css.calendars}>
+          <div data-testid="hello" className={twMerge(theme.content)}>
             {displayMonths.map((offset, idx) => (
               <Fragment key={`calendar-${offset}`}>
                 <CalendarDays

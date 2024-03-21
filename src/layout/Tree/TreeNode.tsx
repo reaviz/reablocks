@@ -7,11 +7,12 @@ import React, {
   useCallback,
   useContext
 } from 'react';
-import classNames from 'classnames';
 import { Button } from '../../elements/Button';
 import { Collapse } from '../Collapse';
 import { TreeContext } from './TreeContext';
-import css from './TreeNode.module.css';
+import { twMerge } from 'tailwind-merge';
+import { TreeTheme } from './TreeTheme';
+import { useComponentTheme } from '../../utils';
 
 export interface TreeNodeProps {
   /**
@@ -78,31 +79,45 @@ export const TreeNode: FC<Partial<TreeNodeProps>> = ({
     }
   }, [expanded, onCollapse, onExpand]);
 
+  const theme: TreeTheme = useComponentTheme('tree');
+
   return (
     <li
-      className={classNames(className, css.node, {
-        [css.leaf]: !hasChildren,
-        [css.disabled]: disabled
-      })}
+      className={twMerge(theme.node.base)}
+      // className={classNames(className, css.node, {
+      //   [css.leaf]: !hasChildren,
+      //   [css.disabled]: disabled
+      // })}
     >
-      <div className={css.nodeBlock}>
+      <div className={theme.nodeBlock}>
         {hasChildren && (
           <Button
             size="small"
             disabled={disabled}
             variant="text"
             title={expanded ? 'Collapse' : 'Expand'}
-            className={css.button}
+            className={twMerge(
+              theme.node.button.base,
+              disabled && theme.node.disabled
+            )}
             onClick={onButtonClick}
           >
             {expanded ? expandedIcon : collapsedIcon}
           </Button>
         )}
-        <span className={css.label}>{label}</span>
+        <span
+          className={twMerge(
+            theme.node.label,
+            !hasChildren && theme.node.leaf,
+            disabled && theme.node.disabled
+          )}
+        >
+          {label}
+        </span>
       </div>
       {hasChildren && (
         <Collapse expanded={expanded}>
-          {() => <ul className={css.subtree}>{children}</ul>}
+          {() => <ul className={theme.subtree}>{children}</ul>}
         </Collapse>
       )}
     </li>

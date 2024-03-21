@@ -1,17 +1,35 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
 import { Pager } from '../../../src/data/Pager';
 import * as PagerStories from '../../../src/data/Pager/Pager.story'
 
 <Meta title="Docs/Components/Data/Pager" />
 
 # Pager
-A simple pager for navigating between pages of data. You can customise the page navigation indicators (The pager arrows) if you want.
-You can also change the `displayMode` to customize what table information the pager shows.
+The Pager component facilitates navigation through pages of data, 
+allowing users to easily switch between different subsets of data. 
+It supports customization of navigation indicators (arrows) and provides various display modes to tailor how pagination information is presented.
+## Examples
+### Basic Usage
+#### Simple Pager with Page Numbers
+In this example, the pager displays page numbers, 
+allowing users to navigate through pages based on a specific range of items:
 
-## Example
 <Canvas sourceState="shown" of={PagerStories.ShowPages} />
+
+#### Displaying Range of Items
+To show the current range of items (e.g., "1-10 of 100 items"), 
+you can set the displayMode to "items":
 <Canvas sourceState="shown" of={PagerStories.ShowItems} />
+
+#### Comprehensive Pagination Information
+For a more detailed view, including both page numbers and the items range, set `displayMode` to "all":
 <Canvas sourceState="shown" of={PagerStories.ShowAll} />
 
 ## API
-<ArgsTable of={Pager} />
+The Pager component offers a range of properties for customization and flexibility:
+<ArgTypes of={Pager} />
+
+## Design and Usability Tips
+
+- **Predictable Navigation:** Design pager controls to be predictable and consistent, with clear indications of current page and total number of pages, aiding in orientation within the dataset.
+- **Responsive Adaptation:** Ensure pager controls adapt responsively to different screen sizes, maintaining usability and accessibility on mobile devices.

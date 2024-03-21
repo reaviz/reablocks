@@ -1,6 +1,7 @@
 import React, { FC, useState, useMemo } from 'react';
 import ellipsize from 'ellipsize';
-import css from './Ellipsis.module.css';
+import { EllipsisTheme } from './EllipsisTheme';
+import { useComponentTheme } from '../../utils';
 
 export interface EllipsisProps {
   /**
@@ -51,6 +52,8 @@ export const Ellipsis: FC<EllipsisProps> = ({
     return ellipsize(formatted, limit, { ellipse: expandable ? '' : '...' });
   }, [expandable, limit, value, removeLinebreaks]);
 
+  const theme: EllipsisTheme = useComponentTheme('ellipsis');
+
   return (
     <span className={className}>
       {expanded ? (
@@ -64,7 +67,7 @@ export const Ellipsis: FC<EllipsisProps> = ({
         <button
           type="button"
           title="Click to view rest of content"
-          className={css.dots}
+          className={theme.dots}
           onClick={event => {
             event.stopPropagation();
             setExpanded(true);

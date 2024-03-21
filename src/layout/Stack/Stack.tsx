@@ -1,6 +1,6 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
-import classNames from 'classnames';
-import css from './Stack.module.css';
+import { useComponentTheme } from '../../utils';
+import { twMerge } from 'tailwind-merge';
 
 export interface StackProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -42,21 +42,27 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(
       ...otherProps
     },
     ref
-  ) => (
-    <div
-      className={classNames(css.container, className, {
-        [css.dense]: dense,
-        [css.inline]: inline,
-        [css[direction]]: direction,
-        [css[`${alignItems}Align`]]: alignItems,
-        [css[`${justifyContent}Justify`]]: justifyContent
-      })}
-      ref={ref}
-      {...otherProps}
-    >
-      {children}
-    </div>
-  )
+  ) => {
+    const theme = useComponentTheme('stack');
+
+    return (
+      <div
+        className={twMerge(
+          theme.base,
+          dense && theme.dense,
+          inline && theme.inline,
+          theme.direction[direction],
+          theme.alignItems[alignItems],
+          theme.justifyContent[justifyContent],
+          className
+        )}
+        ref={ref}
+        {...otherProps}
+      >
+        {children}
+      </div>
+    );
+  }
 );
 
 Stack.defaultProps = {

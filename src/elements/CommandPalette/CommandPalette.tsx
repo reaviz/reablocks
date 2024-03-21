@@ -14,10 +14,11 @@ import {
   HotkeyIem,
   useFlattenedTree
 } from './useFlattenedTree';
-import { List, ListItem } from '../../layout/List';
-import { Card } from '../../layout/Card';
-import { MotionGroup } from '../../layout/Motion';
-import css from './CommandPalette.module.css';
+import { List, ListItem } from '../../layout';
+import { Card } from '../../layout';
+import { MotionGroup } from '../../layout';
+import { useComponentTheme } from '../../utils';
+import { CommandPaletteTheme } from './CommandPaletteTheme';
 
 export interface CommandPaletteProps extends PropsWithChildren {
   /**
@@ -106,8 +107,10 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
     }
   }, [selectedIndex, flattenedTree]);
 
+  const theme: CommandPaletteTheme = useComponentTheme('commandPalette');
+
   return (
-    <Card className={css.card} disablePadding ref={elementRef}>
+    <Card className={theme.base} disablePadding ref={elementRef}>
       <CommandPaletteInput
         value={filterText}
         placeholder={placeholder}
@@ -124,7 +127,7 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
       />
       <MotionGroup>
         {hasChildren && (
-          <Card className={css.innerCard} disablePadding>
+          <Card className={theme.inner} disablePadding>
             <List>{flattenedTree}</List>
           </Card>
         )}

@@ -1,7 +1,6 @@
-import React, { FC, forwardRef, Ref } from 'react';
-import classNames from 'classnames';
-import css from './SecondaryHeading.module.css';
-import common from '../Typography.module.css';
+import React, { FC, forwardRef, LegacyRef } from 'react';
+import { useComponentTheme } from '../../utils';
+import { twMerge } from 'tailwind-merge';
 
 export interface SecondaryHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -27,8 +26,9 @@ export interface SecondaryHeadingProps
    */
   disableMargins?: boolean;
 }
+
 export interface SecondaryHeadingRef {
-  ref?: Ref<HTMLHeadingElement>;
+  ref?: LegacyRef<HTMLHeadingElement>;
 }
 
 export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
@@ -42,22 +42,26 @@ export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
         className,
         ...rest
       }: SecondaryHeadingProps,
-      ref: Ref<HTMLHeadingElement>
-    ) => (
-      <h3
-        ref={ref}
-        className={classNames(
-          common[color],
-          common[variant],
-          css.root,
-          { [css.disableMargins]: disableMargins },
-          className
-        )}
-        {...rest}
-      >
-        {children}
-      </h3>
-    )
+      ref
+    ) => {
+      const theme = useComponentTheme('typography');
+
+      return (
+        <h3
+          ref={ref}
+          className={twMerge(
+            theme.colors[color],
+            theme.variant[variant],
+            theme.secondaryHeading,
+            disableMargins && theme.disableMargins,
+            className
+          )}
+          {...rest}
+        >
+          {children}
+        </h3>
+      );
+    }
   );
 
 SecondaryHeading.defaultProps = {

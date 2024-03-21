@@ -1,8 +1,9 @@
-import React, { FC, forwardRef, Ref, useContext, useMemo } from 'react';
-import classNames from 'classnames';
+import React, { FC, forwardRef, LegacyRef, useContext, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import css from './Radio.module.css';
 import { RadioGroupContext } from './RadioGroupContext';
+import { twMerge } from 'tailwind-merge';
+import { useComponentTheme } from '../../utils';
+import { RadioTheme } from './RadioTheme';
 
 export interface RadioProps {
   /**
@@ -55,7 +56,7 @@ const VARIANTS = {
 };
 
 export interface RadioRef {
-  ref?: Ref<HTMLDivElement>;
+  ref?: LegacyRef<HTMLDivElement>;
 }
 
 export const Radio: FC<RadioProps & RadioRef> = forwardRef(
@@ -71,7 +72,7 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
       value,
       ...rest
     },
-    ref: Ref<HTMLDivElement>
+    ref
   ) => {
     const { onChange: onGroupValueChange, selectedValue } =
       useContext(RadioGroupContext);
@@ -88,17 +89,20 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
       onChange?.(checked);
     };
 
+    const theme: RadioTheme = useComponentTheme('radio');
+
     return (
-      <div className={classNames(css.container, className)}>
+      <div className={twMerge(theme.base, className)}>
         <div
           {...rest}
           ref={ref}
           tabIndex={0}
-          className={classNames(css.radio, {
-            [css.disabled]: disabled,
-            [css.checked]: checked,
-            [css[size]]: true
-          })}
+          className={twMerge(
+            theme.radio.base,
+            disabled && theme.radio.disabled,
+            checked && theme.radio.checked,
+            theme.sizes[size]
+          )}
           onClick={() => {
             if (!disabled) {
               onValueChange(!checked);
@@ -112,7 +116,10 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
           }}
         >
           <motion.div
-            className={css.indicator}
+            className={twMerge(
+              theme.indicator.base,
+              theme.indicator.sizes[size]
+            )}
             initial={!disabled ? { opacity: 0, scale: 0.5 } : {}}
             variants={VARIANTS}
             animate={checked ? 'check' : 'uncheck'}
@@ -121,9 +128,10 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
         </div>
         {label && (
           <span
-            className={classNames(css.label, {
-              [css.clickable]: !disabled
-            })}
+            className={twMerge(
+              theme.label.base,
+              !disabled && theme.label.clickable
+            )}
             onClick={() => {
               if (!disabled) {
                 onValueChange(!checked);

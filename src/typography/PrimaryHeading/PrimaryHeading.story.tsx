@@ -1,4 +1,5 @@
 import { PrimaryHeading } from './PrimaryHeading';
+import React from 'react';
 
 export default {
   title: 'Components/Typography/PrimaryHeading',

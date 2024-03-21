@@ -4,12 +4,12 @@ import React, {
   useImperativeHandle,
   useRef
 } from 'react';
-import classNames from 'classnames';
 import TextareaAutosize, {
   TextareaAutosizeProps
 } from 'react-textarea-autosize';
-
-import css from './Textarea.module.css';
+import { twMerge } from 'tailwind-merge';
+import { TextareaTheme } from './TextareaTheme';
+import { useComponentTheme } from '../../utils';
 
 export interface TextareaProps extends TextareaAutosizeProps {
   /**
@@ -44,7 +44,7 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
   (
     {
       fullWidth,
-      size = 'small',
+      size = 'medium',
       containerClassName,
       className,
       error,
@@ -62,22 +62,27 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
       focus: () => inputRef.current?.focus()
     }));
 
+    const theme: TextareaTheme = useComponentTheme('textarea');
+
     return (
       <div
-        className={classNames(
-          css.root,
-          {
-            [css.fullWidth]: fullWidth,
-            [css.error]: error,
-            [css[size]]: size
-          },
+        className={twMerge(
+          theme.base,
+          fullWidth && theme.fullWidth,
+          error && theme.error,
           containerClassName
         )}
         ref={containerRef}
       >
         <TextareaAutosize
           ref={inputRef}
-          className={classNames(css.input, className)}
+          className={twMerge(
+            theme.input,
+            fullWidth && theme.fullWidth,
+            rest.disabled && theme.disabled,
+            theme.sizes[size],
+            className
+          )}
           {...rest}
         />
       </div>

@@ -1,21 +1,31 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { AvatarGroup } from '../../../src/elements/AvatarGroup';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import { AvatarGroup, darkAvatarGroupTheme } from '../../../src/elements/AvatarGroup';
 import * as AvatarGroupStories from '../../../src/elements/AvatarGroup/AvatarGroup.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/AvatarGroup" />
 
 # AvatarGroup
-A component to display a group of avatars with a maximum size.
-
-## Example
+The "AvatarGroup" component is designed to efficiently display a collection of user avatars, making it ideal for showcasing team members, participant lists, or any group of users. 
+It smartly handles large numbers of avatars by showing a set maximum number on the screen, with an additional indicator for the number of hidden avatars.
+## Examples
+### Basic Usage
+The AvatarGroup component arranges multiple Avatar components together, indicating excess avatars when surpassing the specified maximum size:
 <Canvas sourceState="shown" of={AvatarGroupStories.Basic} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme Customization
+AvatarGroup supports theming to ensure its appearance aligns with the overall design of your application. 
+The default theme settings include:
 
-- `avatar-group-spacing`
+<ThemeRender theme={darkAvatarGroupTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
-<ArgsTable of={AvatarGroup} />
+Customization options available through the AvatarGroup component's properties:
+<ArgTypes of={AvatarGroup} />
+
+## Design and Usability Tips
+
+- **Expandable Details:** Provide a mechanism (e.g., tooltip or modal) to view all avatars in a group on click or hover, ensuring users can access every member's profile without cluttering the UI.
+- **Customizable Views:** Allow users to customize the visibility and ordering of avatars in a group, accommodating personal preferences and improving the experience.

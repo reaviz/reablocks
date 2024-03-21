@@ -1,7 +1,9 @@
 import React, { FC } from 'react';
-import { Button } from '../../../elements/Button';
+import { Button } from '../../../elements';
 import { monthNames } from '../utils';
-import css from './CalendarMonths.module.css';
+import { useComponentTheme } from '../../../utils';
+import { CalendarTheme } from '../CalendarTheme';
+import { twMerge } from 'tailwind-merge';
 
 export interface CalendarMonthsProps {
   /**
@@ -18,19 +20,24 @@ export interface CalendarMonthsProps {
 export const CalendarMonths: FC<CalendarMonthsProps> = ({
   value,
   onChange
-}) => (
-  <div className={css.months}>
-    {monthNames.map((month, i) => (
-      <Button
-        key={month}
-        className={css.month}
-        variant={value === i ? 'filled' : 'text'}
-        disableMargins
-        title={month}
-        onClick={() => onChange(i)}
-      >
-        {month}
-      </Button>
-    ))}
-  </div>
-);
+}) => {
+  const { months } = useComponentTheme('calendar') as CalendarTheme;
+
+  return (
+    <div className={twMerge(months.root)}>
+      {monthNames.map((month, i) => (
+        <Button
+          key={month}
+          className={twMerge(months.month)}
+          color={value === i ? 'primary' : 'default'}
+          variant={value === i ? 'filled' : 'text'}
+          disableMargins
+          title={month}
+          onClick={() => onChange(i)}
+        >
+          {month}
+        </Button>
+      ))}
+    </div>
+  );
+};

@@ -1,16 +1,24 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
 import { InlineInput } from '../../../src/form/Input';
 import * as InlineInputStories from '../../../src/form/Input/InlineInput/InlineInput.story';
 
 <Meta title="Docs/Components/Form/Inline Input" />
 
 # Inline Input
-Input that can be used for inline editing which expands as you type.
-
+The Inline Input component is tailored for inline editing scenarios, offering a fluid and responsive input field that expands in response to user input. 
+This component is ideally suited for applications requiring seamless inline text modifications without the cumbersome overhead of traditional form inputs.
 ## Examples
+### Basic Usage
+This example demonstrates the Inline Input in action, providing a user-friendly editing experience within a bordered container. 
+The input field automatically adjusts its size as the user types, accommodating the entered text while maintaining a compact UI footprint:
 
 <Canvas sourceState="shown" of={InlineInputStories.Basic} />
 
 ## API
+Configure the Inline Input component to fit your specific inline editing needs with these properties:
+<ArgTypes of={InlineInput} />
 
-<ArgsTable of={InlineInput} />
+## Design and Usability Tips
+
+- **Responsive Behavior:** Test the Inline Input component across various device sizes and screen resolutions to guarantee a consistent and usable experience. 
+Inline editing elements should remain functional and visually coherent even on smaller screens, where space is at a premium.

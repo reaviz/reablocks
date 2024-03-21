@@ -481,6 +481,7 @@ export const Select: FC<Partial<SelectProps>> = ({
       onChange?.(newValue);
     },
     [
+      keyword,
       closeOnSelect,
       createable,
       multiple,

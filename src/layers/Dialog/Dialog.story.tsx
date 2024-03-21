@@ -1,6 +1,7 @@
 import React from 'react';
 import { Dialog } from './Dialog';
 import { useDialog } from './useDialog';
+import { Button } from '../../elements';
 
 export default {
   title: 'Components/Layers/Dialog',
@@ -12,7 +13,7 @@ export const Simple = () => {
 
   return (
     <div style={{ textAlign: 'center', margin: '50px' }}>
-      <button onClick={toggleOpen}>Open</button>
+      <Button onClick={toggleOpen}>Open</Button>
       <Dialog header="Whats up">Hello</Dialog>
     </div>
   );
@@ -23,8 +24,8 @@ export const CustomHeader = () => {
 
   return (
     <div style={{ textAlign: 'center', margin: '50px' }}>
-      <button onClick={toggleOpen}>Open</button>
-      <Dialog header={<h3>What's up</h3>}>Hello</Dialog>
+      <Button onClick={toggleOpen}>Open</Button>
+      <Dialog header={<h3 className="text-2xl">What's up</h3>}>Hello</Dialog>
     </div>
   );
 };
@@ -36,7 +37,7 @@ export const CustomHeaderElement = () => {
 
   return (
     <div style={{ textAlign: 'center', margin: '50px' }}>
-      <button onClick={toggleOpen}>Open</button>
+      <Button onClick={toggleOpen}>Open</Button>
       <Dialog header="My Custom Header" headerElement={<MyHeader />}>
         Body Content
       </Dialog>
@@ -49,7 +50,7 @@ export const NoHeader = () => {
 
   return (
     <div style={{ textAlign: 'center', margin: '50px' }}>
-      <button onClick={toggleOpen}>Open</button>
+      <Button onClick={toggleOpen}>Open</Button>
       <Dialog header={null}>Hello</Dialog>
     </div>
   );
@@ -60,7 +61,7 @@ export const NoPadding = () => {
 
   return (
     <div style={{ textAlign: 'center', margin: '50px' }}>
-      <button onClick={toggleOpen}>Open</button>
+      <Button onClick={toggleOpen}>Open</Button>
       <Dialog header={null} disablePadding={true}>
         Hello
       </Dialog>
@@ -73,12 +74,12 @@ export const Footer = () => {
 
   return (
     <div style={{ textAlign: 'center', margin: '50px' }}>
-      <button onClick={toggleOpen}>Open</button>
+      <Button onClick={toggleOpen}>Open</Button>
       <Dialog
         header="Whats up"
         footer={
           <div>
-            <button>Save</button>
+            <Button>Save</Button>
           </div>
         }
       >

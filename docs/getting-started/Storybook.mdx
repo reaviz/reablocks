@@ -3,23 +3,31 @@ import { Meta } from '@storybook/addon-docs';
 <Meta title="Docs/Getting Started/Storybook" />
 
 # Storybook
-If you read our Philosophy documentation, Reablocks is a Storybook-first library.
-To set up Storybook with Reablocks, follow the steps below depending on your setup.
+Reablocks is designed with a Storybook-first philosophy, focusing on enabling seamless integration and development within the Storybook environment. 
+This guide will walk you through setting up Storybook with Reablocks, including the use of the `DesignTokensProvider` to ensure your design tokens are consistently applied across all your stories.
+### Prerequisites
+- Ensure Storybook is already set up in your project.
+- Install Reablocks in your project (if you haven't already) using npm or yarn.
+### Create or Update the preview.jsx File
+The `preview.jsx` file in your `.storybook` directory allows you to customize how stories are rendered in Storybook. 
+If you don't have this file yet, you'll need to create it to incorporate the `DesignTokensProvider`.
+- Navigate to Your `.storybook` Folder.
+- Create or Edit preview.jsx.
+### Structuring the preview.jsx File in Storybook with Reablocks
+When incorporating Reablocks into Storybook, one of the key steps is ensuring your design tokens are applied across all stories. 
+This is efficiently achieved by using the DesignTokensProvider as a decorator within your .storybook/preview.jsx file. 
+Below is an example showcasing how we typically structure this file:
 
-### Design Tokens Approach
-If you are choosing to use the `DesignTokensProvider`, we need import
-it as a decorator. This will automatically apply your design tokens to
-every story.
-
-To get started, if you don't already have a file called
-`preview.jsx` in your `.storybook` folder, let's make one. Here is how
-I typically structure my `preview.jsx` file:
-
+- **Import Required Modules:**
+Start by importing the necessary modules, including the `DocsContainer` from Storybook's addon-docs, the `DesignTokensProvider` from Reablocks, and your theme file.
 ```jsx
 import { DocsContainer } from '@storybook/addon-docs';
 import { DesignTokensProvider } from 'reablocks';
 import { theme } from '[INSERT_PATH_TO_YOUR_THEME]';
-
+```
+- **Set Up Decorators:**
+Decorators are utilized to wrap stories for global style or functionality application. Here, we use the `DesignTokensProvider` to ensure that your design tokens are applied to every story.
+```jsx
 export const decorators = [
   Story => (
     <DesignTokensProvider value={theme}>
@@ -27,7 +35,10 @@ export const decorators = [
     </DesignTokensProvider>
   )
 ];
-
+```
+- **Configure Global Parameters:**
+Define global parameters to adjust the Storybook environment according to your needs. This configuration includes setting the layout, customizing the documentation container to include the `DesignTokensProvider`, and hiding the no-controls warning.
+```jsx
 export const parameters = {
   layout: 'centered',
   docs: {
@@ -44,18 +55,32 @@ export const parameters = {
   }
 };
 ```
-
-### CSS Variables Approach
-If you choose to use the CSS variables approach, if you don't
-already have a file called `preview-head.html` in your `.storybook`
-folder, lets make one and define the design tokens you will
-be using in your application like:
-
-```html
-<style>
-  body {
-    --spacing-md: 25px;
-    --divider-bg: #ccc;
+### Complete Example
+Putting it all together, your `.storybook/preview.jsx` file will look something like this:
+```jsx
+import { DocsContainer } from '@storybook/addon-docs';
+import { DesignTokensProvider } from 'reablocks';
+import { theme } from '[INSERT_PATH_TO_YOUR_THEME]';
+export const decorators = [
+  Story => (
+    <DesignTokensProvider value={theme}>
+      <Story />
+    </DesignTokensProvider>
+  )
+];
+export const parameters = {
+  layout: 'centered',
+  docs: {
+    container: ({ context, children }) => (
+      <DocsContainer context={context}>
+        <DesignTokensProvider value={theme}>
+          {children}
+        </DesignTokensProvider>
+      </DocsContainer>
+    )
+  },
+  controls: {
+    hideNoControlsWarning: true
   }
-</style>
+};
 ```

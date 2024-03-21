@@ -1,7 +1,6 @@
-import React, { FC, forwardRef, Ref } from 'react';
-import classNames from 'classnames';
-import css from './PageTitle.module.css';
-import common from '../Typography.module.css';
+import React, { FC, forwardRef, LegacyRef } from 'react';
+import { useComponentTheme } from '../../utils';
+import { twMerge } from 'tailwind-merge';
 
 export interface PageTitleProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -27,8 +26,9 @@ export interface PageTitleProps
    */
   disableMargins?: boolean;
 }
+
 export interface PageTitleRef {
-  ref?: Ref<HTMLHeadingElement>;
+  ref?: LegacyRef<HTMLHeadingElement>;
 }
 
 export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
@@ -41,22 +41,26 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
       className,
       ...rest
     }: PageTitleProps,
-    ref: Ref<HTMLHeadingElement>
-  ) => (
-    <h1
-      ref={ref}
-      className={classNames(
-        common[color],
-        common[variant],
-        css.root,
-        { [css.disableMargins]: disableMargins },
-        className
-      )}
-      {...rest}
-    >
-      {children}
-    </h1>
-  )
+    ref
+  ) => {
+    const theme = useComponentTheme('typography');
+
+    return (
+      <h1
+        ref={ref}
+        className={twMerge(
+          theme.colors[color],
+          theme.variant[variant],
+          theme.pageTitle,
+          disableMargins && theme.disableMargins,
+          className
+        )}
+        {...rest}
+      >
+        {children}
+      </h1>
+    );
+  }
 );
 
 PageTitle.defaultProps = {

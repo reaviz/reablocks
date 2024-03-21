@@ -1,48 +1,50 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
 import { IconButton } from '../../../src/elements/IconButton';
+import { darkButtonTheme } from '../../../src/elements/Button';
 import * as IconButtonStories from '../../../src/elements/IconButton/IconButton.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/IconButton" />
 
 # IconButton
-A button component having an icon inside, with variants of different types, colors and sizes.
-
+The IconButton component integrates icons within buttons, combining the visual appeal of icons with the functionality of buttons. 
+This component is crucial for creating intuitive and space-efficient user interfaces, especially in applications requiring a clean and modern aesthetic.
 ## Examples
-### Icon Buttons with size variations
-<Canvas of={IconButtonStories.Sizes} />
-### Icon Buttons with color variations in background
-<Canvas of={IconButtonStories.ColorsBackground} />
-### Icon Buttons with color variations in icon
-<Canvas of={IconButtonStories.ColorsIcons} />
-### Icon Buttons with color variations in border
-<Canvas of={IconButtonStories.ColorsOutline} />
-### Icon Buttons with type variations
+### Basic Usage
+#### Icon Buttons with Type Variations
+The `IconButton` component integrates icons into buttons, providing various style variants like "filled", "outline", and "text". 
+These options allow for versatile use across your UI, depending on the intended visual impact and user interaction:
 <Canvas sourceState="shown" of={IconButtonStories.Variants} />
 
+### Advanced Customization
+#### Icon Buttons with Color Variations
+`IconButton` supports different color schemes to signify various actions or statuses, enhancing the UX with visual cues.
+You can customize the background, icon color, and border to fit your application's design language.
+<Canvas of={IconButtonStories.ColorsBackground} />
+<Canvas of={IconButtonStories.ColorsIcons} />
+<Canvas of={IconButtonStories.ColorsOutline} />
 
-## Design Tokens
-This component uses the following design tokens (same as the [Button](?path=/docs/docs-components-elements-button--docs) component):
+#### Icon Buttons with Size Variations
+Adjusting the size of `IconButtons` is straightforward, allowing them to fit seamlessly into different parts of your application, from toolbars to forms:
+<Canvas of={IconButtonStories.Sizes} />
 
-- `button-font-weight`
-- `button-font-family`
-- `button-background`
-- `button-background-hover`
-- `button-color`
-- `button-color-hover`
-- `button-color-on-background`
-- `button-disabled-color-on-background`
-- `button-border-radius`
-- `button-border`
-- `button-focus`
-- `button-focus-offset`
-- `button-spacing-sm`
-- `button-spacing-md`
-- `button-spacing-lg`
-- `button-adornment-size-sm`
-- `button-adornment-size-md`
-- `button-adornment-size-lg`
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+## Theme Customization
+Customize the IconButton's appearance with our default theme or your tailored version to ensure it complements your application's style. 
+Here's the default theme structure:
+<ThemeRender theme={darkButtonTheme} />
+
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
-<ArgsTable of={IconButton} />
+Each property of the IconButton is detailed below, providing insight into how to fully utilize the component's capabilities.
+
+<ArgTypes of={IconButton} />
+
+## Design and Usability Tips
+- **Accessibility Considerations:** Ensure that `IconButtons` are accessible by providing appropriate `aria-labels` for screen readers. 
+Icons might convey meaning visually, but without proper labels, they can be meaningless or confusing to visually impaired users.
+
+- **Spacing and Sizing for Touch:** Consider the touch target size, especially for touch-screen device users. 
+Ensure `IconButtons` are large enough to be easily tapped without accidentally activating neighboring elements. 
+The recommended minimum touch target size is 48x48 pixels.

@@ -14,8 +14,9 @@ import {
   NotificationVariants
 } from './NotificationsContext';
 import { AnimatePresence, motion } from 'framer-motion';
-import css from './Notifications.module.css';
-import classNames from 'classnames';
+import { twMerge } from 'tailwind-merge';
+import { NotificationTheme } from './NotificationTheme';
+import { useComponentTheme } from '../../utils';
 
 export interface NotificationComponentProps {
   message: string;
@@ -126,13 +127,15 @@ export const Notifications: FC<NotificationsProps> = ({
     ]
   );
 
+  const theme: NotificationTheme = useComponentTheme('notification');
+
   return (
     <Fragment>
       <NotificationsContext.Provider value={values}>
         {children}
       </NotificationsContext.Provider>
-      <div className={css.container}>
-        <div className={css.positions}>
+      <div className={theme.container}>
+        <div className={theme.positions}>
           <AnimatePresence>
             {!!notifications.length && (
               <motion.div
@@ -164,7 +167,7 @@ export const Notifications: FC<NotificationsProps> = ({
                     <Notification
                       {...n}
                       key={n.id}
-                      className={classNames(className, n.className)}
+                      className={twMerge(className, n.className)}
                       onClose={clearNotification}
                     />
                   );

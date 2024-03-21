@@ -1,4 +1,5 @@
 import { Stack } from './Stack';
+import React from 'react';
 
 export default {
   title: 'Components/Layout/Stack',

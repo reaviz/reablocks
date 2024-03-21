@@ -1,7 +1,6 @@
-import { FC, useCallback, useMemo, useState } from 'react';
-import classNames from 'classnames';
-import { isAfter, isBefore, isSameDay } from 'date-fns';
-import { Button } from '../../../elements/Button';
+import React, { FC, useCallback, useMemo, useState } from 'react';
+import { isAfter, isBefore } from 'date-fns';
+import { Button } from '../../../elements';
 import {
   daysOfWeek,
   getDayAttributes,
@@ -10,8 +9,9 @@ import {
   isPreviousWeekEmpty
 } from '../utils';
 import { AnimatePresence, motion } from 'framer-motion';
-
-import css from './CalendarDays.module.css';
+import { useComponentTheme } from '../../../utils';
+import { CalendarTheme } from '../CalendarTheme';
+import { twMerge } from 'tailwind-merge';
 
 export interface CalendarDaysProps {
   /**
@@ -117,6 +117,8 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   onChange,
   onHover
 }) => {
+  const { days } = useComponentTheme('calendar') as CalendarTheme;
+
   const [hoveringDate, setHoveringDate] = useState<Date | null>(hover);
   const weeks = useMemo(() => getWeeks(value), [value]);
   const maxLimit = useMemo(() => (max === 'now' ? new Date() : max), [max]);
@@ -158,10 +160,10 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       // this is used to correctly round the corners of the range
       // depending on the current selection and whether corner connects
       // with the above or below day.
-      const hasNoRange = isRangeStart && isRangeEnd;
       const currentRange: [Date, Date] = Array.isArray(current)
         ? [current[0], current[1] ?? currentHover]
         : [current ?? hoveringDate, current ?? hoveringDate];
+      const isRangeMiddle = isRange && isActive && !isRangeStart && !isRangeEnd;
       const rangeConnectsBottom =
         isRangeStart &&
         isNextWeekEmpty(day.date, currentRange, hideNextMonthDays);
@@ -179,16 +181,17 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       return (
         <Button
           key={day.formattedDate}
-          className={classNames(css.day, {
-            [css.outside]: day.isNextMonth || day.isPreviousMonth,
-            [css.selectedDay]: !isRange && isActive,
-            [css.range]: isRange && isActive,
-            [css.startRangeDate]: isRange && isRangeStart,
-            [css.roundStartDateBottom]:
-              (isRange && rangeConnectsBottom) || hasNoRange,
-            [css.endRangeDate]: isRange && isRangeEnd,
-            [css.roundEndDateTop]: (isRange && rangeConnectsTop) || hasNoRange
-          })}
+          className={twMerge(
+            days.day,
+            !isActive &&
+              (day.isNextMonth || day.isPreviousMonth) &&
+              days.outside,
+            isRangeMiddle && days.range,
+            isRange && isRangeStart && !isRangeEnd && days.startRangeDate,
+            isRange && !rangeConnectsBottom && days.cornerStartDateBottom,
+            isRange && isRangeEnd && !isRangeStart && days.endRangeDate,
+            isRange && !rangeConnectsTop && days.cornerEndDateTop
+          )}
           onMouseEnter={() => handleHover(day.date)}
           onMouseLeave={() => handleHover(null)}
           variant={buttonVariant}
@@ -211,7 +214,10 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       isRange,
       onChange,
       onHover,
-      hoveringDate
+      hoveringDate,
+      days,
+      hideNextMonthDays,
+      hidePrevMonthDays
     ]
   );
 
@@ -227,16 +233,16 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         }}
       >
         {showDayOfWeek && (
-          <div className={css.weekLabels}>
+          <div className={twMerge(days.header)}>
             {dayOfWeekLabels.map(day => (
-              <div key={`day-${day}`} className={css.dayOfWeek}>
+              <div key={`day-${day}`} className={twMerge(days.dayOfWeek)}>
                 {day.substring(0, 2)}
               </div>
             ))}
           </div>
         )}
         {weeks.map((week, i) => (
-          <div key={`week-${i}`} className={css.week}>
+          <div key={`week-${i}`} className={twMerge(days.week)}>
             {week.map(renderDay)}
           </div>
         ))}

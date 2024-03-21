@@ -1,7 +1,6 @@
-import React, { FC, forwardRef, Ref } from 'react';
-import classNames from 'classnames';
-import css from './Text.module.css';
-import common from '../Typography.module.css';
+import React, { FC, forwardRef, LegacyRef } from 'react';
+import { useComponentTheme } from '../../utils';
+import { twMerge } from 'tailwind-merge';
 
 export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
@@ -25,27 +24,31 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 export interface TextRef {
-  ref?: Ref<HTMLSpanElement>;
+  ref?: LegacyRef<HTMLSpanElement>;
 }
 
 export const Text: FC<TextProps & TextRef> = forwardRef(
   (
     { color, variant, fontStyle, children, className, ...rest }: TextProps,
-    ref: Ref<HTMLSpanElement>
-  ) => (
-    <span
-      ref={ref}
-      className={classNames(
-        common[color],
-        common[variant],
-        css[fontStyle],
-        className
-      )}
-      {...rest}
-    >
-      {children}
-    </span>
-  )
+    ref
+  ) => {
+    const theme = useComponentTheme('typography');
+
+    return (
+      <span
+        ref={ref}
+        className={twMerge(
+          theme.colors[color],
+          theme.variant[variant],
+          theme.text[fontStyle],
+          className
+        )}
+        {...rest}
+      >
+        {children}
+      </span>
+    );
+  }
 );
 
 Text.defaultProps = {

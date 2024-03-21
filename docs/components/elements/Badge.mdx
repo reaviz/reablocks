@@ -1,33 +1,35 @@
-import { Meta, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Badge } from '../../../src/elements/Badge';
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import { Badge, darkBadgeTheme } from '../../../src/elements/Badge';
 import * as BadgeStories from '../../../src/elements/Badge/Badge.story';
+import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Badge" />
 
 # Badge
-Simple badge component, typically used to show number on top of an existing component to grab user's attention. Example, new msgs count,
-new alert counts etc.
-
+The "Badge" component serves as a small count and labeling tool that overlays its content on another element, typically used for displaying notifications, status, or additional info like new messages or alerts. 
+It's designed to draw attention to specific elements by showing relevant numbers or indicators.
 ## Examples
-### Badge with color variations
+### Basic Usage (Color Variations)
+The Badge component can be styled with various colors to indicate different statuses or priorities. 
+Here's how to display badges with default, primary, secondary, and error color schemes:
 <Canvas sourceState="shown" of={BadgeStories.Colors} />
-### Badge position variations
+
+### Advanced Usage (Position Variations)
+The position of a Badge relative to its child component can be customized to appear in various locations like `top-start`, `top-end`, `bottom-start`, and `bottom-end`:
 <Canvas of={BadgeStories.Positions} />
 
-## Design Tokens
-This component uses the following design tokens:
+## Theme Customization
+The Badge component comes with a default theme that can be customized according to your application's design system:
 
-- `badge-color-background-default`
-- `badge-color-default`
-- `badge-color-background-primary`
-- `badge-color-primary`
-- `badge-color-background-secondary`
-- `badge-color-secondary`
-- `badge-color-background-error`
-- `badge-color-error`
-- `badge-border-radius`
+<ThemeRender theme={darkBadgeTheme} />
 
-Learn more about design tokens in the [design tokens documentation](?path=/story/docs-design-tokens-getting-started--page).
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
 ## API
-<ArgsTable of={Badge} />
+Customize the Badge component through the following properties:
+<ArgTypes of={Badge} />
+
+## Design and Usability Tips
+
+- **Visibility at a Glance:** Design badges to be easily scannable, using minimal text or numbers and high-contrast colors to stand out from their background.
+- **Avoid Overuse:** Use badges sparingly within the interface to prevent dilution of their significance; too many badges can overwhelm users and diminish their attention-grabbing effect.

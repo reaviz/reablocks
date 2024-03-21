@@ -1,11 +1,12 @@
 import React, { FC, Fragment, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import classNames from 'classnames';
 import { SelectOptionProps, SelectValue } from '../SelectOption';
 import Highlighter from 'react-highlight-words';
 import { GroupOptions, GroupOption } from '../utils';
-import { List, ListItem } from '../../../layout/List';
-import css from './SelectMenu.module.css';
+import { List, ListItem } from '../../../layout';
+import { useComponentTheme } from '../../../utils';
+import { SelectTheme } from '../SelectTheme';
+import { twMerge } from 'tailwind-merge';
 
 export interface SelectMenuProps {
   /**
@@ -111,16 +112,20 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
     [selectedOption, multiple]
   );
 
+  const { selectMenu: theme }: SelectTheme = useComponentTheme('select');
+
   const renderListItems = useCallback(
     (items: SelectOptionProps[], group?: GroupOption) =>
       items.map((o, i) => (
         <ListItem
           key={`${group?.name}-${o.value}`}
-          className={classNames(css.option, 'select-menu-item', {
-            [css.selected]: checkOptionSelected(o),
-            [css.active]: index === i + (group?.offset || 0),
-            [css.diabled]: disabled || o.disabled
-          })}
+          className={twMerge(
+            theme.option?.base,
+            theme.option?.hover,
+            checkOptionSelected(o) && theme.option?.selected,
+            index === i + (group?.offset || 0) && theme.option?.active,
+            (disabled || o.disabled) && theme.option?.disabled
+          )}
           onClick={event => {
             event.preventDefault();
             event.stopPropagation();
@@ -138,13 +143,20 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
           )}
         </ListItem>
       )),
-    [checkOptionSelected, disabled, index, inputSearchText, onSelectedChange]
+    [
+      checkOptionSelected,
+      disabled,
+      index,
+      inputSearchText,
+      onSelectedChange,
+      theme.option
+    ]
   );
 
   return (
     <motion.div
       style={style}
-      className={classNames(css.menu, className, 'select-menu')}
+      className={twMerge(theme.base, className, 'select-menu')}
       initial={{
         opacity: 0,
         y: -20,
@@ -206,9 +218,16 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
                   renderListItems(g.items, g)
                 ) : (
                   <ListItem
-                    className={classNames(css.groupItem, 'select-menu-group')}
+                    className={twMerge(theme.groupItem, 'select-menu-group')}
                   >
-                    <h3 className="select-menu-group-header">{g.name}</h3>
+                    <h3
+                      className={twMerge(
+                        theme.groupTitle,
+                        'select-menu-group-header'
+                      )}
+                    >
+                      {g.name}
+                    </h3>
                     <List>{renderListItems(g.items, g)}</List>
                   </ListItem>
                 )}

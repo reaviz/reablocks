@@ -1,40 +1,36 @@
-import React, { useRef, FC, PropsWithChildren, useLayoutEffect } from 'react';
-import { ThemeContext } from './ThemeContext';
-import { Theme } from './types';
-import { buildSheetRules, createSheet } from './utils';
+import React, { createContext, FC, useEffect, useState } from 'react';
+import { ReablocksTheme } from './themes';
+import { mergeDeep } from './helpers';
+import { darkTheme as defaultTheme } from './themes';
 
-export type ThemeProviderProps = PropsWithChildren<{
-  theme: Partial<Theme>;
-}>;
+export interface ThemeContextProps {
+  theme: ReablocksTheme;
+  updateTheme: (newTheme: ReablocksTheme) => void;
+}
+
+export const ThemeContext = createContext<ThemeContextProps>(null);
+
+interface ThemeProviderProps {
+  theme: ReablocksTheme;
+  children: React.ReactNode;
+}
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
-  const sheetRef = useRef<CSSStyleSheet | null>(null);
+  const [activeTheme, setActiveTheme] = useState(theme);
 
-  useLayoutEffect(() => {
-    if (!sheetRef.current) {
-      sheetRef.current = createSheet(theme);
-    } else {
-      const cssVariables = buildSheetRules(theme);
-      sheetRef.current.replaceSync(`
-        :root {
-          ${cssVariables.map(variable => `${variable}`).join('\n')}
-        }
-      `);
+  useEffect(() => {
+    if (theme) {
+      setActiveTheme(mergeDeep(defaultTheme, theme));
     }
   }, [theme]);
 
-  useLayoutEffect(() => {
-    return () => {
-      if (sheetRef.current) {
-        document.adoptedStyleSheets = document.adoptedStyleSheets.filter(
-          s => s !== sheetRef.current
-        );
-        sheetRef.current = null;
-      }
-    };
-  }, []);
+  const updateTheme = (newTheme: ReablocksTheme) => {
+    setActiveTheme({ ...activeTheme, ...newTheme });
+  };
 
   return (
-    <ThemeContext.Provider value={theme}>{children}</ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme: activeTheme, updateTheme }}>
+      {children}
+    </ThemeContext.Provider>
   );
 };

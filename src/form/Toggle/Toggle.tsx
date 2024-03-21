@@ -1,7 +1,8 @@
-import React, { FC, forwardRef, Ref } from 'react';
-import classnames from 'classnames';
+import React, { FC, forwardRef, LegacyRef } from 'react';
 import { motion } from 'framer-motion';
-import css from './Toggle.module.css';
+import { twMerge } from 'tailwind-merge';
+import { ToggleTheme } from './ToggleTheme';
+import { useComponentTheme } from '../../utils';
 
 export interface ToggleProps {
   /**
@@ -35,51 +36,50 @@ export interface ToggleProps {
   onBlur?: (event: React.FocusEvent<HTMLDivElement>) => void;
 }
 
-export const Toggle: FC<
-  ToggleProps & {
-    ref?: Ref<HTMLDivElement>;
-  }
-> = forwardRef(
-  (
-    { checked, disabled, onChange, onBlur, className, size, ...rest },
-    ref: Ref<HTMLDivElement>
-  ) => (
-    <div
-      {...rest}
-      ref={ref}
-      tabIndex={0}
-      className={classnames(
-        css.switch,
-        {
-          [css.disabled]: disabled,
-          [css.checked]: checked,
-          [css[size]]: true
-        },
-        className
-      )}
-      onClick={() => {
-        if (!disabled && onChange) {
-          onChange(!checked);
-        }
-      }}
-      onBlur={onBlur}
-      onKeyDown={event => {
-        if (!disabled && onChange && event.code === 'Space') {
-          onChange(!checked);
-        }
-      }}
-    >
-      <motion.div
-        className={css.handle}
-        layout
-        transition={{
-          type: 'spring',
-          stiffness: 700,
-          damping: 30
+export interface ToggleRef {
+  ref?: LegacyRef<HTMLDivElement>;
+}
+
+export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef(
+  ({ checked, disabled, onChange, onBlur, className, size, ...rest }, ref) => {
+    const theme: ToggleTheme = useComponentTheme('toggle');
+
+    return (
+      <div
+        {...rest}
+        ref={ref}
+        tabIndex={0}
+        className={twMerge(
+          theme.base,
+          disabled && theme.disabled,
+          checked && theme.checked,
+          theme.sizes[size],
+          className
+        )}
+        onClick={() => {
+          if (!disabled && onChange) {
+            onChange(!checked);
+          }
         }}
-      />
-    </div>
-  )
+        onBlur={onBlur}
+        onKeyDown={event => {
+          if (!disabled && onChange && event.code === 'Space') {
+            onChange(!checked);
+          }
+        }}
+      >
+        <motion.div
+          className={twMerge(theme.handle.base, theme.handle.sizes[size])}
+          layout
+          transition={{
+            type: 'spring',
+            stiffness: 700,
+            damping: 30
+          }}
+        />
+      </div>
+    );
+  }
 );
 
 Toggle.defaultProps = {
