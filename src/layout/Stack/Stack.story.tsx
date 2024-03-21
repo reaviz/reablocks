@@ -3,18 +3,7 @@ import React from 'react';
 
 export default {
   title: 'Components/Layout/Stack',
-  components: Stack,
-  decorators: [
-    (Story, context) => (
-      <div
-        style={{
-          color: context.globals.theme === 'light' ? 'black' : 'inherit'
-        }}
-      >
-        <Story />
-      </div>
-    )
-  ]
+  components: Stack
 };
 
 export const Simple = () => (

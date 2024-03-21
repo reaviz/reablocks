@@ -3,18 +3,7 @@ import React from 'react';
 
 export default {
   title: 'Components/Typography/Sub',
-  component: Sub,
-  decorators: [
-    (Story, context) => (
-      <div
-        style={{
-          color: context.globals.theme === 'light' ? 'black' : 'inherit'
-        }}
-      >
-        <Story />
-      </div>
-    )
-  ]
+  component: Sub
 };
 
 export const Simple = () => <Sub>Hello world</Sub>;

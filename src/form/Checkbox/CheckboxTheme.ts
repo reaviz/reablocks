@@ -56,7 +56,7 @@ const baseTheme: Partial<CheckboxTheme> = {
 export const lightCheckboxTheme: CheckboxTheme = {
   ...baseTheme,
   checkbox: [baseTheme.checkbox, 'fill-neutral-200'].join(' '),
-  check: [baseTheme.check, 'stroke-primary-400'].join(' '),
+  check: [baseTheme.check, 'stroke-primary-700'].join(' '),
   label: {
     ...baseTheme.label,
     base: [baseTheme.label.base, 'text-black'].join(' ')
@@ -64,14 +64,14 @@ export const lightCheckboxTheme: CheckboxTheme = {
   boxVariants: {
     hover: {
       strokeWidth: 1,
-      stroke: TWConfig.colors.slate[500]
+      stroke: TWConfig.colors.slate[700]
     },
     pressed: { scale: 0.95 },
     checked: {
-      stroke: TWConfig.colors.primary[500]
+      stroke: TWConfig.colors.primary[700]
     },
     unchecked: {
-      stroke: TWConfig.colors.slate[500]
+      stroke: TWConfig.colors.slate[700]
     }
   }
 } as CheckboxTheme;

@@ -3,18 +3,7 @@ import { DataSize } from './DataSize';
 
 export default {
   title: 'Components/Data/Data Size',
-  component: DataSize,
-  decorators: [
-    (Story, context) => (
-      <div
-        style={{
-          color: context.globals.theme === 'light' ? 'black' : 'inherit'
-        }}
-      >
-        <Story />
-      </div>
-    )
-  ]
+  component: DataSize
 };
 
 export const Simple = () => (

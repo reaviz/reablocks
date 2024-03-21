@@ -3,18 +3,7 @@ import { VerticalSpacer } from './VerticalSpacer';
 
 export default {
   title: 'Components/Layout/Vertical Spacer',
-  component: VerticalSpacer,
-  decorators: [
-    (Story, context) => (
-      <div
-        style={{
-          color: context.globals.theme === 'light' ? 'black' : 'inherit'
-        }}
-      >
-        <Story />
-      </div>
-    )
-  ]
+  component: VerticalSpacer
 };
 
 export const Simple = () => (

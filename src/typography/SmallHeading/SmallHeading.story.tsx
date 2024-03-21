@@ -3,18 +3,7 @@ import React from 'react';
 
 export default {
   title: 'Components/Typography/SmallHeading',
-  component: SmallHeading,
-  decorators: [
-    (Story, context) => (
-      <div
-        style={{
-          color: context.globals.theme === 'light' ? 'black' : 'inherit'
-        }}
-      >
-        <Story />
-      </div>
-    )
-  ]
+  component: SmallHeading
 };
 
 export const Simple = () => <SmallHeading>Hello world</SmallHeading>;

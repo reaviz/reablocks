@@ -3,16 +3,7 @@ import React from 'react';
 
 export default {
   title: 'Components/Layout/Block',
-  component: Block,
-  decorators: [
-    (Story, context) => (
-      <div
-        style={{ color: context.globals.theme === 'light' ? 'black' : 'white' }}
-      >
-        <Story />
-      </div>
-    )
-  ]
+  component: Block
 };
 
 export const Labelless = () => (
