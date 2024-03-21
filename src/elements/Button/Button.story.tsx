@@ -122,15 +122,17 @@ export const CustomTheme = () => {
     components: {
       button: {
         base: 'bg-lime-600 text-gray-300',
-        variants: {
-          filled: 'bg-lime-600 hover:bg-lime-700',
-          outline: 'bg-transparent border-lime-600 border',
-          text: 'bg-transparent border-0'
-        },
         sizes: {
           small: 'p-2',
           medium: 'p-3',
           large: 'p-4'
+        },
+        colors: {
+          default: {
+            filled: 'bg-lime-600 hover:bg-lime-700',
+            outline: 'border-lime-600',
+            text: 'text-gray-300'
+          }
         }
       }
     }

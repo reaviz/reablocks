@@ -20,6 +20,11 @@ export interface ButtonTheme {
     text: string;
   };
   colors: {
+    default: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
     primary: {
       filled: string;
       outline: string;
