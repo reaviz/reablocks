@@ -2,7 +2,7 @@ import React, { FC, PropsWithChildren } from 'react';
 import { Button } from '../../elements';
 import { TabsTheme } from './TabsTheme';
 import { useComponentTheme } from '../../utils/Theme';
-import { cn } from '../../utils/helpers';
+import { cn } from '../../utils/Theme/helpers';
 import { motion } from 'framer-motion';
 
 export interface TabProps extends PropsWithChildren {

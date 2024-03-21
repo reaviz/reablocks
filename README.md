@@ -1,7 +1,7 @@
 <div align="center">
   <img width="650" src="docs/assets/logo-light.png">
   <br />
-  UI components for React.
+  UI components for React based on Tailwind.
   <br /><br />
   <a href="https://github.com/reaviz/reablocks/actions/workflows/build.yml">
     <img src="https://github.com/reaviz/reablocks/actions/workflows/build.yml/badge.svg" />

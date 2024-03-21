@@ -49,7 +49,6 @@ const preview: Preview = {
           'Docs',
           [
             'Intro',
-            'Support',
             'Getting Started',
             [
               'Setup',
@@ -63,7 +62,10 @@ const preview: Preview = {
               'API',
               'Blocks',
               'Example'
-            ]
+            ],
+            'Components',
+            'Advanced',
+            'Support',
           ],
           'Components',
           '*'
