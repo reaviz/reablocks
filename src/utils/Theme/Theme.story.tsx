@@ -8,7 +8,7 @@ import {
   PaletteBlocks,
   ShadowBlocks,
   ComponentBlocks
-} from './helpers';
+} from './blocks';
 import favoriteIcon from './icon-demo.svg';
 import tailwindConfig from '../../../tailwind.config';
 import TWConfig from './config';
