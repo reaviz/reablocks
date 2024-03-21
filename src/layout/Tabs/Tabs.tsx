@@ -7,7 +7,7 @@ import React, {
   useMemo,
   useState
 } from 'react';
-import { useComponentTheme } from '../../utils/Theme';
+import { useComponentTheme } from '../../utils';
 import { TabsTheme } from './TabsTheme';
 import { TabPanel } from './TabPanel';
 import { twMerge } from 'tailwind-merge';

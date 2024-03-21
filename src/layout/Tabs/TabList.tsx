@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren, Children } from 'react';
 import { Tab } from './Tab';
-import { useComponentTheme } from '../../utils/Theme';
+import { useComponentTheme } from '../../utils';
 import { TabsTheme } from './TabsTheme';
 import { twMerge } from 'tailwind-merge';
 import classNames from 'classnames';

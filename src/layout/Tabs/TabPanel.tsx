@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { TabsTheme } from './TabsTheme';
-import { useComponentTheme } from '../../utils/Theme';
+import { useComponentTheme } from '../../utils';
 
 export interface TabPanelProps extends PropsWithChildren {
   /**
