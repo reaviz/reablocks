@@ -97,7 +97,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
           theme.disabled,
           fullWidth && theme.fullWidth,
           theme.variants[groupVariant || variant],
-          theme.colors[color][variant],
+          theme.colors[color][groupVariant || variant],
           theme.sizes[groupSize || size],
           isGroup && theme.group,
           isGroup && groupVariant === 'text' && theme.groupText,

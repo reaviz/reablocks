@@ -95,40 +95,41 @@ export const lightButtonTheme: ButtonTheme = {
   sizes: baseTheme.sizes,
   groupText: [baseTheme.groupText, 'border-s-black first:border-s-0'].join(' '),
   variants: {
-    filled: 'bg-blue-400 border-blue-500 hover:bg-blue-500',
+    filled: 'bg-secondary-700 border-secondary-700 hover:bg-secondary-600',
     outline: 'bg-opacity-0 border-gray-900 border',
     text: 'bg-opacity-0 border-0'
   },
   colors: {
     default: {
-      filled: 'bg-blue-400 border-blue-500 hover:bg-blue-500',
-      outline: 'border border-gray-900',
+      filled:
+        'bg-secondary-700 border-secondary-700 hover:bg-secondary-600 text-white',
+      outline: 'border border-gray-900 text-black',
       text: 'text-black'
     },
     primary: {
-      filled: 'bg-primary-400 hover:bg-primary-500',
-      outline: 'border border-primary-700',
-      text: 'text-primary-400 hover:text-primary-500'
+      filled: 'bg-primary-700 hover:bg-primary-600 text-white',
+      outline: 'border border-primary-700 ',
+      text: 'text-primary-600 hover:text-primary-700'
     },
     secondary: {
-      filled: 'bg-secondary-400 hover:bg-secondary-500',
+      filled: 'bg-secondary-700 hover:bg-secondary-600 text-white',
       outline: 'border border-secondary-700',
-      text: 'text-secondary-400 hover:text-secondary-500'
+      text: 'text-secondary-600 hover:text-secondary-700'
     },
     success: {
-      filled: 'bg-success-400 hover:bg-success-500',
+      filled: 'bg-success-700 hover:bg-success-600 text-white',
       outline: 'border border-success-700',
-      text: 'text-success-400 hover:text-success-500'
+      text: 'text-success-600 hover:text-success-700'
     },
     warning: {
-      filled: 'bg-warning-400 hover:bg-warning-500',
+      filled: 'bg-warning-700 hover:bg-warning-600 text-white',
       outline: 'border border-warning-400',
-      text: 'text-warning-400 hover:text-warning-500'
+      text: 'text-warning-600 hover:text-warning-700'
     },
     error: {
-      filled: 'bg-error-400 hover:bg-error-500',
+      filled: 'bg-error-700 hover:bg-error-600 text-white',
       outline: 'border border-error-600',
-      text: 'text-error-400 hover:text-error-500'
+      text: 'text-error-600 hover:text-error-700'
     }
   }
 };
@@ -145,13 +146,13 @@ export const darkButtonTheme: ButtonTheme = {
   adornment: baseTheme.adornment,
   sizes: baseTheme.sizes,
   variants: {
-    filled: 'bg-gray-800 text-white hover:bg-gray-700 border-gray-800',
+    filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
     outline: 'bg-opacity-0 border-grey border',
     text: 'bg-opacity-0 border-0'
   },
   colors: {
     default: {
-      filled: 'bg-gray-800 text-white hover:bg-gray-700 border-gray-800',
+      filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
       outline: 'border-grey border',
       text: 'text-white'
     },

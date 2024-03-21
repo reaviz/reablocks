@@ -4,7 +4,18 @@ import { useInfinityList } from './useInfinityList';
 
 export default {
   title: 'Components/Data/InfinityList',
-  component: InfinityList
+  component: InfinityList,
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{
+          color: context.globals.theme === 'light' ? 'black' : 'inherit'
+        }}
+      >
+        <Story />
+      </div>
+    )
+  ]
 };
 
 const items = [...Array(50).keys()];

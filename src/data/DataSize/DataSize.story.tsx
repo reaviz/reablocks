@@ -1,9 +1,20 @@
-import { Fragment } from 'react';
+import React, { Fragment } from 'react';
 import { DataSize } from './DataSize';
 
 export default {
   title: 'Components/Data/Data Size',
-  component: DataSize
+  component: DataSize,
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{
+          color: context.globals.theme === 'light' ? 'black' : 'inherit'
+        }}
+      >
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export const Simple = () => (

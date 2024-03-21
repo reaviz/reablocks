@@ -3,7 +3,18 @@ import { Pluralize } from './Pluralize';
 
 export default {
   title: 'Components/Data/Pluralize',
-  component: Pluralize
+  component: Pluralize,
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{
+          color: context.globals.theme === 'light' ? 'black' : 'inherit'
+        }}
+      >
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export const Simple = () => {

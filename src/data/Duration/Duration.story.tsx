@@ -3,7 +3,18 @@ import { Duration } from './Duration';
 
 export default {
   title: 'Components/Data/Duration',
-  component: Duration
+  component: Duration,
+  decorators: [
+    (Story, context) => (
+      <div
+        style={{
+          color: context.globals.theme === 'light' ? 'black' : 'inherit'
+        }}
+      >
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export const Simple = () => (
