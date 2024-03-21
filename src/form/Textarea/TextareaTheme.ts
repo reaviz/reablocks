@@ -1,4 +1,8 @@
-import { legacyInputTheme, darkInputTheme, lightInputTheme } from '../Input';
+import {
+  legacyInputTheme,
+  darkInputTheme,
+  lightInputTheme
+} from '../Input/InputTheme';
 
 export interface TextareaTheme {
   base: string;
