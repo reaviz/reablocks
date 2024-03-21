@@ -45,7 +45,7 @@ export const lightSelectMenuTheme: SelectMenuTheme = {
 export const darkSelectMenuTheme: SelectMenuTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-dark-background', 'border-gray-700'].join(' '),
-  groupTitle: [baseTheme.groupTitle, 'text-gray-600'].join(' '),
+  groupTitle: [baseTheme.groupTitle, 'text-zinc-500'].join(' '),
   option: {
     ...baseTheme.option,
     base: [baseTheme.option.base, 'text-white'].join(' '),
