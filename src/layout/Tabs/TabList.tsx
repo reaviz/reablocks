@@ -47,7 +47,7 @@ export const TabList: FC<TabListProps> = ({
   const theme: TabsTheme = useComponentTheme('tabs');
 
   const childs = Children.toArray(children)
-    .filter((child: any) => child.type?.name === 'Tab')
+    .filter((child: any) => child.type?.name === Tab.name)
     .map((child: any) => child.props);
 
   return (
