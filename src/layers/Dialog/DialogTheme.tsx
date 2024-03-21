@@ -18,7 +18,7 @@ const baseTheme: DialogTheme = {
   footer: 'flex p-[20px] pb-[10px]',
   header: {
     base: 'flex justify-between pt-[20px] px-[20px] pb-[10px]',
-    text: 'flex-1 m-0 p-0 inline-flex',
+    text: 'flex-1 m-0 p-0 inline-flex text-3xl font-bold',
     closeButton:
       'p-0 m-0 ml-[15px] opacity-80 h-auto w-auto inline-flex bg-none border-none cursor-pointer items-center text-white text-[16px] focus:outline-none'
   }
