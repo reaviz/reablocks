@@ -12,5 +12,8 @@ export default create({
   fontBase: 'Gilroy,Arial,Helvetica,sans-serif',
   appBg: '#030712',
   textColor: '#FFFFFF',
-  barBg: '#030712'
+  barBg: '#030712',
+  appBorderColor: '#1f2937',
+  inputBorder: '#1f2937',
+  buttonBorder: '#1f2937'
 });
