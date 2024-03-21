@@ -9,7 +9,12 @@ export interface CalendarRangeTheme
 
 const baseTheme: Partial<CalendarRangeTheme> = {
   base: 'relative overflow-hidden',
-  header: 'flex text-center justify-between mb-2 items-center',
+  header: {
+    base: 'flex text-center justify-between mb-2 items-center',
+    prev: '',
+    mid: '',
+    next: ''
+  },
   title: 'font-semibold flex grow justify-around',
   content: 'flex gap-4'
 };

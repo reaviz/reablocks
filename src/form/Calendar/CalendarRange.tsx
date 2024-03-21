@@ -126,12 +126,13 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
 
   return (
     <div className={twMerge(theme.base)}>
-      <header className={twMerge(theme.header)}>
+      <header className={twMerge(theme.header.base)}>
         <Stack>
           <Button
             variant="text"
             disabled={disabled}
             onClick={previousYearClickHandler}
+            className={twMerge(theme.header.prev)}
             disablePadding
           >
             {previousYearArrow}
@@ -140,6 +141,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             variant="text"
             disabled={disabled}
             onClick={previousClickHandler}
+            className={twMerge(theme.header.mid)}
             disablePadding
           >
             {previousArrow}
@@ -159,6 +161,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             variant="text"
             disabled={disabled}
             onClick={nextClickHandler}
+            className={twMerge(theme.header.next)}
             disablePadding
           >
             {nextArrow}
