@@ -1,14 +1,14 @@
-import React from 'react';
+import { FC } from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 interface ThemeRenderProps {
-  theme;
+  theme: any;
 }
 
-const ThemeRender: React.FC<ThemeRenderProps> = ({ theme }) => {
+const ThemeRender: FC<ThemeRenderProps> = ({ theme }) => {
   return (
-    <SyntaxHighlighter language="javascript" style={vscDarkPlus}>
+    <SyntaxHighlighter language="javascript" style={dracula} className="highlighter">
       {JSON.stringify(theme, null, 2)}
     </SyntaxHighlighter>
   );
