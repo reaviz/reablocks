@@ -9,23 +9,99 @@ import ThemeRender from '../../ThemeRender.tsx';
 
 # Button
 
-The "Button" component is a fundamental UI element designed for interactions, offering a variety of styles, sizes, and colors to accommodate different use cases within an application. 
+The "Button" component is a fundamental UI element designed for interactions, offering a variety of styles, sizes, and colors to accommodate different use cases within an application.
 Additionally, a "ButtonGroup" is provided to layout multiple buttons in a cohesive unit, enhancing the visual consistency and usability of grouped actions.
 ## Examples
 ### Basic Usage
 The Button component supports several variants including "filled", "outline", and "text", allowing for flexibility in design and application:
 <Canvas sourceState="shown" of={ButtonStories.Variants} />
 
+```javascript
+{
+  variants: {
+    filled: "bg-gray-800 text-white hover:bg-gray-700 border-gray-800",
+    outline: "bg-opacity-0 border-grey border",
+    text: "bg-opacity-0 border-0"
+  }
+}
+```
+
 ### Advanced Customization
 #### Sizes and Colors
 Buttons can be customized further with size and color variations, providing a wide range of styling options to match your UI design:
 <Canvas of={ButtonStories.Sizes} />
+Theme customization can be used to define the size variations for different button sizes:
+```javascript
+{
+    sizes: {
+      small: "text-xs px-5px py-0.5 leading-[normal]",
+      medium: "text-base px-2.5 py-5px leading-[normal]",
+      large: "text-xl px-5 py-2.5 leading-[normal]"
+    }
+}
+```
 
 <Canvas of={ButtonStories.Colors} />
+
+Theme customization can be used to define the color variations for different button types:
+```javascript
+{
+    colors: {
+      default: {
+        filled: "bg-gray-800 text-white hover:bg-gray-700 border-gray-800",
+        outline: "",
+        text: "",
+      },
+      primary: {
+        filled": "bg-primary-600 hover:bg-primary-700 border-primary-600 text-white",
+        outline": "",
+        text": "text-primary-600 hover:text-primary-700"
+      },
+      secondary: {
+        filled": "bg-secondary-700 hover:bg-secondary-800 border-secondary-700 text-white",
+        outline": "",
+        text": "text-secondary-700 hover:text-secondary-800"
+      },
+      success: {
+        filled": "bg-success-700 hover:bg-success-800 border-success-700 text-white",
+        outline": "",
+        text": "text-success-700 hover:text-success-800"
+      },
+      warning: {
+        filled": "bg-warning-700 hover:bg-warning-800 border-warning-700 text-white",
+        outline": "",
+        text": "text-warning-700 hover:text-warning-800"
+      },
+      error: {
+        filled: "bg-error-700 hover:bg-error-800 border-error-700 text-white",
+        outline: "",
+        text: "text-error-700 hover:text-error-800"
+      }
+  }
+}
+```
 
 #### Buttons with Icon
 Incorporating icons with text can enhance button functionality and user understanding:
 <Canvas of={ButtonStories.WithIcon} />
+
+Theme customization can be used to define the icon size and padding for different button sizes:
+
+```javascript
+{
+    adornment: {
+    base: "flex",
+    start: "pr-1",
+    end: "pl-1",
+    sizes: {
+      small: "[&>svg]:w-3 [&>svg]:h-3",
+      medium: "[&>svg]:w-4 [&>svg]:h-4",
+      large" "[&>svg]:w-5 [&>svg]:h-5"
+    }
+  }
+}
+```
+
 #### Group of Buttons
 The ButtonGroup component allows for organizing multiple buttons together, which is particularly useful for related actions:
 <Canvas of={ButtonGroupStories.Colors} />
