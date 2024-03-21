@@ -21,20 +21,20 @@ const config: Config = {
         disabled: colors.gray['400'], // text-disabled
         light: {
           background: colors.gray['100'],
-          disabled: colors.gray['200'],
+          disabled: colors.gray['200']
         },
         dark: {
           background: colors.zinc['800'],
-          disabled: colors.zinc['600'],
+          disabled: colors.zinc['600']
         }
       }
-    },
+    }
   },
   plugins: [
-    plugin(function ({ addVariant }) {
+    plugin(({ addVariant }) => {
       addVariant('disabled-within', '&:has(input:is(:disabled),button:is(:disabled))');
     })
-  ],
+  ]
 };
 
 export default config;
