@@ -97,32 +97,32 @@ export const lightButtonTheme: ButtonTheme = {
   colors: {
     default: {
       filled: 'bg-blue-400 border-blue-500 hover:bg-blue-500',
-      outline: '',
-      text: ''
+      outline: 'border border-gray-900',
+      text: 'text-black'
     },
     primary: {
       filled: 'bg-primary-400 hover:bg-primary-500',
-      outline: '',
+      outline: 'border border-primary-700',
       text: 'text-primary-400 hover:text-primary-500'
     },
     secondary: {
       filled: 'bg-secondary-400 hover:bg-secondary-500',
-      outline: '',
+      outline: 'border border-secondary-700',
       text: 'text-secondary-400 hover:text-secondary-500'
     },
     success: {
       filled: 'bg-success-400 hover:bg-success-500',
-      outline: '',
+      outline: 'border border-success-700',
       text: 'text-success-400 hover:text-success-500'
     },
     warning: {
       filled: 'bg-warning-400 hover:bg-warning-500',
-      outline: '',
+      outline: 'border border-warning-400',
       text: 'text-warning-400 hover:text-warning-500'
     },
     error: {
       filled: 'bg-error-400 hover:bg-error-500',
-      outline: '',
+      outline: 'border border-error-600',
       text: 'text-error-400 hover:text-error-500'
     }
   }
@@ -147,36 +147,36 @@ export const darkButtonTheme: ButtonTheme = {
   colors: {
     default: {
       filled: 'bg-gray-800 text-white hover:bg-gray-700 border-gray-800',
-      outline: '',
-      text: ''
+      outline: 'border-grey border',
+      text: 'text-white'
     },
     primary: {
       filled:
         'bg-primary-600 hover:bg-primary-700 border-primary-600 text-white',
-      outline: '',
+      outline: 'border border-primary-600',
       text: 'text-primary-600 hover:text-primary-700'
     },
     secondary: {
       filled:
         'bg-secondary-700 hover:bg-secondary-800 border-secondary-700 text-white',
-      outline: '',
+      outline: 'border border-secondary-700',
       text: 'text-secondary-700 hover:text-secondary-800'
     },
     success: {
       filled:
         'bg-success-700 hover:bg-success-800 border-success-700 text-white',
-      outline: '',
+      outline: 'border border-success-700',
       text: 'text-success-700 hover:text-success-800'
     },
     warning: {
       filled:
         'bg-warning-700 hover:bg-warning-800 border-warning-700 text-white',
-      outline: '',
+      outline: 'border border-warning-700',
       text: 'text-warning-700 hover:text-warning-800'
     },
     error: {
       filled: 'bg-error-700 hover:bg-error-800 border-error-700 text-white',
-      outline: '',
+      outline: 'border border-error-700',
       text: 'text-error-700 hover:text-error-800'
     }
   }
