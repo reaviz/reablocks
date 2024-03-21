@@ -50,15 +50,7 @@ export const Sections = () => (
       </CommandPaletteSection>
       <Divider />
       <CommandPaletteSection key="aws">
-        <div
-          style={{
-            margin: '0 var(--spacing-md) var(--spacing-md) var(--spacing-md)',
-            background: 'var(--red-200)',
-            color: 'var(--white)',
-            padding: 'var(--spacing-md)',
-            borderRadius: 'var(--border-radius-md)'
-          }}
-        >
+        <div className="m-2 mt-0 p-2 bg-red-600 rounded">
           🚨 AWS Account not configured. Link your account →
         </div>
       </CommandPaletteSection>
