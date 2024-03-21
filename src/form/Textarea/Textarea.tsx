@@ -44,7 +44,7 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
   (
     {
       fullWidth,
-      size = 'small',
+      size = 'medium',
       containerClassName,
       className,
       error,
