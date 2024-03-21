@@ -7,6 +7,9 @@ type DeepPartial<T> = {
 
 export type PartialReablocksTheme = DeepPartial<ReablocksTheme>;
 
+/**
+ * Performs a merge deep on the theme.
+ */
 export const extendTheme = (
   defaultTheme: ReablocksTheme,
   theme: PartialReablocksTheme

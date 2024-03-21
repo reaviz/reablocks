@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { ColorBlock } from './ColorBlocks';
 import { RecursiveKeyValuePair, ResolvableTo } from 'tailwindcss/types/config';
 
-export const PaletteBlocks = ({
-  palettes
-}: {
+export interface PaletteBlocksProps {
   palettes: ResolvableTo<RecursiveKeyValuePair>;
-}) => {
+}
+
+export const PaletteBlocks: FC<PaletteBlocksProps> = ({ palettes }) => {
   return (
     <div
       style={{

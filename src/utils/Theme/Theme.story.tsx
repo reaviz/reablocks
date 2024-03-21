@@ -58,9 +58,9 @@ export const Shadows = () => <ShadowBlocks shadows={TWConfig.boxShadow} />;
 
 export const Components = () => {
   const { theme } = useTheme();
-
   return <ComponentBlocks components={theme.components} />;
 };
+
 export const Icons = () => (
   <>
     <h2>Icon Block Helper ( icons not included )</h2>
