@@ -9,11 +9,13 @@ const baseTheme: MenuTheme = {
 };
 
 export const lightMenuTheme: MenuTheme = {
-  ...baseTheme
+  ...baseTheme,
+  inner: [baseTheme.inner, 'text-black bg-zinc-300'].join(' ')
 };
 
 export const darkMenuTheme: MenuTheme = {
-  ...baseTheme
+  ...baseTheme,
+  inner: [baseTheme.inner, 'text-white bg-zinc-800'].join(' ')
 };
 
 export const legacyMenuTheme: MenuTheme = {
