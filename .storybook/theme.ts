@@ -7,7 +7,7 @@ export default create({
   brandUrl: 'https://github.com/reaviz/reablocks',
   brandImage: ReablocksLogo,
   colorPrimary: '#0C77FF',
-  appContentBg: '##030712',
+  appContentBg: '#030712',
   appPreviewBg: '#030712',
   fontBase: 'Gilroy,Arial,Helvetica,sans-serif',
   appBg: '#030712',
