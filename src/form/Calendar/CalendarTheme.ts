@@ -1,6 +1,11 @@
 export interface CalendarTheme {
   base: string;
-  header: string;
+  header: {
+    base: string;
+    prev: string;
+    mid: string;
+    next: string;
+  };
   title: string;
   content: string;
   days: {
@@ -27,7 +32,12 @@ export interface CalendarTheme {
 
 const baseTheme: CalendarTheme = {
   base: 'relative overflow-hidden',
-  header: 'flex text-center justify-between mb-2 items-center',
+  header: {
+    base: 'flex text-center justify-between mb-2 items-center',
+    prev: '',
+    mid: '',
+    next: ''
+  },
   title: 'font-semibold',
   content: 'flex',
 
@@ -75,10 +85,13 @@ export const darkCalendarTheme: CalendarTheme = {
 
 export const legacyCalendarTheme: CalendarTheme = {
   ...baseTheme,
-  header: [
-    baseTheme.header,
-    'mb-[var(--spacing-sm)] mb-[var(--calendar-gap)]'
-  ].join(' '),
+  header: {
+    ...baseTheme.header,
+    base: [
+      baseTheme.header.base,
+      'mb-[var(--spacing-sm)] mb-[var(--calendar-gap)]'
+    ].join(' ')
+  },
   days: {
     ...baseTheme.days,
     header: [baseTheme.days.header, 'gap-[var(--calendar-gap)]'].join(' '),

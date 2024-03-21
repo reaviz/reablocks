@@ -213,11 +213,12 @@ export const Calendar: FC<CalendarProps> = ({
 
   return (
     <div className={twMerge(theme.base)}>
-      <header className={twMerge(theme.header)}>
+      <header className={twMerge(theme.header.base)}>
         <Button
           variant="text"
           disabled={disabled}
           onClick={previousClickHandler}
+          className={twMerge(theme.header.prev)}
           disablePadding
         >
           {previousArrow}
@@ -226,6 +227,7 @@ export const Calendar: FC<CalendarProps> = ({
           disabled={disabled}
           variant="text"
           onClick={headerClickHandler}
+          className={twMerge(theme.header.mid)}
           disablePadding
           fullWidth
         >
@@ -246,6 +248,7 @@ export const Calendar: FC<CalendarProps> = ({
           variant="text"
           disabled={disabled}
           onClick={nextClickHandler}
+          className={twMerge(theme.header.next)}
           disablePadding
         >
           {nextArrow}
