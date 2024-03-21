@@ -1,5 +1,5 @@
 import { ReablocksTheme } from './theme';
-import { mergeDeep } from '../../helpers';
+import { mergeDeep } from '../helpers';
 
 type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;
