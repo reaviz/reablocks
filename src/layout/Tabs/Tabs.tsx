@@ -4,6 +4,7 @@ import React, {
   Fragment,
   PropsWithChildren,
   useEffect,
+  useMemo,
   useState
 } from 'react';
 import { useComponentTheme } from '../../utils/Theme';
@@ -68,15 +69,19 @@ export const Tabs: FC<TabsProps> = ({
     }
   }, [selectedIndex]);
 
-  const childs = Children.toArray(children);
+  const [tabList, panels] = useMemo(() => {
+    const childs = Children.toArray(children);
 
-  const [tabList] = childs
-    .filter((child: any) => child.type?.name === 'TabList')
-    .map((child: any) => child.props);
+    const [tabList] = childs
+      .filter((child: any) => child.type?.name === 'TabList')
+      .map((child: any) => child.props);
 
-  const panels = childs
-    .filter((child: any) => child.type?.name === 'TabPanel')
-    .map((child: any) => child.props);
+    const panels = childs
+      .filter((child: any) => child.type?.name === 'TabPanel')
+      .map((child: any) => child.props);
+
+    return [tabList, panels];
+  }, [children]);
 
   return (
     <div className={twMerge(theme.base, className)} style={style}>
