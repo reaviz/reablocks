@@ -5,5 +5,12 @@ export default create({
   base: 'dark',
   brandTitle: 'reablocks',
   brandUrl: 'https://github.com/reaviz/reablocks',
-  brandImage: ReablocksLogo
+  brandImage: ReablocksLogo,
+  colorPrimary: '#0C77FF',
+  appContentBg: '##030712',
+  appPreviewBg: '#030712',
+  fontBase: 'Gilroy,Arial,Helvetica,sans-serif',
+  appBg: '#030712',
+  textColor: '#FFFFFF',
+  barBg: '#030712'
 });
