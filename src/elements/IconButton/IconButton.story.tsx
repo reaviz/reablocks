@@ -1,5 +1,5 @@
-import { Fragment } from 'react';
 import { IconButton } from './IconButton';
+import { Stack } from '../../layout';
 
 export default {
   title: 'Components/Elements/IconButton',
@@ -19,19 +19,17 @@ const BellIcon = () => (
 );
 
 export const Sizes = () => (
-  <Fragment>
+  <Stack>
     <IconButton size="small">
       <BellIcon />
     </IconButton>
-    {` `}
     <IconButton size="medium">
       <BellIcon />
     </IconButton>
-    {` `}
     <IconButton size="large">
       <BellIcon />
     </IconButton>
-  </Fragment>
+  </Stack>
 );
 
 export const ColorsBackground = () => (
