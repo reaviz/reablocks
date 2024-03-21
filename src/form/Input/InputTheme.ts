@@ -26,9 +26,9 @@ const baseTheme: InputTheme = {
   fullWidth: 'w-full',
   error: 'border-error-500',
   sizes: {
-    small: 'p-1',
-    medium: 'px-2.5 py-1.5',
-    large: 'p-5'
+    small: 'text-sm p-1',
+    medium: 'text-base px-2.5 py-1.5',
+    large: 'text-lg p-5'
   },
   adornment: {
     base: 'flex items-center justify-center [&>svg]:w-4 [&>svg]:h-4 [&>svg]:current-color',
