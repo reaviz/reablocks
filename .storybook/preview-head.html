@@ -1,13 +1,13 @@
 <title>reablocks</title>
 <style>
   body {
-    font-family: 'Lato', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #ffffff !important;
+
     --icon-block-color: #fff;
     --icon-block-background: #000;
     --body-color: #fff;
@@ -16,9 +16,22 @@
     &.light {
       background: #e6e6e6;
     }
+
     &.dark {
       background: #030712;
     }
+  }
+
+  .highlighter {
+    background-color: #030712 !important;
+    border: solid 1px #1f2937 !important;
+  }
+
+  .highlighter code,
+  .highlighter pre,
+  .highlighter code .token {
+    font-size: 12px;
+    font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace !important;
   }
 
   .light .sb-show-main.sb-main-centered {
@@ -30,13 +43,16 @@
     color: #ffffff;
     background: #030712;
   }
+
   svg {
     overflow: visible;
   }
+
   .sbdocs-preview {
     color: #ffffff !important;
     background: #030712 !important;
   }
+
   .doc-story {
     display: flex;
     justify-content: center;

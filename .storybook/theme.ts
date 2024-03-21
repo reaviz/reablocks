@@ -10,6 +10,7 @@ export default create({
   appContentBg: '#030712',
   appPreviewBg: '#030712',
   fontBase: 'Gilroy,Arial,Helvetica,sans-serif',
+  fontCode: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace',
   appBg: '#030712',
   textColor: '#FFFFFF',
   barBg: '#030712',
