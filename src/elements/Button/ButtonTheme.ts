@@ -20,11 +20,31 @@ export interface ButtonTheme {
     text: string;
   };
   colors: {
-    primary?: string;
-    secondary?: string;
-    success?: string;
-    warning?: string;
-    error?: string;
+    primary: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
+    secondary: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
+    success: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
+    warning: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
+    error: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
   };
   sizes: {
     small: string;
@@ -75,11 +95,36 @@ export const lightButtonTheme: ButtonTheme = {
     text: 'bg-opacity-0 border-0'
   },
   colors: {
-    primary: 'bg-primary-400 hover:bg-primary-500',
-    secondary: 'bg-secondary-400 hover:bg-secondary-500',
-    success: 'bg-success-400 hover:bg-success-500',
-    warning: 'bg-warning-400 hover:bg-warning-500',
-    error: 'bg-error-400 hover:bg-error-500'
+    default: {
+      filled: 'bg-blue-400 border-blue-500 hover:bg-blue-500',
+      outline: '',
+      text: ''
+    },
+    primary: {
+      filled: 'bg-primary-400 hover:bg-primary-500',
+      outline: '',
+      text: 'text-primary-400 hover:text-primary-500'
+    },
+    secondary: {
+      filled: 'bg-secondary-400 hover:bg-secondary-500',
+      outline: '',
+      text: 'text-secondary-400 hover:text-secondary-500'
+    },
+    success: {
+      filled: 'bg-success-400 hover:bg-success-500',
+      outline: '',
+      text: 'text-success-400 hover:text-success-500'
+    },
+    warning: {
+      filled: 'bg-warning-400 hover:bg-warning-500',
+      outline: '',
+      text: 'text-warning-400 hover:text-warning-500'
+    },
+    error: {
+      filled: 'bg-error-400 hover:bg-error-500',
+      outline: '',
+      text: 'text-error-400 hover:text-error-500'
+    }
   }
 };
 
@@ -100,15 +145,40 @@ export const darkButtonTheme: ButtonTheme = {
     text: 'bg-opacity-0 border-0'
   },
   colors: {
-    primary:
-      'bg-primary-600 hover:bg-primary-700 border-primary-600 text-white',
-    secondary:
-      'bg-secondary-700 hover:bg-secondary-800 border-secondary-700 text-white',
-    success:
-      'bg-success-700 hover:bg-success-800 border-success-700 text-white',
-    warning:
-      'bg-warning-700 hover:bg-warning-800 border-warning-700 text-white',
-    error: 'bg-error-700 hover:bg-error-800 border-error-700 text-white'
+    default: {
+      filled: 'bg-gray-800 text-white hover:bg-gray-700 border-gray-800',
+      outline: '',
+      text: ''
+    },
+    primary: {
+      filled:
+        'bg-primary-600 hover:bg-primary-700 border-primary-600 text-white',
+      outline: '',
+      text: 'text-primary-600 hover:text-primary-700'
+    },
+    secondary: {
+      filled:
+        'bg-secondary-700 hover:bg-secondary-800 border-secondary-700 text-white',
+      outline: '',
+      text: 'text-secondary-700 hover:text-secondary-800'
+    },
+    success: {
+      filled:
+        'bg-success-700 hover:bg-success-800 border-success-700 text-white',
+      outline: '',
+      text: 'text-success-700 hover:text-success-800'
+    },
+    warning: {
+      filled:
+        'bg-warning-700 hover:bg-warning-800 border-warning-700 text-white',
+      outline: '',
+      text: 'text-warning-700 hover:text-warning-800'
+    },
+    error: {
+      filled: 'bg-error-700 hover:bg-error-800 border-error-700 text-white',
+      outline: '',
+      text: 'text-error-700 hover:text-error-800'
+    }
   }
 };
 
@@ -156,15 +226,41 @@ export const legacyButtonTheme: ButtonTheme = {
     text: 'bg-opacity-0 border-0'
   },
   colors: {
-    primary:
-      'bg-[var(--primary-background)] hover:bg-[var(--primary-background-hover)] border-[var(--primary-background)] border-[var(--primary-background-hover)] text-[var(--button-color-on-background)]',
-    secondary:
-      'bg-[var(--secondary-background)] hover:bg-[var(--secondary-background-hover)] border-[var(--secondary-background)] hover:border-[var(--secondary-background-hover)] text-[var(--button-color-on-background)]',
-    success:
-      'bg-[var(--success-background)] hover:bg-[var(--success-background-hover)] border-[var(--success-background)] hover:border-[var(--success-background-hover)] text-[var(--button-color-on-background)]',
-    warning:
-      'bg-[var(--warning-background)] hover:bg-[var(--warning-background-hover)] border-[var(--warning-background)] hover:border-[var(--warning-background-hover)] text-[var(--button-color-on-background)]',
-    error:
-      'bg-[var(--error-background)] hover:bg-[var(--error-background-hover)] border-[var(--error-background)] hover:border-[var(--error-background-hover)] text-[var(--button-color-on-background)]'
+    default: {
+      filled:
+        'bg-[var(--button-background)] text-[var(--button-color-on-background)] hover:bg-[var(--button-background-hover)] border-[var(--button-background)] hover:border-[var(--button-background-hover)]',
+      outline: '',
+      text: 'text-[var(--button-color)] hover:text-[var(--button-color-hover)]'
+    },
+    primary: {
+      filled:
+        'bg-[var(--primary-background)] hover:bg-[var(--primary-background-hover)] border-[var(--primary-background)] border-[var(--primary-background-hover)] text-[var(--button-color-on-background)]',
+      outline: '',
+      text: 'text-[var(--primary-color)] hover:text-[var(--primary-color-hover)]'
+    },
+    secondary: {
+      filled:
+        'bg-[var(--secondary-background)] hover:bg-[var(--secondary-background-hover)] border-[var(--secondary-background)] hover:border-[var(--secondary-background-hover)] text-[var(--button-color-on-background)]',
+      outline: '',
+      text: 'text-[var(--secondary-color)] hover:text-[var(--secondary-color-hover)]'
+    },
+    success: {
+      filled:
+        'bg-[var(--success-background)] hover:bg-[var(--success-background-hover)] border-[var(--success-background)] hover:border-[var(--success-background-hover)] text-[var(--button-color-on-background)]',
+      outline: '',
+      text: 'text-[var(--success-color)] hover:text-[var(--success-color-hover)]'
+    },
+    warning: {
+      filled:
+        'bg-[var(--warning-background)] hover:bg-[var(--warning-background-hover)] border-[var(--warning-background)] hover:border-[var(--warning-background-hover)] text-[var(--button-color-on-background)]',
+      outline: '',
+      text: 'text-[var(--warning-color)] hover:text-[var(--warning-color-hover)]'
+    },
+    error: {
+      filled:
+        'bg-[var(--error-background)] hover:bg-[var(--error-background-hover)] border-[var(--error-background)] hover:border-[var(--error-background-hover)] text-[var(--button-color-on-background)]',
+      outline: '',
+      text: 'text-[var(--error-color)] hover:text-[var(--warning-error-hover)]'
+    }
   }
 };

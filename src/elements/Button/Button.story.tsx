@@ -28,6 +28,30 @@ export const Colors = () => (
   </div>
 );
 
+export const TextColors = () => (
+  <div style={{ display: 'flex', gap: 10 }}>
+    <Button variant="text">Default</Button>
+    <Button variant="text" color="primary">
+      Primary
+    </Button>
+    <Button variant="text" color="secondary">
+      Secondary
+    </Button>
+    <Button variant="text" color="success">
+      Success
+    </Button>
+    <Button variant="text" color="warning">
+      Warning
+    </Button>
+    <Button variant="text" color="error">
+      Error
+    </Button>
+    <Button variant="text" disabled>
+      Disabled
+    </Button>
+  </div>
+);
+
 export const Disabled = () => (
   <div style={{ display: 'flex', gap: 10 }}>
     <Button variant="filled" disabled>
