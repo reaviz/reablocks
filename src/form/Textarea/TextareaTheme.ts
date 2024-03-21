@@ -21,8 +21,8 @@ export const lightTextareaTheme: TextareaTheme = {
   ...baseTheme,
   base: [baseTheme.base, lightInputTheme.base].join(' '),
   input: [baseTheme.input, lightInputTheme.input].join(' '),
-  disabled: [baseTheme.disabled, darkInputTheme.disabled].join(' '),
-  fullWidth: darkInputTheme.fullWidth,
+  disabled: [baseTheme.disabled, lightInputTheme.disabled].join(' '),
+  fullWidth: lightInputTheme.fullWidth,
   error: lightInputTheme.error,
   sizes: lightInputTheme.sizes
 } as TextareaTheme;
