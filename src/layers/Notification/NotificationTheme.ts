@@ -28,7 +28,7 @@ const baseTheme: NotificationTheme = {
       warning: ''
     },
     content:
-      'inline-flex items-center flex-1 flex-col text-center justify-center px-2.5 py-1',
+      'inline-flex items-start flex-1 flex-col justify-center px-2.5 py-1',
     header: 'text-lg',
     closeContainer: 'inline-flex items-center',
     closeButton:
