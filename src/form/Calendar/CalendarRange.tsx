@@ -11,7 +11,7 @@ import { useComponentTheme } from '../../utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
 
 export interface CalendarRangeProps
-  extends Omit<CalendarProps, 'value' | 'isRange' | 'onViewChange'> {
+  extends Omit<CalendarProps, 'value' | 'isRange' | 'onViewChange' | 'theme'> {
   /**
    * The selected date(s) for the calendar.
    */
@@ -40,6 +40,11 @@ export interface CalendarRangeProps
    * The text or icon to use for previous year.
    */
   previousYearArrow?: React.ReactNode | string;
+
+  /**
+   * Theme for the CalendarRange.
+   */
+  theme?: CalendarRangeTheme;
 }
 
 export const CalendarRange: FC<CalendarRangeProps> = ({
@@ -57,9 +62,13 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   onChange,
   monthsToDisplay,
   direction,
+  theme: customTheme,
   ...rest
 }) => {
-  const theme = useComponentTheme('calendarRange') as CalendarRangeTheme;
+  const theme: CalendarRangeTheme = useComponentTheme(
+    'calendarRange',
+    customTheme
+  );
   const date = useMemo(
     () => (Array.isArray(value) ? value[0] : new Date()),
     [value]

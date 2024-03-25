@@ -16,11 +16,28 @@ export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
    * Callback if the chip is deletable.
    */
   onDelete?: () => void;
+
+  /**
+   * Theme for the Deletable Chip.
+   */
+  theme?: ChipTheme;
 }
 
 export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
-  ({ children, disabled, deleteIcon, onDelete, size, color, ...rest }, ref) => {
-    const theme: ChipTheme = useComponentTheme('chip');
+  (
+    {
+      children,
+      disabled,
+      deleteIcon,
+      onDelete,
+      size,
+      color,
+      theme: customTheme,
+      ...rest
+    },
+    ref
+  ) => {
+    const theme: ChipTheme = useComponentTheme('chip', customTheme);
 
     return (
       <Chip

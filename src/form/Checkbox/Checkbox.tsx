@@ -69,6 +69,11 @@ export interface CheckboxProps {
    * Event handler for when the checkbox is blurred.
    */
   onBlur?: (event: React.FocusEvent<HTMLDivElement>) => void;
+
+  /**
+   * Theme for the Checkbox.
+   */
+  theme?: CheckboxTheme;
 }
 
 export interface CheckboxRef {
@@ -91,11 +96,12 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
       borderPath = 'M 0 0 L 0 16 L 16 16 L 16 0 Z',
       checkedPath = 'M 5.36396 8.17792 L 7.34236 9.91424 L 10.6044 5.832',
       intermediatePath = 'M 5.36396 8.17792 L 10.6044 8.17792',
+      theme: customTheme,
       ...rest
     },
     ref
   ) => {
-    const theme: CheckboxTheme = useComponentTheme('checkbox');
+    const theme: CheckboxTheme = useComponentTheme('checkbox', customTheme);
     const pathLength = useMotionValue(0);
     const opacity = useTransform(pathLength, [0.05, 0.15], [0, 1]);
 

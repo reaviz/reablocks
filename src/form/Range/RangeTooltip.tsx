@@ -49,6 +49,11 @@ export interface RangeProps<Value> {
    * Event fired when the range value changes
    */
   onChange?: (value: Value) => void;
+
+  /**
+   * Theme for the range
+   */
+  theme?: RangeTheme;
 }
 
 export interface RangeTooltipProps {

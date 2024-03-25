@@ -44,6 +44,7 @@ export interface SelectInputProps {
   clearable?: boolean;
   refreshable?: boolean;
   menuDisabled?: boolean;
+  theme?: SelectTheme;
 
   closeIcon?: React.ReactNode;
   refreshIcon?: React.ReactNode;
@@ -108,9 +109,13 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
   onFocus,
   onBlur,
   onRefresh,
-  chip
+  chip,
+  theme: customTheme
 }) => {
-  const { selectInput: theme }: SelectTheme = useComponentTheme('select');
+  const { selectInput: theme }: SelectTheme = useComponentTheme(
+    'select',
+    customTheme
+  );
   const containerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<any | null>(null);
 

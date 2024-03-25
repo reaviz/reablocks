@@ -65,6 +65,11 @@ export interface CommandPaletteProps extends PropsWithChildren {
    * When a hotkey was triggered.
    */
   onHotkey?: (hotkey: HotkeyIem) => void;
+
+  /**
+   * Theme for the CommandPalette.
+   */
+  theme?: CommandPaletteTheme;
 }
 
 export const CommandPalette: FC<CommandPaletteProps> = ({
@@ -76,7 +81,8 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
   emptyMessage,
   onHotkey,
   onSelectedIndexChange,
-  onSearchChange
+  onSearchChange,
+  theme: customTheme
 }) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const [filterText, setFilterText] = useState<string>(search);
@@ -107,7 +113,10 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
     }
   }, [selectedIndex, flattenedTree]);
 
-  const theme: CommandPaletteTheme = useComponentTheme('commandPalette');
+  const theme: CommandPaletteTheme = useComponentTheme(
+    'commandPalette',
+    customTheme
+  );
 
   return (
     <Card className={theme.base} disablePadding ref={elementRef}>

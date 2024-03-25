@@ -49,6 +49,11 @@ export interface ContextMenuProps extends Omit<ConnectedOverlayProps, 'open'> {
    * Class name to apply to the trigger when the context menu is open.
    */
   triggerOpenClassName?: string;
+
+  /**
+   * Theme for the Context Menu.
+   */
+  theme?: ContextMenuTheme;
 }
 
 export const ContextMenu: FC<ContextMenuProps> = ({
@@ -59,6 +64,7 @@ export const ContextMenu: FC<ContextMenuProps> = ({
   triggerOpenClassName,
   autofocus,
   autoClose,
+  theme: customTheme,
   ...rest
 }) => {
   const id = useId();
@@ -93,7 +99,7 @@ export const ContextMenu: FC<ContextMenuProps> = ({
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [closeAll]);
-  const theme: ContextMenuTheme = useComponentTheme('contextMenu');
+  const theme: ContextMenuTheme = useComponentTheme('contextMenu', customTheme);
 
   return (
     <ConnectedOverlay

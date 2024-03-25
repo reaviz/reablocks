@@ -13,10 +13,19 @@ export interface ArrowProps {
    * The direction of the arrow
    */
   direction?: 'up' | 'right' | 'down' | 'left';
+
+  /**
+   * Theme for the Arrow.
+   */
+  theme?: ArrowTheme;
 }
 
-export const Arrow: FC<ArrowProps> = ({ direction = 'down', className }) => {
-  const theme: ArrowTheme = useComponentTheme('arrow');
+export const Arrow: FC<ArrowProps> = ({
+  direction = 'down',
+  className,
+  theme: customTheme
+}) => {
+  const theme: ArrowTheme = useComponentTheme('arrow', customTheme);
 
   return (
     <svg

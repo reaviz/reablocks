@@ -10,6 +10,7 @@ import { motion, useMotionValue } from 'framer-motion';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '../../utils';
+import { RangeTheme } from './RangeTheme';
 
 export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   disabled,
@@ -20,6 +21,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   max,
   value,
   onChange,
+  theme: customTheme,
   step = 1
 }) => {
   const minValueBetween = step;
@@ -119,7 +121,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   const maxTooltipVisible = draggingMax || focusedMax || hoveringMax;
   const maxPercentage = ((currentMax - min) / (max - min)) * 100;
 
-  const theme = useComponentTheme('range');
+  const theme: RangeTheme = useComponentTheme('range', customTheme);
 
   return (
     <div

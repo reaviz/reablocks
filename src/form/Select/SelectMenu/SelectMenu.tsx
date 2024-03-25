@@ -78,6 +78,11 @@ export interface SelectMenuProps {
    * Event fired when the selected option(s) change.
    */
   onSelectedChange: (option: SelectValue) => void;
+
+  /**
+   * The theme for the Select.
+   */
+  theme?: SelectTheme;
 }
 
 export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
@@ -93,7 +98,8 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
   groups,
   multiple,
   inputSearchText,
-  onSelectedChange
+  onSelectedChange,
+  theme: customTheme
 }) => {
   const trimmedText = inputSearchText.trim();
 
@@ -112,7 +118,10 @@ export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
     [selectedOption, multiple]
   );
 
-  const { selectMenu: theme }: SelectTheme = useComponentTheme('select');
+  const { selectMenu: theme }: SelectTheme = useComponentTheme(
+    'select',
+    customTheme
+  );
 
   const renderListItems = useCallback(
     (items: SelectOptionProps[], group?: GroupOption) =>

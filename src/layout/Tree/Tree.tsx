@@ -20,6 +20,11 @@ export interface TreeProps extends TreeContextProps {
    * Children to render inside the tree
    */
   children?: any;
+
+  /**
+   * Theme for the Tree
+   */
+  theme?: TreeTheme;
 }
 
 export const Tree: FC<TreeProps> = ({
@@ -27,9 +32,10 @@ export const Tree: FC<TreeProps> = ({
   className,
   expandedIcon,
   collapsedIcon,
+  theme: customTheme,
   ...rest
 }) => {
-  const theme: TreeTheme = useComponentTheme('tree');
+  const theme: TreeTheme = useComponentTheme('tree', customTheme);
   expandedIcon = expandedIcon ?? (
     <Arrow direction="down" className={theme.arrow} />
   );

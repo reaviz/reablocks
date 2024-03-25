@@ -50,6 +50,11 @@ export interface InputProps
    * Shortcut for the onChange value event.
    */
   onValueChange?: (value: string) => void;
+
+  /**
+   * Theme for the Input.
+   */
+  theme?: InputTheme;
 }
 
 export interface InputRef {
@@ -77,6 +82,7 @@ export const Input = forwardRef<InputRef, InputProps>(
       onFocus,
       onChange,
       onValueChange,
+      theme: customTheme,
       ...rest
     },
     ref
@@ -99,7 +105,7 @@ export const Input = forwardRef<InputRef, InputProps>(
       }
     }, [autoFocus]);
 
-    const theme: InputTheme = useComponentTheme('input');
+    const theme: InputTheme = useComponentTheme('input', customTheme);
 
     return (
       <div

@@ -31,14 +31,24 @@ export interface InlineInputProps
    * onAutosize handler
    */
   onAutosize?: (newWidth: number) => void;
+
+  /**
+   * Theme for the InlineInput.
+   */
+  theme?: InputTheme;
 }
 
 export const InlineInput: FC<InlineInputProps> = forwardRef(
   (
-    { inputClassName, placeholderIsMinWidth = true, ...rest },
+    {
+      inputClassName,
+      placeholderIsMinWidth = true,
+      theme: customTheme,
+      ...rest
+    },
     ref: Ref<InputRef>
   ) => {
-    const theme: InputTheme = useComponentTheme('input');
+    const theme: InputTheme = useComponentTheme('input', customTheme);
 
     return (
       <AutosizeInput

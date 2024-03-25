@@ -8,15 +8,17 @@ export interface DrawerHeaderProps {
   className?: string;
   showCloseButton?: boolean;
   onClose?: () => void;
+  theme?: DrawerTheme;
 }
 
 export const DrawerHeader: FC<Partial<DrawerHeaderProps>> = ({
   children,
   className,
   showCloseButton,
-  onClose
+  onClose,
+  theme: customTheme
 }) => {
-  const theme: DrawerTheme = useComponentTheme('drawer');
+  const theme: DrawerTheme = useComponentTheme('drawer', customTheme);
 
   return (
     <header className={twMerge(theme.header.base, className)}>

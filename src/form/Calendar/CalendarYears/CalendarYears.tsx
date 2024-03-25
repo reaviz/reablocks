@@ -35,6 +35,11 @@ export interface CalendarYearsProps {
    * A callback function that is called when a year is selected.
    */
   onChange: (year: number) => void;
+
+  /**
+   * Theme for the CalendarYears.
+   */
+  theme?: CalendarTheme;
 }
 
 export const CalendarYears: FC<CalendarYearsProps> = ({
@@ -43,9 +48,10 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
   value,
   animated,
   xAnimation = 0,
-  onChange
+  onChange,
+  theme: customTheme
 }) => {
-  const { years } = useComponentTheme('calendar') as CalendarTheme;
+  const { years }: CalendarTheme = useComponentTheme('calendar', customTheme);
 
   const yearDates = useMemo(() => {
     const arr = [];

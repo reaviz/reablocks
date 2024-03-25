@@ -33,6 +33,11 @@ export interface CardProps extends React.DOMAttributes<any> {
    * Header element or text to show.
    */
   header?: string | React.JSX.Element | React.JSX.Element[];
+
+  /**
+   * Theme for the Card.
+   */
+  theme?: CardTheme;
 }
 
 export type CardRefProps = CardProps & { ref?: LegacyRef<HTMLDivElement> };
@@ -46,11 +51,12 @@ export const Card: FC<CardRefProps> = forwardRef(
       header,
       headerClassName,
       contentClassName,
+      theme: customTheme,
       ...rest
     }: CardProps,
     ref
   ) => {
-    const theme: CardTheme = useComponentTheme('card');
+    const theme: CardTheme = useComponentTheme('card', customTheme);
 
     return (
       <section

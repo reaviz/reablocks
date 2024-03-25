@@ -97,6 +97,11 @@ export interface MenuProps {
    * Mouse leave event.
    */
   onMouseLeave: (event) => void;
+
+  /**
+   * Theme for the Menu.
+   */
+  theme?: MenuTheme;
 }
 
 export interface MenuRef {
@@ -123,7 +128,8 @@ export const Menu: FC<Partial<MenuProps & MenuRef>> = forwardRef(
       maxWidth,
       onClose,
       onMouseEnter,
-      onMouseLeave
+      onMouseLeave,
+      theme: customTheme
     },
     ref
   ) => {
@@ -170,7 +176,7 @@ export const Menu: FC<Partial<MenuProps & MenuRef>> = forwardRef(
       return modifiers;
     }, [modifiers, autoWidth, minWidth, maxWidth]);
 
-    const theme: MenuTheme = useComponentTheme('menu');
+    const theme: MenuTheme = useComponentTheme('menu', customTheme);
 
     return (
       <ConnectedOverlay

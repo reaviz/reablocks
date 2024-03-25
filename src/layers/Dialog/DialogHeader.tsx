@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '../../utils';
+import { DialogTheme } from './DialogTheme';
 
 export interface DialogHeaderProps {
   children?: any;
@@ -8,6 +9,7 @@ export interface DialogHeaderProps {
   showCloseButton?: boolean;
   disablePadding?: boolean;
   onClose?: () => void;
+  theme?: DialogTheme;
 }
 
 export const DialogHeader: FC<Partial<DialogHeaderProps>> = ({
@@ -15,9 +17,10 @@ export const DialogHeader: FC<Partial<DialogHeaderProps>> = ({
   className,
   showCloseButton,
   disablePadding,
-  onClose
+  onClose,
+  theme: customTheme
 }) => {
-  const theme = useComponentTheme('dialog');
+  const theme = useComponentTheme('dialog', customTheme);
 
   return (
     <header
