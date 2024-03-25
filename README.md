@@ -28,11 +28,8 @@
 
 ## 🚀 Quick Links
 - [Docs and Demos](https://reablocks.dev)
-- [Figma Plugin](https://www.figma.com/community/plugin/1285928654186754176/reablocks-figma-plugin)
 
 ## 🪄 Features
-
-### Components
 - Pluralization
 - Ellipsis
 - Data Size
@@ -72,7 +69,5 @@
 - Vertical Spacer
 - Badge
 - Tabs
-
-### Utilities
-- Theme Provider
-- Animation components based on [framer-motion](https://www.framer.com/docs/animation/)
+- Theme Provider based on [Tailwind](https://tailwindcss.com/)
+- Animations based on [framer-motion](https://www.framer.com/docs/animation/)
