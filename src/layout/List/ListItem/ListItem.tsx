@@ -38,6 +38,11 @@ export interface ListItemProps extends InputHTMLAttributes<HTMLDivElement> {
    * A end component for the list item.
    */
   end?: React.ReactNode;
+
+  /**
+   * Theme for the List.
+   */
+  theme?: ListTheme;
 }
 
 export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
@@ -53,11 +58,12 @@ export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
       end,
       dense,
       onClick,
+      theme: customTheme,
       ...rest
     },
     ref
   ) => {
-    const theme: ListTheme = useComponentTheme('list');
+    const theme: ListTheme = useComponentTheme('list', customTheme);
 
     return (
       <div

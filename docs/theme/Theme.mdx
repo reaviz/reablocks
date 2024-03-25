@@ -3,14 +3,14 @@ import { Meta } from '@storybook/addon-docs';
 <Meta title="Docs/Theme/Getting Started" />
 
 # Getting Started
-Reablocks theming is seamlessly integrated into the Tailwind CSS configuration, allowing for a highly customizable design system. 
-This approach leverages Tailwind's utility-first CSS to offer you an extensive range of design tokens such as colors, border radii, shadows, and font sizes. 
+Reablocks theming is seamlessly integrated into the Tailwind CSS configuration, allowing for a highly customizable design system.
+This approach leverages Tailwind's utility-first CSS to offer you an extensive range of design tokens such as colors, border radii, shadows, and font sizes.
 In addition, Reablocks provides a set of pre-defined [Storybook blocks](?path=/docs/docs-theme-blocks--docs) that can be used to quickly build and customize your UI components in a Storybook environment.
 
 &nbsp;
 
 ### Integrating Reablocks Theme in Your Application
-To get started with Reablocks theming, you first need to incorporate the `ThemeProvider` into the root of your application. 
+To get started with Reablocks theming, you first need to incorporate the `ThemeProvider` into the root of your application.
 This provider applies the selected theme across all your components, ensuring a consistent look and feel.
 
 - **Basic Theme Example**
@@ -24,13 +24,33 @@ export const App = () => (
   </ThemeProvider>
 );
 ```
-**Result:** In this example, the `darkTheme` from Reablocks is applied to your application. 
+**Result:** In this example, the `darkTheme` from Reablocks is applied to your application.
 Simply wrap your component hierarchy with the `ThemeProvider`, and the theme is automatically applied.
+
+### Create a reusable component with a custom theme
+You can also pass theme={} directly to any component, which will override the theme for that component, but not its children.
+This is useful if you want to create a reusable component with a custom theme.
+
+```tsx
+import { darkTooltipTheme, TooltipTheme, extendComponentTheme } from 'reablocks';
+
+export const CustomTheme = () => {
+  const customTheme = extendComponentTheme<TooltipTheme>(darkTooltipTheme, {
+    base: 'rounded bg-green-800 text-white font-bold p-3 text-base'
+  });
+
+  return (
+    <div>
+      <Tooltip theme={customTheme} content="Hi there">Hover me</Tooltip>
+    </div>
+  );
+};
+```
 
 &nbsp;
 
 ### Extending the Reablocks Theme
-Reablocks allows you to extend its themes to customize according to your design requirements. 
+Reablocks allows you to extend its themes to customize according to your design requirements.
 You can modify existing styles or add new ones to fit your application's unique design language.
 
 - **Customizing Theme Example**
@@ -62,13 +82,13 @@ export const App = () => (
   </ThemeProvider>
 );
 ```
-**Result:** This example demonstrates how to create a `customTheme` that extends the `darkTheme`. 
+**Result:** This example demonstrates how to create a `customTheme` that extends the `darkTheme`.
 By using the `extendTheme` function, you can merge your customizations with the base theme, resulting in a coherent design system that still benefits from Reablocks' foundation.
 
 &nbsp;
 
 ### Defining Custom Tokens with TailwindCSS
-Reablocks themes can further leverage TailwindCSS's configuration to define custom design tokens. 
+Reablocks themes can further leverage TailwindCSS's configuration to define custom design tokens.
 This allows for an even deeper level of customization, integrating seamlessly with your TailwindCSS setup.
 
 - **TailwindCSS Configuration Example**
@@ -106,5 +126,5 @@ const config: Config = {
 export default config;
 
 ```
-**Result:** In this configuration, we extend the default TailwindCSS theme to include custom colors for primary and secondary palettes. 
+**Result:** In this configuration, we extend the default TailwindCSS theme to include custom colors for primary and secondary palettes.
 The `extend` property allows you to add to the existing design tokens without overriding them, ensuring you can update and maintain your theme easily.

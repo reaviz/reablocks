@@ -49,6 +49,11 @@ export interface TreeNodeProps {
    * Event fired when the node is collapsed
    */
   onCollapse?: () => void;
+
+  /**
+   * Theme for the Tree
+   */
+  theme?: TreeTheme;
 }
 
 export const TreeNode: FC<Partial<TreeNodeProps>> = ({
@@ -58,7 +63,8 @@ export const TreeNode: FC<Partial<TreeNodeProps>> = ({
   disabled,
   expanded: expandedProp,
   onExpand,
-  onCollapse
+  onCollapse,
+  theme: customTheme
 }) => {
   const { expandedIcon, collapsedIcon } = useContext(TreeContext);
   const [expanded, setExpanded] = useState<boolean>(expandedProp as boolean);
@@ -79,16 +85,10 @@ export const TreeNode: FC<Partial<TreeNodeProps>> = ({
     }
   }, [expanded, onCollapse, onExpand]);
 
-  const theme: TreeTheme = useComponentTheme('tree');
+  const theme: TreeTheme = useComponentTheme('tree', customTheme);
 
   return (
-    <li
-      className={twMerge(theme.node.base)}
-      // className={classNames(className, css.node, {
-      //   [css.leaf]: !hasChildren,
-      //   [css.disabled]: disabled
-      // })}
-    >
+    <li className={twMerge(theme.node.base)}>
       <div className={theme.nodeBlock}>
         {hasChildren && (
           <Button

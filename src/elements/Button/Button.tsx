@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { ButtonGroupContext } from './ButtonGroupContext';
 import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
+import { ButtonTheme } from './ButtonTheme';
 
 export interface ButtonProps
   extends Omit<
@@ -53,6 +54,11 @@ export interface ButtonProps
    * Element to display after the Button content.
    */
   endAdornment?: any;
+
+  /**
+   * Theme for the Button.
+   */
+  theme?: ButtonTheme;
 }
 
 export interface ButtonRef {
@@ -74,11 +80,12 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
       disabled,
       startAdornment,
       endAdornment,
+      theme: customTheme,
       ...rest
     }: ButtonProps,
     ref
   ) => {
-    const theme = useComponentTheme('button');
+    const theme = useComponentTheme('button', customTheme);
 
     const { variant: groupVariant, size: groupSize } =
       useContext(ButtonGroupContext);

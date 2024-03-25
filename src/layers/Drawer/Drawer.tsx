@@ -19,6 +19,7 @@ export interface DrawerProps extends Omit<GlobalOverlayProps, 'children'> {
   showCloseButton?: boolean;
   children?: any;
   headerElement: ReactElement<DrawerHeaderProps, typeof DrawerHeader> | null;
+  theme?: DrawerTheme;
 }
 
 export const Drawer: FC<Partial<DrawerProps>> = ({
@@ -36,7 +37,8 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
   closeOnBackdropClick,
   disablePadding,
   showCloseButton,
-  onClose
+  onClose,
+  theme: customTheme
 }) => {
   const id = useId();
   const variant = variants[position];
@@ -46,7 +48,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
     height: position === 'top' || position === 'bottom' ? size : 'auto'
   };
 
-  const theme: DrawerTheme = useComponentTheme('drawer');
+  const theme: DrawerTheme = useComponentTheme('drawer', customTheme);
 
   return (
     <GlobalOverlay

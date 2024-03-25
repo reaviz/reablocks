@@ -31,6 +31,11 @@ export interface TextareaProps extends TextareaAutosizeProps {
    * Size of the field.
    */
   size?: 'small' | 'medium' | 'large';
+
+  /**
+   * Theme for the Textarea.
+   */
+  theme?: TextareaTheme;
 }
 
 export interface TextAreaRef {
@@ -48,6 +53,7 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
       containerClassName,
       className,
       error,
+      theme: customTheme,
       ...rest
     },
     ref
@@ -62,7 +68,7 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
       focus: () => inputRef.current?.focus()
     }));
 
-    const theme: TextareaTheme = useComponentTheme('textarea');
+    const theme: TextareaTheme = useComponentTheme('textarea', customTheme);
 
     return (
       <div

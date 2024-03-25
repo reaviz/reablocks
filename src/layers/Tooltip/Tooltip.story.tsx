@@ -1,6 +1,8 @@
 import React from 'react';
 import { Tooltip } from './Tooltip';
 import { Button } from '../../elements';
+import { extendComponentTheme } from '../../utils';
+import { darkTooltipTheme, TooltipTheme } from './TooltipTheme';
 
 export default {
   title: 'Components/Layers/Tooltip',
@@ -23,6 +25,33 @@ export const Simple = () => (
     <Tooltip content="Hi there too">Hover me too</Tooltip>
   </div>
 );
+
+export const CustomTheme = () => {
+  const customTheme = extendComponentTheme<TooltipTheme>(darkTooltipTheme, {
+    base: 'rounded bg-green-800 text-white font-bold p-3 text-base'
+  });
+
+  return (
+    <div
+      style={{
+        textAlign: 'center',
+        width: '100%',
+        margin: '50px',
+        color: 'green'
+      }}
+    >
+      <Tooltip theme={customTheme} content="Hi there">
+        Hover me
+      </Tooltip>
+      <br />
+      <br />
+      <br />
+      <Tooltip theme={customTheme} content="Hi there too">
+        Hover me too
+      </Tooltip>
+    </div>
+  );
+};
 
 export const Disabled = () => (
   <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>

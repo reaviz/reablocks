@@ -48,6 +48,11 @@ export interface RadioProps {
    * Required when `Radio` is used within a `RadioGroup`
    */
   value?: any;
+
+  /**
+   * Theme for the Radio.
+   */
+  theme?: RadioTheme;
 }
 
 const VARIANTS = {
@@ -70,6 +75,7 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
       className,
       size,
       value,
+      theme: customTheme,
       ...rest
     },
     ref
@@ -89,7 +95,7 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
       onChange?.(checked);
     };
 
-    const theme: RadioTheme = useComponentTheme('radio');
+    const theme: RadioTheme = useComponentTheme('radio', customTheme);
 
     return (
       <div className={twMerge(theme.base, className)}>

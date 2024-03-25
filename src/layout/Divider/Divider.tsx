@@ -24,15 +24,21 @@ export interface DividerProps {
    * Additional style attributes. Recommend to use css classes over this.
    */
   style?: React.CSSProperties;
+
+  /**
+   * Theme for the Divider.
+   */
+  theme?: DividerTheme;
 }
 
 export const Divider: FC<DividerProps> = ({
   className,
   disableMargins,
   orientation,
+  theme: customTheme,
   ...rest
 }) => {
-  const theme = useComponentTheme('divider') as DividerTheme;
+  const theme: DividerTheme = useComponentTheme('divider', customTheme);
 
   return (
     <hr

@@ -15,13 +15,19 @@ export interface CalendarMonthsProps {
    * A callback function that is called when a day is selected.
    */
   onChange: (month: number) => void;
+
+  /**
+   * Theme for the CalendarMonths.
+   */
+  theme?: CalendarTheme;
 }
 
 export const CalendarMonths: FC<CalendarMonthsProps> = ({
   value,
-  onChange
+  onChange,
+  theme: customTheme
 }) => {
-  const { months } = useComponentTheme('calendar') as CalendarTheme;
+  const { months }: CalendarTheme = useComponentTheme('calendar', customTheme);
 
   return (
     <div className={twMerge(months.root)}>

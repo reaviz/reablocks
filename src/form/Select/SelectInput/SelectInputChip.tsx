@@ -12,6 +12,7 @@ export interface SelectInputChipProps {
   className?: string;
   disabled?: boolean;
   clearable?: boolean;
+  theme?: SelectTheme;
   closeIcon?: React.ReactNode;
   onTagKeyDown: (
     event: React.KeyboardEvent<HTMLSpanElement>,
@@ -28,13 +29,17 @@ export const SelectInputChip: FC<Partial<SelectInputChipProps>> = ({
   maxLength,
   closeIcon,
   onTagKeyDown,
-  onSelectedChange
+  onSelectedChange,
+  theme: customTheme
 }) => {
   const origLabel = option.inputLabel || option.children;
   const label =
     typeof origLabel === 'string' ? ellipsize(origLabel, maxLength) : origLabel;
 
-  const { selectInput: theme }: SelectTheme = useComponentTheme('select');
+  const { selectInput: theme }: SelectTheme = useComponentTheme(
+    'select',
+    customTheme
+  );
 
   return (
     <span

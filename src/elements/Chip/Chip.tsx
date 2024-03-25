@@ -1,6 +1,7 @@
 import React, { FC, forwardRef, LegacyRef, ReactElement } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '../../utils';
+import { ChipTheme } from './ChipTheme';
 
 export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -49,6 +50,11 @@ export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
    * Content to display before the chip label.
    */
   end?: ReactElement | string;
+
+  /**
+   * Theme for the Chip.
+   */
+  theme?: ChipTheme;
 }
 
 export interface ChipRef {
@@ -69,11 +75,12 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       start,
       end,
       onClick,
+      theme: customTheme,
       ...rest
     },
     ref
   ) => {
-    const theme = useComponentTheme('chip');
+    const theme = useComponentTheme('chip', customTheme);
 
     return (
       <div

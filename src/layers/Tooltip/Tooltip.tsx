@@ -111,6 +111,11 @@ export interface TooltipProps {
    * Tooltip was closed.
    */
   onClose?(): void;
+
+  /**
+   * Theme for the tooltip.
+   */
+  theme?: TooltipTheme;
 }
 
 export const Tooltip: FC<Partial<TooltipProps>> = ({
@@ -132,6 +137,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
   isPopover,
   onOpen,
   onClose,
+  theme: customTheme,
   ...rest
 }) => {
   const { addTooltip, deactivateTooltip, deactivateAllTooltips } =
@@ -169,7 +175,7 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
     };
   }, [deactivateTooltip, isPopover, visible]);
 
-  const theme: TooltipTheme = useComponentTheme('tooltip');
+  const theme: TooltipTheme = useComponentTheme('tooltip', customTheme);
 
   return (
     <ConnectedOverlay

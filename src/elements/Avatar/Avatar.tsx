@@ -39,11 +39,26 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
     lightness: number;
     alpha: number;
   };
+
+  /**
+   * Theme for the Avatar.
+   */
+  theme?: AvatarTheme;
 }
 
 export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
   (
-    { name, src, color, size, rounded, className, colorOptions, ...rest },
+    {
+      name,
+      src,
+      color,
+      size,
+      rounded,
+      className,
+      colorOptions,
+      theme: customTheme,
+      ...rest
+    },
     ref
   ) => {
     const fontSize = size * 0.4;
@@ -62,7 +77,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       return generateColor(name || '', colorOptions);
     }, [color, name, src, colorOptions]);
 
-    const theme: AvatarTheme = useComponentTheme('avatar');
+    const theme: AvatarTheme = useComponentTheme('avatar', customTheme);
 
     return (
       <div

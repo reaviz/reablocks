@@ -8,10 +8,16 @@ export interface DotsLoaderProps {
   className?: string;
   speed?: number;
   size?: 'small' | 'medium' | 'large';
+  theme?: DotsLoaderTheme;
 }
 
-export const DotsLoader: FC<DotsLoaderProps> = ({ className, size, speed }) => {
-  const theme: DotsLoaderTheme = useComponentTheme('dotsLoader');
+export const DotsLoader: FC<DotsLoaderProps> = ({
+  className,
+  size,
+  speed,
+  theme: customTheme
+}) => {
+  const theme: DotsLoaderTheme = useComponentTheme('dotsLoader', customTheme);
 
   return (
     <motion.div className={twMerge(theme.base, className)}>

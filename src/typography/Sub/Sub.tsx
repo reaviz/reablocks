@@ -1,6 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
+import { TypographyTheme } from '../TypographyTheme';
 
 export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
@@ -24,6 +25,11 @@ export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
    * Whether to disable the margins.
    */
   disableMargins?: boolean;
+
+  /**
+   * Theme for the Typography.
+   */
+  theme?: TypographyTheme;
 }
 
 export interface SubRef {
@@ -32,10 +38,18 @@ export interface SubRef {
 
 export const Sub: FC<SubProps & SubRef> = forwardRef(
   (
-    { color, variant, disableMargins, children, className, ...rest }: SubProps,
+    {
+      color,
+      variant,
+      disableMargins,
+      children,
+      className,
+      theme: customTheme,
+      ...rest
+    }: SubProps,
     ref
   ) => {
-    const theme = useComponentTheme('typography');
+    const theme: TypographyTheme = useComponentTheme('typography', customTheme);
 
     return (
       <h6
