@@ -8,7 +8,7 @@ export interface CheckboxProps {
   /**
    * Whether the checkbox is checked or not.
    */
-  checked: boolean;
+  checked?: boolean;
 
   /**
    * Whether the checkbox is in an intermediate state or not.
