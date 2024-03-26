@@ -176,6 +176,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           <span
             className={twMerge(
               theme.label.base,
+              theme.label.sizes[size],
               disabled && theme.disabled,
               !disabled && onChange && theme.label.clickable,
               labelClassName

@@ -5,6 +5,11 @@ export interface CheckboxTheme {
   label: {
     base: string;
     clickable: string;
+    sizes: {
+      small: string;
+      medium: string;
+      large: string;
+    };
   };
   border: string;
   check: string;
@@ -39,7 +44,12 @@ const baseTheme: Partial<CheckboxTheme> = {
   base: 'inline-flex items-center w-full',
   label: {
     base: 'ml-2.5 w-full',
-    clickable: 'cursor-pointer'
+    clickable: 'cursor-pointer',
+    sizes: {
+      small: 'text-sm',
+      medium: 'text-base',
+      large: 'text-lg'
+    }
   },
   check: '',
   border: '',
