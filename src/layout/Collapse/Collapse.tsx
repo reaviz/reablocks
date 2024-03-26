@@ -33,15 +33,21 @@ export interface CollapseProps
    * Children to render.
    */
   children?: React.ReactNode | (() => React.ReactNode);
+
+  /**
+   * Theme for the Collapse.
+   */
+  theme?: CollapseTheme;
 }
 
 export const Collapse: FC<CollapseProps> = ({
   children,
   expanded,
   className,
+  theme: customTheme,
   ...rest
 }) => {
-  const theme: CollapseTheme = useComponentTheme('collapse');
+  const theme: CollapseTheme = useComponentTheme('collapse', customTheme);
 
   return (
     <AnimatePresence initial={false}>

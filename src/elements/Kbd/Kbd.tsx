@@ -5,11 +5,21 @@ import { useComponentTheme } from '../../utils';
 import { KbdTheme } from './KbdTheme';
 import { twMerge } from 'tailwind-merge';
 
-export interface KbdProps extends Omit<ChipProps, 'children'> {
+export interface KbdProps extends Omit<ChipProps, 'children' | 'theme'> {
   keycode: string;
+
+  /**
+   * Theme for the Kbd.
+   */
+  theme?: KbdTheme;
 }
 
-export const Kbd: FC<KbdProps> = ({ className, keycode, ...rest }) => {
+export const Kbd: FC<KbdProps> = ({
+  className,
+  keycode,
+  theme: customTheme,
+  ...rest
+}) => {
   const split = keycode.split('+').map(getHotkeyText);
   const theme: KbdTheme = useComponentTheme('kbd');
 

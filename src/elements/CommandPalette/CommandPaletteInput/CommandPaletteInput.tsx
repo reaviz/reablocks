@@ -12,6 +12,7 @@ import { HotkeyIem } from '../useFlattenedTree';
 import Mousetrap from 'mousetrap';
 import { CommandPaletteTheme } from '../CommandPaletteTheme';
 import { useComponentTheme } from '../../../utils';
+import { CommandPaletteInputTheme } from './CommandPaletteInputTheme';
 
 export interface CommandPaletteInputProps {
   /**
@@ -58,6 +59,11 @@ export interface CommandPaletteInputProps {
    * When a hotkey was triggered. Used internally.
    */
   onHotkey: (hotkey: HotkeyIem) => void;
+
+  /**
+   * Theme for the Command Palette.
+   */
+  theme?: CommandPaletteTheme;
 }
 
 export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
@@ -69,7 +75,8 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
   onHotkey,
   onBlur,
   onChange,
-  onKeyPress
+  onKeyPress,
+  theme: customTheme
 }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
 
@@ -94,8 +101,10 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
     };
   }, [onHotkey, hotkeys]);
 
-  const { input: inputTheme }: CommandPaletteTheme =
-    useComponentTheme('commandPalette');
+  const { input: inputTheme }: CommandPaletteTheme = useComponentTheme(
+    'commandPalette',
+    customTheme
+  );
 
   return (
     <div className={inputTheme.base}>

@@ -57,6 +57,11 @@ export interface DateFormatProps {
    * The message to display when the date is empty. Default is "N/A".
    */
   emptyMessage?: string;
+
+  /**
+   * Theme for the DateFormat.
+   */
+  theme?: DateFormatTheme;
 }
 
 export const DateFormat: FC<DateFormatProps> = ({
@@ -68,7 +73,8 @@ export const DateFormat: FC<DateFormatProps> = ({
   includeSeconds,
   addSuffix,
   fromNow,
-  date
+  date,
+  theme: customTheme
 }) => {
   const [cache, setCache] = useState<string | null>(
     window.localStorage.getItem(`DATES_${cacheKey}`) || null
@@ -134,7 +140,7 @@ export const DateFormat: FC<DateFormatProps> = ({
     return () => clearTimeout(cur);
   });
 
-  const theme: DateFormatTheme = useComponentTheme('dateFormat');
+  const theme: DateFormatTheme = useComponentTheme('dateFormat', customTheme);
 
   if (!date) {
     return <>{emptyMessage}</>;

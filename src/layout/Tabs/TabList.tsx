@@ -34,6 +34,11 @@ export interface TabListProps extends PropsWithChildren {
    * @private
    */
   onSelect?: (index: number) => void;
+
+  /**
+   * Theme for the Tabs.
+   */
+  theme?: TabsTheme;
 }
 
 export const TabList: FC<TabListProps> = ({
@@ -42,9 +47,10 @@ export const TabList: FC<TabListProps> = ({
   direction,
   className,
   selectedIndex,
-  onSelect
+  onSelect,
+  theme: customTheme
 }) => {
-  const theme: TabsTheme = useComponentTheme('tabs');
+  const theme: TabsTheme = useComponentTheme('tabs', customTheme);
 
   const childs = Children.toArray(children)
     .filter((child: any) => child.type?.name === Tab.name)

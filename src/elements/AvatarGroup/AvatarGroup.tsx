@@ -19,11 +19,22 @@ export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
    * The maximum number of avatars to show before +x more
    */
   size?: number;
+
+  /**
+   * Theme for the AvatarGroup
+   */
+  theme?: AvatarGroupTheme;
 }
 
 export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
   (
-    { children, className, size, ...rest }: AvatarGroupProps,
+    {
+      children,
+      className,
+      size,
+      theme: customTheme,
+      ...rest
+    }: AvatarGroupProps,
     ref: Ref<HTMLDivElement>
   ) => {
     const childrenArray = Children.toArray(children);
@@ -33,7 +44,10 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
       size
     });
 
-    const theme: AvatarGroupTheme = useComponentTheme('avatarGroup');
+    const theme: AvatarGroupTheme = useComponentTheme(
+      'avatarGroup',
+      customTheme
+    );
 
     return (
       <div {...rest} ref={ref} className={twMerge(theme.base, className)}>

@@ -1,6 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
+import { TypographyTheme } from '../TypographyTheme';
 
 export type SmallHeadingColors =
   | 'default'
@@ -27,6 +28,11 @@ export interface SmallHeadingProps
    * Whether to disable the margins.
    */
   disableMargins?: boolean;
+
+  /**
+   * Theme for the Typography.
+   */
+  theme?: TypographyTheme;
 }
 
 export interface SmallHeadingRef {
@@ -41,11 +47,12 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
       variant,
       disableMargins,
       className,
+      theme: customTheme,
       ...rest
     }: SmallHeadingProps,
     ref
   ) => {
-    const theme = useComponentTheme('typography');
+    const theme: TypographyTheme = useComponentTheme('typography', customTheme);
 
     return (
       <h5

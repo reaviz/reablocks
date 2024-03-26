@@ -34,6 +34,11 @@ export interface RedactProps {
    * Value to conceal.
    */
   value?: string;
+
+  /**
+   * The theme for the Redact.
+   */
+  theme?: RedactTheme;
 }
 
 export const Redact: FC<RedactProps> = ({
@@ -42,7 +47,8 @@ export const Redact: FC<RedactProps> = ({
   tooltipText,
   className,
   character,
-  value
+  value,
+  theme: customTheme
 }) => {
   const [visible, setVisible] = useState<boolean>(false);
   const masked = useMemo(
@@ -56,7 +62,7 @@ export const Redact: FC<RedactProps> = ({
     [value, character, compactLength]
   );
 
-  const theme: RedactTheme = useComponentTheme('redact');
+  const theme: RedactTheme = useComponentTheme('redact', customTheme);
 
   return (
     <span

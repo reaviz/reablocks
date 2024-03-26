@@ -34,6 +34,11 @@ export interface ToggleProps {
    * When the toggle was blurred.
    */
   onBlur?: (event: React.FocusEvent<HTMLDivElement>) => void;
+
+  /**
+   * Theme for the Toggle.
+   */
+  theme?: ToggleTheme;
 }
 
 export interface ToggleRef {
@@ -41,8 +46,20 @@ export interface ToggleRef {
 }
 
 export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef(
-  ({ checked, disabled, onChange, onBlur, className, size, ...rest }, ref) => {
-    const theme: ToggleTheme = useComponentTheme('toggle');
+  (
+    {
+      checked,
+      disabled,
+      onChange,
+      onBlur,
+      className,
+      size,
+      theme: customTheme,
+      ...rest
+    },
+    ref
+  ) => {
+    const theme: ToggleTheme = useComponentTheme('toggle', customTheme);
 
     return (
       <div

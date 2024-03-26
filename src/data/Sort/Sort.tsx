@@ -46,6 +46,11 @@ export interface SortProps extends PropsWithChildren {
    * Additional css classnames to apply to the neutral icon.
    */
   neutralIconClassName?: string;
+
+  /**
+   * Theme for the Sort.
+   */
+  theme?: SortTheme;
 }
 
 export const Sort: FC<SortProps> = ({
@@ -57,7 +62,8 @@ export const Sort: FC<SortProps> = ({
   neutralIcon: NeutralIcon,
   neutralIconClassName,
   children,
-  onSort
+  onSort,
+  theme: customTheme
 }) => {
   const onSortClick = useCallback(() => {
     if (!disabled) {
@@ -74,7 +80,7 @@ export const Sort: FC<SortProps> = ({
     [disabled, direction, onSort]
   );
 
-  const theme: SortTheme = useComponentTheme('sort');
+  const theme: SortTheme = useComponentTheme('sort', customTheme);
 
   return (
     <div

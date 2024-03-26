@@ -33,6 +33,11 @@ export interface EllipsisProps {
    * Class name for the container.
    */
   className?: string;
+
+  /**
+   * Theme for the Ellipsis.
+   */
+  theme?: EllipsisTheme;
 }
 
 export const Ellipsis: FC<EllipsisProps> = ({
@@ -41,7 +46,8 @@ export const Ellipsis: FC<EllipsisProps> = ({
   title,
   removeLinebreaks,
   expandable,
-  limit
+  limit,
+  theme: customTheme
 }) => {
   const [expanded, setExpanded] = useState<boolean>(false);
 
@@ -52,7 +58,7 @@ export const Ellipsis: FC<EllipsisProps> = ({
     return ellipsize(formatted, limit, { ellipse: expandable ? '' : '...' });
   }, [expandable, limit, value, removeLinebreaks]);
 
-  const theme: EllipsisTheme = useComponentTheme('ellipsis');
+  const theme: EllipsisTheme = useComponentTheme('ellipsis', customTheme);
 
   return (
     <span className={className}>

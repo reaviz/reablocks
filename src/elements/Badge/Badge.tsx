@@ -23,6 +23,11 @@ export interface BadgeProps
   hidden?: boolean;
 
   placement?: BadgePlacement;
+
+  /**
+   * Theme for the Budge.
+   */
+  theme?: BadgeTheme;
 }
 
 export interface BadgeRef {
@@ -39,11 +44,12 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
       content,
       hidden,
       placement,
+      theme: customTheme,
       ...rest
     }: BadgeProps,
     ref
   ) => {
-    const theme: BadgeTheme = useComponentTheme('badge');
+    const theme: BadgeTheme = useComponentTheme('badge', customTheme);
 
     return (
       <span

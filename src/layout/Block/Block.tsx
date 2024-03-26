@@ -50,6 +50,11 @@ export interface BlockProps extends React.HTMLAttributes<HTMLElement> {
   onTitleClick?: (
     event: React.MouseEvent<HTMLLabelElement, MouseEvent>
   ) => void;
+
+  /**
+   * Theme for the Block.
+   */
+  theme?: BlockTheme;
 }
 
 export const Block: FC<BlockProps> = ({
@@ -62,9 +67,10 @@ export const Block: FC<BlockProps> = ({
   direction,
   alignment,
   onTitleClick,
+  theme: customTheme,
   ...rest
 }) => {
-  const theme: BlockTheme = useComponentTheme('block');
+  const theme: BlockTheme = useComponentTheme('block', customTheme);
 
   return (
     <section

@@ -34,6 +34,7 @@ export interface NotificationsProps {
   components?: {
     [variant in NotificationVariants]?: JSXElementConstructor<NotificationComponentProps>;
   };
+  theme?: NotificationTheme;
 }
 
 // Hacky way to track unique versions of a notification
@@ -46,7 +47,8 @@ export const Notifications: FC<NotificationsProps> = ({
   showClose,
   className,
   preventFlooding,
-  components
+  components,
+  theme: customTheme
 }) => {
   const [notifications, setNotifications] = useState<any[]>([]);
 
@@ -127,7 +129,10 @@ export const Notifications: FC<NotificationsProps> = ({
     ]
   );
 
-  const theme: NotificationTheme = useComponentTheme('notification');
+  const theme: NotificationTheme = useComponentTheme(
+    'notification',
+    customTheme
+  );
 
   return (
     <Fragment>

@@ -98,6 +98,11 @@ export interface CalendarDaysProps {
    * A callback function that is called when a day is hovered.
    */
   onHover?: (date: Date | null) => void;
+
+  /**
+   * Theme for the CalendarDays.
+   */
+  theme?: CalendarTheme;
 }
 
 export const CalendarDays: FC<CalendarDaysProps> = ({
@@ -115,9 +120,10 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   hidePrevMonthDays,
   hideNextMonthDays,
   onChange,
-  onHover
+  onHover,
+  theme: customTheme
 }) => {
-  const { days } = useComponentTheme('calendar') as CalendarTheme;
+  const { days }: CalendarTheme = useComponentTheme('calendar', customTheme);
 
   const [hoveringDate, setHoveringDate] = useState<Date | null>(hover);
   const weeks = useMemo(() => getWeeks(value), [value]);

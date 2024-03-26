@@ -9,6 +9,7 @@ export interface NotificationProps extends NotificationOptions {
   id: number;
   component?: ReactNode;
   onClose: (id: number) => void;
+  theme?: NotificationTheme;
 }
 
 export const Notification: FC<NotificationProps> = ({
@@ -20,7 +21,8 @@ export const Notification: FC<NotificationProps> = ({
   className,
   variant,
   component,
-  onClose
+  onClose,
+  theme: customTheme
 }) => {
   const timeoutRef = useRef<any | null>(null);
 
@@ -36,7 +38,10 @@ export const Notification: FC<NotificationProps> = ({
     return () => clearTimer();
   }, [clearTimer, startTimer]);
 
-  const theme: NotificationTheme = useComponentTheme('notification');
+  const theme: NotificationTheme = useComponentTheme(
+    'notification',
+    customTheme
+  );
 
   return (
     <motion.div

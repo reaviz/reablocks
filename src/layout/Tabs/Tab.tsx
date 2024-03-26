@@ -36,6 +36,11 @@ export interface TabProps extends PropsWithChildren {
    * @private
    */
   onSelect?: () => void;
+
+  /**
+   * Theme for the Tabs.
+   */
+  theme?: TabsTheme;
 }
 
 export const Tab: FC<TabProps> = ({
@@ -44,9 +49,10 @@ export const Tab: FC<TabProps> = ({
   selected,
   className,
   disabled,
-  onSelect
+  onSelect,
+  theme: customTheme
 }) => {
-  const theme: TabsTheme = useComponentTheme('tabs');
+  const theme: TabsTheme = useComponentTheme('tabs', customTheme);
 
   return (
     <span>

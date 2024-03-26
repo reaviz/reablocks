@@ -2,11 +2,20 @@ import { useTheme } from './useTheme';
 import { ReablocksTheme } from '../themes';
 
 export const useComponentTheme = <T extends keyof ReablocksTheme['components']>(
-  component: T
+  component: T,
+  customTheme?: ReablocksTheme['components'][T]
 ): ReablocksTheme['components'][T] => {
-  const { theme } = useTheme();
+  const context = useTheme();
 
-  const componentTheme = theme.components[component];
+  if (customTheme) {
+    return customTheme;
+  }
+
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+
+  const componentTheme = context.theme.components[component];
   if (!componentTheme) {
     throw new Error(`Component ${component} does not exist in theme`);
   }

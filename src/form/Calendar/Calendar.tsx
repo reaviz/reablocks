@@ -91,6 +91,11 @@ export interface CalendarProps {
    * A callback function that is called when the calendar view changes.
    */
   onViewChange?: (view: CalendarViewType) => void;
+
+  /**
+   * Theme for the Calendar.
+   */
+  theme?: CalendarTheme;
 }
 
 export const Calendar: FC<CalendarProps> = ({
@@ -104,9 +109,10 @@ export const Calendar: FC<CalendarProps> = ({
   showDayOfWeek,
   animated,
   onChange,
-  onViewChange
+  onViewChange,
+  theme: customTheme
 }) => {
-  const theme = useComponentTheme('calendar') as CalendarTheme;
+  const theme: CalendarTheme = useComponentTheme('calendar', customTheme);
 
   const date = useMemo(
     () => (Array.isArray(value) ? value[0] : value ?? new Date()),

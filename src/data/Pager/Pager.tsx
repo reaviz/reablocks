@@ -10,6 +10,7 @@ import StartArrow from './assets/arrow-start.svg?react';
 import { FUZZY_RANGE, getItemsRange, getPageRange } from './utils';
 import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
+import { PagerTheme } from './PagerTheme';
 
 export interface PagerProps {
   /**
@@ -76,6 +77,11 @@ export interface PagerProps {
    * The type of table data for the pager to display.
    */
   displayMode?: 'pages' | 'items' | 'all';
+
+  /**
+   * The theme for the Pager.
+   */
+  theme?: PagerTheme;
 }
 
 export const Pager: FC<PagerProps> = ({
@@ -91,14 +97,15 @@ export const Pager: FC<PagerProps> = ({
   previousArrow,
   nextArrow,
   onPageChange,
-  displayMode
+  displayMode,
+  theme: customTheme
 }) => {
   const pageCount = Math.ceil(total / size);
   const canPrevious = page !== 0;
   const canNext = page < pageCount - 1;
   const [startPage, endPage] = getPageRange(page, pageCount - 1);
   const [startItem, endItem] = getItemsRange(page, size, total);
-  const theme = useComponentTheme('pager');
+  const theme = useComponentTheme('pager', customTheme);
 
   const previousPage = useCallback(() => {
     if (canPrevious) {

@@ -1,6 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '../../utils';
+import { TypographyTheme } from '../TypographyTheme';
 
 export interface PrimaryHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -25,6 +26,11 @@ export interface PrimaryHeadingProps
    * Whether to disable the margins.
    */
   disableMargins?: boolean;
+
+  /**
+   * Theme for the Typography.
+   */
+  theme?: TypographyTheme;
 }
 export interface PrimaryHeadingRef {
   ref?: LegacyRef<HTMLHeadingElement>;
@@ -39,11 +45,15 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
         variant,
         disableMargins,
         className,
+        theme: customTheme,
         ...rest
       }: PrimaryHeadingProps,
       ref
     ) => {
-      const theme = useComponentTheme('typography');
+      const theme: TypographyTheme = useComponentTheme(
+        'typography',
+        customTheme
+      );
 
       return (
         <h2

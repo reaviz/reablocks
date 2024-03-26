@@ -45,6 +45,11 @@ export interface TabsProps extends PropsWithChildren {
    * The callback to be called when a tab is selected.
    */
   onSelect?: (index: number) => void;
+
+  /**
+   * Theme for the Tabs.
+   */
+  theme?: TabsTheme;
 }
 
 export const Tabs: FC<TabsProps> = ({
@@ -54,10 +59,11 @@ export const Tabs: FC<TabsProps> = ({
   direction = 'ltr',
   defaultIndex = 0,
   selectedIndex,
-  onSelect
+  onSelect,
+  theme: customTheme
 }) => {
   const id = useId();
-  const theme: TabsTheme = useComponentTheme('tabs');
+  const theme: TabsTheme = useComponentTheme('tabs', customTheme);
   const [internalActive, setInternalActive] = useState<number>(
     selectedIndex || defaultIndex
   );

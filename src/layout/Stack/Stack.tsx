@@ -1,6 +1,7 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
+import { StackTheme } from './StackTheme';
 
 export interface StackProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -27,6 +28,11 @@ export interface StackProps extends HTMLAttributes<HTMLDivElement> {
    * How the content is arranged inside the stack.
    */
   justifyContent?: 'start' | 'end' | 'center' | 'spaceBetween';
+
+  /**
+   * Theme for the Stack.
+   */
+  theme?: StackTheme;
 }
 
 export const Stack = forwardRef<HTMLDivElement, StackProps>(
@@ -39,11 +45,12 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(
       inline,
       alignItems,
       justifyContent,
+      theme: customTheme,
       ...otherProps
     },
     ref
   ) => {
-    const theme = useComponentTheme('stack');
+    const theme: StackTheme = useComponentTheme('stack', customTheme);
 
     return (
       <div

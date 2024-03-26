@@ -6,7 +6,7 @@ import { twMerge } from 'tailwind-merge';
 import { PopoverTheme } from './PopoverTheme';
 import { useComponentTheme } from '../../utils';
 
-export interface PopoverProps extends Partial<TooltipProps> {
+export interface PopoverProps extends Partial<Omit<TooltipProps, 'theme'>> {
   /**
    * Disable default padding on popover.
    */
@@ -21,6 +21,11 @@ export interface PopoverProps extends Partial<TooltipProps> {
    * Popover classname.
    */
   popoverClassName?: string;
+
+  /**
+   * Theme for the Popover.
+   */
+  theme?: PopoverTheme;
 }
 
 export const Popover: FC<PopoverProps> = ({
@@ -34,10 +39,11 @@ export const Popover: FC<PopoverProps> = ({
   disablePadding,
   popoverStyle,
   popoverClassName,
+  theme: customTheme,
   ...rest
 }) => {
   const id = useId();
-  const theme: PopoverTheme = useComponentTheme('popover');
+  const theme: PopoverTheme = useComponentTheme('popover', customTheme);
 
   return (
     <Tooltip

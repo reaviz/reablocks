@@ -10,6 +10,7 @@ import { motion, useMotionValue } from 'framer-motion';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '../../utils';
+import { RangeTheme } from './RangeTheme';
 
 export const RangeSingle: FC<RangeProps<number>> = ({
   disabled,
@@ -20,7 +21,8 @@ export const RangeSingle: FC<RangeProps<number>> = ({
   min,
   max,
   value,
-  step = 1
+  step = 1,
+  theme: customTheme
 }) => {
   const [currentValue, setCurrentValue] = useState<number>(value);
 
@@ -76,7 +78,7 @@ export const RangeSingle: FC<RangeProps<number>> = ({
   const [focused, setFocused] = useState(false);
   const tooltipVisible = dragging || focused || hovering;
 
-  const theme = useComponentTheme('range');
+  const theme: RangeTheme = useComponentTheme('range', customTheme);
 
   return (
     <div

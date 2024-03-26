@@ -1,6 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
+import { TypographyTheme } from '../TypographyTheme';
 
 export interface PageTitleProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -25,6 +26,11 @@ export interface PageTitleProps
    * Whether to disable the margins.
    */
   disableMargins?: boolean;
+
+  /**
+   * Theme for the Typography.
+   */
+  theme?: TypographyTheme;
 }
 
 export interface PageTitleRef {
@@ -39,11 +45,12 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
       variant,
       disableMargins,
       className,
+      theme: customTheme,
       ...rest
     }: PageTitleProps,
     ref
   ) => {
-    const theme = useComponentTheme('typography');
+    const theme: TypographyTheme = useComponentTheme('typography', customTheme);
 
     return (
       <h1

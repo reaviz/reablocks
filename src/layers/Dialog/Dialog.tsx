@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { DialogHeader, DialogHeaderProps } from './DialogHeader';
 import { useComponentTheme } from '../../utils';
+import { DialogTheme } from './DialogTheme';
 
 export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
   /**
@@ -57,6 +58,11 @@ export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
    * The React element for the dialog header.
    */
   headerElement: ReactElement<DialogHeaderProps, typeof DialogHeader> | null;
+
+  /**
+   * Theme for the Dialog.
+   */
+  theme?: DialogTheme;
 }
 
 export const Dialog: FC<Partial<DialogProps>> = ({
@@ -74,10 +80,11 @@ export const Dialog: FC<Partial<DialogProps>> = ({
   hasBackdrop,
   showCloseButton,
   closeOnBackdropClick,
-  closeOnEscape
+  closeOnEscape,
+  theme: customTheme
 }) => {
   const id = useId();
-  const theme = useComponentTheme('dialog');
+  const theme: DialogTheme = useComponentTheme('dialog', customTheme);
 
   return (
     <GlobalOverlay

@@ -20,14 +20,21 @@ export interface CommandPaletteSectionProps extends PropsWithChildren {
    * Section stack index. Set internally.
    */
   index?: number;
+
+  /**
+   * Theme for the CommandPalette.
+   */
+  theme?: CommandPaletteTheme;
 }
 
 export const CommandPaletteSection = forwardRef<
   HTMLDivElement,
   CommandPaletteSectionProps
->(({ children, className, title, index, ...rest }, ref) => {
-  const { section: sectionTheme }: CommandPaletteTheme =
-    useComponentTheme('commandPalette');
+>(({ children, className, title, index, theme: customTheme, ...rest }, ref) => {
+  const { section: sectionTheme }: CommandPaletteTheme = useComponentTheme(
+    'commandPalette',
+    customTheme
+  );
 
   return (
     <MotionItem layout>
