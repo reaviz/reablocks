@@ -68,6 +68,15 @@ const preview: Preview = {
             'Support',
           ],
           'Components',
+          'Blocks',
+          [
+            'Authentication',
+            [
+              'Introduction',
+              '*'
+            ]
+          ],
+          'Recipes',
           '*'
         ]
       }

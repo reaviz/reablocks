@@ -1,0 +1,105 @@
+import { Meta } from '@storybook/addon-docs';
+import { Login } from './Login';
+import { Register } from './Register';
+import { ForgotPassword } from './ForgotPassword';
+import { Tabs, TabPanel, TabList, Tab } from '../../../src/layout';
+
+<Meta title="Blocks/Authentication/Login" />
+
+# Login
+
+The Login block is the gateway for users to access their accounts, providing a simple yet secure login form.
+
+<Tabs direction="rtl">
+  <TabList>
+    <Tab>
+      Demo
+    </Tab>
+    <Tab>
+      Code
+    </Tab>
+  </TabList>
+  <TabPanel>
+    <div className="flex flex-col border justify-center items-center min-h-[840px] border-gray-500">
+      <Login />
+    </div>
+  </TabPanel>
+  <TabPanel>
+```tsx
+import { Input } from '../../../src/form/Input';
+import { Button } from '../../../src/elements/Button';
+import { Card } from '../../../src/layout/Card';
+import { Block } from '../../../src/layout/Block';
+import { useForm, Controller } from 'react-hook-form';
+import logo from '../../assets/reaviz.svg';
+import { motion } from 'framer-motion';
+
+export const Login = () => {
+  const { control, handleSubmit, formState: { isSubmitting } } = useForm();
+
+  return (
+    <motion.div
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm"
+    >
+      <Card className="w-full">
+        <div className="flex items-center justify-center pt-2 pb-5">
+          <img src={logo} alt="Logo" className="h-12 w-12" />
+        </div>
+        <form onSubmit={handleSubmit(values => console.log('values', values))}>
+          <Block>
+            <Controller
+              name="email"
+              control={control}
+              render={({ field: { value, onBlur, onChange } }) => (
+                <Input
+                  name="email"
+                  disabled={isSubmitting}
+                  placeholder="Email"
+                  value={value}
+                  type="email"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                />
+              )}
+            />
+          </Block>
+          <Block>
+            <Controller
+              name="password"
+              control={control}
+              render={({ field: { value, onBlur, onChange } }) => (
+                <Input
+                  name="password"
+                  disabled={isSubmitting}
+                  placeholder="Password"
+                  value={value}
+                  type="password"
+                  onChange={onChange}
+                  onBlur={onBlur}
+                />
+              )}
+            />
+            <Button variant="text" color="primary" size="small" disablePadding className="opacity-50">
+              Forgot Password
+            </Button>
+          </Block>
+          <Button
+            type="submit"
+            fullWidth
+            variant="filled"
+            color="primary"
+            className="mb-2"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Logging in...' : 'Login'}
+          </Button>
+        </form>
+      </Card>
+    </motion.div>
+  );
+}
+```
+  </TabPanel>
+</Tabs>
