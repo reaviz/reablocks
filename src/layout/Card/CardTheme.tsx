@@ -7,7 +7,7 @@ export interface CardTheme {
 }
 
 const baseTheme: CardTheme = {
-  base: 'relative flex flex-col p-2.5 rounded',
+  base: 'relative flex flex-col p-5 rounded',
   disablePadding: 'p-0',
   header: 'flex items-center',
   headerText: 'text-sm font-medium mt-0 mb-1',
@@ -16,12 +16,12 @@ const baseTheme: CardTheme = {
 
 export const lightCardTheme: CardTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-light-background text-black'].join(' ')
+  base: [baseTheme.base, 'bg-light-panel-background text-black'].join(' ')
 };
 
 export const darkCardTheme: CardTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-dark-background text-white'].join(' ')
+  base: [baseTheme.base, 'bg-black-pearl text-athens-gray'].join(' ')
 };
 
 export const legacyCardTheme: CardTheme = {

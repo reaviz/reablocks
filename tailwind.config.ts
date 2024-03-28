@@ -2,6 +2,24 @@ import { type Config } from 'tailwindcss';
 import colors from 'tailwindcss/colors';
 import plugin from 'tailwindcss/plugin';
 
+// I really don't like this but this solution wouldn't
+// work for me because it would cause circular loops
+// https://tailwindcss.com/docs/theme#referencing-other-values
+const newColors = {
+  'black-pearl': {
+    // panel
+    DEFAULT: '#02020F'
+  },
+  'athens-gray': {
+    // text
+    DEFAULT: '#F7F7FA'
+  },
+  'vulcan': {
+    // background
+    DEFAULT: '#11111F'
+  }
+};
+
 const config: Config = {
   content: [
     './.storybook/**/*.{js,jsx,ts,tsx}',
@@ -12,6 +30,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        ...newColors,
         primary: colors.blue,
         secondary: colors.gray,
         success: colors.green,
@@ -21,10 +40,10 @@ const config: Config = {
         disabled: colors.gray['400'], // text-disabled
         light: {
           background: colors.gray['100'],
-          disabled: colors.gray['200']
+          disabled: colors.gray['200'],
         },
         dark: {
-          background: colors.zinc['800'],
+          background: newColors['vulcan'].DEFAULT,
           disabled: colors.zinc['600']
         }
       }
