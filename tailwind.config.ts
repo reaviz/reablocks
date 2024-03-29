@@ -48,6 +48,10 @@ const config: Config = {
       sans: ['Inter', 'sans-serif'],
       mono: ['Fira Code', 'monospace']
     },
+    fontSize: {
+      sm: '12px',
+      base: '14px'
+    },
     extend: {
       colors: {
         ...newColors,
