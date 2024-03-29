@@ -6,6 +6,10 @@ import plugin from 'tailwindcss/plugin';
 // work for me because it would cause circular loops
 // https://tailwindcss.com/docs/theme#referencing-other-values
 const newColors = {
+  'blue-ribbon': {
+    // primary
+    DEFAULT: '#105EFF'
+  },
   'black-pearl': {
     // panel
     DEFAULT: '#02020F'

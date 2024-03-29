@@ -158,7 +158,7 @@ export const darkButtonTheme: ButtonTheme = {
     },
     primary: {
       filled:
-        'bg-primary-600 hover:bg-primary-700 border-primary-600 text-white',
+        'bg-blue-ribbon hover:bg-primary-700 border-primary-600 text-white',
       outline: 'border border-primary-600',
       text: 'text-primary-600 hover:text-primary-700'
     },
