@@ -59,7 +59,7 @@ export interface ButtonTheme {
 }
 
 const baseTheme: Partial<ButtonTheme> = {
-  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded',
+  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-sm font-sans',
   disabled: 'disabled:cursor-not-allowed',
   fullWidth: 'block w-full',
   group:
@@ -78,7 +78,7 @@ const baseTheme: Partial<ButtonTheme> = {
   },
   sizes: {
     small: 'text-xs px-5px py-0.5 leading-[normal]',
-    medium: 'text-base px-2.5 py-5px leading-[normal]',
+    medium: 'text-base px-2.5 py-1.5 leading-[normal]',
     large: 'text-xl px-5 py-2.5 leading-[normal]'
   }
 };

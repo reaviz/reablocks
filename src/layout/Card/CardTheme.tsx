@@ -7,7 +7,7 @@ export interface CardTheme {
 }
 
 const baseTheme: CardTheme = {
-  base: 'relative flex flex-col p-7 rounded',
+  base: 'relative flex flex-col p-7 rounded-sm',
   disablePadding: 'p-0',
   header: 'flex items-center',
   headerText: 'text-sm font-medium mt-0 mb-1',
@@ -21,7 +21,10 @@ export const lightCardTheme: CardTheme = {
 
 export const darkCardTheme: CardTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-black-pearl text-athens-gray'].join(' ')
+  base: [
+    baseTheme.base,
+    'bg-black-pearl border border-charade text-athens-gray'
+  ].join(' ')
 };
 
 export const legacyCardTheme: CardTheme = {

@@ -18,9 +18,9 @@ export interface InputTheme {
 }
 
 const baseTheme: InputTheme = {
-  base: 'flex flex-row items-center flex-nowrap box-border transition-colors transition-shadow rounded',
+  base: 'flex flex-row items-center flex-nowrap box-border transition-colors transition-shadow rounded-sm',
   input:
-    'flex-1 font-normal bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-none px-0.5 disabled:cursor-not-allowed disabled:text-disabled',
+    'flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-none px-0.5 disabled:cursor-not-allowed disabled:text-disabled',
   inline: 'bg-transparent border-0 outline-none',
   disabled: '',
   fullWidth: 'w-full',
@@ -43,7 +43,7 @@ export const lightInputTheme: InputTheme = {
     baseTheme.base,
     'bg-light-background border border-gray-400 text-black focus-within:ring-gray-500 focus-within:border-gray-500'
   ].join(' '),
-  input: [baseTheme.input, 'text-black placeholder:text-slate-700'].join(' '),
+  input: [baseTheme.input, 'text-black placeholder:text-slate-700 '].join(' '),
   disabled: [baseTheme.disabled, 'disabled-within:bg-light-disabled'].join(' ')
 };
 
@@ -51,9 +51,9 @@ export const darkInputTheme: InputTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'bg-dark-background border border-gray-700 text-white focus-within:ring-gray-500 focus-within:border-gray-500'
+    'bg-black-pearl border border-charade text-white focus-within:ring-anakiwa focus-within:border-anakiwa'
   ].join(' '),
-  input: [baseTheme.input, ' placeholder-zinc-400'].join(' '),
+  input: [baseTheme.input, ' placeholder-waterloo'].join(' '),
   disabled: [baseTheme.disabled, 'disabled-within:bg-dark-disabled'].join(' ')
 };
 

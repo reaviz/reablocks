@@ -76,7 +76,7 @@ export const ForgotPassword = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mb-2"
+            className="mt-5"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Resetting...' : 'Reset Password'}

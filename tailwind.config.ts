@@ -17,6 +17,18 @@ const newColors = {
   'vulcan': {
     // background
     DEFAULT: '#11111F'
+  },
+  'charade': {
+    // surface
+    DEFAULT: '#242433',
+  },
+  'waterloo': {
+    // accent
+    DEFAULT: '#77778C'
+  },
+  'anakiwa': {
+    // active accent
+    DEFAULT: '#93B6FF'
   }
 };
 
@@ -28,6 +40,10 @@ const config: Config = {
   ],
   darkMode: 'selector',
   theme: {
+    fontFamily: {
+      sans: ['Inter', 'sans-serif'],
+      mono: ['Fira Code', 'monospace']
+    },
     extend: {
       colors: {
         ...newColors,
