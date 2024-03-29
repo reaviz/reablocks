@@ -7,7 +7,7 @@ export interface CardTheme {
 }
 
 const baseTheme: CardTheme = {
-  base: 'relative flex flex-col p-5 rounded',
+  base: 'relative flex flex-col p-7 rounded',
   disablePadding: 'p-0',
   header: 'flex items-center',
   headerText: 'text-sm font-medium mt-0 mb-1',
