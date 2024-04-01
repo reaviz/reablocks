@@ -50,7 +50,8 @@ const config: Config = {
     },
     fontSize: {
       sm: '12px',
-      base: '14px'
+      base: '14px',
+      lg: '16px'
     },
     extend: {
       colors: {
