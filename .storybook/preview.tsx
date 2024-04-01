@@ -84,7 +84,12 @@ const preview: Preview = {
             [
               'Introduction',
               '*'
-            ]
+            ],
+            'Administration',
+            [
+              'Introduction',
+              '*'
+            ],
           ],
           'Recipes',
           '*'
