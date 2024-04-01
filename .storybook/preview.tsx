@@ -9,7 +9,9 @@ import { darkTheme, lightTheme } from '../src';
 import '../src/index.css';
 
 const withProvider = (Story, context) => {
-  const theme = context.globals.theme === 'light' ? lightTheme : darkTheme;
+  const theme = context.globals.theme === 'light'
+    ? lightTheme
+    : darkTheme;
 
   return (
     <ThemeProvider theme={theme}>
@@ -35,13 +37,21 @@ const preview: Preview = {
     controls: { hideNoControlsWarning: true },
     docs: {
       theme,
-      container: ({ children, ...props }: any) => (
-        <DocsContainer {...props}>
-          <ThemeProvider theme={darkTheme}>
-            {children}
-          </ThemeProvider>
-        </DocsContainer>
-      ),
+      container: ({ children, ...props }: any) => {
+        // NOTE: This feels super hacky but seems to be the only way to get
+        // the theme from the story provider
+        const theme = props.context?.store?.globals?.globals?.theme === 'light'
+          ? lightTheme
+          : darkTheme;
+
+        return (
+          <DocsContainer {...props}>
+            <ThemeProvider theme={theme}>
+              {children}
+            </ThemeProvider>
+          </DocsContainer>
+        );
+      }
     },
     options: {
       storySort: {
