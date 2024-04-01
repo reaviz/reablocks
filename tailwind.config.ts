@@ -71,6 +71,9 @@ const config: Config = {
           background: newColors['vulcan'].DEFAULT,
           disabled: colors.zinc['600']
         }
+      },
+      backgroundImage: {
+        'bottom-border-glow': `radial-gradient(circle at center, ${newColors.anakiwa.DEFAULT} 0, blue, transparent 100%)`,
       }
     }
   },

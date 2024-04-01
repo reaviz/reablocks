@@ -3,6 +3,7 @@ export interface InputTheme {
   input: string;
   inline: string;
   disabled: string;
+  focused: string;
   fullWidth: string;
   error: string;
   sizes: {
@@ -18,7 +19,8 @@ export interface InputTheme {
 }
 
 const baseTheme: InputTheme = {
-  base: 'flex flex-row items-center flex-nowrap box-border transition-colors transition-shadow rounded-sm',
+  base: 'flex relative flex-row items-center flex-nowrap box-border transition-colors rounded-sm',
+  focused: '',
   input:
     'flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-none px-0.5 disabled:cursor-not-allowed disabled:text-disabled',
   inline: 'bg-transparent border-0 outline-none',
@@ -51,8 +53,9 @@ export const darkInputTheme: InputTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'bg-black-pearl border border-charade text-white focus-within:ring-anakiwa focus-within:border-anakiwa'
+    'bg-black-pearl border border-charade text-white'
   ].join(' '),
+  focused: `${baseTheme.focused} after:bg-bottom-border-glow after:content-[""] after:absolute after:h-0.5 after:z-[2] after:rounded after:-bottom-px after:inset-x-0.5`,
   input: [baseTheme.input, ' placeholder-waterloo'].join(' '),
   disabled: [baseTheme.disabled, 'disabled-within:bg-dark-disabled'].join(' ')
 };
