@@ -61,7 +61,7 @@ export interface ButtonTheme {
 const baseTheme: Partial<ButtonTheme> = {
   base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-sm font-sans',
   disabled: 'disabled:cursor-not-allowed',
-  fullWidth: 'block w-full',
+  fullWidth: 'flex w-full',
   group:
     'rounded-none first:rounded-s last:rounded-e border-s-0 first:border-s',
   groupText:
