@@ -21,10 +21,9 @@ export const lightCardTheme: CardTheme = {
 
 export const darkCardTheme: CardTheme = {
   ...baseTheme,
-  base: [
-    baseTheme.base,
-    'bg-black-pearl border border-charade text-athens-gray'
-  ].join(' ')
+  base: [baseTheme.base, 'bg-panel border border-surface text-typography'].join(
+    ' '
+  )
 };
 
 export const legacyCardTheme: CardTheme = {

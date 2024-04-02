@@ -51,12 +51,9 @@ export const lightInputTheme: InputTheme = {
 
 export const darkInputTheme: InputTheme = {
   ...baseTheme,
-  base: [
-    baseTheme.base,
-    'bg-black-pearl border border-charade text-white'
-  ].join(' '),
+  base: [baseTheme.base, 'bg-panel border border-surface text-white'].join(' '),
   focused: `${baseTheme.focused} after:bg-bottom-border-glow after:content-[""] after:absolute after:h-0.5 after:z-[2] after:rounded after:-bottom-px after:inset-x-0.5`,
-  input: [baseTheme.input, ' placeholder-waterloo'].join(' '),
+  input: [baseTheme.input, ' placeholder-accent'].join(' '),
   disabled: [baseTheme.disabled, 'disabled-within:bg-dark-disabled'].join(' ')
 };
 

@@ -167,34 +167,12 @@ const colorPalette = {
 // work for me because it would cause circular loops
 // https://tailwindcss.com/docs/theme#referencing-other-values
 const newColors = {
-  'blue-ribbon': {
-    // primary
-    DEFAULT: '#105EFF'
-  },
-  'black-pearl': {
-    // panel
-    DEFAULT: '#02020F'
-  },
-  'athens-gray': {
-    // text
-    DEFAULT: '#F7F7FA'
-  },
-  'vulcan': {
-    // background
-    DEFAULT: '#11111F'
-  },
-  'charade': {
-    // surface
-    DEFAULT: '#242433',
-  },
-  'waterloo': {
-    // accent
-    DEFAULT: '#77778C'
-  },
-  'anakiwa': {
-    // active accent
-    DEFAULT: '#93B6FF'
-  }
+  'black-pearl': '#02020F',
+  'athens-gray': '#F7F7FA',
+  'vulcan': '#11111F',
+  'charade': '#242433',
+  'waterloo': '#77778C',
+  'anakiwa': '#93B6FF'
 };
 
 const config: Config = {
@@ -260,18 +238,27 @@ const config: Config = {
           level3: colorPalette.gray['02'],
           level4: colorPalette.gray['03'],
         },
+        panel: newColors['black-pearl'],
+        surface: newColors['charade'],
+        typography: {
+          DEFAULT: newColors['athens-gray'],
+        },
+        accent: {
+          DEFAULT: newColors['waterloo'],
+          active: newColors['anakiwa']
+        },
         disabled: colors.gray['400'], // text-disabled
         light: {
           background: colors.gray['100'],
           disabled: colors.gray['200'],
         },
         dark: {
-          background: newColors['vulcan'].DEFAULT,
+          background: newColors['vulcan'],
           disabled: colors.zinc['600']
         }
       },
       backgroundImage: {
-        'bottom-border-glow': `radial-gradient(circle at center, ${newColors.anakiwa.DEFAULT} 0, blue, transparent 100%)`,
+        'bottom-border-glow': `radial-gradient(circle at center, ${newColors.anakiwa} 0, blue, transparent 100%)`,
       }
     }
   },
