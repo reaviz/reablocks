@@ -122,7 +122,7 @@ export const lightChipTheme: ChipTheme = {
         baseTheme.colors.primary.selectable,
         'hover:bg-primary-hover hover:border-primary-hover'
       ].join(' '),
-      selected: '!bg-primary text-white',
+      selected: '!bg-primary-active text-white',
       focus: 'focus-visible:outline-primary'
     },
     secondary: {
@@ -147,7 +147,7 @@ export const lightChipTheme: ChipTheme = {
         baseTheme.colors.warning.selectable,
         'hover:bg-warning-hover hover:border-warning-hover'
       ].join(' '),
-      selected: '!bg-warning text-white'
+      selected: '!bg-warning-active text-white'
     },
     error: {
       base: 'bg-error border-error text-error',
@@ -155,7 +155,7 @@ export const lightChipTheme: ChipTheme = {
         baseTheme.colors.error.selectable,
         'hover:bg-error-hover hover:border-error-hover'
       ].join(' '),
-      selected: '!bg-error text-white'
+      selected: '!bg-error-active text-white'
     },
     info: {
       base: 'bg-info border-info text-info',
@@ -163,7 +163,7 @@ export const lightChipTheme: ChipTheme = {
         baseTheme.colors.info.selectable,
         'hover:bg-info-hover hover:border-info-hover'
       ].join(' '),
-      selected: '!bg-info text-white'
+      selected: '!bg-info-active text-white'
     }
   },
   deleteButton: baseTheme.deleteButton
@@ -210,7 +210,7 @@ export const darkChipTheme: ChipTheme = {
         baseTheme.colors.default.selectable,
         'hover:bg-success-hover hover:border-success-hover'
       ].join(' '),
-      selected: '!bg-success text-white'
+      selected: '!bg-success-active text-white'
     },
     warning: {
       base: 'bg-warning border-warning text-warning',
@@ -218,7 +218,7 @@ export const darkChipTheme: ChipTheme = {
         baseTheme.colors.default.selectable,
         'hover:bg-warning-hover hover:border-warning-hover'
       ].join(' '),
-      selected: '!bg-warning text-white'
+      selected: '!bg-warning-active text-white'
     },
     error: {
       base: 'bg-error border-error text-error',
@@ -226,7 +226,7 @@ export const darkChipTheme: ChipTheme = {
         baseTheme.colors.default.selectable,
         'hover:bg-error-hover hover:border-error-hover'
       ].join(' '),
-      selected: '!bg-error text-white'
+      selected: '!bg-error-active text-white'
     },
     info: {
       base: 'bg-info border-info text-info',
@@ -234,7 +234,7 @@ export const darkChipTheme: ChipTheme = {
         baseTheme.colors.default.selectable,
         'hover:bg-info-hover hover:border-info-hover'
       ].join(' '),
-      selected: '!bg-info text-white'
+      selected: '!bg-info-active text-white'
     }
   },
   deleteButton: baseTheme.deleteButton

@@ -232,21 +232,25 @@ const config: Config = {
         },
         success: {
           DEFAULT: colorPalette.green['05'],
+          active: colorPalette.green['05'],
           hover: colorPalette.green['06'],
           fill: colorPalette.green['01']
         },
         error: {
           DEFAULT: colorPalette.red['05'],
+          active: colorPalette.red['05'],
           hover: colorPalette.red['06'],
           fill: colorPalette.red['01']
         },
         warning: {
           DEFAULT: colorPalette.orange['05'],
+          active: colorPalette.orange['05'],
           hover: colorPalette.orange['06'],
           fill: colorPalette.orange['01']
         },
         info: {
           DEFAULT: colorPalette.blue['05'],
+          active: colorPalette.blue['05'],
           hover: colorPalette.blue['06'],
           fill: colorPalette.blue['01']
         },
