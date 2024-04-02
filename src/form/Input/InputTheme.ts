@@ -26,7 +26,7 @@ const baseTheme: InputTheme = {
   inline: 'bg-transparent border-0 outline-none',
   disabled: '',
   fullWidth: 'w-full',
-  error: 'border-error-500',
+  error: 'border-error',
   sizes: {
     small: '[&>input]:text-sm p-1 text-sm',
     medium: '[&>input]:text-base px-2.5 py-1.5 text-base',

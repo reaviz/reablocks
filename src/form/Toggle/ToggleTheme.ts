@@ -39,7 +39,7 @@ const baseTheme: ToggleTheme = {
 export const lightToggleTheme: ToggleTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-gray-400'].join(' '),
-  checked: [baseTheme.checked, 'bg-primary-400'].join(' '),
+  checked: [baseTheme.checked, 'bg-primary'].join(' '),
   handle: {
     ...baseTheme.handle,
     base: [baseTheme.handle.base, 'bg-gray-500'].join(' ')
@@ -49,7 +49,7 @@ export const lightToggleTheme: ToggleTheme = {
 export const darkToggleTheme: ToggleTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-gray-500'].join(' '),
-  checked: [baseTheme.checked, 'bg-primary-600'].join(' '),
+  checked: [baseTheme.checked, 'bg-primary'].join(' '),
   handle: {
     ...baseTheme.handle,
     base: [baseTheme.handle.base, 'bg-gray-700'].join(' ')

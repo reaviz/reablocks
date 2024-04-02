@@ -59,11 +59,11 @@ export const lightRadioTheme: RadioTheme = {
   radio: {
     ...baseTheme.radio,
     base: [baseTheme.radio.base, 'border-gray-500'].join(' '),
-    checked: [baseTheme.radio.checked, 'border-primary-500'].join(' ')
+    checked: [baseTheme.radio.checked, 'border-primary'].join(' ')
   },
   indicator: {
     ...baseTheme.indicator,
-    base: [baseTheme.indicator.base, 'bg-primary-500'].join(' ')
+    base: [baseTheme.indicator.base, 'bg-primary'].join(' ')
   }
 };
 
@@ -76,11 +76,11 @@ export const darkRadioTheme: RadioTheme = {
   radio: {
     ...baseTheme.radio,
     base: [baseTheme.radio.base, 'border-gray-400'].join(' '),
-    checked: [baseTheme.radio.checked, 'border-primary-600'].join(' ')
+    checked: [baseTheme.radio.checked, 'border-primary'].join(' ')
   },
   indicator: {
     ...baseTheme.indicator,
-    base: [baseTheme.indicator.base, 'bg-primary-600'].join(' ')
+    base: [baseTheme.indicator.base, 'bg-primary'].join(' ')
   }
 };
 

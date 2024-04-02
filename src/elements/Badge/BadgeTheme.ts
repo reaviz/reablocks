@@ -43,9 +43,9 @@ export const lightBadgeTheme: BadgeTheme = {
   positions: baseTheme.positions,
   colors: {
     default: 'bg-white text-black',
-    primary: 'bg-primary-400 text-white',
-    secondary: 'bg-secondary-400 text-white',
-    error: 'bg-error-400 text-white'
+    primary: 'bg-primary text-white',
+    secondary: 'bg-secondary text-white',
+    error: 'bg-error text-white'
   }
 };
 
@@ -57,9 +57,9 @@ export const darkBadgeTheme: BadgeTheme = {
   positions: baseTheme.positions,
   colors: {
     default: 'bg-white text-black',
-    primary: 'bg-primary-600 text-white',
-    secondary: 'bg-secondary-700 text-white',
-    error: 'bg-error-700 text-white'
+    primary: 'bg-primary text-white',
+    secondary: 'bg-secondary text-white',
+    error: 'bg-error text-white'
   }
 };
 

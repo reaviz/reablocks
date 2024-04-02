@@ -31,7 +31,7 @@ export const lightTabsTheme: TabsTheme = {
   list: {
     ...baseTheme.list,
     base: `border-b border-gray-100 ${baseTheme.list.base}`,
-    indicator: `bg-primary-500 ${baseTheme.list.indicator}`,
+    indicator: `bg-primary ${baseTheme.list.indicator}`,
     tab: {
       ...baseTheme.list.tab
     }
@@ -43,7 +43,7 @@ export const darkTabsTheme: TabsTheme = {
   list: {
     ...baseTheme.list,
     base: `border-b border-gray-700 ${baseTheme.list.base}`,
-    indicator: `bg-primary-500 ${baseTheme.list.indicator}`,
+    indicator: `bg-primary ${baseTheme.list.indicator}`,
     tab: {
       ...baseTheme.list.tab
     }

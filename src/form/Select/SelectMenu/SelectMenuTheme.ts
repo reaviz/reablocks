@@ -35,10 +35,12 @@ export const lightSelectMenuTheme: SelectMenuTheme = {
     base: [baseTheme.option.base, 'text-black'].join(' '),
     hover: [
       baseTheme.option.hover,
-      'hover:bg-primary-500 hover:text-white'
+      'hover:bg-primary-hover hover:text-white'
     ].join(' '),
-    active: [baseTheme.option.active, 'bg-primary-500 text-white'].join(' '),
-    selected: [baseTheme.option.selected, 'bg-primary-500 text-white'].join(' ')
+    active: [baseTheme.option.active, 'bg-primary-active text-white'].join(' '),
+    selected: [baseTheme.option.selected, 'bg-primary-active text-white'].join(
+      ' '
+    )
   }
 };
 
@@ -53,7 +55,7 @@ export const darkSelectMenuTheme: SelectMenuTheme = {
     active: [baseTheme.option.active, 'bg-zinc-700'].join(' '),
     selected: [
       baseTheme.option.selected,
-      'bg-primary-600 hover:bg-primary-700'
+      'bg-primary-active hover:bg-primary-hover'
     ].join(' ')
   }
 };

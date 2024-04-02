@@ -49,16 +49,11 @@ export const lightNotificationTheme: NotificationTheme = {
       'text-slate-700 hover:text-slate-900'
     ].join(' '),
     variants: {
-      success: [
-        baseTheme.notification.variants.success,
-        'text-success-600'
-      ].join(' '),
-      error: [baseTheme.notification.variants.error, 'text-error-500'].join(
+      success: [baseTheme.notification.variants.success, 'text-success'].join(
         ' '
       ),
-      warning: [baseTheme.notification.variants.error, 'text-warning-500'].join(
-        ' '
-      )
+      error: [baseTheme.notification.variants.error, 'text-error'].join(' '),
+      warning: [baseTheme.notification.variants.error, 'text-warning'].join(' ')
     }
   }
 };
@@ -76,16 +71,11 @@ export const darkNotificationTheme: NotificationTheme = {
       'text-slate-300 hover:text-slate-400'
     ].join(' '),
     variants: {
-      success: [
-        baseTheme.notification.variants.success,
-        'text-success-500'
-      ].join(' '),
-      error: [baseTheme.notification.variants.error, 'text-error-500'].join(
+      success: [baseTheme.notification.variants.success, 'text-success'].join(
         ' '
       ),
-      warning: [baseTheme.notification.variants.error, 'text-warning-500'].join(
-        ' '
-      )
+      error: [baseTheme.notification.variants.error, 'text-error'].join(' '),
+      warning: [baseTheme.notification.variants.error, 'text-warning'].join(' ')
     }
   }
 };

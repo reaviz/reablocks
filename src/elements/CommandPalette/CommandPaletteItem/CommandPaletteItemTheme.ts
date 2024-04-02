@@ -12,19 +12,19 @@ const baseTheme: CommandPaletteItemTheme = {
 
 export const lightCommandPaletteItemTheme: CommandPaletteItemTheme = {
   ...baseTheme,
-  active: [baseTheme.active, 'bg-primary-500 text-black'].join(' '),
+  active: [baseTheme.active, 'bg-primary text-black'].join(' '),
   clickable: [
     baseTheme.clickable,
-    'hover:bg-primary-500 text-gray-700 hover:text-white'
+    'hover:bg-primary-hover text-gray-700 hover:text-white'
   ].join(' ')
 };
 
 export const darkCommandPaletteItemTheme: CommandPaletteItemTheme = {
   ...baseTheme,
-  active: [baseTheme.active, 'bg-primary-600 text-white'].join(' '),
+  active: [baseTheme.active, 'bg-primary text-white'].join(' '),
   clickable: [
     baseTheme.clickable,
-    'hover:bg-primary-600 text-gray-400 hover:text-white'
+    'hover:bg-primary-hover text-gray-400 hover:text-white'
   ].join(' ')
 };
 
