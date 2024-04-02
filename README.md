@@ -29,6 +29,14 @@
 ## 🚀 Quick Links
 - [Docs and Demos](https://reablocks.dev)
 
+## 💎 Other Projects
+
+- [Unify Viz](https://unifyviz.com) - Premium offering 300+ Figma and React professionally designed data visualization
+components.
+- [Reaflow](https://reaflow.dev) - Open-source library for workflow and diagram graphs.
+- [Reagraph](https://reagraph.dev) - Open-source library for large webgl based network graphs.
+- [Reaviz](https://reaviz.io) - Open-source library for data visulizations for React. 
+
 ## 🪄 Features
 - Pluralization
 - Ellipsis
