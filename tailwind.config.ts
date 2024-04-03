@@ -1,6 +1,7 @@
 import { type Config } from 'tailwindcss';
 import colors from 'tailwindcss/colors';
 import plugin from 'tailwindcss/plugin';
+import { createThemes } from 'tw-colors';
 
 const colorPalette = {
   white: '#FFFFFF',
@@ -196,6 +197,15 @@ const config: Config = {
       colors: {
         ...colorPalette,
         ...newColors,
+      },
+      backgroundImage: {
+        'bottom-border-glow': `radial-gradient(circle at center, ${newColors.anakiwa} 0, blue, transparent 100%)`,
+      }
+    }
+  },
+  plugins: [
+    createThemes({
+      light: {
         primary: {
           DEFAULT: colorPalette.blue['05'],
           active: colorPalette.blue['05'],
@@ -248,23 +258,71 @@ const config: Config = {
           active: newColors['anakiwa']
         },
         disabled: colors.gray['400'], // text-disabled
-        light: {
-          background: colors.gray['100'],
-          disabled: colors.gray['200'],
-        },
-        dark: {
-          background: newColors['vulcan'],
-          disabled: colors.zinc['600']
-        }
+        // background: colors.gray['100'],
+        // disabled: colors.gray['200'],
       },
-      backgroundImage: {
-        'bottom-border-glow': `radial-gradient(circle at center, ${newColors.anakiwa} 0, blue, transparent 100%)`,
+      dark: {
+        primary: {
+          DEFAULT: colorPalette.blue['05'],
+          active: colorPalette.blue['05'],
+          hover: colorPalette.blue['06'],
+          inactive: colorPalette.blue['02']
+        },
+        secondary: {
+          DEFAULT: colorPalette.gray['07'],
+          active: colorPalette.gray['07'],
+          hover: colorPalette.gray['08'],
+          inactive: colorPalette.gray['04']
+        },
+        success: {
+          DEFAULT: colorPalette.green['05'],
+          active: colorPalette.green['05'],
+          hover: colorPalette.green['06'],
+          fill: colorPalette.green['01']
+        },
+        error: {
+          DEFAULT: colorPalette.red['05'],
+          active: colorPalette.red['05'],
+          hover: colorPalette.red['06'],
+          fill: colorPalette.red['01']
+        },
+        warning: {
+          DEFAULT: colorPalette.orange['05'],
+          active: colorPalette.orange['05'],
+          hover: colorPalette.orange['06'],
+          fill: colorPalette.orange['01']
+        },
+        info: {
+          DEFAULT: colorPalette.blue['05'],
+          active: colorPalette.blue['05'],
+          hover: colorPalette.blue['06'],
+          fill: colorPalette.blue['01']
+        },
+        background: {
+          level1: colorPalette.white,
+          level2: colorPalette.gray['01'],
+          level3: colorPalette.gray['02'],
+          level4: colorPalette.gray['03'],
+        },
+        panel: newColors['black-pearl'],
+        surface: newColors['charade'],
+        typography: {
+          DEFAULT: newColors['athens-gray'],
+        },
+        accent: {
+          DEFAULT: newColors['waterloo'],
+          active: newColors['anakiwa']
+        },
+        disabled: colors.gray['400'], // text-disabled
+        // background: newColors['vulcan'],
+        // disabled: colors.zinc['600']
       }
-    }
-  },
-  plugins: [
+    }),
     plugin(({ addVariant }) => {
-      addVariant('disabled-within', '&:has(input:is(:disabled),button:is(:disabled))');
+      addVariant(
+        'disabled-within',
+        '&:has(input:is(:disabled),button:is(:disabled))'
+      );
     })
   ]
 };
