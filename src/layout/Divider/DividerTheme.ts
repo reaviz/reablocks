@@ -23,7 +23,10 @@ export const lightDividerTheme = {
 
 export const darkDividerTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-zinc-600'].join(' ')
+  base: [
+    baseTheme.base,
+    'border-none bg-gradient-to-r from-transparent to-transparent via-blue-ribbon h-px'
+  ].join(' ')
 };
 
 export const legacyDividerTheme = {
