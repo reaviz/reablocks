@@ -5,6 +5,7 @@ import { Block } from '../../../src/layout/Block';
 import { useForm, Controller } from 'react-hook-form';
 import logo from '../../assets/goodcode.svg';
 import { motion } from 'framer-motion';
+import { Divider } from '../../../src/layout';
 
 export const ForgotPassword = () => {
   const {
@@ -93,7 +94,7 @@ export const ForgotPassword = () => {
               )}
             />
           </Block>
-          <hr className="border-none bg-gradient-to-r from-transparent to-transparent via-blue-ribbon h-px" />
+          <Divider />
           <Button
             type="submit"
             fullWidth
