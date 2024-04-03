@@ -3,9 +3,9 @@ import { Button } from '../../../src/elements/Button';
 import { Card } from '../../../src/layout/Card';
 import { Block } from '../../../src/layout/Block';
 import { useForm, Controller } from 'react-hook-form';
-import logo from '../../assets/goodcode.svg';
 import { motion } from 'framer-motion';
 import { Divider } from '../../../src/layout';
+import logo from '../../assets/reaviz.svg';
 
 export const ForgotPassword = () => {
   const {
