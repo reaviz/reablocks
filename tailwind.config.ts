@@ -18,19 +18,19 @@ const newColors = {
     // text
     DEFAULT: '#F7F7FA'
   },
-  'vulcan': {
+  vulcan: {
     // background
     DEFAULT: '#11111F'
   },
-  'charade': {
+  charade: {
     // surface
-    DEFAULT: '#242433',
+    DEFAULT: '#242433'
   },
-  'waterloo': {
+  waterloo: {
     // accent
     DEFAULT: '#77778C'
   },
-  'anakiwa': {
+  anakiwa: {
     // active accent
     DEFAULT: '#93B6FF'
   }
@@ -40,7 +40,7 @@ const config: Config = {
   content: [
     './.storybook/**/*.{js,jsx,ts,tsx}',
     './src/**/*.{js,jsx,ts,tsx,mdx}',
-    './docs/**/*.{js,jsx,ts,tsx,mdx}',
+    './docs/**/*.{js,jsx,ts,tsx,mdx}'
   ],
   darkMode: 'selector',
   theme: {
@@ -84,12 +84,21 @@ const config: Config = {
       },
       backgroundImage: {
         'bottom-border-glow': `radial-gradient(circle at center, ${newColors.anakiwa.DEFAULT} 0, blue, transparent 100%)`,
+        'button-gradient':
+          'linear-gradient(283deg, #0808A5 0%, rgba(8, 8, 165, 0.00) 100%)',
+        'button-gradient-hover':
+          'linear-gradient(283deg, #44F 0%, rgba(23, 23, 255, 0.10) 100%)',
+        'button-gradient-focus':
+          'linear-gradient(283deg, #0D0DD2 0%, rgba(23, 23, 255, 0.10) 100%)'
       }
     }
   },
   plugins: [
     plugin(({ addVariant }) => {
-      addVariant('disabled-within', '&:has(input:is(:disabled),button:is(:disabled))');
+      addVariant(
+        'disabled-within',
+        '&:has(input:is(:disabled),button:is(:disabled))'
+      );
     })
   ]
 };
