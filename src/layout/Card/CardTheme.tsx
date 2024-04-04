@@ -14,16 +14,11 @@ const baseTheme: CardTheme = {
   content: 'flex-1'
 };
 
-export const lightCardTheme: CardTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-light-panel-background text-black'].join(' ')
-};
-
-export const darkCardTheme: CardTheme = {
+export const cardTheme: CardTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'bg-black-pearl border border-charade text-athens-gray'
+    'bg-panel border border-surface text-surface-content'
   ].join(' ')
 };
 

@@ -48,7 +48,7 @@ export const Mfa = () => {
         <div className="flex flex-col items-center justify-center pt-2 pb-5 text-center">
           <img src={logo} alt="Logo" className="h-11 w-auto mb-2" />
           <h1 className="mt-2 mb-0 text-2xl font-sans font-bold">One Time Password</h1>
-          <div className="text-waterloo">Please verify your identity using your registered email or phone number and follow the prompts to complete the password reset process.</div>
+          <div className="text-accent">Please verify your identity using your registered email or phone number and follow the prompts to complete the password reset process.</div>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
           <Block>
@@ -78,7 +78,7 @@ export const Mfa = () => {
           >
             {isSubmitting ? 'Verifying...' : 'Verify'}
           </Button>
-          <div className="text-center text-waterloo text-sm mt-5">
+          <div className="text-center text-accent text-sm mt-5">
             Are you facing any problems with receiving the code?
           </div>
           <Button variant="text" type="button" fullWidth color="primary"
@@ -93,7 +93,7 @@ export const Mfa = () => {
           </Button>
           <Divider className="h-[1px]" />
           <div className="text-center">
-            <span className="text-waterloo text-sm">
+            <span className="text-accent text-sm">
               Remember your password?
             </span>
             <Button variant="text" type="button" color="primary">← Go Back</Button>

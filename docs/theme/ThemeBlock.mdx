@@ -36,8 +36,7 @@ import {
   BorderBlocks,
   ShadowBlocks,
   ThemeProvider,
-  darkTheme,
-  IconBlocks,
+  theme,
   useTheme,
   extractTheme
 } from 'reablocks';
@@ -51,7 +50,7 @@ export default {
   component: ThemeProvider,
   decorators: [
     Story => (
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={theme}>
         <div style={{ width: '90vw' }}>
           <Story />
         </div>

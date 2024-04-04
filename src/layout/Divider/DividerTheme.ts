@@ -16,7 +16,7 @@ const baseTheme: DividerTheme = {
   disableMargins: 'my-0 mx-0'
 };
 
-export const lightDividerTheme = {
+export const dividerTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-zinc-400'].join(' ')
 };

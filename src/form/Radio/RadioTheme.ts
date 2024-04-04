@@ -50,37 +50,20 @@ const baseTheme: RadioTheme = {
   }
 };
 
-export const lightRadioTheme: RadioTheme = {
+export const radioTheme: RadioTheme = {
   ...baseTheme,
   label: {
     ...baseTheme.label,
-    base: [baseTheme.label.base, 'text-black'].join(' ')
+    base: [baseTheme.label.base, 'text-surface-content'].join(' ')
   },
   radio: {
     ...baseTheme.radio,
     base: [baseTheme.radio.base, 'border-gray-500'].join(' '),
-    checked: [baseTheme.radio.checked, 'border-primary-500'].join(' ')
+    checked: [baseTheme.radio.checked, 'border-primary'].join(' ')
   },
   indicator: {
     ...baseTheme.indicator,
-    base: [baseTheme.indicator.base, 'bg-primary-500'].join(' ')
-  }
-};
-
-export const darkRadioTheme: RadioTheme = {
-  ...baseTheme,
-  label: {
-    ...baseTheme.label,
-    base: [baseTheme.label.base, 'text-white'].join(' ')
-  },
-  radio: {
-    ...baseTheme.radio,
-    base: [baseTheme.radio.base, 'border-gray-400'].join(' '),
-    checked: [baseTheme.radio.checked, 'border-primary-600'].join(' ')
-  },
-  indicator: {
-    ...baseTheme.indicator,
-    base: [baseTheme.indicator.base, 'bg-primary-600'].join(' ')
+    base: [baseTheme.indicator.base, 'bg-primary'].join(' ')
   }
 };
 

@@ -26,24 +26,12 @@ const baseTheme: TabsTheme = {
   panel: 'mt-2'
 };
 
-export const lightTabsTheme: TabsTheme = {
-  ...baseTheme,
-  list: {
-    ...baseTheme.list,
-    base: `border-b border-gray-100 ${baseTheme.list.base}`,
-    indicator: `bg-primary-500 ${baseTheme.list.indicator}`,
-    tab: {
-      ...baseTheme.list.tab
-    }
-  }
-};
-
 export const darkTabsTheme: TabsTheme = {
   ...baseTheme,
   list: {
     ...baseTheme.list,
-    base: `border-b border-gray-700 ${baseTheme.list.base}`,
-    indicator: `bg-primary-500 ${baseTheme.list.indicator}`,
+    base: `border-b dark:border-gray-700 light:border-gray-100 ${baseTheme.list.base}`,
+    indicator: `bg-primary ${baseTheme.list.indicator}`,
     tab: {
       ...baseTheme.list.tab
     }

@@ -96,79 +96,6 @@ const baseTheme: Partial<ChipTheme> = {
   }
 };
 
-export const lightChipTheme: ChipTheme = {
-  base: baseTheme.base,
-  adornment: baseTheme.adornment,
-  sizes: baseTheme.sizes,
-  focus: baseTheme.focus,
-  variants: {
-    filled: 'text-white',
-    outline: 'bg-opacity-0 border hover:bg-transparent',
-    text: 'bg-opacity-0 border-0'
-  },
-  colors: {
-    default: {
-      base: 'bg-gray-700 border-gray-700 text-gray-700',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-gray-600 hover:border-gray-600'
-      ].join(' '),
-      selected: '!bg-gray-600 text-white',
-      focus: 'focus-visible:outline-gray-500'
-    },
-    primary: {
-      base: 'bg-primary-700 border-primary-700 text-primary-700',
-      selectable: [
-        baseTheme.colors.primary.selectable,
-        'hover:bg-primary-600 hover:border-primary-600'
-      ].join(' '),
-      selected: '!bg-primary-600 text-white',
-      focus: 'focus-visible:outline-primary-500'
-    },
-    secondary: {
-      base: 'bg-secondary-700 border-secondary-700 text-secondary-700',
-      selectable: [
-        baseTheme.colors.secondary.selectable,
-        'hover:bg-secondary-600 hover:border-secondary-600'
-      ].join(' '),
-      selected: '!bg-secondary-600 text-white '
-    },
-    success: {
-      base: 'bg-success-700   border-success-700 text-success-700',
-      selectable: [
-        baseTheme.colors.success.selectable,
-        'hover:bg-success-600 hover:border-success-600'
-      ].join(' '),
-      selected: '!bg-success-600 text-white'
-    },
-    warning: {
-      base: 'bg-warning-700 border-warning-700 text-warning-700',
-      selectable: [
-        baseTheme.colors.warning.selectable,
-        'hover:bg-warning-600 hover:border-warning-600'
-      ].join(' '),
-      selected: '!bg-warning-600 text-white'
-    },
-    error: {
-      base: 'bg-error-700 border-error-700 text-error-700',
-      selectable: [
-        baseTheme.colors.error.selectable,
-        'hover:bg-error-600 hover:border-error-600'
-      ].join(' '),
-      selected: '!bg-error-600 text-white'
-    },
-    info: {
-      base: 'bg-info-700 border-info-700 text-info-700',
-      selectable: [
-        baseTheme.colors.info.selectable,
-        'hover:bg-info-600 hover:border-info-600'
-      ].join(' '),
-      selected: '!bg-info-600 text-white'
-    }
-  },
-  deleteButton: baseTheme.deleteButton
-};
-
 export const darkChipTheme: ChipTheme = {
   base: baseTheme.base,
   adornment: baseTheme.adornment,
@@ -176,7 +103,7 @@ export const darkChipTheme: ChipTheme = {
   focus: baseTheme.focus,
   variants: {
     filled: 'text-white',
-    outline: 'bg-opacity-0 border hover:bg-transparent',
+    outline: 'bg-opacity-0 border hover:bg-transparent text-surface-content',
     text: 'bg-opacity-0 border-0'
   },
   colors: {
@@ -189,52 +116,52 @@ export const darkChipTheme: ChipTheme = {
       selected: '!bg-gray-500 text-white'
     },
     primary: {
-      base: 'bg-primary-600 border-primary-600 text-primary-600',
+      base: 'bg-primary border-primary text-primary',
       selectable: [
         baseTheme.colors.default.selectable,
-        'hover:bg-primary-500 hover:border-primary-500'
+        'hover:bg-primary-hover hover:border-primary-hover'
       ].join(' '),
-      selected: '!bg-primary-500 text-white'
+      selected: '!bg-primary-active text-white'
     },
     secondary: {
-      base: 'bg-secondary-600 border-secondary-600 text-secondary-600',
+      base: 'bg-secondary border-secondary text-secondary',
       selectable: [
         baseTheme.colors.default.selectable,
-        'hover:bg-secondary-500 hover:border-secondary-500'
+        'hover:bg-secondary-hover hover:border-secondary-hover'
       ].join(' '),
-      selected: '!bg-secondary-500 text-white'
+      selected: '!bg-secondary-active text-white'
     },
     success: {
-      base: 'bg-success-600 border-success-600 text-success-600',
+      base: 'bg-success border-success text-success',
       selectable: [
         baseTheme.colors.default.selectable,
-        'hover:bg-success-500 hover:border-success-500'
+        'hover:bg-success-hover hover:border-success-hover'
       ].join(' '),
-      selected: '!bg-success-500 text-white'
+      selected: '!bg-success-active text-white'
     },
     warning: {
-      base: 'bg-warning-600 border-warning-600 text-warning-600',
+      base: 'bg-warning border-warning text-warning',
       selectable: [
         baseTheme.colors.default.selectable,
-        'hover:bg-warning-500 hover:border-warning-500'
+        'hover:bg-warning-hover hover:border-warning-hover'
       ].join(' '),
-      selected: '!bg-warning-500 text-white'
+      selected: '!bg-warning-active text-white'
     },
     error: {
-      base: 'bg-error-600 border-error-600 text-error-600',
+      base: 'bg-error border-error text-error',
       selectable: [
         baseTheme.colors.default.selectable,
-        'hover:bg-error-500 hover:border-error-500'
+        'hover:bg-error-hover hover:border-error-hover'
       ].join(' '),
-      selected: '!bg-error-500 text-white'
+      selected: '!bg-error-active text-white'
     },
     info: {
-      base: 'bg-info-600 border-info-600 text-info-600',
+      base: 'bg-info border-info text-info',
       selectable: [
         baseTheme.colors.default.selectable,
-        'hover:bg-info-500 hover:border-info-500'
+        'hover:bg-info-hover hover:border-info-hover'
       ].join(' '),
-      selected: '!bg-info-500 text-white'
+      selected: '!bg-info-active text-white'
     }
   },
   deleteButton: baseTheme.deleteButton

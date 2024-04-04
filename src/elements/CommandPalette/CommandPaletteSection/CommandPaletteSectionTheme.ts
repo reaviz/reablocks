@@ -8,12 +8,9 @@ const baseTheme: CommandPaletteSectionTheme = {
   first: 'pt-2.5'
 };
 
-export const lightCommandPaletteSectionTheme: CommandPaletteSectionTheme = {
-  ...baseTheme
-};
-
-export const darkCommandPaletteSectionTheme: CommandPaletteSectionTheme = {
-  ...baseTheme
+export const commandPaletteSectionTheme: CommandPaletteSectionTheme = {
+  ...baseTheme,
+  base: [baseTheme.base, 'bg-background-level4'].join(' ')
 };
 
 export const cssVarsCommandPaletteSectionTheme: CommandPaletteSectionTheme = {

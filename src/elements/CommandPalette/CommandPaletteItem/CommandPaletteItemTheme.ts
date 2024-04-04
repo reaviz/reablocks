@@ -10,21 +10,12 @@ const baseTheme: CommandPaletteItemTheme = {
   clickable: 'cursor-pointer'
 };
 
-export const lightCommandPaletteItemTheme: CommandPaletteItemTheme = {
+export const commandPaletteItemTheme: CommandPaletteItemTheme = {
   ...baseTheme,
-  active: [baseTheme.active, 'bg-primary-500 text-black'].join(' '),
+  active: [baseTheme.active, 'bg-primary text-surface-content'].join(' '),
   clickable: [
     baseTheme.clickable,
-    'hover:bg-primary-500 text-gray-700 hover:text-white'
-  ].join(' ')
-};
-
-export const darkCommandPaletteItemTheme: CommandPaletteItemTheme = {
-  ...baseTheme,
-  active: [baseTheme.active, 'bg-primary-600 text-white'].join(' '),
-  clickable: [
-    baseTheme.clickable,
-    'hover:bg-primary-600 text-gray-400 hover:text-white'
+    'hover:bg-primary-hover/70 dark:hover:bg-primary-hover hover:dark:text-white'
   ].join(' ')
 };
 

@@ -36,23 +36,13 @@ const baseTheme: ToggleTheme = {
   }
 };
 
-export const lightToggleTheme: ToggleTheme = {
+export const toggleTheme: ToggleTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-gray-400'].join(' '),
-  checked: [baseTheme.checked, 'bg-primary-400'].join(' '),
+  base: [baseTheme.base, 'dark:bg-gray-400 light:bg-gray-400'].join(' '),
+  checked: [baseTheme.checked, '!bg-primary/60'].join(' '),
   handle: {
     ...baseTheme.handle,
-    base: [baseTheme.handle.base, 'bg-gray-500'].join(' ')
-  }
-};
-
-export const darkToggleTheme: ToggleTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-gray-500'].join(' '),
-  checked: [baseTheme.checked, 'bg-primary-600'].join(' '),
-  handle: {
-    ...baseTheme.handle,
-    base: [baseTheme.handle.base, 'bg-gray-700'].join(' ')
+    base: [baseTheme.handle.base, 'bg-gray-500 bg-gray-500'].join(' ')
   }
 };
 

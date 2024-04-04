@@ -8,14 +8,12 @@ const baseTheme: MenuTheme = {
   inner: 'focus:outline-none'
 };
 
-export const lightMenuTheme: MenuTheme = {
-  ...baseTheme,
-  inner: [baseTheme.inner, 'text-black bg-zinc-300'].join(' ')
-};
-
 export const darkMenuTheme: MenuTheme = {
   ...baseTheme,
-  inner: [baseTheme.inner, 'text-white bg-zinc-800'].join(' ')
+  inner: [
+    baseTheme.inner,
+    'text-surface-content dark:bg-zinc-800 light:bg-zinc-300'
+  ].join(' ')
 };
 
 export const legacyMenuTheme: MenuTheme = {

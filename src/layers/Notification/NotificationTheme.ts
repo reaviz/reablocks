@@ -37,55 +37,24 @@ const baseTheme: NotificationTheme = {
   }
 };
 
-export const lightNotificationTheme: NotificationTheme = {
-  ...baseTheme,
-  notification: {
-    ...baseTheme.notification,
-    base: [baseTheme.notification.base, 'bg-light-background text-black'].join(
-      ' '
-    ),
-    closeButton: [
-      baseTheme.notification.closeButton,
-      'text-slate-700 hover:text-slate-900'
-    ].join(' '),
-    variants: {
-      success: [
-        baseTheme.notification.variants.success,
-        'text-success-600'
-      ].join(' '),
-      error: [baseTheme.notification.variants.error, 'text-error-500'].join(
-        ' '
-      ),
-      warning: [baseTheme.notification.variants.error, 'text-warning-500'].join(
-        ' '
-      )
-    }
-  }
-};
-
 export const darkNotificationTheme: NotificationTheme = {
   ...baseTheme,
   notification: {
     ...baseTheme.notification,
     base: [
       baseTheme.notification.base,
-      'bg-dark-background border-gray-400 text-white'
+      'bg-background-level4 border-gray-400 text-surface-content'
     ].join(' '),
     closeButton: [
       baseTheme.notification.closeButton,
       'text-slate-300 hover:text-slate-400'
     ].join(' '),
     variants: {
-      success: [
-        baseTheme.notification.variants.success,
-        'text-success-500'
-      ].join(' '),
-      error: [baseTheme.notification.variants.error, 'text-error-500'].join(
+      success: [baseTheme.notification.variants.success, 'text-success'].join(
         ' '
       ),
-      warning: [baseTheme.notification.variants.error, 'text-warning-500'].join(
-        ' '
-      )
+      error: [baseTheme.notification.variants.error, 'text-error'].join(' '),
+      warning: [baseTheme.notification.variants.error, 'text-warning'].join(' ')
     }
   }
 };

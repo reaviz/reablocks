@@ -38,14 +38,9 @@ const baseTheme: DrawerTheme = {
   }
 };
 
-export const lightDrawerTheme: DrawerTheme = {
+export const drawerTheme: DrawerTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-light-background text-black'].join(' ')
-};
-
-export const darkDrawerTheme: DrawerTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-dark-background text-white'].join(' ')
+  base: [baseTheme.base, 'bg-background-level4 text-surface-content'].join(' ')
 };
 
 export const legacyDrawerTheme: DrawerTheme = {

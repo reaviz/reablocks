@@ -141,7 +141,7 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
           </Card>
         )}
         {!hasChildren && emptyMessage && (
-          <List>
+          <List className={theme.emptyContainer}>
             <ListItem>{emptyMessage}</ListItem>
           </List>
         )}

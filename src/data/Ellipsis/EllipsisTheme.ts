@@ -6,11 +6,7 @@ const baseTheme: EllipsisTheme = {
   dots: 'cursor-pointer opacity-50 text-[unset] p-0 border-[none] outline-none'
 };
 
-export const lightEllipsisTheme: EllipsisTheme = {
-  ...baseTheme
-};
-
-export const darkEllipsisTheme: EllipsisTheme = {
+export const ellipsisTheme: EllipsisTheme = {
   ...baseTheme
 };
 

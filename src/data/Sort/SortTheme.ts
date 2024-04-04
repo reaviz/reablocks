@@ -18,14 +18,9 @@ const baseTheme: SortTheme = {
   }
 };
 
-export const lightSortTheme: SortTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-black'].join(' ')
-};
-
 export const darkSortTheme: SortTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-white'].join(' ')
+  base: [baseTheme.base, 'text-surface-content'].join(' ')
 };
 
 export const legacySortTheme: SortTheme = {

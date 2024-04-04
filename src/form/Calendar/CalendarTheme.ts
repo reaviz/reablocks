@@ -65,21 +65,18 @@ const baseTheme: CalendarTheme = {
   }
 };
 
-export const lightCalendarTheme: CalendarTheme = {
+export const calendarTheme: CalendarTheme = {
   ...baseTheme,
   days: {
     ...baseTheme.days,
-    header: [baseTheme.days.header, 'border-zinc-400 text-black'].join(' '),
-    outside: [baseTheme.days.outside, 'text-gray-700/60'].join(' ')
-  }
-};
-
-export const darkCalendarTheme: CalendarTheme = {
-  ...baseTheme,
-  days: {
-    ...baseTheme.days,
-    header: [baseTheme.days.header, 'border-zinc-400'].join(' '),
-    outside: [baseTheme.days.outside, 'text-gray-100/60'].join(' ')
+    header: [
+      baseTheme.days.header,
+      'border-zinc-400 text-surface-content'
+    ].join(' '),
+    outside: [
+      baseTheme.days.outside,
+      'dark:text-gray-100/60 light:text-gray-700/60'
+    ].join(' ')
   }
 };
 

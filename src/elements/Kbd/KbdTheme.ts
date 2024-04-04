@@ -8,11 +8,7 @@ const baseTheme: KbdTheme = {
   chip: 'whitespace-nowrap rounded font-mono'
 };
 
-export const lightKbdTheme: KbdTheme = {
-  ...baseTheme
-};
-
-export const darkKbdTheme: KbdTheme = {
+export const kbdTheme: KbdTheme = {
   ...baseTheme
 };
 
