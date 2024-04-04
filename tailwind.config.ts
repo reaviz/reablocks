@@ -180,7 +180,7 @@ const config: Config = {
   content: [
     './.storybook/**/*.{js,jsx,ts,tsx}',
     './src/**/*.{js,jsx,ts,tsx,mdx}',
-    './docs/**/*.{js,jsx,ts,tsx,mdx}',
+    './docs/**/*.{js,jsx,ts,tsx,mdx}'
   ],
   darkMode: 'selector',
   theme: {
@@ -189,9 +189,19 @@ const config: Config = {
       mono: ['Fira Code', 'monospace']
     },
     fontSize: {
-      sm: '12px',
-      base: '14px',
-      lg: '16px'
+      sm: '0.75rem', // 12px
+      base: '0.875rem', // 14px
+      lg: '1rem', // 16px
+      // Rest are defaults
+      xl: '1.25rem',
+      '2xl': '1.563rem',
+      '3xl': '1.953rem',
+      '4xl': '2.441rem',
+      '5xl': '3.052rem',
+      '6xl': '3.75rem',
+      '7xl': '4.5rem',
+      '8xl': '6rem',
+      '9xl': '8rem',
     },
     extend: {
       colors: {
@@ -199,7 +209,13 @@ const config: Config = {
         ...extraColors,
       },
       backgroundImage: {
-        'bottom-border-glow': `radial-gradient(circle at center, ${extraColors.anakiwa} 0, blue, transparent 100%)`,
+        'bottom-border-glow': `radial-gradient(circle at center, ${newColors.anakiwa.DEFAULT} 0, blue, transparent 100%)`,
+        'button-gradient':
+          'linear-gradient(283deg, #0808A5 0%, rgba(8, 8, 165, 0.00) 100%)',
+        'button-gradient-hover':
+          'linear-gradient(283deg, #44F 0%, rgba(23, 23, 255, 0.10) 100%)',
+        'button-gradient-focus':
+          'linear-gradient(283deg, #0D0DD2 0%, rgba(23, 23, 255, 0.10) 100%)'
       }
     }
   },

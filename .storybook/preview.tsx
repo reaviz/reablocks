@@ -74,6 +74,11 @@ const preview: Preview = {
           'Components',
           'Blocks',
           [
+            'Foundation',
+            [
+              'Introduction',
+              '*'
+            ],
             'Authentication',
             [
               'Introduction',

@@ -5,6 +5,7 @@ import { Block } from '../../../src/layout/Block';
 import { useForm, Controller } from 'react-hook-form';
 import logo from '../../assets/reaviz.svg';
 import { motion } from 'framer-motion';
+import { Divider } from '../../../src/layout';
 
 export const Register = () => {
   const { control, handleSubmit, formState: { isSubmitting } } = useForm();
@@ -13,22 +14,28 @@ export const Register = () => {
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm"
+      className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
-      <Card className="w-full">
-        <div className="flex items-center justify-center pt-2 pb-5">
-          <img src={logo} alt="Logo" className="h-12 w-12" />
+      <Card className="w-full p-12">
+        <div className="flex flex-col items-center justify-center pt-2 mb-5">
+          <img src={logo} alt="Logo" className="h-11 w-auto mb-2" />
+          <h4 className="text-2xl font-sans font-bold mb-0">
+            Register
+          </h4>
+          <p className="text-base text-[#77778C] font-sans text-center">
+            Welcome! Let's get started by creating your account. Please provide your email address and choose a secure password to begin accessing our platform's features.
+          </p>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-        <Block>
+          <Block label="Name">
             <Controller
-              name="email"
+              name="name"
               control={control}
               render={({ field: { value, onBlur, onChange } }) => (
                 <Input
                   name="name"
                   disabled={isSubmitting}
-                  placeholder="Name"
+                  placeholder="John Doe"
                   value={value}
                   type="text"
                   onChange={onChange}
@@ -37,7 +44,7 @@ export const Register = () => {
               )}
             />
           </Block>
-          <Block>
+          <Block label="Email">
             <Controller
               name="email"
               control={control}
@@ -45,7 +52,7 @@ export const Register = () => {
                 <Input
                   name="email"
                   disabled={isSubmitting}
-                  placeholder="Email"
+                  placeholder="jon@goodcode.us"
                   value={value}
                   type="email"
                   onChange={onChange}
@@ -54,7 +61,7 @@ export const Register = () => {
               )}
             />
           </Block>
-          <Block>
+          <Block label="Password">
             <Controller
               name="password"
               control={control}
@@ -62,7 +69,7 @@ export const Register = () => {
                 <Input
                   name="password"
                   disabled={isSubmitting}
-                  placeholder="Password"
+                  placeholder="something secret"
                   value={value}
                   type="password"
                   onChange={onChange}
@@ -71,7 +78,7 @@ export const Register = () => {
               )}
             />
           </Block>
-          <Block>
+          <Block label="Confirm Password">
             <Controller
               name="password"
               control={control}
@@ -79,7 +86,7 @@ export const Register = () => {
                 <Input
                   name="password"
                   disabled={isSubmitting}
-                  placeholder="Confirm Password"
+                  placeholder="something secret"
                   value={value}
                   type="password"
                   onChange={onChange}
@@ -96,8 +103,19 @@ export const Register = () => {
             className="mb-2 mt-5"
             disabled={isSubmitting}
           >
-            {isSubmitting ? 'Registering...' : 'Register'}
+            {isSubmitting ? 'Signing up...' : 'Sign up →'}
           </Button>
+          <div className="mt-5 text-center opacity-50">
+            By signing in, you agree to our
+            <Button variant="text" color="primary">terms of service</Button>
+            and
+            <Button variant="text" color="primary">privacy policy</Button>
+          </div>
+          <Divider className="mt-5 mb-5" />
+          <div className="mt-5 text-center opacity-50 text-sm">
+            Already have an account?
+            <Button variant="text" color="primary">Sign in</Button>
+          </div>
         </form>
       </Card>
     </motion.div>
