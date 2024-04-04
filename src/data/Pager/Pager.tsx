@@ -101,9 +101,9 @@ export const Pager: FC<PagerProps> = ({
   theme: customTheme
 }) => {
   const pageCount = Math.ceil(total / size);
-  const canPrevious = page !== 0;
-  const canNext = page < pageCount - 1;
-  const [startPage, endPage] = getPageRange(page, pageCount - 1);
+  const canPrevious = page !== 1;
+  const canNext = page < pageCount;
+  const [startPage, endPage] = getPageRange(page, pageCount);
   const [startItem, endItem] = getItemsRange(page, size, total);
   const theme = useComponentTheme('pager', customTheme);
 
@@ -119,7 +119,7 @@ export const Pager: FC<PagerProps> = ({
     if (canNext) {
       onPageChange?.(page + 1);
     } else {
-      onPageChange?.(pageCount - 1);
+      onPageChange?.(pageCount);
     }
   }, [canNext, page, onPageChange, pageCount]);
 
@@ -154,7 +154,7 @@ export const Pager: FC<PagerProps> = ({
           size="small"
           disablePadding
           title="First Page"
-          onClick={() => onPageChange?.(0)}
+          onClick={() => onPageChange?.(1)}
           disabled={!canPrevious}
         >
           {startArrow}
@@ -182,15 +182,15 @@ export const Pager: FC<PagerProps> = ({
                 <Button
                   variant="text"
                   size="small"
-                  disabled={page === i}
+                  disabled={page === i + 1}
                   title={`Page ${(i + 1).toLocaleString()}`}
                   className={twMerge(
                     theme.pages.page.base,
-                    page === i &&
+                    page === i + 1 &&
                       (activePageClassName || theme.pages.page.active),
                     pageClassName
                   )}
-                  onClick={() => onPageChange?.(i)}
+                  onClick={() => onPageChange?.(i + 1)}
                 >
                   {(i + 1).toLocaleString()}
                 </Button>
@@ -220,7 +220,7 @@ export const Pager: FC<PagerProps> = ({
           title="Last Page"
           disablePadding
           variant="text"
-          onClick={() => onPageChange?.(pageCount - 1)}
+          onClick={() => onPageChange?.(pageCount)}
           disabled={!canNext}
         >
           {endArrow}

@@ -7,7 +7,7 @@ export default {
 };
 
 export const ShowPages = () => {
-  const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
 
   return (
     <Pager
@@ -21,7 +21,7 @@ export const ShowPages = () => {
 };
 
 export const ShowItems = () => {
-  const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
 
   return (
     <Pager
@@ -35,7 +35,7 @@ export const ShowItems = () => {
 };
 
 export const ShowAll = () => {
-  const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(1);
 
   return (
     <Pager
