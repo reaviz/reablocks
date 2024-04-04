@@ -17,6 +17,7 @@ import {
 export interface CommandPaletteTheme {
   base: string;
   inner: string;
+  emptyContainer: string;
   input: CommandPaletteInputTheme;
   item: CommandPaletteItemTheme;
   section: CommandPaletteSectionTheme;
@@ -32,6 +33,7 @@ export const commandPaletteTheme: CommandPaletteTheme = {
     ' '
   ),
   inner: [baseTheme.inner, 'bg-background-level4 border-0'].join(' '),
+  emptyContainer: 'bg-background-level4',
   input: commandPaletteInputTheme,
   item: commandPaletteItemTheme,
   section: commandPaletteSectionTheme
@@ -40,6 +42,7 @@ export const commandPaletteTheme: CommandPaletteTheme = {
 export const legacyCommandPaletteTheme: CommandPaletteTheme = {
   base: [baseTheme.base, 'border-zinc-700'].join(' '),
   inner: baseTheme.inner,
+  emptyContainer: '',
   input: cssVarsCommandPaletteInputTheme,
   item: cssVarsCommandPaletteItemTheme,
   section: cssVarsCommandPaletteSectionTheme
