@@ -162,12 +162,9 @@ export const colorPalette = {
     900: '#051C4C',
     950: '#041028'
   },
-};
-
-// I really don't like this but this solution wouldn't
-// work for me because it would cause circular loops
-// https://tailwindcss.com/docs/theme#referencing-other-values
-const extraColors = {
+  // I really don't like this but this solution wouldn't
+  // work for me because it would cause circular loops
+  // https://tailwindcss.com/docs/theme#referencing-other-values
   'black-pearl': '#02020F',
   'athens-gray': '#F7F7FA',
   'vulcan': '#11111F',
@@ -206,10 +203,9 @@ const config: Config = {
     extend: {
       colors: {
         ...colorPalette,
-        ...extraColors,
       },
       backgroundImage: {
-        'bottom-border-glow': `radial-gradient(circle at center, ${extraColors.anakiwa} 0, blue, transparent 100%)`,
+        'bottom-border-glow': `radial-gradient(circle at center, ${colorPalette.anakiwa} 0, blue, transparent 100%)`,
         'button-gradient':
           'linear-gradient(283deg, #0808A5 0%, rgba(8, 8, 165, 0.00) 100%)',
         'button-gradient-hover':
@@ -318,10 +314,10 @@ const config: Config = {
           level3: colorPalette.gray[900],
           level4: colorPalette.gray[800],
         },
-        panel: extraColors['black-pearl'],
+        panel: colorPalette['black-pearl'],
         surface: {
-          DEFAULT: extraColors['charade'],
-          content: extraColors['athens-gray'],
+          DEFAULT: colorPalette['charade'],
+          content: colorPalette['athens-gray'],
           accent: colorPalette.blue[500],
           disabled: colors.gray[400],
         },
