@@ -35,6 +35,20 @@ export const SingleDisabled = () => {
   );
 };
 
+export const SingleShowCurrentValue = () => {
+  const [state, setState] = useState<number>(20);
+  return (
+    <RangeSingle
+      onChange={setState}
+      min={10}
+      max={50}
+      value={state}
+      showValue
+      style={{ width: 250, marginTop: 30 }}
+    />
+  );
+};
+
 export const CustomFloatStep = () => {
   const [state, setState] = useState<number>(3.5);
   return (

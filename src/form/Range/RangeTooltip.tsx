@@ -41,6 +41,12 @@ export interface RangeProps<Value> {
   value: Value;
 
   /**
+   * Whether to show the value of the range below the handle
+   * Otherwise show the value in a tooltip
+   */
+  showValue?: boolean;
+
+  /**
    * Additional css styles to apply to the range
    */
   style?: React.CSSProperties;
