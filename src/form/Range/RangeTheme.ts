@@ -33,7 +33,10 @@ export const rangeTheme: RangeTheme = {
     base: [baseTheme.inputWrapper.base, 'bg-primary'].join(' ')
   },
   rangeHighlight: [baseTheme.rangeHighlight, 'bg-primary'].join(' '),
-  tooltip: [baseTheme.tooltip, 'text-typography bg-background-level4'].join(' ')
+  tooltip: [
+    baseTheme.tooltip,
+    'text-surface-content bg-background-level4'
+  ].join(' ')
 };
 
 export const legacyRangeTheme: RangeTheme = {

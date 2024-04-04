@@ -10,7 +10,7 @@ const baseTheme: TooltipTheme = {
 
 export const tooltipTheme: TooltipTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-background-level4 text-typography'].join(' ')
+  base: [baseTheme.base, 'bg-background-level4 text-surface-content'].join(' ')
 };
 
 export const legacyTooltipTheme: TooltipTheme = {

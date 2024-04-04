@@ -53,8 +53,8 @@ const baseTheme: ListTheme = {
 
 export const listTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-typography'].join(' '),
-  header: [baseTheme.header, 'text-typography'].join(' ')
+  base: [baseTheme.base, 'text-surface-content'].join(' '),
+  header: [baseTheme.header, 'text-surface-content'].join(' ')
 };
 
 export const legacyListTheme = {

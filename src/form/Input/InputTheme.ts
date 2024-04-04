@@ -41,15 +41,16 @@ const baseTheme: InputTheme = {
 
 export const inputTheme: InputTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-panel border border-surface text-typography'].join(
-    ' '
-  ),
+  base: [
+    baseTheme.base,
+    'bg-panel border border-surface text-surface-content'
+  ].join(' '),
   focused: `${baseTheme.focused} after:bg-bottom-border-glow after:content-[""] after:absolute after:h-0.5 after:z-[2] after:rounded after:-bottom-px after:inset-x-0.5`,
   input: [baseTheme.input, ' placeholder-accent'].join(' '),
   disabled: [baseTheme.disabled, 'disabled-within:bg-dark-disabled'].join(' '),
   adornment: {
     ...baseTheme.adornment,
-    base: [baseTheme.adornment.base, 'text-typography'].join(' ')
+    base: [baseTheme.adornment.base, 'text-surface-content'].join(' ')
   }
 };
 

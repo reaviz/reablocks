@@ -43,9 +43,9 @@ export const badgeTheme: BadgeTheme = {
   positions: baseTheme.positions,
   colors: {
     default: 'bg-white text-black',
-    primary: 'bg-primary text-typography',
-    secondary: 'bg-secondary text-typography',
-    error: 'bg-error text-typography'
+    primary: 'bg-primary text-surface-content',
+    secondary: 'bg-secondary text-surface-content',
+    error: 'bg-error text-surface-content'
   }
 };
 

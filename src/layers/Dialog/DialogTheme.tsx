@@ -26,10 +26,14 @@ const baseTheme: DialogTheme = {
 
 export const dialogTheme: DialogTheme = {
   ...baseTheme,
-  inner: [baseTheme.inner, 'bg-background-level4 text-typography'].join(' '),
+  inner: [baseTheme.inner, 'bg-background-level4 text-surface-content'].join(
+    ' '
+  ),
   header: {
     ...baseTheme.header,
-    closeButton: [baseTheme.header.closeButton, 'text-typography'].join(' ')
+    closeButton: [baseTheme.header.closeButton, 'text-surface-content'].join(
+      ' '
+    )
   }
 };
 

@@ -20,7 +20,7 @@ const baseTheme: SortTheme = {
 
 export const darkSortTheme: SortTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-typography'].join(' ')
+  base: [baseTheme.base, 'text-surface-content'].join(' ')
 };
 
 export const legacySortTheme: SortTheme = {

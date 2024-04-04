@@ -43,7 +43,7 @@ export const darkNotificationTheme: NotificationTheme = {
     ...baseTheme.notification,
     base: [
       baseTheme.notification.base,
-      'bg-background-level4 border-gray-400 text-typography'
+      'bg-background-level4 border-gray-400 text-surface-content'
     ].join(' '),
     closeButton: [
       baseTheme.notification.closeButton,

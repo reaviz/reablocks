@@ -103,7 +103,7 @@ export const darkChipTheme: ChipTheme = {
   focus: baseTheme.focus,
   variants: {
     filled: 'text-white',
-    outline: 'bg-opacity-0 border hover:bg-transparent text-typography',
+    outline: 'bg-opacity-0 border hover:bg-transparent text-surface-content',
     text: 'bg-opacity-0 border-0'
   },
   colors: {

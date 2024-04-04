@@ -34,7 +34,7 @@ export const darkSelectMenuTheme: SelectMenuTheme = {
   groupTitle: [baseTheme.groupTitle, 'text-zinc-500'].join(' '),
   option: {
     ...baseTheme.option,
-    base: [baseTheme.option.base, 'text-typography'].join(' '),
+    base: [baseTheme.option.base, 'text-surface-content'].join(' '),
     hover: [
       baseTheme.option.hover,
       'dark:hover:bg-zinc-700 light:hover:bg-zinc-400'

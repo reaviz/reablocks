@@ -69,9 +69,10 @@ export const calendarTheme: CalendarTheme = {
   ...baseTheme,
   days: {
     ...baseTheme.days,
-    header: [baseTheme.days.header, 'border-zinc-400 text-typography'].join(
-      ' '
-    ),
+    header: [
+      baseTheme.days.header,
+      'border-zinc-400 text-surface-content'
+    ].join(' '),
     outside: [
       baseTheme.days.outside,
       'dark:text-gray-100/60 light:text-gray-700/60'

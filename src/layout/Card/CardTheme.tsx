@@ -16,9 +16,10 @@ const baseTheme: CardTheme = {
 
 export const cardTheme: CardTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-panel border border-surface text-typography'].join(
-    ' '
-  )
+  base: [
+    baseTheme.base,
+    'bg-panel border border-surface text-surface-content'
+  ].join(' ')
 };
 
 export const legacyCardTheme: CardTheme = {

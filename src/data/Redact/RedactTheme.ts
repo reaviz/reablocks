@@ -10,7 +10,7 @@ const baseTheme: RedactTheme = {
 
 export const darkRedactTheme: RedactTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-typography'].join(' ')
+  base: [baseTheme.base, 'text-surface-content'].join(' ')
 };
 
 export const legacyRedactTheme: RedactTheme = {

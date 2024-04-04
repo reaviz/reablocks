@@ -265,15 +265,15 @@ const config: Config = {
           level4: colorPalette.gray[300],
         },
         panel: colorPalette.gray[300],
-        surface: colorPalette.gray[400],
+        surface: {
+          DEFAULT: colorPalette.gray[400],
+          content: colorPalette.black,
+          accent: colorPalette.blue[500],
+          disabled: colors.gray[400],
+        },
         typography: {
           DEFAULT: colorPalette.black,
         },
-        accent: {
-          DEFAULT: extraColors['waterloo'],
-          active: extraColors['anakiwa']
-        },
-        disabled: colors.gray[400],
       },
       dark: {
         primary: {
@@ -319,15 +319,12 @@ const config: Config = {
           level4: colorPalette.gray[800],
         },
         panel: extraColors['black-pearl'],
-        surface: extraColors['charade'],
-        typography: {
-          DEFAULT: extraColors['athens-gray'],
+        surface: {
+          DEFAULT: extraColors['charade'],
+          content: extraColors['athens-gray'],
+          accent: colorPalette.blue[500],
+          disabled: colors.gray[400],
         },
-        accent: {
-          DEFAULT: extraColors['waterloo'],
-          active: extraColors['anakiwa']
-        },
-        disabled: colors.gray[400],
       }
     }),
     plugin(({ addVariant }) => {

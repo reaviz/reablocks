@@ -10,18 +10,9 @@ const baseTheme: CommandPaletteItemTheme = {
   clickable: 'cursor-pointer'
 };
 
-export const lightCommandPaletteItemTheme: CommandPaletteItemTheme = {
-  ...baseTheme,
-  active: [baseTheme.active, 'bg-primary text-black'].join(' '),
-  clickable: [
-    baseTheme.clickable,
-    'hover:bg-primary-hover text-gray-700 hover:text-white'
-  ].join(' ')
-};
-
 export const commandPaletteItemTheme: CommandPaletteItemTheme = {
   ...baseTheme,
-  active: [baseTheme.active, 'bg-primary text-typography'].join(' '),
+  active: [baseTheme.active, 'bg-primary text-surface-content'].join(' '),
   clickable: [
     baseTheme.clickable,
     'hover:bg-primary-hover/70 dark:hover:bg-primary-hover hover:dark:text-white'

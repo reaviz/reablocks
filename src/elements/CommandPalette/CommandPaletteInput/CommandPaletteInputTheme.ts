@@ -19,7 +19,7 @@ export const commandPaletteInputTheme: CommandPaletteInputTheme = {
   ].join(' '),
   input: [
     baseTheme.input,
-    'bg-background-level4 text-typography placeholder:text-slate-500'
+    'bg-background-level4 text-surface-content placeholder:text-slate-500'
   ].join(' ')
 };
 

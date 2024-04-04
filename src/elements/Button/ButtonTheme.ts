@@ -84,7 +84,7 @@ const baseTheme: Partial<ButtonTheme> = {
 };
 
 export const buttonTheme: ButtonTheme = {
-  base: [baseTheme.base, 'text-typography'].join(' '),
+  base: [baseTheme.base, 'text-surface-content'].join(' '),
   disabled: [
     baseTheme.disabled,
     'data-[variant=filled]:disabled:bg-gray-600 disabled:text-gray-400 border-gray-500'
@@ -104,34 +104,34 @@ export const buttonTheme: ButtonTheme = {
     default: {
       filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
       outline: 'border-secondary border',
-      text: 'text-typography'
+      text: 'text-surface-content'
     },
     primary: {
       filled:
-        'bg-primary hover:bg-primary-hover border-primary text-typography',
+        'bg-primary hover:bg-primary-hover border-primary text-surface-content',
       outline: 'border border-primary',
       text: 'text-primary hover:text-primary-hover'
     },
     secondary: {
       filled:
-        'bg-secondary hover:bg-secondary-hover border-secondary text-typography',
+        'bg-secondary hover:bg-secondary-hover border-secondary text-surface-content',
       outline: 'border border-secondary',
       text: 'text-secondary hover:text-secondary-hover'
     },
     success: {
       filled:
-        'bg-success hover:bg-success-hover border-success text-typography',
+        'bg-success hover:bg-success-hover border-success text-surface-content',
       outline: 'border border-success',
       text: 'text-success hover:text-success-hover'
     },
     warning: {
       filled:
-        'bg-warning hover:bg-warning-hover border-warning text-typography',
+        'bg-warning hover:bg-warning-hover border-warning text-surface-content',
       outline: 'border border-warning',
       text: 'text-warning hover:text-warning-hover'
     },
     error: {
-      filled: 'bg-error hover:bg-error-hover border-error text-typography',
+      filled: 'bg-error hover:bg-error-hover border-error text-surface-content',
       outline: 'border border-error',
       text: 'text-error hover:text-error-hover'
     }

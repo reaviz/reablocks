@@ -12,7 +12,7 @@ export const darkMenuTheme: MenuTheme = {
   ...baseTheme,
   inner: [
     baseTheme.inner,
-    'text-typography dark:bg-zinc-800 light:bg-zinc-300'
+    'text-surface-content dark:bg-zinc-800 light:bg-zinc-300'
   ].join(' ')
 };
 

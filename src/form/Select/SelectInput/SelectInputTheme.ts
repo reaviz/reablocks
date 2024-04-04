@@ -77,13 +77,13 @@ export const darkSelectInputTheme: SelectInputTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'dark:bg-background-level4 light:bg-background-level3 border-gray-700 text-typography'
+    'dark:bg-background-level4 light:bg-background-level3 border-gray-700 text-surface-content'
   ].join(' '),
   disabled: [baseTheme.disabled, 'bg-secondary-inactive'].join(' '),
   error: [baseTheme.error, 'border-error'].join(' '),
   chip: {
     ...baseTheme.chip,
-    base: [baseTheme.chip.base, 'bg-zinc-600 text-typography'].join(' '),
+    base: [baseTheme.chip.base, 'bg-zinc-600 text-surface-content'].join(' '),
     hover: [
       baseTheme.chip.hover,
       'dark:hover:bg-zinc-700 light:hover:bg-zinc-300'

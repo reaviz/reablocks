@@ -54,7 +54,7 @@ export const radioTheme: RadioTheme = {
   ...baseTheme,
   label: {
     ...baseTheme.label,
-    base: [baseTheme.label.base, 'text-typography'].join(' ')
+    base: [baseTheme.label.base, 'text-surface-content'].join(' ')
   },
   radio: {
     ...baseTheme.radio,
