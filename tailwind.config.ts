@@ -209,7 +209,7 @@ const config: Config = {
         ...extraColors,
       },
       backgroundImage: {
-        'bottom-border-glow': `radial-gradient(circle at center, ${newColors.anakiwa.DEFAULT} 0, blue, transparent 100%)`,
+        'bottom-border-glow': `radial-gradient(circle at center, ${extraColors.anakiwa} 0, blue, transparent 100%)`,
         'button-gradient':
           'linear-gradient(283deg, #0808A5 0%, rgba(8, 8, 165, 0.00) 100%)',
         'button-gradient-hover':
