@@ -35,7 +35,7 @@ export const SingleDisabled = () => {
   );
 };
 
-export const SingleShowCurrentValue = () => {
+export const SingleAlwaysDisplayValue = () => {
   const [state, setState] = useState<number>(20);
   return (
     <RangeSingle
@@ -43,7 +43,7 @@ export const SingleShowCurrentValue = () => {
       min={10}
       max={50}
       value={state}
-      showValue
+      valueDisplay="always"
       style={{ width: 250, marginTop: 30 }}
     />
   );

@@ -21,7 +21,7 @@ export const RangeSingle: FC<RangeProps<number>> = ({
   min,
   max,
   value,
-  showValue = false,
+  valueDisplay = 'hover',
   step = 1,
   theme: customTheme
 }) => {
@@ -124,10 +124,10 @@ export const RangeSingle: FC<RangeProps<number>> = ({
             onFocus={() => setFocused(true)}
           />
         </div>
-        {showValue ? (
-          currentValue
-        ) : (
+        {valueDisplay === 'hover' ? (
           <RangeTooltip visible={tooltipVisible}>{currentValue}</RangeTooltip>
+        ) : (
+          currentValue
         )}
       </motion.div>
     </div>
