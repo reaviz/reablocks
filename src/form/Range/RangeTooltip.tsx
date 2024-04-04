@@ -41,6 +41,11 @@ export interface RangeProps<Value> {
   value: Value;
 
   /**
+   * When to display the current value
+   */
+  valueDisplay?: 'always' | 'hover';
+
+  /**
    * Additional css styles to apply to the range
    */
   style?: React.CSSProperties;

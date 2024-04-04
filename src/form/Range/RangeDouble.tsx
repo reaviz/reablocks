@@ -21,6 +21,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   min,
   max,
   value,
+  valueDisplay = 'hover',
   onChange,
   theme: customTheme,
   step = 1
@@ -174,7 +175,11 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
             disabled={disabled}
           />
         </div>
-        <RangeTooltip visible={minTooltipVisible}>{currentMin}</RangeTooltip>
+        {valueDisplay === 'hover' ? (
+          <RangeTooltip visible={minTooltipVisible}>{currentMin}</RangeTooltip>
+        ) : (
+          currentMin
+        )}
       </motion.div>
       <motion.div
         className={twMerge(theme.drag)}
@@ -213,7 +218,11 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
             disabled={disabled}
           />
         </div>
-        <RangeTooltip visible={maxTooltipVisible}>{currentMax}</RangeTooltip>
+        {valueDisplay === 'hover' ? (
+          <RangeTooltip visible={maxTooltipVisible}>{currentMax}</RangeTooltip>
+        ) : (
+          currentMax
+        )}
       </motion.div>
       <div
         className={theme.rangeHighlight}
