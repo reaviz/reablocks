@@ -313,6 +313,8 @@ const config: Config = {
         },
         disabled: colors.gray[400],
       }
+    }, {
+      defaultTheme: 'dark',
     }),
     plugin(({ addVariant }) => {
       addVariant(
