@@ -8,13 +8,11 @@ import { theme as reablocksTheme } from '../src';
 
 import '../src/index.css';
 
-const withProvider = (Story, context) => {
-  return (
-    <ThemeProvider theme={reablocksTheme}>
-      <Story {...context} />
-    </ThemeProvider>
-  );
-};
+const withProvider = (Story, context) => (
+  <ThemeProvider theme={reablocksTheme}>
+    <Story {...context} />
+  </ThemeProvider>
+);
 
 const preview: Preview = {
   decorators: [
@@ -32,16 +30,18 @@ const preview: Preview = {
     actions: { argTypesRegex: '^on.*' },
     controls: { hideNoControlsWarning: true },
     docs: {
-      theme: theme,
+      theme,
       container: ({ children, ...props }: any) => {
-        // NOTE: This feels super hacky but seems to be the only way to get
-        // the theme from the story provider
-
+        // For whatever reason the theme is not getting applied to docs
+        // This is a workaround to apply the theme to the docs
+        const isLight = props.context?.store?.globals?.globals?.theme === 'light';
 
         return (
           <DocsContainer {...props}>
             <ThemeProvider theme={reablocksTheme}>
-              {children}
+              <div className={isLight ? 'light' : 'dark'}>
+                {children}
+              </div>
             </ThemeProvider>
           </DocsContainer>
         );
