@@ -4,7 +4,8 @@ import React, {
   useRef,
   useState,
   FC,
-  useMemo
+  useMemo,
+  useLayoutEffect
 } from 'react';
 import { motion, useMotionValue } from 'framer-motion';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
@@ -96,13 +97,20 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
     [currentMin, max, maxX, getPosition, onChange, minValueBetween]
   );
 
-  useEffect(() => {
-    const rect = range.current.getBoundingClientRect();
-    setRangeWidth(rect.width);
-    setRangeLeft(rect.left);
-    minX.set(getPosition(currentMin));
-    maxX.set(getPosition(currentMax));
-  }, [range, currentMin, minX, currentMax, maxX, getPosition]);
+  useLayoutEffect(() => {
+    const updateRange = () => {
+      const rect = range.current.getBoundingClientRect();
+      setRangeWidth(rect.width);
+      setRangeLeft(rect.left);
+      minX.set(getPosition(currentMin));
+      maxX.set(getPosition(currentMax));
+    };
+    updateRange();
+
+    // the callback inside requestAnimationFrame is ran when the browser is ready to accept the next repaint
+    // this fixes issues setting range width when the slider is placed in an animated parent element like a popup
+    requestAnimationFrame(updateRange);
+  }, [currentMin, minX, currentMax, maxX, getPosition]);
 
   useEffect(() => {
     setCurrentMin(initialMinValue);
