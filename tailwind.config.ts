@@ -201,9 +201,7 @@ const config: Config = {
       '9xl': '8rem',
     },
     extend: {
-      colors: {
-        ...colorPalette,
-      },
+      colors: colorPalette,
       backgroundImage: {
         'bottom-border-glow': `radial-gradient(circle at center, ${colorPalette.anakiwa} 0, blue, transparent 100%)`,
         'button-gradient':
@@ -260,16 +258,15 @@ const config: Config = {
           level3: colorPalette.gray[200],
           level4: colorPalette.gray[300],
         },
-        panel: colorPalette.gray[300],
+        panel: {
+          DEFAULT: colorPalette.gray[300],
+        },
         surface: {
           DEFAULT: colorPalette.gray[400],
           content: colorPalette.black,
           accent: colorPalette.blue[500],
           disabled: colors.gray[400],
-        },
-        typography: {
-          DEFAULT: colorPalette.black,
-        },
+        }
       },
       dark: {
         primary: {
@@ -309,13 +306,18 @@ const config: Config = {
           fill: colorPalette.blue[100]
         },
         background: {
+          // Page background
           level1: colorPalette.white,
           level2: colorPalette.gray[950],
           level3: colorPalette.gray[900],
           level4: colorPalette.gray[800],
         },
-        panel: colorPalette['black-pearl'],
+        panel: {
+          // Panel backgrounds, such as cards, tables, popovers, dropdown menus, etc.
+          DEFAULT: colorPalette['black-pearl'],
+        },
         surface: {
+          // Form component backgrounds, such as text fields, checkboxes, select, etc.
           DEFAULT: colorPalette['charade'],
           content: colorPalette['athens-gray'],
           accent: colorPalette.blue[500],
