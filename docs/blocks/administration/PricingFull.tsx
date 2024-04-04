@@ -2,8 +2,6 @@ import { useState } from 'react';
 import {
   Card,
   Divider,
-  List,
-  ListItem,
   MotionGroup,
   MotionItem,
   Stack,
@@ -12,21 +10,6 @@ import {
 import { Button } from '../../../src/elements/Button';
 import { cn } from '../../../src/utils';
 import { Chip } from '../../../src/elements';
-
-const CheckIcon = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width="16"
-    height="16"
-    viewBox="0 0 16 16"
-    fill="none"
-  >
-    <path
-      d="M5.86333 10.5833L3.08333 7.80333L2.13667 8.74333L5.86333 12.47L13.8633 4.47L12.9233 3.53L5.86333 10.5833Z"
-      fill="#105EFF"
-    />
-  </svg>
-);
 
 export const PricingFull = () => {
   const [cycle, setCycle] = useState('Monthly');
@@ -83,10 +66,10 @@ export const PricingFull = () => {
       <span className="text-waterloo text-base">
         Change your current workspace plan
       </span>
-      <div className="flex flex-col gap-2.5 mt-7">
+      <MotionGroup className="flex flex-col gap-2.5 mt-7">
         <div className="grid grid-cols-[400px,1fr,1fr,1fr] gap-2.5">
-          <div className="self-end font-bold">Core Features</div>
-          <div className="flex flex-col">
+          <MotionItem className="self-end font-bold">Core Features</MotionItem>
+          <MotionItem className="flex flex-col">
             <h6 className="text-lg font-bold">Founders Package</h6>
             <h2 className="text-2xl font-bold">
               {cycle === 'Monthly' ? '$1,000' : '$10,000'}
@@ -111,8 +94,8 @@ export const PricingFull = () => {
               Current Plan
             </div>
             <Divider />
-          </div>
-          <div className="flex flex-col">
+          </MotionItem>
+          <MotionItem className="flex flex-col">
             <h6 className="text-lg font-bold">Startup Package</h6>
             <h2 className="text-2xl font-bold">
               {cycle === 'Monthly' ? '$5,000' : '$50,000'}
@@ -137,8 +120,8 @@ export const PricingFull = () => {
               Upgrade
             </Button>
             <Divider />
-          </div>
-          <div className="flex flex-col">
+          </MotionItem>
+          <MotionItem className="flex flex-col">
             <h6 className="text-lg font-bold">Seed Package</h6>
             <h2 className="text-2xl font-bold">Let's talk</h2>
             <span className="text-waterloo text-sm">
@@ -161,9 +144,9 @@ export const PricingFull = () => {
               Email Sales
             </Button>
             <Divider />
-          </div>
+          </MotionItem>
         </div>
-        <div className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center gap-2.5 text-base">
+        <MotionItem className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center gap-2.5 text-base">
           <div className="justify-self-start">Design Support (Add On)</div>
           <div>
             <Chip
@@ -189,9 +172,11 @@ export const PricingFull = () => {
               Unlimited
             </Chip>
           </div>
-        </div>
-        <Divider className="bg-charade via-charade" />
-        <div className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center text-center gap-2.5 text-base text-waterloo">
+        </MotionItem>
+        <MotionItem>
+          <Divider className="bg-charade via-charade" />
+        </MotionItem>
+        <MotionItem className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center text-center gap-2.5 text-base text-waterloo">
           <div className="justify-self-start text-athens-gray">
             Product Research
           </div>
@@ -214,9 +199,11 @@ export const PricingFull = () => {
               </svg>
             </a>
           </div>
-        </div>
-        <Divider className="bg-charade via-charade" />
-        <div className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center text-center gap-2.5 text-base text-waterloo">
+        </MotionItem>
+        <MotionItem>
+          <Divider className="bg-charade via-charade" />
+        </MotionItem>
+        <MotionItem className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center text-center gap-2.5 text-base text-waterloo">
           <div className="justify-self-start text-athens-gray">
             Brand Style Guide
           </div>
@@ -265,9 +252,11 @@ export const PricingFull = () => {
               </svg>
             </a>
           </div>
-        </div>
-        <Divider className="bg-charade via-charade" />
-        <div className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center text-center gap-2.5 text-base text-waterloo">
+        </MotionItem>
+        <MotionItem>
+          <Divider className="bg-charade via-charade" />
+        </MotionItem>
+        <MotionItem className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center text-center gap-2.5 text-base text-waterloo">
           <div className="justify-self-start text-athens-gray">
             Prototype of Web Application
           </div>
@@ -290,9 +279,11 @@ export const PricingFull = () => {
               </svg>
             </a>
           </div>
-        </div>
-        <Divider className="bg-charade via-charade" />
-        <div className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center text-center gap-2.5 text-base text-waterloo">
+        </MotionItem>
+        <MotionItem>
+          <Divider className="bg-charade via-charade" />
+        </MotionItem>
+        <MotionItem className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center text-center gap-2.5 text-base text-waterloo">
           <div className="justify-self-start text-athens-gray">
             Development of Web Application
           </div>
@@ -312,9 +303,11 @@ export const PricingFull = () => {
           </div>
           <div>Build out of pages/features in react.js</div>
           <div>Build out of pages/features in react.js</div>
-        </div>
-        <Divider className="bg-charade via-charade" />
-      </div>
+        </MotionItem>
+        <MotionItem>
+          <Divider className="bg-charade via-charade" />
+        </MotionItem>
+      </MotionGroup>
     </Card>
   );
 };
