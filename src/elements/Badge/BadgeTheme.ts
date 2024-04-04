@@ -35,21 +35,7 @@ const baseTheme: Partial<BadgeTheme> = {
   }
 };
 
-export const lightBadgeTheme: BadgeTheme = {
-  base: [baseTheme.base, 'text-sky-400'].join(' '),
-  disableMargins: baseTheme.disableMargins,
-  badge: baseTheme.badge,
-  position: baseTheme.position,
-  positions: baseTheme.positions,
-  colors: {
-    default: 'bg-white text-black',
-    primary: 'bg-primary text-white',
-    secondary: 'bg-secondary text-white',
-    error: 'bg-error text-white'
-  }
-};
-
-export const darkBadgeTheme: BadgeTheme = {
+export const badgeTheme: BadgeTheme = {
   base: baseTheme.base,
   disableMargins: baseTheme.disableMargins,
   badge: baseTheme.badge,
@@ -57,9 +43,9 @@ export const darkBadgeTheme: BadgeTheme = {
   positions: baseTheme.positions,
   colors: {
     default: 'bg-white text-black',
-    primary: 'bg-primary text-white',
-    secondary: 'bg-secondary text-white',
-    error: 'bg-error text-white'
+    primary: 'bg-primary text-typography',
+    secondary: 'bg-secondary text-typography',
+    error: 'bg-error text-typography'
   }
 };
 

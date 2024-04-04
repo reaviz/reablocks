@@ -1,12 +1,12 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { CommandPalette, darkCommandPaletteTheme } from '../../../src/elements/CommandPalette';
+import { CommandPalette, commandPaletteTheme } from '../../../src/elements/CommandPalette';
 import * as Stories from '../../../src/elements/CommandPalette/CommandPalette.story'
 import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Command Palette" />
 
 # Command Palette
-The Command Palette enables efficient user interaction by consolidating application commands in a searchable, centralized interface. 
+The Command Palette enables efficient user interaction by consolidating application commands in a searchable, centralized interface.
 It's akin to a spotlight search, providing immediate access to features, documents, settings, or actions directly from the keyboard.
 ## Examples
 ### Basic Usage
@@ -14,10 +14,10 @@ This example showcases a basic Command Palette setup with sections for "Recently
 <Canvas of={Stories.Simple}/>
 
 ## Theme Customization
-The default theme for the Command Palette is designed for clarity and ease of use, 
+The default theme for the Command Palette is designed for clarity and ease of use,
 but can be customized to match your application's design language:
 
-<ThemeRender theme={darkCommandPaletteTheme} />
+<ThemeRender theme={commandPaletteTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 

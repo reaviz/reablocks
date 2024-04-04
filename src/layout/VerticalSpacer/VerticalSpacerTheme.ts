@@ -22,11 +22,7 @@ const baseTheme: VerticalSpacerTheme = {
   }
 };
 
-export const lightVerticalSpacerTheme = {
-  ...baseTheme
-};
-
-export const darkVerticalSpacerTheme = {
+export const verticalSpacerTheme = {
   ...baseTheme
 };
 

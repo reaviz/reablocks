@@ -96,79 +96,6 @@ const baseTheme: Partial<ChipTheme> = {
   }
 };
 
-export const lightChipTheme: ChipTheme = {
-  base: baseTheme.base,
-  adornment: baseTheme.adornment,
-  sizes: baseTheme.sizes,
-  focus: baseTheme.focus,
-  variants: {
-    filled: 'text-white',
-    outline: 'bg-opacity-0 border hover:bg-transparent',
-    text: 'bg-opacity-0 border-0'
-  },
-  colors: {
-    default: {
-      base: 'bg-gray-700 border-gray-700 text-gray-700',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-gray-600 hover:border-gray-600'
-      ].join(' '),
-      selected: '!bg-gray-600 text-white',
-      focus: 'focus-visible:outline-gray-500'
-    },
-    primary: {
-      base: 'bg-primary border-primary text-primary',
-      selectable: [
-        baseTheme.colors.primary.selectable,
-        'hover:bg-primary-hover hover:border-primary-hover'
-      ].join(' '),
-      selected: '!bg-primary-active text-white',
-      focus: 'focus-visible:outline-primary'
-    },
-    secondary: {
-      base: 'bg-secondary border-secondary text-secondary',
-      selectable: [
-        baseTheme.colors.secondary.selectable,
-        'hover:bg-secondary-hover hover:border-secondary-hover'
-      ].join(' '),
-      selected: '!bg-secondary-active text-white '
-    },
-    success: {
-      base: 'bg-success border-success text-success',
-      selectable: [
-        baseTheme.colors.success.selectable,
-        'hover:bg-success-hover hover:border-success-hover'
-      ].join(' '),
-      selected: '!bg-success-active text-white'
-    },
-    warning: {
-      base: 'bg-warning border-warning text-warning',
-      selectable: [
-        baseTheme.colors.warning.selectable,
-        'hover:bg-warning-hover hover:border-warning-hover'
-      ].join(' '),
-      selected: '!bg-warning-active text-white'
-    },
-    error: {
-      base: 'bg-error border-error text-error',
-      selectable: [
-        baseTheme.colors.error.selectable,
-        'hover:bg-error-hover hover:border-error-hover'
-      ].join(' '),
-      selected: '!bg-error-active text-white'
-    },
-    info: {
-      base: 'bg-info border-info text-info',
-      selectable: [
-        baseTheme.colors.info.selectable,
-        'hover:bg-info-hover hover:border-info-hover'
-      ].join(' '),
-      selected: '!bg-info-active text-white'
-    }
-  },
-  deleteButton: baseTheme.deleteButton
-};
-
 export const darkChipTheme: ChipTheme = {
   base: baseTheme.base,
   adornment: baseTheme.adornment,
@@ -176,7 +103,7 @@ export const darkChipTheme: ChipTheme = {
   focus: baseTheme.focus,
   variants: {
     filled: 'text-white',
-    outline: 'bg-opacity-0 border hover:bg-transparent',
+    outline: 'bg-opacity-0 border hover:bg-transparent text-typography',
     text: 'bg-opacity-0 border-0'
   },
   colors: {

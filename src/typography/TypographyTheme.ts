@@ -53,11 +53,7 @@ const baseTheme: TypographyTheme = {
   disableMargins: 'ml-0 mr-0 mb-0 mt-0'
 };
 
-export const lightTypographyTheme = {
-  ...baseTheme
-};
-
-export const darkTypographyTheme = {
+export const typographyTheme = {
   ...baseTheme
 };
 

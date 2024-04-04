@@ -30,11 +30,7 @@ const baseTheme: BlockTheme = {
   }
 };
 
-export const lightBlockTheme: BlockTheme = {
-  ...baseTheme
-};
-
-export const darkBlockTheme: BlockTheme = {
+export const blockTheme: BlockTheme = {
   ...baseTheme
 };
 

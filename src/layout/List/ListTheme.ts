@@ -51,16 +51,10 @@ const baseTheme: ListTheme = {
   }
 };
 
-export const lightListTheme = {
+export const listTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-black'].join(' '),
-  header: [baseTheme.header, 'text-black'].join(' ')
-};
-
-export const darkListTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-white'].join(' '),
-  header: [baseTheme.header, 'text-white'].join(' ')
+  base: [baseTheme.base, 'text-typography'].join(' '),
+  header: [baseTheme.header, 'text-typography'].join(' ')
 };
 
 export const legacyListTheme = {

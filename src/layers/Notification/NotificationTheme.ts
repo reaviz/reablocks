@@ -37,34 +37,13 @@ const baseTheme: NotificationTheme = {
   }
 };
 
-export const lightNotificationTheme: NotificationTheme = {
-  ...baseTheme,
-  notification: {
-    ...baseTheme.notification,
-    base: [baseTheme.notification.base, 'bg-light-background text-black'].join(
-      ' '
-    ),
-    closeButton: [
-      baseTheme.notification.closeButton,
-      'text-slate-700 hover:text-slate-900'
-    ].join(' '),
-    variants: {
-      success: [baseTheme.notification.variants.success, 'text-success'].join(
-        ' '
-      ),
-      error: [baseTheme.notification.variants.error, 'text-error'].join(' '),
-      warning: [baseTheme.notification.variants.error, 'text-warning'].join(' ')
-    }
-  }
-};
-
 export const darkNotificationTheme: NotificationTheme = {
   ...baseTheme,
   notification: {
     ...baseTheme.notification,
     base: [
       baseTheme.notification.base,
-      'bg-dark-background border-gray-400 text-white'
+      'bg-background-level4 border-gray-400 text-typography'
     ].join(' '),
     closeButton: [
       baseTheme.notification.closeButton,

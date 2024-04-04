@@ -1,12 +1,12 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { darkToggleTheme, Toggle } from '../../../src/form/Toggle';
+import { toggleTheme, Toggle } from '../../../src/form/Toggle';
 import * as ToggleStories from '../../../src/form/Toggle/Toggle.story';
 import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Form/Toggle" />
 
 # Toggle
-The Toggle component is a streamlined interface element that enables users to swiftly switch between two states, such as on/off or enabled/disabled. 
+The Toggle component is a streamlined interface element that enables users to swiftly switch between two states, such as on/off or enabled/disabled.
 It's especially valuable in settings and preference panels for toggling features or modes with a simple click.
 
 ## Examples
@@ -26,7 +26,7 @@ Illustrates a Toggle component in a disabled state, which is non-interactive and
 ## Theme Customization
 The Toggle component is designed with a default theme that can be customized to match your application's aesthetic:
 
-<ThemeRender theme={darkToggleTheme} />
+<ThemeRender theme={toggleTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 

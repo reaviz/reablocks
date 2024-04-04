@@ -1,16 +1,16 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Badge, darkBadgeTheme } from '../../../src/elements/Badge';
+import { Badge, badgeTheme } from '../../../src/elements/Badge';
 import * as BadgeStories from '../../../src/elements/Badge/Badge.story';
 import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Badge" />
 
 # Badge
-The "Badge" component serves as a small count and labeling tool that overlays its content on another element, typically used for displaying notifications, status, or additional info like new messages or alerts. 
+The "Badge" component serves as a small count and labeling tool that overlays its content on another element, typically used for displaying notifications, status, or additional info like new messages or alerts.
 It's designed to draw attention to specific elements by showing relevant numbers or indicators.
 ## Examples
 ### Basic Usage (Color Variations)
-The Badge component can be styled with various colors to indicate different statuses or priorities. 
+The Badge component can be styled with various colors to indicate different statuses or priorities.
 Here's how to display badges with default, primary, secondary, and error color schemes:
 <Canvas sourceState="shown" of={BadgeStories.Colors} />
 
@@ -21,7 +21,7 @@ The position of a Badge relative to its child component can be customized to app
 ## Theme Customization
 The Badge component comes with a default theme that can be customized according to your application's design system:
 
-<ThemeRender theme={darkBadgeTheme} />
+<ThemeRender theme={badgeTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 

@@ -1,20 +1,17 @@
 import {
   CommandPaletteInputTheme,
   cssVarsCommandPaletteInputTheme,
-  darkCommandPaletteInputTheme,
-  lightCommandPaletteInputTheme
+  commandPaletteInputTheme
 } from './CommandPaletteInput';
 import {
   CommandPaletteItemTheme,
   cssVarsCommandPaletteItemTheme,
-  darkCommandPaletteItemTheme,
-  lightCommandPaletteItemTheme
+  commandPaletteItemTheme
 } from './CommandPaletteItem';
 import {
   CommandPaletteSectionTheme,
   cssVarsCommandPaletteSectionTheme,
-  darkCommandPaletteSectionTheme,
-  lightCommandPaletteSectionTheme
+  commandPaletteSectionTheme
 } from './CommandPaletteSection';
 
 export interface CommandPaletteTheme {
@@ -30,20 +27,14 @@ const baseTheme: Partial<CommandPaletteTheme> = {
   inner: 'max-h-[80vh] overflow-y-auto'
 };
 
-export const lightCommandPaletteTheme: CommandPaletteTheme = {
-  base: [baseTheme.base, 'border-gray-300'].join(' '),
-  inner: baseTheme.inner,
-  input: lightCommandPaletteInputTheme,
-  item: lightCommandPaletteItemTheme,
-  section: lightCommandPaletteSectionTheme
-};
-
-export const darkCommandPaletteTheme: CommandPaletteTheme = {
-  base: [baseTheme.base, 'border-zinc-700'].join(' '),
-  inner: baseTheme.inner,
-  input: darkCommandPaletteInputTheme,
-  item: darkCommandPaletteItemTheme,
-  section: darkCommandPaletteSectionTheme
+export const commandPaletteTheme: CommandPaletteTheme = {
+  base: [baseTheme.base, 'dark:border-zinc-700 light:border-gray-400'].join(
+    ' '
+  ),
+  inner: [baseTheme.inner, 'bg-background-level4 border-0'].join(' '),
+  input: commandPaletteInputTheme,
+  item: commandPaletteItemTheme,
+  section: commandPaletteSectionTheme
 };
 
 export const legacyCommandPaletteTheme: CommandPaletteTheme = {

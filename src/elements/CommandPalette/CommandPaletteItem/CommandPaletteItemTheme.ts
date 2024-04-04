@@ -19,12 +19,12 @@ export const lightCommandPaletteItemTheme: CommandPaletteItemTheme = {
   ].join(' ')
 };
 
-export const darkCommandPaletteItemTheme: CommandPaletteItemTheme = {
+export const commandPaletteItemTheme: CommandPaletteItemTheme = {
   ...baseTheme,
-  active: [baseTheme.active, 'bg-primary text-white'].join(' '),
+  active: [baseTheme.active, 'bg-primary text-typography'].join(' '),
   clickable: [
     baseTheme.clickable,
-    'hover:bg-primary-hover text-gray-400 hover:text-white'
+    'hover:bg-primary-hover/70 dark:hover:bg-primary-hover hover:dark:text-white'
   ].join(' ')
 };
 

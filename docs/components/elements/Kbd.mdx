@@ -1,12 +1,12 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { darkKbdTheme, Kbd } from '../../../src/elements/Kbd';
+import { kbdTheme, Kbd } from '../../../src/elements/Kbd';
 import * as Stories from '../../../src/elements/Kbd/Kbd.story'
 import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Kbd" />
 
 # Kbd
-The Kbd (Keyboard Shortcut Chip) component is designed to visually represent keyboard shortcuts within your web application. 
+The Kbd (Keyboard Shortcut Chip) component is designed to visually represent keyboard shortcuts within your web application.
 It's particularly useful for highlighting shortcuts on hover over UI elements or integrating with command-driven features like the [Command Palette](?path=/docs/docs-components-elements-command-palette--docs) component.
 ## Examples
 ### Basic Usage
@@ -16,7 +16,7 @@ Showcase keyboard shortcuts effectively to enhance usability and provide quick a
 ## Theme Customization
 The Kbd component comes with a default theme designed for clarity and readability. Customize this theme to align with your application's aesthetics and branding:
 
-<ThemeRender theme={darkKbdTheme} />
+<ThemeRender theme={kbdTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 
@@ -26,8 +26,8 @@ The Kbd component API is straightforward, focusing on the essential functionalit
 
 ## Design and Usability Tips
 
-- **Clear Formatting:** Ensure keyboard shortcuts are displayed in a clear, easily understood format. 
+- **Clear Formatting:** Ensure keyboard shortcuts are displayed in a clear, easily understood format.
 Use symbols and abbreviations recognized by most users (e.g., "Cmd" for Command, "Ctrl" for Control).
 
-- **Strategic Positioning:** Place Kbd components where they are most relevant within your UI. 
+- **Strategic Positioning:** Place Kbd components where they are most relevant within your UI.
 Consider proximity to the related action or feature to help users make the connection between the shortcut and its function.

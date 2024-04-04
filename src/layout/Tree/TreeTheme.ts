@@ -36,28 +36,15 @@ const baseTheme: TreeTheme = {
   subtree: 'relative ml-5 mr-0 mt-1 mb-0 p-0'
 };
 
-export const lightTreeTheme: TreeTheme = {
-  ...baseTheme,
-  arrow: [baseTheme.arrow, 'fill-black'].join(' '),
-  node: {
-    ...baseTheme.node,
-    base: [baseTheme.node.base, 'text-black'].join(' '),
-    button: {
-      ...baseTheme.node.button,
-      icon: [baseTheme.node.button.icon, 'fill-black'].join(' ')
-    }
-  }
-};
-
 export const darkTreeTheme: TreeTheme = {
   ...baseTheme,
-  arrow: [baseTheme.arrow, 'fill-white'].join(' '),
+  arrow: [baseTheme.arrow, 'fill-typography'].join(' '),
   node: {
     ...baseTheme.node,
-    base: [baseTheme.node.base, 'text-white'].join(' '),
+    base: [baseTheme.node.base, 'text-typography'].join(' '),
     button: {
       ...baseTheme.node.button,
-      icon: [baseTheme.node.button.icon, 'fill-white'].join(' ')
+      icon: [baseTheme.node.button.icon, 'fill-typography'].join(' ')
     }
   }
 };

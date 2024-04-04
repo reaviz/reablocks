@@ -1,8 +1,4 @@
-import {
-  CalendarTheme,
-  darkCalendarTheme,
-  lightCalendarTheme
-} from './CalendarTheme';
+import { CalendarTheme, calendarTheme } from './CalendarTheme';
 
 export interface CalendarRangeTheme
   extends Omit<CalendarTheme, 'months' | 'years'> {}
@@ -19,20 +15,12 @@ const baseTheme: Partial<CalendarRangeTheme> = {
   content: 'flex gap-4'
 };
 
-export const lightCalendarRangeTheme: CalendarRangeTheme = {
+export const calendarRangeTheme: CalendarRangeTheme = {
   base: baseTheme.base,
   header: baseTheme.header,
   title: baseTheme.title,
   content: baseTheme.content,
-  days: lightCalendarTheme.days
-};
-
-export const darkCalendarRangeTheme: CalendarRangeTheme = {
-  base: baseTheme.base,
-  header: baseTheme.header,
-  title: baseTheme.title,
-  content: baseTheme.content,
-  days: darkCalendarTheme.days
+  days: calendarTheme.days
 };
 
 export const legacyCalendarRangeTheme: CalendarRangeTheme = {
@@ -40,5 +28,5 @@ export const legacyCalendarRangeTheme: CalendarRangeTheme = {
   header: baseTheme.header,
   title: baseTheme.title,
   content: baseTheme.content,
-  days: darkCalendarTheme.days
+  days: calendarTheme.days
 };

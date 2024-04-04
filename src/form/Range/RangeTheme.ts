@@ -25,26 +25,15 @@ const baseTheme: RangeTheme = {
     'absolute top-[-45px] -translate-x-2/4 whitespace-nowrap text-center left-2/4 rounded-lg p-2.5'
 };
 
-export const lightRangeTheme: RangeTheme = {
+export const rangeTheme: RangeTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-zinc-400'].join(' '),
+  base: [baseTheme.base, 'dark:bg-zinc-700 light:bg-zinc-400'].join(' '),
   inputWrapper: {
     ...baseTheme.inputWrapper,
     base: [baseTheme.inputWrapper.base, 'bg-primary'].join(' ')
   },
   rangeHighlight: [baseTheme.rangeHighlight, 'bg-primary'].join(' '),
-  tooltip: [baseTheme.tooltip, 'text-black bg-light-background'].join(' ')
-};
-
-export const darkRangeTheme: RangeTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-zinc-700'].join(' '),
-  inputWrapper: {
-    ...baseTheme.inputWrapper,
-    base: [baseTheme.inputWrapper.base, 'bg-primary'].join(' ')
-  },
-  rangeHighlight: [baseTheme.rangeHighlight, 'bg-primary'].join(' '),
-  tooltip: [baseTheme.tooltip, 'text-white bg-dark-background'].join(' ')
+  tooltip: [baseTheme.tooltip, 'text-typography bg-background-level4'].join(' ')
 };
 
 export const legacyRangeTheme: RangeTheme = {

@@ -4,17 +4,13 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import { DocsContainer } from '@storybook/addon-docs';
 
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
-import { darkTheme, lightTheme } from '../src';
+import { theme as reablocksTheme } from '../src';
 
 import '../src/index.css';
 
 const withProvider = (Story, context) => {
-  const theme = context.globals.theme === 'light'
-    ? lightTheme
-    : darkTheme;
-
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={reablocksTheme}>
       <Story {...context} />
     </ThemeProvider>
   );
@@ -36,17 +32,15 @@ const preview: Preview = {
     actions: { argTypesRegex: '^on.*' },
     controls: { hideNoControlsWarning: true },
     docs: {
-      theme,
+      theme: theme,
       container: ({ children, ...props }: any) => {
         // NOTE: This feels super hacky but seems to be the only way to get
         // the theme from the story provider
-        const theme = props.context?.store?.globals?.globals?.theme === 'light'
-          ? lightTheme
-          : darkTheme;
+
 
         return (
           <DocsContainer {...props}>
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={reablocksTheme}>
               {children}
             </ThemeProvider>
           </DocsContainer>

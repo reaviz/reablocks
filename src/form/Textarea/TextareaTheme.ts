@@ -1,8 +1,4 @@
-import {
-  legacyInputTheme,
-  darkInputTheme,
-  lightInputTheme
-} from '../Input/InputTheme';
+import { legacyInputTheme, inputTheme } from '../Input/InputTheme';
 
 export interface TextareaTheme {
   base: string;
@@ -21,24 +17,14 @@ const baseTheme: Partial<TextareaTheme> = {
   input: 'resize-none read-only:cursor-not-allowed'
 };
 
-export const lightTextareaTheme: TextareaTheme = {
+export const textareaTheme: TextareaTheme = {
   ...baseTheme,
-  base: [baseTheme.base, lightInputTheme.base].join(' '),
-  input: [baseTheme.input, lightInputTheme.input].join(' '),
-  disabled: [baseTheme.disabled, lightInputTheme.disabled].join(' '),
-  fullWidth: lightInputTheme.fullWidth,
-  error: lightInputTheme.error,
-  sizes: lightInputTheme.sizes
-} as TextareaTheme;
-
-export const darkTextareaTheme: TextareaTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, darkInputTheme.base].join(' '),
-  input: [baseTheme.input, darkInputTheme.input].join(' '),
-  disabled: [baseTheme.disabled, darkInputTheme.disabled].join(' '),
-  fullWidth: darkInputTheme.fullWidth,
-  error: darkInputTheme.error,
-  sizes: darkInputTheme.sizes
+  base: [baseTheme.base, inputTheme.base].join(' '),
+  input: [baseTheme.input, inputTheme.input].join(' '),
+  disabled: [baseTheme.disabled, inputTheme.disabled].join(' '),
+  fullWidth: inputTheme.fullWidth,
+  error: inputTheme.error,
+  sizes: inputTheme.sizes
 } as TextareaTheme;
 
 export const legacyTextareaTheme: TextareaTheme = {

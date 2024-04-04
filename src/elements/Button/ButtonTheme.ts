@@ -83,59 +83,8 @@ const baseTheme: Partial<ButtonTheme> = {
   }
 };
 
-export const lightButtonTheme: ButtonTheme = {
-  base: [baseTheme.base, 'text-black'].join(' '),
-  disabled: [
-    baseTheme.disabled,
-    'data-[variant=filled]:disabled:bg-gray-400 data-[variant=filled]:disabled:text-gray-500 disabled:text-gray-400'
-  ].join(' '),
-  fullWidth: baseTheme.fullWidth,
-  group: baseTheme.group,
-  adornment: baseTheme.adornment,
-  sizes: baseTheme.sizes,
-  groupText: [baseTheme.groupText, 'border-s-black first:border-s-0'].join(' '),
-  variants: {
-    filled: 'bg-secondary border-secondary hover:bg-secondary-hover',
-    outline: 'bg-opacity-0 border-gray-900 border',
-    text: 'bg-opacity-0 border-0'
-  },
-  colors: {
-    default: {
-      filled:
-        'bg-secondary border-secondary hover:bg-secondary-hover text-white',
-      outline: 'border border-gray-900 text-black',
-      text: 'text-black'
-    },
-    primary: {
-      filled: 'bg-primary hover:bg-primary-hover text-white',
-      outline: 'border border-primary ',
-      text: 'text-primary hover:text-primary-hover'
-    },
-    secondary: {
-      filled: 'bg-secondary hover:bg-secondary-hover text-white',
-      outline: 'border border-secondary',
-      text: 'text-secondary hover:text-secondary-hover'
-    },
-    success: {
-      filled: 'bg-success hover:bg-success-hover text-white',
-      outline: 'border border-success',
-      text: 'text-success hover:text-success-hover'
-    },
-    warning: {
-      filled: 'bg-warning hover:bg-warning-hover text-white',
-      outline: 'border border-warning',
-      text: 'text-warning hover:text-warning-hover'
-    },
-    error: {
-      filled: 'bg-error hover:bg-error-hover text-white',
-      outline: 'border border-error',
-      text: 'text-error hover:text-error-hover'
-    }
-  }
-};
-
-export const darkButtonTheme: ButtonTheme = {
-  base: [baseTheme.base, 'text-gray-100'].join(' '),
+export const buttonTheme: ButtonTheme = {
+  base: [baseTheme.base, 'text-typography'].join(' '),
   disabled: [
     baseTheme.disabled,
     'data-[variant=filled]:disabled:bg-gray-600 disabled:text-gray-400 border-gray-500'
@@ -146,39 +95,43 @@ export const darkButtonTheme: ButtonTheme = {
   adornment: baseTheme.adornment,
   sizes: baseTheme.sizes,
   variants: {
-    filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
+    filled:
+      'bg-secondary hover:bg-border-secondary-hover border-secondary light:text-gray-100',
     outline: 'bg-opacity-0 border-grey border',
     text: 'bg-opacity-0 border-0'
   },
   colors: {
     default: {
       filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
-      outline: 'border-grey border',
-      text: 'text-white'
+      outline: 'border-secondary border',
+      text: 'text-typography'
     },
     primary: {
-      filled: 'bg-primary hover:bg-primary-hover border-primary text-white',
+      filled:
+        'bg-primary hover:bg-primary-hover border-primary text-typography',
       outline: 'border border-primary',
       text: 'text-primary hover:text-primary-hover'
     },
     secondary: {
       filled:
-        'bg-secondary hover:bg-secondary-hover border-secondary text-white',
+        'bg-secondary hover:bg-secondary-hover border-secondary text-typography',
       outline: 'border border-secondary',
       text: 'text-secondary hover:text-secondary-hover'
     },
     success: {
-      filled: 'bg-success hover:bg-success-hover border-success text-white',
+      filled:
+        'bg-success hover:bg-success-hover border-success text-typography',
       outline: 'border border-success',
       text: 'text-success hover:text-success-hover'
     },
     warning: {
-      filled: 'bg-warning hover:bg-warning-hover border-warning text-white',
+      filled:
+        'bg-warning hover:bg-warning-hover border-warning text-typography',
       outline: 'border border-warning',
       text: 'text-warning hover:text-warning-hover'
     },
     error: {
-      filled: 'bg-error hover:bg-error-hover border-error text-white',
+      filled: 'bg-error hover:bg-error-hover border-error text-typography',
       outline: 'border border-error',
       text: 'text-error hover:text-error-hover'
     }

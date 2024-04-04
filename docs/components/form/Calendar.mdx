@@ -1,13 +1,13 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Calendar, darkCalendarTheme } from '../../../src/form/Calendar';
+import { Calendar, calendarTheme } from '../../../src/form/Calendar';
 import * as CalendarStories from '../../../src/form/Calendar/Calendar.story';
 import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Form/Calendar" />
 
 # Calendar
-The Calendar component is a versatile UI tool designed for date selection within web applications. 
-It can be utilized independently or integrated with other UI elements like search boxes to define time ranges for various actions. 
+The Calendar component is a versatile UI tool designed for date selection within web applications.
+It can be utilized independently or integrated with other UI elements like search boxes to define time ranges for various actions.
 This component is pivotal in applications requiring date inputs, such as booking systems, event planners, and analytics dashboards.
 ## Examples
 ### Basic Usage
@@ -41,7 +41,7 @@ Showcase a multiview calendar for comparing dates across multiple months simulta
 
 ## Theme Customization
 The Calendar component comes with a default theme designed for adaptability and ease of integration:
-<ThemeRender theme={darkCalendarTheme} />
+<ThemeRender theme={calendarTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 

@@ -10,14 +10,9 @@ const baseTheme: AvatarGroupTheme = {
   overflow: 'ml-[5px]'
 };
 
-export const lightAvatarGroupTheme: AvatarGroupTheme = {
+export const avatarGroupTheme: AvatarGroupTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-black'].join(' ')
-};
-
-export const darkAvatarGroupTheme: AvatarGroupTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-white'].join(' ')
+  base: [baseTheme.base, 'text-typography'].join(' ')
 };
 
 export const legacyAvatarGroupTheme: AvatarGroupTheme = {

@@ -14,14 +14,9 @@ const baseTheme: ArrowTheme = {
   right: '-rotate-90'
 };
 
-export const lightArrowTheme: ArrowTheme = {
+export const arrowTheme: ArrowTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-black'].join(' ')
-};
-
-export const darkArrowTheme: ArrowTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-white'].join(' ')
+  base: [baseTheme.base, 'text-typography'].join(' ')
 };
 
 export const legacyArrowTheme: ArrowTheme = {

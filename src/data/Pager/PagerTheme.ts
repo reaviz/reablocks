@@ -35,29 +35,19 @@ const baseTheme: PagerTheme = {
   nextPage: ''
 };
 
-export const lightPagerTheme: PagerTheme = {
-  ...baseTheme,
-  pages: {
-    ...baseTheme.pages,
-    page: {
-      ...baseTheme.pages.page,
-      active: [baseTheme.pages.page.active, '!text-black'].join(' ')
-    }
-  },
-  ellipsis: [baseTheme.ellipsis, 'text-gray-800'].join(' '),
-  pagerDisplayItems: [baseTheme.pagerDisplayItems, 'text-slate-600'].join(' ')
-};
-
-export const darkPagerTheme: PagerTheme = {
+export const pagerTheme: PagerTheme = {
   ...(baseTheme as PagerTheme),
   pages: {
     ...baseTheme.pages,
     page: {
       base: [baseTheme.pages.page.base, 'text-slate-500'].join(' '),
-      active: [baseTheme.pages.page.active, '!text-white'].join(' ')
+      active: [baseTheme.pages.page.active, '!text-typography'].join(' ')
     }
   },
-  control: [baseTheme.control, 'text-slate-200'].join(' '),
+  control: [
+    baseTheme.control,
+    'text-slate-200 light:text-slate-400 disabled:light:text-slate-300'
+  ].join(' '),
   pagerDisplayItems: [baseTheme.pagerDisplayItems, 'text-slate-500'].join(' ')
 };
 
