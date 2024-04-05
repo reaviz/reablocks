@@ -26,7 +26,7 @@ export const ResetPassword = () => {
       >
         <Stack justifyContent="spaceBetween">
           <img src={logo} alt="Logo" className="h-11" />
-          <a href="#" className="text-lg text-blue-ribbon font-semibold">
+          <a href="#" className="text-lg text-primary font-semibold">
             Create an account
           </a>
         </Stack>
@@ -108,7 +108,7 @@ export const ResetPassword = () => {
               {isSubmitting ? 'Resetting...' : 'Reset Password'}
             </Button>
             <Stack
-              className="w-full text-blue-ribbon"
+              className="w-full text-primary"
               justifyContent="center"
               dense
             >
@@ -131,7 +131,7 @@ export const ResetPassword = () => {
           </form>
         </div>
         <Stack justifyContent="center">
-          <div className="h-[4px] w-[60px] bg-blue-ribbon rounded" />
+          <div className="h-[4px] w-[60px] bg-primary rounded" />
           <div className="h-[4px] w-[60px] bg-waterloo rounded" />
           <div className="h-[4px] w-[60px] bg-waterloo rounded" />
           <div className="h-[4px] w-[60px] bg-waterloo rounded" />

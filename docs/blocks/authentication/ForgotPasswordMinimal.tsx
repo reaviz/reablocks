@@ -85,7 +85,7 @@ export const ForgotPasswordMinimal = () => {
           </Button>
           <Stack className="w-full" justifyContent="center">
             <span className="text-sm text-waterloo">Remember password?</span>
-            <a href="#" className="text-blue-ribbon text-lg font-semibold">
+            <a href="#" className="text-primary text-lg font-semibold">
               Log in
             </a>
           </Stack>

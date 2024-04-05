@@ -101,7 +101,7 @@ export const ResetPasswordMinimal = () => {
             </span>
             <a
               href="#"
-              className="inline-flex items-center gap-1 text-blue-ribbon text-lg font-semibold"
+              className="inline-flex items-center gap-1 text-primary text-lg font-semibold"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

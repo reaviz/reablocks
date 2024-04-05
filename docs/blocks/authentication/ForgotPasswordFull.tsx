@@ -79,7 +79,7 @@ export const ForgotPasswordFull = () => {
                 {isSubmitting ? 'Resetting...' : 'Reset Password'}
               </Button>
               <Divider />
-              <a href="#" className="text-blue-ribbon text-lg font-semibold">
+              <a href="#" className="text-primary text-lg font-semibold">
                 Return to login
               </a>
             </Stack>
