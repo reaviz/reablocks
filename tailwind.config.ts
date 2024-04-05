@@ -167,10 +167,10 @@ export const colorPalette = {
   // https://tailwindcss.com/docs/theme#referencing-other-values
   'black-pearl': '#02020F',
   'athens-gray': '#F7F7FA',
-  'vulcan': '#11111F',
-  'charade': '#242433',
-  'waterloo': '#77778C',
-  'anakiwa': '#93B6FF'
+  vulcan: '#11111F',
+  charade: '#242433',
+  waterloo: '#77778C',
+  anakiwa: '#93B6FF'
 };
 
 const config: Config = {
@@ -198,7 +198,7 @@ const config: Config = {
       '6xl': '3.75rem',
       '7xl': '4.5rem',
       '8xl': '6rem',
-      '9xl': '8rem',
+      '9xl': '8rem'
     },
     extend: {
       colors: colorPalette,
@@ -256,16 +256,16 @@ const config: Config = {
           level1: colorPalette.white,
           level2: colorPalette.gray[100],
           level3: colorPalette.gray[200],
-          level4: colorPalette.gray[300],
+          level4: colorPalette.gray[300]
         },
         panel: {
-          DEFAULT: colorPalette.gray[300],
+          DEFAULT: colorPalette.gray[300]
         },
         surface: {
           DEFAULT: colorPalette.gray[400],
           content: colorPalette.black,
           accent: colorPalette.blue[500],
-          disabled: colors.gray[400],
+          disabled: colors.gray[400]
         }
       },
       dark: {
@@ -310,19 +310,20 @@ const config: Config = {
           level1: colorPalette.white,
           level2: colorPalette.gray[950],
           level3: colorPalette.gray[900],
-          level4: colorPalette.gray[800],
+          level4: colorPalette.gray[800]
         },
         panel: {
-          // Panel backgrounds, such as cards, tables, popovers, dropdown menus, etc.
+          // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
           DEFAULT: colorPalette['black-pearl'],
+          content: colorPalette['athens-gray']
         },
         surface: {
           // Form component backgrounds, such as text fields, checkboxes, select, etc.
           DEFAULT: colorPalette['charade'],
           content: colorPalette['athens-gray'],
           accent: colorPalette.blue[500],
-          disabled: colors.gray[400],
-        },
+          disabled: colors.gray[400]
+        }
       }
     }),
     plugin(({ addVariant }) => {

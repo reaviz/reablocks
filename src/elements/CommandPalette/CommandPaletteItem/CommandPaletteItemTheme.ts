@@ -12,7 +12,7 @@ const baseTheme: CommandPaletteItemTheme = {
 
 export const commandPaletteItemTheme: CommandPaletteItemTheme = {
   ...baseTheme,
-  active: [baseTheme.active, 'bg-primary text-surface-content'].join(' '),
+  active: [baseTheme.active, 'bg-primary text-panel-content'].join(' '),
   clickable: [
     baseTheme.clickable,
     'hover:bg-primary-hover/70 dark:hover:bg-primary-hover hover:dark:text-white'
