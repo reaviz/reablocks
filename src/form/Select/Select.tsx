@@ -1,8 +1,10 @@
 import React, {
   FC,
+  forwardRef,
   ReactElement,
   useCallback,
   useEffect,
+  useImperativeHandle,
   useLayoutEffect,
   useMemo,
   useRef,
@@ -193,7 +195,11 @@ export interface SelectProps {
   menu?: ReactElement<SelectMenuProps, typeof SelectMenu>;
 }
 
-export const Select: FC<Partial<SelectProps>> = ({
+export interface SelectRef {
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export const Select: FC<Partial<SelectProps>> = forwardRef<SelectRef, Partial<SelectProps>>(({
   id,
   name,
   autoFocus,
@@ -226,7 +232,7 @@ export const Select: FC<Partial<SelectProps>> = ({
   onInputKeyUp,
   onOptionsChange,
   onInputChange
-}) => {
+}, ref) => {
   const overlayRef = useRef<ConnectedOverlayContentRef | null>(null);
   const inputRef = useRef<SelectInputRef | null>(null);
   const [internalValue, setInternalValue] = useState<string | string[] | null>(
@@ -242,6 +248,10 @@ export const Select: FC<Partial<SelectProps>> = ({
   const [options, setOptions] = useState<SelectOptionProps[]>(
     createOptions(children)
   );
+
+  useImperativeHandle(ref, () => ({
+    setOpen
+  }));
 
   useEffect(() => {
     const opts = createOptions(children);
@@ -690,7 +700,7 @@ export const Select: FC<Partial<SelectProps>> = ({
       />
     </ConnectedOverlay>
   );
-};
+});
 
 Select.defaultProps = {
   clearable: true,

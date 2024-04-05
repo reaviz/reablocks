@@ -1,9 +1,10 @@
-import React, { Fragment, useEffect, useState } from 'react';
-import { Select } from './Select';
+import React, { Fragment, useEffect, useRef, useState } from 'react';
+import { Select, SelectRef } from './Select';
 import { SelectOption } from './SelectOption';
 import { SelectMenu } from './SelectMenu';
 import range from 'lodash/range';
 import { SelectInput, SelectInputChip } from './SelectInput';
+import { Button } from '../../elements';
 
 export default {
   title: 'Components/Form/Select/Single',
@@ -570,6 +571,44 @@ export const DefaultFilter = () => {
           console.log('onChange', v);
         }}
         defaultFilterValue="twi"
+      >
+        <SelectOption value="facebook">facebook</SelectOption>
+        <SelectOption value="twitter">twitter</SelectOption>
+        <SelectOption value="twitch">twitch</SelectOption>
+      </Select>
+    </div>
+  );
+};
+
+export const ChangeOpenState = () => {
+  const [value, setValue] = useState<string | null>(null);
+  const selectRef = useRef<SelectRef | null>(null);
+  const handleCloseMenu = () => {
+    selectRef?.current?.setOpen(false);
+  };
+
+  const handleOpenMenu = () => {
+    selectRef?.current?.setOpen(true);
+  };
+
+  return (
+    <div style={{ width: 300 }}>
+      <Button
+        style={{ marginBottom: '30px' }}
+        onMouseLeave={() => handleCloseMenu()}
+        onMouseMove={() => handleOpenMenu()}
+      >
+        Hover open
+      </Button>
+      <Select
+        ref={selectRef}
+        closeMenu={handleCloseMenu}
+        placeholder="Select a category..."
+        value={value}
+        onChange={v => {
+          setValue(v);
+          console.log('onChange', v);
+        }}
       >
         <SelectOption value="facebook">facebook</SelectOption>
         <SelectOption value="twitter">twitter</SelectOption>
