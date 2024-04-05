@@ -51,6 +51,7 @@ export const PricingFull = () => {
         <Stack className="bg-vulcan rounded p-1" dense>
           {['Monthly', 'Yearly'].map(type => (
             <Button
+              key={type}
               size="large"
               className={cn('text-lg', {
                 'text-black bg-blue-100': cycle === type
