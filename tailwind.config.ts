@@ -259,7 +259,7 @@ const config: Config = {
           level4: colorPalette.gray[300]
         },
         panel: {
-          DEFAULT: colorPalette.gray[300],
+          DEFAULT: colorPalette['white'],
           content: colorPalette['vulcan']
         },
         surface: {
