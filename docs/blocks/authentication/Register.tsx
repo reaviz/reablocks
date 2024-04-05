@@ -8,7 +8,11 @@ import { motion } from 'framer-motion';
 import { Divider } from '../../../src/layout';
 
 export const Register = () => {
-  const { control, handleSubmit, formState: { isSubmitting } } = useForm();
+  const {
+    control,
+    handleSubmit,
+    formState: { isSubmitting }
+  } = useForm();
 
   return (
     <motion.div
@@ -19,14 +23,17 @@ export const Register = () => {
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-5">
           <img src={logo} alt="Logo" className="h-11 w-auto mb-2" />
-          <h4 className="text-2xl font-sans font-bold mb-0">
-            Register
-          </h4>
-          <p className="text-base text-[#77778C] font-sans text-center">
-            Welcome! Let's get started by creating your account. Please provide your email address and choose a secure password to begin accessing our platform's features.
+          <h4 className="text-2xl font-sans font-bold mb-0">Register</h4>
+          <p className="text-base text-panel-secondary-content font-sans text-center">
+            Welcome! Let's get started by creating your account. Please provide
+            your email address and choose a secure password to begin accessing
+            our platform's features.
           </p>
         </div>
-        <form onSubmit={handleSubmit(values => console.log('values', values))}>
+        <form
+          className="text-sm"
+          onSubmit={handleSubmit(values => console.log('values', values))}
+        >
           <Block label="Name">
             <Controller
               name="name"
@@ -105,19 +112,25 @@ export const Register = () => {
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}
           </Button>
-          <div className="mt-5 text-center opacity-50">
+          <div className="mt-5 text-center text-sm text-panel-secondary-content">
             By signing in, you agree to our
-            <Button variant="text" color="primary">terms of service</Button>
+            <Button variant="text" color="primary">
+              terms of service
+            </Button>
             and
-            <Button variant="text" color="primary">privacy policy</Button>
+            <Button variant="text" color="primary">
+              privacy policy
+            </Button>
           </div>
           <Divider className="mt-5 mb-5" />
-          <div className="mt-5 text-center opacity-50 text-sm">
+          <div className="mt-5 text-center text-panel-secondary-content text-sm">
             Already have an account?
-            <Button variant="text" color="primary">Sign in</Button>
+            <Button variant="text" color="primary">
+              Sign in
+            </Button>
           </div>
         </form>
       </Card>
     </motion.div>
   );
-}
+};

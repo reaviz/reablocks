@@ -26,7 +26,7 @@ export const ForgotPassword = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Reset your password
           </h4>
-          <span className="text-base text-[#77778C] font-sans">
+          <span className="text-base text-panel-secondary-content font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
