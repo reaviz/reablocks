@@ -31,7 +31,7 @@ export const ResetPassword = () => {
           </a>
         </Stack>
         <div className="w-full flex flex-col grow items-center justify-center text-center pt-2 mb-14">
-          <div className="p-3 border border-[#3D3D4D] rounded mb-3">
+          <div className="p-3 border border-panel-secondary-content rounded mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -46,7 +46,7 @@ export const ResetPassword = () => {
             </svg>
           </div>
           <h4 className="text-2xl font-sans font-bold mb-0">Reset Password?</h4>
-          <span className="text-base text-[#77778C] font-sans">
+          <span className="text-base text-panel-secondary-content font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
@@ -132,9 +132,9 @@ export const ResetPassword = () => {
         </div>
         <Stack justifyContent="center">
           <div className="h-[4px] w-[60px] bg-primary rounded" />
-          <div className="h-[4px] w-[60px] bg-waterloo rounded" />
-          <div className="h-[4px] w-[60px] bg-waterloo rounded" />
-          <div className="h-[4px] w-[60px] bg-waterloo rounded" />
+          <div className="h-[4px] w-[60px] bg-surface-disabled rounded" />
+          <div className="h-[4px] w-[60px] bg-surface-disabled rounded" />
+          <div className="h-[4px] w-[60px] bg-surface-disabled rounded" />
         </Stack>
       </Card>
     </motion.div>

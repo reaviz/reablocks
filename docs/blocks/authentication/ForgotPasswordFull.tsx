@@ -30,7 +30,7 @@ export const ForgotPasswordFull = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Forgot Password?
           </h4>
-          <span className="text-base text-[#77778C] font-sans">
+          <span className="text-base text-panel-secondary-content font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>

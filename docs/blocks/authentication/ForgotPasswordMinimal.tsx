@@ -24,7 +24,7 @@ export const ForgotPasswordMinimal = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Forgot Password?
           </h4>
-          <span className="text-base text-[#77778C] font-sans">
+          <span className="text-base text-panel-secondary-content font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
@@ -84,7 +84,9 @@ export const ForgotPasswordMinimal = () => {
             {isSubmitting ? 'Sending...' : 'Get Link'}
           </Button>
           <Stack className="w-full" justifyContent="center">
-            <span className="text-sm text-waterloo">Remember password?</span>
+            <span className="text-sm text-panel-secondary-content">
+              Remember password?
+            </span>
             <a href="#" className="text-primary text-lg font-semibold">
               Log in
             </a>

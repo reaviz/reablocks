@@ -260,13 +260,14 @@ const config: Config = {
         },
         panel: {
           DEFAULT: colorPalette['white'],
-          content: colorPalette['vulcan']
+          content: colorPalette['vulcan'],
+          'secondary-content': colorPalette.gray[700]
         },
         surface: {
-          DEFAULT: colorPalette.gray[400],
+          DEFAULT: colorPalette.gray[300],
           content: colorPalette.black,
           accent: colorPalette.blue[500],
-          disabled: colors.gray[400]
+          disabled: colors.gray[300]
         }
       },
       dark: {
@@ -316,14 +317,15 @@ const config: Config = {
         panel: {
           // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
           DEFAULT: colorPalette['black-pearl'],
-          content: colorPalette['athens-gray']
+          content: colorPalette['athens-gray'],
+          'secondary-content': colorPalette.gray[600]
         },
         surface: {
           // Form component backgrounds, such as text fields, checkboxes, select, etc.
           DEFAULT: colorPalette['charade'],
           content: colorPalette['athens-gray'],
           accent: colorPalette.blue[500],
-          disabled: colors.gray[400]
+          disabled: colors.gray[800]
         }
       }
     }),

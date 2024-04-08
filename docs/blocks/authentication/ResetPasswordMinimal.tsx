@@ -21,7 +21,7 @@ export const ResetPasswordMinimal = () => {
     >
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center text-center pt-2 mb-10">
-          <div className="p-3 border border-[#3D3D4D] rounded mb-3">
+          <div className="p-3 border border-panel-secondary-content rounded mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -36,7 +36,7 @@ export const ResetPasswordMinimal = () => {
             </svg>
           </div>
           <h4 className="text-2xl font-sans font-bold mb-0">Reset Password?</h4>
-          <span className="text-base text-[#77778C] font-sans">
+          <span className="text-base text-panel-secondary-content font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
@@ -96,7 +96,7 @@ export const ResetPasswordMinimal = () => {
             {isSubmitting ? 'Sending...' : 'Reset Password'}
           </Button>
           <Stack className="w-full" justifyContent="center">
-            <span className="text-sm text-waterloo">
+            <span className="text-sm text-panel-secondary-content">
               Remember your password?
             </span>
             <a
