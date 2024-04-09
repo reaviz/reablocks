@@ -8,7 +8,7 @@ const baseTheme: RedactTheme = {
   interactive: 'cursor-pointer hover:underline'
 };
 
-export const darkRedactTheme: RedactTheme = {
+export const redactTheme: RedactTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'text-surface-content'].join(' ')
 };

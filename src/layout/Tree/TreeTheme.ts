@@ -36,7 +36,7 @@ const baseTheme: TreeTheme = {
   subtree: 'relative ml-5 mr-0 mt-1 mb-0 p-0'
 };
 
-export const darkTreeTheme: TreeTheme = {
+export const treeTheme: TreeTheme = {
   ...baseTheme,
   arrow: [baseTheme.arrow, 'fill-surface-content'].join(' '),
   node: {

@@ -26,7 +26,7 @@ const baseTheme: TabsTheme = {
   panel: 'mt-2'
 };
 
-export const darkTabsTheme: TabsTheme = {
+export const tabsTheme: TabsTheme = {
   ...baseTheme,
   list: {
     ...baseTheme.list,

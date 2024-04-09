@@ -18,7 +18,7 @@ const baseTheme: SortTheme = {
   }
 };
 
-export const darkSortTheme: SortTheme = {
+export const sortTheme: SortTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'text-surface-content'].join(' ')
 };
