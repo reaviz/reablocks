@@ -21,47 +21,191 @@ import { useComponentTheme } from '../../../utils';
 import { SelectTheme } from '../SelectTheme';
 
 export interface SelectInputProps {
+  /**
+   * The id of the select input.
+   */
   id?: string;
+
+  /**
+   * The name of the select input.
+   */
   name?: string;
+
+  /**
+   * If true, the select input is required.
+   */
   required?: boolean;
+
+  /**
+   * The options for the select input.
+   */
   options: SelectOptionProps[];
+
+  /**
+   * If true, the select input is disabled.
+   */
   disabled?: boolean;
+
+  /**
+   * If true, the select input menu is open.
+   */
   menuOpen?: boolean;
+
+  /**
+   * The font size of the select input.
+   */
   fontSize?: string | number;
+
+  /**
+   * The input text of the select input.
+   */
   inputText: string;
+
+  /**
+   * If true, the select input will close on select.
+   */
   closeOnSelect?: boolean;
+
+  /**
+   * The selected option of the select input.
+   */
   selectedOption?: SelectOptionProps | SelectOptionProps[];
+
+  /**
+   * If true, the select input will auto focus.
+   */
   autoFocus?: boolean;
+
+  /**
+   * The class name of the select input.
+   */
   className?: string;
+
+  /**
+   * The active class name of the select input.
+   */
   activeClassName?: string;
+
+  /**
+   * If true, the select input is createable.
+   */
   createable?: boolean;
+
+  /**
+   * If true, the select input is filterable.
+   */
   filterable?: boolean;
+
+  /**
+   * If true, the select input allows multiple selection.
+   */
   multiple?: boolean;
+
+  /**
+   * If true, the select input is loading.
+   */
   loading?: boolean;
+
+  /**
+   * The reference of the select input.
+   */
   reference?: Ref<SelectInputRef>;
+
+  /**
+   * The placeholder of the select input.
+   */
   placeholder?: string;
+
+  /**
+   * If true, the select input has an error.
+   */
   error?: boolean;
+
+  /**
+   * If true, the select input is clearable.
+   */
   clearable?: boolean;
+
+  /**
+   * If true, the select input is refreshable.
+   */
   refreshable?: boolean;
+
+  /**
+   * If true, the select input menu is disabled.
+   */
   menuDisabled?: boolean;
+
+  /**
+   * The theme of the select input.
+   */
   theme?: SelectTheme;
 
+  /**
+   * The close icon of the select input.
+   */
   closeIcon?: React.ReactNode;
+
+  /**
+   * The refresh icon of the select input.
+   */
   refreshIcon?: React.ReactNode;
+
+  /**
+   * The expand icon of the select input.
+   */
   expandIcon?: React.ReactNode;
+
+  /**
+   * The loading icon of the select input.
+   */
   loadingIcon?: React.ReactNode;
 
+  /**
+   * The chip of the select input.
+   */
   chip?: ReactElement<SelectInputChipProps, typeof SelectInputChip>;
 
+  /**
+   * The function to handle selected change.
+   */
   onSelectedChange: (option: SelectValue) => void;
+
+  /**
+   * The function to handle expand click.
+   */
   onExpandClick: (event: React.MouseEvent<Element>) => void;
+
+  /**
+   * The function to handle key down.
+   */
   onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+
+  /**
+   * The function to handle key up.
+   */
   onKeyUp: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+
+  /**
+   * The function to handle focus.
+   */
   onFocus: (
     event: React.FocusEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement>
   ) => void;
+
+  /**
+   * The function to handle blur.
+   */
   onBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
+
+  /**
+   * The function to handle input change.
+   */
   onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+
+  /**
+   * The function to handle refresh.
+   */
   onRefresh?: () => void;
 }
 
