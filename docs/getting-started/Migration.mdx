@@ -2,20 +2,43 @@ import { Meta } from '@storybook/addon-docs';
 
 <Meta title="Docs/Getting Started/Migration" />
 
-# Migrating from 5.x to 6.x
+## Migrating from 6.x to 7.x
+In 7.x, we've introduced new supporting palettes for things like: panel, surface and backgrounds. This
+allows us to define a more consistent and flexible color system for our components.
+
+```tsx
+{
+  panel: {
+    // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
+    DEFAULT: colorPalette['black-pearl'],
+    content: colorPalette['athens-gray'],
+    'secondary-content': colorPalette.gray[600],
+    accent: colorPalette['charade']
+  },
+  surface: {
+    // Form component backgrounds, such as text fields, checkboxes, select, etc.
+    DEFAULT: colorPalette['charade'],
+    content: colorPalette['athens-gray'],
+    accent: colorPalette.blue[500],
+    disabled: colors.gray[800]
+  }
+}
+```
+
+## Migrating from 5.x to 6.x
 We're excited to announce that version 6.x of our Storybook library introduces a groundbreaking approach to theming with Tailwind CSS.
 This upgrade allows you to leverage the full capabilities of Tailwind CSS, offering a more flexible and powerful way to style your components.
 As part of this transition, we're moving away from the previous CSS variables method to embrace a more dynamic and efficient workflow.
 
-## Getting Started with the Migration
+### Getting Started with the Migration
 To ensure a seamless transition to version 6.x, please follow the steps outlined below.
 
-### Step 1:Install Tailwind CSS
+### Step 1: Install Tailwind CSS
 Begin by installing Tailwind CSS in your project:
 #### **1.** Install Tailwind CSS:
 Refer to the Tailwind CSS [Getting Started](http://localhost:9009/?path=/docs/docs-getting-started-setup--docs#installing-tailwind-css) guide for installation instructions.
 
-### Step 2:Integrate Tailwind CSS Variables
+### Step 2: Integrate Tailwind CSS Variables
 Next, incorporate Tailwind CSS Variables into your project as a development dependency:
 #### **1.** Install the Tailwind CSS Variables package:
 ```shell
@@ -35,7 +58,7 @@ module.exports = {
 }
 ```
 
-### Step 3:Migrate Legacy Theme Variables
+### Step 3: Migrate Legacy Theme Variables
 Adapt your existing theme variables for compatibility with the new system:
 #### **1.** Rename your old theme file to `legacyTheme.ts`.
 
