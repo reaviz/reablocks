@@ -73,7 +73,7 @@ const baseTheme: SelectInputTheme = {
   }
 };
 
-export const darkSelectInputTheme: SelectInputTheme = {
+export const selectInputTheme: SelectInputTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,

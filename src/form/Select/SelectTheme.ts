@@ -1,11 +1,11 @@
 import {
   cssVarsSelectInputTheme,
-  darkSelectInputTheme,
+  selectInputTheme,
   SelectInputTheme
 } from './SelectInput';
 import {
   cssVarsSelectMenuTheme,
-  darkSelectMenuTheme,
+  selectMenuTheme,
   SelectMenuTheme
 } from './SelectMenu';
 
@@ -14,9 +14,9 @@ export interface SelectTheme {
   selectMenu: SelectMenuTheme;
 }
 
-export const darkSelectTheme: SelectTheme = {
-  selectInput: darkSelectInputTheme,
-  selectMenu: darkSelectMenuTheme
+export const selectTheme: SelectTheme = {
+  selectInput: selectInputTheme,
+  selectMenu: selectMenuTheme
 };
 
 export const legacySelectTheme: SelectTheme = {

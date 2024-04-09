@@ -24,7 +24,7 @@ const baseTheme: SelectMenuTheme = {
   }
 };
 
-export const darkSelectMenuTheme: SelectMenuTheme = {
+export const selectMenuTheme: SelectMenuTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
