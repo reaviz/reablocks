@@ -4,6 +4,10 @@ export interface DividerTheme {
     vertical?: string;
     horizontal?: string;
   };
+  variant?: {
+    default?: string;
+    gradient?: string;
+  };
   disableMargins?: string;
 }
 
@@ -13,15 +17,15 @@ const baseTheme: DividerTheme = {
     horizontal: 'h-px w-full my-2.5',
     vertical: 'w-px h-full mx-2.5'
   },
+  variant: {
+    default: 'bg-surface',
+    gradient: 'bg-gradient-to-r from-transparent to-transparent via-blue-500'
+  },
   disableMargins: 'my-0 mx-0'
 };
 
 export const dividerTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    'bg-gradient-to-r from-transparent to-transparent via-blue-500 h-px'
-  ].join(' ')
+  ...baseTheme
 };
 
 export const legacyDividerTheme = {

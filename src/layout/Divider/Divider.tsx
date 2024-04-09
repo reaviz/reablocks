@@ -29,12 +29,18 @@ export interface DividerProps {
    * Theme for the Divider.
    */
   theme?: DividerTheme;
+
+  /**
+   * Variant of the divider.
+   */
+  variant?: 'default' | 'gradient';
 }
 
 export const Divider: FC<DividerProps> = ({
   className,
   disableMargins,
   orientation,
+  variant,
   theme: customTheme,
   ...rest
 }) => {
@@ -45,6 +51,7 @@ export const Divider: FC<DividerProps> = ({
       {...rest}
       className={twMerge(
         theme.base,
+        theme.variant[variant],
         theme.orientation[orientation],
         disableMargins && theme.disableMargins,
         className
@@ -55,5 +62,6 @@ export const Divider: FC<DividerProps> = ({
 
 Divider.defaultProps = {
   orientation: 'horizontal',
-  disableMargins: false
+  disableMargins: false,
+  variant: 'default'
 };
