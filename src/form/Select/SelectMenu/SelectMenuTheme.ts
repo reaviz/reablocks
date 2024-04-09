@@ -28,17 +28,13 @@ export const selectMenuTheme: SelectMenuTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'dark:bg-background-level4 light:bg-background-level3',
-    'border-gray-700'
+    'bg-panel text-panel-content border-panel-accent border-t-transparent'
   ].join(' '),
-  groupTitle: [baseTheme.groupTitle, 'text-zinc-500'].join(' '),
+  groupTitle: [baseTheme.groupTitle, 'text-panel-secondary-content'].join(' '),
   option: {
     ...baseTheme.option,
     base: [baseTheme.option.base, 'text-surface-content'].join(' '),
-    hover: [
-      baseTheme.option.hover,
-      'dark:hover:bg-zinc-700 light:hover:bg-zinc-400'
-    ].join(' '),
+    hover: [baseTheme.option.hover, 'hover:bg-panel-accent'].join(' '),
     active: [baseTheme.option.active, 'bg-zinc-700'].join(' '),
     selected: [
       baseTheme.option.selected,

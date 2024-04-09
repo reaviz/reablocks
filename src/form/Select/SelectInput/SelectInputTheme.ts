@@ -45,10 +45,12 @@ const baseTheme: SelectInputTheme = {
   suffix: {
     container: 'flex items-center justify-center',
     button: 'disabled:cursor-not-allowed',
-    refresh: 'mr-1.5 [&>svg]:w-5 [&>svg]:h-5 [&>svg]:fill-slate-500',
+    refresh:
+      'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-panel-secondary-content',
     loader: 'mr-2.5',
-    close: 'mr-1.5 [&>svg]:w-5 [&>svg]:h-5 [&>svg]:fill-slate-500',
-    expand: '[&>svg]:w-5 [&>svg]:h-5 [&>svg]:fill-slate-500'
+    close:
+      'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-panel-secondary-content',
+    expand: '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-panel-secondary-content'
   },
   disabled: 'cursor-not-allowed text-disabled',
   unfilterable: 'caret-transparent',
@@ -77,13 +79,15 @@ export const selectInputTheme: SelectInputTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'dark:bg-background-level4 light:bg-background-level3 border-gray-700 text-surface-content'
+    'bg-panel text-panel-content border-panel-accent border-solid'
   ].join(' '),
   disabled: [baseTheme.disabled, 'bg-secondary-inactive'].join(' '),
   error: [baseTheme.error, 'border-error'].join(' '),
   chip: {
     ...baseTheme.chip,
-    base: [baseTheme.chip.base, 'bg-zinc-600 text-surface-content'].join(' '),
+    base: [baseTheme.chip.base, 'bg-panel-accent text-surface-content'].join(
+      ' '
+    ),
     hover: [
       baseTheme.chip.hover,
       'dark:hover:bg-zinc-700 light:hover:bg-zinc-300'
