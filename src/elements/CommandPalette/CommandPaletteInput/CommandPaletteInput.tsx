@@ -12,7 +12,6 @@ import { HotkeyIem } from '../useFlattenedTree';
 import Mousetrap from 'mousetrap';
 import { CommandPaletteTheme } from '../CommandPaletteTheme';
 import { useComponentTheme } from '../../../utils';
-import { CommandPaletteInputTheme } from './CommandPaletteInputTheme';
 
 export interface CommandPaletteInputProps {
   /**
