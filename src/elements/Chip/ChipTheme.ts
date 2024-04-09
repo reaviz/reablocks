@@ -96,7 +96,7 @@ const baseTheme: Partial<ChipTheme> = {
   }
 };
 
-export const darkChipTheme: ChipTheme = {
+export const chipTheme: ChipTheme = {
   base: baseTheme.base,
   adornment: baseTheme.adornment,
   sizes: baseTheme.sizes,

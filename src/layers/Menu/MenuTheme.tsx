@@ -8,7 +8,7 @@ const baseTheme: MenuTheme = {
   inner: 'focus:outline-none'
 };
 
-export const darkMenuTheme: MenuTheme = {
+export const menuTheme: MenuTheme = {
   ...baseTheme,
   inner: [baseTheme.inner, 'text-panel-content bg-panel'].join(' ')
 };
