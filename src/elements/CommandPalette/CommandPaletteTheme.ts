@@ -29,11 +29,9 @@ const baseTheme: Partial<CommandPaletteTheme> = {
 };
 
 export const commandPaletteTheme: CommandPaletteTheme = {
-  base: [baseTheme.base, 'dark:border-zinc-700 light:border-gray-400'].join(
-    ' '
-  ),
-  inner: [baseTheme.inner, 'bg-background-level4 border-0'].join(' '),
-  emptyContainer: 'bg-background-level4',
+  base: [baseTheme.base, 'border-panel-accent'].join(' '),
+  inner: [baseTheme.inner, 'bg-panel border-0'].join(' '),
+  emptyContainer: 'bg-panel',
   input: commandPaletteInputTheme,
   item: commandPaletteItemTheme,
   section: commandPaletteSectionTheme

@@ -10,7 +10,7 @@ const baseTheme: CommandPaletteSectionTheme = {
 
 export const commandPaletteSectionTheme: CommandPaletteSectionTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-background-level4'].join(' ')
+  base: [baseTheme.base, 'bg-panel'].join(' ')
 };
 
 export const cssVarsCommandPaletteSectionTheme: CommandPaletteSectionTheme = {

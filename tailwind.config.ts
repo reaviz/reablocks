@@ -167,6 +167,7 @@ export const colorPalette = {
   // https://tailwindcss.com/docs/theme#referencing-other-values
   'black-pearl': '#02020F',
   'athens-gray': '#F7F7FA',
+  'mystic': '#E6E6F0',
   vulcan: '#11111F',
   charade: '#242433',
   waterloo: '#77778C',
@@ -261,7 +262,8 @@ const config: Config = {
         panel: {
           DEFAULT: colorPalette['white'],
           content: colorPalette['vulcan'],
-          'secondary-content': colorPalette.gray[700]
+          'secondary-content': colorPalette.gray[700],
+          accent: colorPalette['mystic']
         },
         surface: {
           DEFAULT: colorPalette.gray[300],
@@ -318,7 +320,8 @@ const config: Config = {
           // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
           DEFAULT: colorPalette['black-pearl'],
           content: colorPalette['athens-gray'],
-          'secondary-content': colorPalette.gray[600]
+          'secondary-content': colorPalette.gray[600],
+          accent: colorPalette['charade']
         },
         surface: {
           // Form component backgrounds, such as text fields, checkboxes, select, etc.

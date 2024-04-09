@@ -13,13 +13,12 @@ const baseTheme: CommandPaletteInputTheme = {
 
 export const commandPaletteInputTheme: CommandPaletteInputTheme = {
   ...baseTheme,
-  base: [
-    baseTheme.base,
-    'bg-background-level4 dark:border-zinc-700 light:border-zinc-400'
-  ].join(' '),
+  base: [baseTheme.base, 'bg-panel border-bottom border-panel-accent'].join(
+    ' '
+  ),
   input: [
     baseTheme.input,
-    'bg-background-level4 text-panel-content placeholder:text-slate-500'
+    'bg-panel text-panel-content placeholder:text-slate-500'
   ].join(' ')
 };
 
