@@ -37,13 +37,13 @@ const baseTheme: NotificationTheme = {
   }
 };
 
-export const darkNotificationTheme: NotificationTheme = {
+export const notificationTheme: NotificationTheme = {
   ...baseTheme,
   notification: {
     ...baseTheme.notification,
     base: [
       baseTheme.notification.base,
-      'bg-background-level4 border-gray-400 text-surface-content'
+      'bg-surface text-surface-content border-surface-accent border-solid'
     ].join(' '),
     closeButton: [
       baseTheme.notification.closeButton,

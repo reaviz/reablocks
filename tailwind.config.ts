@@ -250,13 +250,6 @@ const config: Config = {
           hover: colorPalette.blue[400],
           fill: colorPalette.blue[950]
         },
-        background: {
-          // Page background
-          level1: colorPalette.white,
-          level2: colorPalette.gray[100],
-          level3: colorPalette.gray[200],
-          level4: colorPalette.gray[300]
-        },
         panel: {
           // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
           DEFAULT: colorPalette['white'],
@@ -308,13 +301,6 @@ const config: Config = {
           active: colorPalette.blue[500],
           hover: colorPalette.blue[600],
           fill: colorPalette.blue[100]
-        },
-        background: {
-          // Page background
-          level1: colorPalette.white,
-          level2: colorPalette.gray[950],
-          level3: colorPalette.gray[900],
-          level4: colorPalette.gray[800]
         },
         panel: {
           // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
