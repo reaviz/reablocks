@@ -162,9 +162,6 @@ export const colorPalette = {
     900: '#051C4C',
     950: '#041028'
   },
-  // I really don't like this but this solution wouldn't
-  // work for me because it would cause circular loops
-  // https://tailwindcss.com/docs/theme#referencing-other-values
   'black-pearl': '#02020F',
   'athens-gray': '#F7F7FA',
   'mystic': '#E6E6F0',
@@ -254,18 +251,21 @@ const config: Config = {
           fill: colorPalette.blue[950]
         },
         background: {
+          // Page background
           level1: colorPalette.white,
           level2: colorPalette.gray[100],
           level3: colorPalette.gray[200],
           level4: colorPalette.gray[300]
         },
         panel: {
+          // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
           DEFAULT: colorPalette['white'],
           content: colorPalette['vulcan'],
           'secondary-content': colorPalette.gray[700],
           accent: colorPalette['mystic']
         },
         surface: {
+          // Form component backgrounds, such as text fields, checkboxes, select, etc.
           DEFAULT: colorPalette.gray[300],
           content: colorPalette.black,
           accent: colorPalette.blue[500],
