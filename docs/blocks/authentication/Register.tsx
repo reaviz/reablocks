@@ -122,7 +122,7 @@ export const Register = () => {
               privacy policy
             </Button>
           </div>
-          <Divider className="mt-5 mb-5" />
+          <Divider className="mt-5 mb-5" variant="gradient" />
           <div className="mt-5 text-center text-panel-secondary-content text-sm">
             Already have an account?
             <Button variant="text" color="primary">

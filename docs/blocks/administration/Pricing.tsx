@@ -54,7 +54,7 @@ export const Pricing = () => {
               <h1 className="text-3xl font-semibold">$0</h1>
               <span className="font-bold text-waterloo">/Month</span>
             </Stack>
-            <Divider className="mt-0" />
+            <Divider className="mt-0" variant="gradient" />
             <Stack direction="column" alignItems="start" className="grow">
               <List>
                 <ListItem start={<CheckIcon />} className="text-waterloo">
@@ -122,7 +122,7 @@ export const Pricing = () => {
               <h1 className="text-3xl font-semibold">$1,000</h1>
               <span className="font-bold text-waterloo">/Month</span>
             </Stack>
-            <Divider className="mt-0" />
+            <Divider className="mt-0" variant="gradient" />
             <Stack direction="column" alignItems="start" className="grow">
               <List>
                 <ListItem start={<CheckIcon />} className="text-waterloo">
@@ -182,7 +182,7 @@ export const Pricing = () => {
             <h6 className="text-lg font-semibold leading-[31px]">Enterprise</h6>
             <span className="text-waterloo">For all custom needs</span>
             <h1 className="text-3xl font-semibold">Custom</h1>
-            <Divider className="mt-0" />
+            <Divider className="mt-0" variant="gradient" />
             <Stack direction="column" alignItems="start" className="grow">
               <List>
                 <ListItem start={<CheckIcon />} className="text-waterloo">

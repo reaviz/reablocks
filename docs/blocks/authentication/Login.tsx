@@ -77,7 +77,7 @@ export const Login = () => {
           >
             {isSubmitting ? 'Logging in...' : 'Login'}
           </Button>
-          <Divider className="mt-5 mb-5" />
+          <Divider className="mt-5 mb-5" variant="gradient" />
           <Button
             fullWidth
             variant="outline"

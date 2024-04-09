@@ -94,7 +94,7 @@ export const ForgotPassword = () => {
               )}
             />
           </Block>
-          <Divider />
+          <Divider variant="gradient" />
           <Button
             type="submit"
             fullWidth
