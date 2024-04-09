@@ -30,10 +30,11 @@ export const tabsTheme: TabsTheme = {
   ...baseTheme,
   list: {
     ...baseTheme.list,
-    base: `border-b dark:border-gray-700 light:border-gray-100 ${baseTheme.list.base}`,
+    base: `border-b border-panel-accent ${baseTheme.list.base}`,
     indicator: `bg-primary ${baseTheme.list.indicator}`,
     tab: {
-      ...baseTheme.list.tab
+      ...baseTheme.list.tab,
+      base: `${baseTheme.list.tab.base} text-panel-content`
     }
   }
 };
