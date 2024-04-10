@@ -38,7 +38,7 @@ export const commandPaletteTheme: CommandPaletteTheme = {
 };
 
 export const legacyCommandPaletteTheme: CommandPaletteTheme = {
-  base: [baseTheme.base, 'border-zinc-700'].join(' '),
+  base: [baseTheme.base, 'border-panel-accent'].join(' '),
   inner: baseTheme.inner,
   emptyContainer: '',
   input: cssVarsCommandPaletteInputTheme,
