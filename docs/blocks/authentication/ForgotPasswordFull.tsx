@@ -3,7 +3,7 @@ import { Button } from '../../../src/elements/Button';
 import { Card } from '../../../src/layout/Card';
 import { Block } from '../../../src/layout/Block';
 import { useForm, Controller } from 'react-hook-form';
-import { Divider } from '../../../src/layout';
+import { Divider } from '../../../src/layout/Divider';
 import { Stack } from '../../../src/layout/Stack';
 import { motion } from 'framer-motion';
 import logo from '../../assets/reaviz.svg';

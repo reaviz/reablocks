@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input } from '../../../src/form/Input';
-import { Button } from '../../../src/elements';
+import { Button } from '../../../src/elements/Button';
 
 export const NotFound = () => (
   <div className="flex flex-row justify-center w-full relative">

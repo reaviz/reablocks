@@ -1,15 +1,12 @@
 import { useState } from 'react';
-import {
-  Card,
-  Divider,
-  MotionGroup,
-  MotionItem,
-  Stack,
-  VerticalSpacer
-} from '../../../src/layout';
+import { Card } from '../../../src/layout/Card';
+import { Divider } from '../../../src/layout/Divider';
+import { MotionGroup, MotionItem } from '../../../src/layout/Motion';
+import { Stack } from '../../../src/layout/Stack';
+import { VerticalSpacer } from '../../../src/layout/VerticalSpacer';
 import { Button } from '../../../src/elements/Button';
-import { cn } from '../../../src/utils';
-import { Chip } from '../../../src/elements';
+import { cn } from '../../../src/utils/Theme/helpers';
+import { Chip } from '../../../src/elements/Chip';
 
 export const PricingFull = () => {
   const [cycle, setCycle] = useState('Monthly');

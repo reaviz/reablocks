@@ -1,18 +1,15 @@
 import { useState } from 'react';
-import {
-  Card,
-  Divider,
-  List,
-  ListItem,
-  MotionGroup,
-  MotionItem,
-  Stack
-} from '../../../src/layout';
+import { Card } from '../../../src/layout/Card';
+import { Divider } from '../../../src/layout/Divider';
+import { MotionGroup, MotionItem } from '../../../src/layout/Motion';
+import { Stack } from '../../../src/layout/Stack';
+import { List, ListItem } from '../../../src/layout/List';
 import { Button } from '../../../src/elements/Button';
-import { Chip } from '../../../src/elements';
-import { cn } from '../../../src/utils';
+import { Chip } from '../../../src/elements/Chip';
+import { cn } from '../../../src/utils/Theme/helpers';
 import { motion } from 'framer-motion';
-import { Radio, radioTheme, Toggle, toggleTheme } from '../../../src/form';
+import { Radio, radioTheme } from '../../../src/form/Radio';
+import { Toggle, toggleTheme } from '../../../src/form/Toggle';
 
 const CheckIcon = () => (
   <svg

@@ -1,16 +1,12 @@
 import { useState } from 'react';
-import {
-  Card,
-  Divider,
-  List,
-  ListItem,
-  MotionGroup,
-  MotionItem,
-  Stack
-} from '../../../src/layout';
+import { Card } from '../../../src/layout/Card';
+import { Divider } from '../../../src/layout/Divider';
+import { List, ListItem } from '../../../src/layout/List';
+import { MotionGroup, MotionItem } from '../../../src/layout/Motion';
+import { Stack } from '../../../src/layout/Stack';
 import { Button } from '../../../src/elements/Button';
-import { cn } from '../../../src/utils';
-import { Chip } from '../../../src/elements';
+import { cn } from '../../../src/utils/Theme/helpers';
+import { Chip } from '../../../src/elements/Chip';
 
 const CheckIcon = () => (
   <svg

@@ -3,8 +3,9 @@ import { Input } from '../../../src/form/Input';
 import { Button } from '../../../src/elements/Button';
 import { Avatar } from '../../../src/elements/Avatar';
 import { motion } from 'framer-motion';
-import { Card, Divider } from '../../../src/layout';
-import { Radio } from '../../../src/form';
+import { Card } from '../../../src/layout/Card';
+import { Divider } from '../../../src/layout/Divider';
+import { Radio } from '../../../src/form/Radio';
 import logo from '../../assets/reaviz.svg';
 
 export const Profile = () => (
