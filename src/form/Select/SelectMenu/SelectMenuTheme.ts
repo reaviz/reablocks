@@ -38,7 +38,7 @@ export const selectMenuTheme: SelectMenuTheme = {
     active: [baseTheme.option.active, 'bg-panel-accent'].join(' '),
     selected: [
       baseTheme.option.selected,
-      'bg-primary-active hover:bg-primary-hover light:bg-primary-active'
+      'bg-primary-active hover:bg-primary-hover light:bg-primary-active light:[&>div>span]:invert'
     ].join(' ')
   }
 };
