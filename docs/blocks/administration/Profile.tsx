@@ -1,17 +1,12 @@
-import { List, ListItem } from '../../../src/layout/List';
 import { Stack } from '../../../src/layout/Stack';
-import { useForm, Controller } from 'react-hook-form';
 import { Input } from '../../../src/form/Input';
 import { Button } from '../../../src/elements/Button';
-import { Block } from '../../../src/layout/Block';
 import { Avatar } from '../../../src/elements/Avatar';
 import { motion } from 'framer-motion';
 import { Card, Divider } from '../../../src/layout';
 import logo from '../../assets/reaviz.svg';
 
 export const Profile = () => {
-  // const { control, handleSubmit, formState: { isSubmitting } } = useForm();
-
   return (
     <motion.div
       initial={{ y: -20, opacity: 0 }}
