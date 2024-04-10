@@ -65,10 +65,9 @@ const baseTheme: Partial<CheckboxTheme> = {
 
 export const checkboxTheme: CheckboxTheme = {
   ...baseTheme,
-  checkbox: [
-    baseTheme.checkbox,
-    'fill-transparent border border-gray-500'
-  ].join(' '),
+  checkbox: [baseTheme.checkbox, 'fill-transparent border border-surface'].join(
+    ' '
+  ),
   check: [baseTheme.check, 'stroke-primary'].join(' '),
   label: {
     ...baseTheme.label,
