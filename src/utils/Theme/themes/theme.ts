@@ -95,16 +95,6 @@ import {
   TreeTheme,
   legacyBlockTheme,
   legacyListTheme,
-  legacyStackTheme,
-  legacyCardTheme,
-  legacyVerticalSpacerTheme,
-  legacyCollapseTheme,
-  legacyTreeTheme,
-  legacyTabsTheme,
-  legacyDividerTheme
-} from '../../../layout';
-
-import {
   verticalSpacerTheme,
   VerticalSpacerTheme,
   CardTheme,
@@ -112,7 +102,14 @@ import {
   listTheme,
   ListTheme,
   stackTheme,
-  StackTheme
+  StackTheme,
+  legacyStackTheme,
+  legacyCardTheme,
+  legacyVerticalSpacerTheme,
+  legacyCollapseTheme,
+  legacyTreeTheme,
+  legacyTabsTheme,
+  legacyDividerTheme
 } from '../../../layout';
 
 import {
