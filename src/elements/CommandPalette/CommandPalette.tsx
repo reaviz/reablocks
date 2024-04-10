@@ -14,9 +14,9 @@ import {
   HotkeyIem,
   useFlattenedTree
 } from './useFlattenedTree';
-import { List, ListItem } from '../../layout';
-import { Card } from '../../layout';
-import { MotionGroup } from '../../layout';
+import { List, ListItem } from '../../layout/List';
+import { Card } from '../../layout/Card';
+import { MotionGroup } from '../../layout/Motion';
 import { useComponentTheme } from '../../utils';
 import { CommandPaletteTheme } from './CommandPaletteTheme';
 

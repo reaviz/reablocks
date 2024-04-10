@@ -3,7 +3,8 @@ import { Card } from '../../layout/Card';
 import { Calendar } from './Calendar';
 import { CalendarRange } from './CalendarRange';
 import { add, addMonths, sub } from 'date-fns';
-import { Divider, Stack } from '../../layout';
+import { Divider } from '../../layout/Divider';
+import { Stack } from '../../layout/Stack';
 
 export default {
   title: 'Components/Form/Calendar',

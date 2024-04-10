@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../../elements';
+import { Button } from '../../elements/Button';
 import { Card } from '../../layout/Card';
 import { List, ListItem } from '../../layout/List';
 import { ContextMenu } from './ContextMenu';

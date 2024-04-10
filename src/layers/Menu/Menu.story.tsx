@@ -4,7 +4,7 @@ import { List, ListItem } from '../../layout/List';
 import { Menu } from './Menu';
 import { NestedMenu } from './NestedMenu';
 import { useMenu } from './useMenu';
-import { Button } from '../../elements';
+import { Button } from '../../elements/Button';
 
 export default {
   title: 'Components/Layers/Menu',
