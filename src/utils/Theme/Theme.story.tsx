@@ -10,8 +10,8 @@ import {
 } from './blocks';
 import favoriteIcon from './icon-demo.svg';
 import TWConfig from './config';
-import { useTheme } from './hooks';
-import { extractTheme } from './themes';
+import { useTheme } from './hooks/useTheme';
+import { extractTheme } from './themes/extractTheme';
 
 export default {
   title: 'Components/Theme',

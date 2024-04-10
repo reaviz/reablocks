@@ -1,7 +1,6 @@
 import React, { createContext, FC, useEffect, useState } from 'react';
-import { ReablocksTheme } from './themes';
 import { mergeDeep } from './helpers';
-import { theme as defaultTheme } from './themes';
+import { ReablocksTheme, theme as defaultTheme } from './themes/theme';
 
 export interface ThemeContextProps {
   theme: ReablocksTheme;
