@@ -96,7 +96,7 @@ export const PricingFull = () => {
             <VerticalSpacer space="md" />
             <Button
               color="primary"
-              className="px-4 py-2 text-lg gap-2 dark:bg-button-gradient dark:hover:bg-button-gradient-hover dark:focus:bg-button-gradient-focus light:focus:bg-primary-hover focus:outline-none transition-colors"
+              className="px-4 py-2 text-lg gap-2 bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
