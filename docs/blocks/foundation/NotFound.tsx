@@ -5,13 +5,13 @@ import { Button } from '../../../src/elements';
 export const NotFound = () => (
   <div className="flex flex-row justify-center w-full relative">
     <div className="text-center">
-      <div className="absolute top-[-100%] left-0 z-0 w-full text-center text-transparent !bg-clip-text !text-[400px] [background:radial-gradient(50%_50%_at_50%_50%,rgb(36.13,36.13,65.87)_2.03%,rgb(2,2,15)_80.17%)]">
+      <div className="absolute top-[-100%] left-0 z-0 w-full text-center text-transparent bg-clip-text text-[400px] opacity-30 bg-gradient-to-r from-waterloo to-charade">
         404
       </div>
-      <div className="text-white z-10 relative font-bold !text-5xl">
+      <div className="text-surface-content z-10 relative font-bold !text-5xl">
         We lost this page
       </div>
-      <div className="text-white opacity-50 pb-10 z-10 relative">
+      <div className="text-surface-content opacity-80 pb-10 z-10 relative">
         The page you are looking for doesnt exist or has been moved.
       </div>
       <Input
@@ -39,7 +39,7 @@ export const NotFound = () => (
           </svg>
         }
       />
-      <Button color="primary" className="mt-10 z-10 relative">
+      <Button color="primary" className="mt-10 z-10 mx-auto relative rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus focus:outline-none transition-colors">
         ← Back to Home
       </Button>
     </div>
