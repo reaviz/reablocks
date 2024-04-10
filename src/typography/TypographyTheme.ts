@@ -50,7 +50,7 @@ const baseTheme: TypographyTheme = {
   secondaryHeading: 'text-3xl font-normal mb-1',
   primaryHeading: 'text-3xl font-extrabold mb-1',
   pageTitle: 'text-[40px] font-semibold mb-5',
-  disableMargins: 'ml-0 mr-0 mb-0 mt-0'
+  disableMargins: 'm-0'
 };
 
 export const typographyTheme = {
@@ -68,14 +68,14 @@ export const legacyTypographyTheme = {
     info: 'text-[var(--info-color)]'
   },
   pageTitle:
-    '[font-family:_var(--font-family)] [font-size:_var(--page-title-font-size)] [font-weight:_var(--page-title-font-weight)] color-[var(--page-title-color)] [margin:_var(--page-title-margin)]',
+    '[font-family:_var(--font-family)] [font-size:_var(--page-title-font-size)] [font-weight:_var(--page-title-font-weight)] color-[var(--page-title-color)] m-[var(--page-title-margin)]',
   primaryHeading:
-    '[font-family:_var(--font-family)] [font-size:_var(--primary-heading-font-size)] [font-weight:_var(--primary-heading-font-weight)] text-[var(--primary-heading-color)] [margin:_var(--primary-heading-margin)]',
+    '[font-family:_var(--font-family)] [font-size:_var(--primary-heading-font-size)] [font-weight:_var(--primary-heading-font-weight)] text-[var(--primary-heading-color)] m-[var(--primary-heading-margin)]',
   secondaryHeading:
-    '[font-family:_var(--font-family)] [font-size:_var(--secondary-heading-font-size)] [font-weight:_var(--secondary-heading-font-weight)] text-[var(--secondary-heading-color)] [margin:_var(--secondary-heading-margin)]',
+    '[font-family:_var(--font-family)] [font-size:_var(--secondary-heading-font-size)] [font-weight:_var(--secondary-heading-font-weight)] text-[var(--secondary-heading-color)] m-[var(--secondary-heading-margin)]',
   smallHeading:
-    '[font-family:_var(--font-family)] [font-size:_var(--small-heading-font-size)] [font-weight:_var(--small-heading-font-weight)] text-[var(--small-heading-color)] [margin:_var(--small-heading-margin)]',
-  sub: '[font-size:_var(--sub-font-size)] [font-weight:_var(--sub-font-weight)] text-[var(--sub-color)] [margin:_var(--sub-margin)]',
+    '[font-family:_var(--font-family)] [font-size:_var(--small-heading-font-size)] [font-weight:_var(--small-heading-font-weight)] text-[var(--small-heading-color)] m-[var(--small-heading-margin)]',
+  sub: '[font-size:_var(--sub-font-size)] [font-weight:_var(--sub-font-weight)] text-[var(--sub-color)] m-[var(--sub-margin)]',
   text: {
     ...baseTheme.text,
     thin: '[font-weight:_var(--font-weight-thin)]',
