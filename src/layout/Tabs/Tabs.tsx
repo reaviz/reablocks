@@ -7,13 +7,13 @@ import React, {
   useMemo,
   useState
 } from 'react';
-import { useComponentTheme } from '../../utils';
+import { useId } from 'rdk';
+import { twMerge } from 'tailwind-merge';
+import { AnimatePresence } from 'framer-motion';
+import { useComponentTheme } from '../../utils/Theme/hooks';
 import { TabsTheme } from './TabsTheme';
 import { TabPanel } from './TabPanel';
-import { twMerge } from 'tailwind-merge';
 import { TabList } from './TabList';
-import { AnimatePresence } from 'framer-motion';
-import { useId } from 'rdk';
 
 export interface TabsProps extends PropsWithChildren {
   /**
