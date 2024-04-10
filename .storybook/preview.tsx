@@ -4,7 +4,7 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import { DocsContainer } from '@storybook/addon-docs';
 
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
-import { theme as reablocksTheme } from '../src';
+import { theme as reablocksTheme } from '../src/utils/Theme/themes/theme';
 
 import '../src/index.css';
 
