@@ -5,12 +5,10 @@ import {
   SpacingBlocks,
   BorderBlocks,
   IconBlocks,
-  PaletteBlocks,
   ShadowBlocks,
   ComponentBlocks
 } from './blocks';
 import favoriteIcon from './icon-demo.svg';
-import tailwindConfig from '../../../tailwind.config';
 import TWConfig from './config';
 import { useTheme } from './hooks';
 import { extractTheme } from './themes';
@@ -28,18 +26,15 @@ export default {
 
 const {
   colors,
-  palettes,
   borderRadius,
   boxShadow,
   spacing,
   fontFamily,
   fontSize,
   fontWeight
-} = extractTheme(TWConfig, tailwindConfig);
+} = extractTheme(TWConfig);
 
 export const Colors = () => <ColorBlocks colors={colors} />;
-
-export const Palettes = () => <PaletteBlocks palettes={palettes} />;
 
 export const Typography = () => (
   <TypographyBlocks
