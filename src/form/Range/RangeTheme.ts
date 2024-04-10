@@ -27,7 +27,7 @@ const baseTheme: RangeTheme = {
 
 export const rangeTheme: RangeTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'dark:bg-zinc-700 light:bg-zinc-400'].join(' '),
+  base: [baseTheme.base, 'bg-surface'].join(' '),
   inputWrapper: {
     ...baseTheme.inputWrapper,
     base: [baseTheme.inputWrapper.base, 'bg-primary'].join(' ')
