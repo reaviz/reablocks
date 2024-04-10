@@ -13,14 +13,7 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/react-vite',
     options: {}
-  },
-  viteFinal: config => ({
-    ...config,
-    build: {
-      ...config.build,
-      minify: false
-    }
-  })
+  }
 };
 
 export default config;
