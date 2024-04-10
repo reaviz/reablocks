@@ -39,13 +39,27 @@ export interface InputProps
 
   /**
    * Content to display before the input.
+   *
+   * @deprecated Use `startAdornment` instead.
    */
   start?: React.ReactNode | string;
 
   /**
    * Content to display after the input.
+   *
+   * @deprecated Use `endAdornment` instead.
    */
   end?: React.ReactNode | string;
+
+  /**
+   * Element to display before the Button content.
+   */
+  startAdornment?: any;
+
+  /**
+   * Element to display after the Button content.
+   */
+  endAdornment?: any;
 
   /**
    * Shortcut for the onChange value event.
@@ -76,6 +90,8 @@ export const Input = forwardRef<InputRef, InputProps>(
       selectOnFocus,
       start,
       end,
+      startAdornment,
+      endAdornment,
       autoFocus,
       disabled,
       value,
@@ -122,9 +138,9 @@ export const Input = forwardRef<InputRef, InputProps>(
         )}
         ref={containerRef}
       >
-        {start && (
+        {(start || startAdornment) && (
           <div className={twMerge(theme.adornment.base, theme.adornment.start)}>
-            {start}
+            {start ?? startAdornment}
           </div>
         )}
         <input
@@ -148,9 +164,9 @@ export const Input = forwardRef<InputRef, InputProps>(
             onChange?.(event);
           }}
         />
-        {end && (
+        {(end || endAdornment) && (
           <div className={twMerge(theme.adornment.base, theme.adornment.end)}>
-            {end}
+            {end ?? endAdornment}
           </div>
         )}
       </div>
