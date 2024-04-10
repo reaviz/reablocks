@@ -54,12 +54,12 @@ export interface InputProps
   /**
    * Element to display before the Button content.
    */
-  startAdornment?: any;
+  startAdornment?: React.ReactNode | string;
 
   /**
    * Element to display after the Button content.
    */
-  endAdornment?: any;
+  endAdornment?: React.ReactNode | string;
 
   /**
    * Shortcut for the onChange value event.
