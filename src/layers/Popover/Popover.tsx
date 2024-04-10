@@ -37,7 +37,7 @@ export interface PopoverProps extends Partial<Omit<TooltipProps, 'theme'>> {
    * Popover has a focus trap that by default focuses the first element in the tab order.
    * With this option you can specify a different element to receive that initial focus, or use false for no initially focused element.
    */
-  initialFocus?: FocusTargetOrFalse | undefined | (() => void);
+  autoFocus?: FocusTargetOrFalse | undefined | (() => void);
 }
 
 export const Popover: FC<PopoverProps> = ({
@@ -52,7 +52,7 @@ export const Popover: FC<PopoverProps> = ({
   popoverStyle,
   popoverClassName,
   theme: customTheme,
-  initialFocus,
+  autoFocus,
   ...rest
 }) => {
   const id = useId();
@@ -83,7 +83,7 @@ export const Popover: FC<PopoverProps> = ({
               escapeDeactivates: true,
               clickOutsideDeactivates: true,
               fallbackFocus: `#${id}`,
-              initialFocus
+              initialFocus: autoFocus
             }}
           >
             <div
