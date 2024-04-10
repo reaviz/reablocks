@@ -6,6 +6,12 @@ import { twMerge } from 'tailwind-merge';
 import { PopoverTheme } from './PopoverTheme';
 import { useComponentTheme } from '../../utils';
 
+type FocusTargetValueOrFalse = HTMLElement | SVGElement | string | false;
+
+type FocusTargetOrFalse =
+  | FocusTargetValueOrFalse
+  | (() => FocusTargetValueOrFalse);
+
 export interface PopoverProps extends Partial<Omit<TooltipProps, 'theme'>> {
   /**
    * Disable default padding on popover.
@@ -26,6 +32,12 @@ export interface PopoverProps extends Partial<Omit<TooltipProps, 'theme'>> {
    * Theme for the Popover.
    */
   theme?: PopoverTheme;
+
+  /**
+   * Popover has a focus trap that by default focuses the first element in the tab order.
+   * With this option you can specify a different element to receive that initial focus, or use false for no initially focused element.
+   */
+  initialFocus?: FocusTargetOrFalse | undefined | (() => void);
 }
 
 export const Popover: FC<PopoverProps> = ({
@@ -40,6 +52,7 @@ export const Popover: FC<PopoverProps> = ({
   popoverStyle,
   popoverClassName,
   theme: customTheme,
+  initialFocus,
   ...rest
 }) => {
   const id = useId();
@@ -69,7 +82,8 @@ export const Popover: FC<PopoverProps> = ({
             focusTrapOptions={{
               escapeDeactivates: true,
               clickOutsideDeactivates: true,
-              fallbackFocus: `#${id}`
+              fallbackFocus: `#${id}`,
+              initialFocus
             }}
           >
             <div
