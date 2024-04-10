@@ -38,11 +38,11 @@ const baseTheme: ToggleTheme = {
 
 export const toggleTheme: ToggleTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'dark:bg-gray-400 light:bg-gray-400'].join(' '),
-  checked: [baseTheme.checked, '!bg-primary/60'].join(' '),
+  base: [baseTheme.base, 'bg-surface'].join(' '),
+  checked: [baseTheme.checked, 'bg-primary'].join(' '),
   handle: {
     ...baseTheme.handle,
-    base: [baseTheme.handle.base, 'bg-gray-500 bg-gray-500'].join(' ')
+    base: [baseTheme.handle.base, 'bg-white'].join(' ')
   }
 };
 
