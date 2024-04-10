@@ -59,9 +59,9 @@ export interface ButtonTheme {
 }
 
 const baseTheme: Partial<ButtonTheme> = {
-  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded',
+  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-sm font-sans',
   disabled: 'disabled:cursor-not-allowed',
-  fullWidth: 'block w-full',
+  fullWidth: 'flex w-full',
   group:
     'rounded-none first:rounded-s last:rounded-e border-s-0 first:border-s',
   groupText:
@@ -78,64 +78,13 @@ const baseTheme: Partial<ButtonTheme> = {
   },
   sizes: {
     small: 'text-xs px-5px py-0.5 leading-[normal]',
-    medium: 'text-base px-2.5 py-5px leading-[normal]',
+    medium: 'text-base px-2.5 py-1.5 leading-[normal]',
     large: 'text-xl px-5 py-2.5 leading-[normal]'
   }
 };
 
-export const lightButtonTheme: ButtonTheme = {
-  base: [baseTheme.base, 'text-black'].join(' '),
-  disabled: [
-    baseTheme.disabled,
-    'data-[variant=filled]:disabled:bg-gray-400 data-[variant=filled]:disabled:text-gray-500 disabled:text-gray-400'
-  ].join(' '),
-  fullWidth: baseTheme.fullWidth,
-  group: baseTheme.group,
-  adornment: baseTheme.adornment,
-  sizes: baseTheme.sizes,
-  groupText: [baseTheme.groupText, 'border-s-black first:border-s-0'].join(' '),
-  variants: {
-    filled: 'bg-secondary-700 border-secondary-700 hover:bg-secondary-600',
-    outline: 'bg-opacity-0 border-gray-900 border',
-    text: 'bg-opacity-0 border-0'
-  },
-  colors: {
-    default: {
-      filled:
-        'bg-secondary-700 border-secondary-700 hover:bg-secondary-600 text-white',
-      outline: 'border border-gray-900 text-black',
-      text: 'text-black'
-    },
-    primary: {
-      filled: 'bg-primary-700 hover:bg-primary-600 text-white',
-      outline: 'border border-primary-700 ',
-      text: 'text-primary-600 hover:text-primary-700'
-    },
-    secondary: {
-      filled: 'bg-secondary-700 hover:bg-secondary-600 text-white',
-      outline: 'border border-secondary-700',
-      text: 'text-secondary-600 hover:text-secondary-700'
-    },
-    success: {
-      filled: 'bg-success-700 hover:bg-success-600 text-white',
-      outline: 'border border-success-700',
-      text: 'text-success-600 hover:text-success-700'
-    },
-    warning: {
-      filled: 'bg-warning-700 hover:bg-warning-600 text-white',
-      outline: 'border border-warning-400',
-      text: 'text-warning-600 hover:text-warning-700'
-    },
-    error: {
-      filled: 'bg-error-700 hover:bg-error-600 text-white',
-      outline: 'border border-error-600',
-      text: 'text-error-600 hover:text-error-700'
-    }
-  }
-};
-
-export const darkButtonTheme: ButtonTheme = {
-  base: [baseTheme.base, 'text-gray-100'].join(' '),
+export const buttonTheme: ButtonTheme = {
+  base: [baseTheme.base, 'text-surface-content'].join(' '),
   disabled: [
     baseTheme.disabled,
     'data-[variant=filled]:disabled:bg-gray-600 disabled:text-gray-400 border-gray-500'
@@ -146,44 +95,45 @@ export const darkButtonTheme: ButtonTheme = {
   adornment: baseTheme.adornment,
   sizes: baseTheme.sizes,
   variants: {
-    filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
+    filled:
+      'bg-secondary hover:bg-border-secondary-hover border-secondary light:text-gray-100',
     outline: 'bg-opacity-0 border-grey border',
     text: 'bg-opacity-0 border-0'
   },
   colors: {
     default: {
       filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
-      outline: 'border-grey border',
-      text: 'text-white'
+      outline: 'border-secondary border',
+      text: 'text-surface-content'
     },
     primary: {
       filled:
-        'bg-primary-600 hover:bg-primary-700 border-primary-600 text-white',
-      outline: 'border border-primary-600',
-      text: 'text-primary-600 hover:text-primary-700'
+        'bg-primary hover:bg-primary-hover border-primary text-surface-content',
+      outline: 'border border-primary',
+      text: 'text-primary hover:text-primary-hover'
     },
     secondary: {
       filled:
-        'bg-secondary-700 hover:bg-secondary-800 border-secondary-700 text-white',
-      outline: 'border border-secondary-700',
-      text: 'text-secondary-700 hover:text-secondary-800'
+        'bg-secondary hover:bg-secondary-hover border-secondary text-surface-content',
+      outline: 'border border-secondary',
+      text: 'text-secondary hover:text-secondary-hover'
     },
     success: {
       filled:
-        'bg-success-700 hover:bg-success-800 border-success-700 text-white',
-      outline: 'border border-success-700',
-      text: 'text-success-700 hover:text-success-800'
+        'bg-success hover:bg-success-hover border-success text-surface-content',
+      outline: 'border border-success',
+      text: 'text-success hover:text-success-hover'
     },
     warning: {
       filled:
-        'bg-warning-700 hover:bg-warning-800 border-warning-700 text-white',
-      outline: 'border border-warning-700',
-      text: 'text-warning-700 hover:text-warning-800'
+        'bg-warning hover:bg-warning-hover border-warning text-surface-content',
+      outline: 'border border-warning',
+      text: 'text-warning hover:text-warning-hover'
     },
     error: {
-      filled: 'bg-error-700 hover:bg-error-800 border-error-700 text-white',
-      outline: 'border border-error-700',
-      text: 'text-error-700 hover:text-error-800'
+      filled: 'bg-error hover:bg-error-hover border-error text-surface-content',
+      outline: 'border border-error',
+      text: 'text-error hover:text-error-hover'
     }
   }
 };

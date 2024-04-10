@@ -2,7 +2,7 @@ import React from 'react';
 import { Tooltip } from './Tooltip';
 import { Button } from '../../elements';
 import { extendComponentTheme } from '../../utils';
-import { darkTooltipTheme, TooltipTheme } from './TooltipTheme';
+import { tooltipTheme, TooltipTheme } from './TooltipTheme';
 
 export default {
   title: 'Components/Layers/Tooltip',
@@ -27,7 +27,7 @@ export const Simple = () => (
 );
 
 export const CustomTheme = () => {
-  const customTheme = extendComponentTheme<TooltipTheme>(darkTooltipTheme, {
+  const customTheme = extendComponentTheme<TooltipTheme>(tooltipTheme, {
     base: 'rounded bg-green-800 text-white font-bold p-3 text-base'
   });
 

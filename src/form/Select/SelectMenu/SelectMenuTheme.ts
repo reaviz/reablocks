@@ -24,36 +24,21 @@ const baseTheme: SelectMenuTheme = {
   }
 };
 
-export const lightSelectMenuTheme: SelectMenuTheme = {
+export const selectMenuTheme: SelectMenuTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-light-background border-gray-400 text-black'].join(
-    ' '
-  ),
-  groupTitle: [baseTheme.groupTitle, 'text-gray-500'].join(' '),
+  base: [
+    baseTheme.base,
+    'bg-panel text-panel-content border-panel-accent border-t-transparent'
+  ].join(' '),
+  groupTitle: [baseTheme.groupTitle, 'text-panel-secondary-content'].join(' '),
   option: {
     ...baseTheme.option,
-    base: [baseTheme.option.base, 'text-black'].join(' '),
-    hover: [
-      baseTheme.option.hover,
-      'hover:bg-primary-500 hover:text-white'
-    ].join(' '),
-    active: [baseTheme.option.active, 'bg-primary-500 text-white'].join(' '),
-    selected: [baseTheme.option.selected, 'bg-primary-500 text-white'].join(' ')
-  }
-};
-
-export const darkSelectMenuTheme: SelectMenuTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-dark-background', 'border-gray-700'].join(' '),
-  groupTitle: [baseTheme.groupTitle, 'text-zinc-500'].join(' '),
-  option: {
-    ...baseTheme.option,
-    base: [baseTheme.option.base, 'text-white'].join(' '),
-    hover: [baseTheme.option.hover, 'hover:bg-zinc-700'].join(' '),
-    active: [baseTheme.option.active, 'bg-zinc-700'].join(' '),
+    base: [baseTheme.option.base, 'text-surface-content'].join(' '),
+    hover: [baseTheme.option.hover, 'hover:bg-panel-accent'].join(' '),
+    active: [baseTheme.option.active, 'bg-panel-accent'].join(' '),
     selected: [
       baseTheme.option.selected,
-      'bg-primary-600 hover:bg-primary-700'
+      'bg-primary-active hover:bg-primary-hover light:bg-primary-active light:[&>div>span]:invert'
     ].join(' ')
   }
 };

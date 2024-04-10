@@ -4,19 +4,15 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import { DocsContainer } from '@storybook/addon-docs';
 
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
-import { darkTheme, lightTheme } from '../src';
+import { theme as reablocksTheme } from '../src';
 
 import '../src/index.css';
 
-const withProvider = (Story, context) => {
-  const theme = context.globals.theme === 'light' ? lightTheme : darkTheme;
-
-  return (
-    <ThemeProvider theme={theme}>
-      <Story {...context} />
-    </ThemeProvider>
-  );
-};
+const withProvider = (Story, context) => (
+  <ThemeProvider theme={reablocksTheme}>
+    <Story {...context} />
+  </ThemeProvider>
+);
 
 const preview: Preview = {
   decorators: [
@@ -35,13 +31,21 @@ const preview: Preview = {
     controls: { hideNoControlsWarning: true },
     docs: {
       theme,
-      container: ({ children, ...props }: any) => (
-        <DocsContainer {...props}>
-          <ThemeProvider theme={darkTheme}>
-            {children}
-          </ThemeProvider>
-        </DocsContainer>
-      ),
+      container: ({ children, ...props }: any) => {
+        // For whatever reason the theme is not getting applied to docs
+        // This is a workaround to apply the theme to the docs
+        const isLight = props.context?.store?.globals?.globals?.theme === 'light';
+
+        return (
+          <DocsContainer {...props}>
+            <ThemeProvider theme={reablocksTheme}>
+              <div className={isLight ? 'light' : 'dark'}>
+                {children}
+              </div>
+            </ThemeProvider>
+          </DocsContainer>
+        );
+      }
     },
     options: {
       storySort: {
@@ -70,11 +74,21 @@ const preview: Preview = {
           'Components',
           'Blocks',
           [
+            'Foundation',
+            [
+              'Introduction',
+              '*'
+            ],
             'Authentication',
             [
               'Introduction',
               '*'
-            ]
+            ],
+            'Administration',
+            [
+              'Introduction',
+              '*'
+            ],
           ],
           'Recipes',
           '*'

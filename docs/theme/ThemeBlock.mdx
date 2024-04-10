@@ -13,7 +13,6 @@ By incorporating these blocks into your Storybook, you can easily document and s
 - **Spacing Block:** Visualizes the spacing scale used in your theme, helpful for understanding and using consistent spacing throughout your UI.
 - **Border Block:** Shows the available border radius options, aiding in the application of consistent border styles.
 - **Shadow Block:** Exhibits the shadow options defined in your theme, making it easy to apply consistent shadow effects.
-- **Palette Block:** Presents variations of your color palette, useful for exploring different shades and tints within your theme.
 - **Components Block:** A comprehensive showcase of the styled components within your theme, including buttons, inputs, and more.
 - **Icons Block:** Displays the icons used in your theme. **NOTE** that icons are not included and must be supplied.
 
@@ -32,18 +31,15 @@ import {
   TypographyBlocks,
   ColorBlocks,
   SpacingBlocks,
-  PaletteBlocks,
   BorderBlocks,
   ShadowBlocks,
   ThemeProvider,
-  darkTheme,
-  IconBlocks,
+  theme,
   useTheme,
   extractTheme
 } from 'reablocks';
 
 import resolveConfig from 'tailwindcss/resolveConfig';
-import tailwindConfig from '../path_to_tw_config/tailwind.config';
 const { theme: TWConfig } = resolveConfig(tailwindConfig);
 
 export default {
@@ -51,7 +47,7 @@ export default {
   component: ThemeProvider,
   decorators: [
     Story => (
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={theme}>
         <div style={{ width: '90vw' }}>
           <Story />
         </div>
@@ -62,18 +58,15 @@ export default {
 
 const {
   colors,
-  palettes,
   borderRadius,
   boxShadow,
   spacing,
   fontFamily,
   fontSize,
   fontWeight
-} = extractTheme(TWConfig, tailwindConfig);
+} = extractTheme(TWConfig);
 
 export const Colors = () => <ColorBlocks colors={colors} />;
-
-export const Palettes = () => <PaletteBlocks palettes={palettes} />;
 
 export const Typography = () => (
   <TypographyBlocks
@@ -93,12 +86,6 @@ export const Components = () => {
   const { theme } = useTheme();
   return <ComponentBlocks components={theme.components} />;
 };
-        }
-      ]}
-    />
-  </>
-);
-
 ````
 
 You can see how it looks in the [Theme Section](?path=/story/components-theme--colors)

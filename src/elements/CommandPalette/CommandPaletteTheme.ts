@@ -1,25 +1,23 @@
 import {
   CommandPaletteInputTheme,
   cssVarsCommandPaletteInputTheme,
-  darkCommandPaletteInputTheme,
-  lightCommandPaletteInputTheme
+  commandPaletteInputTheme
 } from './CommandPaletteInput';
 import {
   CommandPaletteItemTheme,
   cssVarsCommandPaletteItemTheme,
-  darkCommandPaletteItemTheme,
-  lightCommandPaletteItemTheme
+  commandPaletteItemTheme
 } from './CommandPaletteItem';
 import {
   CommandPaletteSectionTheme,
   cssVarsCommandPaletteSectionTheme,
-  darkCommandPaletteSectionTheme,
-  lightCommandPaletteSectionTheme
+  commandPaletteSectionTheme
 } from './CommandPaletteSection';
 
 export interface CommandPaletteTheme {
   base: string;
   inner: string;
+  emptyContainer: string;
   input: CommandPaletteInputTheme;
   item: CommandPaletteItemTheme;
   section: CommandPaletteSectionTheme;
@@ -30,25 +28,19 @@ const baseTheme: Partial<CommandPaletteTheme> = {
   inner: 'max-h-[80vh] overflow-y-auto'
 };
 
-export const lightCommandPaletteTheme: CommandPaletteTheme = {
-  base: [baseTheme.base, 'border-gray-300'].join(' '),
-  inner: baseTheme.inner,
-  input: lightCommandPaletteInputTheme,
-  item: lightCommandPaletteItemTheme,
-  section: lightCommandPaletteSectionTheme
-};
-
-export const darkCommandPaletteTheme: CommandPaletteTheme = {
-  base: [baseTheme.base, 'border-zinc-700'].join(' '),
-  inner: baseTheme.inner,
-  input: darkCommandPaletteInputTheme,
-  item: darkCommandPaletteItemTheme,
-  section: darkCommandPaletteSectionTheme
+export const commandPaletteTheme: CommandPaletteTheme = {
+  base: [baseTheme.base, 'border-panel-accent'].join(' '),
+  inner: [baseTheme.inner, 'bg-panel border-0'].join(' '),
+  emptyContainer: 'bg-panel',
+  input: commandPaletteInputTheme,
+  item: commandPaletteItemTheme,
+  section: commandPaletteSectionTheme
 };
 
 export const legacyCommandPaletteTheme: CommandPaletteTheme = {
-  base: [baseTheme.base, 'border-zinc-700'].join(' '),
+  base: [baseTheme.base, 'border-panel-accent'].join(' '),
   inner: baseTheme.inner,
+  emptyContainer: '',
   input: cssVarsCommandPaletteInputTheme,
   item: cssVarsCommandPaletteItemTheme,
   section: cssVarsCommandPaletteSectionTheme

@@ -1,16 +1,16 @@
 import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
-import { Chip, darkChipTheme } from '../../../src/elements/Chip';
+import { Chip, chipTheme } from '../../../src/elements/Chip';
 import * as ChipStories from '../../../src/elements/Chip/Chip.story';
 import ThemeRender from '../../ThemeRender.tsx';
 
 <Meta title="Docs/Components/Elements/Chip" />
 
 # Chip
-The "Chip" component is a versatile UI element commonly used for displaying tags, labels, statuses, or categories. It's highly customizable, enabling the use of different types, colors, sizes, and even adornments like icons. 
+The "Chip" component is a versatile UI element commonly used for displaying tags, labels, statuses, or categories. It's highly customizable, enabling the use of different types, colors, sizes, and even adornments like icons.
 Chips can be interactive, allowing for selection or removal, making them suitable for various applications from filtering content to showing user selections.
 ## Examples
 ### Basic Usage
-The Chip component supports several style variants such as "filled" and "outline". 
+The Chip component supports several style variants such as "filled" and "outline".
 This allows for clear differentiation between different chip types based on their purpose or context within the UI:
 <Canvas sourceState="shown" of={ChipStories.Variants} />
 
@@ -31,7 +31,7 @@ Chips can be made selectable, allowing users to choose one or more options from 
 ## Theme Customization
 The Chip component comes with a default theme, which can be customized according to your application's design requirements:
 
-<ThemeRender theme={darkChipTheme} />
+<ThemeRender theme={chipTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 

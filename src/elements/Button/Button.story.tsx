@@ -1,7 +1,7 @@
 import { Button } from './Button';
 import { extendTheme, PartialReablocksTheme } from '../../utils';
 import { ThemeProvider } from '../../utils/Theme/ThemeProvider';
-import { darkTheme } from '../../utils';
+import { theme } from '../../utils';
 
 export default {
   title: 'Components/Elements/Button',
@@ -139,7 +139,7 @@ export const CustomTheme = () => {
   };
 
   return (
-    <ThemeProvider theme={extendTheme(darkTheme, customTheme)}>
+    <ThemeProvider theme={extendTheme(theme, customTheme)}>
       <div style={{ display: 'flex', gap: 10 }}>
         <Button variant="filled">Filled</Button>
         <Button variant="outline">Outline</Button>

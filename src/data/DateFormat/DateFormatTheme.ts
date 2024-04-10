@@ -8,11 +8,7 @@ const baseTheme: DateFormatTheme = {
   interactive: 'cursor-pointer hover:underline'
 };
 
-export const lightDateFormatTheme: DateFormatTheme = {
-  ...baseTheme
-};
-
-export const darkDateFormatTheme: DateFormatTheme = {
+export const dateFormatTheme: DateFormatTheme = {
   ...baseTheme
 };
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Divider } from './Divider';
+
 export default {
   title: 'Components/Layout/Divider',
   component: Divider
@@ -26,5 +27,15 @@ export const Vertical = () => (
     Left
     <Divider orientation="vertical" />
     Right
+  </div>
+);
+
+export const Variants = () => (
+  <div style={{ width: 300 }}>
+    Above
+    <Divider variant="default" />
+    Middle
+    <Divider variant="gradient" />
+    Below
   </div>
 );

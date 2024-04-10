@@ -1,5 +1,5 @@
 import { Meta, ArgTypes, Canvas } from '@storybook/addon-docs';
-import { Select, SelectOption, SelectMenu, SelectInput, SelectInputChip, darkSelectTheme } from '../../../src/form/Select';
+import { Select, SelectOption, SelectMenu, SelectInput, SelectInputChip, selectTheme } from '../../../src/form/Select';
 import * as SingleSelectStories from '../../../src/form/Select/SingleSelect.story';
 import * as MultiSelectStories from '../../../src/form/Select/MultiSelect.story';
 import ThemeRender from '../../ThemeRender.tsx';
@@ -7,7 +7,7 @@ import ThemeRender from '../../ThemeRender.tsx';
 <Meta title="Docs/Components/Form/Select" />
 
 # Select
-The Select component enhances user interaction by allowing the selection of a value or multiple values from a list of options. 
+The Select component enhances user interaction by allowing the selection of a value or multiple values from a list of options.
 It's designed with flexibility in mind, supporting a wide range of features such as:
 
 - Single Select
@@ -19,6 +19,7 @@ It's designed with flexibility in mind, supporting a wide range of features such
 - Async Support
 - Groups Support
 - Animation
+
 ## Examples
 ### Basic Usage
 #### Single Select
@@ -61,7 +62,7 @@ styling.
 ## Theme Customization
 The Select component adheres to a comprehensive theme, ensuring it seamlessly integrates into any application's design:
 
-<ThemeRender theme={darkSelectTheme} />
+<ThemeRender theme={selectTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
 

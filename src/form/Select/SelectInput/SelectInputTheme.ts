@@ -45,10 +45,12 @@ const baseTheme: SelectInputTheme = {
   suffix: {
     container: 'flex items-center justify-center',
     button: 'disabled:cursor-not-allowed',
-    refresh: 'mr-1.5 [&>svg]:w-5 [&>svg]:h-5 [&>svg]:fill-slate-500',
+    refresh:
+      'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-panel-secondary-content',
     loader: 'mr-2.5',
-    close: 'mr-1.5 [&>svg]:w-5 [&>svg]:h-5 [&>svg]:fill-slate-500',
-    expand: '[&>svg]:w-5 [&>svg]:h-5 [&>svg]:fill-slate-500'
+    close:
+      'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-panel-secondary-content',
+    expand: '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-panel-secondary-content'
   },
   disabled: 'cursor-not-allowed text-disabled',
   unfilterable: 'caret-transparent',
@@ -73,39 +75,25 @@ const baseTheme: SelectInputTheme = {
   }
 };
 
-export const lightSelectInputTheme: SelectInputTheme = {
+export const selectInputTheme: SelectInputTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-light-background border-gray-400 text-black'].join(
-    ' '
-  ),
-  disabled: [baseTheme.disabled, 'bg-gray-300'].join(' '),
-  error: [baseTheme.error, 'border-error-500'].join(' '),
-  placeholder: [baseTheme.placeholder, 'placeholder:text-slate-700'].join(' '),
-  input: [baseTheme.input, 'text-black'].join(' '),
+  base: [
+    baseTheme.base,
+    'bg-panel text-panel-content border-panel-accent border-solid'
+  ].join(' '),
+  disabled: [baseTheme.disabled, 'opacity-75'].join(' '),
+  error: [baseTheme.error, 'border-error'].join(' '),
   chip: {
     ...baseTheme.chip,
-    base: [baseTheme.chip.base, 'bg-primary-500 text-white'].join(' '),
-    hover: [baseTheme.chip.hover, ''].join(' '),
-    focused: [baseTheme.chip.focused, ''].join(' '),
-    removeButton: [baseTheme.chip.removeButton, '[&>svg]:fill-slate-100'].join(
+    base: [baseTheme.chip.base, 'bg-panel-accent text-surface-content'].join(
       ' '
-    )
-  }
-};
-
-export const darkSelectInputTheme: SelectInputTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-dark-background border-gray-700'].join(' '),
-  disabled: [baseTheme.disabled, 'bg-dark-disabled'].join(' '),
-  error: [baseTheme.error, 'border-error-500'].join(' '),
-  chip: {
-    ...baseTheme.chip,
-    base: [baseTheme.chip.base, 'bg-zinc-600 text-white'].join(' '),
-    hover: [baseTheme.chip.hover, 'hover:bg-zinc-700'].join(' '),
-    focused: [baseTheme.chip.focused, 'border-gray-700'].join(' '),
-    removeButton: [baseTheme.chip.removeButton, '[&>svg]:fill-slate-400'].join(
-      ' '
-    )
+    ),
+    hover: [baseTheme.chip.hover, 'hover:brightness-150'].join(' '),
+    focused: [baseTheme.chip.focused, 'border-panel-accent'].join(' '),
+    removeButton: [
+      baseTheme.chip.removeButton,
+      '[&>svg]:fill-panel-content'
+    ].join(' ')
   }
 };
 

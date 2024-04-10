@@ -63,36 +63,15 @@ const baseTheme: Partial<CheckboxTheme> = {
   }
 };
 
-export const lightCheckboxTheme: CheckboxTheme = {
+export const checkboxTheme: CheckboxTheme = {
   ...baseTheme,
-  checkbox: [baseTheme.checkbox, 'fill-neutral-200'].join(' '),
-  check: [baseTheme.check, 'stroke-primary-700'].join(' '),
+  checkbox: [baseTheme.checkbox, 'fill-transparent border border-surface'].join(
+    ' '
+  ),
+  check: [baseTheme.check, 'stroke-primary'].join(' '),
   label: {
     ...baseTheme.label,
-    base: [baseTheme.label.base, 'text-black'].join(' ')
-  },
-  boxVariants: {
-    hover: {
-      strokeWidth: 1,
-      stroke: TWConfig.colors.slate[700]
-    },
-    pressed: { scale: 0.95 },
-    checked: {
-      stroke: TWConfig.colors.primary[700]
-    },
-    unchecked: {
-      stroke: TWConfig.colors.slate[700]
-    }
-  }
-} as CheckboxTheme;
-
-export const darkCheckboxTheme: CheckboxTheme = {
-  ...baseTheme,
-  checkbox: [baseTheme.checkbox, 'fill-transparent'].join(' '),
-  check: [baseTheme.check, 'stroke-primary-400'].join(' '),
-  label: {
-    ...baseTheme.label,
-    base: [baseTheme.label.base, 'text-white'].join(' ')
+    base: [baseTheme.label.base, 'text-surface-content'].join(' ')
   },
   boxVariants: {
     hover: {
@@ -101,7 +80,7 @@ export const darkCheckboxTheme: CheckboxTheme = {
     },
     pressed: { scale: 0.95 },
     checked: {
-      stroke: TWConfig.colors.primary[600]
+      stroke: TWConfig.colors.primary['active']
     },
     unchecked: {
       stroke: TWConfig.colors.slate[500]

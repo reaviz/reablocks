@@ -38,12 +38,12 @@ const baseTheme: TypographyTheme = {
     mono: 'font-mono'
   },
   colors: {
-    primary: 'text-primary-800',
-    secondary: 'text-secondary-600',
-    success: 'text-success-600',
-    warning: 'text-warning-600',
-    error: 'text-error-600',
-    info: 'text-info-500'
+    primary: 'text-primary',
+    secondary: 'text-secondary',
+    success: 'text-success',
+    warning: 'text-warning',
+    error: 'text-error',
+    info: 'text-info'
   },
   sub: 'text-xs font-semibold mb-0.5',
   smallHeading: 'text-base font-normal mb-1',
@@ -53,11 +53,7 @@ const baseTheme: TypographyTheme = {
   disableMargins: 'm-0'
 };
 
-export const lightTypographyTheme = {
-  ...baseTheme
-};
-
-export const darkTypographyTheme = {
+export const typographyTheme = {
   ...baseTheme
 };
 

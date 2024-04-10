@@ -11,21 +11,14 @@ const baseTheme: CommandPaletteInputTheme = {
   icon: 'w-4 h-4 ml-2.5'
 };
 
-export const lightCommandPaletteInputTheme: CommandPaletteInputTheme = {
+export const commandPaletteInputTheme: CommandPaletteInputTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'border-zinc-400'].join(' '),
+  base: [baseTheme.base, 'bg-panel border-bottom border-panel-accent'].join(
+    ' '
+  ),
   input: [
     baseTheme.input,
-    'bg-light-background text-black placeholder:text-slate-500'
-  ].join(' ')
-};
-
-export const darkCommandPaletteInputTheme: CommandPaletteInputTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'border-zinc-700'].join(' '),
-  input: [
-    baseTheme.input,
-    'bg-dark-background text-white placeholder:text-slate-500'
+    'bg-panel text-panel-content placeholder:placeholder-accent'
   ].join(' ')
 };
 

@@ -18,14 +18,9 @@ const baseTheme: DotsLoaderTheme = {
   }
 };
 
-export const lightDotsLoaderTheme: DotsLoaderTheme = {
+export const dotsLoaderTheme: DotsLoaderTheme = {
   ...baseTheme,
-  dot: [baseTheme.dot, 'bg-black'].join(' ')
-};
-
-export const darkDotsLoaderTheme: DotsLoaderTheme = {
-  ...baseTheme,
-  dot: [baseTheme.dot, 'bg-white'].join(' ')
+  dot: [baseTheme.dot, 'bg-surface-content'].join(' ')
 };
 
 export const legacyLoaderTheme: DotsLoaderTheme = {

@@ -1,6 +1,6 @@
 {
   "name": "reablocks",
-  "version": "6.0.5",
+  "version": "7.0.0",
   "description": "Component library for React",
   "scripts": {
     "build": "npm run build:js && npm run build:styles",
@@ -75,7 +75,8 @@
     "react-highlight-words": "^0.20.0",
     "react-syntax-highlighter": "^15.5.0",
     "react-textarea-autosize": "^8.5.3",
-    "tailwind-merge": "^2.2.2"
+    "tailwind-merge": "^2.2.2",
+    "tw-colors": "^3.3.1"
   },
   "peerDependencies": {
     "react": ">=16",
@@ -95,8 +96,8 @@
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "@types/react-syntax-highlighter": "^15.5.11",
-    "@typescript-eslint/eslint-plugin": "^7.3.1",
-    "@typescript-eslint/parser": "^7.3.1",
+    "@typescript-eslint/eslint-plugin": "^7.6.0",
+    "@typescript-eslint/parser": "^7.6.0",
     "@vitejs/plugin-react": "^4.2.1",
     "@vitest/coverage-v8": "^1.4.0",
     "autoprefixer": "^10.4.19",

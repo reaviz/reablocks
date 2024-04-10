@@ -146,9 +146,10 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
         gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))'
       }}
     >
-      {typeof colors === 'string' ? (
+      {typeof colors === 'string' && (
         <ColorBlock name={`${name}`} color={colors} showName={showNames} />
-      ) : (
+      )}
+      {typeof colors === 'object' && (
         <>
           {Object.keys(colors).map(color => (
             <ColorPaletteBlock
@@ -159,6 +160,13 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
             />
           ))}
         </>
+      )}
+      {typeof colors === 'function' && (
+        <ColorBlock
+          name={`${name}`}
+          color={(colors as any)({})}
+          showName={showNames}
+        />
       )}
     </div>
   </div>

@@ -42,7 +42,7 @@ const baseTheme: CalendarTheme = {
   content: 'flex',
 
   days: {
-    header: 'text-center grid grid-cols-7 opacity-50 mb-1 border-t pt-2',
+    header: 'text-center grid grid-cols-7 opacity-50 mb-1 pt-2',
     dayOfWeek: 'text-center font-bold',
     week: 'grid grid-cols-7',
     day: 'flex p-2',
@@ -65,21 +65,12 @@ const baseTheme: CalendarTheme = {
   }
 };
 
-export const lightCalendarTheme: CalendarTheme = {
+export const calendarTheme: CalendarTheme = {
   ...baseTheme,
   days: {
     ...baseTheme.days,
-    header: [baseTheme.days.header, 'border-zinc-400 text-black'].join(' '),
-    outside: [baseTheme.days.outside, 'text-gray-700/60'].join(' ')
-  }
-};
-
-export const darkCalendarTheme: CalendarTheme = {
-  ...baseTheme,
-  days: {
-    ...baseTheme.days,
-    header: [baseTheme.days.header, 'border-zinc-400'].join(' '),
-    outside: [baseTheme.days.outside, 'text-gray-100/60'].join(' ')
+    header: [baseTheme.days.header, 'text-panel-content'].join(' '),
+    outside: [baseTheme.days.outside, 'opacity-50'].join(' ')
   }
 };
 

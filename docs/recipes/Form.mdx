@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
 import { BasicForm } from './FormExamples';
-import { darkTheme } from '../../src/utils/Theme/themes/theme';
+import { theme } from '../../src/utils/Theme/themes/theme.ts';
 import { ThemeProvider } from '../../src/utils/Theme/ThemeProvider';
 
 <Meta title="Recipes/Form" />
@@ -13,7 +13,7 @@ of how to use `react-hook-form` with the Input component.
 Here is a basic login form example:
 
 <br />
-<ThemeProvider theme={darkTheme}>
+<ThemeProvider theme={theme}>
   <BasicForm />
 </ThemeProvider>
 <br />

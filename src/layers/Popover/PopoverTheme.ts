@@ -8,14 +8,9 @@ const baseTheme: PopoverTheme = {
   disablePadding: 'p-0'
 };
 
-export const lightPopoverTheme: PopoverTheme = {
+export const popoverTheme: PopoverTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-neutral-300 text-black'].join(' ')
-};
-
-export const darkPopoverTheme: PopoverTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-neutral-800 text-white'].join(' ')
+  base: [baseTheme.base, 'bg-panel text-panel-content'].join(' ')
 };
 
 export const legacyPopoverTheme: PopoverTheme = {

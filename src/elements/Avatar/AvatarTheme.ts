@@ -8,12 +8,7 @@ const baseTheme: AvatarTheme = {
   rounded: 'rounded-[50%]'
 };
 
-export const lightAvatarTheme: AvatarTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-black'].join(' ')
-};
-
-export const darkAvatarTheme: AvatarTheme = {
+export const avatarTheme: AvatarTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'text-white'].join(' ')
 };

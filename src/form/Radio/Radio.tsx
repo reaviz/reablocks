@@ -1,4 +1,11 @@
-import React, { FC, forwardRef, LegacyRef, useContext, useMemo } from 'react';
+import React, {
+  FC,
+  forwardRef,
+  LegacyRef,
+  ReactNode,
+  useContext,
+  useMemo
+} from 'react';
 import { motion } from 'framer-motion';
 import { RadioGroupContext } from './RadioGroupContext';
 import { twMerge } from 'tailwind-merge';
@@ -16,7 +23,7 @@ export interface RadioProps {
   /**
    * Label for the radio.
    */
-  label?: string;
+  label?: string | ReactNode;
 
   /**
    * Whether the radio is disabled or not.

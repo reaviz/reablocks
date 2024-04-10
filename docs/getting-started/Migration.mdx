@@ -2,20 +2,152 @@ import { Meta } from '@storybook/addon-docs';
 
 <Meta title="Docs/Getting Started/Migration" />
 
-# Migrating from 5.x to 6.x
+## Migrating from 6.x to 7.x
+In 7.x, we've introduced new supporting palettes for things like: panel, surface and backgrounds. This
+allows us to define a more consistent and flexible color system for our components.
+
+```tsx
+{
+  panel: {
+    // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
+    DEFAULT: colorPalette['black-pearl'],
+    content: colorPalette['athens-gray'],
+    'secondary-content': colorPalette.gray[600],
+    accent: colorPalette['charade']
+  },
+  surface: {
+    // Form component backgrounds, such as text fields, checkboxes, select, etc.
+    DEFAULT: colorPalette['charade'],
+    content: colorPalette['athens-gray'],
+    accent: colorPalette.blue[500],
+    disabled: colors.gray[800]
+  }
+}
+```
+
+We've also introduced a new color system that allows us to define a more consistent and flexible color system for our components.
+The color palettes for Dark and Light themes are now defined using `tw-colors` plugin as a result DarkTheme & LightTheme was merged in theme.
+### Step 1: Update import to use theme from reablocks instead of `darkTheme` and `lightTheme`
+
+```tsx
+- import { darkTheme, lightTheme } from 'reablocks';
++ import { theme as defaultTheme } from 'reablocks';
+
+const theme = extendTheme(defaultTheme, themeOverrides);
+
+<ThemeProvider theme={theme}></ThemeProvider>
+````
+
+In case when you want to use several themes in your project, you should install `tw-colors` plugin and define your custom themes.
+
+```shell
+npm i -D tw-colors
+```
+
+Example of palettes defined in `tailwind.config.js`:
+
+```tsx
+import plugin from 'tailwindcss/plugin';
+import { createThemes } from 'tw-colors';
+
+const colorPalette = {
+  // Define your color palette here
+};
+
+const config: Config = {
+  darkMode: 'selector',
+  plugins: [
+    createThemes({
+      light: {
+        primary: {
+          DEFAULT: colorPalette.blue[500],
+          active: colorPalette.blue[500],
+          hover: colorPalette.blue[400],
+          inactive: colorPalette.gray[500]
+        }
+        // etc...
+      },
+      dark: {
+        primary: {
+          DEFAULT: colorPalette.blue[500],
+          active: colorPalette.blue[500],
+          hover: colorPalette.blue[600],
+          inactive: colorPalette.blue[200]
+        }
+        // etc...
+      }
+    })
+  ]
+};
+```
+
+### Step 2: Update color tokens
+
+```tsx
+// Previously tokens structure
+colors: {
+  primary: colors.blue,
+  secondary: colors.gray,
+  success: colors.green,
+  error: colors.red,
+  warning: colors.orange,
+  info: colors.sky,
+}
+// New tokens structure
+colors: {
+  primary: {
+    DEFAULT: colorPalette.blue[500],
+    active: colorPalette.blue[500],
+    hover: colorPalette.blue[400],
+    inactive: colorPalette.gray[500]
+  },
+  secondary: {
+    DEFAULT: colorPalette.gray[300],
+    active: colorPalette.gray[300],
+    hover: colorPalette.gray[200],
+    inactive: colorPalette.gray[800]
+  },
+  success: {
+    DEFAULT: colorPalette.green[500],
+    active: colorPalette.green[500],
+    hover: colorPalette.green[400],
+    fill: colorPalette.green[950]
+  },
+  error: {
+    DEFAULT: colorPalette.red[500],
+    active: colorPalette.red[400],
+    hover: colorPalette.red[600],
+    fill: colorPalette.red[950]
+  },
+  warning: {
+    DEFAULT: colorPalette.orange[500],
+    active: colorPalette.orange[500],
+    hover: colorPalette.orange[400],
+    fill: colorPalette.orange[950]
+  },
+  info: {
+    DEFAULT: colorPalette.blue[500],
+    active: colorPalette.blue[500],
+    hover: colorPalette.blue[400],
+    fill: colorPalette.blue[950]
+  }
+}
+```
+
+## Migrating from 5.x to 6.x
 We're excited to announce that version 6.x of our Storybook library introduces a groundbreaking approach to theming with Tailwind CSS.
 This upgrade allows you to leverage the full capabilities of Tailwind CSS, offering a more flexible and powerful way to style your components.
 As part of this transition, we're moving away from the previous CSS variables method to embrace a more dynamic and efficient workflow.
 
-## Getting Started with the Migration
+### Getting Started with the Migration
 To ensure a seamless transition to version 6.x, please follow the steps outlined below.
 
-### Step 1:Install Tailwind CSS
+### Step 1: Install Tailwind CSS
 Begin by installing Tailwind CSS in your project:
 #### **1.** Install Tailwind CSS:
 Refer to the Tailwind CSS [Getting Started](http://localhost:9009/?path=/docs/docs-getting-started-setup--docs#installing-tailwind-css) guide for installation instructions.
 
-### Step 2:Integrate Tailwind CSS Variables
+### Step 2: Integrate Tailwind CSS Variables
 Next, incorporate Tailwind CSS Variables into your project as a development dependency:
 #### **1.** Install the Tailwind CSS Variables package:
 ```shell
@@ -35,7 +167,7 @@ module.exports = {
 }
 ```
 
-### Step 3:Migrate Legacy Theme Variables
+### Step 3: Migrate Legacy Theme Variables
 Adapt your existing theme variables for compatibility with the new system:
 #### **1.** Rename your old theme file to `legacyTheme.ts`.
 

@@ -46,13 +46,9 @@ const baseTheme: StackTheme = {
   }
 };
 
-export const lightStackTheme = {
+export const stackTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-black'].join(' ')
-};
-
-export const darkStackTheme = {
-  ...baseTheme
+  base: [baseTheme.base, 'text-surface-content'].join(' ')
 };
 
 export const legacyStackTheme = {

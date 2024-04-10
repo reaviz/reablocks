@@ -26,26 +26,15 @@ const baseTheme: TabsTheme = {
   panel: 'mt-2'
 };
 
-export const lightTabsTheme: TabsTheme = {
+export const tabsTheme: TabsTheme = {
   ...baseTheme,
   list: {
     ...baseTheme.list,
-    base: `border-b border-gray-100 ${baseTheme.list.base}`,
-    indicator: `bg-primary-500 ${baseTheme.list.indicator}`,
+    base: `border-b border-panel-accent ${baseTheme.list.base}`,
+    indicator: `bg-primary ${baseTheme.list.indicator}`,
     tab: {
-      ...baseTheme.list.tab
-    }
-  }
-};
-
-export const darkTabsTheme: TabsTheme = {
-  ...baseTheme,
-  list: {
-    ...baseTheme.list,
-    base: `border-b border-gray-500 ${baseTheme.list.base}`,
-    indicator: `bg-primary-500 ${baseTheme.list.indicator}`,
-    tab: {
-      ...baseTheme.list.tab
+      ...baseTheme.list.tab,
+      base: `${baseTheme.list.tab.base} text-panel-content`
     }
   }
 };

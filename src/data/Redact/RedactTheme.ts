@@ -8,14 +8,9 @@ const baseTheme: RedactTheme = {
   interactive: 'cursor-pointer hover:underline'
 };
 
-export const lightRedactTheme: RedactTheme = {
+export const redactTheme: RedactTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-black'].join(' ')
-};
-
-export const darkRedactTheme: RedactTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-white'].join(' ')
+  base: [baseTheme.base, 'text-surface-content'].join(' ')
 };
 
 export const legacyRedactTheme: RedactTheme = {

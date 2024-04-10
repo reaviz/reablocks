@@ -8,14 +8,9 @@ const baseTheme: TooltipTheme = {
   disablePointer: 'pointer-events-none'
 };
 
-export const lightTooltipTheme: TooltipTheme = {
+export const tooltipTheme: TooltipTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-neutral-300 text-black'].join(' ')
-};
-
-export const darkTooltipTheme: TooltipTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-neutral-800 text-white'].join(' ')
+  base: [baseTheme.base, 'bg-surface text-surface-content'].join(' ')
 };
 
 export const legacyTooltipTheme: TooltipTheme = {

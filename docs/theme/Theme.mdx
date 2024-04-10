@@ -16,10 +16,10 @@ This provider applies the selected theme across all your components, ensuring a 
 - **Basic Theme Example**
 
 ```tsx
-import { ThemeProvider, darkTheme } from 'reablocks';
+import { ThemeProvider, theme } from 'reablocks';
 
 export const App = () => (
-  <ThemeProvider theme={darkTheme}>
+  <ThemeProvider theme={theme}>
     <YourComponents />
   </ThemeProvider>
 );
@@ -32,10 +32,10 @@ You can also pass theme={} directly to any component, which will override the th
 This is useful if you want to create a reusable component with a custom theme.
 
 ```tsx
-import { darkTooltipTheme, TooltipTheme, extendComponentTheme } from 'reablocks';
+import { tooltipTheme, TooltipTheme, extendComponentTheme } from 'reablocks';
 
 export const CustomTheme = () => {
-  const customTheme = extendComponentTheme<TooltipTheme>(darkTooltipTheme, {
+  const customTheme = extendComponentTheme<TooltipTheme>(tooltipTheme, {
     base: 'rounded bg-green-800 text-white font-bold p-3 text-base'
   });
 
@@ -56,7 +56,7 @@ You can modify existing styles or add new ones to fit your application's unique 
 - **Customizing Theme Example**
 
 ```tsx
-import { ThemeProvider, darkTheme, extendTheme, PartialReablocksTheme } from 'reablocks';
+import { ThemeProvider, theme, extendTheme, PartialReablocksTheme } from 'reablocks';
 
 export const App = () => (
   const customTheme: PartialReablocksTheme = {
@@ -77,7 +77,7 @@ export const App = () => (
     }
   };
 
-  <ThemeProvider theme={extendTheme(darkTheme, customTheme)}>
+  <ThemeProvider theme={extendTheme(theme, customTheme)}>
     <YourComponents />
   </ThemeProvider>
 );
@@ -86,6 +86,14 @@ export const App = () => (
 By using the `extendTheme` function, you can merge your customizations with the base theme, resulting in a coherent design system that still benefits from Reablocks' foundation.
 
 &nbsp;
+
+### Switching themes
+Simply switch the class or the data-theme attribute on the html element to change the theme.
+```html
+<html class='dark'> // or class='light'
+  ...
+</html>
+```
 
 ### Defining Custom Tokens with TailwindCSS
 Reablocks themes can further leverage TailwindCSS's configuration to define custom design tokens.
