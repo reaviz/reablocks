@@ -164,7 +164,7 @@ export const colorPalette = {
   },
   'black-pearl': '#02020F',
   'athens-gray': '#F7F7FA',
-  'mystic': '#E6E6F0',
+  mystic: '#E6E6F0',
   vulcan: '#11111F',
   charade: '#242433',
   waterloo: '#77778C',
