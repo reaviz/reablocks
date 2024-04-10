@@ -35,7 +35,7 @@ export const selectMenuTheme: SelectMenuTheme = {
     ...baseTheme.option,
     base: [baseTheme.option.base, 'text-surface-content'].join(' '),
     hover: [baseTheme.option.hover, 'hover:bg-panel-accent'].join(' '),
-    active: [baseTheme.option.active, 'bg-zinc-700'].join(' '),
+    active: [baseTheme.option.active, 'bg-panel-accent'].join(' '),
     selected: [
       baseTheme.option.selected,
       'bg-primary-active hover:bg-primary-hover light:bg-primary-active'

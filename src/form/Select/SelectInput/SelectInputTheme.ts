@@ -81,21 +81,19 @@ export const selectInputTheme: SelectInputTheme = {
     baseTheme.base,
     'bg-panel text-panel-content border-panel-accent border-solid'
   ].join(' '),
-  disabled: [baseTheme.disabled, 'bg-secondary-inactive'].join(' '),
+  disabled: [baseTheme.disabled, 'opacity-75'].join(' '),
   error: [baseTheme.error, 'border-error'].join(' '),
   chip: {
     ...baseTheme.chip,
     base: [baseTheme.chip.base, 'bg-panel-accent text-surface-content'].join(
       ' '
     ),
-    hover: [
-      baseTheme.chip.hover,
-      'dark:hover:bg-zinc-700 light:hover:bg-zinc-300'
-    ].join(' '),
-    focused: [baseTheme.chip.focused, 'border-gray-700'].join(' '),
-    removeButton: [baseTheme.chip.removeButton, '[&>svg]:fill-slate-400'].join(
-      ' '
-    )
+    hover: [baseTheme.chip.hover, 'hover:brightness-150'].join(' '),
+    focused: [baseTheme.chip.focused, 'border-panel-accent'].join(' '),
+    removeButton: [
+      baseTheme.chip.removeButton,
+      '[&>svg]:fill-panel-content'
+    ].join(' ')
   }
 };
 
