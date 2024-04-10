@@ -85,7 +85,7 @@ export const Pricing = () => {
               className={cn(
                 'px-4 py-2 flex items-center gap-2 self-stretch !text-lg rounded-sm focus:outline-none transition-colors',
                 {
-                  'dark:bg-button-gradient dark:hover:bg-button-gradient-hover dark:focus:bg-button-gradient-focus light:focus:bg-primary-hover':
+                  'bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
                     selected === 'free',
                   'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:!border-waterloo':
                     selected !== 'free'
@@ -171,7 +171,7 @@ export const Pricing = () => {
               className={cn(
                 'px-4 py-2 flex items-center gap-2 self-stretch !text-lg rounded-sm focus:outline-none transition-colors',
                 {
-                  'dark:bg-button-gradient dark:hover:bg-button-gradient-hover dark:focus:bg-button-gradient-focus light:focus:bg-primary-hover':
+                  'bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
                     selected === 'starter',
                   'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:!border-waterloo':
                     selected !== 'starter'
@@ -250,7 +250,7 @@ export const Pricing = () => {
               className={cn(
                 'px-4 py-2 flex items-center gap-2 self-stretch !text-lg rounded-sm focus:outline-none transition-colors',
                 {
-                  'dark:bg-button-gradient dark:hover:bg-button-gradient-hover dark:focus:bg-button-gradient-focus light:focus:bg-primary-hover':
+                  'bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
                     selected === 'custom',
                   'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:!border-waterloo':
                     selected !== 'custom'

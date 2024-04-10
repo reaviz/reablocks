@@ -210,7 +210,7 @@ export const PricingMinimal = () => {
           <Stack direction="rowReverse">
             <Button
               color="primary"
-              className="px-4 py-2 text-lg dark:bg-button-gradient dark:hover:bg-button-gradient-hover dark:focus:bg-button-gradient-focus light:focus:bg-primary-hover focus:outline-none transition-colors"
+              className="px-4 py-2 text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
               endAdornment={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
