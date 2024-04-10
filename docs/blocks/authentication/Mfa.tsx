@@ -55,7 +55,7 @@ export const Mfa = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-5"
+            className="mt-5 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus focus:outline-none transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Verifying...' : 'Verify'}

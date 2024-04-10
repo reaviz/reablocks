@@ -54,6 +54,7 @@ export const Login = () => {
             variant="filled"
             color="primary"
             disabled={isSubmitting}
+            className="mt-7 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus focus:outline-none transition-colors"
             startAdornment={
               <svg
                 xmlns="http://www.w3.org/2000/svg"

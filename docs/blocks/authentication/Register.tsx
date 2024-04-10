@@ -107,7 +107,7 @@ export const Register = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mb-2 mt-5"
+            className="mt-5 mb-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus focus:outline-none transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}
