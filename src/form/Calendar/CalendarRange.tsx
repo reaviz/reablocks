@@ -5,7 +5,7 @@ import { Button } from '../../elements';
 import { CalendarProps } from './Calendar';
 import { CalendarDays } from './CalendarDays';
 import { SmallHeading } from '../../typography';
-import { Stack } from '../../layout';
+import { Divider, Stack } from '../../layout';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '../../utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
@@ -185,6 +185,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
           </Button>
         </Stack>
       </header>
+      <Divider />
       <AnimatePresence initial={false} mode="wait">
         <motion.div
           initial={{ scale: 0, opacity: 0 }}
@@ -196,7 +197,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             scale: { type: animated ? 'tween' : false }
           }}
         >
-          <div data-testid="hello" className={twMerge(theme.content)}>
+          <div className={twMerge(theme.content)}>
             {displayMonths.map((offset, idx) => (
               <Fragment key={`calendar-${offset}`}>
                 <CalendarDays

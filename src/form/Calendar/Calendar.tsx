@@ -22,6 +22,7 @@ import { SmallHeading } from '../../typography';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '../../utils';
 import { CalendarTheme } from './CalendarTheme';
+import { Divider } from '../../layout/Divider';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -260,6 +261,7 @@ export const Calendar: FC<CalendarProps> = ({
           {nextArrow}
         </Button>
       </header>
+      <Divider />
       <AnimatePresence initial={false} mode="wait">
         <motion.div
           className={twMerge(theme.content)}
