@@ -7,6 +7,7 @@ import { Divider } from '../../../src/layout/Divider';
 import { Stack } from '../../../src/layout/Stack';
 import { motion } from 'framer-motion';
 import logo from '../../assets/reaviz.svg';
+import bg from '../../assets/bg.png';
 
 export const ForgotPasswordFull = () => {
   const {
@@ -86,7 +87,9 @@ export const ForgotPasswordFull = () => {
           </form>
         </div>
       </motion.div>
-      <div className="w-full h-full bg-[url('../docs/assets/bg.png')] bg-cover" />
+      <div className="relative w-full h-full overflow-hidden">
+        <img src={bg} className="absolute h-full" />
+      </div>
     </Card>
   );
 };
