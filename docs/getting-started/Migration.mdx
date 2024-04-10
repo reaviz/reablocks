@@ -25,6 +25,115 @@ allows us to define a more consistent and flexible color system for our componen
 }
 ```
 
+We've also introduced a new color system that allows us to define a more consistent and flexible color system for our components.
+The color palettes for Dark and Light themes are now defined using `tw-colors` plugin as a result DarkTheme & LightTheme was merged in theme.
+### Step 1: Update import to use theme from reablocks instead of `darkTheme` and `lightTheme`
+
+```tsx
+- import { darkTheme, lightTheme } from 'reablocks';
++ import { theme as defaultTheme } from 'reablocks';
+
+const theme = extendTheme(defaultTheme, themeOverrides);
+
+<ThemeProvider theme={theme}></ThemeProvider>
+````
+
+In case when you want to use several themes in your project, you should install `tw-colors` plugin and define your custom themes.
+
+```shell
+npm i -D tw-colors
+```
+
+Example of palettes defined in `tailwind.config.js`:
+
+```tsx
+import plugin from 'tailwindcss/plugin';
+import { createThemes } from 'tw-colors';
+
+const colorPalette = {
+  // Define your color palette here
+};
+
+const config: Config = {
+  darkMode: 'selector',
+  plugins: [
+    createThemes({
+      light: {
+        primary: {
+          DEFAULT: colorPalette.blue[500],
+          active: colorPalette.blue[500],
+          hover: colorPalette.blue[400],
+          inactive: colorPalette.gray[500]
+        }
+        // etc...
+      },
+      dark: {
+        primary: {
+          DEFAULT: colorPalette.blue[500],
+          active: colorPalette.blue[500],
+          hover: colorPalette.blue[600],
+          inactive: colorPalette.blue[200]
+        }
+        // etc...
+      }
+    })
+  ]
+};
+```
+
+### Step 2: Update color tokens
+
+```tsx
+// Previously tokens structure
+colors: {
+  primary: colors.blue,
+  secondary: colors.gray,
+  success: colors.green,
+  error: colors.red,
+  warning: colors.orange,
+  info: colors.sky,
+}
+// New tokens structure
+colors: {
+  primary: {
+    DEFAULT: colorPalette.blue[500],
+    active: colorPalette.blue[500],
+    hover: colorPalette.blue[400],
+    inactive: colorPalette.gray[500]
+  },
+  secondary: {
+    DEFAULT: colorPalette.gray[300],
+    active: colorPalette.gray[300],
+    hover: colorPalette.gray[200],
+    inactive: colorPalette.gray[800]
+  },
+  success: {
+    DEFAULT: colorPalette.green[500],
+    active: colorPalette.green[500],
+    hover: colorPalette.green[400],
+    fill: colorPalette.green[950]
+  },
+  error: {
+    DEFAULT: colorPalette.red[500],
+    active: colorPalette.red[400],
+    hover: colorPalette.red[600],
+    fill: colorPalette.red[950]
+  },
+  warning: {
+    DEFAULT: colorPalette.orange[500],
+    active: colorPalette.orange[500],
+    hover: colorPalette.orange[400],
+    fill: colorPalette.orange[950]
+  },
+  info: {
+    DEFAULT: colorPalette.blue[500],
+    active: colorPalette.blue[500],
+    hover: colorPalette.blue[400],
+    fill: colorPalette.blue[950]
+  }
+}
+```
+
 ## Migrating from 5.x to 6.x
 We're excited to announce that version 6.x of our Storybook library introduces a groundbreaking approach to theming with Tailwind CSS.
 This upgrade allows you to leverage the full capabilities of Tailwind CSS, offering a more flexible and powerful way to style your components.
