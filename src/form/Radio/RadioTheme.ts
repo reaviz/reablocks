@@ -25,7 +25,7 @@ export interface RadioTheme {
 }
 
 const baseTheme: RadioTheme = {
-  base: 'w-full box-border leading-none',
+  base: 'box-border leading-none',
   radio: {
     base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-[100%] bg-transparent border cursor-pointer',
     disabled: 'cursor-not-allowed opacity-60',
@@ -58,7 +58,7 @@ export const radioTheme: RadioTheme = {
   },
   radio: {
     ...baseTheme.radio,
-    base: [baseTheme.radio.base, 'border-gray-500'].join(' '),
+    base: [baseTheme.radio.base, 'border-surface'].join(' '),
     checked: [baseTheme.radio.checked, 'border-primary'].join(' ')
   },
   indicator: {
