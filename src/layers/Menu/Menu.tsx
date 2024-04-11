@@ -1,6 +1,8 @@
 import React, { FC, forwardRef, LegacyRef, useMemo } from 'react';
 import FocusTrap from 'focus-trap-react';
-import { ConnectedOverlay, OverlayEvent, Placement, useId } from 'rdk';
+import { ConnectedOverlay, OverlayEvent } from '../../utils/Overlay';
+import { Placement } from '../../utils/Position';
+import { useId } from '../../helpers';
 import { Modifiers } from 'popper.js';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';

@@ -1,6 +1,7 @@
 import React, { FC, ReactNode, useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ConnectedOverlay, ConnectedOverlayProps, useId } from 'rdk';
+import { ConnectedOverlay, ConnectedOverlayProps } from '../../utils';
+import { useId } from '../../helpers';
 import FocusTrap from 'focus-trap-react';
 import creteGlobalStateHook from 'create-global-state-hook';
 import { twMerge } from 'tailwind-merge';

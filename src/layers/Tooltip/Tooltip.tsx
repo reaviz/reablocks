@@ -1,10 +1,6 @@
 import React, { FC, useState, useRef, useEffect, ReactNode } from 'react';
-import {
-  Placement,
-  ReferenceObject,
-  ConnectedOverlay,
-  TriggerTypes
-} from 'rdk';
+import { ConnectedOverlay, TriggerTypes } from '../../utils/Overlay';
+import { Placement, ReferenceObject } from '../../utils/Position';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { useTooltipState } from './useTooltipState';

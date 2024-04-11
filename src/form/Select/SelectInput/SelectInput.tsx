@@ -15,10 +15,10 @@ import { CloseIcon } from '../icons/CloseIcon';
 import { DotsLoader } from '../../../elements/Loader/DotsLoader';
 import { RefreshIcon } from '../icons/RefreshIcon';
 import { SelectInputChip, SelectInputChipProps } from './SelectInputChip';
-import { CloneElement } from 'rdk';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '../../../utils';
 import { SelectTheme } from '../SelectTheme';
+import { CloneElement } from '../../../helpers';
 
 export interface SelectInputProps {
   /**
