@@ -19,7 +19,7 @@ const baseTheme: TabsTheme = {
     tab: {
       base: 'rounded-none border-b-2 border-transparent',
       selected: '',
-      disabled: 'cursor-not-allowed opacity-50'
+      disabled: 'cursor-not-allowed opacity-40'
     },
     indicator: 'h-[2px] position-absolute bottom-0 left-0 right-0'
   },
@@ -34,7 +34,8 @@ export const tabsTheme: TabsTheme = {
     indicator: `bg-primary ${baseTheme.list.indicator}`,
     tab: {
       ...baseTheme.list.tab,
-      base: `${baseTheme.list.tab.base} text-panel-content`
+      base: `${baseTheme.list.tab.base} text-panel-secondary-content font-bold hover:text-primary-hover`,
+      selected: `${baseTheme.list.tab.selected} text-panel-content`
     }
   }
 };
