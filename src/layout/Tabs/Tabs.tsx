@@ -42,6 +42,11 @@ export interface TabsProps extends PropsWithChildren {
   style?: React.CSSProperties;
 
   /**
+   * The variant of the tabs.
+   */
+  variant?: 'primary' | 'secondary' | 'tertiary';
+
+  /**
    * The callback to be called when a tab is selected.
    */
   onSelect?: (index: number) => void;
@@ -56,6 +61,7 @@ export const Tabs: FC<TabsProps> = ({
   children,
   className,
   style,
+  variant = 'primary',
   direction = 'ltr',
   defaultIndex = 0,
   selectedIndex,
@@ -93,6 +99,7 @@ export const Tabs: FC<TabsProps> = ({
     <div className={twMerge(theme.base, className)} style={style}>
       <TabList
         {...tabList}
+        variant={variant}
         direction={direction}
         id={id}
         selectedIndex={internalActive}

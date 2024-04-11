@@ -12,6 +12,11 @@ export interface TabProps extends PropsWithChildren {
   id?: string;
 
   /**
+   * The class name to be added to the tab container.
+   */
+  containerClassName?: string;
+
+  /**
    * The class name to be added to the tab.
    */
   className?: string;
@@ -38,6 +43,13 @@ export interface TabProps extends PropsWithChildren {
   onSelect?: () => void;
 
   /**
+   * The variant of the tabs.
+   *
+   * @private
+   */
+  variant?: 'primary' | 'secondary' | 'tertiary';
+
+  /**
    * Theme for the Tabs.
    */
   theme?: TabsTheme;
@@ -47,20 +59,27 @@ export const Tab: FC<TabProps> = ({
   children,
   id,
   selected,
+  containerClassName,
   className,
   disabled,
   onSelect,
+  variant = 'primary',
   theme: customTheme
 }) => {
   const theme: TabsTheme = useComponentTheme('tabs', customTheme);
 
   return (
-    <span>
+    <span className={cn(theme.list.tab.base, containerClassName)}>
       <Button
-        className={cn(theme.list.tab.base, className, {
-          [theme.list.tab.disabled]: disabled,
-          [theme.list.tab.selected]: selected
-        })}
+        className={cn(
+          theme.list.tab.button,
+          className,
+          {
+            [theme.list.tab.disabled]: disabled,
+            [theme.list.tab.selected]: selected
+          },
+          theme.list.tab.variant?.[variant]?.button
+        )}
         disabled={disabled}
         role="tab"
         variant="text"
@@ -76,7 +95,7 @@ export const Tab: FC<TabProps> = ({
       </Button>
       {selected && (
         <motion.div
-          className={cn(theme.list.indicator)}
+          className={cn(theme.list.variant?.[variant]?.indicator)}
           layoutId={`${id}-tabs-underline`}
         />
       )}

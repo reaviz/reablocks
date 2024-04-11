@@ -36,6 +36,12 @@ export interface TabListProps extends PropsWithChildren {
   onSelect?: (index: number) => void;
 
   /**
+   * The variant of the tabs.
+   * @private
+   */
+  variant?: 'primary' | 'secondary';
+
+  /**
    * Theme for the Tabs.
    */
   theme?: TabsTheme;
@@ -48,6 +54,7 @@ export const TabList: FC<TabListProps> = ({
   className,
   selectedIndex,
   onSelect,
+  variant = 'primary',
   theme: customTheme
 }) => {
   const theme: TabsTheme = useComponentTheme('tabs', customTheme);
@@ -60,9 +67,14 @@ export const TabList: FC<TabListProps> = ({
     <nav
       role="tablist"
       className={twMerge(
-        classNames(className, theme.list.base, {
-          'justify-end': direction === 'rtl'
-        })
+        classNames(
+          className,
+          theme.list.base,
+          theme.list?.variant?.[variant]?.base,
+          {
+            'justify-end': direction === 'rtl'
+          }
+        )
       )}
     >
       {childs.map(({ children, ...rest }, index) => (
@@ -72,6 +84,7 @@ export const TabList: FC<TabListProps> = ({
           id={id}
           selected={index === selectedIndex}
           onSelect={() => onSelect(index)}
+          variant={variant}
         >
           {children}
         </Tab>
