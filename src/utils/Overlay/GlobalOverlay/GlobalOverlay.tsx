@@ -10,12 +10,39 @@ import { useExitListener } from '../../ExitListener';
 import { Backdrop } from '../../../layers/Backdrop';
 
 export interface GlobalOverlayProps {
+  /**
+   * The children to be rendered within the global overlay.
+   */
   children?: any;
+
+  /**
+   * If true, the global overlay is open.
+   */
   open: boolean;
+
+  /**
+   * If true, the global overlay will close when the backdrop is clicked.
+   */
   closeOnBackdropClick?: boolean;
+
+  /**
+   * If true, the global overlay will have a backdrop.
+   */
   hasBackdrop?: boolean;
+
+  /**
+   * The CSS class name to be applied to the backdrop of the global overlay.
+   */
   backdropClassName?: string;
+
+  /**
+   * If true, the global overlay will close when the escape key is pressed.
+   */
   closeOnEscape?: boolean;
+
+  /**
+   * A function that is called when the global overlay is closed.
+   */
   onClose?: () => void;
 }
 
@@ -45,8 +72,9 @@ export const GlobalOverlay: FC<GlobalOverlayProps> = ({
   useEffect(() => {
     if (open && overlayRef.current !== undefined) {
       disableBodyScroll(overlayRef.current, {
-        // allowTouchMove determines which elements to allow touchmove events for iOS https://github.com/rick-liruixin/body-scroll-lock-upgrade?tab=readme-ov-file#allowtouchmove
-        //@ts-expect-error: allowTouchMove is typed wrong: https://github.com/rick-liruixin/body-scroll-lock-upgrade/issues/21
+        // allowTouchMove determines which elements to allow touchmove events for iOS
+        // Reference: https://github.com/rick-liruixin/body-scroll-lock-upgrade?tab=readme-ov-file#allowtouchmove
+        // NOTE: allowTouchMove is typed wrong: https://github.com/rick-liruixin/body-scroll-lock-upgrade/issues/21
         allowTouchMove: (el: HTMLElement) => {
           while (el && el !== document.body) {
             if (el.getAttribute('body-scroll-lock-ignore') !== null) {

@@ -1,7 +1,7 @@
 import React, {
   FC,
   forwardRef,
-  Ref,
+  LegacyRef,
   useImperativeHandle,
   useRef,
   useState
@@ -15,7 +15,7 @@ export const portals: string[] = [];
 const START_INDEX = 990;
 
 export interface OverlayPortalRef {
-  ref?: Ref<HTMLElement>;
+  ref?: LegacyRef<HTMLElement>;
 }
 
 export interface OverlayPortalMountEvent {

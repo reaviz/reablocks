@@ -1,12 +1,12 @@
 import React, {
   FC,
   forwardRef,
-  Ref,
   useImperativeHandle,
   RefObject,
   useEffect,
   useState,
-  useCallback
+  useCallback,
+  LegacyRef
 } from 'react';
 import { useExitListener } from '../../ExitListener';
 import { Placement, usePosition } from '../../Position';
@@ -33,7 +33,7 @@ export interface ConnectedOverlayContentProps {
 
 export const ConnectedOverlayContent: FC<
   ConnectedOverlayContentProps & {
-    ref?: Ref<ConnectedOverlayContentRef>;
+    ref?: LegacyRef<ConnectedOverlayContentRef>;
   }
 > = forwardRef(
   (
