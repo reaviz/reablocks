@@ -56,7 +56,7 @@ export const Pricing = () => {
                 /Month
               </span>
             </Stack>
-            <Divider className="mt-0" variant="gradient" />
+            <Divider className="mt-0" variant="secondary" />
             <Stack direction="column" alignItems="start" className="grow">
               <List>
                 <ListItem
@@ -136,7 +136,7 @@ export const Pricing = () => {
                 /Month
               </span>
             </Stack>
-            <Divider className="mt-0" variant="gradient" />
+            <Divider className="mt-0" variant="secondary" />
             <Stack direction="column" alignItems="start" className="grow">
               <List>
                 <ListItem
@@ -209,7 +209,7 @@ export const Pricing = () => {
               For all custom needs
             </span>
             <h1 className="text-3xl font-semibold">Custom</h1>
-            <Divider className="mt-0" variant="gradient" />
+            <Divider className="mt-0" variant="secondary" />
             <Stack direction="column" alignItems="start" className="grow">
               <List>
                 <ListItem
