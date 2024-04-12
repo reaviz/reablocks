@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { usePosition } from './usePosition';
 
 const meta: Meta = {
-  title: 'Examples/Position'
+  title: 'Components/Utils/Position'
 };
 
 export const Simple = {

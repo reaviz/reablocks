@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { OverlayPortal } from './OverlayPortal';
 
 const meta: Meta<typeof OverlayPortal> = {
-  title: 'Examples/Overlay/Overlay Portal',
+  title: 'Components/Utils/Overlay/Overlay Portal',
   component: OverlayPortal
 };
 

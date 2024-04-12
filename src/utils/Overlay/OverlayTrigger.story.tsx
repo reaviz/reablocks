@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { OverlayTrigger } from './OverlayTrigger';
 
 const meta: Meta<typeof OverlayTrigger> = {
-  title: 'Examples/Overlay/Overlay Trigger',
+  title: 'Components/Utils/Overlay/Overlay Trigger',
   component: OverlayTrigger
 };
 

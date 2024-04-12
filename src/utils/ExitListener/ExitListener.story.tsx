@@ -4,7 +4,7 @@ import { useRef, useState } from '@storybook/addons';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta = {
-  title: 'Examples/Exit Listener'
+  title: 'Components/Utils/Exit Listener'
 };
 
 type Story = StoryObj;

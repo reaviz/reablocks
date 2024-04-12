@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react';
 import { Portal } from './Portal';
 
 const meta: Meta<typeof Portal> = {
-  title: 'Examples/Portal',
+  title: 'Components/Utils/Portal',
   component: Portal
 };
 

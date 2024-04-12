@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 import { useOverlay } from '../useOverlay';
 
 const meta: Meta<typeof GlobalOverlay> = {
-  title: 'Examples/Overlay/Global Overlay',
+  title: 'Components/Utils/Overlay/Global Overlay',
   component: GlobalOverlay
 };
 

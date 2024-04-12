@@ -4,7 +4,7 @@ import { ConnectedOverlay } from './ConnectedOverlay';
 import { motion } from 'framer-motion';
 
 const meta: Meta<typeof ConnectedOverlay> = {
-  title: 'Examples/Overlay/Connected Overlay',
+  title: 'Components/Utils/Overlay/Connected Overlay',
   component: ConnectedOverlay
 };
 
