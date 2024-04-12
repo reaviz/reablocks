@@ -1,6 +1,6 @@
 import React from 'react';
 import { useExitListener } from './useExitListener';
-import { useRef, useState } from '@storybook/addons';
+import { useRef, useState } from '@storybook/preview-api';
 import type { Meta, StoryObj } from '@storybook/react';
 
 const meta: Meta = {
