@@ -9,7 +9,7 @@ import {
   useEffect
 } from 'react';
 import { createPortal } from 'react-dom';
-import { useUnmount } from '../utils/useUnmount';
+import { useUnmount } from '../../helpers/useUnmount';
 
 export interface PortalProps extends PropsWithChildren {
   element?: string;
