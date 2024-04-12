@@ -1,6 +1,7 @@
 import React, { FC, ReactElement } from 'react';
 import FocusTrap from 'focus-trap-react';
-import { CloneElement, GlobalOverlay, GlobalOverlayProps, useId } from 'rdk';
+import { useId, CloneElement } from '../../utils';
+import { GlobalOverlay, GlobalOverlayProps } from '../../utils/Overlay';
 import { motion } from 'framer-motion';
 import { variants } from './variants';
 import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';

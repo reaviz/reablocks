@@ -1,0 +1,23 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs';
+import * as PortalStories from '../../src/utils/Portal/Portal.story'
+
+<Meta title="Docs/Utils/Portal" />
+
+# Portal
+
+---
+
+The portal is a component that wraps React's `createPortal` method
+to provide a better DX for creating portals. It will automatically
+inject elements to the body rather than having to manually do that
+via the core method in React.
+
+## Demo
+This component can be used via element api.
+
+<Canvas of={PortalStories.Simple} sourceState="shown" />
+
+## API
+### [src/utils/Portal/Portal.tsx](https://github.com/reaviz/reablocks/blob/master/src/utils/Portal/Portal.tsx)
+
+<Controls of={PortalStories.Simple} />

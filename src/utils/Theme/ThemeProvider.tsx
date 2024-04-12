@@ -1,4 +1,10 @@
-import React, { createContext, FC, useEffect, useState } from 'react';
+import React, {
+  createContext,
+  FC,
+  PropsWithChildren,
+  useEffect,
+  useState
+} from 'react';
 import { mergeDeep } from './helpers';
 import { ReablocksTheme, theme as defaultTheme } from './themes/theme';
 
@@ -9,9 +15,8 @@ export interface ThemeContextProps {
 
 export const ThemeContext = createContext<ThemeContextProps>(null);
 
-interface ThemeProviderProps {
+interface ThemeProviderProps extends PropsWithChildren {
   theme: ReablocksTheme;
-  children: React.ReactNode;
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {

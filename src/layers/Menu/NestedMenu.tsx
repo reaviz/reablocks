@@ -1,5 +1,6 @@
 import React, { FC, Fragment, useCallback, useRef, useState } from 'react';
-import { OverlayEvent, Placement } from 'rdk';
+import { OverlayEvent } from '../../utils/Overlay';
+import { Placement } from '../../utils/Position';
 import { Menu } from './Menu';
 import classNames from 'classnames';
 

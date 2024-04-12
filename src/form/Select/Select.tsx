@@ -9,12 +9,11 @@ import React, {
   useState
 } from 'react';
 import {
-  CloneElement,
   ConnectedOverlay,
   ConnectedOverlayContentRef,
-  Placement,
-  useId
-} from 'rdk';
+  Placement
+} from '../../utils';
+import { CloneElement, useId } from '../../utils';
 import { SelectInput, SelectInputProps, SelectInputRef } from './SelectInput';
 import { SelectMenu, SelectMenuProps } from './SelectMenu';
 import { SelectOptionProps, SelectValue } from './SelectOption';

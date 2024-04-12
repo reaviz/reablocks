@@ -5,3 +5,4 @@ export * from './Drawer';
 export * from './Menu';
 export * from './ContextMenu';
 export * from './Notification';
+export * from './Backdrop';

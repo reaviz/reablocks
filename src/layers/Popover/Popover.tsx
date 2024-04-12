@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { TooltipProps, Tooltip } from '../Tooltip';
 import FocusTrap from 'focus-trap-react';
-import { useId } from 'rdk';
+import { useId } from '../../utils';
 import { twMerge } from 'tailwind-merge';
 import { PopoverTheme } from './PopoverTheme';
 import { useComponentTheme } from '../../utils';

@@ -1,0 +1,17 @@
+import { Meta, Canvas } from '@storybook/addon-docs';
+import * as PositionStories from '../../src/utils/Position/Position.story'
+
+<Meta title="Docs/Utils/Position" />
+
+# Position
+
+---
+
+Position is a component that is used to position elements absolutely
+with respect to their target element. Under the hood this component
+uses [Popper.js](https://popper.js.org/).
+
+## Demo
+This component can be used using hooks API.
+
+<Canvas of={PositionStories.Simple} sourceState="shown" />
