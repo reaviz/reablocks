@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState
 } from 'react';
-import { useId } from '../../../helpers/useId';
+import { useId } from '../../../utils/useId';
 import { Portal } from '../../Portal';
 
 // NOTE: This should not be used by external consumers.

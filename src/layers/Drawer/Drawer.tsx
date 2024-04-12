@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from 'react';
 import FocusTrap from 'focus-trap-react';
-import { useId, CloneElement } from '../../helpers';
+import { useId, CloneElement } from '../../utils';
 import { GlobalOverlay, GlobalOverlayProps } from '../../utils/Overlay';
 import { motion } from 'framer-motion';
 import { variants } from './variants';

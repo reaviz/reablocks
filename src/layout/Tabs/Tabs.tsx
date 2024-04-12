@@ -7,7 +7,7 @@ import React, {
   useMemo,
   useState
 } from 'react';
-import { useId } from '../../helpers';
+import { useId } from '../../utils';
 import { twMerge } from 'tailwind-merge';
 import { AnimatePresence } from 'framer-motion';
 import { useComponentTheme } from '../../utils/Theme/hooks';

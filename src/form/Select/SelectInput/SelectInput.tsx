@@ -18,7 +18,7 @@ import { SelectInputChip, SelectInputChipProps } from './SelectInputChip';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '../../../utils';
 import { SelectTheme } from '../SelectTheme';
-import { CloneElement } from '../../../helpers';
+import { CloneElement } from '../../../utils';
 
 export interface SelectInputProps {
   /**

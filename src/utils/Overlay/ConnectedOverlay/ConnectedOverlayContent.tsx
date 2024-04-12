@@ -11,7 +11,7 @@ import React, {
 import { useExitListener } from '../../ExitListener';
 import { Placement, usePosition } from '../../Position';
 import { OverlayPortal, portals } from '../OverlayPortal';
-import { useId } from '../../../helpers';
+import { useId } from '../../../utils/useId';
 
 export interface ConnectedOverlayContentRef {
   updatePosition: () => void;
