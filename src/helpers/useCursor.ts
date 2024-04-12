@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect } from 'react';
 
 /**
  * Hook for setting body cursors.
@@ -9,7 +9,7 @@ export function useCursor(
   onPointerOver = 'pointer',
   onPointerOut = 'auto'
 ) {
-  React.useEffect(() => {
+  useEffect(() => {
     if (hovered) {
       document.body.style.cursor = onPointerOver;
       return () => void (document.body.style.cursor = onPointerOut);
