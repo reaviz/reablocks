@@ -44,7 +44,7 @@ export interface TabsProps extends PropsWithChildren {
   /**
    * The variant of the tabs.
    */
-  variant?: 'primary' | 'secondary' | 'tertiary';
+  variant?: 'primary' | 'secondary';
 
   /**
    * The callback to be called when a tab is selected.

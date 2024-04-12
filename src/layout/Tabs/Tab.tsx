@@ -47,7 +47,7 @@ export interface TabProps extends PropsWithChildren {
    *
    * @private
    */
-  variant?: 'primary' | 'secondary' | 'tertiary';
+  variant?: 'primary' | 'secondary';
 
   /**
    * Theme for the Tabs.
