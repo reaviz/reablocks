@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren, Children } from 'react';
 import { Tab } from './Tab';
-import { useComponentTheme } from '../../utils';
+import { cn, useComponentTheme } from '../../utils';
 import { TabsTheme } from './TabsTheme';
 import { twMerge } from 'tailwind-merge';
 import classNames from 'classnames';
@@ -36,6 +36,12 @@ export interface TabListProps extends PropsWithChildren {
   onSelect?: (index: number) => void;
 
   /**
+   * The variant of the tabs.
+   * @private
+   */
+  variant?: 'primary' | 'secondary';
+
+  /**
    * Theme for the Tabs.
    */
   theme?: TabsTheme;
@@ -48,6 +54,7 @@ export const TabList: FC<TabListProps> = ({
   className,
   selectedIndex,
   onSelect,
+  variant = 'primary',
   theme: customTheme
 }) => {
   const theme: TabsTheme = useComponentTheme('tabs', customTheme);
@@ -72,10 +79,14 @@ export const TabList: FC<TabListProps> = ({
           id={id}
           selected={index === selectedIndex}
           onSelect={() => onSelect(index)}
+          variant={variant}
         >
           {children}
         </Tab>
       ))}
+      <hr
+        className={cn(theme.list.divider, theme.list.variant[variant].divider)}
+      />
     </nav>
   );
 };

@@ -2,12 +2,32 @@ export interface TabsTheme {
   base: string;
   list: {
     base: string;
+    indicator: string;
+    divider: string;
+    variant: {
+      primary: {
+        indicator: string;
+        divider: string;
+      };
+      secondary: {
+        indicator: string;
+        divider: string;
+      };
+    };
     tab: {
       base: string;
+      button: string;
       selected: string;
       disabled: string;
+      variant: {
+        primary: {
+          button: string;
+        };
+        secondary: {
+          button: string;
+        };
+      };
     };
-    indicator: string;
   };
   panel: string;
 }
@@ -15,30 +35,38 @@ export interface TabsTheme {
 const baseTheme: TabsTheme = {
   base: 'flex flex-col',
   list: {
-    base: 'flex text-center flex-wrap -mb-px position-relative',
-    tab: {
-      base: 'rounded-none border-b-2 border-transparent',
-      selected: '',
-      disabled: 'cursor-not-allowed opacity-50'
+    base: 'flex text-center flex-wrap -mb-px',
+    indicator: 'bg-primary absolute bottom-0 left-0 right-0',
+    divider: 'w-full h-px border-0',
+    variant: {
+      primary: {
+        indicator: 'h-1',
+        divider: 'bg-surface'
+      },
+      secondary: {
+        indicator: 'h-0.5',
+        divider: 'bg-gradient-to-r from-transparent to-transparent via-primary'
+      }
     },
-    indicator: 'h-[2px] position-absolute bottom-0 left-0 right-0'
+    tab: {
+      base: 'relative',
+      button:
+        'transition-colors text-panel-secondary-content font-bold hover:text-primary-hover',
+      selected: 'text-panel-content',
+      disabled: 'cursor-not-allowed opacity-40',
+      variant: {
+        primary: {
+          button: 'pb-4 text-xl'
+        },
+        secondary: {
+          button: 'pb-2 text-lg'
+        }
+      }
+    }
   },
   panel: 'mt-2'
 };
 
-export const tabsTheme: TabsTheme = {
-  ...baseTheme,
-  list: {
-    ...baseTheme.list,
-    base: `border-b border-panel-accent ${baseTheme.list.base}`,
-    indicator: `bg-primary ${baseTheme.list.indicator}`,
-    tab: {
-      ...baseTheme.list.tab,
-      base: `${baseTheme.list.tab.base} text-panel-content`
-    }
-  }
-};
+export const tabsTheme = baseTheme;
 
-export const legacyTabsTheme: TabsTheme = {
-  ...baseTheme
-};
+export const legacyTabsTheme: TabsTheme = baseTheme;
