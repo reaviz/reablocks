@@ -26,11 +26,34 @@ export interface OverlayPortalMountEvent {
 }
 
 export interface OverlayPortalProps {
+  /**
+   * If true, the overlay portal will be appended to the body.
+   */
   appendToBody?: boolean;
+
+  /**
+   * The class name of the overlay portal.
+   */
   className?: string;
+
+  /**
+   * The id of the overlay portal.
+   */
   id?: string;
+
+  /**
+   * A function that returns the children of the overlay portal. It receives an object of type OverlayPortalMountEvent as an argument.
+   */
   children: (props: OverlayPortalMountEvent) => any;
+
+  /**
+   * A function that is called when the overlay portal mounts. It receives an object of type OverlayPortalMountEvent as an argument.
+   */
   onMount?: (event: OverlayPortalMountEvent) => void;
+
+  /**
+   * A function that is called when the overlay portal unmounts.
+   */
   onUnmount?: () => void;
 }
 

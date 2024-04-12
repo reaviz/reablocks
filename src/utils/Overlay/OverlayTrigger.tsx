@@ -8,11 +8,34 @@ export interface OverlayTriggerEvent {
 }
 
 export interface OverlayTriggerProps {
+  /**
+   * The children to be rendered within the overlay trigger.
+   */
   children?: any;
+
+  /**
+   * The CSS class name to be applied to the overlay trigger.
+   */
   className?: string;
+
+  /**
+   * The type of element that will be used as the overlay trigger.
+   */
   elementType?: any;
+
+  /**
+   * The type(s) of event(s) that will trigger the overlay. Can be a single trigger type or an array of trigger types.
+   */
   trigger: TriggerTypes | TriggerTypes[];
+
+  /**
+   * A function that is called when the overlay is opened. It receives an object of type OverlayTriggerEvent as an argument.
+   */
   onOpen?: (event: OverlayTriggerEvent) => void;
+
+  /**
+   * A function that is called when the overlay is closed. It receives an object of type OverlayTriggerEvent as an argument.
+   */
   onClose?: (event: OverlayTriggerEvent) => void;
 }
 
