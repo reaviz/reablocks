@@ -37,16 +37,6 @@ export const Variants = () => (
       <TabPanel>This is content for secondary tab 2</TabPanel>
       <TabPanel>This is content for secondary tab 3</TabPanel>
     </Tabs>
-    <Tabs variant="tertiary">
-      <TabList>
-        <Tab>Tab 1</Tab>
-        <Tab>Tab 2</Tab>
-        <Tab>Tab 3</Tab>
-      </TabList>
-      <TabPanel>This is content for tertiary tab 1</TabPanel>
-      <TabPanel>This is content for tertiary tab 2</TabPanel>
-      <TabPanel>This is content for tertiary tab 3</TabPanel>
-    </Tabs>
   </div>
 );
 

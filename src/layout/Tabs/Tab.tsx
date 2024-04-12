@@ -95,7 +95,10 @@ export const Tab: FC<TabProps> = ({
       </Button>
       {selected && (
         <motion.div
-          className={cn(theme.list.variant?.[variant]?.indicator)}
+          className={cn(
+            theme.list.indicator,
+            theme.list.variant?.[variant]?.indicator
+          )}
           layoutId={`${id}-tabs-underline`}
         />
       )}
