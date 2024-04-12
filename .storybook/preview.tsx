@@ -68,6 +68,7 @@ const preview: Preview = {
               'Example'
             ],
             'Components',
+            'Utils',
             'Advanced',
             'Support',
           ],
