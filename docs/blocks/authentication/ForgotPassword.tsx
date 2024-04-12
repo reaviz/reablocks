@@ -1,10 +1,10 @@
-import { Input } from '../../../src/form/Input';
+import { Block } from '../../../src/layout/Block';
 import { Button } from '../../../src/elements/Button';
 import { Card } from '../../../src/layout/Card';
-import { Block } from '../../../src/layout/Block';
-import { useForm, Controller } from 'react-hook-form';
-import { motion } from 'framer-motion';
 import { Divider } from '../../../src/layout/Divider';
+import { Input } from '../../../src/form/Input';
+import { motion } from 'framer-motion';
+import { useForm, Controller } from 'react-hook-form';
 import logo from '../../assets/reaviz.svg';
 
 export const ForgotPassword = () => {
@@ -100,7 +100,7 @@ export const ForgotPassword = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus focus:outline-none transition-colors"
+            className="mt-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
             disabled={isSubmitting}
           >
             <svg
