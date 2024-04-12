@@ -26,14 +26,18 @@ import { Tabs, TabPanel, TabList, Tab } from '../../../src/layout/Tabs';
     <TabPanel>
   ```tsx
 import { useState } from 'react';
-import { Card } from '../../../src/layout/Card';
-import { Divider } from '../../../src/layout/Divider';
-import { List, ListItem } from '../../../src/layout/List';
-import { MotionGroup, MotionItem } from '../../../src/layout/Motion';
-import { Stack } from '../../../src/layout/Stack';
-import { Button } from '../../../src/elements/Button';
-import { cn } from '../../../src/utils/Theme/helpers';
-import { Chip } from '../../../src/elements/Chip';
+import {
+  Button,
+  Card,
+  Chip,
+  cn,
+  Divider,
+  List,
+  ListItem,
+  MotionGroup,
+  MotionItem,
+  Stack
+} from 'reablocks';
 
 const CheckIcon = () => (
   <svg
@@ -326,14 +330,17 @@ export const Pricing = () => {
     <TabPanel>
   ```tsx
 import { useState } from 'react';
-import { Card } from '../../../src/layout/Card';
-import { Divider } from '../../../src/layout/Divider';
-import { MotionGroup, MotionItem } from '../../../src/layout/Motion';
-import { Stack } from '../../../src/layout/Stack';
-import { VerticalSpacer } from '../../../src/layout/VerticalSpacer';
-import { Button } from '../../../src/elements/Button';
-import { cn } from '../../../src/utils/Theme/helpers';
-import { Chip } from '../../../src/elements/Chip';
+import {
+  Button,
+  Card,
+  Chip,
+  cn,
+  Divider,
+  MotionGroup,
+  MotionItem,
+  Stack,
+  VerticalSpacer
+} from 'reablocks';
 
 export const PricingFull = () => {
   const [cycle, setCycle] = useState('Monthly');
@@ -651,17 +658,23 @@ export const PricingFull = () => {
     <TabPanel>
   ```tsx
 import { useState } from 'react';
-import { Card } from '../../../src/layout/Card';
-import { Divider } from '../../../src/layout/Divider';
-import { MotionGroup, MotionItem } from '../../../src/layout/Motion';
-import { Stack } from '../../../src/layout/Stack';
-import { List, ListItem } from '../../../src/layout/List';
-import { Button } from '../../../src/elements/Button';
-import { Chip } from '../../../src/elements/Chip';
-import { cn } from '../../../src/utils/Theme/helpers';
+import {
+  Button,
+  Card,
+  Chip,
+  cn,
+  Divider,
+  List,
+  ListItem
+  MotionGroup,
+  MotionItem
+  Radio,
+  radioTheme
+  Stack,
+  Toggle,
+  toggleTheme
+} from 'reablocks';
 import { motion } from 'framer-motion';
-import { Radio, radioTheme } from '../../../src/form/Radio';
-import { Toggle, toggleTheme } from '../../../src/form/Toggle';
 
 const CheckIcon = () => (
   <svg
@@ -681,7 +694,7 @@ const CheckIcon = () => (
 const ToggleTheme = {
   ...toggleTheme,
   base: 'flex items-center justify-start cursor-pointer box-border border dark:border-charade dark:bg-[#1E1E2E] light:border-mystic light:bg-[#C9C9D6] hover:bg-primary-hover focus-visible:outline-none focus-visible:border-primary-hover rounded-xl transition-colors',
-  checked: 'justify-end bg-blue-500',
+  checked: 'justify-end !bg-blue-500',
   handle: {
     base: 'rounded-full dark:bg-black light:bg-white',
     sizes: {
