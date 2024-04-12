@@ -217,19 +217,19 @@ const config: Config = {
         primary: {
           DEFAULT: colorPalette.blue[500],
           active: colorPalette.blue[500],
-          hover: colorPalette.blue[400],
+          hover: colorPalette.blue[600],
           inactive: colorPalette.gray[500]
         },
         secondary: {
           DEFAULT: colorPalette.gray[300],
           active: colorPalette.gray[300],
-          hover: colorPalette.gray[200],
+          hover: colorPalette.gray[400],
           inactive: colorPalette.gray[800]
         },
         success: {
           DEFAULT: colorPalette.green[500],
           active: colorPalette.green[500],
-          hover: colorPalette.green[400],
+          hover: colorPalette.green[600],
           fill: colorPalette.green[950]
         },
         error: {
@@ -241,13 +241,13 @@ const config: Config = {
         warning: {
           DEFAULT: colorPalette.orange[500],
           active: colorPalette.orange[500],
-          hover: colorPalette.orange[400],
+          hover: colorPalette.orange[600],
           fill: colorPalette.orange[950]
         },
         info: {
           DEFAULT: colorPalette.blue[500],
           active: colorPalette.blue[500],
-          hover: colorPalette.blue[400],
+          hover: colorPalette.blue[600],
           fill: colorPalette.blue[950]
         },
         panel: {
@@ -269,37 +269,37 @@ const config: Config = {
         primary: {
           DEFAULT: colorPalette.blue[500],
           active: colorPalette.blue[500],
-          hover: colorPalette.blue[600],
+          hover: colorPalette.blue[400],
           inactive: colorPalette.blue[200]
         },
         secondary: {
           DEFAULT: colorPalette.gray[700],
           active: colorPalette.gray[700],
-          hover: colorPalette.gray[800],
+          hover: colorPalette.gray[600],
           inactive: colorPalette.gray[400]
         },
         success: {
           DEFAULT: colorPalette.green[500],
           active: colorPalette.green[500],
-          hover: colorPalette.green[600],
+          hover: colorPalette.green[400],
           fill: colorPalette.green[100]
         },
         error: {
           DEFAULT: colorPalette.red[500],
           active: colorPalette.red[500],
-          hover: colorPalette.red[600],
+          hover: colorPalette.red[400],
           fill: colorPalette.red[100]
         },
         warning: {
           DEFAULT: colorPalette.orange[500],
           active: colorPalette.orange[500],
-          hover: colorPalette.orange[600],
+          hover: colorPalette.orange[400],
           fill: colorPalette.orange[100]
         },
         info: {
           DEFAULT: colorPalette.blue[500],
           active: colorPalette.blue[500],
-          hover: colorPalette.blue[600],
+          hover: colorPalette.blue[400],
           fill: colorPalette.blue[100]
         },
         panel: {
