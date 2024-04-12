@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren, Children } from 'react';
 import { Tab } from './Tab';
-import { useComponentTheme } from '../../utils';
+import { cn, useComponentTheme } from '../../utils';
 import { TabsTheme } from './TabsTheme';
 import { twMerge } from 'tailwind-merge';
 import classNames from 'classnames';
@@ -67,14 +67,9 @@ export const TabList: FC<TabListProps> = ({
     <nav
       role="tablist"
       className={twMerge(
-        classNames(
-          className,
-          theme.list.base,
-          theme.list?.variant?.[variant]?.base,
-          {
-            'justify-end': direction === 'rtl'
-          }
-        )
+        classNames(className, theme.list.base, {
+          'justify-end': direction === 'rtl'
+        })
       )}
     >
       {childs.map(({ children, ...rest }, index) => (
@@ -89,6 +84,9 @@ export const TabList: FC<TabListProps> = ({
           {children}
         </Tab>
       ))}
+      <hr
+        className={cn(theme.list.divider, theme.list.variant[variant].divider)}
+      />
     </nav>
   );
 };

@@ -3,14 +3,15 @@ export interface TabsTheme {
   list: {
     base: string;
     indicator: string;
+    divider: string;
     variant: {
       primary: {
-        base: string;
         indicator: string;
+        divider: string;
       };
       secondary: {
-        base: string;
         indicator: string;
+        divider: string;
       };
     };
     tab: {
@@ -35,15 +36,16 @@ const baseTheme: TabsTheme = {
   base: 'flex flex-col',
   list: {
     base: 'flex text-center flex-wrap -mb-px',
-    indicator: 'bg-primary h-[4px] absolute bottom-0 left-0 right-0',
+    indicator: 'bg-primary absolute bottom-0 left-0 right-0',
+    divider: 'w-full h-px border-0',
     variant: {
       primary: {
-        base: 'border-b border-panel-accent',
-        indicator: 'bg-primary h-[4px] absolute bottom-0 left-0 right-0'
+        indicator: 'h-[4px]',
+        divider: 'bg-surface'
       },
       secondary: {
-        base: '',
-        indicator: 'bg-primary h-[2px] absolute bottom-0 left-0 right-0'
+        indicator: 'h-[2px]',
+        divider: 'bg-gradient-to-r from-transparent to-transparent via-blue-500'
       }
     },
     tab: {
