@@ -46,6 +46,11 @@ export interface RangeProps<Value> {
   valueDisplay?: 'always' | 'hover';
 
   /**
+   * Format the value to display
+   */
+  valueFormat?: (value: number) => string;
+
+  /**
    * Additional css styles to apply to the range
    */
   style?: React.CSSProperties;

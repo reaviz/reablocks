@@ -22,6 +22,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   max,
   value,
   valueDisplay = 'hover',
+  valueFormat = value => value.toLocaleString(),
   onChange,
   theme: customTheme,
   step = 1
@@ -176,9 +177,11 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
           />
         </div>
         {valueDisplay === 'hover' ? (
-          <RangeTooltip visible={minTooltipVisible}>{currentMin}</RangeTooltip>
+          <RangeTooltip visible={minTooltipVisible}>
+            {valueFormat(currentMin)}
+          </RangeTooltip>
         ) : (
-          currentMin
+          valueFormat(currentMin)
         )}
       </motion.div>
       <motion.div
@@ -219,9 +222,11 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
           />
         </div>
         {valueDisplay === 'hover' ? (
-          <RangeTooltip visible={maxTooltipVisible}>{currentMax}</RangeTooltip>
+          <RangeTooltip visible={maxTooltipVisible}>
+            {valueFormat(currentMax)}
+          </RangeTooltip>
         ) : (
-          currentMax
+          valueFormat(currentMax)
         )}
       </motion.div>
       <div
