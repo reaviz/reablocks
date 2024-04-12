@@ -27,6 +27,17 @@ There are five overlay components in the Overlay:
 A overlay component typically used by components like Dialogs or Drawers.
 You can use the Global Ovleray using element APIs.
 
+    
+Use the css variable `--color-layer-transparent` to set the backdrop color.
+
+```css
+// index.css
+
+body {
+  --color-layer-transparent: rgba(0, 0, 0, 0.5);
+}
+```
+
 <Canvas of={GlobalOverlayStories.ClickToOpen} sourceState="shown" />
 
 #### Dialog Example
