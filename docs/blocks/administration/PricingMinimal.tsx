@@ -1,15 +1,15 @@
 import { useState } from 'react';
-import { Card } from '../../../src/layout/Card';
-import { Divider } from '../../../src/layout/Divider';
-import { MotionGroup, MotionItem } from '../../../src/layout/Motion';
-import { Stack } from '../../../src/layout/Stack';
-import { List, ListItem } from '../../../src/layout/List';
 import { Button } from '../../../src/elements/Button';
+import { Card } from '../../../src/layout/Card';
 import { Chip } from '../../../src/elements/Chip';
 import { cn } from '../../../src/utils/Theme/helpers';
-import { motion } from 'framer-motion';
+import { Divider } from '../../../src/layout/Divider';
+import { List, ListItem } from '../../../src/layout/List';
+import { MotionGroup, MotionItem } from '../../../src/layout/Motion';
 import { Radio, radioTheme } from '../../../src/form/Radio';
+import { Stack } from '../../../src/layout/Stack';
 import { Toggle, toggleTheme } from '../../../src/form/Toggle';
+import { motion } from 'framer-motion';
 
 const CheckIcon = () => (
   <svg
@@ -29,7 +29,7 @@ const CheckIcon = () => (
 const ToggleTheme = {
   ...toggleTheme,
   base: 'flex items-center justify-start cursor-pointer box-border border dark:border-charade dark:bg-[#1E1E2E] light:border-mystic light:bg-[#C9C9D6] hover:bg-primary-hover focus-visible:outline-none focus-visible:border-primary-hover rounded-xl transition-colors',
-  checked: 'justify-end bg-blue-500',
+  checked: 'justify-end !bg-blue-500',
   handle: {
     base: 'rounded-full dark:bg-black light:bg-white',
     sizes: {
