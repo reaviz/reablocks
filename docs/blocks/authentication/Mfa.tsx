@@ -82,7 +82,7 @@ export const Mfa = () => {
           >
             Resend Code
           </Button>
-          <Divider variant="gradient" />
+          <Divider variant="secondary" />
           <div className="text-center">
             <span className="text-panel-secondary-content text-sm">
               Remember your password?

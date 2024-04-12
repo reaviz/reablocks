@@ -33,7 +33,7 @@ export interface DividerProps {
   /**
    * Variant of the divider.
    */
-  variant?: 'default' | 'gradient';
+  variant?: 'primary' | 'secondary';
 }
 
 export const Divider: FC<DividerProps> = ({
@@ -63,5 +63,5 @@ export const Divider: FC<DividerProps> = ({
 Divider.defaultProps = {
   orientation: 'horizontal',
   disableMargins: false,
-  variant: 'default'
+  variant: 'primary'
 };

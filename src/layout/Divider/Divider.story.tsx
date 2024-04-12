@@ -33,9 +33,9 @@ export const Vertical = () => (
 export const Variants = () => (
   <div style={{ width: 300 }}>
     Above
-    <Divider variant="default" />
+    <Divider variant="primary" />
     Middle
-    <Divider variant="gradient" />
+    <Divider variant="secondary" />
     Below
   </div>
 );

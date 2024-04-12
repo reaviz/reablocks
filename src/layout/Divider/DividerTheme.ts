@@ -5,8 +5,8 @@ export interface DividerTheme {
     horizontal?: string;
   };
   variant?: {
-    default?: string;
-    gradient?: string;
+    primary?: string;
+    secondary?: string;
   };
   disableMargins?: string;
 }
@@ -18,8 +18,8 @@ const baseTheme: DividerTheme = {
     vertical: 'w-px h-full mx-2.5'
   },
   variant: {
-    default: 'bg-surface',
-    gradient: 'bg-gradient-to-r from-transparent to-transparent via-blue-500'
+    primary: 'bg-surface',
+    secondary: 'bg-gradient-to-r from-transparent to-transparent via-blue-500'
   },
   disableMargins: 'my-0 mx-0'
 };
