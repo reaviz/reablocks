@@ -40,12 +40,12 @@ const baseTheme: TabsTheme = {
     divider: 'w-full h-px border-0',
     variant: {
       primary: {
-        indicator: 'h-[4px]',
+        indicator: 'h-1',
         divider: 'bg-surface'
       },
       secondary: {
-        indicator: 'h-[2px]',
-        divider: 'bg-gradient-to-r from-transparent to-transparent via-blue-500'
+        indicator: 'h-0.5',
+        divider: 'bg-gradient-to-r from-transparent to-transparent via-primary'
       }
     },
     tab: {
