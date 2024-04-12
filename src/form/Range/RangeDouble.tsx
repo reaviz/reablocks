@@ -22,7 +22,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   max,
   value,
   valueDisplay = 'hover',
-  valueFormat = value => value.toString(),
+  valueFormat = value => value.toLocaleString(),
   onChange,
   theme: customTheme,
   step = 1

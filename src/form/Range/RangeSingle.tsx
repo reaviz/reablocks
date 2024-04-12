@@ -22,7 +22,7 @@ export const RangeSingle: FC<RangeProps<number>> = ({
   max,
   value,
   valueDisplay = 'hover',
-  valueFormat = value => value.toString(),
+  valueFormat = value => value.toLocaleString(),
   step = 1,
   theme: customTheme
 }) => {
