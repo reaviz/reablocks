@@ -18,16 +18,59 @@ export interface ConnectedOverlayContentRef {
 }
 
 export interface ConnectedOverlayContentProps {
+  /**
+   * Modifiers to adjust the behavior of the overlay content.
+   */
   modifiers?: any;
+
+  /**
+   * If true, the overlay content will follow the cursor.
+   */
   followCursor?: boolean;
+
+  /**
+   * The CSS class name to be applied to the portal of the overlay content.
+   */
   portalClassName?: string;
+
+  /**
+   * The placement of the overlay content relative to the trigger.
+   */
   placement?: Placement;
+
+  /**
+   * A reference to the trigger element.
+   */
   triggerRef: any;
+
+  /**
+   * The children to be rendered within the overlay content.
+   */
   children: any;
+
+  /**
+   * If true, the overlay content will close when a click is detected on the body.
+   */
   closeOnBodyClick?: boolean;
+
+  /**
+   * If true, the overlay content will close when the escape key is pressed.
+   */
   closeOnEscape?: boolean;
+
+  /**
+   * The type of element that will be used as the overlay content.
+   */
   elementType?: any;
+
+  /**
+   * If true, the overlay content will be appended to the body.
+   */
   appendToBody?: boolean;
+
+  /**
+   * A function that is called when the overlay content is closed. It receives an optional event object as an argument.
+   */
   onClose?: (event?: any) => void;
 }
 
@@ -109,6 +152,7 @@ export const ConnectedOverlayContent: FC<
       if (positionRef && overlayIndex) {
         positionRef.current.style.zIndex = overlayIndex;
       }
+      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [positionRef.current, overlayIndex]);
 
     return (
