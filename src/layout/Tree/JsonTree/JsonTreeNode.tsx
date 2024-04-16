@@ -5,6 +5,7 @@ import { useComponentTheme } from '../../../utils/Theme/hooks';
 import { JsonTreeTheme } from './JsonTreeTheme';
 import { twMerge } from 'tailwind-merge';
 import { Ellipsis } from '../../../data/Ellipsis';
+import { useInfinityList } from '../../../data/InfinityList';
 
 export interface JsonTreeNodeProps {
   /**
@@ -31,6 +32,11 @@ export interface JsonTreeNodeProps {
    * The depth of the JSON tree node. This is typically used for indentation purposes.
    */
   depth?: number;
+
+  /**
+   * The limit for the number of nodes to show when `showAll` is true.
+   */
+  showAllLimit?: number;
 
   /**
    * The depth at which the JSON tree nodes should be expanded by default.
@@ -60,12 +66,24 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
   className,
   showCount,
   showEmpty,
+  showAllLimit,
   ellipsisText,
   ellipsisTextLength,
   theme: customTheme
 }) => {
   const theme = useComponentTheme('jsonTree', customTheme);
   const type = data.type;
+  const isList = type === 'array' || type === 'object';
+  const {
+    data: listData,
+    hasMore,
+    showNext
+  } = useInfinityList({
+    items: isList ? data.data : [],
+    size: showAllLimit,
+    threshold: 3,
+    nextSize: Infinity
+  });
 
   const renderExpandableNode = useCallback(() => {
     const label = type === 'array' ? 'items' : 'keys';
@@ -122,7 +140,7 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
     >
       {(data.type === 'array' || data.type === 'object') && (
         <>
-          {data.data.map(item => (
+          {listData.map(item => (
             <JsonTreeNode
               key={item.id}
               data={item}
@@ -136,6 +154,11 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
             />
           ))}
         </>
+      )}
+      {isList && hasMore && (
+        <span className={twMerge(theme.pager)} onClick={() => showNext()}>
+          Show all
+        </span>
       )}
     </TreeNode>
   );

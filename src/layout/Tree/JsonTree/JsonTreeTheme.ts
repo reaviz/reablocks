@@ -6,6 +6,7 @@ export interface JsonTreeTheme {
     symbol: string;
     count: string;
   };
+  pager: string;
 }
 
 export const jsonTreeTheme: JsonTreeTheme = {
@@ -15,5 +16,6 @@ export const jsonTreeTheme: JsonTreeTheme = {
     symbol: 'px-1 opacity-50 font-mono',
     value: '',
     count: 'opacity-50'
-  }
+  },
+  pager: 'opacity-50 cursor-pointer pl-4'
 };

@@ -1,11 +1,11 @@
-import React, { FC, useMemo } from 'react';
+import React, { FC, PropsWithChildren, useMemo } from 'react';
 import { Arrow } from '../../elements/Arrow';
 import { TreeContext, TreeContextProps } from './TreeContext';
 import { TreeTheme } from './TreeTheme';
 import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
 
-export interface TreeProps extends TreeContextProps {
+export type TreeProps = {
   /**
    * CSS Classname to apply to the tree
    */
@@ -17,15 +17,11 @@ export interface TreeProps extends TreeContextProps {
   style?: React.CSSProperties;
 
   /**
-   * Children to render inside the tree
-   */
-  children?: any;
-
-  /**
    * Theme for the Tree
    */
   theme?: TreeTheme;
-}
+} & TreeContextProps &
+  PropsWithChildren;
 
 export const Tree: FC<TreeProps> = ({
   children,
@@ -36,6 +32,7 @@ export const Tree: FC<TreeProps> = ({
   ...rest
 }) => {
   const theme: TreeTheme = useComponentTheme('tree', customTheme);
+
   expandedIcon = expandedIcon ?? (
     <Arrow direction="down" className={theme.arrow} />
   );

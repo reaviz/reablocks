@@ -20,11 +20,6 @@ export interface JsonTreeProps {
   showAllLimit?: number;
 
   /**
-   * The threshold for the number of nodes at which `showAll` will take effect.
-   */
-  showAllThreshold?: number;
-
-  /**
    * If true, the count of child nodes will be shown next to each node.
    */
   showCount?: boolean;
@@ -61,6 +56,7 @@ export const JsonTree: FC<JsonTreeProps> = ({
   expandDepth,
   showEmpty,
   showCount,
+  showAllLimit,
   ellipsisText,
   ellipsisTextLength,
   ...rest
@@ -79,6 +75,7 @@ export const JsonTree: FC<JsonTreeProps> = ({
           expandDepth={expandDepth}
           ellipsisText={ellipsisText}
           ellipsisTextLength={ellipsisTextLength}
+          showAllLimit={showAllLimit}
         />
       </Tree>
     </div>

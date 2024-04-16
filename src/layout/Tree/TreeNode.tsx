@@ -64,7 +64,9 @@ export const TreeNode: FC<Partial<TreeNodeProps>> = ({
 }) => {
   const { expandedIcon, collapsedIcon } = useContext(TreeContext);
   const [expanded, setExpanded] = useState<boolean>(expandedProp as boolean);
-  const hasChildren = children && Children.count(children) > 0;
+
+  // Note: Need to use `toArray` vs `count` since it doesn't count non-rendered children
+  const hasChildren = children && Children.toArray(children).length > 0;
 
   useEffect(() => {
     setExpanded(expandedProp as boolean);
