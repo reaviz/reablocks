@@ -88,7 +88,7 @@ export const TreeNode: FC<Partial<TreeNodeProps>> = ({
   const theme: TreeTheme = useComponentTheme('tree', customTheme);
 
   return (
-    <li className={twMerge(theme.node.base)}>
+    <li className={twMerge(theme.node.base, className)}>
       <div className={theme.nodeBlock}>
         {hasChildren && (
           <Button
