@@ -134,6 +134,7 @@ export const Empties = props => (
     data={{
       in_ip_bytes: 0,
       extra: {},
+      cheese: false,
       bacon: null,
       baconer: undefined,
       arr: [
