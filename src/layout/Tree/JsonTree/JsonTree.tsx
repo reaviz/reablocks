@@ -56,6 +56,7 @@ export const JsonTree: FC<JsonTreeProps> = ({
   expandDepth,
   showEmpty,
   showCount,
+  showAll,
   showAllLimit,
   ellipsisText,
   ellipsisTextLength,
@@ -75,6 +76,7 @@ export const JsonTree: FC<JsonTreeProps> = ({
           expandDepth={expandDepth}
           ellipsisText={ellipsisText}
           ellipsisTextLength={ellipsisTextLength}
+          showAll={showAll}
           showAllLimit={showAllLimit}
         />
       </Tree>
@@ -85,7 +87,6 @@ export const JsonTree: FC<JsonTreeProps> = ({
 JsonTree.defaultProps = {
   showAll: false,
   showAllLimit: 10,
-  showAllThreshold: 5,
   showCount: true,
   showEmpty: true,
   ellipsisText: true,

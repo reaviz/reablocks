@@ -39,7 +39,10 @@ export const Expanded = props => (
       children: [
         { name: 'Jane Doe', age: 25 },
         { name: 'Jim Doe', age: 33 }
-      ]
+      ],
+      extra: {
+        key: 'value'
+      }
     }}
     expandDepth={Infinity}
   />
@@ -137,6 +140,7 @@ export const Empties = props => (
       cheese: false,
       bacon: null,
       baconer: undefined,
+      empty_string: '',
       arr: [
         1,
         2,

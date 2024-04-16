@@ -1,4 +1,4 @@
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 import { TreeNode } from '../TreeNode';
 import { JsonTreeData } from './utils';
 import { useComponentTheme } from '../../../utils/Theme/hooks';
@@ -88,6 +88,7 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
   const renderExpandableNode = useCallback(() => {
     const label = type === 'array' ? 'items' : 'keys';
     const symbol = type === 'array' ? '[]' : '{}';
+
     return (
       <>
         <span className={twMerge(theme.node.label)}>{data.label}</span>
@@ -105,7 +106,19 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
     const ellipsis = type === 'string' && ellipsisText;
     const showDelimeter = data.label !== null && data.label !== undefined;
     const isEmpty = data.data === null || data.data === undefined;
-    const valueLabel = showEmpty && isEmpty ? 'null' : data.data;
+    const isEmptyString = data.data === '';
+    let valueLabel = data.data?.toString();
+    if (showEmpty) {
+      if (isEmptyString) {
+        valueLabel = '""';
+      } else if (isEmpty) {
+        valueLabel = 'null';
+      }
+    }
+
+    if (!showEmpty && (isEmpty || isEmptyString)) {
+      return null;
+    }
 
     return (
       <>
@@ -114,7 +127,7 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
           <span className={twMerge(theme.node.delimiter)}>:</span>
         )}
         <span className={twMerge(theme.node.value)}>
-          {ellipsis ? (
+          {ellipsis && !isEmptyString ? (
             <Ellipsis value={data.data} limit={ellipsisTextLength} />
           ) : (
             valueLabel
@@ -123,6 +136,24 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
       </>
     );
   }, [data, showEmpty, ellipsisText, ellipsisTextLength, theme, type]);
+
+  const isNestedData = useMemo(
+    () => data.type === 'array' || data.type === 'object',
+    [data.type]
+  );
+  const isNestedDataEmpty = useMemo(() => {
+    if (isNestedData) {
+      return data.type === 'array'
+        ? data.data.length === 0
+        : Object.keys(data.data).length === 0;
+    }
+
+    return false;
+  }, [data.data, data.type, isNestedData]);
+
+  if (!showEmpty && isNestedDataEmpty) {
+    return null;
+  }
 
   return (
     <TreeNode
@@ -136,7 +167,7 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
         </>
       }
     >
-      {(data.type === 'array' || data.type === 'object') && (
+      {isNestedData && !isNestedDataEmpty && (
         <>
           {listData.map(item => (
             <JsonTreeNode

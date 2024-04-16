@@ -74,11 +74,16 @@ export function parseJsonTree({
       return parsedItems;
     }, []);
 
+    let labelValue = index !== undefined ? `${index}` : 'root';
+    if (label !== undefined) {
+      labelValue = label;
+    }
+
     return {
       type,
       id,
       data: result,
-      label: index !== undefined ? `${index}` : 'root',
+      label: labelValue,
       index
     };
   } else if (type === 'array') {
