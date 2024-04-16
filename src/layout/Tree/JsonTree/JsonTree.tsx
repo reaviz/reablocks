@@ -1,32 +1,38 @@
 import React, { FC } from 'react';
 import { Tree } from '../Tree';
 import { JsonTreeNode } from './JsonTreeNode';
+import { parseJsonTree } from './utils';
 
 export interface JsonTreeProps {
   data: { [key: string]: any };
-  root?: boolean;
-  allowCopy?: boolean;
   showAll?: boolean;
   showAllLimit?: number;
   showAllThreshold?: number;
-  showCount: boolean;
-  showEmpty: boolean;
+  showCount?: boolean;
+  showEmpty?: boolean;
   ellipsisText?: boolean;
   ellipsisTextLength?: number;
-  expandDepth: number;
+  expandDepth?: number;
   className?: string;
 }
 
 export const JsonTree: FC<JsonTreeProps> = ({
   data,
-  root,
   className,
+  expandDepth,
   ...rest
 }) => {
+  const tree = parseJsonTree({ data });
+
   return (
     <div tabIndex={-1}>
       <Tree className={className} {...rest}>
-        {root && <JsonTreeNode index={0} depth={1} />}
+        <JsonTreeNode
+          key={`node-${tree.id}`}
+          depth={1}
+          data={tree}
+          expandDepth={expandDepth}
+        />
       </Tree>
     </div>
   );
@@ -40,6 +46,5 @@ JsonTree.defaultProps = {
   showEmpty: true,
   ellipsisText: true,
   ellipsisTextLength: 150,
-  expandDepth: 2,
-  root: true
+  expandDepth: 2
 };

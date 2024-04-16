@@ -1,28 +1,39 @@
-import React, { FC, PropsWithChildren, useCallback } from 'react';
+import React, { FC, useCallback } from 'react';
 import { TreeNode } from '../TreeNode';
+import { JsonTreeData } from './utils';
 
-export interface JsonTreeNodeProps extends PropsWithChildren {
-  data?: any;
+export interface JsonTreeNodeProps {
+  data?: JsonTreeData;
   className?: string;
-  index?: number;
   depth?: number;
   expandDepth?: number;
-  type?: string;
 }
 
 export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
   depth,
-  children,
-  type,
+  data,
   expandDepth
 }) => {
+  const type = data.type;
+
   const renderExpandableNode = useCallback(() => {
-    return <div>hi</div>;
-  }, []);
+    const label = type === 'array' ? 'items' : 'keys';
+    return (
+      <span>
+        <span className="font-mono opacity-70">{data.label}</span>
+        <span>{` (${data.data.length.toLocaleString()} ${label})`}</span>
+      </span>
+    );
+  }, [data]);
 
   const renderPrimativeNode = useCallback(() => {
-    return <div>hi</div>;
-  }, []);
+    return (
+      <span>
+        <span className="font-mono opacity-70">{data.label}</span>
+        <span>{`: ${data.data}`}</span>
+      </span>
+    );
+  }, [data]);
 
   return (
     <TreeNode
@@ -35,7 +46,19 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
         </span>
       }
     >
-      {children}
+      {(data.type === 'array' || data.type === 'object') && (
+        <>
+          {data.data.map(item => (
+            <JsonTreeNode
+              key={item.id}
+              data={item}
+              depth={depth + 1}
+              expandDepth={expandDepth}
+              type={item.type}
+            />
+          ))}
+        </>
+      )}
     </TreeNode>
   );
 };
