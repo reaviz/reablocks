@@ -63,11 +63,14 @@ export function parseJsonTree({
         data: value,
         id: `${id}.${key}`,
         index: idx,
-        label: key
+        label: key,
+        showEmpty
       });
+
       if (showEmpty || (!showEmpty && childParsed !== null)) {
         parsedItems.push(childParsed);
       }
+
       return parsedItems;
     }, []);
 
@@ -80,7 +83,7 @@ export function parseJsonTree({
     };
   } else if (type === 'array') {
     const result = data.map((item, idx) =>
-      parseJsonTree({ data: item, id: `${id}[${idx}]`, index: idx })
+      parseJsonTree({ data: item, id: `${id}[${idx}]`, index: idx, showEmpty })
     );
 
     return {

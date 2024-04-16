@@ -59,11 +59,13 @@ export const JsonTree: FC<JsonTreeProps> = ({
   data,
   className,
   expandDepth,
+  showEmpty,
+  showCount,
   ellipsisText,
   ellipsisTextLength,
   ...rest
 }) => {
-  const tree = parseJsonTree({ data });
+  const tree = parseJsonTree({ data, showEmpty });
 
   return (
     <div tabIndex={-1}>
@@ -72,6 +74,8 @@ export const JsonTree: FC<JsonTreeProps> = ({
           key={`node-${tree.id}`}
           depth={1}
           data={tree}
+          showEmpty={showEmpty}
+          showCount={showCount}
           expandDepth={expandDepth}
           ellipsisText={ellipsisText}
           ellipsisTextLength={ellipsisTextLength}

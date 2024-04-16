@@ -18,6 +18,16 @@ export interface JsonTreeNodeProps {
   className?: string;
 
   /**
+   * If true, the count of child nodes will be shown next to each node.
+   */
+  showCount?: boolean;
+
+  /**
+   * If true, empty nodes will be shown in the JSON tree.
+   */
+  showEmpty?: boolean;
+
+  /**
    * The depth of the JSON tree node. This is typically used for indentation purposes.
    */
   depth?: number;
@@ -48,6 +58,8 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
   data,
   expandDepth,
   className,
+  showCount,
+  showEmpty,
   ellipsisText,
   ellipsisTextLength,
   theme: customTheme
@@ -62,12 +74,14 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
       <>
         <span className={twMerge(theme.node.label)}>{data.label}</span>
         <span className={twMerge(theme.node.symbol)}>{symbol}</span>
-        <span className={twMerge(theme.node.count)}>
-          {`(${data.data.length.toLocaleString()} ${label})`}
-        </span>
+        {showCount && (
+          <span className={twMerge(theme.node.count)}>
+            {`(${data.data.length.toLocaleString()} ${label})`}
+          </span>
+        )}
       </>
     );
-  }, [data, theme, type]);
+  }, [data, theme, type, showCount]);
 
   const renderPrimativeNode = useCallback(() => {
     const ellipsis = type === 'string' && ellipsisText;
@@ -109,6 +123,8 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
               type={item.type}
               ellipsisText={ellipsisText}
               ellipsisTextLength={ellipsisTextLength}
+              showCount={showCount}
+              showEmpty={showEmpty}
             />
           ))}
         </>

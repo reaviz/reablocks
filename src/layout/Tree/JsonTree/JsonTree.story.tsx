@@ -3,11 +3,20 @@ import { JsonTree } from './JsonTree';
 
 export default {
   title: 'Components/Layout/Tree/Json',
-  components: JsonTree
+  components: JsonTree,
+  argTypes: {
+    showEmpty: {
+      control: 'boolean'
+    },
+    showCount: {
+      control: 'boolean'
+    }
+  }
 };
 
-export const Simple = () => (
+export const Simple = props => (
   <JsonTree
+    {...props}
     data={{
       name: 'John Doe',
       age: 30,
@@ -20,8 +29,9 @@ export const Simple = () => (
   />
 );
 
-export const Expanded = () => (
+export const Expanded = props => (
   <JsonTree
+    {...props}
     data={{
       name: 'John Doe',
       age: 30,
@@ -35,8 +45,9 @@ export const Expanded = () => (
   />
 );
 
-export const Complex = () => (
+export const Complex = props => (
   <JsonTree
+    {...props}
     data={{
       in_bytes: 0,
       sensor_id: 'staging-alpha-network-sensor',
@@ -114,5 +125,41 @@ export const Complex = () => (
         21, 22, 23
       ]
     }}
+  />
+);
+
+export const Empties = props => (
+  <JsonTree
+    {...props}
+    data={{
+      in_ip_bytes: 0,
+      extra: {},
+      bacon: null,
+      baconer: undefined,
+      arr: [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        undefined,
+        null,
+        0,
+        '',
+        Infinity,
+        NaN
+      ]
+    }}
+    expandDepth={Infinity}
   />
 );
