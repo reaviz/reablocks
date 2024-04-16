@@ -111,7 +111,8 @@ import {
   legacyTabsTheme,
   legacyDividerTheme,
   JsonTreeTheme,
-  jsonTreeTheme
+  jsonTreeTheme,
+  legacyJsonTreeTheme
 } from '../../../layout';
 
 import {
@@ -271,6 +272,7 @@ export const legacyThemeVars: ReablocksTheme = {
     tree: legacyTreeTheme,
     popover: legacyPopoverTheme,
     pager: legacyPagerTheme,
-    tabs: legacyTabsTheme
+    tabs: legacyTabsTheme,
+    jsonTree: legacyJsonTreeTheme
   }
 };
