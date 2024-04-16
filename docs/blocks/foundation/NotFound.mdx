@@ -19,15 +19,14 @@ or when a user tries to access a page they do not have access to.
       </Tab>
     </TabList>
     <TabPanel>
-      <div className="flex flex-col border justify-center items-center min-h-[840px] light:bg-white light:text-black">
+      <div className="flex flex-col border justify-center items-center min-h-[840px] border-gray-700 light:bg-white light:text-black">
         <NotFound />
       </div>
     </TabPanel>
     <TabPanel>
 ```tsx
 import React from 'react';
-import { Input } from '../../../src/form/Input';
-import { Button } from '../../../src/elements';
+import { Input, Button } from 'reablocks';
 
 export const NotFound = () => (
   <div className="flex flex-row justify-center w-full relative">
