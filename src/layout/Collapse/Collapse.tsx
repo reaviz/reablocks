@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import isFunction from 'lodash/isFunction';
 import { CollapseTheme } from './CollapseTheme';
 import { useComponentTheme } from '../../utils';
 import { twMerge } from 'tailwind-merge';
@@ -62,7 +61,7 @@ export const Collapse: FC<CollapseProps> = ({
           variants={VARIANTS}
           transition={TRANSITION}
         >
-          {isFunction(children) ? children() : children}
+          {typeof children === 'function' ? children() : children}
         </motion.section>
       )}
     </AnimatePresence>

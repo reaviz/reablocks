@@ -109,7 +109,10 @@ import {
   legacyCollapseTheme,
   legacyTreeTheme,
   legacyTabsTheme,
-  legacyDividerTheme
+  legacyDividerTheme,
+  JsonTreeTheme,
+  jsonTreeTheme,
+  legacyJsonTreeTheme
 } from '../../../layout';
 
 import {
@@ -175,6 +178,7 @@ export interface ReablocksTheme {
     toggle: ToggleTheme;
     tooltip: TooltipTheme;
     tree: TreeTheme;
+    jsonTree: JsonTreeTheme;
     popover: PopoverTheme;
     pager: PagerTheme;
     tabs: TabsTheme;
@@ -222,7 +226,8 @@ export const theme: ReablocksTheme = {
     tree: treeTheme,
     popover: popoverTheme,
     pager: pagerTheme,
-    tabs: tabsTheme
+    tabs: tabsTheme,
+    jsonTree: jsonTreeTheme
   }
 };
 
@@ -267,6 +272,7 @@ export const legacyThemeVars: ReablocksTheme = {
     tree: legacyTreeTheme,
     popover: legacyPopoverTheme,
     pager: legacyPagerTheme,
-    tabs: legacyTabsTheme
+    tabs: legacyTabsTheme,
+    jsonTree: legacyJsonTreeTheme
   }
 };

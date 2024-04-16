@@ -5,7 +5,8 @@ import React, {
   useState,
   useEffect,
   useCallback,
-  useContext
+  useContext,
+  PropsWithChildren
 } from 'react';
 import { Button } from '../../elements/Button';
 import { Collapse } from '../Collapse';
@@ -14,7 +15,7 @@ import { twMerge } from 'tailwind-merge';
 import { TreeTheme } from './TreeTheme';
 import { useComponentTheme } from '../../utils';
 
-export interface TreeNodeProps {
+export interface TreeNodeProps extends PropsWithChildren {
   /**
    * Label to display for the node
    */
@@ -24,11 +25,6 @@ export interface TreeNodeProps {
    * CSS Classname to apply to the node
    */
   className?: string;
-
-  /**
-   * Children to render inside the node
-   */
-  children?: any;
 
   /**
    * Whether the node is expanded or not
@@ -41,6 +37,11 @@ export interface TreeNodeProps {
   disabled?: boolean;
 
   /**
+   * Theme for the Tree
+   */
+  theme?: TreeTheme;
+
+  /**
    * Event fired when the node is expanded
    */
   onExpand?: () => void;
@@ -49,11 +50,6 @@ export interface TreeNodeProps {
    * Event fired when the node is collapsed
    */
   onCollapse?: () => void;
-
-  /**
-   * Theme for the Tree
-   */
-  theme?: TreeTheme;
 }
 
 export const TreeNode: FC<Partial<TreeNodeProps>> = ({
@@ -68,7 +64,9 @@ export const TreeNode: FC<Partial<TreeNodeProps>> = ({
 }) => {
   const { expandedIcon, collapsedIcon } = useContext(TreeContext);
   const [expanded, setExpanded] = useState<boolean>(expandedProp as boolean);
-  const hasChildren = children && Children.count(children) > 0;
+
+  // Note: Need to use `toArray` vs `count` since it doesn't count non-rendered children
+  const hasChildren = children && Children.toArray(children).length > 0;
 
   useEffect(() => {
     setExpanded(expandedProp as boolean);
@@ -88,7 +86,7 @@ export const TreeNode: FC<Partial<TreeNodeProps>> = ({
   const theme: TreeTheme = useComponentTheme('tree', customTheme);
 
   return (
-    <li className={twMerge(theme.node.base)}>
+    <li className={twMerge(theme.node.base, className)}>
       <div className={theme.nodeBlock}>
         {hasChildren && (
           <Button
