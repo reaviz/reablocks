@@ -2,14 +2,18 @@ export interface JsonTreeTheme {
   node: {
     label: string;
     value: string;
+    delimiter: string;
+    symbol: string;
     count: string;
   };
 }
 
-const baseTheme: JsonTreeTheme = {
+export const jsonTreeTheme: JsonTreeTheme = {
   node: {
-    label: 'font-mono opacity-70',
+    label: 'font-mono text-anakiwa',
+    delimiter: 'pr-1',
+    symbol: 'px-1 opacity-50 font-mono',
     value: '',
-    count: ''
+    count: 'opacity-50'
   }
 };
