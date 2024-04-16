@@ -83,7 +83,12 @@ export function parseJsonTree({
     };
   } else if (type === 'array') {
     const result = data.map((item, idx) =>
-      parseJsonTree({ data: item, id: `${id}[${idx}]`, index: idx, showEmpty })
+      parseJsonTree({
+        data: item,
+        id: `${id}[${idx}]`,
+        index: idx,
+        showEmpty
+      })
     );
 
     return {

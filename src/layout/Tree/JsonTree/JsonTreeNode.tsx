@@ -103,11 +103,9 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
 
   const renderPrimativeNode = useCallback(() => {
     const ellipsis = type === 'string' && ellipsisText;
-    const showDelimeter =
-      data.label !== null &&
-      data.label !== undefined &&
-      data.data !== null &&
-      data.data !== undefined;
+    const showDelimeter = data.label !== null && data.label !== undefined;
+    const isEmpty = data.data === null || data.data === undefined;
+    const valueLabel = showEmpty && isEmpty ? 'null' : data.data;
 
     return (
       <>
@@ -119,12 +117,12 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
           {ellipsis ? (
             <Ellipsis value={data.data} limit={ellipsisTextLength} />
           ) : (
-            data.data
+            valueLabel
           )}
         </span>
       </>
     );
-  }, [data, ellipsisText, ellipsisTextLength, theme, type]);
+  }, [data, showEmpty, ellipsisText, ellipsisTextLength, theme, type]);
 
   return (
     <TreeNode
