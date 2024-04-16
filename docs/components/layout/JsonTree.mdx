@@ -1,0 +1,26 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import { jsonTreeTheme, JsonTree, JsonTreeNode } from '../../../src/layout/Tree';
+import * as TreeStories from '../../../src/layout/Tree/JsonTree/JsonTree.story.tsx';
+import ThemeRender from '../../ThemeRender.tsx';
+
+<Meta title="Docs/Components/Layout/Json Tree" />
+
+# Json Tree
+Tree component designed for showing JSON data.
+
+## Example
+<Canvas sourceState="shown" of={TreeStories.Simple} />
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={jsonTreeTheme} />
+
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
+
+## API
+### Tree
+<ArgTypes of={JsonTree} />
+
+### TreeNode
+<ArgTypes of={JsonTreeNode} />

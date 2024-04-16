@@ -1,5 +1,6 @@
 export interface JsonTreeTheme {
   node: {
+    base: string;
     label: string;
     value: string;
     delimiter: string;
