@@ -85,10 +85,18 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
 
   const renderPrimativeNode = useCallback(() => {
     const ellipsis = type === 'string' && ellipsisText;
+    const showDelimeter =
+      data.label !== null &&
+      data.label !== undefined &&
+      data.data !== null &&
+      data.data !== undefined;
+
     return (
       <>
         <span className={twMerge(theme.node.label)}>{data.label}</span>
-        <span className={twMerge(theme.node.delimiter)}>:</span>
+        {showDelimeter && (
+          <span className={twMerge(theme.node.delimiter)}>:</span>
+        )}
         <span className={twMerge(theme.node.value)}>
           {ellipsis ? (
             <Ellipsis value={data.data} limit={ellipsisTextLength} />
