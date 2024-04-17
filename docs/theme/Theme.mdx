@@ -34,17 +34,13 @@ This is useful if you want to create a reusable component with a custom theme.
 ```tsx
 import { tooltipTheme, TooltipTheme, extendComponentTheme } from 'reablocks';
 
-export const CustomTheme = () => {
-  const customTheme = extendComponentTheme<TooltipTheme>(tooltipTheme, {
-    base: 'rounded bg-green-800 text-white font-bold p-3 text-base'
-  });
+const customTheme = extendComponentTheme<TooltipTheme>(tooltipTheme, {
+  base: 'rounded bg-green-800 text-white font-bold p-3 text-base'
+});
 
-  return (
-    <div>
-      <Tooltip theme={customTheme} content="Hi there">Hover me</Tooltip>
-    </div>
-  );
-};
+export const CustomTooltip = () => (
+  <Tooltip theme={customTheme} content="Hi there">Hover me</Tooltip>
+);
 ```
 
 &nbsp;
@@ -58,25 +54,25 @@ You can modify existing styles or add new ones to fit your application's unique 
 ```tsx
 import { ThemeProvider, theme, extendTheme, PartialReablocksTheme } from 'reablocks';
 
-export const App = () => (
-  const customTheme: PartialReablocksTheme = {
-    components: {
-      button: {
-        base: 'bg-lime-600 text-gray-300',
-        variants: {
-          filled: 'bg-lime-600 hover:bg-lime-700',
-          outline: 'bg-transparent border-lime-600 border',
-          text: 'bg-transparent border-0'
-        },
-        sizes: {
-          small: 'p-2',
-          medium: 'p-3',
-          large: 'p-4'
-        }
+const customTheme: PartialReablocksTheme = {
+  components: {
+    button: {
+      base: 'bg-lime-600 text-gray-300',
+      variants: {
+        filled: 'bg-lime-600 hover:bg-lime-700',
+        outline: 'bg-transparent border-lime-600 border',
+        text: 'bg-transparent border-0'
+      },
+      sizes: {
+        small: 'p-2',
+        medium: 'p-3',
+        large: 'p-4'
       }
     }
-  };
+  }
+};
 
+export const App = () => (
   <ThemeProvider theme={extendTheme(theme, customTheme)}>
     <YourComponents />
   </ThemeProvider>
