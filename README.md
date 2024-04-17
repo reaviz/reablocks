@@ -31,7 +31,7 @@
 
 ## 💎 Other Projects
 
-- [Unify Viz](https://unifyviz.com?utm=reablocks) - Premium offering 300+ Figma and React professionally designed data visualization
+- [Unify Viz](https://unifyviz.com?utm=reablocks) - Premium offering 850+ Figma and React professionally designed data visualization
 components.
 - [Reaflow](https://reaflow.dev?utm=reablocks) - Open-source library for workflow and diagram graphs.
 - [Reagraph](https://reagraph.dev?utm=reablocks) - Open-source library for large webgl based network graphs.
