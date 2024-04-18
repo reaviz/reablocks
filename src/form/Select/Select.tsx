@@ -202,7 +202,7 @@ export interface SelectProps {
   /**
    * The options for the Fuse.js search algorithm.
    */
-  fuseOptions?: Fuse.IFuseOptions<SelectOptionProps>;
+  searchOptions?: Fuse.IFuseOptions<SelectOptionProps>;
 }
 
 export const Select: FC<Partial<SelectProps>> = ({
@@ -239,7 +239,7 @@ export const Select: FC<Partial<SelectProps>> = ({
   onInputKeyUp,
   onOptionsChange,
   onInputChange,
-  fuseOptions
+  searchOptions
 }) => {
   const overlayRef = useRef<ConnectedOverlayContentRef | null>(null);
   const inputRef = useRef<SelectInputRef | null>(null);
@@ -268,7 +268,7 @@ export const Select: FC<Partial<SelectProps>> = ({
     options,
     {
       keys: ['children', 'group'],
-      ...fuseOptions
+      ...searchOptions
     }
   );
 
