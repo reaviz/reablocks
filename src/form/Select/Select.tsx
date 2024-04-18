@@ -559,7 +559,6 @@ export const Select: FC<Partial<SelectProps>> = ({
   const onInputKeyedUp = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       const key = event.code;
-      console.log('key', event);
 
       if (key === 'ArrowUp') {
         onArrowUpKeyUp(event);
