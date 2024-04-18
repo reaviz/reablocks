@@ -8,6 +8,7 @@ import React, {
   useRef,
   useState
 } from 'react';
+import Fuse from 'fuse.js';
 import {
   ConnectedOverlay,
   ConnectedOverlayContentRef,
@@ -197,6 +198,11 @@ export interface SelectProps {
    * Menu component override.
    */
   menu?: ReactElement<SelectMenuProps, typeof SelectMenu>;
+
+  /**
+   * The options for the Fuse.js search algorithm.
+   */
+  fuseOptions?: Fuse.IFuseOptions<SelectOptionProps>;
 }
 
 export const Select: FC<Partial<SelectProps>> = ({
@@ -232,7 +238,8 @@ export const Select: FC<Partial<SelectProps>> = ({
   onInputKeydown,
   onInputKeyUp,
   onOptionsChange,
-  onInputChange
+  onInputChange,
+  fuseOptions
 }) => {
   const overlayRef = useRef<ConnectedOverlayContentRef | null>(null);
   const inputRef = useRef<SelectInputRef | null>(null);
@@ -260,7 +267,8 @@ export const Select: FC<Partial<SelectProps>> = ({
   const { result, keyword, search, resetSearch } = useFuzzy<SelectOptionProps>(
     options,
     {
-      keys: ['children', 'group']
+      keys: ['children', 'group'],
+      ...fuseOptions
     }
   );
 

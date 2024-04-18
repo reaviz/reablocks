@@ -135,6 +135,7 @@ export const Createable = () => {
         closeOnSelect={false}
         createable
         selectOnKeys={['Enter', 'Space', 'Comma']}
+        fuseOptions={{ threshold: 0 }}
         placeholder="Add some categories or pick existing one..."
         value={value}
         onChange={v => setValue(v)}
