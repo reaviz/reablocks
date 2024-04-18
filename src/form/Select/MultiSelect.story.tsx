@@ -134,6 +134,7 @@ export const Createable = () => {
         multiple
         closeOnSelect={false}
         createable
+        valuesSplitterKeyCodes={['Enter', 'Space', 'Comma']}
         placeholder="Add some categories or pick existing one..."
         value={value}
         onChange={v => setValue(v)}

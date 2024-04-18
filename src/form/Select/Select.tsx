@@ -120,6 +120,11 @@ export interface SelectProps {
   createable?: boolean;
 
   /**
+   * The list of KeyCodes for creating select values.
+   */
+  valuesSplitterKeyCodes?: string[];
+
+  /**
    * The options of the select.
    */
   children?: any;
@@ -206,6 +211,7 @@ export const Select: FC<Partial<SelectProps>> = ({
   placeholder,
   disabled,
   createable,
+  valuesSplitterKeyCodes,
   loading,
   multiple,
   error,
@@ -492,10 +498,15 @@ export const Select: FC<Partial<SelectProps>> = ({
     ]
   );
 
-  const onEnterKeyUp = useCallback(
+  const onAddSelection = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       const inputElement = event.target as HTMLInputElement;
-      const inputValue = inputElement.value.trim();
+      let inputValue = inputElement.value.trim();
+      // Remove the last character if it is a valuesSplitterKeyCode
+      inputValue =
+        inputValue.charAt(inputValue.length - 1) === event.key
+          ? inputValue.slice(0, -1)
+          : inputValue;
 
       if (index === -1 && createable && !inputValue) {
         return;
@@ -533,7 +544,7 @@ export const Select: FC<Partial<SelectProps>> = ({
       }
 
       if (index > -1 || (createable && inputValue)) {
-        onEnterKeyUp(event);
+        onAddSelection(event);
       }
 
       if (multiple) {
@@ -542,12 +553,13 @@ export const Select: FC<Partial<SelectProps>> = ({
         setOpen(false);
       }
     },
-    [index, onEnterKeyUp, setOpen, multiple, createable]
+    [index, onAddSelection, setOpen, multiple, createable]
   );
 
   const onInputKeyedUp = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
-      const key = event.key;
+      const key = event.code;
+      console.log('key', event);
 
       if (key === 'ArrowUp') {
         onArrowUpKeyUp(event);
@@ -555,13 +567,20 @@ export const Select: FC<Partial<SelectProps>> = ({
         onArrowDownKeyUp(event);
       } else if (key === 'Escape') {
         resetSelect();
-      } else if (key === 'Enter') {
-        onEnterKeyUp(event);
+      } else if (valuesSplitterKeyCodes?.includes(key)) {
+        onAddSelection(event);
       }
 
       onInputKeyUp?.(event);
     },
-    [onArrowDownKeyUp, onArrowUpKeyUp, onEnterKeyUp, onInputKeyUp, resetSelect]
+    [
+      valuesSplitterKeyCodes,
+      onInputKeyUp,
+      onArrowUpKeyUp,
+      onArrowDownKeyUp,
+      resetSelect,
+      onAddSelection
+    ]
   );
 
   const onInputKeyedDown = useCallback(
@@ -693,6 +712,7 @@ export const Select: FC<Partial<SelectProps>> = ({
 
 Select.defaultProps = {
   clearable: true,
+  valuesSplitterKeyCodes: ['Enter'],
   filterable: true,
   menuPlacement: 'bottom-start',
   closeOnSelect: true,
