@@ -121,8 +121,10 @@ export interface SelectProps {
 
   /**
    * The list of KeyCodes for creating select values.
+   * The default is ['Enter']
+   * Typical options would be: ['Enter', 'Tab', 'Space', 'Comma']
    */
-  valuesSplitterKeyCodes?: string[];
+  selectOnKeys?: string[];
 
   /**
    * The options of the select.
@@ -211,7 +213,7 @@ export const Select: FC<Partial<SelectProps>> = ({
   placeholder,
   disabled,
   createable,
-  valuesSplitterKeyCodes,
+  selectOnKeys,
   loading,
   multiple,
   error,
@@ -566,14 +568,14 @@ export const Select: FC<Partial<SelectProps>> = ({
         onArrowDownKeyUp(event);
       } else if (key === 'Escape') {
         resetSelect();
-      } else if (valuesSplitterKeyCodes?.includes(key)) {
+      } else if (selectOnKeys?.includes(key)) {
         onAddSelection(event);
       }
 
       onInputKeyUp?.(event);
     },
     [
-      valuesSplitterKeyCodes,
+      selectOnKeys,
       onInputKeyUp,
       onArrowUpKeyUp,
       onArrowDownKeyUp,
@@ -711,7 +713,7 @@ export const Select: FC<Partial<SelectProps>> = ({
 
 Select.defaultProps = {
   clearable: true,
-  valuesSplitterKeyCodes: ['Enter'],
+  selectOnKeys: ['Enter'],
   filterable: true,
   menuPlacement: 'bottom-start',
   closeOnSelect: true,
