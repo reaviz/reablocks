@@ -37,7 +37,7 @@
 
 ## 🔭 Development
 
-If you want to run REAVIZ locally, its super easy!
+If you want to run reablocks locally, its super easy!
 
 - Clone the repository
 - `npm i`
