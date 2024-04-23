@@ -15,6 +15,19 @@ export default {
   }
 };
 
+export const Simple = () => (
+  <Tabs>
+    <TabList>
+      <Tab>Tab 1</Tab>
+      <Tab>Tab 2</Tab>
+      <Tab>Tab 3</Tab>
+    </TabList>
+    <TabPanel>Tab 1 Content</TabPanel>
+    <TabPanel>Tab 2 Content</TabPanel>
+    <TabPanel>Tab 3 Content</TabPanel>
+  </Tabs>
+);
+
 export const Variants = () => (
   <div className="flex flex-col gap-12">
     <Tabs variant="primary">
