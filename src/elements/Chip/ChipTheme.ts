@@ -164,14 +164,14 @@ export const chipTheme: ChipTheme = {
     primary: {
       variants: {
         outline: 'text-primary border-panel-accent',
-        filled: 'bg-primary border-primary text-panel-content'
+        filled: 'bg-primary border-primary text-panel'
       },
       selectable: {
         base: `${baseTheme.colors.primary.selectable.base}`,
         variants: {
           filled: {
             base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
-            selected: 'bg-primary-hover text-panel'
+            selected: 'bg-primary-hover'
           },
           outline: {
             base: 'hover:text-primary-hover hover:border-primary',

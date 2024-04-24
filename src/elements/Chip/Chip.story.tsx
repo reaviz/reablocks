@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Chip } from './Chip';
 import { Stack } from '../../layout';
+import { ChipTheme, chipTheme } from './ChipTheme';
 
 export default {
   title: 'Components/Elements/Chip',
@@ -61,14 +62,12 @@ export const Selectable = () => {
   return (
     <Stack>
       <Chip
-        color="default"
         onClick={() => setIsFilledSelected(!IsFilledSelected)}
         selected={IsFilledSelected}
       >
         Selectable
       </Chip>
       <Chip
-        color="default"
         variant="outline"
         onClick={() => setIsOutlineSelected(!isOutlineSelected)}
         selected={isOutlineSelected}
@@ -104,3 +103,72 @@ const DemoIcon = () => (
     />
   </svg>
 );
+
+export const CustomTheme = () => {
+  const customTheme: ChipTheme = {
+    ...chipTheme,
+    base: 'rounded-full',
+    colors: {
+      ...chipTheme?.colors,
+      secondary: {
+        ...chipTheme.colors.secondary,
+        variants: {
+          ...chipTheme.colors.secondary.variants,
+          filled: 'bg-panel-content text-panel'
+        }
+      },
+      info: {
+        ...chipTheme.colors.info,
+        variants: {
+          ...chipTheme.colors.info.variants,
+          filled: 'bg-info/10 border-info'
+        }
+      },
+      error: {
+        ...chipTheme.colors.error,
+        variants: {
+          ...chipTheme.colors.error.variants,
+          filled: 'bg-error/10 border-error'
+        }
+      },
+      warning: {
+        ...chipTheme.colors.warning,
+        variants: {
+          ...chipTheme.colors.warning.variants,
+          filled: 'bg-warning/10 border-warning'
+        }
+      },
+      success: {
+        ...chipTheme.colors.success,
+        variants: {
+          ...chipTheme.colors.success.variants,
+          filled: 'bg-success/10 border-success'
+        }
+      }
+    }
+  };
+
+  return (
+    <Stack>
+      <Chip theme={customTheme}>Default</Chip>
+      <Chip theme={customTheme} color="primary">
+        Primary
+      </Chip>
+      <Chip theme={customTheme} color="secondary">
+        Secondary
+      </Chip>
+      <Chip theme={customTheme} color="error">
+        Error
+      </Chip>
+      <Chip theme={customTheme} color="success">
+        Success
+      </Chip>
+      <Chip theme={customTheme} color="warning">
+        Warning
+      </Chip>
+      <Chip theme={customTheme} color="info">
+        Info
+      </Chip>
+    </Stack>
+  );
+};
