@@ -1,3 +1,24 @@
+interface ThemeColor {
+  base?: string;
+  variants?: {
+    filled?: string;
+    outline?: string;
+  };
+  selectable?: {
+    base: string;
+    variants?: {
+      filled?: {
+        base?: string;
+        selected?: string;
+      };
+      outline?: {
+        base?: string;
+        selected?: string;
+      };
+    };
+  };
+}
+
 export interface ChipTheme {
   base: string;
   adornment: {
@@ -13,16 +34,15 @@ export interface ChipTheme {
   variants: {
     filled: string;
     outline: string;
-    text: string;
   };
   colors: {
-    default: { base?: string; selectable?: string; selected?: string };
-    primary?: { base?: string; selectable?: string; selected?: string };
-    secondary?: { base?: string; selectable?: string; selected?: string };
-    success?: { base?: string; selectable?: string; selected?: string };
-    warning?: { base?: string; selectable?: string; selected?: string };
-    error?: { base?: string; selectable?: string; selected?: string };
-    info?: { base?: string; selectable?: string; selected?: string };
+    default: ThemeColor;
+    primary?: ThemeColor;
+    secondary?: ThemeColor;
+    success?: ThemeColor;
+    warning?: ThemeColor;
+    error?: ThemeColor;
+    info?: ThemeColor;
   };
   sizes: {
     small: string;
@@ -38,35 +58,50 @@ export interface ChipTheme {
       large: string;
     };
   };
+  disabled: string;
 }
 
 const baseTheme: Partial<ChipTheme> = {
   base: `
-  inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1
-  rounded border border-transparent box-border leading-none text-white transition-colors
-  duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill]
+  inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5
+  rounded-sm leading-none text-white transition-colors
+  duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium
   `,
   colors: {
     default: {
-      selectable: 'hover:cursor-pointer'
+      selectable: {
+        base: 'hover:cursor-pointer'
+      }
     },
     primary: {
-      selectable: 'hover:cursor-pointer'
+      selectable: {
+        base: 'hover:cursor-pointer'
+      }
     },
     secondary: {
-      selectable: 'hover:cursor-pointer'
+      selectable: {
+        base: 'hover:cursor-pointer'
+      }
     },
     success: {
-      selectable: 'hover:cursor-pointer'
+      selectable: {
+        base: 'hover:cursor-pointer'
+      }
     },
     warning: {
-      selectable: 'hover:cursor-pointer'
+      selectable: {
+        base: 'hover:cursor-pointer'
+      }
     },
     error: {
-      selectable: 'hover:cursor-pointer'
+      selectable: {
+        base: 'hover:cursor-pointer'
+      }
     },
     info: {
-      selectable: 'hover:cursor-pointer'
+      selectable: {
+        base: 'hover:cursor-pointer'
+      }
     }
   },
   adornment: {
@@ -81,8 +116,8 @@ const baseTheme: Partial<ChipTheme> = {
   },
   sizes: {
     small: 'text-[10px] px-1 py-0.5',
-    medium: 'text-xs px-2 py-1',
-    large: 'text-sm px-2 py-2'
+    medium: 'text-sm px-2 py-0.5',
+    large: 'text-base px-3 py-0.5'
   },
   focus:
     'focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-2',
@@ -93,7 +128,8 @@ const baseTheme: Partial<ChipTheme> = {
       medium: 'leading-3 max-h-3',
       large: 'leading-[14px] max-h-3.5'
     }
-  }
+  },
+  disabled: 'bg-opacity-50 border-opacity-50 text-opacity-50 cursor-not-allowed'
 };
 
 export const chipTheme: ChipTheme = {
@@ -102,69 +138,146 @@ export const chipTheme: ChipTheme = {
   sizes: baseTheme.sizes,
   focus: baseTheme.focus,
   variants: {
-    filled: 'text-white',
-    outline: 'bg-opacity-0 border hover:bg-transparent text-surface-content',
-    text: 'bg-opacity-0 border-0'
+    filled: 'border border-transparent box-border',
+    outline: 'bg-opacity-0 border hover:bg-transparent'
   },
   colors: {
     default: {
-      base: 'bg-gray-600 border-gray-600 text-gray-300',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-gray-500 hover:border-gray-500'
-      ].join(' '),
-      selected: '!bg-gray-500 text-white'
+      variants: {
+        filled: 'bg-panel border-panel text-panel-content',
+        outline: 'text-panel-content border-panel-content'
+      },
+      selectable: {
+        base: `${baseTheme.colors.default.selectable.base}`,
+        variants: {
+          filled: {
+            base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+            selected: 'bg-primary text-panel'
+          },
+          outline: {
+            base: 'hover:text-primary-hover hover:border-panel-accent',
+            selected: 'border-panel-accent text-primary'
+          }
+        }
+      }
     },
     primary: {
-      base: 'bg-primary border-primary text-primary',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-primary-hover hover:border-primary-hover'
-      ].join(' '),
-      selected: '!bg-primary-active text-white'
+      variants: {
+        outline: 'text-primary border-panel-accent',
+        filled: 'bg-primary border-primary text-panel-content'
+      },
+      selectable: {
+        base: `${baseTheme.colors.primary.selectable.base}`,
+        variants: {
+          filled: {
+            base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+            selected: 'bg-primary-hover text-panel'
+          },
+          outline: {
+            base: 'hover:text-primary-hover hover:border-primary',
+            selected: 'border-primary'
+          }
+        }
+      }
     },
     secondary: {
-      base: 'bg-secondary border-secondary text-secondary',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-secondary-hover hover:border-secondary-hover'
-      ].join(' '),
-      selected: '!bg-secondary-active text-white'
+      variants: {
+        filled: 'bg-secondary border-secondary text-panel-content',
+        outline: 'text-secondary border-panel-accent'
+      },
+      selectable: {
+        base: `${baseTheme.colors.secondary.selectable.base}`,
+        variants: {
+          filled: {
+            base: 'hover:bg-secondary-hover hover:border-secondary-hover hover:text-panel',
+            selected: 'bg-secondary-hover text-panel'
+          },
+          outline: {
+            base: 'hover:text-secondary-hover hover:border-secondary',
+            selected: 'border-secondary'
+          }
+        }
+      }
     },
     success: {
-      base: 'bg-success border-success text-success',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-success-hover hover:border-success-hover'
-      ].join(' '),
-      selected: '!bg-success-active text-white'
+      variants: {
+        filled: 'bg-success border-success text-panel',
+        outline: 'text-success border-panel-accent'
+      },
+      selectable: {
+        base: `${baseTheme.colors.success.selectable.base}`,
+        variants: {
+          filled: {
+            base: 'hover:bg-success-hover hover:border-success-hover',
+            selected: 'bg-success-hover'
+          },
+          outline: {
+            base: 'hover:text-success-hover hover:border-success',
+            selected: 'border-success'
+          }
+        }
+      }
     },
     warning: {
-      base: 'bg-warning border-warning text-warning',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-warning-hover hover:border-warning-hover'
-      ].join(' '),
-      selected: '!bg-warning-active text-white'
+      variants: {
+        filled: 'bg-warning border-warning text-panel',
+        outline: 'text-warning border-panel-accent'
+      },
+      selectable: {
+        base: `${baseTheme.colors.warning.selectable.base}`,
+        variants: {
+          filled: {
+            base: 'hover:bg-warning-hover hover:border-warning-hover hover:text-panel',
+            selected: 'bg-warning-hover'
+          },
+          outline: {
+            base: 'hover:text-warning-hover hover:border-warning',
+            selected: 'border-warning'
+          }
+        }
+      }
     },
     error: {
-      base: 'bg-error border-error text-error',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-error-hover hover:border-error-hover'
-      ].join(' '),
-      selected: '!bg-error-active text-white'
+      variants: {
+        filled: 'bg-error border-error text-panel',
+        outline: 'text-error border-panel-accent'
+      },
+      selectable: {
+        base: `${baseTheme.colors.error.selectable.base}`,
+        variants: {
+          filled: {
+            base: 'hover:bg-error-hover hover:border-error-hover hover:text-panel',
+            selected: 'bg-error-hover'
+          },
+          outline: {
+            base: 'hover:text-error-hover hover:border-error',
+            selected: 'border-error'
+          }
+        }
+      }
     },
     info: {
-      base: 'bg-info border-info text-info',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-info-hover hover:border-info-hover'
-      ].join(' '),
-      selected: '!bg-info-active text-white'
+      variants: {
+        filled: 'bg-info border-info text-panel',
+        outline: 'text-info border-panel-accent'
+      },
+      selectable: {
+        base: `${baseTheme.colors.info.selectable.base}`,
+        variants: {
+          filled: {
+            base: 'hover:bg-info-hover hover:border-info-hover hover:text-panel',
+            selected: 'bg-info-hover'
+          },
+          outline: {
+            base: 'hover:text-info-hover hover:border-info',
+            selected: 'border-info'
+          }
+        }
+      }
     }
   },
-  deleteButton: baseTheme.deleteButton
+  deleteButton: baseTheme.deleteButton,
+  disabled: baseTheme.disabled
 };
 
 export const legacyChipTheme: ChipTheme = {
@@ -189,66 +302,45 @@ export const legacyChipTheme: ChipTheme = {
   variants: {
     filled: '[&>svg]:fill-[var(--chip-color)]',
     outline:
-      'bg-opacity-0 border hover:bg-transparent border-[var(--chip-background)] text-[var(--chip-color)] [&>svg]:fill-[var(--chip-color)]',
-    text: 'bg-opacity-0 border-0 [&>svg]:fill-[var(--chip-color)]'
+      'bg-opacity-0 border hover:bg-transparent border-[var(--chip-background)] text-[var(--chip-color)] [&>svg]:fill-[var(--chip-color)]'
   },
   colors: {
     default: {
       base: 'bg-[var(--chip-background)] border-[var(--chip-background)] text-[var(--chip-color)] ',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-gray-500 hover:border-gray-500'
-      ].join(' '),
-      selected: '!bg-gray-500 text-white'
+      variants: baseTheme.colors.default.variants,
+      selectable: baseTheme.colors.default.selectable
     },
     primary: {
       base: 'bg-[color:var(--primary-background)] border-[color:var(--primary-background)]',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-[color:var(--primary-background-hover)] hover:border-[color:var(--primary-background-hover)]'
-      ].join(' '),
-      selected: '!bg-[color:var(--primary-background-hover)] text-white'
+      variants: baseTheme.colors.primary.variants,
+      selectable: baseTheme.colors.primary.selectable
     },
     secondary: {
       base: 'bg-[color:var(--secondary-background)] border-[color:var(--secondary-background)]',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-[color:var(--secondary-background-hover)] hover:border-[color:var(--secondary-background-hover)]'
-      ].join(' '),
-      selected: '!bg-[color:var(--secondary-background-hover)] text-white'
+      variants: baseTheme.colors.secondary.variants,
+      selectable: baseTheme.colors.secondary.selectable
     },
     success: {
       base: 'bg-[color:var(--success-background)] border-[color:var(--success-background)]',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-[color:var(--success-background-hover)] hover:border-[color:var(--success-background-hover)]'
-      ].join(' '),
-      selected: '!bg-[color:var(--success-background-hover)] text-white'
+      variants: baseTheme.colors.success.variants,
+      selectable: baseTheme.colors.success.selectable
     },
     warning: {
       base: 'bg-[color:var(--warning-background)] border-[color:var(--warning-background)]',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-[color:var(--warning-background-hover)] hover:border-[color:var(--warning-background-hover)]'
-      ].join(' '),
-      selected: '!bg-[color:var(--warning-background-hover)] text-white'
+      variants: baseTheme.colors.warning.variants,
+      selectable: baseTheme.colors.warning.selectable
     },
     error: {
       base: 'bg-[color:var(--error-background)] border-[color:var(--error-background)]',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-[color:var(--error-background-hover)] hover:border-[color:var(--error-background-hover)]'
-      ].join(' '),
-      selected: '!bg-[color:var(--error-background-hover)] text-white'
+      variants: baseTheme.colors.error.variants,
+      selectable: baseTheme.colors.error.selectable
     },
     info: {
       base: 'bg-[color:var(--info-background)] border-[color:var(--info-background)]',
-      selectable: [
-        baseTheme.colors.default.selectable,
-        'hover:bg-[color:var(--info-background-hover)] hover:border-[color:var(--info-background-hover)]'
-      ].join(' '),
-      selected: '!bg-[color:var(--info-background-hover)] text-white'
+      variants: baseTheme.colors.info.variants,
+      selectable: baseTheme.colors.info.selectable
     }
   },
-  deleteButton: baseTheme.deleteButton
+  deleteButton: baseTheme.deleteButton,
+  disabled: baseTheme.disabled
 };

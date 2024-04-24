@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Chip } from './Chip';
+import { Stack } from '../../layout';
 
 export default {
   title: 'Components/Elements/Chip',
@@ -54,14 +55,38 @@ export const Variants = () => (
 );
 
 export const Selectable = () => {
-  const [state, setState] = useState(false);
+  const [IsFilledSelected, setIsFilledSelected] = useState(false);
+  const [isOutlineSelected, setIsOutlineSelected] = useState(false);
 
   return (
-    <Chip onClick={() => setState(!state)} selected={state}>
-      Selectable
-    </Chip>
+    <Stack>
+      <Chip
+        color="default"
+        onClick={() => setIsFilledSelected(!IsFilledSelected)}
+        selected={IsFilledSelected}
+      >
+        Selectable
+      </Chip>
+      <Chip
+        color="default"
+        variant="outline"
+        onClick={() => setIsOutlineSelected(!isOutlineSelected)}
+        selected={isOutlineSelected}
+      >
+        Selectable
+      </Chip>
+    </Stack>
   );
 };
+
+export const Disabled = () => (
+  <Stack>
+    <Chip disabled>Selectable</Chip>
+    <Chip variant="outline" disabled>
+      Selectable
+    </Chip>
+  </Stack>
+);
 
 const DemoIcon = () => (
   <svg
