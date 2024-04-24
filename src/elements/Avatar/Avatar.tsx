@@ -22,6 +22,11 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: number;
 
   /**
+   * Style variant for the avatar.
+   */
+  variant?: 'filled' | 'outline';
+
+  /**
    * Whether the avatar is rounded.
    */
   rounded?: boolean;
@@ -53,6 +58,7 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       src,
       color,
       size,
+      variant,
       rounded,
       className,
       colorOptions,
@@ -88,7 +94,12 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
           height: `${size}px`,
           fontSize: `${fontSize}px`,
           backgroundImage: src ? `url(${src})` : 'none',
-          backgroundColor
+          backgroundColor,
+          ...(variant === 'outline' && {
+            backgroundColor: 'transparent',
+            border: `solid 1px ${backgroundColor}`,
+            color: backgroundColor
+          })
         }}
         ref={ref}
       >
@@ -100,5 +111,6 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
 
 Avatar.defaultProps = {
   size: 24,
-  rounded: true
+  rounded: true,
+  variant: 'filled'
 };
