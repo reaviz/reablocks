@@ -47,6 +47,11 @@ export interface TabsProps extends PropsWithChildren {
   variant?: 'primary' | 'secondary';
 
   /**
+   * The size of the tabs.
+   */
+  size?: 'small' | 'medium' | 'large';
+
+  /**
    * The callback to be called when a tab is selected.
    */
   onSelect?: (index: number) => void;
@@ -62,6 +67,7 @@ export const Tabs: FC<TabsProps> = ({
   className,
   style,
   variant = 'primary',
+  size = 'medium',
   direction = 'ltr',
   defaultIndex = 0,
   selectedIndex,
@@ -100,6 +106,7 @@ export const Tabs: FC<TabsProps> = ({
       <TabList
         {...tabList}
         variant={variant}
+        size={size}
         direction={direction}
         id={id}
         selectedIndex={internalActive}

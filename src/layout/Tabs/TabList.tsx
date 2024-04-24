@@ -42,6 +42,12 @@ export interface TabListProps extends PropsWithChildren {
   variant?: 'primary' | 'secondary';
 
   /**
+   * The size of the tabs.
+   * @private
+   */
+  size?: 'small' | 'medium' | 'large';
+
+  /**
    * Theme for the Tabs.
    */
   theme?: TabsTheme;
@@ -55,6 +61,7 @@ export const TabList: FC<TabListProps> = ({
   selectedIndex,
   onSelect,
   variant = 'primary',
+  size = 'medium',
   theme: customTheme
 }) => {
   const theme: TabsTheme = useComponentTheme('tabs', customTheme);
@@ -79,7 +86,7 @@ export const TabList: FC<TabListProps> = ({
           id={id}
           selected={index === selectedIndex}
           onSelect={() => onSelect(index)}
-          variant={variant}
+          size={size}
         >
           {children}
         </Tab>
