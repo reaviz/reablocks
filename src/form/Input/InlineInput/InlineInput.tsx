@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref, InputHTMLAttributes } from 'react';
+import React, { FC, forwardRef, RefObject, InputHTMLAttributes } from 'react';
 import AutosizeInput from 'react-18-input-autosize';
 import { InputRef } from '../Input';
 import { twMerge } from 'tailwind-merge';
@@ -46,13 +46,13 @@ export const InlineInput: FC<InlineInputProps> = forwardRef(
       theme: customTheme,
       ...rest
     },
-    ref: Ref<InputRef>
+    ref: RefObject<InputRef>
   ) => {
     const theme: InputTheme = useComponentTheme('input', customTheme);
 
     return (
       <AutosizeInput
-        inputRef={ref}
+        inputRef={ref?.current?.inputRef}
         inputClassName={twMerge(theme.inline, inputClassName)}
         placeholderIsMinWidth={placeholderIsMinWidth}
         {...rest}
