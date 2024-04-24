@@ -2,15 +2,20 @@ export interface TabsTheme {
   base: string;
   list: {
     base: string;
-    indicator: string;
+    indicator: {
+      base: string;
+      size: {
+        small: string;
+        medium: string;
+        large: string;
+      };
+    };
     divider: string;
     variant: {
       primary: {
-        indicator: string;
         divider: string;
       };
       secondary: {
-        indicator: string;
         divider: string;
       };
     };
@@ -19,13 +24,10 @@ export interface TabsTheme {
       button: string;
       selected: string;
       disabled: string;
-      variant: {
-        primary: {
-          button: string;
-        };
-        secondary: {
-          button: string;
-        };
+      size: {
+        small: string;
+        medium: string;
+        large: string;
       };
     };
   };
@@ -36,15 +38,20 @@ const baseTheme: TabsTheme = {
   base: 'flex flex-col',
   list: {
     base: 'flex text-center flex-wrap -mb-px',
-    indicator: 'bg-primary absolute bottom-0 left-0 right-0',
+    indicator: {
+      base: 'bg-primary absolute bottom-0 left-0 right-0',
+      size: {
+        small: 'h-0.5',
+        medium: 'h-0.5',
+        large: 'h-1'
+      }
+    },
     divider: 'w-full h-px border-0',
     variant: {
       primary: {
-        indicator: 'h-1',
         divider: 'bg-surface'
       },
       secondary: {
-        indicator: 'h-0.5',
         divider: 'bg-gradient-to-r from-transparent to-transparent via-primary'
       }
     },
@@ -54,13 +61,10 @@ const baseTheme: TabsTheme = {
         'transition-colors text-panel-secondary-content font-bold hover:text-primary-hover',
       selected: 'text-panel-content',
       disabled: 'cursor-not-allowed opacity-40',
-      variant: {
-        primary: {
-          button: 'pb-4 text-xl'
-        },
-        secondary: {
-          button: 'pb-2 text-lg'
-        }
+      size: {
+        small: 'pb-1 text-sm',
+        medium: 'pb-2 text-lg',
+        large: 'pb-4 text-xl'
       }
     }
   },

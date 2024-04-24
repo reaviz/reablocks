@@ -53,6 +53,41 @@ export const Variants = () => (
   </div>
 );
 
+export const Sizes = () => (
+  <div className="flex flex-col gap-12">
+    <Tabs size="small">
+      <TabList>
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+        <Tab>Tab 3</Tab>
+      </TabList>
+      <TabPanel>This is content for small tab 1</TabPanel>
+      <TabPanel>This is content for small tab 2</TabPanel>
+      <TabPanel>This is content for small tab 3</TabPanel>
+    </Tabs>
+    <Tabs size="medium">
+      <TabList>
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+        <Tab>Tab 3</Tab>
+      </TabList>
+      <TabPanel>This is content for medium tab 1</TabPanel>
+      <TabPanel>This is content for medium tab 2</TabPanel>
+      <TabPanel>This is content for medium tab 3</TabPanel>
+    </Tabs>
+    <Tabs size="large">
+      <TabList>
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+        <Tab>Tab 3</Tab>
+      </TabList>
+      <TabPanel>This is content for large tab 1</TabPanel>
+      <TabPanel>This is content for large tab 2</TabPanel>
+      <TabPanel>This is content for large tab 3</TabPanel>
+    </Tabs>
+  </div>
+);
+
 export const DefaultIndex = () => (
   <Tabs defaultIndex={1}>
     <TabList>
