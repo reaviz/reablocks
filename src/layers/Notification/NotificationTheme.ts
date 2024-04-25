@@ -38,19 +38,19 @@ const baseTheme: NotificationTheme = {
     base: 'flex relative text-base min-w-[400px] rounded-sm mb-2.5 py-2 px-4',
     variants: {
       success: {
-        base: 'bg-success/10 border border-success',
+        base: 'bg-success-background border border-success',
         icon: 'text-success h-4 w-4'
       },
       error: {
-        base: 'bg-error/10 border border-error',
+        base: 'bg-error-background border border-error',
         icon: 'text-error h-4 w-4'
       },
       warning: {
-        base: 'bg-warning/10 border border-warning',
+        base: 'bg-warning-background border border-warning',
         icon: 'text-warning h-4 w-4'
       },
       info: {
-        base: 'bg-info/10 border border-info',
+        base: 'bg-info-background border border-info',
         icon: 'text-info h-4 w-4'
       }
     },
