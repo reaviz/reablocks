@@ -57,7 +57,7 @@ export const Notification: FC<NotificationProps> = ({
         <div
           className={twMerge(
             theme.notification?.base,
-            theme.notification?.variants?.[variant],
+            theme.notification?.variants?.[variant]?.base,
             className
           )}
         >
