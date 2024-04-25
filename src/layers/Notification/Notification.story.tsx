@@ -101,6 +101,7 @@ export const Variants = () => (
         notifySuccess,
         notifyError,
         notifyWarning,
+        notifyInfo,
         clearAllNotifications: clearAll
       }) => (
         <Fragment>
@@ -124,6 +125,12 @@ export const Variants = () => (
             onClick={() => notifyWarning('Something questionable happened!')}
           >
             Warning
+          </Button>
+          <Button
+            className="mx-1"
+            onClick={() => notifyInfo('Something informational happened!')}
+          >
+            info
           </Button>
           <br />
           <br />

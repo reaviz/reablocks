@@ -1,6 +1,11 @@
 import React, { createContext } from 'react';
 
-export type NotificationVariants = 'default' | 'success' | 'warning' | 'error';
+export type NotificationVariants =
+  | 'default'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'info';
 
 export interface NotificationOptions {
   title?: string | React.JSX.Element | React.JSX.Element[];
@@ -33,6 +38,11 @@ export interface NotificationsContextValue {
   notifySuccess(title: string, options?: NotificationOptions): void;
 
   /**
+   * Create an info notification.
+   */
+  notifyInfo(title: string, options?: NotificationOptions): void;
+
+  /**
    * Clear a specific notification.
    */
   clearNotification(id: number): void;
@@ -48,6 +58,7 @@ export const NotificationsContext = createContext<NotificationsContextValue>({
   notifyError: () => undefined,
   notifyWarning: () => undefined,
   notifySuccess: () => undefined,
+  notifyInfo: () => undefined,
   clearNotification: () => undefined,
   clearAllNotifications: () => undefined
 });

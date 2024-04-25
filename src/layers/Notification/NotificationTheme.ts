@@ -16,6 +16,10 @@ export interface NotificationTheme {
         base: string;
         icon?: string;
       };
+      info: {
+        base: string;
+        icon?: string;
+      };
     };
     header: string;
     content: string;
@@ -43,6 +47,10 @@ const baseTheme: NotificationTheme = {
       warning: {
         base: 'bg-warning/10 border border-warning',
         icon: 'text-warning h-4 w-4'
+      },
+      info: {
+        base: 'bg-info/10 border border-info',
+        icon: 'text-info h-4 w-4'
       }
     },
     content: 'inline-flex items-start flex-1 flex-col justify-center',

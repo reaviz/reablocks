@@ -7,14 +7,15 @@ import React, {
   useMemo,
   JSXElementConstructor
 } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { twMerge } from 'tailwind-merge';
+
 import { Notification } from './Notification';
 import {
   NotificationOptions,
   NotificationsContext,
   NotificationVariants
 } from './NotificationsContext';
-import { AnimatePresence, motion } from 'framer-motion';
-import { twMerge } from 'tailwind-merge';
 import { NotificationTheme } from './NotificationTheme';
 import { useComponentTheme } from '../../utils';
 
@@ -106,7 +107,16 @@ export const Notifications: FC<NotificationsProps> = ({
 
   const notifySuccess = useCallback(
     (title: string, options: NotificationOptions = {}) =>
-      notify(title, { ...options, variant: 'success' }),
+      notify(title, {
+        ...options,
+        variant: 'success'
+      }),
+    [notify]
+  );
+
+  const notifyInfo = useCallback(
+    (title: string, options: NotificationOptions = {}) =>
+      notify(title, { ...options, variant: 'info' }),
     [notify]
   );
 
@@ -116,6 +126,7 @@ export const Notifications: FC<NotificationsProps> = ({
       notifyError,
       notifyWarning,
       notifySuccess,
+      notifyInfo,
       clearNotification,
       clearAllNotifications
     }),
@@ -125,7 +136,8 @@ export const Notifications: FC<NotificationsProps> = ({
       notify,
       notifyError,
       notifySuccess,
-      notifyWarning
+      notifyWarning,
+      notifyInfo
     ]
   );
 
