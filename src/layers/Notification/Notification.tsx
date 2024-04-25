@@ -21,6 +21,7 @@ export const Notification: FC<NotificationProps> = ({
   className,
   variant,
   icon,
+  action,
   component,
   onClose,
   theme: customTheme
@@ -85,6 +86,7 @@ export const Notification: FC<NotificationProps> = ({
               </div>
             )}
           </div>
+          {action && <div className={theme.notification.action}>{action}</div>}
           <div className={theme.notification?.closeContainer}>
             {showClose && (
               <button

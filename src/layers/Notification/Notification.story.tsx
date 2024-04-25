@@ -285,3 +285,27 @@ export const CustomComponent = () => (
     </NotificationsContext.Consumer>
   </Notifications>
 );
+
+export const WithAction = () => (
+  <Notifications>
+    <NotificationsContext.Consumer>
+      {({ notify, clearAllNotifications }) => (
+        <Fragment>
+          <Button
+            onClick={() =>
+              notify('New Message Alert!', {
+                body: 'You have a new message',
+                action: <Button onClick={() => alert('Hey!')}>View</Button>
+              })
+            }
+          >
+            Show
+          </Button>
+          <br />
+          <br />
+          <Button onClick={() => clearAllNotifications()}>Clear</Button>
+        </Fragment>
+      )}
+    </NotificationsContext.Consumer>
+  </Notifications>
+);

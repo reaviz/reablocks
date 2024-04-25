@@ -15,6 +15,7 @@ export interface NotificationOptions {
   variant?: NotificationVariants;
   className?: string;
   icon?: string | React.JSX.Element | React.JSX.Element[];
+  action?: string | React.JSX.Element | React.JSX.Element[];
 }
 
 export interface NotificationsContextValue {

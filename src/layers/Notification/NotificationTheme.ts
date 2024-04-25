@@ -25,6 +25,7 @@ export interface NotificationTheme {
     content: string;
     body: string;
     closeContainer: string;
+    action: string;
     closeButton: string;
   };
 }
@@ -56,6 +57,7 @@ const baseTheme: NotificationTheme = {
     content: 'inline-flex items-start flex-1 flex-col justify-center',
     header: 'text-base flex gap-2 items-center',
     closeContainer: 'inline-flex items-center',
+    action: 'ml-auto mr-2 items-center flex',
     closeButton: 'cursor-pointer text-sm font-semibold m-0 border-0',
     body: 'opacity-70 text-sm mt-1'
   }
