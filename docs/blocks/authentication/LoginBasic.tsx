@@ -8,7 +8,7 @@ import { useForm, Controller } from 'react-hook-form';
 
 import logo from '../../assets/reaviz.svg';
 
-export const Login = () => {
+export const LoginBasic = () => {
   const {
     control,
     handleSubmit,
@@ -32,7 +32,7 @@ export const Login = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block className="mb-5">
+          <Block label="Email" className="mb-5">
             <Controller
               name="email"
               control={control}
@@ -80,23 +80,19 @@ export const Login = () => {
           <Button
             variant="outline"
             startAdornment={
-              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16">
-                <g clip-path="url(#a)">
-                  <path
-                    fill="currentColor"
-                    d="M8.5 1.333A6.674 6.674 0 0 0 1.833 8 6.674 6.674 0 0 0 8.5 14.667 6.674 6.674 0 0 0 15.167 8c0-.314-.028-.613-.067-.9a.5.5 0 0 0-.496-.433H8.667a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h3.046c-.609 1.174-1.794 2-3.213 2A3.659 3.659 0 0 1 4.833 8a3.659 3.659 0 0 1 6.088-2.744.5.5 0 0 0 .684-.022L13.02 3.82a.5.5 0 0 0-.015-.721A6.627 6.627 0 0 0 8.5 1.333Zm0 1c1.292 0 2.46.452 3.412 1.181l-.742.741c-.762-.546-1.66-.922-2.67-.922a4.664 4.664 0 0 0-3.883 2.088l-.8-.612A5.654 5.654 0 0 1 8.5 2.333ZM3.33 5.696l.827.632A4.617 4.617 0 0 0 3.833 8c0 .59.122 1.151.324 1.672l-.827.632A5.644 5.644 0 0 1 2.833 8c0-.823.183-1.6.497-2.304Zm5.837 1.97h4.974c.008.111.026.224.026.334 0 1.414-.534 2.69-1.387 3.681l-.78-.676c.427-.498.79-1.052.978-1.698a.5.5 0 0 0-.48-.64H9.167v-1Zm-4.55 2.913A4.664 4.664 0 0 0 8.5 12.667a4.636 4.636 0 0 0 2.803-.942l.756.655c-.974.793-2.202 1.287-3.559 1.287-1.95 0-3.665-.981-4.684-2.476l.801-.612Z"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="a">
-                    <path fill="#fff" d="M.5 0h16v16H.5z" />
-                  </clipPath>
-                </defs>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="17"
+                height="16"
+                viewBox="0 0 17 16"
+                fill="currentColor"
+              >
+                <path d="M13.1667 8.66665H9.16671V12.6666H7.83337V8.66665H3.83337V7.33331H7.83337V3.33331H9.16671V7.33331H13.1667V8.66665Z" />
               </svg>
             }
             fullWidth
           >
-            Sign up with Google
+            Sign up
           </Button>
           <div className="mt-5 text-sm text-panel-secondary-content flex items-center justify-center gap-2">
             By signing in, you agree to our
