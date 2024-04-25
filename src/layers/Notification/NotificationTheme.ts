@@ -58,7 +58,8 @@ const baseTheme: NotificationTheme = {
     header: 'text-base flex gap-2 items-center',
     closeContainer: 'inline-flex items-center',
     action: 'ml-auto mr-2 items-center flex',
-    closeButton: 'cursor-pointer text-sm font-semibold m-0 border-0',
+    closeButton:
+      'cursor-pointer text-sm font-semibold m-0 border-0 text-panel-content hover:text-panel-content/70',
     body: 'opacity-70 text-sm mt-1'
   }
 };
@@ -70,10 +71,6 @@ export const notificationTheme: NotificationTheme = {
     base: [
       baseTheme.notification.base,
       'bg-panel text-panel-content border-panel-accent border'
-    ].join(' '),
-    closeButton: [
-      baseTheme.notification.closeButton,
-      'text-slate-300 hover:text-slate-400'
     ].join(' ')
   }
 };
