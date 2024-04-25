@@ -39,6 +39,12 @@ export interface NotificationsProps {
   components?: {
     [variant in NotificationVariants]?: JSXElementConstructor<NotificationComponentProps>;
   };
+  icons?: {
+    [variant in NotificationVariants]?:
+      | string
+      | React.JSX.Element
+      | React.JSX.Element[];
+  };
   theme?: NotificationTheme;
 }
 
@@ -53,6 +59,7 @@ export const Notifications: FC<NotificationsProps> = ({
   className,
   preventFlooding,
   components,
+  icons,
   theme: customTheme
 }) => {
   const [notifications, setNotifications] = useState<any[]>([]);
@@ -80,7 +87,7 @@ export const Notifications: FC<NotificationsProps> = ({
           id,
           variant: 'default',
           timeout,
-          icon: <InfoIcon />,
+          icon: icons?.default,
           showClose,
           ...options
         };
@@ -95,39 +102,39 @@ export const Notifications: FC<NotificationsProps> = ({
         return sorted;
       });
     },
-    [limit, preventFlooding, showClose, timeout]
+    [icons?.default, limit, preventFlooding, showClose, timeout]
   );
 
   const notifyError = useCallback(
     (title: string, options: NotificationOptions = {}) =>
       notify(title, {
         variant: 'error',
-        icon: <ErrorCircleIcon />,
+        icon: icons?.error,
         ...options
       }),
-    [notify]
+    [icons?.error, notify]
   );
 
   const notifyWarning = useCallback(
     (title: string, options: NotificationOptions = {}) =>
-      notify(title, { variant: 'warning', icon: <WarningIcon />, ...options }),
-    [notify]
+      notify(title, { variant: 'warning', icon: icons?.warning, ...options }),
+    [icons?.warning, notify]
   );
 
   const notifySuccess = useCallback(
     (title: string, options: NotificationOptions = {}) =>
       notify(title, {
         variant: 'success',
-        icon: <CheckCircleIcon />,
+        icon: icons?.success,
         ...options
       }),
-    [notify]
+    [icons?.success, notify]
   );
 
   const notifyInfo = useCallback(
     (title: string, options: NotificationOptions = {}) =>
-      notify(title, { ...options, variant: 'info' }),
-    [notify]
+      notify(title, { variant: 'info', icon: icons?.info, ...options }),
+    [icons?.info, notify]
   );
 
   const values = useMemo(
@@ -212,5 +219,12 @@ Notifications.defaultProps = {
   limit: 10,
   timeout: 4000,
   showClose: true,
-  preventFlooding: true
+  preventFlooding: true,
+  icons: {
+    default: <InfoIcon />,
+    success: <CheckCircleIcon />,
+    warning: <WarningIcon />,
+    error: <ErrorCircleIcon />,
+    info: <InfoIcon />
+  }
 };
