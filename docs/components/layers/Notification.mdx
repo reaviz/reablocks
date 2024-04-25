@@ -46,7 +46,45 @@ const Component = () => {
 };
 ```
 
-## Example
+Use these `Notifications` props to customize your notifications at a global level
+
+### API
+<ArgTypes of={Notifications} />
+
+## NotificationOptions
+Pass in options when calling the `notify` function to customize the notification.
+
+```tsx
+const options: NotificationOptions = {
+  body: "This is the body of the notification",
+  timeout: 5000,
+}
+
+notify("This is a notification", options)
+```
+
+### API
+```jsx
+type NotificationVariants =
+  | 'default'
+  | 'success'
+  | 'warning'
+  | 'error'
+  | 'info';
+
+interface NotificationOptions {
+  title?: string | React.JSX.Element | React.JSX.Element[];
+  body?: string | React.JSX.Element | React.JSX.Element[];
+  timeout?: number;
+  showClose?: boolean;
+  variant?: NotificationVariants;
+  className?: string;
+  icon?: string | React.JSX.Element | React.JSX.Element[];
+  action?: string | React.JSX.Element | React.JSX.Element[];
+}
+```
+
+## Examples
 ### Notification for interface essential scenarios
 <Canvas sourceState="shown" of={NotificationsStories.Variants} />
 ### Custom styled notitications
@@ -60,6 +98,3 @@ This component uses the following default theme:
 <ThemeRender theme={notificationTheme} />
 
 Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
-
-## API
-<ArgTypes of={Notifications} />
