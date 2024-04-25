@@ -18,6 +18,10 @@ import {
 } from './NotificationsContext';
 import { NotificationTheme } from './NotificationTheme';
 import { useComponentTheme } from '../../utils';
+import InfoIcon from '../../assets/icons/info.svg?react';
+import CheckCircleIcon from '../../assets/icons/check_circle.svg?react';
+import WarningIcon from '../../assets/icons/warning.svg?react';
+import ErrorCircleIcon from '../../assets/icons/error_circle.svg?react';
 
 export interface NotificationComponentProps {
   message: string;
@@ -76,6 +80,7 @@ export const Notifications: FC<NotificationsProps> = ({
           id,
           variant: 'default',
           timeout,
+          icon: <InfoIcon />,
           showClose,
           ...options
         };
@@ -95,21 +100,26 @@ export const Notifications: FC<NotificationsProps> = ({
 
   const notifyError = useCallback(
     (title: string, options: NotificationOptions = {}) =>
-      notify(title, { ...options, variant: 'error' }),
+      notify(title, {
+        variant: 'error',
+        icon: <ErrorCircleIcon />,
+        ...options
+      }),
     [notify]
   );
 
   const notifyWarning = useCallback(
     (title: string, options: NotificationOptions = {}) =>
-      notify(title, { ...options, variant: 'warning' }),
+      notify(title, { variant: 'warning', icon: <WarningIcon />, ...options }),
     [notify]
   );
 
   const notifySuccess = useCallback(
     (title: string, options: NotificationOptions = {}) =>
       notify(title, {
-        ...options,
-        variant: 'success'
+        variant: 'success',
+        icon: <CheckCircleIcon />,
+        ...options
       }),
     [notify]
   );

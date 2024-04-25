@@ -14,6 +14,7 @@ export interface NotificationOptions {
   showClose?: boolean;
   variant?: NotificationVariants;
   className?: string;
+  icon?: string | React.JSX.Element | React.JSX.Element[];
 }
 
 export interface NotificationsContextValue {

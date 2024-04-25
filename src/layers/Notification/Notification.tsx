@@ -20,6 +20,7 @@ export const Notification: FC<NotificationProps> = ({
   timeout,
   className,
   variant,
+  icon,
   component,
   onClose,
   theme: customTheme
@@ -62,7 +63,18 @@ export const Notification: FC<NotificationProps> = ({
           )}
         >
           <div className={theme.notification?.content}>
-            {title && <div className={theme.notification.header}>{title}</div>}
+            {title && (
+              <div className={theme.notification.header}>
+                {icon && (
+                  <div
+                    className={theme.notification?.variants?.[variant]?.icon}
+                  >
+                    {icon}
+                  </div>
+                )}
+                {title}
+              </div>
+            )}
             {body && (
               <div className={theme.notification.body}>
                 {typeof body === 'string' ? (
