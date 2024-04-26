@@ -87,19 +87,26 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
         {...rest}
         ref={ref}
         tabIndex={onClick ? 0 : -1}
-        onClick={onClick}
+        onClick={!disabled ? onClick : undefined}
         className={twMerge(
           theme.base,
+          theme.variants[variant],
           theme.colors[color]?.base,
+          theme.colors[color]?.variants?.[variant],
           theme.sizes[size],
           theme.focus,
-          !!onClick && !disabled && theme.colors[color]?.selectable,
-          selected && theme.colors[color]?.selected,
-          theme.variants[variant],
+          !!onClick && !disabled && theme.colors[color]?.selectable?.base,
+          !!onClick &&
+            !disabled &&
+            theme.colors[color]?.selectable?.variants?.[variant]?.base,
+          selected &&
+            theme.colors[color]?.selectable?.variants?.[variant]?.selected,
           disableMargins && 'm-0',
           'transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill]',
-          className
+          className,
+          disabled && theme.disabled
         )}
+        aria-disabled={disabled}
       >
         {start && (
           <div
