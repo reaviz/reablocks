@@ -27,55 +27,31 @@
 ---
 
 ## 🚀 Quick Links
-- [Docs and Demos](https://reablocks.dev)
+- [Docs and Demos](https://storybook.reablocks.dev)
 
 ## 💎 Other Projects
 
-- [Unify Viz](https://unifyviz.com?utm=reablocks) - Premium offering 300+ Figma and React professionally designed data visualization
-components.
 - [Reaflow](https://reaflow.dev?utm=reablocks) - Open-source library for workflow and diagram graphs.
 - [Reagraph](https://reagraph.dev?utm=reablocks) - Open-source library for large webgl based network graphs.
 - [Reaviz](https://reaviz.io?utm=reablocks) - Open-source library for data visualizations for React. 
 
-## 🪄 Features
-- Pluralization
-- Ellipsis
-- Data Size
-- Divider
-- Redactor
-- Duration
-- Card
-- List
-- Block
-- Infinity List
-- Dialog
-- Drawer
-- Tooltip
-- Popover
-- Notification
-- Menu
-- Context Menu
-- Select
-- Loader
-- Toggle
-- Checkbox
-- Collapse
-- Stack
-- Typography
-- Radio Button
-- Tree
-- Date Format
-- Range
-- Sort
-- Command Palette
-- Avatar
-- Avatar Group
-- Chip
-- Kbd
-- Calendar
-- Pager
-- Vertical Spacer
-- Badge
-- Tabs
-- Theme Provider based on [Tailwind](https://tailwindcss.com/)
-- Animations based on [framer-motion](https://www.framer.com/docs/animation/)
+## 🔭 Development
+
+If you want to run reablocks locally, its super easy!
+
+- Clone the repository
+- `npm i`
+- `npm start`
+- Browser opens to Storybook page
+
+## ❤️ Contributors & Credits
+
+Thanks to Netlify for hosting!
+
+<a href="https://www.netlify.com">
+  <img src="https://www.netlify.com/v3/img/components/netlify-dark.svg" alt="Deploys by Netlify" />
+</a>
+
+Thanks to all our contributors!
+
+<a href="https://github.com/reaviz/reaviz/graphs/contributors"><img src="https://opencollective.com/reaviz/contributors.svg?width=890" /></a>

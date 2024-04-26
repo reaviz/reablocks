@@ -134,6 +134,8 @@ export const Createable = () => {
         multiple
         closeOnSelect={false}
         createable
+        selectOnKeys={['Enter', 'Space', 'Comma']}
+        searchOptions={{ threshold: 0 }}
         placeholder="Add some categories or pick existing one..."
         value={value}
         onChange={v => setValue(v)}

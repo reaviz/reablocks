@@ -1,6 +1,5 @@
-import React, { FC, forwardRef, Ref, InputHTMLAttributes } from 'react';
+import { FC, forwardRef, Ref, InputHTMLAttributes } from 'react';
 import AutosizeInput from 'react-18-input-autosize';
-import { InputRef } from '../Input';
 import { twMerge } from 'tailwind-merge';
 import { InputTheme } from '../InputTheme';
 import { useComponentTheme } from '../../../utils';
@@ -46,7 +45,7 @@ export const InlineInput: FC<InlineInputProps> = forwardRef(
       theme: customTheme,
       ...rest
     },
-    ref: Ref<InputRef>
+    ref: Ref<HTMLInputElement>
   ) => {
     const theme: InputTheme = useComponentTheme('input', customTheme);
 

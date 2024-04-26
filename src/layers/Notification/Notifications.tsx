@@ -7,16 +7,21 @@ import React, {
   useMemo,
   JSXElementConstructor
 } from 'react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { twMerge } from 'tailwind-merge';
+
 import { Notification } from './Notification';
 import {
   NotificationOptions,
   NotificationsContext,
   NotificationVariants
 } from './NotificationsContext';
-import { AnimatePresence, motion } from 'framer-motion';
-import { twMerge } from 'tailwind-merge';
 import { NotificationTheme } from './NotificationTheme';
 import { useComponentTheme } from '../../utils';
+import InfoIcon from '../../assets/icons/info.svg?react';
+import CheckCircleIcon from '../../assets/icons/check_circle.svg?react';
+import WarningIcon from '../../assets/icons/warning.svg?react';
+import ErrorCircleIcon from '../../assets/icons/error_circle.svg?react';
 
 export interface NotificationComponentProps {
   message: string;
@@ -34,6 +39,12 @@ export interface NotificationsProps {
   components?: {
     [variant in NotificationVariants]?: JSXElementConstructor<NotificationComponentProps>;
   };
+  icons?: {
+    [variant in NotificationVariants]?:
+      | string
+      | React.JSX.Element
+      | React.JSX.Element[];
+  };
   theme?: NotificationTheme;
 }
 
@@ -48,6 +59,7 @@ export const Notifications: FC<NotificationsProps> = ({
   className,
   preventFlooding,
   components,
+  icons,
   theme: customTheme
 }) => {
   const [notifications, setNotifications] = useState<any[]>([]);
@@ -75,6 +87,7 @@ export const Notifications: FC<NotificationsProps> = ({
           id,
           variant: 'default',
           timeout,
+          icon: icons?.default,
           showClose,
           ...options
         };
@@ -89,25 +102,39 @@ export const Notifications: FC<NotificationsProps> = ({
         return sorted;
       });
     },
-    [limit, preventFlooding, showClose, timeout]
+    [icons?.default, limit, preventFlooding, showClose, timeout]
   );
 
   const notifyError = useCallback(
     (title: string, options: NotificationOptions = {}) =>
-      notify(title, { ...options, variant: 'error' }),
-    [notify]
+      notify(title, {
+        variant: 'error',
+        icon: icons?.error,
+        ...options
+      }),
+    [icons?.error, notify]
   );
 
   const notifyWarning = useCallback(
     (title: string, options: NotificationOptions = {}) =>
-      notify(title, { ...options, variant: 'warning' }),
-    [notify]
+      notify(title, { variant: 'warning', icon: icons?.warning, ...options }),
+    [icons?.warning, notify]
   );
 
   const notifySuccess = useCallback(
     (title: string, options: NotificationOptions = {}) =>
-      notify(title, { ...options, variant: 'success' }),
-    [notify]
+      notify(title, {
+        variant: 'success',
+        icon: icons?.success,
+        ...options
+      }),
+    [icons?.success, notify]
+  );
+
+  const notifyInfo = useCallback(
+    (title: string, options: NotificationOptions = {}) =>
+      notify(title, { variant: 'info', icon: icons?.info, ...options }),
+    [icons?.info, notify]
   );
 
   const values = useMemo(
@@ -116,6 +143,7 @@ export const Notifications: FC<NotificationsProps> = ({
       notifyError,
       notifyWarning,
       notifySuccess,
+      notifyInfo,
       clearNotification,
       clearAllNotifications
     }),
@@ -125,7 +153,8 @@ export const Notifications: FC<NotificationsProps> = ({
       notify,
       notifyError,
       notifySuccess,
-      notifyWarning
+      notifyWarning,
+      notifyInfo
     ]
   );
 
@@ -190,5 +219,12 @@ Notifications.defaultProps = {
   limit: 10,
   timeout: 4000,
   showClose: true,
-  preventFlooding: true
+  preventFlooding: true,
+  icons: {
+    default: <InfoIcon />,
+    success: <CheckCircleIcon />,
+    warning: <WarningIcon />,
+    error: <ErrorCircleIcon />,
+    info: <InfoIcon />
+  }
 };
