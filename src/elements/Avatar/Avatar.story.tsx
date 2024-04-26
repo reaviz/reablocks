@@ -16,6 +16,14 @@ Default.args = {
   rounded: false
 };
 
+export const Outline = Template.bind({});
+Outline.args = {
+  name: 'John Doe',
+  size: 50,
+  rounded: false,
+  variant: 'outline'
+};
+
 export const RoundedWithImage = Template.bind({});
 RoundedWithImage.args = {
   src: 'https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg',

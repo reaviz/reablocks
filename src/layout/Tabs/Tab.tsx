@@ -43,11 +43,11 @@ export interface TabProps extends PropsWithChildren {
   onSelect?: () => void;
 
   /**
-   * The variant of the tabs.
+   * The size of the tabs.
    *
    * @private
    */
-  variant?: 'primary' | 'secondary';
+  size?: 'small' | 'medium' | 'large';
 
   /**
    * Theme for the Tabs.
@@ -63,7 +63,7 @@ export const Tab: FC<TabProps> = ({
   className,
   disabled,
   onSelect,
-  variant = 'primary',
+  size = 'medium',
   theme: customTheme
 }) => {
   const theme: TabsTheme = useComponentTheme('tabs', customTheme);
@@ -78,7 +78,7 @@ export const Tab: FC<TabProps> = ({
             [theme.list.tab.disabled]: disabled,
             [theme.list.tab.selected]: selected
           },
-          theme.list.tab.variant?.[variant]?.button
+          theme.list.tab.size?.[size]
         )}
         disabled={disabled}
         role="tab"
@@ -96,8 +96,8 @@ export const Tab: FC<TabProps> = ({
       {selected && (
         <motion.div
           className={cn(
-            theme.list.indicator,
-            theme.list.variant?.[variant]?.indicator
+            theme.list.indicator?.base,
+            theme.list.indicator?.size?.[size]
           )}
           layoutId={`${id}-tabs-underline`}
         />

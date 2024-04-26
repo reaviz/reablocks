@@ -229,22 +229,26 @@ const config: Config = {
         success: {
           DEFAULT: colorPalette.green[500],
           active: colorPalette.green[500],
-          hover: colorPalette.green[600]
+          hover: colorPalette.green[600],
+          background: colorPalette.green[100]
         },
         error: {
           DEFAULT: colorPalette.red[500],
-          active: colorPalette.red[500],
-          hover: colorPalette.red[600]
+          active: colorPalette.red[400],
+          hover: colorPalette.red[600],
+          background: colorPalette.red[100]
         },
         warning: {
           DEFAULT: colorPalette.orange[500],
           active: colorPalette.orange[500],
-          hover: colorPalette.orange[600]
+          hover: colorPalette.orange[600],
+          background: colorPalette.orange[100]
         },
         info: {
           DEFAULT: colorPalette.blue[500],
           active: colorPalette.blue[500],
-          hover: colorPalette.blue[600]
+          hover: colorPalette.blue[600],
+          background: colorPalette.blue[100]
         },
         panel: {
           // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
@@ -277,22 +281,26 @@ const config: Config = {
         success: {
           DEFAULT: colorPalette.green[500],
           active: colorPalette.green[500],
-          hover: colorPalette.green[400]
+          hover: colorPalette.green[400],
+          background: colorPalette.green[950]
         },
         error: {
           DEFAULT: colorPalette.red[500],
           active: colorPalette.red[500],
-          hover: colorPalette.red[400]
+          hover: colorPalette.red[400],
+          background: colorPalette.red[950]
         },
         warning: {
           DEFAULT: colorPalette.orange[500],
           active: colorPalette.orange[500],
-          hover: colorPalette.orange[400]
+          hover: colorPalette.orange[400],
+          background: colorPalette.orange[950]
         },
         info: {
           DEFAULT: colorPalette.blue[500],
           active: colorPalette.blue[500],
-          hover: colorPalette.blue[400]
+          hover: colorPalette.blue[400],
+          background: colorPalette.blue[950]
         },
         panel: {
           // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
