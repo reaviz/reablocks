@@ -190,6 +190,16 @@ export interface SelectProps {
    * Menu component override.
    */
   menu?: ReactElement<SelectMenuProps, typeof SelectMenu>;
+
+  /**
+   * When menu is opened
+   */
+  onOpenMenu: () => void;
+
+  /**
+   * When menu is closed
+   */
+  onCloseMenu: () => void;
 }
 
 export const Select: FC<Partial<SelectProps>> = ({
@@ -224,7 +234,9 @@ export const Select: FC<Partial<SelectProps>> = ({
   onInputKeydown,
   onInputKeyUp,
   onOptionsChange,
-  onInputChange
+  onInputChange,
+  onOpenMenu,
+  onCloseMenu
 }) => {
   const overlayRef = useRef<ConnectedOverlayContentRef | null>(null);
   const inputRef = useRef<SelectInputRef | null>(null);
@@ -623,7 +635,8 @@ export const Select: FC<Partial<SelectProps>> = ({
     }
 
     resetSelect();
-  }, [createable, keyword, resetSelect, toggleSelectedOption]);
+    onCloseMenu?.();
+  }, [createable, keyword, onCloseMenu, resetSelect, toggleSelectedOption]);
 
   return (
     <ConnectedOverlay
@@ -635,6 +648,7 @@ export const Select: FC<Partial<SelectProps>> = ({
       reference={inputRef?.current?.containerRef}
       ref={overlayRef}
       onClose={onOverlayClose}
+      onOpen={onOpenMenu}
       content={() => (
         <CloneElement<SelectMenuProps>
           element={menu}
