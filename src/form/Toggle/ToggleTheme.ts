@@ -18,33 +18,25 @@ export interface ToggleTheme {
 }
 
 const baseTheme: ToggleTheme = {
-  base: 'flex items-center justify-start cursor-pointer box-border border-0 rounded-xl',
+  base: 'flex items-center justify-start cursor-pointer bg-surface box-border border border-panel-accent rounded-full',
   disabled: 'cursor-not-allowed opacity-60',
-  checked: 'justify-end',
+  checked: 'justify-end bg-primary',
   handle: {
-    base: 'rounded-full',
+    base: 'rounded-full bg-panel',
     sizes: {
-      small: 'w-3 h-3',
-      medium: 'w-4 h-4',
-      large: 'w-6 h-6 rounded-lg'
+      small: 'w-3 h-full',
+      medium: 'w-5 h-full',
+      large: 'w-6 h-full'
     }
   },
   sizes: {
-    small: 'w-8 h-4 p-0.5',
-    medium: 'w-12 h-6 p-1',
-    large: 'w-16 h-9 p-1.5'
+    small: 'w-8 h-4 p-px',
+    medium: 'w-12 h-6 p-px',
+    large: 'w-16 h-7 p-px'
   }
 };
 
-export const toggleTheme: ToggleTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-surface'].join(' '),
-  checked: [baseTheme.checked, 'bg-primary'].join(' '),
-  handle: {
-    ...baseTheme.handle,
-    base: [baseTheme.handle.base, 'bg-white'].join(' ')
-  }
-};
+export const toggleTheme = baseTheme;
 
 export const legacyToggleTheme: ToggleTheme = {
   ...baseTheme,
