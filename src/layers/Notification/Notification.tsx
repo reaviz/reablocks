@@ -20,6 +20,8 @@ export const Notification: FC<NotificationProps> = ({
   timeout,
   className,
   variant,
+  icon,
+  action,
   component,
   onClose,
   theme: customTheme
@@ -57,12 +59,23 @@ export const Notification: FC<NotificationProps> = ({
         <div
           className={twMerge(
             theme.notification?.base,
-            theme.notification?.variants?.[variant],
+            theme.notification?.variants?.[variant]?.base,
             className
           )}
         >
           <div className={theme.notification?.content}>
-            {title && <div className={theme.notification.header}>{title}</div>}
+            {title && (
+              <div className={theme.notification.header}>
+                {icon && (
+                  <div
+                    className={theme.notification?.variants?.[variant]?.icon}
+                  >
+                    {icon}
+                  </div>
+                )}
+                {title}
+              </div>
+            )}
             {body && (
               <div className={theme.notification.body}>
                 {typeof body === 'string' ? (
@@ -73,6 +86,7 @@ export const Notification: FC<NotificationProps> = ({
               </div>
             )}
           </div>
+          {action && <div className={theme.notification.action}>{action}</div>}
           <div className={theme.notification?.closeContainer}>
             {showClose && (
               <button
