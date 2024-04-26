@@ -207,12 +207,12 @@ export interface SelectProps {
   /**
    * When menu is opened
    */
-  onOpenMenu: () => void;
+  onOpenMenu?: () => void;
 
   /**
    * When menu is closed
    */
-  onCloseMenu: () => void;
+  onCloseMenu?: () => void;
 }
 
 export const Select: FC<Partial<SelectProps>> = ({
