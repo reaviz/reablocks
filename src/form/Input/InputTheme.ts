@@ -1,7 +1,10 @@
 export interface InputTheme {
   base: string;
   input: string;
-  inline: string;
+  inline: {
+    base: string;
+    input: string;
+  };
   disabled: string;
   focused: string;
   fullWidth: string;
@@ -23,7 +26,11 @@ const baseTheme: InputTheme = {
   focused: '',
   input:
     'flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-none px-0.5 disabled:cursor-not-allowed disabled:text-disabled',
-  inline: 'bg-transparent border-0 outline-none',
+  inline: {
+    base: 'min-w-[76px] relative',
+    input:
+      'w-full h-full absolute top-0 left-0 font-[inherit] text-[inherit] leading-[inherit] bg-transparent border-0 outline-none'
+  },
   disabled: '',
   fullWidth: 'w-full',
   error: 'border-error',
