@@ -1,5 +1,4 @@
 import { FC, forwardRef, Ref, InputHTMLAttributes, useState } from 'react';
-import AutosizeInput from 'react-18-input-autosize';
 import { twMerge } from 'tailwind-merge';
 import { InputTheme } from '../InputTheme';
 import { useComponentTheme } from '../../../utils';
@@ -20,11 +19,6 @@ export interface InlineInputProps
    * Additional className for the input element
    */
   inputClassName?: string;
-
-  /**
-   * onChange handler
-   */
-  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 
   /**
    * Placeholder content
@@ -52,7 +46,7 @@ export const InlineInput: FC<InlineInputProps> = forwardRef(
     {
       className,
       inputClassName,
-      placeholder = 'Type here...',
+      placeholder,
       placeholderIsMinWidth = true,
       theme: customTheme,
       extraWidth,
