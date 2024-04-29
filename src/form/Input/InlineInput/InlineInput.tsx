@@ -62,10 +62,7 @@ export const InlineInput: FC<InlineInputProps> = forwardRef(
 
     return (
       <div className={twMerge(className, theme.inline.base)}>
-        <span
-          className={spanStyles}
-          style={{ paddingRight: extraWidth ? extraWidth + 'px' : 0 }}
-        >
+        <span className={spanStyles} style={{ paddingRight: extraWidth ?? 0 }}>
           {inputValue}
         </span>
         {placeholderIsMinWidth && !inputValue && (
