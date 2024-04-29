@@ -7,6 +7,7 @@ export default {
 };
 
 export const Basic = () => {
+  const [text, setText] = useState('');
   return (
     <div
       style={{
@@ -16,9 +17,9 @@ export const Basic = () => {
       }}
     >
       <InlineInput
+        value={text}
+        onChange={event => setText(event.target.value)}
         placeholder="Type here..."
-        extraWidth={20}
-        onChange={e => console.log(e.target.value)}
       />
     </div>
   );
