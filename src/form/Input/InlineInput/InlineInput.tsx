@@ -57,8 +57,7 @@ export const InlineInput: FC<InlineInputProps> = forwardRef(
   ) => {
     const theme: InputTheme = useComponentTheme('input', customTheme);
     const [inputValue, setInputValue] = useState('');
-    const spanStyles =
-      'relative opacity-0 font-[inherit] text-[inherit] leading-none whitespace-pre select-none';
+    const spanStyles = 'relative opacity-0 whitespace-pre select-none';
 
     return (
       <div className={twMerge(className, theme.inline.base)}>

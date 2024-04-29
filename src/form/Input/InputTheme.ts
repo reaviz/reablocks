@@ -29,7 +29,7 @@ const baseTheme: InputTheme = {
   inline: {
     base: 'min-w-[76px] relative',
     input:
-      'w-full h-full absolute top-0 left-0 font-[inherit] text-[inherit] leading-[inherit] bg-transparent border-0 outline-none'
+      'w-full h-full absolute top-0 left-0 bg-transparent border-0 outline-none'
   },
   disabled: '',
   fullWidth: 'w-full',
