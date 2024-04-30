@@ -120,6 +120,11 @@ export interface SelectProps {
   createable?: boolean;
 
   /**
+   * Whether you can create new options when paste text inside input.
+   */
+  createOnPaste?: boolean;
+
+  /**
    * The list of KeyCodes for creating select values.
    * The default is ['Enter']
    * Typical options would be: ['Enter', 'Tab', 'Space', 'Comma']
@@ -228,6 +233,7 @@ export const Select: FC<Partial<SelectProps>> = ({
   placeholder,
   disabled,
   createable,
+  createOnPaste,
   selectOnKeys,
   loading,
   multiple,
@@ -639,7 +645,7 @@ export const Select: FC<Partial<SelectProps>> = ({
 
   const onPasteHandler = useCallback(
     (e: React.ClipboardEvent<HTMLInputElement>) => {
-      if (createable && multiple) {
+      if (createOnPaste && multiple) {
         const inputElement = e.target as HTMLInputElement;
         const inputValue = inputElement.value;
         const clipboardValue = e.clipboardData.getData('Text');
@@ -665,7 +671,7 @@ export const Select: FC<Partial<SelectProps>> = ({
       }
     },
     [
-      createable,
+      createOnPaste,
       multiple,
       onChange,
       onOptionsChange,
