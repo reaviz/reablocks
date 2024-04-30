@@ -4,6 +4,7 @@ import React, {
   Ref,
   RefObject,
   useCallback,
+  useEffect,
   useImperativeHandle,
   useMemo,
   useRef
@@ -499,7 +500,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
       >
         {renderPrefix()}
         <InlineInput
-          inputRef={el => (inputRef.current = el)}
+          ref={el => (inputRef.current = el)}
           id={id}
           style={{ fontSize }}
           name={name}
