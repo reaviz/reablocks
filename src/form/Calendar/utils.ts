@@ -25,7 +25,11 @@ export function getMonthNames(
   locale?: string,
   format: 'long' | 'numeric' | '2-digit' | 'short' | 'narrow' = 'short'
 ) {
-  const formatter = new Intl.DateTimeFormat(locale ?? navigator?.language, {
+  if (!locale && typeof window !== 'undefined') {
+    locale = navigator.language;
+  }
+
+  const formatter = new Intl.DateTimeFormat(locale, {
     month: format,
     timeZone: 'UTC'
   });
@@ -41,13 +45,15 @@ export function getMonthNames(
 export const monthNames = getMonthNames();
 
 export function getDayLabels(locale?: string) {
-  return Array.from(
-    { length: 7 },
-    (_, i) =>
-      new Intl.DateTimeFormat(locale ?? navigator?.language, {
-        weekday: 'short'
-      }).format(new Date(1970, 0, 4 + i)) // 1970/01/04 is a Sunday
-  );
+  return Array.from({ length: 7 }, (_, i) => {
+    if (!locale && typeof window !== 'undefined') {
+      locale = navigator.language;
+    }
+
+    return new Intl.DateTimeFormat(locale, {
+      weekday: 'short'
+    }).format(new Date(1970, 0, 4 + i)); // 1970/01/04 is a Sunday
+  });
 }
 
 export const daysOfWeek = getDayLabels();
