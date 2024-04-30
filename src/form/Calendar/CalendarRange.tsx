@@ -1,5 +1,12 @@
 import React, { FC, Fragment, useCallback, useMemo, useState } from 'react';
-import { add, addMonths, min as minDate, max as maxDate, sub } from 'date-fns';
+import {
+  add,
+  addMonths,
+  min as minDate,
+  max as maxDate,
+  sub,
+  format
+} from 'date-fns';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Button } from '../../elements';
 import { CalendarProps } from './Calendar';
@@ -159,9 +166,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         <SmallHeading className={twMerge(theme.title)} disableMargins>
           {displayMonths.map(i => (
             <span key={addMonths(viewValue, showPast ? -i : i).toDateString()}>
-              {new Intl.DateTimeFormat(navigator.language, {
-                month: 'long'
-              }).format(addMonths(viewValue, showPast ? -i : i))}
+              {format(addMonths(viewValue, showPast ? -i : i), 'MMMM')}
             </span>
           ))}
         </SmallHeading>

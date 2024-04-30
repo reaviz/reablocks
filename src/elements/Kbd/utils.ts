@@ -1,10 +1,10 @@
 let isMac: boolean = false;
 try {
-  if (navigator) {
+  if (typeof window !== 'undefined') {
     isMac = navigator.platform.toUpperCase().indexOf('MAC') >= 0;
   }
 } catch (e) {
-  console.warn(e);
+  // ignore
 }
 
 export const MODIFIER_KEY = isMac ? '⌘' : 'CTRL';

@@ -13,7 +13,8 @@ import {
   setYear,
   startOfDecade,
   sub,
-  subYears
+  subYears,
+  format
 } from 'date-fns';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
@@ -239,10 +240,7 @@ export const Calendar: FC<CalendarProps> = ({
           fullWidth
         >
           <SmallHeading disableMargins className={twMerge(theme.title)}>
-            {view === 'days' &&
-              new Intl.DateTimeFormat(navigator.language, {
-                month: 'long'
-              }).format(viewValue)}
+            {view === 'days' && format(viewValue, 'MMMM')}
             {view === 'months' && <>{yearValue}</>}
             {view === 'years' && (
               <>

@@ -73,6 +73,7 @@ export const usePosition = (
     }
 
     return refElement;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [followCursor, reference, refPointer, mouse]);
 
   useLayoutEffect(() => {
@@ -95,10 +96,12 @@ export const usePosition = (
         placement: placement || 'top',
         modifiers: modifiers || {},
         onCreate: () => {
-          window.addEventListener('scroll', onWindowScroll);
+          if (typeof window !== 'undefined') {
+            window.addEventListener('scroll', onWindowScroll);
 
-          if (followCursor) {
-            window.addEventListener('mousemove', onMouseMove);
+            if (followCursor) {
+              window.addEventListener('mousemove', onMouseMove);
+            }
           }
         }
       });
@@ -109,13 +112,16 @@ export const usePosition = (
         popper.current?.destroy();
 
         cancelAnimationFrame(rqf);
-        window.removeEventListener('scroll', onWindowScroll);
+        if (typeof window !== 'undefined') {
+          window.removeEventListener('scroll', onWindowScroll);
 
-        if (followCursor) {
-          window.removeEventListener('mousemove', onMouseMove);
+          if (followCursor) {
+            window.removeEventListener('mousemove', onMouseMove);
+          }
         }
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [elementRef.current]);
 
   useLayoutEffect(() => {

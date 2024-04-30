@@ -22,8 +22,10 @@ export const useWidth = (
   }, [updateWidthInternal]);
 
   useEffect(() => {
-    window.addEventListener('resize', updateWidthInternal);
-    return () => window.removeEventListener('resize', updateWidthInternal);
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', updateWidthInternal);
+      return () => window.removeEventListener('resize', updateWidthInternal);
+    }
   }, [updateWidthInternal]);
 
   const updateWidth = useCallback(() => {

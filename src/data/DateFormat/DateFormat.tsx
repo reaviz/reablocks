@@ -77,11 +77,13 @@ export const DateFormat: FC<DateFormatProps> = ({
   theme: customTheme
 }) => {
   const [cache, setCache] = useState<string | null>(
-    window.localStorage.getItem(`DATES_${cacheKey}`) || null
+    typeof window !== 'undefined'
+      ? window.localStorage.getItem(`DATES_${cacheKey}`) ?? null
+      : null
   );
 
   useEffect(() => {
-    if (cacheKey) {
+    if (cacheKey && typeof window !== 'undefined') {
       window.localStorage.setItem(`DATES_${cacheKey}`, cache);
     }
   }, [cache, cacheKey]);
