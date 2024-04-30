@@ -1,3 +1,6 @@
+# 7.4.9 - 4/30/24
+- [fix] nextjs proof
+
 # 7.4.8 - 4/30/24
 - [improvement] update chip theme #159
 - [fix] nextjs proof
