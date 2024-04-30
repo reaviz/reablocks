@@ -9,9 +9,9 @@ import React, {
 } from 'react';
 import { SearchIcon } from './SearchIcon';
 import { HotkeyIem } from '../useFlattenedTree';
-import Mousetrap from 'mousetrap';
 import { CommandPaletteTheme } from '../CommandPaletteTheme';
 import { useComponentTheme } from '../../../utils';
+import keys, { Handler } from '@reaviz/ctrl-keys';
 
 export interface CommandPaletteInputProps {
   /**
@@ -78,6 +78,8 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
   theme: customTheme
 }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
+  const handlerRef = useRef<Handler>(keys());
+  const keyMapRef = useRef<Map<string, any>>(new Map());
 
   useLayoutEffect(() => {
     if (autoFocus) {
@@ -87,16 +89,21 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
   }, [autoFocus]);
 
   useEffect(() => {
-    if (inputRef.current) {
-      const mousetrap = new Mousetrap(inputRef.current);
+    const handler = handlerRef.current;
+    const keyMap = keyMapRef.current;
 
-      for (const hotkey of hotkeys) {
-        mousetrap.bind(hotkey.hotkey, () => onHotkey(hotkey));
-      }
+    for (const hotkey of hotkeys) {
+      const callback = () => onHotkey(hotkey);
+      handler.add(hotkey.hotkey, callback);
+      keyMap.set(hotkey.hotkey, callback);
     }
 
+    window.addEventListener('keydown', handler.handle);
+
     return () => {
-      hotkeys.forEach(hotkey => Mousetrap.unbind(hotkey.hotkey));
+      [...keyMap].forEach(([key, cb]) => handler.remove(key, cb));
+      window.removeEventListener('keydown', handler.handle);
+      keyMapRef.current = new Map();
     };
   }, [onHotkey, hotkeys]);
 
