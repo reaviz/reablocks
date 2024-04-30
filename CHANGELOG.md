@@ -4,7 +4,7 @@
 
 # 7.4.7 - 4/26/24
 - [improvement] Update chip theme #151
-  
+
 # 7.3.7 - 4/26/24
 - [feat] Open/Close menu callbacks #158
 - [feat] Update Notification #157

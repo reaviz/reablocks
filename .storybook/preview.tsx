@@ -74,6 +74,7 @@ const preview: Preview = {
               '*'
             ],
             'Advanced',
+            'Changelog',
             'Support',
           ],
           'Components',
