@@ -9,7 +9,7 @@ export default create({
   colorPrimary: '#0C77FF',
   appContentBg: '#11111F',
   appPreviewBg: '#11111F',
-  fontBase: 'Gilroy,Arial,Helvetica,sans-serif',
+  fontBase: 'Inter,Arial,Helvetica,sans-serif',
   fontCode: 'ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace',
   appBg: '#11111F',
   textColor: '#FFFFFF',
