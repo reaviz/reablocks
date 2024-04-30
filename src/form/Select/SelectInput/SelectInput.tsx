@@ -204,6 +204,11 @@ export interface SelectInputProps {
   onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 
   /**
+   * The function to handle input paste event.
+   */
+  onPaste: (event: React.ClipboardEvent<HTMLInputElement>) => void;
+
+  /**
    * The function to handle refresh.
    */
   onRefresh?: () => void;
@@ -253,6 +258,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
   onFocus,
   onBlur,
   onRefresh,
+  onPaste,
   chip,
   theme: customTheme
 }) => {
@@ -521,6 +527,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
           onChange={onChange}
           onFocus={onInputFocus}
           onBlur={onBlur}
+          onPaste={onPaste}
           placeholderIsMinWidth={false}
         />
       </div>
