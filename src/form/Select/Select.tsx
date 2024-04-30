@@ -18,9 +18,8 @@ import { CloneElement, useId } from '../../utils';
 import { SelectInput, SelectInputProps, SelectInputRef } from './SelectInput';
 import { SelectMenu, SelectMenuProps } from './SelectMenu';
 import { SelectOptionProps, SelectValue } from './SelectOption';
-import { useWidth } from './utils/useWidth';
 import { useFuzzy } from '@reaviz/react-use-fuzzy';
-import { createOptions, getGroups } from './utils';
+import { createOptions, getGroups, useWidth, keyNameToCode } from './utils';
 import isEqual from 'react-fast-compare';
 
 export interface SelectProps {
@@ -638,6 +637,45 @@ export const Select: FC<Partial<SelectProps>> = ({
     [createable, menuDisabled, onInputBlur, toggleSelectedOption]
   );
 
+  const onPasteHandler = useCallback(
+    (e: React.ClipboardEvent<HTMLInputElement>) => {
+      if (createable && multiple) {
+        const inputElement = e.target as HTMLInputElement;
+        const inputValue = inputElement.value;
+        const clipboardValue = e.clipboardData.getData('Text');
+        const value = `${inputValue}${clipboardValue}`.trim();
+        const separators = selectOnKeys?.map(key =>
+          String.fromCharCode(keyNameToCode[key])
+        );
+        const expression = `[${separators}]`;
+        const regex = new RegExp(expression, 'g');
+        const items = value.split(regex);
+        if (items.length > 1) {
+          const result = toggleSelectedMultiOption(
+            items.map(item => ({ value: item, children: item }))
+          );
+          if (result.newOptions?.length) {
+            onOptionsChange?.([...options, ...result.newOptions]);
+          }
+          setInternalValue(result.newValue);
+          resetInput();
+          onChange?.(result.newValue);
+          e.preventDefault();
+        }
+      }
+    },
+    [
+      createable,
+      multiple,
+      onChange,
+      onOptionsChange,
+      options,
+      resetInput,
+      selectOnKeys,
+      toggleSelectedMultiOption
+    ]
+  );
+
   const onMenuSelectedChange = useCallback(
     (option: SelectValue) => {
       toggleSelectedOption(option);
@@ -728,6 +766,7 @@ export const Select: FC<Partial<SelectProps>> = ({
         onBlur={onInputBlured}
         onFocus={onInputFocused}
         onRefresh={onRefresh}
+        onPaste={onPasteHandler}
       />
     </ConnectedOverlay>
   );
