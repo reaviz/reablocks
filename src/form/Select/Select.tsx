@@ -120,9 +120,9 @@ export interface SelectProps {
   createable?: boolean;
 
   /**
-   * Whether you can create new options when paste text inside input.
+   * Select options when paste text inside input.
    */
-  createOnPaste?: boolean;
+  selectOnPaste?: boolean;
 
   /**
    * The list of KeyCodes for creating select values.
@@ -233,7 +233,7 @@ export const Select: FC<Partial<SelectProps>> = ({
   placeholder,
   disabled,
   createable,
-  createOnPaste,
+  selectOnPaste,
   selectOnKeys,
   loading,
   multiple,
@@ -645,40 +645,51 @@ export const Select: FC<Partial<SelectProps>> = ({
 
   const onPasteHandler = useCallback(
     (e: React.ClipboardEvent<HTMLInputElement>) => {
-      if (createOnPaste && multiple) {
+      if (selectOnPaste) {
         const inputElement = e.target as HTMLInputElement;
         const inputValue = inputElement.value;
         const clipboardValue = e.clipboardData.getData('Text');
         const value = `${inputValue}${clipboardValue}`.trim();
-        const separators = selectOnKeys?.map(key =>
-          String.fromCharCode(keyNameToCode[key])
-        );
-        const expression = `[${separators}]`;
-        const regex = new RegExp(expression, 'g');
-        const items = value.split(regex);
-        if (items.length > 1) {
+
+        if (multiple) {
+          const separators = selectOnKeys?.map(key =>
+            String.fromCharCode(keyNameToCode[key])
+          );
+          const expression = `[${separators}]`;
+          const regex = new RegExp(expression, 'g');
+          const items = value.split(regex);
           const result = toggleSelectedMultiOption(
             items.map(item => ({ value: item, children: item }))
           );
+          const optionsToSelect = createable
+            ? result.newOptions
+            : result.newSelectedOptions;
           if (result.newOptions?.length) {
-            onOptionsChange?.([...options, ...result.newOptions]);
+            onOptionsChange?.([...options, ...optionsToSelect]);
           }
           setInternalValue(result.newValue);
-          resetInput();
           onChange?.(result.newValue);
-          e.preventDefault();
+        } else {
+          toggleSelectedOption({ value: value, children: value });
+          setInternalValue(value);
+          onChange?.(value);
         }
+
+        resetInput();
+        e.preventDefault();
       }
     },
     [
-      createOnPaste,
+      createable,
+      selectOnPaste,
       multiple,
       onChange,
       onOptionsChange,
       options,
       resetInput,
       selectOnKeys,
-      toggleSelectedMultiOption
+      toggleSelectedMultiOption,
+      toggleSelectedOption
     ]
   );
 

@@ -134,7 +134,7 @@ export const Createable = () => {
         multiple
         closeOnSelect={false}
         createable
-        createOnPaste
+        selectOnPaste
         selectOnKeys={['Enter', 'Space', 'Comma']}
         searchOptions={{ threshold: 0 }}
         placeholder="Add some categories or pick existing one..."
