@@ -99,6 +99,7 @@ export const Input = forwardRef<InputRef, InputProps>(
       onFocus,
       onChange,
       onValueChange,
+      onBlur,
       theme: customTheme,
       ...rest
     },
@@ -156,7 +157,8 @@ export const Input = forwardRef<InputRef, InputProps>(
             setFocused(true);
             onFocus?.(event);
           }}
-          onBlur={() => {
+          onBlur={event => {
+            onBlur?.(event);
             setFocused(false);
           }}
           onChange={event => {
