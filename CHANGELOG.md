@@ -1,3 +1,6 @@
+# 7.5.1 - 5/1/24
+- [fix] onBlur call for Input component #164
+
 # 7.5.0 - 4/30/24
 - [feat] Create/Select option(s) onPaste event #162
 
