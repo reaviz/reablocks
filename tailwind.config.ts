@@ -306,7 +306,7 @@ const config: Config = {
           // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
           DEFAULT: colorPalette['black-pearl'],
           content: colorPalette['athens-gray'],
-          'secondary-content': colorPalette.gray[600],
+          'secondary-content': colorPalette['waterloo'],
           accent: colorPalette['charade']
         },
         surface: {
