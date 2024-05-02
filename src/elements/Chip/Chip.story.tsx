@@ -107,42 +107,42 @@ const DemoIcon = () => (
 export const CustomTheme = () => {
   const customTheme: ChipTheme = {
     ...chipTheme,
-    base: 'rounded-full',
+    base: `${chipTheme.base} rounded-full`,
     colors: {
       ...chipTheme?.colors,
       secondary: {
         ...chipTheme.colors.secondary,
         variants: {
           ...chipTheme.colors.secondary.variants,
-          filled: 'bg-panel-content text-panel'
+          filled: `${chipTheme?.colors?.secondary?.variants?.filled} bg-panel-content text-panel`
         }
       },
       info: {
         ...chipTheme.colors.info,
         variants: {
           ...chipTheme.colors.info.variants,
-          filled: 'bg-info/10 border-info'
+          filled: `${chipTheme?.colors?.info?.variants?.filled} text-panel-content bg-info/10 border-info`
         }
       },
       error: {
         ...chipTheme.colors.error,
         variants: {
           ...chipTheme.colors.error.variants,
-          filled: 'bg-error/10 border-error'
+          filled: `${chipTheme?.colors?.error?.variants?.filled} text-panel-content bg-error/10 border-error`
         }
       },
       warning: {
         ...chipTheme.colors.warning,
         variants: {
           ...chipTheme.colors.warning.variants,
-          filled: 'bg-warning/10 border-warning'
+          filled: `${chipTheme?.colors?.warning?.variants?.filled} text-panel-content bg-warning/10 border-warning`
         }
       },
       success: {
         ...chipTheme.colors.success,
         variants: {
           ...chipTheme.colors.success.variants,
-          filled: 'bg-success/10 border-success'
+          filled: `${chipTheme?.colors?.success?.variants?.filled} text-panel-content bg-success/10 border-success`
         }
       }
     }
