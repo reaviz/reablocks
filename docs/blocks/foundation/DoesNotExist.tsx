@@ -8,7 +8,7 @@ import { PageTitle } from '../../../src/typography';
 import { Stack } from '../../../src/layout/Stack';
 
 export const DoesNotExist = () => (
-  <div className="w-full -mt-2.5 dark:bg-black-pearl">
+  <div className="w-full dark:bg-black-pearl">
     <MotionGroup className="bg-[radial-gradient(50%_6.33%_at_50%_0%,rgba(16,94,255,0.71)_0%,rgba(248,248,251,0)_85.19%)] pb-[50px]">
       <Divider variant="secondary" />
       <MotionItem className="flex flex-col items-center p-12">
