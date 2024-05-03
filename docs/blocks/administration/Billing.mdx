@@ -33,23 +33,10 @@ import {
   Tabs,
   TabPanel,
   Stack,
-  Divider
-} from '../../../src/layout';
-import { Button, Chip } from '../../../src/elements';
-
-import { motion } from 'framer-motion';
-import React, { FC } from 'react';
-
-import { Button, Chip } from '../../../src/elements';
-import {
-  Card,
   Divider,
-  Stack,
-  Tab,
-  TabList,
-  TabPanel,
-  Tabs
-} from '../../../src/layout';
+  Button,
+  Chip
+} from 'reablocks';
 
 export const BillingFull: FC = () => (
   <motion.div
@@ -221,23 +208,14 @@ import { motion } from 'framer-motion';
 import React, { FC } from 'react';
 import {
   Button,
+  Card,
   Chip,
   ChipTheme,
-  chipTheme as defaultChipTheme
-} from '../../../src/elements';
-import { Card, Divider, Stack } from '../../../src/layout';
-import { Tooltip } from '../../../src/layers';
-
-import { motion } from 'framer-motion';
-import React, { FC } from 'react';
-import {
-  Button,
-  Chip,
-  ChipTheme,
-  chipTheme as defaultChipTheme
-} from '../../../src/elements';
-import { Card, Divider, Stack } from '../../../src/layout';
-import { Tooltip } from '../../../src/layers';
+  chipTheme as defaultChipTheme,
+  Divider,
+  Stack,
+  Tooltip
+} from 'reablocks';
 
 export const PayAndBilling: FC = () => {
   const chipTheme: ChipTheme = {
