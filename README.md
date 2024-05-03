@@ -27,9 +27,12 @@
 ---
 
 ## 🚀 Quick Links
-- [Docs and Demos](https://storybook.reablocks.dev)
+- [Website](https://reablocks.dev)
+- [Docs](https://storybook.reablocks.dev/?path=/docs/docs-intro--docs)
+- [Blocks](https://storybook.reablocks.dev/?path=/docs/blocks-introduction--docs)
+- [Changelog](https://storybook.reablocks.dev/?path=/docs/docs-changelog--docs)
 
-## 💎 Other Projects
+## 🎁 Other Projects
 
 - [Reaflow](https://reaflow.dev?utm=reablocks) - Open-source library for workflow and diagram graphs.
 - [Reagraph](https://reagraph.dev?utm=reablocks) - Open-source library for large webgl based network graphs.
