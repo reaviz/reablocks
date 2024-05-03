@@ -1,0 +1,491 @@
+import { Meta, Unstyled } from '@storybook/addon-docs';
+import { BillingFull } from './BillingFull' ;
+import { PayAndBilling } from './PayAndBilling' ;
+import { Tabs, TabPanel, TabList, Tab } from '../../../src/layout/Tabs';
+
+<Meta title="Blocks/Administration/Billing" />
+
+# Billing
+
+<Unstyled>
+  <Tabs direction="rtl">
+    <TabList>
+      <Tab className="light:text-white">
+        Demo
+      </Tab>
+      <Tab className="light:text-white">
+        Code
+      </Tab>
+    </TabList>
+    <TabPanel>
+      <div className="light:bg-white light:text-black flex flex-col border justify-center items-center border-gray-500 p-7">
+        <BillingFull />
+      </div>
+    </TabPanel>
+    <TabPanel>
+```tsx
+import React, { FC } from 'react';
+import { motion } from 'framer-motion';
+import {
+  Card,
+  Tab,
+  TabList,
+  Tabs,
+  TabPanel,
+  Stack,
+  Divider,
+  Button,
+  Chip
+} from 'reablocks';
+
+export const BillingFull: FC = () => (
+  <motion.div
+    initial={{ y: -20, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[1200px]"
+  >
+    <Card className="transition-colors p-12">
+      <div className="flex flex-col gap-4">
+        <div className="flex flex-col">
+          <h2 className="font-bold text-2xl">Billing</h2>
+          <p className="text-panel-secondary-content text-base">
+            Easily manage your account, view invoices, and track payments
+            conveniently in one place. Explore flexible subscription options and
+            manage your billing preferences effortlessly.
+          </p>
+        </div>
+        <Tabs variant="secondary" selectedIndex={2}>
+          <TabList>
+            <Tab>Account Details</Tab>
+            <Tab>Users</Tab>
+            <Tab>Billing</Tab>
+            <Tab>Integrations</Tab>
+            <Tab>Notifications</Tab>
+          </TabList>
+        </Tabs>
+        <TabPanel>
+          <div className="flex flex-col gap-2">
+            <span className="font-bold">Plan</span>
+            <div className="flex gap-4 w-full">
+              <Card
+                className="flex-1 light:bg-athens-gray"
+                contentClassName="flex flex-col gap-6"
+              >
+                <Stack justifyContent="spaceBetween">
+                  <span className="font-bold">Premium</span>
+                  <Chip
+                    className="rounded-full border border-panel-accent"
+                    variant="outline"
+                  >
+                    Annual
+                  </Chip>
+                </Stack>
+                <div className="flex gap-2 items-center">
+                  <span className="font-bold">$1000</span>
+                  <span className="text-panel-secondary-content text-sm">
+                    /Year
+                  </span>
+                </div>
+                <Button
+                  className="w-fit font-semibold px-4 py-2 border-none dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-none transition-colors"
+                  variant="outline"
+                  startAdornment={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                    >
+                      <path d="M2 3.33334V12.6667H14V3.33334H2ZM5.55333 11.3333H3.33333V4.66668H5.55333V11.3333ZM9.11333 11.3333H6.89333V4.66668H9.11333V11.3333ZM12.6667 11.3333H10.4467V4.66668H12.6667V11.3333Z" />
+                    </svg>
+                  }
+                  color="secondary"
+                >
+                  Manage Plan
+                </Button>
+              </Card>
+              <Card
+                className="flex-1 light:bg-athens-gray"
+                contentClassName="flex flex-col gap-6"
+              >
+                <span className="font-bold">Billing period</span>
+                <div className="flex gap-2 items-center">
+                  <span className="font-bold">Monthly</span>
+                  <span className="text-panel-secondary-content text-sm">
+                    (renews Mar 15, 2024)
+                  </span>
+                </div>
+                <Button
+                  className="w-fit font-semibold px-4 py-2 border-none dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-none transition-colors"
+                  variant="outline"
+                  startAdornment={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="currentColor"
+                    >
+                      <path d="M1.86333 11.6367V14.1367H4.36333L11.7367 6.76334L9.23666 4.26334L1.86333 11.6367ZM14.1367 4.36334L11.6367 1.86334L9.94999 3.55668L12.45 6.05668L14.1367 4.36334Z" />
+                    </svg>
+                  }
+                  color="secondary"
+                >
+                  Change billing period
+                </Button>
+              </Card>
+            </div>
+            <Divider className="my-6" variant="secondary" />
+            <span className="font-bold">Seats</span>
+            <span className="text-sm">Remaining Seats</span>
+            <div className="relative rounded-full w-full border border-primary/40 h-[50px] my-3 dark:bg-vulcan light:bg-mystic">
+              <motion.div
+                initial={{ width: 0, opacity: 0 }}
+                animate={{ width: '33%', opacity: 1 }}
+                transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
+                className="absolute rounded-full bg-gradient-to-r from-transparent to-blue-400 h-full"
+              />
+              <motion.div
+                initial={{ width: 0, opacity: 0 }}
+                animate={{ width: '33%', opacity: 1 }}
+                transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
+                className="absolute rounded-full bg-gradient-to-r from-transparent to-blue-400 h-full blur-md"
+              />
+            </div>
+            <div className="flex justify-between items-center">
+              <div className="flex gap-2 items-center font-semibold">
+                <div className="py-2 px-4 border border-panel-accent">5</div>
+                <span className="d text-sm">of 25 seats used</span>
+              </div>
+              <Button
+                className="font-semibold h-fit py-2 px-4"
+                variant="outline"
+                startAdornment={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                  >
+                    <path d="M2 3.33331V12.6666H14V3.33331H2ZM5.55333 11.3333H3.33333V4.66665H5.55333V11.3333ZM9.11333 11.3333H6.89333V4.66665H9.11333V11.3333ZM12.6667 11.3333H10.4467V4.66665H12.6667V11.3333Z" />
+                  </svg>
+                }
+              >
+                Manage Seats
+              </Button>
+            </div>
+          </div>
+        </TabPanel>
+      </div>
+    </Card>
+  </motion.div>
+);
+```
+    </TabPanel>
+  </Tabs>
+</Unstyled>
+<br />
+<Unstyled>
+  <Tabs direction="rtl">
+    <TabList>
+      <Tab className="light:text-white">
+        Demo
+      </Tab>
+      <Tab className="light:text-white">
+        Code
+      </Tab>
+    </TabList>
+    <TabPanel>
+      <div className="light:bg-white light:text-black flex flex-col border justify-center items-center border-gray-500 p-7">
+        <PayAndBilling />
+      </div>
+    </TabPanel>
+    <TabPanel>
+```tsx
+import { motion } from 'framer-motion';
+import React, { FC } from 'react';
+import {
+  Button,
+  Card,
+  Chip,
+  ChipTheme,
+  chipTheme as defaultChipTheme,
+  Divider,
+  Stack,
+  Tooltip
+} from 'reablocks';
+
+export const PayAndBilling: FC = () => {
+  const chipTheme: ChipTheme = {
+    ...defaultChipTheme,
+    base: `${defaultChipTheme?.base} rounded-full`,
+    colors: {
+      ...defaultChipTheme?.colors,
+      info: {
+        ...defaultChipTheme.colors.info,
+        variants: {
+          ...defaultChipTheme?.colors?.info?.variants,
+          filled: `${defaultChipTheme?.colors?.info?.variants?.filled} text-panel-content bg-info/10 border-info`
+        }
+      },
+      success: {
+        ...defaultChipTheme.colors.success,
+        variants: {
+          ...defaultChipTheme?.colors?.success?.variants,
+          filled: `${defaultChipTheme?.colors?.success?.variants?.filled} text-panel-content bg-success/10 border-success`
+        }
+      }
+    }
+  };
+
+  return (
+    <motion.div
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[1200px]"
+    >
+      <Card className="transition-colors p-12">
+        <div className="flex flex-col gap-4">
+          <div className="flex items-center justify-between">
+            <div className="flex flex-col">
+              <h2 className="font-bold text-2xl">Pay & Billing</h2>
+              <p className="text-panel-secondary-content text-base">
+                Manage your plan and payments
+              </p>
+            </div>
+            <Stack>
+              <Button
+                className="w-fit font-semibold px-4 py-2 border-none dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-none transition-colors"
+                variant="outline"
+                endAdornment={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                  >
+                    <path d="M12.6667 4.27337L11.7267 3.33337L8.00001 7.06004L4.27334 3.33337L3.33334 4.27337L7.06001 8.00004L3.33334 11.7267L4.27334 12.6667L8.00001 8.94004L11.7267 12.6667L12.6667 11.7267L8.94001 8.00004L12.6667 4.27337Z" />
+                  </svg>
+                }
+              >
+                Cancel Subscription
+              </Button>
+              <Button
+                className="font-semibold px-4 py-2 flex items-center gap-2 self-stretch bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+                endAdornment={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                  >
+                    <path d="M12.9548 8.65337C12.9815 8.44004 13.0015 8.22671 13.0015 8.00004C13.0015 7.77337 12.9815 7.56004 12.9548 7.34671L14.3615 6.24671C14.4881 6.14671 14.5215 5.96671 14.4415 5.82004L13.1081 3.51337C13.0481 3.40671 12.9348 3.34671 12.8148 3.34671C12.7748 3.34671 12.7348 3.35337 12.7015 3.36671L11.0415 4.03337C10.6948 3.76671 10.3215 3.54671 9.91481 3.38004L9.66148 1.61337C9.64148 1.45337 9.50148 1.33337 9.33481 1.33337H6.66815C6.50148 1.33337 6.36148 1.45337 6.34148 1.61337L6.08815 3.38004C5.68148 3.54671 5.30815 3.77337 4.96148 4.03337L3.30148 3.36671C3.26148 3.35337 3.22148 3.34671 3.18148 3.34671C3.06815 3.34671 2.95481 3.40671 2.89481 3.51337L1.56148 5.82004C1.47481 5.96671 1.51481 6.14671 1.64148 6.24671L3.04815 7.34671C3.02148 7.56004 3.00148 7.78004 3.00148 8.00004C3.00148 8.22004 3.02148 8.44004 3.04815 8.65337L1.64148 9.75337C1.51481 9.85337 1.48148 10.0334 1.56148 10.18L2.89481 12.4867C2.95481 12.5934 3.06815 12.6534 3.18815 12.6534C3.22815 12.6534 3.26815 12.6467 3.30148 12.6334L4.96148 11.9667C5.30815 12.2334 5.68148 12.4534 6.08815 12.62L6.34148 14.3867C6.36148 14.5467 6.50148 14.6667 6.66815 14.6667H9.33481C9.50148 14.6667 9.64148 14.5467 9.66148 14.3867L9.91481 12.62C10.3215 12.4534 10.6948 12.2267 11.0415 11.9667L12.7015 12.6334C12.7415 12.6467 12.7815 12.6534 12.8215 12.6534C12.9348 12.6534 13.0481 12.5934 13.1081 12.4867L14.4415 10.18C14.5215 10.0334 14.4881 9.85337 14.3615 9.75337L12.9548 8.65337ZM11.6348 7.51337C11.6615 7.72004 11.6681 7.86004 11.6681 8.00004C11.6681 8.14004 11.6548 8.28671 11.6348 8.48671L11.5415 9.24004L12.1348 9.70671L12.8548 10.2667L12.3881 11.0734L11.5415 10.7334L10.8481 10.4534L10.2481 10.9067C9.96148 11.12 9.68815 11.28 9.41481 11.3934L8.70815 11.68L8.60148 12.4334L8.46815 13.3334H7.53481L7.30148 11.68L6.59481 11.3934C6.30815 11.2734 6.04148 11.12 5.77481 10.92L5.16815 10.4534L4.46148 10.74L3.61481 11.08L3.14815 10.2734L3.86815 9.71337L4.46148 9.24671L4.36815 8.49337C4.34815 8.28671 4.33481 8.13337 4.33481 8.00004C4.33481 7.86671 4.34815 7.71337 4.36815 7.51337L4.46148 6.76004L3.86815 6.29337L3.14815 5.73337L3.61481 4.92671L4.46148 5.26671L5.15481 5.54671L5.75481 5.09337C6.04148 4.88004 6.31481 4.72004 6.58815 4.60671L7.29481 4.32004L7.40148 3.56671L7.53481 2.66671H8.46148L8.69481 4.32004L9.40148 4.60671C9.68815 4.72671 9.95481 4.88004 10.2215 5.08004L10.8281 5.54671L11.5348 5.26004L12.3815 4.92004L12.8481 5.72671L12.1348 6.29337L11.5415 6.76004L11.6348 7.51337ZM8.00148 5.33337C6.52815 5.33337 5.33481 6.52671 5.33481 8.00004C5.33481 9.47337 6.52815 10.6667 8.00148 10.6667C9.47481 10.6667 10.6681 9.47337 10.6681 8.00004C10.6681 6.52671 9.47481 5.33337 8.00148 5.33337ZM8.00148 9.33337C7.26815 9.33337 6.66815 8.73337 6.66815 8.00004C6.66815 7.26671 7.26815 6.66671 8.00148 6.66671C8.73481 6.66671 9.33481 7.26671 9.33481 8.00004C9.33481 8.73337 8.73481 9.33337 8.00148 9.33337Z" />
+                  </svg>
+                }
+                color="primary"
+              >
+                Manage Payments
+              </Button>
+            </Stack>
+          </div>
+          <Divider />
+          <div className="flex items-center justify-between">
+            <span className="font-bold">Current plan</span>
+            <Button variant="outline">Change plan</Button>
+          </div>
+          <div className="flex gap-4 w-full">
+            <Card
+              className="flex-1"
+              contentClassName="flex justify-between items-start"
+            >
+              <div className="flex flex-col">
+                <span className="text-sm text-panel-secondary-content">
+                  Monthly plan
+                </span>
+                <div className="text-3xl font-bold flex items-center gap-2">
+                  $1000{' '}
+                  <span className="text-sm text-panel-secondary-content">
+                    /Month
+                  </span>
+                </div>
+              </div>
+              <Stack>
+                <Chip
+                  theme={chipTheme}
+                  start={
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      className="text-primary"
+                      fill="currentColor"
+                    >
+                      <path d="M8 1.33337C4.32 1.33337 1.33334 4.32004 1.33334 8.00004C1.33334 11.68 4.32 14.6667 8 14.6667C11.68 14.6667 14.6667 11.68 14.6667 8.00004C14.6667 4.32004 11.68 1.33337 8 1.33337ZM8 13.3334C5.06 13.3334 2.66667 10.94 2.66667 8.00004C2.66667 5.06004 5.06 2.66671 8 2.66671C10.94 2.66671 13.3333 5.06004 13.3333 8.00004C13.3333 10.94 10.94 13.3334 8 13.3334ZM11.06 5.05337L6.66667 9.44671L4.94 7.72671L4 8.66671L6.66667 11.3334L12 6.00004L11.06 5.05337Z" />
+                    </svg>
+                  }
+                  color="info"
+                >
+                  Auto Renew
+                </Chip>
+                <Chip theme={chipTheme} color="success">
+                  Active
+                </Chip>
+              </Stack>
+            </Card>
+            <Card className="flex-1">
+              <div className="flex flex-col">
+                <span className="text-sm text-panel-secondary-content">
+                  Renews on
+                </span>
+                <span className="text-3xl font-bold ">Mar 15, 2024</span>
+              </div>
+            </Card>
+          </div>
+          <div className="flex flex-col">
+            <span className="font-bold">Usage</span>
+            <span className="text-panel-secondary-content">
+              Your usage is renewed every month
+            </span>
+          </div>
+          <div className="flex gap-4">
+            <Card className="flex-1" contentClassName="flex flex-col gap-2">
+              <div className="p-4 border border-panel-accent w-fit">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="currentColor"
+                >
+                  <path d="M15 2.5C13.8281 2.5 12.8305 2.97321 12.1899 3.69385C11.5494 4.41449 11.25 5.33854 11.25 6.25C11.25 6.90401 11.4646 7.53774 11.7883 8.125H8.49732C6.93557 8.125 5.5613 9.18786 5.16968 10.6995L2.09107 22.5745C1.53226 24.7289 3.19295 26.875 5.41871 26.875H24.6961C26.8743 26.875 28.5241 24.8177 28.0518 22.6917L25.4126 10.8167C25.064 9.24931 23.6628 8.125 22.0569 8.125H18.2117C18.5354 7.53774 18.75 6.90401 18.75 6.25C18.75 5.33854 18.4506 4.41449 17.8101 3.69385C17.1695 2.97321 16.1719 2.5 15 2.5ZM15 4.375C15.7031 4.375 16.1118 4.60492 16.4087 4.93896C16.7056 5.27301 16.875 5.75521 16.875 6.25C16.875 6.74479 16.7056 7.22699 16.4087 7.56104C16.1118 7.89508 15.7031 8.125 15 8.125C14.2969 8.125 13.8882 7.89508 13.5913 7.56104C13.2944 7.22699 13.125 6.74479 13.125 6.25C13.125 5.75521 13.2944 5.27301 13.5913 4.93896C13.8882 4.60492 14.2969 4.375 15 4.375ZM8.49732 10H15H22.0569C22.7948 10 23.4226 10.503 23.5828 11.2231L26.2207 23.0981C26.4421 24.0946 25.7166 25 24.6961 25H5.41871C4.37321 25 3.64259 24.0575 3.90504 23.0457L6.98487 11.1707C7.16451 10.4773 7.78033 10 8.49732 10ZM14.9854 11.2366C14.7369 11.2405 14.5002 11.3428 14.3272 11.5211C14.1541 11.6994 14.0589 11.9391 14.0625 12.1875V12.6416C12.8151 12.998 11.875 14.1053 11.875 15.4578V15.459C11.875 17.0926 13.2199 18.4375 14.8535 18.4375H15.7715C16.3916 18.4375 16.875 18.9209 16.875 19.541C16.875 20.1576 16.3971 20.6381 15.78 20.6433L14.6301 20.6531C14.2268 20.6531 13.9016 20.3915 13.7903 20.0378C13.7553 19.9181 13.6968 19.8065 13.6182 19.7096C13.5395 19.6128 13.4423 19.5326 13.3323 19.4737C13.2223 19.4149 13.1016 19.3787 12.9774 19.3671C12.8531 19.3555 12.7278 19.3688 12.6088 19.4062C12.4898 19.4437 12.3795 19.5045 12.2843 19.5852C12.1891 19.6658 12.1109 19.7646 12.0544 19.8759C11.9979 19.9871 11.9641 20.1085 11.9551 20.2329C11.9461 20.3574 11.962 20.4824 12.002 20.6006C12.2935 21.5269 13.1124 22.1213 14.0625 22.3401V22.8125C14.0608 22.9367 14.0837 23.0601 14.13 23.1754C14.1764 23.2906 14.2451 23.3956 14.3324 23.484C14.4196 23.5725 14.5235 23.6428 14.6381 23.6907C14.7528 23.7387 14.8758 23.7634 15 23.7634C15.1242 23.7634 15.2473 23.7387 15.3619 23.6907C15.4765 23.6428 15.5804 23.5725 15.6677 23.484C15.7549 23.3956 15.8237 23.2906 15.87 23.1754C15.9163 23.0601 15.9393 22.9367 15.9375 22.8125V22.489C17.4931 22.3976 18.75 21.1156 18.75 19.541C18.75 17.9073 17.4052 16.5625 15.7715 16.5625H14.8535C14.2334 16.5625 13.75 16.0791 13.75 15.459V15.4578C13.75 14.8439 14.2237 14.3632 14.8377 14.3542L15.3528 14.3469C15.7584 14.3469 16.086 14.6117 16.1951 14.9683C16.2302 15.087 16.2885 15.1977 16.3666 15.2938C16.4447 15.39 16.5411 15.4697 16.6501 15.5283C16.7592 15.587 16.8789 15.6235 17.0021 15.6356C17.1254 15.6478 17.2498 15.6354 17.3683 15.5992C17.4868 15.563 17.5969 15.5037 17.6923 15.4247C17.7877 15.3457 17.8664 15.2486 17.9241 15.1389C17.9817 15.0293 18.0171 14.9094 18.0281 14.786C18.0391 14.6626 18.0256 14.5383 17.9883 14.4202C17.7037 13.4897 16.8862 12.8926 15.9375 12.6672V12.1875C15.9393 12.062 15.9159 11.9375 15.8687 11.8212C15.8214 11.7049 15.7514 11.5993 15.6626 11.5106C15.5738 11.422 15.4681 11.352 15.3518 11.3049C15.2354 11.2579 15.1108 11.2346 14.9854 11.2366Z" />
+                </svg>
+              </div>
+              <div className="text-sm text-panel-secondary-content flex gap-2 items-center">
+                Design Credits
+                <Tooltip content={'Hover Me'}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="white"
+                  >
+                    <path d="M7.33334 4.66671H8.66668V6.00004H7.33334V4.66671ZM7.33334 7.33337H8.66668V11.3334H7.33334V7.33337ZM8.00001 1.33337C4.32001 1.33337 1.33334 4.32004 1.33334 8.00004C1.33334 11.68 4.32001 14.6667 8.00001 14.6667C11.68 14.6667 14.6667 11.68 14.6667 8.00004C14.6667 4.32004 11.68 1.33337 8.00001 1.33337ZM8.00001 13.3334C5.06001 13.3334 2.66668 10.94 2.66668 8.00004C2.66668 5.06004 5.06001 2.66671 8.00001 2.66671C10.94 2.66671 13.3333 5.06004 13.3333 8.00004C13.3333 10.94 10.94 13.3334 8.00001 13.3334Z" />
+                  </svg>
+                </Tooltip>
+              </div>
+              <span className="text-xl font-bold">100 of 500</span>
+              <div className="relative rounded-full w-full border border-primary/40 h-3 dark:bg-vulcan light:bg-mystic">
+                <motion.div
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: `${(100 / 500) * 100}%`, opacity: 1 }}
+                  transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
+                  className="absolute rounded-full bg-gradient-to-r from-transparent to-blue-400 h-full"
+                />
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: '33%' }}
+                  transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
+                  className="absolute rounded-full bg-gradient-to-r from-transparent to-blue-400 h-full blur-md"
+                />
+              </div>
+            </Card>
+            <Card className="flex-1" contentClassName="flex flex-col gap-2">
+              <div className="p-4 border border-panel-accent w-fit">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="currentColor"
+                >
+                  <path d="M15 2.5C11.5593 2.5 8.75 5.30933 8.75 8.75C8.75 12.1907 11.5593 15 15 15C18.4407 15 21.25 12.1907 21.25 8.75C21.25 5.30933 18.4407 2.5 15 2.5ZM15 4.375C17.4274 4.375 19.375 6.32265 19.375 8.75C19.375 11.1774 17.4274 13.125 15 13.125C12.5726 13.125 10.625 11.1774 10.625 8.75C10.625 6.32265 12.5726 4.375 15 4.375ZM7.48657 17.5C6.12419 17.5 5 18.6242 5 19.9866V20.9375C5 23.1901 6.42454 24.9326 8.31665 25.9766C10.2088 27.0205 12.6051 27.5 15 27.5C17.3949 27.5 19.7912 27.0205 21.6833 25.9766C23.2966 25.0865 24.5108 23.6641 24.8511 21.875H25.0012V19.9866C25.0012 18.6242 23.8758 17.5 22.5134 17.5H7.48657ZM7.48657 19.375H22.5134C22.8623 19.375 23.1262 19.6377 23.1262 19.9866V20H23.125V20.9375C23.125 22.4349 22.2839 23.5049 20.7776 24.3359C19.2713 25.167 17.1363 25.625 15 25.625C12.8637 25.625 10.7287 25.167 9.22241 24.3359C7.71608 23.5049 6.875 22.4349 6.875 20.9375V19.9866C6.875 19.6377 7.1377 19.375 7.48657 19.375Z" />
+                </svg>
+              </div>
+              <div className="text-sm text-panel-secondary-content flex gap-2 items-center">
+                Design Credits
+                <Tooltip content={'Hover Me'}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="white"
+                  >
+                    <path d="M7.33334 4.66671H8.66668V6.00004H7.33334V4.66671ZM7.33334 7.33337H8.66668V11.3334H7.33334V7.33337ZM8.00001 1.33337C4.32001 1.33337 1.33334 4.32004 1.33334 8.00004C1.33334 11.68 4.32001 14.6667 8.00001 14.6667C11.68 14.6667 14.6667 11.68 14.6667 8.00004C14.6667 4.32004 11.68 1.33337 8.00001 1.33337ZM8.00001 13.3334C5.06001 13.3334 2.66668 10.94 2.66668 8.00004C2.66668 5.06004 5.06001 2.66671 8.00001 2.66671C10.94 2.66671 13.3333 5.06004 13.3333 8.00004C13.3333 10.94 10.94 13.3334 8.00001 13.3334Z" />
+                  </svg>
+                </Tooltip>
+              </div>
+              <span className="text-xl font-bold">33 of 50</span>
+              <div className="relative rounded-full w-full border border-primary/40 h-3 dark:bg-vulcan light:bg-mystic">
+                <motion.div
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: `${(33 / 50) * 100}%`, opacity: 1 }}
+                  transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
+                  className="absolute rounded-full bg-gradient-to-r from-transparent to-blue-400 h-full"
+                />
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: '70%' }}
+                  transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
+                  className="absolute rounded-full bg-gradient-to-r from-transparent to-blue-400 h-full blur-md"
+                />
+              </div>
+            </Card>
+            <Card className="flex-1" contentClassName="flex flex-col gap-2">
+              <div className="p-4 border border-panel-accent w-fit">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="30"
+                  height="30"
+                  viewBox="0 0 30 30"
+                  fill="currentColor"
+                >
+                  <path d="M5.3125 6.25C3.42514 6.25 1.875 7.80014 1.875 9.6875V21.5625C1.875 23.4499 3.42514 25 5.3125 25H24.6875C26.5749 25 28.125 23.4499 28.125 21.5625V9.6875C28.125 7.80014 26.5749 6.25 24.6875 6.25H5.3125ZM5.3125 8.125H24.6875C25.5614 8.125 26.25 8.81361 26.25 9.6875V21.5625C26.25 22.4364 25.5614 23.125 24.6875 23.125H5.3125C4.43861 23.125 3.75 22.4364 3.75 21.5625V9.6875C3.75 8.81361 4.43861 8.125 5.3125 8.125ZM6.5625 10.625C6.43827 10.6232 6.31493 10.6462 6.19965 10.6925C6.08436 10.7388 5.97944 10.8076 5.89097 10.8949C5.8025 10.9821 5.73224 11.086 5.68429 11.2006C5.63634 11.3153 5.61165 11.4383 5.61165 11.5625C5.61165 11.6867 5.63634 11.8097 5.68429 11.9244C5.73224 12.039 5.8025 12.1429 5.89097 12.2301C5.97944 12.3174 6.08436 12.3862 6.19965 12.4325C6.31493 12.4788 6.43827 12.5018 6.5625 12.5H15.3125C15.4367 12.5018 15.5601 12.4788 15.6754 12.4325C15.7906 12.3862 15.8956 12.3174 15.984 12.2301C16.0725 12.1429 16.1428 12.039 16.1907 11.9244C16.2387 11.8097 16.2634 11.6867 16.2634 11.5625C16.2634 11.4383 16.2387 11.3153 16.1907 11.2006C16.1428 11.086 16.0725 10.9821 15.984 10.8949C15.8956 10.8076 15.7906 10.7388 15.6754 10.6925C15.5601 10.6462 15.4367 10.6232 15.3125 10.625H6.5625ZM6.5625 14.375C6.43827 14.3732 6.31493 14.3962 6.19965 14.4425C6.08436 14.4888 5.97944 14.5576 5.89097 14.6449C5.8025 14.7321 5.73224 14.836 5.68429 14.9506C5.63634 15.0653 5.61165 15.1883 5.61165 15.3125C5.61165 15.4367 5.63634 15.5597 5.68429 15.6744C5.73224 15.789 5.8025 15.8929 5.89097 15.9801C5.97944 16.0674 6.08436 16.1362 6.19965 16.1825C6.31493 16.2288 6.43827 16.2518 6.5625 16.25H12.1875C12.3117 16.2518 12.4351 16.2288 12.5504 16.1825C12.6656 16.1362 12.7706 16.0674 12.859 15.9801C12.9475 15.8929 13.0178 15.789 13.0657 15.6744C13.1137 15.5597 13.1384 15.4367 13.1384 15.3125C13.1384 15.1883 13.1137 15.0653 13.0657 14.9506C13.0178 14.836 12.9475 14.7321 12.859 14.6449C12.7706 14.5576 12.6656 14.4888 12.5504 14.4425C12.4351 14.3962 12.3117 14.3732 12.1875 14.375H6.5625ZM16.7188 16.25C16.1127 16.25 15.7213 16.607 15.4639 16.9226C15.2064 17.2382 15.0268 17.5901 14.873 17.9675C14.5656 18.7224 14.375 19.557 14.375 20.3125C14.3732 20.4367 14.3962 20.5601 14.4425 20.6754C14.4888 20.7906 14.5576 20.8956 14.6449 20.984C14.7321 21.0725 14.836 21.1428 14.9506 21.1907C15.0653 21.2387 15.1883 21.2634 15.3125 21.2634C15.4367 21.2634 15.5597 21.2387 15.6744 21.1907C15.789 21.1428 15.8929 21.0725 15.9801 20.984C16.0674 20.8956 16.1362 20.7906 16.1825 20.6754C16.2288 20.5601 16.2518 20.4367 16.25 20.3125C16.25 19.9255 16.3963 19.1975 16.6089 18.6755C16.6261 18.6334 16.641 18.6234 16.6589 18.584C16.7285 18.75 16.7906 18.8707 16.8628 19.0698C17.0009 19.4507 17.1347 19.852 17.3096 20.2234C17.397 20.4091 17.4889 20.5899 17.6526 20.7837C17.8163 20.9775 18.125 21.25 18.5938 21.25C19.4844 21.25 19.9785 20.6252 20.26 20.2649C20.2635 20.2604 20.2638 20.2596 20.2673 20.2551C20.344 20.3245 20.3638 20.3544 20.4675 20.4333C21.026 20.8589 21.9623 21.25 23.4375 21.25C23.5617 21.2518 23.6851 21.2288 23.8004 21.1825C23.9156 21.1362 24.0206 21.0674 24.109 20.9802C24.1975 20.8929 24.2678 20.789 24.3157 20.6744C24.3637 20.5597 24.3884 20.4367 24.3884 20.3125C24.3884 20.1883 24.3637 20.0653 24.3157 19.9506C24.2678 19.836 24.1975 19.7321 24.109 19.6449C24.0206 19.5576 23.9156 19.4888 23.8004 19.4425C23.6851 19.3962 23.5617 19.3732 23.4375 19.375C22.2564 19.375 21.8646 19.1411 21.6028 18.9417C21.4719 18.8419 21.3734 18.7303 21.189 18.5632C21.0045 18.3962 20.625 18.125 20.1562 18.125C19.5586 18.125 19.3155 18.4555 19.1553 18.6365C19.0249 18.7837 18.9397 18.9061 18.8525 19.0222C18.7785 18.8291 18.7119 18.6685 18.6255 18.4302C18.4804 18.0298 18.3269 17.6071 18.1006 17.2107C17.9874 17.0125 17.8576 16.8154 17.6501 16.6272C17.4427 16.4389 17.1103 16.25 16.7188 16.25Z" />
+                </svg>
+              </div>
+              <div className="text-sm text-panel-secondary-content flex gap-2 items-center">
+                Design Credits
+                <Tooltip content={'Hover Me'}>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="white"
+                  >
+                    <path d="M7.33334 4.66671H8.66668V6.00004H7.33334V4.66671ZM7.33334 7.33337H8.66668V11.3334H7.33334V7.33337ZM8.00001 1.33337C4.32001 1.33337 1.33334 4.32004 1.33334 8.00004C1.33334 11.68 4.32001 14.6667 8.00001 14.6667C11.68 14.6667 14.6667 11.68 14.6667 8.00004C14.6667 4.32004 11.68 1.33337 8.00001 1.33337ZM8.00001 13.3334C5.06001 13.3334 2.66668 10.94 2.66668 8.00004C2.66668 5.06004 5.06001 2.66671 8.00001 2.66671C10.94 2.66671 13.3333 5.06004 13.3333 8.00004C13.3333 10.94 10.94 13.3334 8.00001 13.3334Z" />
+                  </svg>
+                </Tooltip>
+              </div>
+              <span className="text-xl font-bold">47 of 125</span>
+              <div className="relative rounded-full w-full border border-primary/40 h-3 dark:bg-vulcan light:bg-mystic">
+                <motion.div
+                  initial={{ width: 0, opacity: 0 }}
+                  animate={{ width: `${(47 / 125) * 100}%`, opacity: 1 }}
+                  transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
+                  className="absolute rounded-full bg-gradient-to-r from-transparent to-blue-400 h-full"
+                />
+                <motion.div
+                  initial={{ width: 0 }}
+                  animate={{ width: '40%' }}
+                  transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
+                  className="absolute rounded-full bg-gradient-to-r from-transparent to-blue-400 h-full blur-md"
+                />
+              </div>
+            </Card>
+          </div>
+        </div>
+      </Card>
+    </motion.div>
+  );
+};
+```
+    </TabPanel>
+  </Tabs>
+</Unstyled>

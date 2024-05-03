@@ -77,7 +77,7 @@ const baseTheme: Partial<ButtonTheme> = {
     }
   },
   sizes: {
-    small: 'text-xs px-5px py-0.5 leading-[normal]',
+    small: 'text-sm px-5px py-0.5 leading-[normal]',
     medium: 'text-base px-2.5 py-1.5 leading-[normal]',
     large: 'text-xl px-5 py-2.5 leading-[normal]'
   }
