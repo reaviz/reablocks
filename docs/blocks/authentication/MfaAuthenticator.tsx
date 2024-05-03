@@ -50,7 +50,6 @@ export const MfaAuthenticator = () => {
                         {...rest}
                         disabled={isSubmitting}
                         value={value}
-                        autoFocus={idx === 0}
                         className="text-center min-w-0"
                       />
                     </>

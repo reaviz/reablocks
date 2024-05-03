@@ -53,7 +53,6 @@ export const Mfa = () => {
                       {...rest}
                       disabled={isSubmitting}
                       value={value}
-                      autoFocus={idx === 2}
                       className="text-center min-w-0"
                     />
                   ))}
