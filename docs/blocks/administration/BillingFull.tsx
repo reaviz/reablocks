@@ -1,16 +1,12 @@
-import { motion } from 'framer-motion';
 import React, { FC } from 'react';
+import { motion } from 'framer-motion';
 
-import { Button, Chip } from '../../../src/elements';
-import {
-  Card,
-  Divider,
-  Stack,
-  Tab,
-  TabList,
-  TabPanel,
-  Tabs
-} from '../../../src/layout';
+import { Button } from '../../../src/elements/Button';
+import { Chip } from '../../../src/elements/Chip';
+import { Stack } from '../../../src/layout/Stack';
+import { Divider } from '../../../src/layout/Divider';
+import { Card } from '../../../src/layout/Card';
+import { Tabs, Tab, TabList, TabPanel } from '../../../src/layout/Tabs';
 
 export const BillingFull: FC = () => (
   <motion.div

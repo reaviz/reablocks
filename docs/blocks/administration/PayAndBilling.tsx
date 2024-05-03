@@ -1,13 +1,15 @@
-import { motion } from 'framer-motion';
 import React, { FC } from 'react';
+import { motion } from 'framer-motion';
 import {
-  Button,
   Chip,
   ChipTheme,
   chipTheme as defaultChipTheme
-} from '../../../src/elements';
-import { Card, Divider, Stack } from '../../../src/layout';
-import { Tooltip } from '../../../src/layers';
+} from '../../../src/elements/Chip';
+import { Tooltip } from '../../../src/layers/Tooltip';
+import { Card } from '../../../src/layout/Card';
+import { Stack } from '../../../src/layout/Stack';
+import { Divider } from '../../../src/layout/Divider';
+import { Button } from '../../../src/elements/Button';
 
 export const PayAndBilling: FC = () => {
   const chipTheme: ChipTheme = {
