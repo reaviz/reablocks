@@ -10,7 +10,7 @@ export const NoResults: FC = () => (
     animate={{ y: 0, opacity: 1 }}
     className="mt-10 sm:mx-auto sm:w-full md:w-[800px]"
   >
-    <Card className="w-full px-12 md:px-24 py-8">
+    <Card className="w-full px-12 md:px-24 py-12">
       <div className="w-full flex-col flex items-center text-center mb-8">
         <span className="text-3xl font-bold">No Results Found</span>
         <span className="text-panel-secondary-content text-base">

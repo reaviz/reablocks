@@ -2,6 +2,7 @@ import { Meta, Unstyled } from '@storybook/addon-docs';
 import { NoResults } from './NoResults';
 import { MissingInfo } from './MissingInfo'
 import { NothingToDisplay } from './NothingToDisplay'
+import { EmptyState } from './EmptyState'
 import { Tabs, TabPanel, TabList, Tab } from '../../../src/layout/Tabs';
 
 <Meta title="Blocks/Foundation/Empty State" />
@@ -21,7 +22,7 @@ The Empty State blocks are useful when a component has no data to display. This 
       </Tab>
     </TabList>
     <TabPanel>
-      <div className="flex flex-col border justify-center items-center min-h-[840px] border-gray-700 light:bg-white light:text-black">
+      <div className="flex flex-col border justify-center items-center min-h-[840px] border-gray-700 light:bg-mystic light:text-black">
         <NoResults />
       </div>
     </TabPanel>
@@ -206,7 +207,7 @@ export const NoResults: FC = () => (
       </Tab>
     </TabList>
     <TabPanel>
-      <div className="flex flex-col border justify-center items-center min-h-[840px] border-gray-700 light:bg-white light:text-black">
+      <div className="flex flex-col border justify-center items-center min-h-[840px] border-gray-700 light:bg-mystic light:text-black">
         <MissingInfo />
       </div>
     </TabPanel>
@@ -285,7 +286,7 @@ export const MissingInfo: FC = () => (
       </Tab>
     </TabList>
     <TabPanel>
-      <div className="flex flex-col border justify-center items-center min-h-[840px] border-gray-700 light:bg-white light:text-black">
+      <div className="flex flex-col border justify-center items-center min-h-[840px] border-gray-700 light:bg-mystic light:text-black">
         <NothingToDisplay />
       </div>
     </TabPanel>
@@ -335,6 +336,52 @@ export const NothingToDisplay: FC = () => (
       >
         Reset filters
       </Button>
+    </Card>
+  </motion.div>
+);
+
+```
+    </TabPanel>
+  </Tabs>
+</Unstyled>
+<br />
+<Unstyled>
+  <Tabs direction="rtl">
+    <TabList>
+      <Tab className="light:text-white">
+        Demo
+      </Tab>
+      <Tab className="light:text-white">
+        Code
+      </Tab>
+    </TabList>
+    <TabPanel>
+      <div className="flex flex-col border justify-center items-center min-h-[840px] border-gray-700 light:bg-mystic light:text-black">
+        <EmptyState />
+      </div>
+    </TabPanel>
+    <TabPanel>
+```tsx
+import React, { FC } from 'react';
+import { motion } from 'framer-motion';
+import { Card } from 'reablocks';
+
+
+export const EmptyState: FC = () => (
+  <motion.div
+    initial={{ y: -20, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    className="mt-10 sm:mx-auto sm:w-full md:w-[800px]"
+  >
+    <Card
+      className="w-full p-24 md:h-[628px]"
+      contentClassName="flex flex-col justify-center gap-2 items-center text-center"
+    >
+      <span className="text-xl font-bold">Empty State</span>
+      <span className="text-panel-secondary-content text-base">
+        Looks like this section is empty right now. Check back later or explore
+        other areas of the app for more content.
+      </span>
     </Card>
   </motion.div>
 );
