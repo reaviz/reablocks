@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { motion } from 'framer-motion';
 
 import { Card } from '../../../src/layout/Card';
-import { Input } from '../../../src/form';
-import { Button } from '../../../src/elements';
+import { Input } from '../../../src/form/Input';
+import { Button } from '../../../src/elements/Button';
 
 export const MissingInfo: FC = () => (
   <motion.div
