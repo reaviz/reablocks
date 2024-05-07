@@ -183,7 +183,7 @@ export const PayAndBilling: FC = () => {
                 />
                 <motion.div
                   initial={{ width: 0 }}
-                  animate={{ width: '33%' }}
+                  animate={{ width: `${(100 / 500) * 100}%` }}
                   transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
                   className="absolute rounded-full bg-gradient-to-r from-transparent to-blue-400 h-full blur-md"
                 />
@@ -225,7 +225,7 @@ export const PayAndBilling: FC = () => {
                 />
                 <motion.div
                   initial={{ width: 0 }}
-                  animate={{ width: '70%' }}
+                  animate={{ width: `${(33 / 50) * 100}%` }}
                   transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
                   className="absolute rounded-full bg-gradient-to-r from-transparent to-blue-400 h-full blur-md"
                 />
@@ -267,7 +267,7 @@ export const PayAndBilling: FC = () => {
                 />
                 <motion.div
                   initial={{ width: 0 }}
-                  animate={{ width: '40%' }}
+                  animate={{ width: `${(47 / 125) * 100}%` }}
                   transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
                   className="absolute rounded-full bg-gradient-to-r from-transparent to-blue-400 h-full blur-md"
                 />
