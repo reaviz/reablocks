@@ -63,9 +63,11 @@ export const ContextMenu: FC<ContextMenuProps> = ({
   disabled,
   triggerClassName,
   triggerOpenClassName,
-  autofocus,
-  autoClose,
+  autofocus = true,
+  autoClose = true,
   theme: customTheme,
+  closeOnEscape = true,
+  closeOnBodyClick = true,
   ...rest
 }) => {
   const id = useId();
@@ -106,6 +108,8 @@ export const ContextMenu: FC<ContextMenuProps> = ({
     <ConnectedOverlay
       placement="bottom-start"
       triggerElement="span"
+      closeOnEscape={closeOnEscape}
+      closeOnBodyClick={closeOnBodyClick}
       {...rest}
       triggerClassName={twMerge(
         triggerClassName,
@@ -150,11 +154,4 @@ export const ContextMenu: FC<ContextMenuProps> = ({
       {children}
     </ConnectedOverlay>
   );
-};
-
-ContextMenu.defaultProps = {
-  autofocus: true,
-  autoClose: true,
-  closeOnEscape: true,
-  closeOnBodyClick: true
 };

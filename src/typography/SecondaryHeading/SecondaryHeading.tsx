@@ -42,9 +42,9 @@ export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
     (
       {
         children,
-        color,
-        variant,
-        disableMargins,
+        color = 'default',
+        variant = 'default',
+        disableMargins = false,
         className,
         theme: customTheme,
         ...rest
@@ -73,9 +73,3 @@ export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
       );
     }
   );
-
-SecondaryHeading.defaultProps = {
-  color: 'default',
-  variant: 'default',
-  disableMargins: false
-};

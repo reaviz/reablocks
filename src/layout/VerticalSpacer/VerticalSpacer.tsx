@@ -18,7 +18,7 @@ export interface VerticalSpacerProps extends HTMLAttributes<HTMLDivElement> {
 export type VerticalSpaceType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 
 export const VerticalSpacer = forwardRef<HTMLDivElement, VerticalSpacerProps>(
-  ({ space, className, theme: customTheme, ...rest }, ref) => {
+  ({ space = 'md', className, theme: customTheme, ...rest }, ref) => {
     const theme: VerticalSpacerTheme = useComponentTheme(
       'verticalSpacer',
       customTheme
@@ -33,7 +33,3 @@ export const VerticalSpacer = forwardRef<HTMLDivElement, VerticalSpacerProps>(
     );
   }
 );
-
-VerticalSpacer.defaultProps = {
-  space: 'md'
-};

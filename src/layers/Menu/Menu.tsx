@@ -117,13 +117,13 @@ export const Menu: FC<Partial<MenuProps & MenuRef>> = forwardRef(
       children,
       style,
       className,
-      placement,
-      closeOnEscape,
-      open,
-      appendToBody,
-      closeOnBodyClick,
-      maxHeight,
-      autofocus,
+      placement = 'bottom-start',
+      closeOnEscape = true,
+      open = false,
+      appendToBody = true,
+      closeOnBodyClick = true,
+      maxHeight = 'max-height: calc(100vh - 48px)',
+      autofocus = true,
       modifiers,
       autoWidth,
       minWidth,
@@ -229,13 +229,3 @@ export const Menu: FC<Partial<MenuProps & MenuRef>> = forwardRef(
     );
   }
 );
-
-Menu.defaultProps = {
-  placement: 'bottom-start',
-  closeOnEscape: true,
-  open: false,
-  appendToBody: true,
-  closeOnBodyClick: true,
-  maxHeight: 'max-height: calc(100vh - 48px)',
-  autofocus: true
-};

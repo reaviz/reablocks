@@ -42,11 +42,11 @@ export interface RedactProps {
 }
 
 export const Redact: FC<RedactProps> = ({
-  allowToggle,
-  compactLength,
-  tooltipText,
+  allowToggle = true,
+  compactLength = 8,
+  tooltipText = 'Click to toggle sensitive content',
   className,
-  character,
+  character = '*',
   value,
   theme: customTheme
 }) => {
@@ -78,11 +78,4 @@ export const Redact: FC<RedactProps> = ({
       {visible ? value : masked}
     </span>
   );
-};
-
-Redact.defaultProps = {
-  allowToggle: true,
-  character: '*',
-  compactLength: 8,
-  tooltipText: 'Click to toggle sensitive content'
 };

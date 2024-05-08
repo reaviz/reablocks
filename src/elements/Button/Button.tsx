@@ -68,11 +68,11 @@ export interface ButtonRef {
 export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
   (
     {
-      color,
-      variant,
+      color = 'default',
+      variant = 'filled',
       children,
       fullWidth,
-      size,
+      size = 'medium',
       disableAnimation,
       className,
       disableMargins,
@@ -81,6 +81,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
       startAdornment,
       endAdornment,
       theme: customTheme,
+      type = 'button',
       ...rest
     }: ButtonProps,
     ref
@@ -95,6 +96,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
     return (
       <motion.button
         {...rest}
+        type={type}
         disabled={disabled}
         ref={ref}
         whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
@@ -140,10 +142,3 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
     );
   }
 );
-
-Button.defaultProps = {
-  color: 'default',
-  variant: 'filled',
-  size: 'medium',
-  type: 'button'
-};

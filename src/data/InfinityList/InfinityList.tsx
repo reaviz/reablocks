@@ -15,8 +15,8 @@ export interface InfinityListProps extends Omit<InfinityListInputs, 'items'> {
 
 export const InfinityList: FC<InfinityListProps> = ({
   children,
-  size,
-  threshold,
+  size = 10,
+  threshold = 3,
   nextSize,
   buttonClassName
 }) => {
@@ -46,9 +46,4 @@ export const InfinityList: FC<InfinityListProps> = ({
       )}
     </>
   );
-};
-
-InfinityList.defaultProps = {
-  size: 10,
-  threshold: 3
 };

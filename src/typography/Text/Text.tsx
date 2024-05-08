@@ -36,9 +36,9 @@ export interface TextRef {
 export const Text: FC<TextProps & TextRef> = forwardRef(
   (
     {
-      color,
-      variant,
-      fontStyle,
+      color = 'default',
+      variant = 'default',
+      fontStyle = 'default',
       children,
       className,
       theme: customTheme,
@@ -64,9 +64,3 @@ export const Text: FC<TextProps & TextRef> = forwardRef(
     );
   }
 );
-
-Text.defaultProps = {
-  color: 'default',
-  variant: 'default',
-  fontStyle: 'default'
-};

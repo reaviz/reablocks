@@ -28,11 +28,12 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
     {
       children,
       disabled,
-      deleteIcon,
+      deleteIcon = <CloseIcon height={12} width={12} />,
       onDelete,
-      size,
-      color,
+      size = 'medium',
+      color = 'default',
       theme: customTheme,
+      variant = 'filled',
       ...rest
     },
     ref
@@ -67,6 +68,7 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
             {deleteIcon}
           </Button>
         }
+        variant={variant}
         {...rest}
       >
         {children}
@@ -74,10 +76,3 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
     );
   }
 );
-
-DeletableChip.defaultProps = {
-  color: 'default',
-  size: 'medium',
-  variant: 'filled',
-  deleteIcon: <CloseIcon height={12} width={12} />
-};

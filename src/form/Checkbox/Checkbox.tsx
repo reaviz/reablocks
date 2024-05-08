@@ -83,11 +83,11 @@ export interface CheckboxRef {
 export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
   (
     {
-      checked,
-      intermediate,
+      checked = false,
+      intermediate = false,
       label,
       disabled,
-      size,
+      size = 'medium',
       onChange,
       onBlur,
       className,
@@ -194,9 +194,3 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
     );
   }
 );
-
-Checkbox.defaultProps = {
-  checked: false,
-  intermediate: false,
-  size: 'medium'
-};

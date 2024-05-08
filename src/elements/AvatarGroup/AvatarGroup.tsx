@@ -31,7 +31,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
     {
       children,
       className,
-      size,
+      size = 10,
       theme: customTheme,
       ...rest
     }: AvatarGroupProps,
@@ -61,7 +61,3 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
     );
   }
 );
-
-AvatarGroup.defaultProps = {
-  size: 10
-};

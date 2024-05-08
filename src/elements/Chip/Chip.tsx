@@ -67,7 +67,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       children,
       color = 'default',
       variant = 'filled',
-      size,
+      size = 'medium',
       selected,
       disabled,
       className,
@@ -135,9 +135,3 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
     );
   }
 );
-
-Chip.defaultProps = {
-  color: 'default',
-  size: 'medium',
-  variant: 'filled'
-};

@@ -26,18 +26,18 @@ export interface DrawerProps extends Omit<GlobalOverlayProps, 'children'> {
 export const Drawer: FC<Partial<DrawerProps>> = ({
   className,
   contentClassName,
-  headerElement,
+  headerElement = <DrawerHeader />,
   children,
   open,
   backdropClassName,
   header,
-  position,
-  size,
-  hasBackdrop,
-  closeOnEscape,
-  closeOnBackdropClick,
-  disablePadding,
-  showCloseButton,
+  position = 'end',
+  size = '80%',
+  hasBackdrop = true,
+  closeOnEscape = true,
+  closeOnBackdropClick = true,
+  disablePadding = false,
+  showCloseButton = true,
   onClose,
   theme: customTheme
 }) => {
@@ -117,15 +117,4 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
       )}
     </GlobalOverlay>
   );
-};
-
-Drawer.defaultProps = {
-  position: 'end',
-  size: '80%',
-  hasBackdrop: true,
-  closeOnEscape: true,
-  closeOnBackdropClick: true,
-  disablePadding: false,
-  showCloseButton: true,
-  headerElement: <DrawerHeader />
 };

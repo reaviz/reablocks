@@ -129,7 +129,7 @@ export const ConnectedOverlay: FC<
       content,
       triggerElement,
       triggerClassName,
-      trigger,
+      trigger = 'click' as TriggerTypes,
       onOpen,
       onClose,
       ...rest
@@ -206,7 +206,3 @@ export const ConnectedOverlay: FC<
     );
   }
 );
-
-ConnectedOverlay.defaultProps = {
-  trigger: 'click' as TriggerTypes
-};

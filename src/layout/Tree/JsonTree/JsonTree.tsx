@@ -53,13 +53,13 @@ export interface JsonTreeProps {
 export const JsonTree: FC<JsonTreeProps> = ({
   data,
   className,
-  expandDepth,
-  showEmpty,
-  showCount,
-  showAll,
-  showAllLimit,
-  ellipsisText,
-  ellipsisTextLength,
+  expandDepth = 2,
+  showEmpty = true,
+  showCount = true,
+  showAll = false,
+  showAllLimit = 10,
+  ellipsisText = true,
+  ellipsisTextLength = 150,
   ...rest
 }) => {
   const tree = parseJsonTree({ data, showEmpty });
@@ -82,14 +82,4 @@ export const JsonTree: FC<JsonTreeProps> = ({
       </Tree>
     </div>
   );
-};
-
-JsonTree.defaultProps = {
-  showAll: false,
-  showAllLimit: 10,
-  showCount: true,
-  showEmpty: true,
-  ellipsisText: true,
-  ellipsisTextLength: 150,
-  expandDepth: 2
 };

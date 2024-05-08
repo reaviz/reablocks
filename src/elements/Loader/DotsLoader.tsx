@@ -13,8 +13,8 @@ export interface DotsLoaderProps {
 
 export const DotsLoader: FC<DotsLoaderProps> = ({
   className,
-  size,
-  speed,
+  size = 'medium',
+  speed = 0.2,
   theme: customTheme
 }) => {
   const theme: DotsLoaderTheme = useComponentTheme('dotsLoader', customTheme);
@@ -41,9 +41,4 @@ export const DotsLoader: FC<DotsLoaderProps> = ({
       ))}
     </motion.div>
   );
-};
-
-DotsLoader.defaultProps = {
-  speed: 0.2,
-  size: 'medium'
 };

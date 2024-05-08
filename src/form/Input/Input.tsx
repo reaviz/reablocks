@@ -95,7 +95,7 @@ export const Input = forwardRef<InputRef, InputProps>(
       autoFocus,
       disabled,
       value,
-      size,
+      size = 'medium',
       onFocus,
       onChange,
       onValueChange,
@@ -175,7 +175,3 @@ export const Input = forwardRef<InputRef, InputProps>(
     );
   }
 );
-
-Input.defaultProps = {
-  size: 'medium'
-};

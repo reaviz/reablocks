@@ -38,9 +38,9 @@ export interface DividerProps {
 
 export const Divider: FC<DividerProps> = ({
   className,
-  disableMargins,
-  orientation,
-  variant,
+  disableMargins = false,
+  orientation = 'horizontal',
+  variant = 'primary',
   theme: customTheme,
   ...rest
 }) => {
@@ -58,10 +58,4 @@ export const Divider: FC<DividerProps> = ({
       )}
     />
   );
-};
-
-Divider.defaultProps = {
-  orientation: 'horizontal',
-  disableMargins: false,
-  variant: 'primary'
 };

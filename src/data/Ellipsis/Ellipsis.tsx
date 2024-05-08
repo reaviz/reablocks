@@ -44,9 +44,9 @@ export const Ellipsis: FC<EllipsisProps> = ({
   value,
   className,
   title,
-  removeLinebreaks,
-  expandable,
-  limit,
+  removeLinebreaks = true,
+  expandable = true,
+  limit = 256,
   theme: customTheme
 }) => {
   const [expanded, setExpanded] = useState<boolean>(false);
@@ -84,10 +84,4 @@ export const Ellipsis: FC<EllipsisProps> = ({
       )}
     </span>
   );
-};
-
-Ellipsis.defaultProps = {
-  removeLinebreaks: true,
-  expandable: true,
-  limit: 256
 };

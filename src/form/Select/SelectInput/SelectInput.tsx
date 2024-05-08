@@ -231,7 +231,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
   disabled,
   placeholder,
   filterable,
-  fontSize,
+  fontSize = 13,
   id,
   name,
   className,
@@ -245,10 +245,10 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
   error,
   menuDisabled,
   menuOpen,
-  refreshIcon,
-  closeIcon,
-  expandIcon,
-  loadingIcon,
+  refreshIcon = <RefreshIcon />,
+  closeIcon = <CloseIcon />,
+  expandIcon = <DownArrowIcon />,
+  loadingIcon = <DotsLoader size="small" />,
   closeOnSelect,
   onSelectedChange,
   onKeyDown,
@@ -259,7 +259,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
   onBlur,
   onRefresh,
   onPaste,
-  chip,
+  chip = <SelectInputChip />,
   theme: customTheme
 }) => {
   const { selectInput: theme }: SelectTheme = useComponentTheme(
@@ -582,13 +582,4 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
       </div>
     </div>
   );
-};
-
-SelectInput.defaultProps = {
-  fontSize: 13,
-  expandIcon: <DownArrowIcon />,
-  closeIcon: <CloseIcon />,
-  refreshIcon: <RefreshIcon />,
-  loadingIcon: <DotsLoader size="small" />,
-  chip: <SelectInputChip />
 };

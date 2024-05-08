@@ -85,17 +85,17 @@ export const NestedMenu: FC<NestedMenuProps> = ({
   label,
   children,
   style,
-  placement,
+  placement = 'right-start',
   menuClassName,
   menuStyle,
-  enterDelay,
-  autofocus,
-  leaveDelay,
+  enterDelay = 0,
+  autofocus = true,
+  leaveDelay = 100,
   className,
   maxHeight,
   activeClassName,
-  closeOnBodyClick,
-  closeOnEscape,
+  closeOnBodyClick = true,
+  closeOnEscape = true,
   onClose
 }) => {
   const [active, setActive] = useState<boolean>(false);
@@ -185,13 +185,4 @@ export const NestedMenu: FC<NestedMenuProps> = ({
       </Menu>
     </Fragment>
   );
-};
-
-NestedMenu.defaultProps = {
-  autofocus: true,
-  placement: 'right-start',
-  closeOnEscape: true,
-  closeOnBodyClick: true,
-  enterDelay: 0,
-  leaveDelay: 100
 };

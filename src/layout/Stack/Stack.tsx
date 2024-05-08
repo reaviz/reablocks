@@ -40,11 +40,11 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(
     {
       children,
       className,
-      direction,
-      dense,
-      inline,
-      alignItems,
-      justifyContent,
+      direction = 'row',
+      dense = false,
+      inline = false,
+      alignItems = 'center',
+      justifyContent = 'start',
       theme: customTheme,
       ...otherProps
     },
@@ -71,11 +71,3 @@ export const Stack = forwardRef<HTMLDivElement, StackProps>(
     );
   }
 );
-
-Stack.defaultProps = {
-  dense: false,
-  inline: false,
-  direction: 'row',
-  alignItems: 'center',
-  justifyContent: 'start'
-};

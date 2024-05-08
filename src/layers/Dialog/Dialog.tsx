@@ -73,15 +73,15 @@ export const Dialog: FC<Partial<DialogProps>> = ({
   innerClassName,
   contentClassName,
   header,
-  headerElement,
+  headerElement = <DialogHeader />,
   footer,
   onClose,
-  size,
-  disablePadding,
-  hasBackdrop,
-  showCloseButton,
-  closeOnBackdropClick,
-  closeOnEscape,
+  size = '50%',
+  disablePadding = false,
+  hasBackdrop = true,
+  showCloseButton = true,
+  closeOnBackdropClick = true,
+  closeOnEscape = true,
   theme: customTheme
 }) => {
   const id = useId();
@@ -145,14 +145,4 @@ export const Dialog: FC<Partial<DialogProps>> = ({
       )}
     </GlobalOverlay>
   );
-};
-
-Dialog.defaultProps = {
-  size: '50%',
-  disablePadding: false,
-  hasBackdrop: true,
-  showCloseButton: true,
-  closeOnBackdropClick: true,
-  closeOnEscape: true,
-  headerElement: <DialogHeader />
 };

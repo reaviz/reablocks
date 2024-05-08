@@ -11,7 +11,7 @@ import { SearchIcon } from './SearchIcon';
 import { HotkeyIem } from '@/elements/CommandPalette/useFlattenedTree';
 import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 import { useComponentTheme } from '@/utils';
-import keys, { Handler } from '@reaviz/ctrl-keys';
+import keys, { Handler } from 'ctrl-keys';
 
 export interface CommandPaletteInputProps {
   /**
@@ -68,7 +68,7 @@ export interface CommandPaletteInputProps {
 export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
   value,
   autoFocus,
-  icon,
+  icon = <SearchIcon />,
   hotkeys,
   placeholder,
   onHotkey,
@@ -132,8 +132,4 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
       />
     </div>
   );
-};
-
-CommandPaletteInput.defaultProps = {
-  icon: <SearchIcon />
 };
