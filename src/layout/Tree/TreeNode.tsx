@@ -8,12 +8,12 @@ import React, {
   useContext,
   PropsWithChildren
 } from 'react';
-import { Button } from '../../elements/Button';
-import { Collapse } from '../Collapse';
+import { Button } from '@/elements/Button';
+import { Collapse } from '@/layout/Collapse';
 import { TreeContext } from './TreeContext';
 import { twMerge } from 'tailwind-merge';
 import { TreeTheme } from './TreeTheme';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 
 export interface TreeNodeProps extends PropsWithChildren {
   /**

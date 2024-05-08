@@ -1,4 +1,4 @@
-import { legacyInputTheme, inputTheme } from '../Input/InputTheme';
+import { legacyInputTheme, inputTheme } from '@/form/Input/InputTheme';
 
 export interface TextareaTheme {
   base: string;

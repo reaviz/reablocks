@@ -8,13 +8,13 @@ import {
   format
 } from 'date-fns';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Button } from '../../elements';
+import { Button } from '@/elements';
 import { CalendarProps } from './Calendar';
 import { CalendarDays } from './CalendarDays';
-import { SmallHeading } from '../../typography';
-import { Divider, Stack } from '../../layout';
+import { SmallHeading } from '@/typography';
+import { Divider, Stack } from '@/layout';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
 
 export interface CalendarRangeProps

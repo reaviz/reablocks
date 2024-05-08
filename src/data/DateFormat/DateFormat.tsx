@@ -10,7 +10,7 @@ import { formatRelative, getInterval } from './relative';
 import { safeFormat } from './formatting';
 import { twMerge } from 'tailwind-merge';
 import { DateFormatTheme } from './DateFormatTheme';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 
 export interface DateFormatProps {
   /**

@@ -14,10 +14,10 @@ import {
   HotkeyIem,
   useFlattenedTree
 } from './useFlattenedTree';
-import { List, ListItem } from '../../layout/List';
-import { Card } from '../../layout/Card';
-import { MotionGroup } from '../../layout/Motion';
-import { useComponentTheme } from '../../utils';
+import { List, ListItem } from '@/layout/List';
+import { Card } from '@/layout/Card';
+import { MotionGroup } from '@/layout/Motion';
+import { useComponentTheme } from '@/utils';
 import { CommandPaletteTheme } from './CommandPaletteTheme';
 
 export interface CommandPaletteProps extends PropsWithChildren {

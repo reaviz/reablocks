@@ -2,7 +2,7 @@ import React, { FC, forwardRef, LegacyRef } from 'react';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { ToggleTheme } from './ToggleTheme';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 
 export interface ToggleProps {
   /**

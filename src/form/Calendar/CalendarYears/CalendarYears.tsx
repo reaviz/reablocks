@@ -1,8 +1,8 @@
 import React, { FC, useMemo } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Button } from '../../../elements';
-import { useComponentTheme } from '../../../utils';
-import { CalendarTheme } from '../CalendarTheme';
+import { Button } from '@/elements';
+import { useComponentTheme } from '@/utils';
+import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { twMerge } from 'tailwind-merge';
 
 export interface CalendarYearsProps {

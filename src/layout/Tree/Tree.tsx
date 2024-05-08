@@ -1,8 +1,8 @@
 import React, { FC, PropsWithChildren, useMemo } from 'react';
-import { Arrow } from '../../elements/Arrow';
+import { Arrow } from '@/elements/Arrow';
 import { TreeContext, TreeContextProps } from './TreeContext';
 import { TreeTheme } from './TreeTheme';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 
 export type TreeProps = {

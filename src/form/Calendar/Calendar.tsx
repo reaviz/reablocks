@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import { Button } from '../../elements/Button';
+import { Button } from '@/elements/Button';
 import {
   add,
   addYears,
@@ -19,11 +19,11 @@ import {
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
-import { SmallHeading } from '../../typography';
+import { SmallHeading } from '@/typography';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 import { CalendarTheme } from './CalendarTheme';
-import { Divider } from '../../layout/Divider';
+import { Divider } from '@/layout/Divider';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 

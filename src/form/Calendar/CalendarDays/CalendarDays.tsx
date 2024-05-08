@@ -1,16 +1,16 @@
 import React, { FC, useCallback, useMemo, useState } from 'react';
 import { isAfter, isBefore } from 'date-fns';
-import { Button } from '../../../elements';
+import { Button } from '@/elements';
 import {
   daysOfWeek,
   getDayAttributes,
   getWeeks,
   isNextWeekEmpty,
   isPreviousWeekEmpty
-} from '../utils';
+} from '@/form/Calendar/utils';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useComponentTheme } from '../../../utils';
-import { CalendarTheme } from '../CalendarTheme';
+import { useComponentTheme } from '@/utils';
+import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { twMerge } from 'tailwind-merge';
 
 export interface CalendarDaysProps {

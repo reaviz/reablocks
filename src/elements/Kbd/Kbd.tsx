@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
-import { Chip, ChipProps } from '../Chip';
+import { Chip, ChipProps } from '@/elements/Chip';
 import { getHotkeyText } from './utils';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 import { KbdTheme } from './KbdTheme';
 import { twMerge } from 'tailwind-merge';
 

@@ -2,7 +2,7 @@ import React, { FC, forwardRef, LegacyRef } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { CheckboxTheme } from './CheckboxTheme';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 
 export interface CheckboxProps {
   /**

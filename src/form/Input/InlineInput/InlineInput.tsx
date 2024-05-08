@@ -1,8 +1,8 @@
 import { FC, forwardRef, Ref, InputHTMLAttributes } from 'react';
 import AutosizeInput from 'react-18-input-autosize';
 import { twMerge } from 'tailwind-merge';
-import { InputTheme } from '../InputTheme';
-import { useComponentTheme } from '../../../utils';
+import { InputTheme } from '@/form/Input/InputTheme';
+import { useComponentTheme } from '@/utils';
 
 export interface InlineInputProps
   extends InputHTMLAttributes<HTMLInputElement> {

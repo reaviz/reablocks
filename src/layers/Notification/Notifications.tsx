@@ -17,11 +17,11 @@ import {
   NotificationVariants
 } from './NotificationsContext';
 import { NotificationTheme } from './NotificationTheme';
-import { useComponentTheme } from '../../utils';
-import InfoIcon from '../../assets/icons/info.svg?react';
-import CheckCircleIcon from '../../assets/icons/check_circle.svg?react';
-import WarningIcon from '../../assets/icons/warning.svg?react';
-import ErrorCircleIcon from '../../assets/icons/error_circle.svg?react';
+import { useComponentTheme } from '@/utils';
+import InfoIcon from '@/assets/icons/info.svg?react';
+import CheckCircleIcon from '@/assets/icons/check_circle.svg?react';
+import WarningIcon from '@/assets/icons/warning.svg?react';
+import ErrorCircleIcon from '@/assets/icons/error_circle.svg?react';
 
 export interface NotificationComponentProps {
   message: string;

@@ -1,14 +1,14 @@
 import React, { FC, Fragment, ReactNode, useCallback } from 'react';
-import { Button } from '../../elements';
-import { Stack } from '../../layout';
-import { Text } from '../../typography';
-import { Pluralize } from '../Pluralize';
+import { Button } from '@/elements';
+import { Stack } from '@/layout';
+import { Text } from '@/typography';
+import { Pluralize } from '@/data/Pluralize';
 import EndArrow from './assets/arrow-end.svg?react';
 import NextArrow from './assets/arrow-next.svg?react';
 import PreviousArrow from './assets/arrow-previous.svg?react';
 import StartArrow from './assets/arrow-start.svg?react';
 import { FUZZY_RANGE, getItemsRange, getPageRange } from './utils';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 import { PagerTheme } from './PagerTheme';
 

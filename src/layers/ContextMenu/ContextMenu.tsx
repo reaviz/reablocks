@@ -1,12 +1,12 @@
 import React, { FC, ReactNode, useState, useCallback, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ConnectedOverlay, ConnectedOverlayProps } from '../../utils';
-import { useId } from '../../utils';
+import { ConnectedOverlay, ConnectedOverlayProps } from '@/utils';
+import { useId } from '@/utils';
 import FocusTrap from 'focus-trap-react';
 import creteGlobalStateHook from 'create-global-state-hook';
 import { twMerge } from 'tailwind-merge';
 import { ContextMenuTheme } from './ContextMenuTheme';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 
 const useGlobalMenuState = creteGlobalStateHook<any[]>([]);
 

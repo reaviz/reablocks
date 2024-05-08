@@ -3,11 +3,11 @@ import {
   disableBodyScroll,
   clearAllBodyScrollLocks
 } from 'body-scroll-lock-upgrade';
-import { OverlayContext } from '../OverlayContext';
+import { OverlayContext } from '@/utils/Overlay/OverlayContext';
 import { AnimatePresence } from 'framer-motion';
-import { OverlayPortal } from '../OverlayPortal';
-import { useExitListener } from '../../ExitListener';
-import { Backdrop } from '../../../layers/Backdrop';
+import { OverlayPortal } from '@/utils/Overlay/OverlayPortal';
+import { useExitListener } from '@/utils/ExitListener';
+import { Backdrop } from '@/layers/Backdrop';
 
 export interface GlobalOverlayProps {
   /**

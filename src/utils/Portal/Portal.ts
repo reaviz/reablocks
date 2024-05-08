@@ -9,7 +9,7 @@ import {
   LegacyRef
 } from 'react';
 import { createPortal } from 'react-dom';
-import { useUnmount } from '../../utils/useUnmount';
+import { useUnmount } from '@/utils/useUnmount';
 
 export interface PortalProps extends PropsWithChildren {
   element?: string;

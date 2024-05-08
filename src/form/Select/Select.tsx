@@ -13,8 +13,8 @@ import {
   ConnectedOverlay,
   ConnectedOverlayContentRef,
   Placement
-} from '../../utils';
-import { CloneElement, useId } from '../../utils';
+} from '@/utils';
+import { CloneElement, useId } from '@/utils';
 import { SelectInput, SelectInputProps, SelectInputRef } from './SelectInput';
 import { SelectMenu, SelectMenuProps } from './SelectMenu';
 import { SelectOptionProps, SelectValue } from './SelectOption';

@@ -1,5 +1,5 @@
 import React, { FC, forwardRef, Ref } from 'react';
-import { Button, ButtonProps, ButtonRef } from '../Button';
+import { Button, ButtonProps, ButtonRef } from '@/elements/Button';
 
 export interface IconButtonProps
   extends Omit<ButtonProps, 'fullWidth' | 'startAdornment' | 'endAdornment'> {}

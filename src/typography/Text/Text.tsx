@@ -1,7 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
-import { TypographyTheme } from '../TypographyTheme';
+import { TypographyTheme } from '@/typography/TypographyTheme';
 
 export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**

@@ -1,13 +1,13 @@
 import React, { FC, forwardRef, LegacyRef, useMemo } from 'react';
 import FocusTrap from 'focus-trap-react';
-import { ConnectedOverlay, OverlayEvent } from '../../utils/Overlay';
-import { Placement } from '../../utils/Position';
-import { useId } from '../../utils';
+import { ConnectedOverlay, OverlayEvent } from '@/utils/Overlay';
+import { Placement } from '@/utils/Position';
+import { useId } from '@/utils';
 import { Modifiers } from 'popper.js';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { MenuTheme } from './MenuTheme';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 
 export interface MenuProps {
   /**

@@ -1,11 +1,11 @@
 import React, { FC, Fragment, useCallback } from 'react';
 import { motion } from 'framer-motion';
-import { SelectOptionProps, SelectValue } from '../SelectOption';
+import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
 import Highlighter from 'react-highlight-words';
-import { GroupOptions, GroupOption } from '../utils';
-import { List, ListItem } from '../../../layout';
-import { useComponentTheme } from '../../../utils';
-import { SelectTheme } from '../SelectTheme';
+import { GroupOptions, GroupOption } from '@/form/Select/utils';
+import { List, ListItem } from '@/layout';
+import { useComponentTheme } from '@/utils';
+import { SelectTheme } from '@/form/Select/SelectTheme';
 import { twMerge } from 'tailwind-merge';
 
 export interface SelectMenuProps {
