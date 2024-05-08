@@ -1,3 +1,7 @@
+# 7.5.2 - 5/8/24
+- [chore] add storybook stories to dist
+- [chore] migrate @reaviz/ctrl-keys to ctrl-keys 1.0.2
+
 # 7.5.1 - 5/1/24
 - [fix] onBlur call for Input component #164
 

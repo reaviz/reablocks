@@ -1,6 +1,6 @@
 {
   "name": "reablocks",
-  "version": "7.5.1",
+  "version": "7.5.2",
   "description": "Component library for React",
   "scripts": {
     "build": "npm run build:js && npm run build:styles && npm run rewrite",
@@ -56,7 +56,7 @@
   "homepage": "https://github.com/reaviz/reablocks#readme",
   "dependencies": {
     "@marko19907/string-to-color": "^1.0.0",
-    "@reaviz/ctrl-keys": "^1.0.0",
+    "ctrl-keys": "^1.0.2",
     "@reaviz/react-use-fuzzy": "^1.0.3",
     "body-scroll-lock-upgrade": "^1.1.0",
     "chroma-js": "^2.4.2",
