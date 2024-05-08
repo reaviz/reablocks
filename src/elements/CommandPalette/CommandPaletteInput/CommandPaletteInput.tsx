@@ -11,7 +11,7 @@ import { SearchIcon } from './SearchIcon';
 import { HotkeyIem } from '@/elements/CommandPalette/useFlattenedTree';
 import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 import { useComponentTheme } from '@/utils';
-import keys, { Handler } from '@reaviz/ctrl-keys';
+import keys, { Handler } from 'ctrl-keys';
 
 export interface CommandPaletteInputProps {
   /**
