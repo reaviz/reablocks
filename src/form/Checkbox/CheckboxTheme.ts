@@ -1,4 +1,4 @@
-import TWConfig from '../../utils/Theme/config';
+import TWConfig from '@/utils/Theme/config';
 
 export interface CheckboxTheme {
   base: string;

@@ -1,5 +1,5 @@
 import { Children } from 'react';
-import { SelectOption } from '../SelectOption';
+import { SelectOption } from '@/form/Select/SelectOption';
 
 export function createOptions(children) {
   const arr = Children.toArray(children);

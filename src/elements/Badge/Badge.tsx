@@ -1,7 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { motion } from 'framer-motion';
 import { BadgeTheme } from './BadgeTheme';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 
 export type BadgeColor = 'default' | 'primary' | 'secondary' | 'error';

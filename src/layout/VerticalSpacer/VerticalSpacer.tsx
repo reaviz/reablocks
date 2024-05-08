@@ -1,6 +1,6 @@
 import React, { forwardRef, HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 import { VerticalSpacerTheme } from './VerticalSpacerTheme';
 
 export interface VerticalSpacerProps extends HTMLAttributes<HTMLDivElement> {

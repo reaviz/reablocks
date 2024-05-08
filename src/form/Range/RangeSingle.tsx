@@ -9,7 +9,7 @@ import React, {
 import { motion, useMotionValue } from 'framer-motion';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 import { RangeTheme } from './RangeTheme';
 
 export const RangeSingle: FC<RangeProps<number>> = ({

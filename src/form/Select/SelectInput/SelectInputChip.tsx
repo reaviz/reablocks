@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { SelectOptionProps } from '../SelectOption';
+import { SelectOptionProps } from '@/form/Select/SelectOption';
 import ellipsize from 'ellipsize';
-import { CloseIcon } from '../icons';
+import { CloseIcon } from '@/form/Select/icons';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../../utils';
-import { SelectTheme } from '../SelectTheme';
+import { useComponentTheme } from '@/utils';
+import { SelectTheme } from '@/form/Select/SelectTheme';
 
 export interface SelectInputChipProps {
   option: SelectOptionProps;

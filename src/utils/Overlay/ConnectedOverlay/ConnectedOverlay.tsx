@@ -8,10 +8,10 @@ import React, {
   useImperativeHandle,
   useMemo
 } from 'react';
-import { TriggerTypes, OverlayTrigger } from '../OverlayTrigger';
-import { Placement, ReferenceProp } from '../../Position';
+import { TriggerTypes, OverlayTrigger } from '@/utils/Overlay/OverlayTrigger';
+import { Placement, ReferenceProp } from '@/utils/Position';
 import { AnimatePresence } from 'framer-motion';
-import { OverlayContext } from '../../Overlay/OverlayContext';
+import { OverlayContext } from '@/utils/Overlay/OverlayContext';
 import {
   ConnectedOverlayContent,
   ConnectedOverlayContentRef

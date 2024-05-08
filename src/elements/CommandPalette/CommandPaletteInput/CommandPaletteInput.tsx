@@ -8,9 +8,9 @@ import React, {
   useRef
 } from 'react';
 import { SearchIcon } from './SearchIcon';
-import { HotkeyIem } from '../useFlattenedTree';
-import { CommandPaletteTheme } from '../CommandPaletteTheme';
-import { useComponentTheme } from '../../../utils';
+import { HotkeyIem } from '@/elements/CommandPalette/useFlattenedTree';
+import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
+import { useComponentTheme } from '@/utils';
 import keys, { Handler } from '@reaviz/ctrl-keys';
 
 export interface CommandPaletteInputProps {

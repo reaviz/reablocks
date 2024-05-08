@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
-import { Button } from '../../../elements';
-import { monthNames } from '../utils';
-import { useComponentTheme } from '../../../utils';
-import { CalendarTheme } from '../CalendarTheme';
+import { Button } from '@/elements';
+import { monthNames } from '@/form/Calendar/utils';
+import { useComponentTheme } from '@/utils';
+import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { twMerge } from 'tailwind-merge';
 
 export interface CalendarMonthsProps {

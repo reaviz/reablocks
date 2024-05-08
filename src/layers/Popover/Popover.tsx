@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
-import { TooltipProps, Tooltip } from '../Tooltip';
+import { TooltipProps, Tooltip } from '@/layers/Tooltip';
 import FocusTrap from 'focus-trap-react';
-import { useId } from '../../utils';
+import { useId } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 import { PopoverTheme } from './PopoverTheme';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 
 type FocusTargetValueOrFalse = HTMLElement | SVGElement | string | false;
 

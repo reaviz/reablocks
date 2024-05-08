@@ -1,5 +1,5 @@
 import React, { forwardRef, Ref, useEffect, useRef, useState } from 'react';
-import { Input, InputProps, InputRef } from '../Input';
+import { Input, InputProps, InputRef } from '@/form/Input/Input';
 
 export interface DebouncedInputProps extends InputProps {
   /**

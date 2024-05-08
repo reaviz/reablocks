@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CollapseTheme } from './CollapseTheme';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 
 const VARIANTS = {

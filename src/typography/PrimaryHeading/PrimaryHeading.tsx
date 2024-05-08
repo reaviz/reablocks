@@ -1,7 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../utils';
-import { TypographyTheme } from '../TypographyTheme';
+import { useComponentTheme } from '@/utils';
+import { TypographyTheme } from '@/typography/TypographyTheme';
 
 export interface PrimaryHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {

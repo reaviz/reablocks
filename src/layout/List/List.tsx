@@ -1,6 +1,6 @@
 import React, { forwardRef, InputHTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 import { ListTheme } from './ListTheme';
 
 export type ListProps = InputHTMLAttributes<HTMLDivElement> & {

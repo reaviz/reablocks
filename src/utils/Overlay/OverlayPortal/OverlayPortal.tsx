@@ -6,8 +6,8 @@ import React, {
   useRef,
   useState
 } from 'react';
-import { useId } from '../../../utils/useId';
-import { Portal } from '../../Portal';
+import { useId } from '@/utils/useId';
+import { Portal } from '@/utils/Portal';
 
 // NOTE: This should not be used by external consumers.
 export const portals: string[] = [];

@@ -1,12 +1,12 @@
 import React, { FC, ReactElement } from 'react';
 import classNames from 'classnames';
-import { GlobalOverlay, GlobalOverlayProps } from '../../utils/Overlay';
-import { useId, CloneElement } from '../../utils';
+import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
+import { useId, CloneElement } from '@/utils';
 import FocusTrap from 'focus-trap-react';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { DialogHeader, DialogHeaderProps } from './DialogHeader';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
 
 export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {

@@ -7,10 +7,10 @@ import React, {
   useMemo,
   useState
 } from 'react';
-import { useId } from '../../utils';
+import { useId } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 import { AnimatePresence } from 'framer-motion';
-import { useComponentTheme } from '../../utils/Theme/hooks';
+import { useComponentTheme } from '@/utils/Theme/hooks';
 import { TabsTheme } from './TabsTheme';
 import { TabPanel } from './TabPanel';
 import { TabList } from './TabList';

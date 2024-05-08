@@ -1,13 +1,13 @@
 import React, { FC, ReactElement } from 'react';
 import FocusTrap from 'focus-trap-react';
-import { useId, CloneElement } from '../../utils';
-import { GlobalOverlay, GlobalOverlayProps } from '../../utils/Overlay';
+import { useId, CloneElement } from '@/utils';
+import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
 import { motion } from 'framer-motion';
 import { variants } from './variants';
 import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
 import { twMerge } from 'tailwind-merge';
 import { DrawerTheme } from './DrawerTheme';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 
 export interface DrawerProps extends Omit<GlobalOverlayProps, 'children'> {
   position?: 'start' | 'end' | 'top' | 'bottom';

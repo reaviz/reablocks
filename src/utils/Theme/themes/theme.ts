@@ -26,7 +26,7 @@ import {
   legacyLoaderTheme,
   legacyKbdTheme,
   legacyCommandPaletteTheme
-} from '../../../elements';
+} from '@/elements';
 
 import {
   CheckboxTheme,
@@ -56,7 +56,7 @@ import {
   legacyRadioTheme,
   legacyRangeTheme,
   legacyToggleTheme
-} from '../../../form';
+} from '@/form';
 
 import {
   ContextMenuTheme,
@@ -80,7 +80,7 @@ import {
   NotificationTheme,
   PopoverTheme,
   TooltipTheme
-} from '../../../layers';
+} from '@/layers';
 
 import {
   BlockTheme,
@@ -113,13 +113,13 @@ import {
   JsonTreeTheme,
   jsonTreeTheme,
   legacyJsonTreeTheme
-} from '../../../layout';
+} from '@/layout';
 
 import {
   legacyTypographyTheme,
   typographyTheme,
   TypographyTheme
-} from '../../../typography';
+} from '@/typography';
 
 import {
   ellipsisTheme,
@@ -137,7 +137,7 @@ import {
   legacySortTheme,
   legacyRedactTheme,
   legacyPagerTheme
-} from '../../../data';
+} from '@/data';
 
 export interface ReablocksTheme {
   components: {

@@ -8,17 +8,17 @@ import React, {
   useMemo,
   useRef
 } from 'react';
-import { SelectOptionProps, SelectValue } from '../SelectOption';
-import { InlineInput } from '../../Input';
-import { DownArrowIcon } from '../icons/DownArrowIcon';
-import { CloseIcon } from '../icons/CloseIcon';
-import { DotsLoader } from '../../../elements/Loader/DotsLoader';
-import { RefreshIcon } from '../icons/RefreshIcon';
+import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
+import { InlineInput } from '@/form/Input';
+import { DownArrowIcon } from '@/form/Select/icons/DownArrowIcon';
+import { CloseIcon } from '@/form/Select/icons/CloseIcon';
+import { DotsLoader } from '@/elements/Loader/DotsLoader';
+import { RefreshIcon } from '@/form/Select/icons/RefreshIcon';
 import { SelectInputChip, SelectInputChipProps } from './SelectInputChip';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '../../../utils';
-import { SelectTheme } from '../SelectTheme';
-import { CloneElement } from '../../../utils';
+import { useComponentTheme } from '@/utils';
+import { SelectTheme } from '@/form/Select/SelectTheme';
+import { CloneElement } from '@/utils';
 
 export interface SelectInputProps {
   /**

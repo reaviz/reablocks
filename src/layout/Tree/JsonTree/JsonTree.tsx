@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Tree } from '../Tree';
+import { Tree } from '@/layout/Tree/Tree';
 import { JsonTreeNode } from './JsonTreeNode';
 import { parseJsonTree } from './utils';
 

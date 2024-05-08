@@ -3,7 +3,7 @@ import { NotificationOptions } from './NotificationsContext';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { NotificationTheme } from './NotificationTheme';
-import { useComponentTheme } from '../../utils';
+import { useComponentTheme } from '@/utils';
 
 export interface NotificationProps extends NotificationOptions {
   id: number;

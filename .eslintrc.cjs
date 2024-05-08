@@ -21,7 +21,8 @@ module.exports = {
   },
   plugins: [
     'react',
-    '@typescript-eslint'
+    '@typescript-eslint',
+    'no-relative-import-paths'
   ],
   overrides: [{
     files: ['*.test.*'],
@@ -36,6 +37,10 @@ module.exports = {
     'react/prop-types': [0],
     'linebreak-style': ['error', 'unix'],
     'quotes': ['error', 'single'],
-    'semi': ['error', 'always']
+    'semi': ['error', 'always'],
+    'no-relative-import-paths/no-relative-import-paths': [
+      'warn',
+      { 'allowSameFolder': true, 'prefix': '@', 'rootDir': 'src' }
+    ]
   }
 };

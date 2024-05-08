@@ -1,5 +1,5 @@
 import { useTheme } from './useTheme';
-import { ReablocksTheme } from '../themes/theme';
+import { ReablocksTheme } from '@/utils/Theme/themes/theme';
 
 export const useComponentTheme = <T extends keyof ReablocksTheme['components']>(
   component: T,

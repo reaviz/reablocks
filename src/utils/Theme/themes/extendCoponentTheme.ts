@@ -1,4 +1,4 @@
-import { mergeDeep } from '../helpers';
+import { mergeDeep } from '@/utils/Theme/helpers';
 
 type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;
