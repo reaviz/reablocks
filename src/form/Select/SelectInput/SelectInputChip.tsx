@@ -26,8 +26,8 @@ export const SelectInputChip: FC<Partial<SelectInputChipProps>> = ({
   disabled,
   clearable,
   className,
-  maxLength,
-  closeIcon,
+  maxLength = 20,
+  closeIcon = <CloseIcon />,
   onTagKeyDown,
   onSelectedChange,
   theme: customTheme
@@ -67,9 +67,4 @@ export const SelectInputChip: FC<Partial<SelectInputChipProps>> = ({
       )}
     </span>
   );
-};
-
-SelectInputChip.defaultProps = {
-  closeIcon: <CloseIcon />,
-  maxLength: 20
 };

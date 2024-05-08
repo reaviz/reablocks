@@ -65,13 +65,13 @@ export interface DateFormatProps {
 }
 
 export const DateFormat: FC<DateFormatProps> = ({
-  allowToggle,
+  allowToggle = false,
   cacheKey,
   className,
-  format,
-  emptyMessage,
-  includeSeconds,
-  addSuffix,
+  format = 'MM/dd/yy hh:mm:ss a',
+  emptyMessage = 'N/A',
+  includeSeconds = false,
+  addSuffix = true,
   fromNow,
   date,
   theme: customTheme
@@ -162,12 +162,4 @@ export const DateFormat: FC<DateFormatProps> = ({
       {isRelative ? curRelative : formatted}
     </time>
   );
-};
-
-DateFormat.defaultProps = {
-  format: 'MM/dd/yy hh:mm:ss a',
-  includeSeconds: false,
-  allowToggle: false,
-  addSuffix: true,
-  emptyMessage: 'N/A'
 };

@@ -10,7 +10,7 @@ export interface DebouncedInputProps extends InputProps {
 
 export const DebouncedInput = forwardRef<InputRef, DebouncedInputProps>(
   (
-    { debounce, value, onChange, onValueChange, ...rest },
+    { debounce = 100, value, onChange, onValueChange, ...rest },
     ref: Ref<InputRef>
   ) => {
     // eslint-disable-next-line no-undef
@@ -53,7 +53,3 @@ export const DebouncedInput = forwardRef<InputRef, DebouncedInputProps>(
     );
   }
 );
-
-DebouncedInput.defaultProps = {
-  debounce: 100
-};

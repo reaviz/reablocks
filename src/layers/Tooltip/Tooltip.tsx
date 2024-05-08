@@ -119,17 +119,17 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
   children,
   content,
   triggerClassName,
-  disabled,
-  enterDelay,
-  leaveDelay,
-  placement,
-  trigger,
-  visible,
-  followCursor,
-  closeOnClick,
-  closeOnEscape,
-  closeOnBodyClick,
-  pointerEvents,
+  disabled = false,
+  enterDelay = 0,
+  leaveDelay = 200,
+  placement = 'top',
+  trigger = 'hover',
+  visible = false,
+  followCursor = false,
+  closeOnClick = false,
+  closeOnEscape = true,
+  closeOnBodyClick = true,
+  pointerEvents = 'none',
   isPopover,
   onOpen,
   onClose,
@@ -249,18 +249,4 @@ export const Tooltip: FC<Partial<TooltipProps>> = ({
       {children}
     </ConnectedOverlay>
   );
-};
-
-Tooltip.defaultProps = {
-  disabled: false,
-  enterDelay: 0,
-  leaveDelay: 200,
-  placement: 'top',
-  trigger: 'hover',
-  visible: false,
-  followCursor: false,
-  closeOnClick: false,
-  closeOnEscape: true,
-  closeOnBodyClick: true,
-  pointerEvents: 'none'
 };

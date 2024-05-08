@@ -64,8 +64,8 @@ export const Block: FC<BlockProps> = ({
   labelClassName,
   className,
   required,
-  direction,
-  alignment,
+  direction = 'vertical',
+  alignment = 'start',
   onTitleClick,
   theme: customTheme,
   ...rest
@@ -102,9 +102,4 @@ export const Block: FC<BlockProps> = ({
       {children}
     </section>
   );
-};
-
-Block.defaultProps = {
-  direction: 'vertical',
-  alignment: 'start'
 };

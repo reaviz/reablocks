@@ -59,7 +59,10 @@ export interface OverlayPortalProps {
 
 export const OverlayPortal: FC<OverlayPortalProps & OverlayPortalRef> =
   forwardRef(
-    ({ className, children, onMount, onUnmount, appendToBody, id }, ref) => {
+    (
+      { className, children, onMount, onUnmount, appendToBody = true, id },
+      ref
+    ) => {
       let portalId = useId(id);
 
       const [portalIndex, setPortalIndex] = useState<number | null>(null);
@@ -106,7 +109,3 @@ export const OverlayPortal: FC<OverlayPortalProps & OverlayPortalRef> =
       );
     }
   );
-
-OverlayPortal.defaultProps = {
-  appendToBody: true
-};

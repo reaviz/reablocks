@@ -84,13 +84,13 @@ export const ConnectedOverlayContent: FC<
       triggerRef,
       children,
       portalClassName,
-      closeOnBodyClick,
-      closeOnEscape,
+      closeOnBodyClick = true,
+      closeOnEscape = true,
       elementType,
-      appendToBody,
+      appendToBody = true,
       followCursor,
       modifiers,
-      placement,
+      placement = 'bottom',
       onClose
     },
     ref
@@ -170,10 +170,3 @@ export const ConnectedOverlayContent: FC<
     );
   }
 );
-
-ConnectedOverlayContent.defaultProps = {
-  closeOnBodyClick: true,
-  closeOnEscape: true,
-  appendToBody: true,
-  placement: 'bottom'
-};

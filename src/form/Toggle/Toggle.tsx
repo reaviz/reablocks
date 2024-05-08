@@ -53,7 +53,7 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef(
       onChange,
       onBlur,
       className,
-      size,
+      size = 'medium',
       theme: customTheme,
       ...rest
     },
@@ -98,7 +98,3 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef(
     );
   }
 );
-
-Toggle.defaultProps = {
-  size: 'medium'
-};

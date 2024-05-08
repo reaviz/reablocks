@@ -13,10 +13,6 @@ export interface DurationProps {
   emptyValue?: string;
 }
 
-export const Duration: FC<DurationProps> = ({ value, emptyValue }) => (
+export const Duration: FC<DurationProps> = ({ value, emptyValue = 'N/A' }) => (
   <>{formatDuration(value, emptyValue)}</>
 );
-
-Duration.defaultProps = {
-  emptyValue: 'N/A'
-};

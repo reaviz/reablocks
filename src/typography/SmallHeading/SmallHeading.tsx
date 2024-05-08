@@ -43,9 +43,9 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
   (
     {
       children,
-      color,
-      variant,
-      disableMargins,
+      color = 'default',
+      variant = 'default',
+      disableMargins = false,
       className,
       theme: customTheme,
       ...rest
@@ -71,9 +71,3 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
     );
   }
 );
-
-SmallHeading.defaultProps = {
-  color: 'default',
-  variant: 'default',
-  disableMargins: false
-};

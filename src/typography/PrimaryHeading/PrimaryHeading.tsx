@@ -41,9 +41,9 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
     (
       {
         children,
-        color,
-        variant,
-        disableMargins,
+        color = 'default',
+        variant = 'default',
+        disableMargins = false,
         className,
         theme: customTheme,
         ...rest
@@ -72,9 +72,3 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
       );
     }
   );
-
-PrimaryHeading.defaultProps = {
-  color: 'default',
-  variant: 'default',
-  disableMargins: false
-};

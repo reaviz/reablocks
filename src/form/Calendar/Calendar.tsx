@@ -106,10 +106,10 @@ export const Calendar: FC<CalendarProps> = ({
   value,
   disabled,
   isRange,
-  previousArrow,
-  nextArrow,
+  previousArrow = '←',
+  nextArrow = '→',
   showDayOfWeek,
-  animated,
+  animated = true,
   onChange,
   onViewChange,
   theme: customTheme
@@ -308,11 +308,4 @@ export const Calendar: FC<CalendarProps> = ({
       </AnimatePresence>
     </div>
   );
-};
-
-Calendar.defaultProps = {
-  previousArrow: '←',
-  nextArrow: '→',
-  animated: true,
-  dateFormat: 'MMMM yyyy'
 };

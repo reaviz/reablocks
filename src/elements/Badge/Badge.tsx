@@ -38,12 +38,12 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
   (
     {
       children,
-      color,
+      color = 'default',
       className,
       disableMargins,
       content,
       hidden,
-      placement,
+      placement = 'top-end',
       theme: customTheme,
       ...rest
     }: BadgeProps,
@@ -81,8 +81,3 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
     );
   }
 );
-
-Badge.defaultProps = {
-  color: 'default',
-  placement: 'top-end'
-};

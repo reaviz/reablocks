@@ -68,7 +68,7 @@ export interface CommandPaletteInputProps {
 export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
   value,
   autoFocus,
-  icon,
+  icon = <SearchIcon />,
   hotkeys,
   placeholder,
   onHotkey,
@@ -132,8 +132,4 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
       />
     </div>
   );
-};
-
-CommandPaletteInput.defaultProps = {
-  icon: <SearchIcon />
 };

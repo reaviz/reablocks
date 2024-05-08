@@ -39,9 +39,9 @@ export interface SubRef {
 export const Sub: FC<SubProps & SubRef> = forwardRef(
   (
     {
-      color,
-      variant,
-      disableMargins,
+      color = 'default',
+      variant = 'default',
+      disableMargins = false,
       children,
       className,
       theme: customTheme,
@@ -68,9 +68,3 @@ export const Sub: FC<SubProps & SubRef> = forwardRef(
     );
   }
 );
-
-Sub.defaultProps = {
-  color: 'default',
-  variant: 'default',
-  disableMargins: false
-};

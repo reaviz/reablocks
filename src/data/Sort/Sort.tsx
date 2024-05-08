@@ -58,7 +58,7 @@ export const Sort: FC<SortProps> = ({
   disabled,
   direction,
   iconClassName,
-  icon: Icon,
+  icon: Icon = DownArrowIcon,
   neutralIcon: NeutralIcon,
   neutralIconClassName,
   children,
@@ -141,8 +141,4 @@ export const Sort: FC<SortProps> = ({
       </AnimatePresence>
     </div>
   );
-};
-
-Sort.defaultProps = {
-  icon: DownArrowIcon
 };

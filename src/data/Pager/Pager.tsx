@@ -92,12 +92,12 @@ export const Pager: FC<PagerProps> = ({
   page,
   size,
   total,
-  startArrow,
-  endArrow,
-  previousArrow,
-  nextArrow,
+  startArrow = <StartArrow />,
+  endArrow = <EndArrow />,
+  previousArrow = <PreviousArrow />,
+  nextArrow = <NextArrow />,
   onPageChange,
-  displayMode,
+  displayMode = 'pages',
   theme: customTheme
 }) => {
   const pageCount = Math.ceil(total / size);
@@ -228,12 +228,4 @@ export const Pager: FC<PagerProps> = ({
       )}
     </div>
   );
-};
-
-Pager.defaultProps = {
-  previousArrow: <PreviousArrow />,
-  nextArrow: <NextArrow />,
-  startArrow: <StartArrow />,
-  endArrow: <EndArrow />,
-  displayMode: 'pages'
 };

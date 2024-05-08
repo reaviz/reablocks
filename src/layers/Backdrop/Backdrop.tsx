@@ -11,8 +11,8 @@ export interface BackdropProps {
 }
 
 export const Backdrop: FC<BackdropProps> = ({
-  portalIndex,
-  zIndex,
+  zIndex = 998,
+  portalIndex = 0,
   className,
   onClick
 }) => (
@@ -25,8 +25,3 @@ export const Backdrop: FC<BackdropProps> = ({
     onClick={onClick}
   />
 );
-
-Backdrop.defaultProps = {
-  zIndex: 998,
-  portalIndex: 0
-};

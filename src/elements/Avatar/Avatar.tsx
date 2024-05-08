@@ -57,9 +57,9 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       name,
       src,
       color,
-      size,
-      variant,
-      rounded,
+      size = 24,
+      variant = 'filled',
+      rounded = true,
       className,
       colorOptions,
       theme: customTheme,
@@ -108,9 +108,3 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
     );
   }
 );
-
-Avatar.defaultProps = {
-  size: 24,
-  rounded: true,
-  variant: 'filled'
-};

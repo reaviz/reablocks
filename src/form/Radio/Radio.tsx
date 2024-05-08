@@ -80,7 +80,7 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
       onChange,
       onBlur,
       className,
-      size,
+      size = 'medium',
       value,
       theme: customTheme,
       ...rest
@@ -158,7 +158,3 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
     );
   }
 );
-
-Radio.defaultProps = {
-  size: 'medium'
-};

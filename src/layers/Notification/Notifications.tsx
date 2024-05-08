@@ -53,13 +53,19 @@ let nextId = 0;
 
 export const Notifications: FC<NotificationsProps> = ({
   children,
-  limit,
-  timeout,
-  showClose,
+  limit = 10,
+  timeout = 4000,
+  showClose = true,
   className,
-  preventFlooding,
+  preventFlooding = true,
   components,
-  icons,
+  icons = {
+    default: <InfoIcon />,
+    success: <CheckCircleIcon />,
+    warning: <WarningIcon />,
+    error: <ErrorCircleIcon />,
+    info: <InfoIcon />
+  },
   theme: customTheme
 }) => {
   const [notifications, setNotifications] = useState<any[]>([]);
@@ -213,18 +219,4 @@ export const Notifications: FC<NotificationsProps> = ({
       </div>
     </Fragment>
   );
-};
-
-Notifications.defaultProps = {
-  limit: 10,
-  timeout: 4000,
-  showClose: true,
-  preventFlooding: true,
-  icons: {
-    default: <InfoIcon />,
-    success: <CheckCircleIcon />,
-    warning: <WarningIcon />,
-    error: <ErrorCircleIcon />,
-    info: <InfoIcon />
-  }
 };

@@ -77,7 +77,7 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
   placeholder,
   children,
   inputIcon,
-  autoFocus,
+  autoFocus = true,
   emptyMessage,
   onHotkey,
   onSelectedIndexChange,
@@ -148,8 +148,4 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
       </MotionGroup>
     </Card>
   );
-};
-
-CommandPalette.defaultProps = {
-  autoFocus: true
 };

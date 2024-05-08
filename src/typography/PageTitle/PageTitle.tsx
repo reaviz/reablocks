@@ -41,9 +41,9 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
   (
     {
       children,
-      color,
-      variant,
-      disableMargins,
+      color = 'default',
+      variant = 'default',
+      disableMargins = false,
       className,
       theme: customTheme,
       ...rest
@@ -69,9 +69,3 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
     );
   }
 );
-
-PageTitle.defaultProps = {
-  color: 'default',
-  variant: 'default',
-  disableMargins: false
-};

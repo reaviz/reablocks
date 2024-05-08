@@ -41,10 +41,10 @@ export interface PopoverProps extends Partial<Omit<TooltipProps, 'theme'>> {
 }
 
 export const Popover: FC<PopoverProps> = ({
-  closeOnEscape,
-  closeOnBodyClick,
-  trigger,
-  leaveDelay,
+  closeOnEscape = true,
+  closeOnBodyClick = true,
+  trigger = 'click',
+  leaveDelay = 200,
   children,
   content,
   className,
@@ -101,11 +101,4 @@ export const Popover: FC<PopoverProps> = ({
       {children}
     </Tooltip>
   );
-};
-
-Popover.defaultProps = {
-  closeOnEscape: true,
-  closeOnBodyClick: true,
-  trigger: 'click',
-  leaveDelay: 200
 };

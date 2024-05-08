@@ -59,16 +59,16 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   max,
   value,
   disabled,
-  previousArrow,
-  previousYearArrow,
-  nextArrow,
-  nextYearArrow,
-  dateFormat,
+  previousArrow = '‹',
+  previousYearArrow = '«',
+  nextArrow = '›',
+  nextYearArrow = '»',
+  dateFormat = 'MMMM yyyy',
   showDayOfWeek,
-  animated,
+  animated = true,
   onChange,
-  monthsToDisplay,
-  direction,
+  monthsToDisplay = 2,
+  direction = 'future',
   theme: customTheme,
   ...rest
 }) => {
@@ -229,16 +229,4 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
       </AnimatePresence>
     </div>
   );
-};
-
-CalendarRange.defaultProps = {
-  previousArrow: '‹',
-  nextArrow: '›',
-  previousYearArrow: '«',
-  nextYearArrow: '»',
-  animated: true,
-  dateFormat: 'MMMM yyyy',
-  range: [new Date(), new Date()],
-  monthsToDisplay: 2,
-  direction: 'future'
 };
