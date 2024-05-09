@@ -34,9 +34,9 @@ Theme customization can be used to define the size variations for different butt
 ```javascript
 {
     sizes: {
-      small: "text-xs px-5px py-0.5 leading-[normal]",
-      medium: "text-base px-2.5 py-5px leading-[normal]",
-      large: "text-xl px-5 py-2.5 leading-[normal]"
+      small: 'text-sm px-2 py-1 leading-[normal]',
+      medium: 'text-base px-4 py-2 leading-[normal]',
+      large: 'text-xl px-5 py-2.5 leading-[normal]'
     }
 }
 ```
@@ -48,36 +48,40 @@ Theme customization can be used to define the color variations for different but
 {
     colors: {
       default: {
-        filled: "bg-gray-800 text-white hover:bg-gray-700 border-gray-800",
-        outline: "",
-        text: "",
+        filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
+        outline: 'border-secondary border',
+        text: 'text-surface-content'
       },
       primary: {
-        filled": "bg-primary-600 hover:bg-primary-700 border-primary-600 text-white",
-        outline": "",
-        text": "text-primary-600 hover:text-primary-700"
+        filled:
+          'bg-primary hover:bg-primary-hover border-primary text-surface-content',
+        outline: 'border border-primary',
+        text: 'text-primary hover:text-primary-hover'
       },
       secondary: {
-        filled": "bg-secondary-700 hover:bg-secondary-800 border-secondary-700 text-white",
-        outline": "",
-        text": "text-secondary-700 hover:text-secondary-800"
+        filled:
+          'bg-secondary hover:bg-secondary-hover border-secondary text-surface-content',
+        outline: 'border border-secondary',
+        text: 'text-secondary hover:text-secondary-hover'
       },
       success: {
-        filled": "bg-success-700 hover:bg-success-800 border-success-700 text-white",
-        outline": "",
-        text": "text-success-700 hover:text-success-800"
+        filled:
+          'bg-success hover:bg-success-hover border-success text-surface-content',
+        outline: 'border border-success',
+        text: 'text-success hover:text-success-hover'
       },
       warning: {
-        filled": "bg-warning-700 hover:bg-warning-800 border-warning-700 text-white",
-        outline": "",
-        text": "text-warning-700 hover:text-warning-800"
+        filled:
+          'bg-warning hover:bg-warning-hover border-warning text-surface-content',
+        outline: 'border border-warning',
+        text: 'text-warning hover:text-warning-hover'
       },
       error: {
-        filled: "bg-error-700 hover:bg-error-800 border-error-700 text-white",
-        outline: "",
-        text: "text-error-700 hover:text-error-800"
+        filled: 'bg-error hover:bg-error-hover border-error text-surface-content',
+        outline: 'border border-error',
+        text: 'text-error hover:text-error-hover'
       }
-  }
+    }
 }
 ```
 
