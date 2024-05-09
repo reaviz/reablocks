@@ -63,7 +63,6 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   previousYearArrow = '«',
   nextArrow = '›',
   nextYearArrow = '»',
-  dateFormat = 'MMMM yyyy',
   showDayOfWeek,
   animated = true,
   onChange,
