@@ -70,11 +70,6 @@ export interface CalendarProps {
   previousArrow?: React.ReactNode | string;
 
   /**
-   * The date format to use for the calendar. Defaults 'MMMM yyyy'.
-   */
-  dateFormat?: string;
-
-  /**
    * Whether to display day of week labels
    */
   showDayOfWeek?: boolean;
