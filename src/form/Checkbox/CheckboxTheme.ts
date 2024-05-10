@@ -57,7 +57,7 @@ const baseTheme: Partial<CheckboxTheme> = {
     'flex items-center justify-center cursor-pointer focus-visible:outline-none',
   disabled: 'opacity-60 cursor-not-allowed',
   sizes: {
-    small: '[&>svg]:w-3 [&>svg]:min-h-3',
+    small: '[&>svg]:w-3 [&>svg]:h-3',
     medium: '[&>svg]:w-4 [&>svg]:h-4',
     large: '[&>svg]:w-5 [&>svg]:h-5'
   }
