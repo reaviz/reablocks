@@ -221,10 +221,10 @@ const config: Config = {
           inactive: colorPalette.gray[500]
         },
         secondary: {
-          DEFAULT: colorPalette.gray[300],
-          active: colorPalette.gray[300],
-          hover: colorPalette.gray[400],
-          inactive: colorPalette.gray[800]
+          DEFAULT: colorPalette.blue[200],
+          active: colorPalette.blue[200],
+          hover: colorPalette.blue[300],
+          inactive: colorPalette.waterloo
         },
         success: {
           DEFAULT: colorPalette.green[500],
@@ -273,10 +273,10 @@ const config: Config = {
           inactive: colorPalette.blue[200]
         },
         secondary: {
-          DEFAULT: colorPalette.gray[700],
-          active: colorPalette.gray[700],
-          hover: colorPalette.gray[600],
-          inactive: colorPalette.gray[400]
+          DEFAULT: colorPalette.charade,
+          active: colorPalette.charade,
+          hover: colorPalette.gray[700],
+          inactive: colorPalette.gray[800]
         },
         success: {
           DEFAULT: colorPalette.green[500],
