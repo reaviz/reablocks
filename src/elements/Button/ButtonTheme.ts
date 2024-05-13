@@ -77,14 +77,14 @@ const baseTheme: Partial<ButtonTheme> = {
     }
   },
   sizes: {
-    small: 'text-sm px-5px py-0.5 leading-[normal]',
-    medium: 'text-base px-2.5 py-1.5 leading-[normal]',
+    small: 'text-sm px-2 py-1 leading-[normal]',
+    medium: 'text-base px-4 py-2 leading-[normal]',
     large: 'text-xl px-5 py-2.5 leading-[normal]'
   }
 };
 
 export const buttonTheme: ButtonTheme = {
-  base: [baseTheme.base, 'text-surface-content'].join(' '),
+  base: [baseTheme.base, 'text-surface-content font-semibold'].join(' '),
   disabled: [
     baseTheme.disabled,
     'data-[variant=filled]:disabled:bg-gray-600 disabled:text-gray-400 border-gray-500'
@@ -113,8 +113,7 @@ export const buttonTheme: ButtonTheme = {
       text: 'text-primary hover:text-primary-hover'
     },
     secondary: {
-      filled:
-        'bg-secondary hover:bg-secondary-hover border-secondary text-surface-content',
+      filled: 'bg-secondary hover:bg-secondary-hover !text-surface-content',
       outline: 'border border-secondary',
       text: 'text-secondary hover:text-secondary-hover'
     },

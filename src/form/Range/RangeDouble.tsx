@@ -10,7 +10,7 @@ import React, {
 import { motion, useMotionValue } from 'framer-motion';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { RangeTheme } from './RangeTheme';
 
 export const RangeDouble: FC<RangeProps<[number, number]>> = ({
@@ -230,7 +230,9 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
         )}
       </motion.div>
       <div
-        className={theme.rangeHighlight}
+        className={cn(theme.rangeHighlight.base, {
+          [theme.rangeHighlight.disabled]: disabled
+        })}
         style={{
           width: `${maxPercentage - minPercentage}%`,
           marginLeft: `${minPercentage}%`

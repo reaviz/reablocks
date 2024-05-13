@@ -20,7 +20,7 @@ export const Variants = () => (
 );
 
 export const Colors = () => (
-  <div style={{ display: 'flex', gap: 10 }}>
+  <div className="light:bg-white p-24" style={{ display: 'flex', gap: 10 }}>
     <Button>Default</Button>
     <Button color="primary">Primary</Button>
     <Button color="secondary">Secondary</Button>

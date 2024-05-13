@@ -7,16 +7,16 @@ export const colorPalette = {
   white: '#FFFFFF',
   black: '#000000',
   gray: {
-    100: '#F2F3F7',
-    200: '#E2E2EA',
-    300: '#C6CBD9',
-    400: '#9A9AAF',
-    500: '#7E7E8F',
-    600: '#656575',
-    700: '#535362',
-    800: '#2E2E3A',
-    900: '#262631',
-    950: '#16161E'
+    100: '#F7F7FA',
+    200: '#E6E6F0',
+    300: '#C9C9D6',
+    400: '#77778C',
+    500: '#5C5C73',
+    600: '#3D3D4D',
+    700: '#242433',
+    800: '#1E1E2E',
+    900: '#11111F',
+    950: '#02020F'
   },
   magenta: {
     100: '#FAE5F6',
@@ -221,10 +221,10 @@ const config: Config = {
           inactive: colorPalette.gray[500]
         },
         secondary: {
-          DEFAULT: colorPalette.gray[300],
-          active: colorPalette.gray[300],
-          hover: colorPalette.gray[400],
-          inactive: colorPalette.gray[800]
+          DEFAULT: colorPalette.blue[200],
+          active: colorPalette.blue[200],
+          hover: colorPalette.blue[300],
+          inactive: colorPalette.waterloo
         },
         success: {
           DEFAULT: colorPalette.green[500],
@@ -273,10 +273,10 @@ const config: Config = {
           inactive: colorPalette.blue[200]
         },
         secondary: {
-          DEFAULT: colorPalette.gray[700],
-          active: colorPalette.gray[700],
-          hover: colorPalette.gray[600],
-          inactive: colorPalette.gray[400]
+          DEFAULT: colorPalette.charade,
+          active: colorPalette.charade,
+          hover: colorPalette.gray[700],
+          inactive: colorPalette.gray[600]
         },
         success: {
           DEFAULT: colorPalette.green[500],

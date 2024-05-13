@@ -1,12 +1,14 @@
 {
   "name": "reablocks",
-  "version": "7.5.2",
+  "version": "7.5.7",
   "description": "Component library for React",
   "scripts": {
-    "build": "npm run build:js && npm run build:styles && npm run rewrite",
+    "build": "npm run build:js && npm run build:styles && npm run rewrite && npm run build:stories && npm run build:docs",
     "build-storybook": "storybook build",
     "build:js": "vite build --mode library",
+    "build:stories": "tsc dist/stories/*.tsx --module esnext --jsx react-jsx --skipLibCheck true || exit 0;",
     "build:styles": "tailwindcss -i ./src/index.css -o ./dist/index.css",
+    "build:docs": "node scripts/docs.js",
     "rewrite": "node scripts/rewrite.cjs",
     "lint": "eslint --ext js,ts,tsx",
     "lint:fix": "eslint --ext js,ts,tsx --fix src",
@@ -27,7 +29,8 @@
       "import": "./dist/index.js",
       "require": "./dist/index.umd.cjs",
       "types": "./dist/index.d.ts"
-    }
+    },
+    "./stories/*": "./dist/stories/*"
   },
   "browser": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -56,13 +59,13 @@
   "homepage": "https://github.com/reaviz/reablocks#readme",
   "dependencies": {
     "@marko19907/string-to-color": "^1.0.0",
-    "ctrl-keys": "^1.0.2",
     "@reaviz/react-use-fuzzy": "^1.0.3",
     "body-scroll-lock-upgrade": "^1.1.0",
     "chroma-js": "^2.4.2",
     "classnames": "^2.5.1",
     "coverup": "^0.1.1",
     "create-global-state-hook": "^0.0.2",
+    "ctrl-keys": "^1.0.2",
     "date-fns": "^3.6.0",
     "ellipsize": "^0.5.1",
     "focus-trap-react": "^10.2.3",
@@ -117,6 +120,7 @@
     "postcss-preset-env": "^9.5.2",
     "prettier": "^3.2.5",
     "react": "^18.0.0",
+    "react-docgen": "^7.0.3",
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.51.1",
     "rollup-plugin-peer-deps-external": "2.2.4",

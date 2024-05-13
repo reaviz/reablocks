@@ -1,3 +1,22 @@
+# 7.5.7 - 5/13/24
+- [chore] autogen prop types
+
+# 7.5.6 - 5/13/24
+- [fix] improve range styles
+- [chore] autogen prop types
+
+# 7.5.5 - 5/13/24
+- [chore] change stories export format
+
+# 7.5.4 - 5/13/24
+- [chore] change stories export format
+
+# 7.5.3 - 5/13/24
+- [fix] Update button theme
+- [fix] Update secondary colors
+- [chore] Remove unused dateFormat from CalendarRange
+- [chore] export stories directory
+
 # 7.5.2 - 5/8/24
 - [chore] add storybook stories to dist
 - [chore] migrate @reaviz/ctrl-keys to ctrl-keys 1.0.2
