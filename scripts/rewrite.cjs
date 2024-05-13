@@ -3,13 +3,13 @@ const fg = require('fast-glob');
 const { rewritePaths } = require('typescript-rewrite-paths');
 const path = require('path');
 
-// Grep all the stories
-const files = fg.sync('dist/stories/*.tsx');
-
 /**
  * Replace all the paths in the stories from `./Block` to `reablocks`
  */
 function replacePaths() {
+  // Grep all the stories
+  const files = fg.sync('dist/stories/*.tsx');
+
   files.forEach((file) => {
     const code = fs.readFileSync(file, { encoding: 'utf-8' });
 
