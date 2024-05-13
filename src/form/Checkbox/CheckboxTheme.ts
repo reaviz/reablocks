@@ -15,6 +15,7 @@ export interface CheckboxTheme {
   check: string;
   checkbox: string;
   disabled: string;
+  checked: string;
   sizes: {
     small: string;
     medium: string;
@@ -51,11 +52,12 @@ const baseTheme: Partial<CheckboxTheme> = {
       large: 'text-lg'
     }
   },
-  check: '',
+  check: 'check',
   border: '',
   checkbox:
-    'flex items-center justify-center cursor-pointer focus-visible:outline-none',
-  disabled: 'opacity-60 cursor-not-allowed',
+    'checkbox flex items-center justify-center cursor-pointer focus-visible:outline-none',
+  checked: 'checked',
+  disabled: 'disabled opacity-60 cursor-not-allowed',
   sizes: {
     small: '[&>svg]:w-3 [&>svg]:min-h-3',
     medium: '[&>svg]:w-4 [&>svg]:h-4',
@@ -65,26 +67,46 @@ const baseTheme: Partial<CheckboxTheme> = {
 
 export const checkboxTheme: CheckboxTheme = {
   ...baseTheme,
-  checkbox: [baseTheme.checkbox, 'fill-transparent border border-surface'].join(
+  base: [
+    baseTheme.base,
+    'group',
+    // label
+    'dark:text-waterloo light:text-charade',
+    '[&.checked]:text-athens-gray',
+
+    // disabled
+    'hover:[&>.disabled]:text-athens-gray',
+    '[&>.checkbox.disabled]:fill-gray-500'
+  ].join(' '),
+  checkbox: [
+    baseTheme.checkbox,
+    'fill-transparent border border-surface',
+    'group-hover:[&.checked]:fill-blue-300',
+    '[&.checked]:fill-blue-500'
+  ].join(' '),
+  check: [baseTheme.check, 'stroke-white', 'group-hover:stroke-black'].join(
     ' '
   ),
-  check: [baseTheme.check, 'stroke-primary'].join(' '),
+  border: [
+    baseTheme.border,
+    'stroke-slate-500',
+    '[&.checked]:stroke-blue-500',
+    'group-hover:stroke-blue-300',
+    '[&.disabled]:stroke-gray-500'
+  ].join(' '),
+
   label: {
     ...baseTheme.label,
-    base: [baseTheme.label.base, 'text-surface-content'].join(' ')
+    base: [
+      baseTheme.label.base,
+      'text-surface-content text-inherit group-hover:text-blue-300'
+    ].join(' ')
   },
   boxVariants: {
     hover: {
-      strokeWidth: 2,
-      stroke: TWConfig.colors.slate[400]
+      strokeWidth: 1
     },
-    pressed: { scale: 0.95 },
-    checked: {
-      stroke: TWConfig.colors.primary['active']
-    },
-    unchecked: {
-      stroke: TWConfig.colors.slate[500]
-    }
+    pressed: { scale: 0.95 }
   }
 } as CheckboxTheme;
 

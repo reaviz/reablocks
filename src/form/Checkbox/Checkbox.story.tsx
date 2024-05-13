@@ -11,6 +11,30 @@ export const Simple = () => {
   return <Checkbox checked={state} label="Check me" onChange={setState} />;
 };
 
+export const WithoutLabel = () => {
+  const [state, setState] = useState(true);
+  return <Checkbox checked={state} onChange={setState} />;
+};
+
+export const LabelPosition = () => {
+  const [state, setState] = useState(true);
+  return (
+    <Fragment>
+      <div style={{ padding: 20 }}>
+        <Checkbox
+          checked={state}
+          label="Left label"
+          labelPosition="left"
+          onChange={setState}
+        />
+      </div>
+      <div style={{ padding: 20 }}>
+        <Checkbox checked={state} label="Right label" onChange={setState} />
+      </div>
+    </Fragment>
+  );
+};
+
 export const Intermediate = () => {
   const [state, setState] = useState(true);
   return (
