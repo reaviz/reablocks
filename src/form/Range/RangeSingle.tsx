@@ -9,10 +9,17 @@ import React, {
 import { motion, useMotionValue } from 'framer-motion';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { RangeTheme } from './RangeTheme';
 
-export const RangeSingle: FC<RangeProps<number>> = ({
+export interface RangeSingleProps extends RangeProps<number> {
+  /**
+   * Display the highlight when true
+   */
+  showHighlight?: boolean;
+}
+
+export const RangeSingle: FC<RangeSingleProps> = ({
   disabled,
   style,
   handleClassName,
@@ -24,6 +31,7 @@ export const RangeSingle: FC<RangeProps<number>> = ({
   valueDisplay = 'hover',
   valueFormat = value => value.toLocaleString(),
   step = 1,
+  showHighlight = false,
   theme: customTheme
 }) => {
   const [currentValue, setCurrentValue] = useState<number>(value);
@@ -79,6 +87,7 @@ export const RangeSingle: FC<RangeProps<number>> = ({
   const [hovering, setHovering] = useState(false);
   const [focused, setFocused] = useState(false);
   const tooltipVisible = dragging || focused || hovering;
+  const maxPercentage = ((currentValue - min) / (max - min)) * 100;
 
   const theme: RangeTheme = useComponentTheme('range', customTheme);
 
@@ -133,6 +142,16 @@ export const RangeSingle: FC<RangeProps<number>> = ({
           valueFormat(currentValue)
         )}
       </motion.div>
+      {showHighlight && (
+        <div
+          className={cn(theme.rangeHighlight.base, {
+            [theme.rangeHighlight.disabled]: disabled
+          })}
+          style={{
+            width: `${maxPercentage}%`
+          }}
+        />
+      )}
     </div>
   );
 };
