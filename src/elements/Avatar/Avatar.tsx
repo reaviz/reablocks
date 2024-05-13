@@ -1,8 +1,7 @@
 import React, { useMemo } from 'react';
 import getInitials from 'name-initials';
 import { generateColor } from '@marko19907/string-to-color';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { AvatarTheme } from './AvatarTheme';
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -24,7 +23,7 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Style variant for the avatar.
    */
-  variant?: 'filled' | 'outline';
+  variant?: 'filled' | 'outline' | 'colored';
 
   /**
    * Whether the avatar is rounded.
@@ -33,8 +32,19 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
 
   /**
    * Color override for the avatar.
+   * @deprecated
    */
   color?: string;
+
+  /**
+   * Whether the avatar is disabled.
+   */
+  disabled?: boolean;
+
+  /**
+   * Whether the avatar is able to interact.
+   */
+  interactable?: boolean;
 
   /**
    * Custom color options for the color generator.
@@ -58,10 +68,12 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
       src,
       color,
       size = 24,
-      variant = 'filled',
+      variant = 'colored',
       rounded = true,
       className,
       colorOptions,
+      disabled,
+      interactable,
       theme: customTheme,
       ...rest
     },
@@ -84,22 +96,30 @@ export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
     }, [color, name, src, colorOptions]);
 
     const theme: AvatarTheme = useComponentTheme('avatar', customTheme);
+    const themeVariant = src ? 'outline' : variant;
 
     return (
       <div
         {...rest}
-        className={twMerge(theme.base, rounded && theme.rounded, className)}
+        className={cn(
+          theme.base,
+          theme[themeVariant].base,
+          {
+            'cursor-pointer': interactable,
+            [theme.rounded]: rounded,
+            [theme.disabled]: disabled,
+            [theme[themeVariant].focused]: interactable,
+            [theme[themeVariant].hovered]: interactable,
+            [theme[themeVariant].disabled]: disabled
+          },
+          className
+        )}
         style={{
           width: `${size}px`,
           height: `${size}px`,
           fontSize: `${fontSize}px`,
           backgroundImage: src ? `url(${src})` : 'none',
-          backgroundColor,
-          ...(variant === 'outline' && {
-            backgroundColor: 'transparent',
-            border: `solid 1px ${backgroundColor}`,
-            color: backgroundColor
-          })
+          ...(variant === 'colored' && !disabled ? { backgroundColor } : {})
         }}
         ref={ref}
       >
