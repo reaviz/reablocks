@@ -1,3 +1,9 @@
+# 7.5.3 - 5/13/24
+- [fix] Update button theme
+- [fix] Update secondary colors
+- [chore] Remove unused dateFormat from CalendarRange
+- [chore] export stories directory
+
 # 7.5.2 - 5/8/24
 - [chore] add storybook stories to dist
 - [chore] migrate @reaviz/ctrl-keys to ctrl-keys 1.0.2
