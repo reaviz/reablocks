@@ -1,3 +1,6 @@
+# 7.60 - 5/13/24
+- [feature] breadcrumbs component
+
 # 7.5.7 - 5/13/24
 - [chore] autogen prop types
 
