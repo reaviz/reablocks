@@ -57,11 +57,11 @@ export const avatarTheme: AvatarTheme = {
       baseTheme.outline.base,
       'bg-black border-gray-700 light:border-gray-200 light:bg-gray-100'
     ].join(' '),
-    focused: [
+    hovered: [
       baseTheme.outline.focused,
       'hover:border-blue-400 light:hover:border-blue-400'
     ].join(' '),
-    hovered: [
+    focused: [
       baseTheme.outline.hovered,
       'focus:border-blue-500 light:focus:border-blue-500'
     ].join(' '),
@@ -72,11 +72,11 @@ export const avatarTheme: AvatarTheme = {
   },
   filled: {
     base: [baseTheme.filled.base, 'bg-gray-700 light:bg-gray-200'].join(' '),
-    focused: [
+    hovered: [
       baseTheme.outline.focused,
       'hover:border-blue-400 light:hover:border-blue-400'
     ].join(' '),
-    hovered: [
+    focused: [
       baseTheme.outline.hovered,
       'focus:border-blue-500 light:focus:border-blue-500'
     ].join(' '),
@@ -89,11 +89,11 @@ export const avatarTheme: AvatarTheme = {
     base: [baseTheme.colored.base, 'text-secondary light:text-gray-100'].join(
       ' '
     ),
-    focused: [
+    hovered: [
       baseTheme.outline.focused,
       'hover:border-blue-400 light:hover:border-blue-400'
     ].join(' '),
-    hovered: [
+    focused: [
       baseTheme.outline.hovered,
       'focus:border-blue-500 light:focus:border-blue-500'
     ].join(' '),
