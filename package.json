@@ -1,12 +1,12 @@
 {
   "name": "reablocks",
-  "version": "7.5.4",
+  "version": "7.5.5",
   "description": "Component library for React",
   "scripts": {
     "build": "npm run build:js && npm run build:styles && npm run rewrite && npm run build:stories",
     "build-storybook": "storybook build",
     "build:js": "vite build --mode library",
-    "build:stories": "tsc dist/stories/*.tsx --jsx react-jsx --skipLibCheck true || exit 0;",
+    "build:stories": "tsc dist/stories/*.tsx --module esnext --jsx react-jsx --skipLibCheck true || exit 0;",
     "build:styles": "tailwindcss -i ./src/index.css -o ./dist/index.css",
     "rewrite": "node scripts/rewrite.cjs",
     "lint": "eslint --ext js,ts,tsx",

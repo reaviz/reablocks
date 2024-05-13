@@ -1,5 +1,8 @@
+# 7.5.5 - 5/13/24
+- [chore] change stories export format
+
 # 7.5.4 - 5/13/24
-- [chore] export stories directory
+- [chore] change stories export format
 
 # 7.5.3 - 5/13/24
 - [fix] Update button theme
