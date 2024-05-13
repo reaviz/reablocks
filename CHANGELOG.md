@@ -1,3 +1,6 @@
+# 7.5.4 - 5/13/24
+- [chore] export stories directory
+
 # 7.5.3 - 5/13/24
 - [fix] Update button theme
 - [fix] Update secondary colors
