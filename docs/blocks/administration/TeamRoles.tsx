@@ -79,7 +79,7 @@ export const TeamRoles: FC = () => {
               <table className="w-full">
                 <thead className="text-left text-panel-secondary-content text-base dark:bg-vulcan light:bg-gray-200">
                   <tr>
-                    <th className="py-6 px-2">
+                    <th className="py-6 pl-4">
                       <Checkbox
                         theme={checkboxTheme}
                         className="shrink-0"
@@ -96,10 +96,10 @@ export const TeamRoles: FC = () => {
                         }
                       />
                     </th>
-                    <th className="py-6 px-2">Name</th>
-                    <th className="py-6 px-2">Email</th>
-                    <th className="py-6 px-2">Date Added</th>
-                    <th className="py-6 px-2"></th>
+                    <th className="py-6 pl-4">Name</th>
+                    <th className="py-6 pl-4">Email</th>
+                    <th className="py-6 pl-4">Date Added</th>
+                    <th className="py-6 pl-4"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -115,7 +115,7 @@ export const TeamRoles: FC = () => {
                           className="border-b border-panel-accent hover:bg-panel-accent/40 transition-colors text-base text-panel-secondary-content"
                           key={index}
                         >
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <Checkbox
                               theme={checkboxTheme}
                               className="shrink-0"
@@ -132,13 +132,13 @@ export const TeamRoles: FC = () => {
                               }}
                             />
                           </td>
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <div className="flex gap-2 items-center">
                               <Avatar src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
                               {user.name}
                             </div>
                           </td>
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <div className="flex gap-2 items-center">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +153,7 @@ export const TeamRoles: FC = () => {
                               {user.email}
                             </div>
                           </td>
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <div className="flex gap-2 items-center">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -168,7 +168,7 @@ export const TeamRoles: FC = () => {
                               {user.dateAdded}
                             </div>
                           </td>
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <Stack dense>
                               <IconButton variant="text">
                                 <svg
@@ -202,7 +202,7 @@ export const TeamRoles: FC = () => {
             </div>
           </div>
           <Divider variant="secondary" />
-          <div className="w-full flex gap-12  ">
+          <div className="w-full flex gap-12">
             <div className="flex flex-col w-1/4">
               <span className="font-bold">Users (12)</span>
               <p className="text-panel-secondary-content text-base">
@@ -214,7 +214,7 @@ export const TeamRoles: FC = () => {
               <table className="w-full">
                 <thead className="sticky top-0 left-0 text-left text-panel-secondary-content text-base dark:bg-vulcan light:bg-gray-200">
                   <tr>
-                    <th className="py-6 px-2">
+                    <th className="py-6 pl-4">
                       <Checkbox
                         theme={checkboxTheme}
                         className="shrink-0"
@@ -231,10 +231,10 @@ export const TeamRoles: FC = () => {
                         }
                       />
                     </th>
-                    <th className="py-6 px-2">Name</th>
-                    <th className="py-6 px-2">Email</th>
-                    <th className="py-6 px-2">Date Added</th>
-                    <th className="py-6 px-2"></th>
+                    <th className="py-6 pl-4">Name</th>
+                    <th className="py-6 pl-4">Email</th>
+                    <th className="py-6 pl-4">Date Added</th>
+                    <th className="py-6 pl-4"></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -250,7 +250,7 @@ export const TeamRoles: FC = () => {
                           className="border-b border-panel-accent hover:bg-panel-accent/40 transition-colors text-base text-panel-secondary-content"
                           key={index}
                         >
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <Checkbox
                               theme={checkboxTheme}
                               className="shrink-0"
@@ -267,13 +267,13 @@ export const TeamRoles: FC = () => {
                               }}
                             />
                           </td>
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <div className="flex gap-2 items-center">
                               <Avatar src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
                               {user.name}
                             </div>
                           </td>
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <div className="flex gap-2 items-center">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -288,7 +288,7 @@ export const TeamRoles: FC = () => {
                               {user.email}
                             </div>
                           </td>
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <div className="flex gap-2 items-center">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -303,7 +303,7 @@ export const TeamRoles: FC = () => {
                               {user.dateAdded}
                             </div>
                           </td>
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <Stack dense>
                               <IconButton variant="text">
                                 <svg

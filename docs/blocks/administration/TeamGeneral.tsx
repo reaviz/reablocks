@@ -99,7 +99,7 @@ export const TeamGeneral: FC = () => {
                           className="border-b border-panel-accent hover:bg-panel-accent/40 transition-colors text-base text-panel-secondary-content"
                           key={index}
                         >
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <Checkbox
                               theme={checkboxTheme}
                               className="shrink-0"
@@ -116,13 +116,13 @@ export const TeamGeneral: FC = () => {
                               }}
                             />
                           </td>
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <div className="flex gap-2 items-center">
                               <Avatar src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
                               {user.name}
                             </div>
                           </td>
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <div className="flex gap-2 items-center">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +137,7 @@ export const TeamGeneral: FC = () => {
                               {user.email}
                             </div>
                           </td>
-                          <td className="py-6 px-2">
+                          <td className="py-6 pl-4">
                             <div className="flex gap-2 items-center">
                               <svg
                                 xmlns="http://www.w3.org/2000/svg"
