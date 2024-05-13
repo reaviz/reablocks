@@ -1,3 +1,6 @@
+# 7.5.6 - 5/13/24
+- [chore] autogen prop types
+
 # 7.5.5 - 5/13/24
 - [chore] change stories export format
 
