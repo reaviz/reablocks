@@ -23,7 +23,7 @@ export interface AvatarTheme {
 }
 
 const baseTheme: AvatarTheme = {
-  base: 'flex justify-center items-center bg-cover bg-center font-bold',
+  base: 'flex justify-center items-center bg-cover bg-center font-bold transition-[border-color] ease-in-out duration-300',
   rounded: 'rounded-[50%]',
   outline: {
     base: 'border border-solid',
