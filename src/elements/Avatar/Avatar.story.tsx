@@ -8,6 +8,7 @@ export default {
 } as Meta;
 const ComponentsBlock = args => (
   <div
+    className="bg-panel p-20"
     style={{
       display: 'flex',
       gap: '1em',
