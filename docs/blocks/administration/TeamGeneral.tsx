@@ -85,8 +85,8 @@ export const TeamGeneral: FC = () => {
               </Button>
             </div>
             <div className="flex flex-col w-full max-h-[400px] overflow-auto">
-              <table className="">
-                <tbody className="">
+              <table>
+                <tbody>
                   {Array(10)
                     .fill({
                       name: 'Austin McDaniel',
