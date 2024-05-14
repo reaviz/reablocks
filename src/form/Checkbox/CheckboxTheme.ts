@@ -1,5 +1,3 @@
-import TWConfig from '@/utils/Theme/config';
-
 export interface CheckboxTheme {
   base: string;
   label: {
@@ -42,7 +40,7 @@ export interface CheckboxTheme {
 }
 
 const baseTheme: Partial<CheckboxTheme> = {
-  base: 'inline-flex items-center w-full',
+  base: 'inline-flex items-center w-full group',
   label: {
     base: 'ml-2.5 w-full',
     clickable: 'cursor-pointer',
@@ -57,7 +55,7 @@ const baseTheme: Partial<CheckboxTheme> = {
   checkbox:
     'checkbox flex items-center justify-center cursor-pointer focus-visible:outline-none',
   checked: 'checked',
-  disabled: 'disabled opacity-60 cursor-not-allowed',
+  disabled: 'disabled dark:opacity-60 cursor-not-allowed',
   sizes: {
     small: '[&>svg]:w-3 [&>svg]:min-h-3',
     medium: '[&>svg]:w-4 [&>svg]:h-4',
@@ -67,31 +65,35 @@ const baseTheme: Partial<CheckboxTheme> = {
 
 export const checkboxTheme: CheckboxTheme = {
   ...baseTheme,
-  base: [
-    baseTheme.base,
-    'group',
-    // label
-    'dark:text-waterloo light:text-charade',
-    '[&.checked]:text-athens-gray',
-
-    // disabled
-    'hover:[&>.disabled]:text-athens-gray',
-    '[&>.checkbox.disabled]:fill-gray-500'
-  ].join(' '),
   checkbox: [
     baseTheme.checkbox,
     'fill-transparent border border-surface',
-    'group-hover:[&.checked]:fill-blue-300',
-    '[&.checked]:fill-blue-500'
+    'light:group-hover:[&.checked]:fill-blue-600',
+    'light:[&.checked.disabled]:fill-waterloo',
+    'light:group-hover:[&.checked.disabled]:fill-waterloo',
+    'group-hover:[&.checked]:fill-blue-400',
+    'group-hover:[&.checked.disabled]:fill-gray-400',
+    '[&.checked]:fill-blue-500',
+    '[&.checked.disabled]:fill-gray-400 '
   ].join(' '),
-  check: [baseTheme.check, 'stroke-white', 'group-hover:stroke-black'].join(
-    ' '
-  ),
+  check: [
+    baseTheme.check,
+    'light:group-hover:stroke-white',
+    'light:[&.disabled]:stroke-white',
+    'stroke-white',
+    'group-hover:stroke-black',
+    'group-hover:[&.disabled]:stroke-black',
+    '[&.disabled]:stroke-black'
+  ].join(' '),
   border: [
     baseTheme.border,
-    'stroke-slate-500',
+    'light:stroke-waterloo',
+    'light:group-hover:stroke-blue-600',
+    'light:group-hover:[&.disabled]:stroke-waterloo',
+    'stroke-gray-300',
+    'group-hover:stroke-blue-400',
+    'group-hover:[&.disabled]:stroke-gray-500',
     '[&.checked]:stroke-blue-500',
-    'group-hover:stroke-blue-300',
     '[&.disabled]:stroke-gray-500'
   ].join(' '),
 
@@ -99,7 +101,17 @@ export const checkboxTheme: CheckboxTheme = {
     ...baseTheme.label,
     base: [
       baseTheme.label.base,
-      'text-surface-content text-inherit group-hover:text-blue-300'
+      'text-surface-content',
+      'light:text-charade',
+      'light:[&.disabled]:text-waterloo',
+      'light:group-hover:[&.disabled]:text-waterloo',
+      'light:[&.checked]:text-vulcan',
+      'light:group-hover:text-blue-400',
+      'dark:text-waterloo',
+      'group-hover:text-blue-300',
+      'group-hover:[&.disabled]:text-waterloo',
+      'group-hover:[&.checked.disabled]:text-athens-gray',
+      '[&.checked]:text-athens-gray'
     ].join(' ')
   },
   boxVariants: {

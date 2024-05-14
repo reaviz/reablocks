@@ -136,6 +136,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           <CheckboxLabel
             label={label}
             size={size}
+            checked={checked}
             disabled={disabled}
             onChange={handleOnChange}
             labelClassName={labelClassName}
@@ -198,7 +199,11 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
                 d={checkedPath}
                 fill="transparent"
                 strokeWidth="1"
-                className={theme.check}
+                className={twMerge(
+                  theme.check,
+                  disabled && theme.disabled,
+                  checked && theme.checked
+                )}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}
                 custom={checked}
@@ -210,6 +215,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           <CheckboxLabel
             label={label}
             size={size}
+            checked={checked}
             disabled={disabled}
             onChange={handleOnChange}
             labelClassName={labelClassName}

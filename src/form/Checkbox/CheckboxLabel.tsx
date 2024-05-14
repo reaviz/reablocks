@@ -6,6 +6,7 @@ interface CheckboxLabelProps {
   label: string;
   size: 'small' | 'medium' | 'large';
   disabled?: boolean;
+  checked?: boolean;
   onChange?: () => void;
   labelClassName?: string;
   theme: CheckboxTheme;
@@ -15,6 +16,7 @@ export const CheckboxLabel: FC<CheckboxLabelProps> = ({
   label,
   size,
   disabled,
+  checked,
   onChange,
   labelClassName,
   theme
@@ -25,6 +27,7 @@ export const CheckboxLabel: FC<CheckboxLabelProps> = ({
         theme.label.base,
         theme.label.sizes[size],
         disabled && theme.disabled,
+        checked && theme.checked,
         !disabled && onChange && theme.label.clickable,
         labelClassName
       )}

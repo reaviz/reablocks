@@ -105,8 +105,26 @@ export const Sizes = () => {
 
 export const Disabled = () => {
   const [state, setState] = useState(true);
+  const [state2, setState2] = useState(false);
   return (
-    <Checkbox checked={state} label="Disabled" onChange={setState} disabled />
+    <>
+      <div style={{ padding: 20 }}>
+        <Checkbox
+          checked={state}
+          label="Disabled"
+          onChange={setState}
+          disabled
+        />
+      </div>
+      <div style={{ padding: 20 }}>
+        <Checkbox
+          checked={state2}
+          label="Disabled"
+          onChange={setState2}
+          disabled
+        />
+      </div>
+    </>
   );
 };
 
