@@ -3,7 +3,6 @@ import { Tabs } from './Tabs';
 import { TabList } from './TabList';
 import { Tab } from './Tab';
 import { TabPanel } from './TabPanel';
-import { Stack } from '../Stack';
 
 export default {
   title: 'Components/Layout/Tabs',
@@ -29,7 +28,7 @@ export const Simple = () => (
 );
 
 export const Variants = () => (
-  <div className="flex flex-col gap-12">
+  <div className="flex flex-col gap-12 bg-panel p-40">
     <Tabs variant="primary">
       <TabList>
         <Tab>Tab 1</Tab>
@@ -41,6 +40,16 @@ export const Variants = () => (
       <TabPanel>This is content for primary tab 3</TabPanel>
     </Tabs>
     <Tabs variant="secondary">
+      <TabList>
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+        <Tab>Tab 3</Tab>
+      </TabList>
+      <TabPanel>This is content for secondary tab 1</TabPanel>
+      <TabPanel>This is content for secondary tab 2</TabPanel>
+      <TabPanel>This is content for secondary tab 3</TabPanel>
+    </Tabs>
+    <Tabs variant="tertiary">
       <TabList>
         <Tab>Tab 1</Tab>
         <Tab>Tab 2</Tab>

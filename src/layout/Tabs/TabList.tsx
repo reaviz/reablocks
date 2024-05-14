@@ -39,7 +39,7 @@ export interface TabListProps extends PropsWithChildren {
    * The variant of the tabs.
    * @private
    */
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'tertiary';
 
   /**
    * The size of the tabs.
@@ -74,9 +74,15 @@ export const TabList: FC<TabListProps> = ({
     <nav
       role="tablist"
       className={twMerge(
-        classNames(className, theme.list.base, {
-          'justify-end': direction === 'rtl'
-        })
+        classNames(
+          'overflow-hidden',
+          className,
+          theme.list.base,
+          theme.list.variant[variant].base,
+          {
+            'justify-end': direction === 'rtl'
+          }
+        )
       )}
     >
       {childs.map(({ children, ...rest }, index) => (
@@ -87,13 +93,19 @@ export const TabList: FC<TabListProps> = ({
           selected={index === selectedIndex}
           onSelect={() => onSelect(index)}
           size={size}
+          variant={variant === 'tertiary' ? 'button' : 'text'}
         >
           {children}
         </Tab>
       ))}
-      <hr
-        className={cn(theme.list.divider, theme.list.variant[variant].divider)}
-      />
+      {variant !== 'tertiary' && (
+        <hr
+          className={cn(
+            theme.list.divider,
+            theme.list.variant[variant].divider
+          )}
+        />
+      )}
     </nav>
   );
 };
