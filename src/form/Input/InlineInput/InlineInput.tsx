@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, Ref, InputHTMLAttributes } from 'react';
+import React, { forwardRef, Ref, InputHTMLAttributes } from 'react';
 import AutosizeInput from 'react-18-input-autosize';
 import { twMerge } from 'tailwind-merge';
 import { InputTheme } from '@/form/Input/InputTheme';
@@ -37,7 +37,7 @@ export interface InlineInputProps
   theme?: InputTheme;
 }
 
-export const InlineInput: FC<InlineInputProps> = forwardRef(
+export const InlineInput = forwardRef<HTMLDivElement, InlineInputProps>(
   (
     {
       inputClassName,
