@@ -3,13 +3,14 @@
   "version": "7.6.0",
   "description": "Component library for React",
   "scripts": {
-    "build": "npm run build:js && npm run build:styles && npm run rewrite && npm run build:stories && npm run build:docs",
+    "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run rewrite:blocks && npm run build:stories && npm run build:docs",
     "build-storybook": "storybook build",
     "build:js": "vite build --mode library",
     "build:stories": "tsc dist/stories/*.tsx --module esnext --jsx react-jsx --skipLibCheck true || exit 0;",
     "build:styles": "tailwindcss -i ./src/index.css -o ./dist/index.css",
     "build:docs": "node scripts/docs.js",
-    "rewrite": "node scripts/rewrite.cjs",
+    "rewrite:stories": "node scripts/stories.cjs",
+    "rewrite:blocks": "node scripts/blocks.cjs",
     "lint": "eslint --ext js,ts,tsx",
     "lint:fix": "eslint --ext js,ts,tsx --fix src",
     "lint:prettier": "prettier --loglevel warn --write 'src/**/*.{ts,tsx,js,jsx}'",
@@ -30,7 +31,8 @@
       "require": "./dist/index.umd.cjs",
       "types": "./dist/index.d.ts"
     },
-    "./stories/*": "./dist/stories/*"
+    "./stories/*": "./dist/stories/*",
+    "./blocks/*": "./dist/blocks/*"
   },
   "browser": "dist/index.js",
   "typings": "dist/index.d.ts",
