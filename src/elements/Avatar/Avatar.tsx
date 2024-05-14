@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { forwardRef, useMemo } from 'react';
 import getInitials from 'name-initials';
 import { generateColor } from '@marko19907/string-to-color';
 import { twMerge } from 'tailwind-merge';
@@ -51,7 +51,7 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: AvatarTheme;
 }
 
-export const Avatar = React.forwardRef<HTMLDivElement, AvatarProps>(
+export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
   (
     {
       name,

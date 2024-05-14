@@ -93,7 +93,7 @@ export const DateFormat: FC<DateFormatProps> = ({
     should = cache === 'true';
   }
 
-  const [isRelative, setIsRelative] = useState<boolean>(should as boolean);
+  const [isRelative, setIsRelative] = useState<boolean>(should);
   const timeout = useRef<any | null>(null);
   const { dateObj, formatted, relative } = useMemo(
     () => safeFormat(date, { format, includeSeconds, addSuffix }),
