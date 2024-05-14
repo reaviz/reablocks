@@ -276,7 +276,7 @@ const config: Config = {
           DEFAULT: colorPalette.charade,
           active: colorPalette.charade,
           hover: colorPalette.gray[700],
-          inactive: colorPalette.gray[800]
+          inactive: colorPalette.gray[600]
         },
         success: {
           DEFAULT: colorPalette.green[500],

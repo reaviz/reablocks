@@ -1,0 +1,33 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import { Breadcrumbs, BreadcrumbList, BreadcrumbItem, BreadcrumbPage, BreadcrumbLink, BreadcrumbSeparator, breadcrumbsTheme } from '../../../src/layout/Breadcrumbs';
+import * as BreadcrumbsStories from '../../../src/layout/Breadcrumbs/Breadcrumbs.story';
+import ThemeRender from '../../ThemeRender.tsx';
+
+<Meta title="Docs/Components/Layout/Breadcrumbs" />
+
+# Breadcrumbs
+Breadcrumbs are a navigation component that shows the user's location within a website or application.
+
+## Example
+<Canvas sourceState="shown" of={BreadcrumbsStories.Basic}/>
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={breadcrumbsTheme} />
+
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
+
+## API
+
+### Breadcrumbs
+<ArgTypes of={Breadcrumbs} />
+
+### BreadcrumbList
+<ArgTypes of={BreadcrumbList} />
+
+### BreadcrumbLink
+<ArgTypes of={BreadcrumbLink} />
+
+### BreadcrumbSeparator
+<ArgTypes of={BreadcrumbSeparator} />

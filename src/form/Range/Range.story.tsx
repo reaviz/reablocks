@@ -5,7 +5,14 @@ import { debounce } from 'lodash';
 
 export default {
   title: 'Components/Form/Range',
-  component: Range
+  component: Range,
+  decorators: [
+    Story => (
+      <div className="bg-panel p-20">
+        <Story />
+      </div>
+    )
+  ]
 };
 
 export const Single = () => {
@@ -17,6 +24,20 @@ export const Single = () => {
       max={50}
       value={state}
       style={{ width: 250, marginTop: 30 }}
+    />
+  );
+};
+
+export const SingleShowHighlight = () => {
+  const [state, setState] = useState<number>(20);
+  return (
+    <RangeSingle
+      onChange={setState}
+      min={10}
+      max={50}
+      value={state}
+      className="w-[250px] mt-5"
+      showHighlight
     />
   );
 };
