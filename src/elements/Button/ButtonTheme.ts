@@ -116,27 +116,27 @@ export const buttonTheme: ButtonTheme = {
     },
     secondary: {
       filled:
-        'bg-gray-700/40 hover:bg-gray-500/40 light:bg-blue-200/40 light:hover:bg-blue-300/40',
-      outline: 'border border-blue-200 hover:border-blue-300/40',
-      text: 'text-waterloo hover:text-mystic light:text-blue-200/40 light:hover:text-blue-300/40'
+        'bg-gray-700/40 hover:bg-gray-500/40 light:bg-secondary/40 light:hover:bg-blue-300/40',
+      outline: 'border border-secondary hover:border-blue-300/40',
+      text: 'text-waterloo hover:text-mystic light:text-secondary/40 light:hover:text-blue-300/40'
     },
     success: {
       filled:
-        'bg-green-500 hover:bg-green-500/40 border-green-500 light:bg-green-500/20 light:hover:bg-green-500/30 light:border-green-500/20',
-      outline: 'border border-green-500 hover:border-green-500/40',
-      text: 'text-green-500 hover:text-green-500/40'
+        'bg-success hover:bg-success/40 border-success light:bg-success/20 light:hover:bg-success/30 light:border-success/20',
+      outline: 'border border-success hover:border-success/40',
+      text: 'text-success hover:text-success/40'
     },
     warning: {
       filled:
-        'bg-orange-500 hover:bg-orange-500/40 border-orange-500 light:bg-orange-500/20 light:hover:bg-orange-500/30 light:border-orange-500/20',
-      outline: 'border border-orange-500 hover:border-orange-500/40',
-      text: 'text-orange-500 hover:text-orange-500/40'
+        'bg-warning hover:bg-warning/40 border-warning light:bg-warning/20 light:hover:bg-warning/30 light:border-warning/20',
+      outline: 'border border-warning hover:border-orange-500/40',
+      text: 'text-warning hover:text-warning/40'
     },
     error: {
       filled:
-        'bg-red-500 hover:bg-red-500/40 border-red-500 light:bg-red-500/20 light:hover:bg-red-500/30 light:border-red-500/20',
-      outline: 'border border-red-500 hover:border-red-500/40',
-      text: 'text-red-500 hover:text-red-500/40'
+        'bg-error hover:bg-error/40 border-error light:bg-error/20 light:hover:bg-error/30 light:border-error/20',
+      outline: 'border border-error hover:border-error/40',
+      text: 'text-error hover:text-error/40'
     }
   }
 };
