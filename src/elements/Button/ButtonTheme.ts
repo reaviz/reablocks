@@ -84,10 +84,13 @@ const baseTheme: Partial<ButtonTheme> = {
 };
 
 export const buttonTheme: ButtonTheme = {
-  base: [baseTheme.base, 'text-surface-content font-semibold'].join(' '),
+  base: [
+    baseTheme.base,
+    'text-surface-content font-semibold transition-[background-color,_border-color] ease-in-out duration-300'
+  ].join(' '),
   disabled: [
     baseTheme.disabled,
-    'data-[variant=filled]:disabled:bg-gray-600 disabled:text-gray-400 border-gray-500'
+    'data-[variant=filled]:disabled:bg-gray-600 light:data-[variant=filled]:disabled:bg-gray-400 disabled:text-gray-400 data-[variant=filled]:disabled:text-black light:data-[variant=filled]:disabled:text-white !border-gray-500'
   ].join(' '),
   fullWidth: baseTheme.fullWidth,
   group: baseTheme.group,
@@ -96,43 +99,44 @@ export const buttonTheme: ButtonTheme = {
   sizes: baseTheme.sizes,
   variants: {
     filled:
-      'bg-secondary hover:bg-border-secondary-hover border-secondary light:text-gray-100',
+      'bg-secondary hover:bg-border-secondary-hover border-secondary light:text-gray-900',
     outline: 'bg-opacity-0 border-grey border',
     text: 'bg-opacity-0 border-0'
   },
   colors: {
     default: {
-      filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
-      outline: 'border-secondary border',
-      text: 'text-surface-content'
+      filled: 'bg-gray-700/40 hover:bg-gray-500/40',
+      outline: 'border border-gray-600 hover:border-gray-200',
+      text: ''
     },
     primary: {
-      filled:
-        'bg-primary hover:bg-primary-hover border-primary text-surface-content',
-      outline: 'border border-primary',
-      text: 'text-primary hover:text-primary-hover'
+      filled: '!text-white bg-primary hover:bg-primary-hover border-primary',
+      outline: 'border border-primary hover:border-primary-hover',
+      text: 'text-primary hover:text-blue-300'
     },
     secondary: {
-      filled: 'bg-secondary hover:bg-secondary-hover !text-surface-content',
-      outline: 'border border-secondary',
-      text: 'text-secondary hover:text-secondary-hover'
+      filled:
+        'bg-gray-700/40 hover:bg-gray-500/40 light:bg-blue-200/40 light:hover:bg-blue-300/40',
+      outline: 'border border-blue-200 hover:border-blue-300/40',
+      text: 'text-waterloo hover:text-mystic light:text-blue-200/40 light:hover:text-blue-300/40'
     },
     success: {
       filled:
-        'bg-success hover:bg-success-hover border-success text-surface-content',
-      outline: 'border border-success',
-      text: 'text-success hover:text-success-hover'
+        'bg-green-500 hover:bg-green-500/40 border-green-500 light:bg-green-500/20 light:hover:bg-green-500/30 light:border-green-500/20',
+      outline: 'border border-green-500 hover:border-green-500/40',
+      text: 'text-green-500 hover:text-green-500/40'
     },
     warning: {
       filled:
-        'bg-warning hover:bg-warning-hover border-warning text-surface-content',
-      outline: 'border border-warning',
-      text: 'text-warning hover:text-warning-hover'
+        'bg-orange-500 hover:bg-orange-500/40 border-orange-500 light:bg-orange-500/20 light:hover:bg-orange-500/30 light:border-orange-500/20',
+      outline: 'border border-orange-500 hover:border-orange-500/40',
+      text: 'text-orange-500 hover:text-orange-500/40'
     },
     error: {
-      filled: 'bg-error hover:bg-error-hover border-error text-surface-content',
-      outline: 'border border-error',
-      text: 'text-error hover:text-error-hover'
+      filled:
+        'bg-red-500 hover:bg-red-500/40 border-red-500 light:bg-red-500/20 light:hover:bg-red-500/30 light:border-red-500/20',
+      outline: 'border border-red-500 hover:border-red-500/40',
+      text: 'text-red-500 hover:text-red-500/40'
     }
   }
 };

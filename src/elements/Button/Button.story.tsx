@@ -12,10 +12,76 @@ export default {
 };
 
 export const Variants = () => (
-  <div style={{ display: 'flex', gap: 10 }}>
-    <Button variant="filled">Filled</Button>
-    <Button variant="outline">Outline</Button>
-    <Button variant="text">Text</Button>
+  <div style={{ display: 'flex', gap: 10, flexDirection: 'column' }}>
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Button variant="filled" color="default">
+        Filled
+      </Button>
+      <Button variant="filled" color="primary">
+        Filled
+      </Button>
+      <Button variant="filled" color="secondary">
+        Filled
+      </Button>
+      <Button variant="filled" color="success">
+        Filled
+      </Button>
+      <Button variant="filled" color="warning">
+        Filled
+      </Button>
+      <Button variant="filled" color="error">
+        Filled
+      </Button>
+      <Button variant="filled" disabled>
+        Filled
+      </Button>
+    </div>
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Button variant="outline" color="default">
+        Outline
+      </Button>
+      <Button variant="outline" color="primary">
+        Outline
+      </Button>
+      <Button variant="outline" color="secondary">
+        Outline
+      </Button>
+      <Button variant="outline" color="success">
+        Outline
+      </Button>
+      <Button variant="outline" color="warning">
+        Outline
+      </Button>
+      <Button variant="outline" color="error">
+        Outline
+      </Button>
+      <Button variant="outline" disabled>
+        Outline
+      </Button>
+    </div>
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Button variant="text" color="default">
+        Text
+      </Button>
+      <Button variant="text" color="primary">
+        Text
+      </Button>
+      <Button variant="text" color="secondary">
+        Text
+      </Button>
+      <Button variant="text" color="success">
+        Text
+      </Button>
+      <Button variant="text" color="warning">
+        Text
+      </Button>
+      <Button variant="text" color="error">
+        Text
+      </Button>
+      <Button variant="text" disabled>
+        Text
+      </Button>
+    </div>
   </div>
 );
 

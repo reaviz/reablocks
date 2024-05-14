@@ -1,7 +1,7 @@
 import React, { FC, forwardRef, LegacyRef, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ButtonGroupContext } from './ButtonGroupContext';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 import { ButtonTheme } from './ButtonTheme';
 
@@ -101,17 +101,19 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         ref={ref}
         whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
         data-variant={groupVariant || variant}
-        className={twMerge(
+        className={cn(
           theme.base,
-          theme.disabled,
-          fullWidth && theme.fullWidth,
           theme.variants[groupVariant || variant],
           theme.colors[color][groupVariant || variant],
           theme.sizes[groupSize || size],
-          isGroup && theme.group,
-          isGroup && groupVariant === 'text' && theme.groupText,
-          disableMargins && 'm-0',
-          disablePadding && 'p-0',
+          {
+            [theme.disabled]: disabled,
+            [theme.group]: isGroup,
+            [theme.groupText]: isGroup && groupVariant === 'text',
+            [theme.fullWidth]: fullWidth,
+            'm-0': disableMargins,
+            'p-0': disablePadding
+          },
           className
         )}
       >
