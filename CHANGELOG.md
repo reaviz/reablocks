@@ -1,4 +1,10 @@
-# 7.60 - 5/13/24
+# 7.6.2 - 5/14/24
+- [chore] remove lodash from stories
+
+# 7.6.1 - 5/14/24
+- [chore] copy blocks to dist folder
+
+# 7.6.0 - 5/13/24
 - [feature] breadcrumbs component
 
 # 7.5.7 - 5/13/24
