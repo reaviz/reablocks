@@ -32,7 +32,6 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
 
   /**
    * Color override for the avatar.
-   * @deprecated
    */
   color?: string;
 
