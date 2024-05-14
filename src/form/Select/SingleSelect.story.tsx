@@ -1,8 +1,7 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import { Select } from './Select';
 import { SelectOption } from './SelectOption';
 import { SelectMenu } from './SelectMenu';
-import range from 'lodash/range';
 import { SelectInput, SelectInputChip } from './SelectInput';
 
 export default {
@@ -77,7 +76,7 @@ export const NoOptions = () => (
 
 export const ManyOptions = () => {
   const [value, setValue] = useState<string | null>(null);
-  const options = range(0, 300);
+  const options = [...Array(300).keys()];
 
   return (
     <div style={{ width: 300 }}>
