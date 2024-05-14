@@ -2,6 +2,7 @@ export interface ToggleTheme {
   base: string;
   disabled: string;
   checked: string;
+  disabledAndChecked: string;
   handle: {
     base: string;
     sizes: {
@@ -9,6 +10,8 @@ export interface ToggleTheme {
       medium: string;
       large: string;
     };
+    disabled: string;
+    disabledAndChecked: string;
   };
   sizes: {
     small: string;
@@ -18,16 +21,20 @@ export interface ToggleTheme {
 }
 
 const baseTheme: ToggleTheme = {
-  base: 'flex items-center justify-start cursor-pointer bg-surface box-border border border-panel-accent rounded-full',
-  disabled: 'cursor-not-allowed opacity-60',
+  base: 'flex items-center justify-start cursor-pointer bg-surface box-border border border-panel-accent rounded-full hover:bg-primary-hover transition-[background-color] ease-in-out duration-300',
+  disabled: 'cursor-not-allowed bg-transparent hover:bg-transparent',
   checked: 'justify-end bg-primary',
+  disabledAndChecked:
+    'bg-gray-600 hover:bg-gray-600 light:bg-gray-400 light:hover:bg-gray-400',
   handle: {
     base: 'rounded-full bg-panel',
     sizes: {
       small: 'w-3 h-full',
       medium: 'w-5 h-full',
       large: 'w-6 h-full'
-    }
+    },
+    disabled: 'bg-gray-600 light:bg-gray-400',
+    disabledAndChecked: 'bg-black light:bg-white'
   },
   sizes: {
     small: 'w-8 h-4 p-px',
