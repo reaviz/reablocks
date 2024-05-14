@@ -3,10 +3,9 @@
   "version": "7.6.4",
   "description": "Component library for React",
   "scripts": {
-    "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run rewrite:blocks && npm run build:stories && npm run build:docs",
+    "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run rewrite:blocks && npm run build:docs",
     "build-storybook": "storybook build",
     "build:js": "vite build --mode library",
-    "build:stories": "tsc dist/stories/*.tsx --module esnext --jsx react-jsx --skipLibCheck true || exit 0;",
     "build:styles": "tailwindcss -i ./src/index.css -o ./dist/index.css",
     "build:docs": "node scripts/docs.js",
     "rewrite:stories": "node scripts/stories.cjs",
