@@ -223,3 +223,56 @@ export const CustomTheme = () => {
     </ThemeProvider>
   );
 };
+
+export const Gradients = () => {
+  const customTheme: PartialReablocksTheme = {
+    components: {
+      button: {
+        colors: {
+          primary: {
+            filled:
+              'bg-button-gradient hover:bg-button-gradient-hover light:bg-button-gradient-light light:hover:bg-button-gradient-hover-light'
+          },
+          secondary: {
+            filled:
+              'bg-button-gradient-secondary hover:bg-button-gradient-secondary-hover light:bg-button-gradient-secondary-light light:hover:bg-button-gradient-secondary-hover-light text-black'
+          },
+          success: {
+            filled:
+              'bg-button-gradient-success hover:bg-button-gradient-success-hover'
+          },
+          warning: {
+            filled:
+              'bg-button-gradient-warning hover:bg-button-gradient-warning-hover'
+          },
+          error: {
+            filled:
+              'bg-button-gradient-error hover:bg-button-gradient-error-hover'
+          }
+        }
+      }
+    }
+  };
+
+  return (
+    <ThemeProvider theme={extendTheme(theme, customTheme)}>
+      <div style={{ display: 'flex', gap: 10 }}>
+        <Button variant="filled" color="primary">
+          Primary
+        </Button>
+        <Button variant="filled" color="secondary">
+          Secondary
+        </Button>
+        <Button variant="filled" color="success">
+          Success
+        </Button>
+        <Button variant="filled" color="warning">
+          Warning
+        </Button>
+        <Button variant="filled" color="error">
+          Error
+        </Button>
+      </div>
+    </ThemeProvider>
+  );
+};
