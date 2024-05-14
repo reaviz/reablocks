@@ -23,13 +23,13 @@ export const LabelPosition = () => {
       <div style={{ padding: 20 }}>
         <Checkbox
           checked={state}
-          label="Left label"
-          labelPosition="left"
+          label="Start label"
+          labelPosition="start"
           onChange={setState}
         />
       </div>
       <div style={{ padding: 20 }}>
-        <Checkbox checked={state} label="Right label" onChange={setState} />
+        <Checkbox checked={state} label="End label" onChange={setState} />
       </div>
     </Fragment>
   );

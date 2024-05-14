@@ -24,7 +24,7 @@ export interface CheckboxProps {
   /**
    * Label position of checkbox.
    */
-  labelPosition?: 'left' | 'right';
+  labelPosition?: 'start' | 'end';
 
   /**
    * Whether the checkbox is disabled or not.
@@ -94,7 +94,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
       label,
       disabled,
       size = 'medium',
-      labelPosition = 'right',
+      labelPosition = 'end',
       onChange,
       onBlur,
       className,
@@ -132,14 +132,14 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           checked && 'checked'
         )}
       >
-        {labelPosition === 'left' && label && (
+        {labelPosition === 'start' && label && (
           <CheckboxLabel
             label={label}
             size={size}
             checked={checked}
             disabled={disabled}
             onChange={handleOnChange}
-            labelClassName={labelClassName}
+            labelClassName={twMerge('mr-2.5', labelClassName)}
             theme={theme}
           />
         )}
@@ -211,14 +211,14 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             )}
           </motion.svg>
         </motion.div>
-        {labelPosition === 'right' && label && (
+        {labelPosition === 'end' && label && (
           <CheckboxLabel
             label={label}
             size={size}
             checked={checked}
             disabled={disabled}
             onChange={handleOnChange}
-            labelClassName={labelClassName}
+            labelClassName={twMerge('ml-2.5', labelClassName)}
             theme={theme}
           />
         )}
