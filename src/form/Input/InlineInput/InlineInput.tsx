@@ -25,7 +25,7 @@ export interface InlineInputProps
   theme?: InputTheme;
 }
 
-export const InlineInput = forwardRef<HTMLDivElement, InlineInputProps>(
+export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
   (
     {
       inputClassName,
