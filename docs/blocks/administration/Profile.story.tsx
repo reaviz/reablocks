@@ -6,7 +6,37 @@ import { Button } from '../../../src/elements/Button';
 import { Card, Divider, Stack } from '../../../src/layout';
 import { Input } from '../../../src/form/Input';
 import { Avatar } from '../../../src/elements/Avatar';
-import logo from '../../assets/reaviz.svg';
+
+const LogoIcon = ({ className }) => (
+  <svg
+    width="260"
+    height="341"
+    viewBox="0 0 260 341"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <path
+      d="M260 341L184.393 212.394C223.901 194.37 250.261 155.399 250.261 113.017C250.261 81.84 239.039 55.0472 217.083 33.1257C195.127 11.2043 168.301 0 136.585 0H0V62.8413H136.585C161.95 62.8413 182.932 85.25 182.932 113.017C182.932 140.784 161.95 163.68 136.585 163.68H81.0277V163.734H0V341H67.329V222.624H118.546L187.314 341H260Z"
+      fill="url(#paint0_linear_1_129)"
+    />
+    <defs>
+      <linearGradient
+        id="paint0_linear_1_129"
+        x1="294.975"
+        y1="233.607"
+        x2="-46.0838"
+        y2="159.958"
+        gradientUnits="userSpaceOnUse"
+      >
+        <stop stop-color="#1352FF" />
+        <stop offset="0.354721" stop-color="#009BFF" />
+        <stop offset="0.62382" stop-color="#105EFF" />
+        <stop offset="1" stop-color="#090E43" />
+      </linearGradient>
+    </defs>
+  </svg>
+);
 
 export default {
   title: 'Blocks/Administration/Profile'
@@ -20,7 +50,7 @@ export const Profile = () => (
   >
     <Card className="w-full p-12">
       <Stack>
-        <img src={logo} alt="Logo" className="h-11 w-auto mb-2 mr-2" />
+        <LogoIcon className="h-11 w-auto mb-2 mr-2" />
         <div>
           <h2 className="text-xl font-sans font-bold">Reablocks</h2>
           <p className="opacity-60">github.com/reaviz</p>

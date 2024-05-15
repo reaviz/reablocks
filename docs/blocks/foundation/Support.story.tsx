@@ -1,10 +1,14 @@
-import { Input } from '../../../src/form/Input';
-import { Button } from '../../../src/elements/Button';
-import { Card } from '../../../src/layout/Card';
-import { Block } from '../../../src/layout/Block';
-import { useForm, Controller } from 'react-hook-form';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Textarea } from '../../../src/form';
+import { Controller, useForm } from 'react-hook-form';
+
+import { Block, Card } from '../../../src/layout';
+import { Input, Textarea } from '../../../src/form';
+import { Button } from '../../../src/elements/Button';
+
+export default {
+  title: 'Blocks/Foundation/Support'
+};
 
 export const Support = () => {
   const {
