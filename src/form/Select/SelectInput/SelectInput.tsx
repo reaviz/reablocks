@@ -52,11 +52,6 @@ export interface SelectInputProps {
   menuOpen?: boolean;
 
   /**
-   * The font size of the select input.
-   */
-  fontSize?: string | number;
-
-  /**
    * The input text of the select input.
    */
   inputText: string;
@@ -231,7 +226,6 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
   disabled,
   placeholder,
   filterable,
-  fontSize = 13,
   id,
   name,
   className,
@@ -505,9 +499,8 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
       >
         {renderPrefix()}
         <InlineInput
-          inputRef={el => (inputRef.current = el)}
+          ref={inputRef}
           id={id}
-          style={{ fontSize }}
           name={name}
           disabled={disabled}
           required={required}
