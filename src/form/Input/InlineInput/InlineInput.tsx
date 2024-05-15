@@ -45,8 +45,8 @@ export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
           {!value && '\u00A0'}
           {typeof value === 'string'
             ? !value
-              ? placeholder.replace(/ /g, '\u00A0')
-              : value.replace(/ /g, '\u00A0')
+              ? placeholder?.replace(/ /g, '\u00A0')
+              : value?.replace(/ /g, '\u00A0')
             : value}
         </span>
         <input
