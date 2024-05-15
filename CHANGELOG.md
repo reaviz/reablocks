@@ -1,3 +1,6 @@
+# 7.6.6 - 5/15/24
+- [chore] fix block story style issue
+
 # 7.6.5 - 5/15/24
 - [chore] add stories for blocks
 
