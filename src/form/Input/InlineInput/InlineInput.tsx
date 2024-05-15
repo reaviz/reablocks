@@ -1,6 +1,4 @@
 import React, { forwardRef, Ref, InputHTMLAttributes } from 'react';
-import AutosizeInput from 'react-18-input-autosize';
-import { twMerge } from 'tailwind-merge';
 import { InputTheme } from '@/form/Input/InputTheme';
 import { cn, useComponentTheme } from '@/utils';
 
@@ -78,15 +76,5 @@ export const InlineInput = forwardRef<HTMLDivElement, InlineInputProps>(
         />
       </div>
     );
-    /*
-    return (
-      <AutosizeInput
-        inputRef={ref}
-        inputClassName={twMerge(theme.inline, inputClassName)}
-        placeholderIsMinWidth={placeholderIsMinWidth}
-        {...rest}
-      />
-    );
-    */
   }
 );
