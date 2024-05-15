@@ -1,3 +1,6 @@
+# 7.6.9 - 5/15/24
+- [chore] fix range story
+
 # 7.6.8 - 5/15/24
 - [chore] fix type
 
