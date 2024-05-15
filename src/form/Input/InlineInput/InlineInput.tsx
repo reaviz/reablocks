@@ -59,8 +59,8 @@ export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
           value={value}
           className={cn(
             'border-none bg-transparent focus:outline-none',
-            inputClassName,
-            theme.inline
+            theme.inline,
+            inputClassName
           )}
         />
       </div>
