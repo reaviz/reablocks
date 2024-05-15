@@ -1,3 +1,6 @@
+# 7.6.5 - 5/15/24
+- [chore] add stories for blocks
+
 # 7.6.4 - 5/14/24
 - [chore] fix storybook stories
 
