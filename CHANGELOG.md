@@ -1,3 +1,6 @@
+# 7.6.8 - 5/15/24
+- [chore] fix type
+
 # 7.6.7 - 5/15/24
 - [chore] fix block story style issue
 
