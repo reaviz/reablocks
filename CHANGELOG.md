@@ -1,3 +1,6 @@
+# 7.6.11 - 5/15/24
+- [fix] fix inline input with null values
+
 # 7.6.10 - 5/15/24
 - [chore] redo inline input to be simple solution
 
