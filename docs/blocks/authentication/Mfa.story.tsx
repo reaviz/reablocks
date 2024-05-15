@@ -55,7 +55,7 @@ const QRLightIcon = ({ className }) => (
       <path d="M200 0H0V200H200V0Z" fill="white" />
       <mask
         id="mask0_1447_18003"
-        style="mask-type:luminance"
+        style={{ maskType: 'luminance' }}
         maskUnits="userSpaceOnUse"
         x="13"
         y="13"
@@ -399,7 +399,7 @@ const QRLightIcon = ({ className }) => (
       </g>
       <mask
         id="mask1_1447_18003"
-        style="mask-type:luminance"
+        style={{ maskType: 'luminance' }}
         maskUnits="userSpaceOnUse"
         x="13"
         y="13"
@@ -418,7 +418,7 @@ const QRLightIcon = ({ className }) => (
       </g>
       <mask
         id="mask2_1447_18003"
-        style="mask-type:luminance"
+        style={{ maskType: 'luminance' }}
         maskUnits="userSpaceOnUse"
         x="25"
         y="25"
@@ -432,7 +432,7 @@ const QRLightIcon = ({ className }) => (
       </g>
       <mask
         id="mask3_1447_18003"
-        style="mask-type:luminance"
+        style={{ maskType: 'luminance' }}
         maskUnits="userSpaceOnUse"
         x="145"
         y="13"
@@ -451,7 +451,7 @@ const QRLightIcon = ({ className }) => (
       </g>
       <mask
         id="mask4_1447_18003"
-        style="mask-type:luminance"
+        style={{ maskType: 'luminance' }}
         maskUnits="userSpaceOnUse"
         x="157"
         y="25"
@@ -465,7 +465,7 @@ const QRLightIcon = ({ className }) => (
       </g>
       <mask
         id="mask5_1447_18003"
-        style="mask-type:luminance"
+        style={{ maskType: 'luminance' }}
         maskUnits="userSpaceOnUse"
         x="13"
         y="145"
@@ -484,7 +484,7 @@ const QRLightIcon = ({ className }) => (
       </g>
       <mask
         id="mask6_1447_18003"
-        style="mask-type:luminance"
+        style={{ maskType: 'luminance' }}
         maskUnits="userSpaceOnUse"
         x="25"
         y="157"
