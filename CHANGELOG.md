@@ -1,3 +1,6 @@
+# 7.6.10 - 5/15/24
+- [chore] redo inline input to be simple solution
+
 # 7.6.9 - 5/15/24
 - [chore] fix range story
 
