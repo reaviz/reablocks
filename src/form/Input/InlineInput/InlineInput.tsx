@@ -1,8 +1,6 @@
 import React, { forwardRef, Ref, InputHTMLAttributes } from 'react';
-import AutosizeInput from 'react-18-input-autosize';
-import { twMerge } from 'tailwind-merge';
 import { InputTheme } from '@/form/Input/InputTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface InlineInputProps
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -22,40 +20,50 @@ export interface InlineInputProps
   inputClassName?: string;
 
   /**
-   * Don't collapse size to less than the placeholder
-   */
-  placeholderIsMinWidth?: boolean;
-
-  /**
-   * onAutosize handler
-   */
-  onAutosize?: (newWidth: number) => void;
-
-  /**
    * Theme for the InlineInput.
    */
   theme?: InputTheme;
 }
 
-export const InlineInput = forwardRef<HTMLDivElement, InlineInputProps>(
+export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
   (
     {
       inputClassName,
-      placeholderIsMinWidth = true,
+      className,
+      placeholder,
+      value,
       theme: customTheme,
-      ...rest
+      ...props
     },
     ref: Ref<HTMLInputElement>
   ) => {
     const theme: InputTheme = useComponentTheme('input', customTheme);
 
     return (
-      <AutosizeInput
-        inputRef={ref}
-        inputClassName={twMerge(theme.inline, inputClassName)}
-        placeholderIsMinWidth={placeholderIsMinWidth}
-        {...rest}
-      />
+      <div className={cn('inline-grid', className)}>
+        <span className="invisible" style={{ gridArea: ' 1 / 1 ' }}>
+          {!value && '\u00A0'}
+          {typeof value === 'string'
+            ? !value
+              ? placeholder.replace(/ /g, '\u00A0')
+              : value.replace(/ /g, '\u00A0')
+            : value}
+        </span>
+        <input
+          {...props}
+          size={1}
+          ref={ref}
+          style={{ gridArea: ' 1 / 1 ' }}
+          type="text"
+          placeholder={placeholder}
+          value={value}
+          className={cn(
+            'border-none bg-transparent focus:outline-none',
+            theme.inline,
+            inputClassName
+          )}
+        />
+      </div>
     );
   }
 );

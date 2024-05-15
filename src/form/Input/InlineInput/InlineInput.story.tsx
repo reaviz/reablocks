@@ -9,17 +9,11 @@ export default {
 export const Basic = () => {
   const [text, setText] = useState('');
   return (
-    <div
-      style={{
-        border: 'var(--input-border)',
-        borderRadius: 'var(--border-radius-md)',
-        padding: 'var(--spacing-sm)'
-      }}
-    >
+    <div className="border border-blue-500 p-2">
       <InlineInput
         value={text}
         onChange={event => setText(event.target.value)}
-        placeholder="Type here..."
+        placeholder="..."
       />
     </div>
   );
