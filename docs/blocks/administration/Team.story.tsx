@@ -28,13 +28,13 @@ const GoodCodeLogo = () => (
     fill="none"
   >
     <path
-      fill-rule="evenodd"
+      fillRule="evenodd"
       clip-rule="evenodd"
       d="M9.30914 0L0.800049 5.95244L9.30914 12V6.50322L7.39925 5.2725L6.32435 6L8.11316 7.16363V9.6557L2.90066 5.95244L9.30914 1.4745V0Z"
       fill="url(#paint0_linear_2617_5417)"
     />
     <path
-      fill-rule="evenodd"
+      fillRule="evenodd"
       clip-rule="evenodd"
       d="M9.30912 1.93848L3.61314 5.95581L7.70718 8.86155V7.35838L5.64 6.01625L9.30912 3.42873V1.93848Z"
       fill="url(#paint1_linear_2617_5417)"

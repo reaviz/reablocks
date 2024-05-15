@@ -98,7 +98,7 @@ export const Profile = () => (
         </Stack>
         <Stack justifyContent="end">
           <div className="p-2 flex h-full items-center rounded ">
-            <Avatar className="h-10 w-10" name="Austin M" size="xl" />
+            <Avatar className="h-10 w-10" name="Austin M" size={50} />
           </div>
           <div className="border w-full border-dotted rounded text-sm opacity-75 text-center p-2 border-blue-500">
             <svg

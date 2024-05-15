@@ -407,7 +407,7 @@ const QRLightIcon = ({ className }) => (
         height="42"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           clip-rule="evenodd"
           d="M13 13V55H55V13H13ZM19 19H49V49H19V19Z"
           fill="white"
@@ -440,7 +440,7 @@ const QRLightIcon = ({ className }) => (
         height="42"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           clip-rule="evenodd"
           d="M187 13L145 13V55H187V13ZM181 19V49H151V19H181Z"
           fill="white"
@@ -473,7 +473,7 @@ const QRLightIcon = ({ className }) => (
         height="42"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           clip-rule="evenodd"
           d="M13 187H55V145H13L13 187ZM19 181V151H49V181H19Z"
           fill="white"
@@ -868,7 +868,7 @@ const QRDarkIcon = ({ className }) => (
         height="42"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           clip-rule="evenodd"
           d="M13 13V55H55V13H13ZM19 19H49V49H19V19Z"
           fill="white"
@@ -899,7 +899,7 @@ const QRDarkIcon = ({ className }) => (
         height="42"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           clip-rule="evenodd"
           d="M187 13L145 13V55H187V13ZM181 19V49H151V19H181Z"
           fill="white"
@@ -930,7 +930,7 @@ const QRDarkIcon = ({ className }) => (
         height="42"
       >
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           clip-rule="evenodd"
           d="M13 187H55V145H13L13 187ZM19 181V151H49V181H19Z"
           fill="white"

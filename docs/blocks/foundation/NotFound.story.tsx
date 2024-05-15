@@ -898,13 +898,13 @@ export const DoesNotExist = () => (
           fill="none"
         >
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             clip-rule="evenodd"
             d="M21.2727 0L0 14.8811L21.2727 30V16.2581L16.498 13.1812L13.8108 15L18.2828 17.9091V24.1393L5.25153 14.8811L21.2727 3.68624V0Z"
             fill="url(#paint0_linear_2208_924)"
           />
           <path
-            fill-rule="evenodd"
+            fillRule="evenodd"
             clip-rule="evenodd"
             d="M21.2727 4.84595L7.03271 14.8893L17.2678 22.1536V18.3957L12.0999 15.0404L21.2727 8.57158V4.84595Z"
             fill="url(#paint1_linear_2208_924)"
