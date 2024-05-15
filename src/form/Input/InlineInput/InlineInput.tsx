@@ -20,16 +20,6 @@ export interface InlineInputProps
   inputClassName?: string;
 
   /**
-   * Don't collapse size to less than the placeholder
-   */
-  placeholderIsMinWidth?: boolean;
-
-  /**
-   * onAutosize handler
-   */
-  onAutosize?: (newWidth: number) => void;
-
-  /**
    * Theme for the InlineInput.
    */
   theme?: InputTheme;
@@ -39,7 +29,6 @@ export const InlineInput = forwardRef<HTMLDivElement, InlineInputProps>(
   (
     {
       inputClassName,
-      placeholderIsMinWidth = true,
       className,
       placeholder,
       value,
