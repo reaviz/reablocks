@@ -268,15 +268,15 @@ export const LoginFull = () => {
 
   return (
     <Card
-      className="w-full grow p-5"
-      contentClassName="w-full grid grid-cols-2"
+      className="w-full grow p-5 h-[650px] md:h-[800px] "
+      contentClassName="w-full flex gap-12"
     >
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className="h-full w-full flex flex-col items-start p-7"
       >
-        <div className="w-full grow flex flex-col justify-center pr-14">
+        <div className="w-full grow flex flex-col justify-center">
           <LogoIcon className="h-11 mb-2 self-start w-auto" />
           <h4 className="text-2xl font-sans font-bold mb-0">
             Log In or create account
@@ -408,8 +408,8 @@ export const LoginFull = () => {
           </form>
         </div>
       </motion.div>
-      <div className="relative w-full h-full overflow-hidden">
-        <img src={BG_IMAGE} className="absolute h-full" />
+      <div className="hidden md:block w-full h-full overflow-hidden">
+        <img src={BG_IMAGE} className="h-full" />
       </div>
     </Card>
   );
