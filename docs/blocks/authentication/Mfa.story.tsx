@@ -1097,7 +1097,7 @@ export const MfaLogin = () => {
     >
       <Card className="w-full p-[50px]">
         <Stack justifyContent="spaceBetween">
-          <LogoIcon className="h-[30px]" />
+          <LogoIcon className="h-[30px] w-auto" />
           <a href="#" className="text-lg text-primary font-semibold">
             New to Reablocks?
           </a>
