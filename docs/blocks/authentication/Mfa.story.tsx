@@ -50,6 +50,7 @@ const QRLightIcon = ({ className }) => (
     height="200"
     viewBox="0 0 200 200"
     fill="none"
+    className={className}
   >
     <g clip-path="url(#clip0_1447_18003)">
       <path d="M200 0H0V200H200V0Z" fill="white" />
