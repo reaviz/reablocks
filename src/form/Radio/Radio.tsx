@@ -8,8 +8,7 @@ import React, {
 } from 'react';
 import { motion } from 'framer-motion';
 import { RadioGroupContext } from './RadioGroupContext';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { RadioTheme } from './RadioTheme';
 
 export interface RadioProps {
@@ -105,17 +104,15 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
     const theme: RadioTheme = useComponentTheme('radio', customTheme);
 
     return (
-      <div className={twMerge(theme.base, className)}>
+      <div className={cn(theme.base, className)}>
         <div
           {...rest}
           ref={ref}
           tabIndex={0}
-          className={twMerge(
-            theme.radio.base,
-            disabled && theme.radio.disabled,
-            checked && theme.radio.checked,
-            theme.sizes[size]
-          )}
+          className={cn(theme.radio.base, theme.sizes[size], {
+            [theme.radio.checked]: checked,
+            [theme.radio.disabled]: disabled
+          })}
           onClick={() => {
             if (!disabled) {
               onValueChange(!checked);
@@ -129,10 +126,9 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
           }}
         >
           <motion.div
-            className={twMerge(
-              theme.indicator.base,
-              theme.indicator.sizes[size]
-            )}
+            className={cn(theme.indicator.base, theme.indicator.sizes[size], {
+              [theme.indicator.disabled]: disabled
+            })}
             initial={!disabled ? { opacity: 0, scale: 0.5 } : {}}
             variants={VARIANTS}
             animate={checked ? 'check' : 'uncheck'}
@@ -141,10 +137,11 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
         </div>
         {label && (
           <span
-            className={twMerge(
-              theme.label.base,
-              !disabled && theme.label.clickable
-            )}
+            className={cn(theme.label.base, {
+              [theme.label.checked]: checked,
+              [theme.label.disabled]: disabled,
+              [theme.label.clickable]: !disabled
+            })}
             onClick={() => {
               if (!disabled) {
                 onValueChange(!checked);
