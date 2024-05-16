@@ -36,6 +36,9 @@ export interface SmallHeadingProps
 }
 
 export interface SmallHeadingRef {
+  /**
+   * Reference to the HTML heading element.
+   */
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 

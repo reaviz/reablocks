@@ -42,10 +42,16 @@ export interface ToggleProps {
 }
 
 export interface ToggleRef {
+  /**
+   * Reference to the toggle element.
+   */
   ref?: LegacyRef<HTMLDivElement>;
 }
 
-export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef(
+export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
+  HTMLDivElement,
+  ToggleProps
+>(
   (
     {
       checked,

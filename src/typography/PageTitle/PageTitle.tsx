@@ -34,6 +34,9 @@ export interface PageTitleProps
 }
 
 export interface PageTitleRef {
+  /**
+   * Reference to the HTML heading element.
+   */
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 

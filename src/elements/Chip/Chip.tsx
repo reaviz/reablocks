@@ -58,6 +58,9 @@ export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export interface ChipRef {
+  /**
+   * Reference to the root element.
+   */
   ref?: LegacyRef<HTMLDivElement>;
 }
 

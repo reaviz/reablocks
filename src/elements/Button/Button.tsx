@@ -62,6 +62,9 @@ export interface ButtonProps
 }
 
 export interface ButtonRef {
+  /**
+   * The ref to the button element.
+   */
   ref?: LegacyRef<HTMLButtonElement>;
 }
 

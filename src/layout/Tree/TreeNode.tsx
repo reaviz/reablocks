@@ -19,7 +19,7 @@ export interface TreeNodeProps extends PropsWithChildren {
   /**
    * Label to display for the node
    */
-  label: ReactNode | string;
+  label?: ReactNode | string;
 
   /**
    * CSS Classname to apply to the node
@@ -52,7 +52,7 @@ export interface TreeNodeProps extends PropsWithChildren {
   onCollapse?: () => void;
 }
 
-export const TreeNode: FC<Partial<TreeNodeProps>> = ({
+export const TreeNode: FC<TreeNodeProps> = ({
   children,
   className,
   label,

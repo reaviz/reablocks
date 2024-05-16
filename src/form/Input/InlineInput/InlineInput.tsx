@@ -1,4 +1,10 @@
-import React, { forwardRef, Ref, InputHTMLAttributes } from 'react';
+import React, {
+  forwardRef,
+  Ref,
+  InputHTMLAttributes,
+  FC,
+  LegacyRef
+} from 'react';
 import { InputTheme } from '@/form/Input/InputTheme';
 import { cn, useComponentTheme } from '@/utils';
 
@@ -25,7 +31,17 @@ export interface InlineInputProps
   theme?: InputTheme;
 }
 
-export const InlineInput = forwardRef<HTMLInputElement, InlineInputProps>(
+export interface InlineInputRef {
+  /**
+   * Reference to the input element.
+   */
+  ref?: LegacyRef<HTMLInputElement>;
+}
+
+export const InlineInput: FC<InlineInputProps & InlineInputRef> = forwardRef<
+  HTMLInputElement,
+  InlineInputProps
+>(
   (
     {
       inputClassName,

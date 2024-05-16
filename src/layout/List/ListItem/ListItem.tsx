@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes, forwardRef } from 'react';
+import React, { FC, InputHTMLAttributes, LegacyRef, forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { ListTheme } from '@/layout/List/ListTheme';
 import { useComponentTheme } from '@/utils';
@@ -45,7 +45,17 @@ export interface ListItemProps extends InputHTMLAttributes<HTMLDivElement> {
   theme?: ListTheme;
 }
 
-export const ListItem = forwardRef<HTMLDivElement, ListItemProps>(
+export interface ListItemRef {
+  /**
+   * Reference to the list item element.
+   */
+  ref?: LegacyRef<HTMLDivElement>;
+}
+
+export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
+  HTMLDivElement,
+  ListItemProps
+>(
   (
     {
       className,
