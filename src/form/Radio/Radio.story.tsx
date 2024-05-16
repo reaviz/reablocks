@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { Radio } from './Radio';
+import { Stack } from '@/layout';
 
 export default {
   title: 'Components/Form/Radio',
@@ -13,7 +14,12 @@ export const Simple = () => {
 
 export const Disabled = () => {
   const [state, setState] = useState(true);
-  return <Radio disabled checked={state} onChange={setState} />;
+  return (
+    <Stack>
+      <Radio disabled checked={false} label="Disabled" />
+      <Radio disabled checked={state} onChange={setState} label="Disabled" />
+    </Stack>
+  );
 };
 
 export const Sizes = () => {
