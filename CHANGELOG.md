@@ -1,3 +1,9 @@
+# 7.6.14 - 5/16/24
+- [improvement] Improve blocks responsivenes #194
+- [fix] Fix some blocks styling #193
+- [fix] Fix MFA block logo #191
+- [fix] Fix MFA QR code #190
+
 # 7.6.13 - 5/16/24
 - [chore] move back block stories
 
