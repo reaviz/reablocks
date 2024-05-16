@@ -72,7 +72,7 @@ export const Register = () => {
       <Card className="w-full p-12">
         <div className="flex flex-col pt-2 mb-5">
           <div>
-            <LogoIcon className="h-11 mb-2" />
+            <LogoIcon className="h-11 mb-2 w-auto" />
           </div>
           <h4 className="text-2xl font-sans font-bold mb-0">
             Welcome to Reablocks
@@ -209,12 +209,12 @@ export const RegisterFull = () => {
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[11000px]"
+      className="sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[1100px]"
     >
       <Card className="w-full p-12">
         <div className="flex flex-col pt-2 mb-5">
           <div>
-            <LogoIcon className="h-11 mb-2" />
+            <LogoIcon className="h-11 mb-2 w-auto" />
           </div>
           <h4 className="text-2xl font-sans font-bold mb-0">
             Welcome to Reablocks

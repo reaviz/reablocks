@@ -175,7 +175,7 @@ export const ForgotPasswordFull = () => {
         animate={{ y: 0, opacity: 1 }}
         className="h-full w-full flex flex-col items-start p-7"
       >
-        <LogoIcon className="h-11" />
+        <LogoIcon className="h-11 w-auto mb-2" />
         <div className="w-full grow flex flex-col justify-center pr-14">
           <h4 className="text-2xl font-sans font-bold mb-0">
             Forgot Password?
@@ -237,7 +237,7 @@ export const ForgotPasswordFull = () => {
         </div>
       </motion.div>
       <div className="relative w-full h-full overflow-hidden">
-        <img src={BG_IMAGE} className="absolute h-full" />
+        <img src={BG_IMAGE} className="absolute h-full w-full" />
       </div>
     </Card>
   );
@@ -349,7 +349,7 @@ export const ResetPassword = () => {
         contentClassName="w-full h-full grow flex flex-col"
       >
         <Stack justifyContent="spaceBetween">
-          <LogoIcon className="h-11" />
+          <LogoIcon className="h-11 w-auto" />
           <a href="#" className="text-lg text-primary font-semibold">
             Create an account
           </a>

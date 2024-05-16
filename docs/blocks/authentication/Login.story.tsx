@@ -277,7 +277,7 @@ export const LoginFull = () => {
         className="h-full w-full flex flex-col items-start p-7"
       >
         <div className="w-full grow flex flex-col justify-center pr-14">
-          <LogoIcon className="h-11 mb-2 self-start" />
+          <LogoIcon className="h-11 mb-2 self-start w-auto" />
           <h4 className="text-2xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
