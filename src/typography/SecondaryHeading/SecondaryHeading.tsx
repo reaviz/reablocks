@@ -34,6 +34,9 @@ export interface SecondaryHeadingProps
 }
 
 export interface SecondaryHeadingRef {
+  /**
+   * Reference to the HTML heading element.
+   */
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 

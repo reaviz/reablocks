@@ -68,6 +68,9 @@ const VARIANTS = {
 };
 
 export interface RadioRef {
+  /**
+   * Reference to the radio element.
+   */
   ref?: LegacyRef<HTMLDivElement>;
 }
 

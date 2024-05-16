@@ -30,6 +30,9 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 export interface TextRef {
+  /**
+   * Reference to the HTML heading element.
+   */
   ref?: LegacyRef<HTMLSpanElement>;
 }
 

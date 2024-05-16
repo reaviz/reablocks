@@ -17,6 +17,9 @@ export const groupVariants = {
 };
 
 export interface MotionGroupProps extends HTMLMotionProps<'div'> {
+  /**
+   * The content of group.
+   */
   children: ReactNode;
 }
 

@@ -41,17 +41,17 @@ export interface TooltipProps {
   /**
    * Popperjs placement.
    */
-  placement: Placement;
+  placement?: Placement;
 
   /**
    * Delay before showing tooltip.
    */
-  enterDelay: number;
+  enterDelay?: number;
 
   /**
    * Delay before closing tooltip.
    */
-  leaveDelay: number;
+  leaveDelay?: number;
 
   /**
    * Popperjs modifiers.
@@ -61,7 +61,7 @@ export interface TooltipProps {
   /**
    * External setter for visibility.
    */
-  visible: boolean;
+  visible?: boolean;
 
   /**
    * Additional CSS classnames.
@@ -76,7 +76,7 @@ export interface TooltipProps {
   /**
    * How the tooltip will be triggered.
    */
-  trigger: TriggerTypes[] | TriggerTypes;
+  trigger?: TriggerTypes[] | TriggerTypes;
 
   /**
    * Whether the tooltip is disabled.
@@ -114,7 +114,7 @@ export interface TooltipProps {
   theme?: TooltipTheme;
 }
 
-export const Tooltip: FC<Partial<TooltipProps>> = ({
+export const Tooltip: FC<TooltipProps> = ({
   className,
   children,
   content,

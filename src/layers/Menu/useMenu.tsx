@@ -27,7 +27,7 @@ export const useMenu = (prop?: MenuOptions) => {
   }, [internalOpen]);
 
   const Component = useCallback(
-    (props: Partial<MenuProps>) => (
+    (props: MenuProps) => (
       <Menu
         {...props}
         open={internalOpen}
