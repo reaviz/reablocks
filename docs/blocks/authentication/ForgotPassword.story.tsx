@@ -168,15 +168,15 @@ export const ForgotPasswordFull = () => {
   return (
     <Card
       className="w-full grow p-5"
-      contentClassName="w-full grid grid-cols-2 max-w-[960px] h-[600px]"
+      contentClassName="w-full flex w-full gap-12 max-w-[960px] h-[600px]"
     >
       <motion.div
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="h-full w-full flex flex-col items-start p-7"
+        className="h-full w-full flex flex-col items-start p-7 m-auto"
       >
         <LogoIcon className="h-11 w-auto mb-2" />
-        <div className="w-full grow flex flex-col justify-center pr-14">
+        <div className="w-full grow flex flex-col justify-center">
           <h4 className="text-2xl font-sans font-bold mb-0">
             Forgot Password?
           </h4>
@@ -236,8 +236,8 @@ export const ForgotPasswordFull = () => {
           </form>
         </div>
       </motion.div>
-      <div className="relative w-full h-full overflow-hidden">
-        <img src={BG_IMAGE} className="absolute h-full w-full" />
+      <div className="relative w-full h-full hidden md:block overflow-hidden">
+        <img src={BG_IMAGE} className="h-full w-full" />
       </div>
     </Card>
   );

@@ -832,7 +832,7 @@ const GridPatternIcon = ({ className }) => (
 );
 
 export const NotFound = () => (
-  <div className="flex flex-row justify-center w-full min-w-[960px] min-h-[600px] relative dark:bg-black-pearl">
+  <div className="flex flex-row justify-center w-full md:min-w-[960px] min-h-[600px] relative dark:bg-black-pearl p-6">
     <div className="text-center">
       <div className="absolute top-0 left-0 z-0 w-full leading-[600px] text-center text-transparent bg-clip-text text-[400px] opacity-30 bg-gradient-to-r from-waterloo to-charade font-bold">
         404
@@ -885,7 +885,7 @@ export const NotFound = () => (
 );
 
 export const DoesNotExist = () => (
-  <div className="w-full dark:bg-black-pearl min-w-[960px]">
+  <div className="w-full dark:bg-black-pearl md:min-w-[960px] p-6 pt-0">
     <MotionGroup className="bg-[radial-gradient(50%_6.33%_at_50%_0%,rgba(16,94,255,0.71)_0%,rgba(248,248,251,0)_85.19%)] pb-[50px]">
       <Divider variant="secondary" />
       <MotionItem className="flex flex-col items-center p-12">
@@ -965,7 +965,7 @@ export const DoesNotExist = () => (
           Sorry, we couldn't find the page you're looking for.
         </span>
       </MotionItem>
-      <div className="flex flex-col items-center w-[600px] pb-[50px] m-auto">
+      <div className="flex flex-col items-center w-full md:w-[600px] pb-[50px] m-auto">
         <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded group/item">
           <svg
             className="group-hover/item:fill-primary-active dark:fill-mystic transition-colors"
@@ -1109,7 +1109,7 @@ export const DoesNotExist = () => (
 );
 
 export const LostPage = () => (
-  <div className="flex flex-row justify-center w-full min-w-[960px] min-h-[800px] relative dark:bg-black-pearl">
+  <div className="flex flex-row justify-center w-full md:min-w-[960px] p-6 min-h-[800px] relative dark:bg-black-pearl">
     <div className="text-center w-full">
       <GridPatternIcon className="absolute top-0" />
       <div className="flex flex-col gap-3 w-full h-full justify-center">
@@ -1133,7 +1133,7 @@ export const LostPage = () => (
         >
           ← Back to Home
         </Button>
-        <MotionGroup className="mt-[200px] w-full grid grid-cols-3 px-10">
+        <MotionGroup className="mt-12 md:mt-[200px] w-full grid md:grid-cols-3 grid-cols-1 px-10">
           <MotionItem className="group/item">
             <Card className="relative text-left border-transparent dark:group-hover/item:border-charade light:group-hover/item:border-mystic transition-colors">
               <div className="flex flex-col gap-6 items-start">
