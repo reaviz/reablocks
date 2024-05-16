@@ -28,7 +28,7 @@
 
 ## 🚀 Quick Links
 - [Website](https://reablocks.dev)
-- [Docs](https:/reablocks.dev/docs)
+- [Docs](https://reablocks.dev/docs)
 - [Blocks](https://reablocks.dev/blocks)
 - [Changelog](https://reablocks.dev/docs/changelog)
 
