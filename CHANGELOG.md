@@ -1,3 +1,6 @@
+# 7.6.12 - 5/16/24
+- [chore] improve Component types & docs blocks
+
 # 7.6.11 - 5/15/24
 - [fix] fix inline input with null values
 
