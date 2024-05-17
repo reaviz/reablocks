@@ -23,7 +23,12 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Style variant for the avatar.
    */
-  variant?: 'filled' | 'outline' | 'colored';
+  variant?: 'filled' | 'outline';
+
+  /**
+   * Style type for the avatar.
+   */
+  type: 'colored' | 'monochrome';
 
   /**
    * Whether the avatar is rounded.
@@ -67,7 +72,8 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
       src,
       color,
       size = 24,
-      variant = 'colored',
+      variant = 'filled',
+      type = 'colored',
       rounded = true,
       className,
       colorOptions,
@@ -118,7 +124,7 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
           height: `${size}px`,
           fontSize: `${fontSize}px`,
           backgroundImage: src ? `url(${src})` : 'none',
-          ...(variant === 'colored' && !disabled ? { backgroundColor } : {})
+          ...(type === 'colored' && !disabled ? { backgroundColor } : {})
         }}
         ref={ref}
       >

@@ -47,21 +47,24 @@ export const Outline = args => <ComponentsBlock {...args} />;
 Outline.args = {
   name: 'John Doe',
   size: 50,
-  variant: 'outline'
+  variant: 'outline',
+  type: 'monochrome'
 };
 
 export const Filled = args => <ComponentsBlock {...args} />;
 Filled.args = {
   name: 'John Doe',
   size: 50,
-  variant: 'filled'
+  variant: 'filled',
+  type: 'monochrome'
 };
 
 export const Colored = args => <ComponentsBlock {...args} />;
 Colored.args = {
   name: 'John Doe',
   size: 50,
-  variant: 'colored'
+  variant: 'filled',
+  type: 'colored'
 };
 export const Image = args => <ComponentsBlock {...args} />;
 Image.args = {
