@@ -29,13 +29,13 @@ const GoodCodeLogo = () => (
   >
     <path
       fillRule="evenodd"
-      clip-rule="evenodd"
+      clipRule="evenodd"
       d="M9.30914 0L0.800049 5.95244L9.30914 12V6.50322L7.39925 5.2725L6.32435 6L8.11316 7.16363V9.6557L2.90066 5.95244L9.30914 1.4745V0Z"
       fill="url(#paint0_linear_2617_5417)"
     />
     <path
       fillRule="evenodd"
-      clip-rule="evenodd"
+      clipRule="evenodd"
       d="M9.30912 1.93848L3.61314 5.95581L7.70718 8.86155V7.35838L5.64 6.01625L9.30912 3.42873V1.93848Z"
       fill="url(#paint1_linear_2617_5417)"
     />
@@ -48,10 +48,10 @@ const GoodCodeLogo = () => (
         y2="10.0814"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#105EFF" />
-        <stop offset="0.413357" stop-color="#009BFF" />
-        <stop offset="0.735652" stop-color="#105EFF" />
-        <stop offset="1" stop-color="#090E43" />
+        <stop stopColor="#105EFF" />
+        <stop offset="0.413357" stopColor="#009BFF" />
+        <stop offset="0.735652" stopColor="#105EFF" />
+        <stop offset="1" stopColor="#090E43" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_2617_5417"
@@ -61,10 +61,10 @@ const GoodCodeLogo = () => (
         y2="2.10756"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#105EFF" />
-        <stop offset="0.413357" stop-color="#009BFF" />
-        <stop offset="0.735652" stop-color="#105EFF" />
-        <stop offset="1" stop-color="#090E43" />
+        <stop stopColor="#105EFF" />
+        <stop offset="0.413357" stopColor="#009BFF" />
+        <stop offset="0.735652" stopColor="#105EFF" />
+        <stop offset="1" stopColor="#090E43" />
       </linearGradient>
     </defs>
   </svg>
