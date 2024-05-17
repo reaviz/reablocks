@@ -74,7 +74,8 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
         tabIndex={0}
         className={twMerge(
           theme.base,
-          disabled && theme.disabled,
+          disabled && theme.disabled.base,
+          disabled && checked && theme.disabled.checked,
           checked && theme.checked,
           theme.sizes[size],
           className

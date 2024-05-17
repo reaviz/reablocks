@@ -11,10 +11,13 @@ export const Simple = () => {
   return <Toggle checked={state} onChange={setState} />;
 };
 
-export const Disabled = () => {
-  const [state, setState] = useState(true);
-  return <Toggle disabled checked={state} onChange={setState} />;
-};
+export const Disabled = () => (
+  <>
+    <Toggle disabled checked={false} />
+    <br />
+    <Toggle disabled checked />
+  </>
+);
 
 export const Sizes = () => {
   const [stateSmall, setStateSmall] = useState(true);
