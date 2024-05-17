@@ -66,7 +66,7 @@ const baseTheme: SelectInputTheme = {
     inputContainer: 'flex-wrap'
   },
   chip: {
-    base: 'cursor-pointer flex text-base leading-none box-border mr-1 my-px px-1 py-1 rounded border-solid border-transparent',
+    base: 'cursor-pointer flex text-sm leading-none box-border mr-1 px-1 py-1 rounded border-solid border-transparent',
     hover: '',
     focused: 'focused:border-transparent focused:outline-none',
     disabled: 'disabled:cursor-not-allowed',
