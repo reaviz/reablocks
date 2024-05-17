@@ -1,3 +1,7 @@
+# 7.6.18 - 5/17/24
+- [improvement] Add role to Toggle component
+- [improvement] Match font size for Select and Input
+
 # 7.6.17 - 5/17/24
 - [chore] add typedocs to dist
 
