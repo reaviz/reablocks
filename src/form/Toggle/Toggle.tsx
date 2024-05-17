@@ -1,8 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { motion } from 'framer-motion';
-import { twMerge } from 'tailwind-merge';
 import { ToggleTheme } from './ToggleTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface ToggleProps {
   /**
@@ -72,11 +71,14 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
         {...rest}
         ref={ref}
         tabIndex={0}
-        className={twMerge(
+        className={cn(
           theme.base,
-          disabled && theme.disabled,
-          checked && theme.checked,
           theme.sizes[size],
+          {
+            [theme.checked]: checked,
+            [theme.disabled]: disabled,
+            [theme.disabledAndChecked]: disabled && checked
+          },
           className
         )}
         onClick={() => {
@@ -92,7 +94,10 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
         }}
       >
         <motion.div
-          className={twMerge(theme.handle.base, theme.handle.sizes[size])}
+          className={cn(theme.handle.base, theme.handle.sizes[size], {
+            [theme.handle.disabled]: disabled,
+            [theme.handle.disabledAndChecked]: disabled && checked
+          })}
           layout
           transition={{
             type: 'spring',
