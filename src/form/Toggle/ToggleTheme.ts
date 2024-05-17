@@ -25,7 +25,7 @@ const baseTheme: ToggleTheme = {
   disabled: 'cursor-not-allowed bg-transparent hover:bg-transparent',
   checked: 'justify-end bg-primary',
   disabledAndChecked:
-    'bg-gray-600 hover:bg-gray-600 light:bg-gray-400 light:hover:bg-gray-400',
+    'bg-secondary-inactive hover:bg-secondary-inactive light:bg-gray-400 light:hover:bg-gray-400',
   handle: {
     base: 'rounded-full bg-panel',
     sizes: {
@@ -33,7 +33,7 @@ const baseTheme: ToggleTheme = {
       medium: 'w-5 h-full',
       large: 'w-6 h-full'
     },
-    disabled: 'bg-gray-600 light:bg-gray-400',
+    disabled: 'bg-secondary-inactive light:bg-gray-400',
     disabledAndChecked: 'bg-black light:bg-white'
   },
   sizes: {
