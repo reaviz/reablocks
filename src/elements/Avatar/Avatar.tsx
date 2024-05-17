@@ -28,7 +28,7 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Style type for the avatar.
    */
-  type: 'colored' | 'monochrome';
+  type?: 'colored' | 'monochrome';
 
   /**
    * Whether the avatar is rounded.
