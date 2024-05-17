@@ -17,7 +17,7 @@ export interface SelectMenuProps {
   /**
    * Options passed to the select.
    */
-  options: SelectOptionProps[];
+  options?: SelectOptionProps[];
 
   /**
    * The selected option(s).
@@ -57,12 +57,12 @@ export interface SelectMenuProps {
   /**
    * Internal active index of the keyboard position.
    */
-  index: number;
+  index?: number;
 
   /**
    * The input's search text to use for highlighting.
    */
-  inputSearchText: string;
+  inputSearchText?: string;
 
   /**
    * Whether users can filter the options or not.
@@ -77,7 +77,7 @@ export interface SelectMenuProps {
   /**
    * Event fired when the selected option(s) change.
    */
-  onSelectedChange: (option: SelectValue) => void;
+  onSelectedChange?: (option: SelectValue) => void;
 
   /**
    * The theme for the Select.
@@ -85,7 +85,7 @@ export interface SelectMenuProps {
   theme?: SelectTheme;
 }
 
-export const SelectMenu: FC<Partial<SelectMenuProps>> = ({
+export const SelectMenu: FC<SelectMenuProps> = ({
   style,
   disabled,
   createable,

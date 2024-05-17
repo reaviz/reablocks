@@ -4,14 +4,33 @@ import { useComponentTheme } from '@/utils';
 import { DrawerTheme } from './DrawerTheme';
 
 export interface DrawerHeaderProps {
+  /**
+   * The content of the drawer header.
+   */
   children?: any;
+
+  /**
+   * The CSS class name for the root element of the component.
+   */
   className?: string;
+
+  /**
+   * Whether to show the close button in the drawer header.
+   */
   showCloseButton?: boolean;
+
+  /**
+   * Callback when the close button is clicked.
+   */
   onClose?: () => void;
+
+  /**
+   * Theme for the Drawer Header.
+   */
   theme?: DrawerTheme;
 }
 
-export const DrawerHeader: FC<Partial<DrawerHeaderProps>> = ({
+export const DrawerHeader: FC<DrawerHeaderProps> = ({
   children,
   className,
   showCloseButton,

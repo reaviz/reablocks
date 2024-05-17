@@ -13,7 +13,12 @@ export const Simple = () => {
 
 export const Disabled = () => {
   const [state, setState] = useState(true);
-  return <Radio disabled checked={state} onChange={setState} />;
+  return (
+    <div className="flex gap-4 items-center">
+      <Radio disabled checked={false} label="Disabled" />
+      <Radio disabled checked={state} onChange={setState} label="Disabled" />
+    </div>
+  );
 };
 
 export const Sizes = () => {

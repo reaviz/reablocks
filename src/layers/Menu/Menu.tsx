@@ -33,17 +33,17 @@ export interface MenuProps {
   /**
    * Close the menu on click or not.
    */
-  closeOnBodyClick: boolean;
+  closeOnBodyClick?: boolean;
 
   /**
    * Close the menu on escape.
    */
-  closeOnEscape: boolean;
+  closeOnEscape?: boolean;
 
   /**
    * Popper placement type.
    */
-  placement: Placement;
+  placement?: Placement;
 
   /**
    * Reference element for the menu position.
@@ -58,12 +58,12 @@ export interface MenuProps {
   /**
    * Whether to show the menu or not.
    */
-  open: boolean;
+  open?: boolean;
 
   /**
    * Max height of the menu.
    */
-  maxHeight: string;
+  maxHeight?: string;
 
   /**
    * Popper.js Position modifiers.
@@ -88,17 +88,17 @@ export interface MenuProps {
   /**
    * Menu was closed.
    */
-  onClose: (event: OverlayEvent) => void;
+  onClose?: (event: OverlayEvent) => void;
 
   /**
    * Mouse enter event.
    */
-  onMouseEnter: (event) => void;
+  onMouseEnter?: (event) => void;
 
   /**
    * Mouse leave event.
    */
-  onMouseLeave: (event) => void;
+  onMouseLeave?: (event) => void;
 
   /**
    * Theme for the Menu.
@@ -107,10 +107,16 @@ export interface MenuProps {
 }
 
 export interface MenuRef {
+  /**
+   * Reference to the menu element.
+   */
   ref?: LegacyRef<HTMLDivElement>;
 }
 
-export const Menu: FC<Partial<MenuProps & MenuRef>> = forwardRef(
+export const Menu: FC<MenuProps & MenuRef> = forwardRef<
+  HTMLDivElement,
+  MenuProps
+>(
   (
     {
       reference,

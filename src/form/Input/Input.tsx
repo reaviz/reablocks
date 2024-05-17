@@ -1,4 +1,5 @@
 import React, {
+  FC,
   forwardRef,
   RefObject,
   useImperativeHandle,
@@ -73,14 +74,33 @@ export interface InputProps
 }
 
 export interface InputRef {
-  inputRef: RefObject<HTMLInputElement>;
-  containerRef: RefObject<HTMLDivElement>;
+  /**
+   * Reference to the input element.
+   */
+  inputRef?: RefObject<HTMLInputElement>;
+
+  /**
+   * Reference to the container element.
+   */
+  containerRef?: RefObject<HTMLDivElement>;
+
+  /**
+   * Method to blur the input.
+   */
   blur?: () => void;
+
+  /**
+   * Method to focus the input.
+   */
   focus?: () => void;
+
+  /**
+   * Method to select the input.
+   */
   select?: () => void;
 }
 
-export const Input = forwardRef<InputRef, InputProps>(
+export const Input: FC<InputProps & InputRef> = forwardRef(
   (
     {
       className,

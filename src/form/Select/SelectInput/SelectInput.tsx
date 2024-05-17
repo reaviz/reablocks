@@ -39,7 +39,7 @@ export interface SelectInputProps {
   /**
    * The options for the select input.
    */
-  options: SelectOptionProps[];
+  options?: SelectOptionProps[];
 
   /**
    * If true, the select input is disabled.
@@ -52,14 +52,9 @@ export interface SelectInputProps {
   menuOpen?: boolean;
 
   /**
-   * The font size of the select input.
-   */
-  fontSize?: string | number;
-
-  /**
    * The input text of the select input.
    */
-  inputText: string;
+  inputText?: string;
 
   /**
    * If true, the select input will close on select.
@@ -169,44 +164,44 @@ export interface SelectInputProps {
   /**
    * The function to handle selected change.
    */
-  onSelectedChange: (option: SelectValue) => void;
+  onSelectedChange?: (option: SelectValue) => void;
 
   /**
    * The function to handle expand click.
    */
-  onExpandClick: (event: React.MouseEvent<Element>) => void;
+  onExpandClick?: (event: React.MouseEvent<Element>) => void;
 
   /**
    * The function to handle key down.
    */
-  onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 
   /**
    * The function to handle key up.
    */
-  onKeyUp: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 
   /**
    * The function to handle focus.
    */
-  onFocus: (
+  onFocus?: (
     event: React.FocusEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement>
   ) => void;
 
   /**
    * The function to handle blur.
    */
-  onBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 
   /**
    * The function to handle input change.
    */
-  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 
   /**
    * The function to handle input paste event.
    */
-  onPaste: (event: React.ClipboardEvent<HTMLInputElement>) => void;
+  onPaste?: (event: React.ClipboardEvent<HTMLInputElement>) => void;
 
   /**
    * The function to handle refresh.
@@ -215,8 +210,19 @@ export interface SelectInputProps {
 }
 
 export interface SelectInputRef {
-  inputRef: RefObject<HTMLInputElement>;
-  containerRef: RefObject<HTMLDivElement>;
+  /**
+   * The reference of the input element.
+   */
+  inputRef?: RefObject<HTMLInputElement>;
+
+  /**
+   * The reference of the container element.
+   */
+  containerRef?: RefObject<HTMLDivElement>;
+
+  /**
+   * Focuses the input element.
+   */
   focus: () => void;
 }
 
@@ -224,14 +230,13 @@ const horiztonalArrowKeys = ['ArrowLeft', 'ArrowRight'];
 const verticalArrowKeys = ['ArrowUp', 'ArrowDown'];
 const actionKeys = [...verticalArrowKeys, 'Enter', 'Escape'];
 
-export const SelectInput: FC<Partial<SelectInputProps>> = ({
+export const SelectInput: FC<SelectInputProps> = ({
   reference,
   autoFocus,
   selectedOption,
   disabled,
   placeholder,
   filterable,
-  fontSize = 13,
   id,
   name,
   className,
@@ -505,9 +510,8 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
       >
         {renderPrefix()}
         <InlineInput
-          inputRef={el => (inputRef.current = el)}
+          ref={inputRef}
           id={id}
-          style={{ fontSize }}
           name={name}
           disabled={disabled}
           required={required}

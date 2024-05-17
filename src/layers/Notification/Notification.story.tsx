@@ -182,13 +182,13 @@ export const CustomIcon = () => (
                   >
                     <g clip-path="url(#clip0_2375_7604)">
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         clip-rule="evenodd"
                         d="M18.6121 0L0.166504 12.8969L18.6121 26V14.0903L14.4719 11.4237L12.1418 13L16.0195 15.5212V20.9207L4.7201 12.8969L18.6121 3.19474V0Z"
                         fill="url(#paint0_linear_2375_7604)"
                       />
                       <path
-                        fill-rule="evenodd"
+                        fillRule="evenodd"
                         clip-rule="evenodd"
                         d="M18.6118 4.19995L6.2644 12.9042L15.1392 19.2V15.9431L10.6581 13.0351L18.6118 7.42883V4.19995Z"
                         fill="url(#paint1_linear_2375_7604)"

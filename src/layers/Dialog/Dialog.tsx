@@ -38,7 +38,7 @@ export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
   /**
    * The content of the dialog.
    */
-  children: any | (() => any);
+  children?: any | (() => any);
 
   /**
    * Whether to disable padding for the dialog content.
@@ -58,7 +58,7 @@ export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
   /**
    * The React element for the dialog header.
    */
-  headerElement: ReactElement<DialogHeaderProps, typeof DialogHeader> | null;
+  headerElement?: ReactElement<DialogHeaderProps, typeof DialogHeader> | null;
 
   /**
    * Theme for the Dialog.
@@ -66,7 +66,7 @@ export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
   theme?: DialogTheme;
 }
 
-export const Dialog: FC<Partial<DialogProps>> = ({
+export const Dialog: FC<DialogProps> = ({
   children,
   open,
   className,

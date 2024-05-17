@@ -33,6 +33,9 @@ export interface PrimaryHeadingProps
   theme?: TypographyTheme;
 }
 export interface PrimaryHeadingRef {
+  /**
+   * Reference to the HTML heading element.
+   */
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 

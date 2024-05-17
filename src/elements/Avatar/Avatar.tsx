@@ -1,4 +1,4 @@
-import React, { forwardRef, useMemo } from 'react';
+import React, { FC, LegacyRef, forwardRef, useMemo } from 'react';
 import getInitials from 'name-initials';
 import { generateColor } from '@marko19907/string-to-color';
 import { cn, useComponentTheme } from '@/utils';
@@ -65,7 +65,17 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   theme?: AvatarTheme;
 }
 
-export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
+export interface AvatarRef {
+  /**
+   * Reference to the root div element.
+   */
+  ref?: LegacyRef<HTMLDivElement>;
+}
+
+export const Avatar: FC<AvatarProps> & AvatarRef = forwardRef<
+  HTMLDivElement,
+  AvatarProps
+>(
   (
     {
       name,

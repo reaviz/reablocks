@@ -6,6 +6,9 @@ import { KbdTheme } from './KbdTheme';
 import { twMerge } from 'tailwind-merge';
 
 export interface KbdProps extends Omit<ChipProps, 'children' | 'theme'> {
+  /**
+   * Keycode for the Kbd.
+   */
   keycode: string;
 
   /**

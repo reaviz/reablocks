@@ -1,4 +1,5 @@
 import React, {
+  FC,
   forwardRef,
   RefObject,
   useImperativeHandle,
@@ -39,13 +40,31 @@ export interface TextareaProps extends TextareaAutosizeProps {
 }
 
 export interface TextAreaRef {
-  inputRef: RefObject<HTMLTextAreaElement>;
-  containerRef: RefObject<HTMLDivElement>;
+  /**
+   * Reference to the input element.
+   */
+  inputRef?: RefObject<HTMLTextAreaElement>;
+
+  /**
+   * Reference to the container element.
+   */
+  containerRef?: RefObject<HTMLDivElement>;
+
+  /**
+   * Method to blur the input element.
+   */
   blur?: () => void;
+
+  /**
+   * Method to focus the input element.
+   */
   focus?: () => void;
 }
 
-export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
+export const Textarea: FC<TextareaProps & TextAreaRef> = forwardRef<
+  TextAreaRef,
+  TextareaProps
+>(
   (
     {
       fullWidth,

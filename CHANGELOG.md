@@ -1,4 +1,53 @@
-# 7.60 - 5/13/24
+# 7.6.15 - 5/16/24
+- [fix] Fix radio story #195
+
+# 7.6.14 - 5/16/24
+- [improvement] Improve blocks responsivenes #194
+- [fix] Fix some blocks styling #193
+- [fix] Fix MFA block logo #191
+- [fix] Fix MFA QR code #190
+- [feat] update theme for radio button  #187
+
+# 7.6.13 - 5/16/24
+- [chore] move back block stories
+
+# 7.6.12 - 5/16/24
+- [chore] improve Component types & docs blocks
+
+# 7.6.11 - 5/15/24
+- [fix] fix inline input with null values
+
+# 7.6.10 - 5/15/24
+- [chore] redo inline input to be simple solution
+
+# 7.6.9 - 5/15/24
+- [chore] fix range story
+
+# 7.6.8 - 5/15/24
+- [chore] fix type
+
+# 7.6.7 - 5/15/24
+- [chore] fix block story style issue
+
+# 7.6.6 - 5/15/24
+- [chore] fix block story style issue
+
+# 7.6.5 - 5/15/24
+- [chore] add stories for blocks
+
+# 7.6.4 - 5/14/24
+- [chore] fix storybook stories
+
+# 7.6.3 - 5/14/24
+- [chore] fix storybook stories
+
+# 7.6.2 - 5/14/24
+- [chore] remove lodash from stories
+
+# 7.6.1 - 5/14/24
+- [chore] copy blocks to dist folder
+
+# 7.6.0 - 5/13/24
 - [feature] breadcrumbs component
 
 # 7.5.7 - 5/13/24

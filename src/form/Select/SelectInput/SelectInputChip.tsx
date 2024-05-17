@@ -7,21 +7,56 @@ import { useComponentTheme } from '@/utils';
 import { SelectTheme } from '@/form/Select/SelectTheme';
 
 export interface SelectInputChipProps {
-  option: SelectOptionProps;
+  /**
+   * The option to render as a chip.
+   */
+  option?: SelectOptionProps;
+
+  /**
+   * The maximum length of the chip.
+   */
   maxLength?: number;
+
+  /**
+   * Additional class names to apply to the chip.
+   */
   className?: string;
+
+  /**
+   * Whether the chip is disabled or not.
+   */
   disabled?: boolean;
+
+  /**
+   * Whether the chip is clearable or not.
+   */
   clearable?: boolean;
+
+  /**
+   * Theme for the Select.
+   */
   theme?: SelectTheme;
+
+  /**
+   * The close icon for the chip.
+   */
   closeIcon?: React.ReactNode;
-  onTagKeyDown: (
+
+  /**
+   * Callback for when a key is pressed on the chip.
+   */
+  onTagKeyDown?: (
     event: React.KeyboardEvent<HTMLSpanElement>,
     option: SelectOptionProps
   ) => void;
-  onSelectedChange: (option: SelectOptionProps) => void;
+
+  /**
+   * Callback for when the selected option changes.
+   */
+  onSelectedChange?: (option: SelectOptionProps) => void;
 }
 
-export const SelectInputChip: FC<Partial<SelectInputChipProps>> = ({
+export const SelectInputChip: FC<SelectInputChipProps> = ({
   option,
   disabled,
   clearable,

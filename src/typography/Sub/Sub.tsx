@@ -33,6 +33,9 @@ export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
 }
 
 export interface SubRef {
+  /**
+   * Reference to the HTML heading element.
+   */
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 
