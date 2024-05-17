@@ -1,3 +1,6 @@
+# 7.6.17 - 5/17/24
+- [chore] add typedocs to dist
+
 # 7.6.16 - 5/17/24
 - [fix] Fix svg properties names #198
 - [chore] Move color palette to separate file #197
