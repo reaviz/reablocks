@@ -39,7 +39,7 @@ const baseTheme: SelectInputTheme = {
   inputContainer:
     'flex-wrap flex items-center overflow-hidden flex-1 max-w-full [&>div]:max-w-full',
   input:
-    'p-0 bg-transparent text-xs text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-none disabled:text-disabled',
+    'p-0 bg-transparent text-base text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-none disabled:text-disabled',
   placeholder: '',
   prefix: 'overflow-hidden whitespace-nowrap text-ellipsis',
   suffix: {
@@ -66,7 +66,7 @@ const baseTheme: SelectInputTheme = {
     inputContainer: 'flex-wrap'
   },
   chip: {
-    base: 'cursor-pointer flex text-xs leading-none box-border mr-1 my-px px-1 py-1 rounded border-solid border-transparent',
+    base: 'cursor-pointer flex text-sm leading-none box-border mr-1 px-1 py-1 rounded border-solid border-transparent',
     hover: '',
     focused: 'focused:border-transparent focused:outline-none',
     disabled: 'disabled:cursor-not-allowed',
