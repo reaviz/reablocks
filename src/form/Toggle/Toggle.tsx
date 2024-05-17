@@ -71,6 +71,7 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
         {...rest}
         ref={ref}
         tabIndex={0}
+        role="switch"
         className={cn(
           theme.base,
           theme.sizes[size],
