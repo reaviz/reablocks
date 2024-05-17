@@ -3,9 +3,10 @@
   "version": "7.6.14",
   "description": "Component library for React",
   "scripts": {
-    "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run rewrite:blocks && npm run build:docs",
+    "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run rewrite:blocks && npm run build:docs && npm run build:typedoc",
     "build-storybook": "storybook build",
     "build:js": "vite build --mode library",
+    "build:typedoc": "node scripts/typedoc.js",
     "build:styles": "tailwindcss -i ./src/index.css -o ./dist/index.css",
     "build:docs": "node scripts/docs.js",
     "rewrite:stories": "node scripts/stories.cjs",
@@ -30,6 +31,7 @@
       "require": "./dist/index.umd.cjs",
       "types": "./dist/index.d.ts"
     },
+    "./typdoc.json": "./dist/typdoc.json",
     "./stories/*": "./dist/stories/*",
     "./blocks/*": "./dist/blocks/*"
   },
@@ -107,6 +109,7 @@
     "@vitest/coverage-v8": "^1.4.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
+    "typedoc-better-json": "^0.9.3-test.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-no-relative-import-paths": "^1.5.4",
     "eslint-plugin-react": "^7.34.1",
@@ -127,6 +130,7 @@
     "storybook": "^8.1.0-alpha.0",
     "tailwindcss": "^3.4.1",
     "tw-colors": "^3.3.1",
+    "typedoc": "^0.25.13",
     "typescript": "^4.9.5",
     "typescript-rewrite-paths": "^1.3.1",
     "vite": "^5.2.2",
