@@ -74,8 +74,7 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
         tabIndex={0}
         className={twMerge(
           theme.base,
-          disabled && theme.disabled.base,
-          disabled && checked && theme.disabled.checked,
+          disabled && theme.disabled,
           checked && theme.checked,
           theme.sizes[size],
           className
@@ -93,7 +92,12 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
         }}
       >
         <motion.div
-          className={twMerge(theme.handle.base, theme.handle.sizes[size])}
+          className={twMerge(
+            theme.handle.base,
+            theme.handle.sizes[size],
+            disabled && theme.handle.disabled,
+            checked && theme.handle.checked
+          )}
           layout
           transition={{
             type: 'spring',

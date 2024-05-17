@@ -1,5 +1,5 @@
-import { Toggle } from './Toggle';
 import React, { useState } from 'react';
+import { Toggle } from './Toggle';
 
 export default {
   title: 'Components/Form/Toggle',

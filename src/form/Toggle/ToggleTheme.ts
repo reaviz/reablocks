@@ -1,9 +1,11 @@
 export interface ToggleTheme {
   base: string;
-  disabled: { base: string; checked: string };
+  disabled: string;
   checked: string;
   handle: {
     base: string;
+    disabled: string;
+    checked: string;
     sizes: {
       small: string;
       medium: string;
@@ -19,10 +21,12 @@ export interface ToggleTheme {
 
 const baseTheme: ToggleTheme = {
   base: 'flex items-center justify-start cursor-pointer bg-surface box-border border border-panel-accent rounded-full',
-  disabled: { base: 'cursor-not-allowed opacity-60', checked: '' },
-  checked: 'justify-end bg-primary',
+  disabled: 'cursor-not-allowed opacity-60',
+  checked: 'checked justify-end bg-primary',
   handle: {
     base: 'rounded-full bg-panel',
+    disabled: '',
+    checked: 'checked',
     sizes: {
       small: 'w-3 h-full',
       medium: 'w-5 h-full',
@@ -44,13 +48,10 @@ export const legacyToggleTheme: ToggleTheme = {
     baseTheme.base,
     'bg-[var(--toggle-background)] rounded-[var(--toggle-border-radius)] [border:_var(--toggle-border)]'
   ].join(' '),
-  disabled: {
-    base: [
-      baseTheme.disabled,
-      'opacity-[var(--toggle-disabled-opacity,0.8)] bg-[var(--toggle-disabled-background)]'
-    ].join(' '),
-    checked: ''
-  },
+  disabled: [
+    baseTheme.disabled,
+    'opacity-[var(--toggle-disabled-opacity,0.8)] bg-[var(--toggle-disabled-background)]'
+  ].join(' '),
   checked: [
     baseTheme.checked,
     'bg-[var(--toggle-background-checked)] [border:_var(--toggle-border-checked)]'
@@ -69,6 +70,8 @@ export const legacyToggleTheme: ToggleTheme = {
       baseTheme.handle.base,
       'bg-[var(--toggle-handle-background)] rounded-[var(--toggle-handle-border-radius)]'
     ].join(' '),
+    disabled: '',
+    checked: '',
     sizes: {
       small:
         'h-[calc(var(--toggle-handle-size,25px)_/_2)] w-[calc(var(--toggle-handle-size,25px)_/_2)]',
