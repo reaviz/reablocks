@@ -1,3 +1,7 @@
+# 7.6.16 - 5/17/24
+- [fix] Fix svg properties names #198
+- [chore] Move color palette to separate file #197
+
 # 7.6.15 - 5/16/24
 - [fix] Fix radio story #195
 
