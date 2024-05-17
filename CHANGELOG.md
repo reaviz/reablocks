@@ -1,8 +1,16 @@
+# 7.6.16 - 5/17/24
+- [fix] Fix svg properties names #198
+- [chore] Move color palette to separate file #197
+
+# 7.6.15 - 5/16/24
+- [fix] Fix radio story #195
+
 # 7.6.14 - 5/16/24
 - [improvement] Improve blocks responsivenes #194
 - [fix] Fix some blocks styling #193
 - [fix] Fix MFA block logo #191
 - [fix] Fix MFA QR code #190
+- [feat] update theme for radio button  #187
 
 # 7.6.13 - 5/16/24
 - [chore] move back block stories

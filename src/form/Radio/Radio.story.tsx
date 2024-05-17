@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from 'react';
 import { Radio } from './Radio';
-import { Stack } from '@/layout';
 
 export default {
   title: 'Components/Form/Radio',
@@ -15,10 +14,10 @@ export const Simple = () => {
 export const Disabled = () => {
   const [state, setState] = useState(true);
   return (
-    <Stack>
+    <div className="flex gap-4 items-center">
       <Radio disabled checked={false} label="Disabled" />
       <Radio disabled checked={state} onChange={setState} label="Disabled" />
-    </Stack>
+    </div>
   );
 };
 

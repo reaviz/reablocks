@@ -31,10 +31,10 @@ const LogoIcon = ({ className }) => (
         y2="159.958"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#1352FF" />
-        <stop offset="0.354721" stop-color="#009BFF" />
-        <stop offset="0.62382" stop-color="#105EFF" />
-        <stop offset="1" stop-color="#090E43" />
+        <stop stopColor="#1352FF" />
+        <stop offset="0.354721" stopColor="#009BFF" />
+        <stop offset="0.62382" stopColor="#105EFF" />
+        <stop offset="1" stopColor="#090E43" />
       </linearGradient>
     </defs>
   </svg>

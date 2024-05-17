@@ -34,10 +34,10 @@ const LogoIcon = ({ className }) => (
         y2="159.958"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#1352FF" />
-        <stop offset="0.354721" stop-color="#009BFF" />
-        <stop offset="0.62382" stop-color="#105EFF" />
-        <stop offset="1" stop-color="#090E43" />
+        <stop stopColor="#1352FF" />
+        <stop offset="0.354721" stopColor="#009BFF" />
+        <stop offset="0.62382" stopColor="#105EFF" />
+        <stop offset="1" stopColor="#090E43" />
       </linearGradient>
     </defs>
   </svg>
@@ -409,7 +409,7 @@ const QRLightIcon = ({ className }) => (
       >
         <path
           fillRule="evenodd"
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M13 13V55H55V13H13ZM19 19H49V49H19V19Z"
           fill="white"
         />
@@ -442,7 +442,7 @@ const QRLightIcon = ({ className }) => (
       >
         <path
           fillRule="evenodd"
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M187 13L145 13V55H187V13ZM181 19V49H151V19H181Z"
           fill="white"
         />
@@ -475,7 +475,7 @@ const QRLightIcon = ({ className }) => (
       >
         <path
           fillRule="evenodd"
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M13 187H55V145H13L13 187ZM19 181V151H49V181H19Z"
           fill="white"
         />
@@ -870,7 +870,7 @@ const QRDarkIcon = ({ className }) => (
       >
         <path
           fillRule="evenodd"
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M13 13V55H55V13H13ZM19 19H49V49H19V19Z"
           fill="white"
         />
@@ -901,7 +901,7 @@ const QRDarkIcon = ({ className }) => (
       >
         <path
           fillRule="evenodd"
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M187 13L145 13V55H187V13ZM181 19V49H151V19H181Z"
           fill="white"
         />
@@ -932,7 +932,7 @@ const QRDarkIcon = ({ className }) => (
       >
         <path
           fillRule="evenodd"
-          clip-rule="evenodd"
+          clipRule="evenodd"
           d="M13 187H55V145H13L13 187ZM19 181V151H49V181H19Z"
           fill="white"
         />
