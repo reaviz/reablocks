@@ -109,13 +109,17 @@ export const Avatar = forwardRef<HTMLDivElement, AvatarProps>(
         className={cn(
           theme.base,
           theme[themeVariant].base,
+          theme[type].base,
           {
             'cursor-pointer': interactable,
             [theme.rounded]: rounded,
             [theme.disabled]: disabled,
             [theme[themeVariant].focused]: interactable,
             [theme[themeVariant].hovered]: interactable,
-            [theme[themeVariant].disabled]: disabled
+            [theme[themeVariant].disabled]: disabled,
+            [theme[type].focused]: interactable,
+            [theme[type].hovered]: interactable,
+            [theme[type].disabled]: disabled
           },
           className
         )}

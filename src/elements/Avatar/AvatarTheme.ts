@@ -19,6 +19,12 @@ export interface AvatarTheme {
     focused: string;
     hovered: string;
   };
+  monochrome: {
+    base: string;
+    disabled: string;
+    focused: string;
+    hovered: string;
+  };
   disabled: string;
 }
 
@@ -38,7 +44,13 @@ const baseTheme: AvatarTheme = {
     disabled: ''
   },
   colored: {
-    base: 'border border-solid border-transparent',
+    base: '',
+    focused: '',
+    hovered: '',
+    disabled: ''
+  },
+  monochrome: {
+    base: '',
     focused: '',
     hovered: '',
     disabled: ''
@@ -86,9 +98,7 @@ export const avatarTheme: AvatarTheme = {
     ].join(' ')
   },
   colored: {
-    base: [baseTheme.colored.base, 'text-secondary light:text-gray-100'].join(
-      ' '
-    ),
+    base: [baseTheme.colored.base, 'text-white light:text-white'].join(' '),
     hovered: [
       baseTheme.outline.hovered,
       'hover:border-primary-hover light:hover:border-primary-hover'
