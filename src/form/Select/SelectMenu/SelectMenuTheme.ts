@@ -14,7 +14,7 @@ export interface SelectMenuTheme {
 const baseTheme: SelectMenuTheme = {
   base: 'border border-solid rounded-b-md text-center will-change-[transform,opacity] min-w-[112px] max-h-[300px] overflow-y-auto text-left box-border',
   groupItem: 'p-0 border-0',
-  groupTitle: 'text-xs font-bold uppercase m-0 px-1.5 py-2.5',
+  groupTitle: 'text-sm font-bold uppercase m-0 px-1.5 py-2.5',
   option: {
     base: 'text-sm flex-1 whitespace-break-spaces break-words py-1.5 px-2.5',
     hover: '',
