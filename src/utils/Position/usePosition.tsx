@@ -20,7 +20,9 @@ export interface PositionOptions {
   modifiers?: PopperJS.Modifiers;
   followCursor?: boolean;
 }
-
+/**
+ * Hook for positioning an element relative to another.
+ */
 export const usePosition = (
   reference: ReferenceProp,
   { followCursor, placement, modifiers }: PositionOptions = {}
