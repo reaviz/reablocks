@@ -1,3 +1,7 @@
+# 7.6.19 - 5/20/24
+- [fix] Fix DeletableChip theme #204
+- [improvement] Replace/remove inexistant text-xs classes #201
+
 # 7.6.18 - 5/17/24
 - [improvement] Add role to Toggle component
 - [improvement] Match font size for Select and Input
