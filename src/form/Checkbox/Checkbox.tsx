@@ -83,6 +83,9 @@ export interface CheckboxProps {
 }
 
 export interface CheckboxRef {
+  /**
+   * The ref to the checkbox element.
+   */
   ref?: LegacyRef<HTMLDivElement>;
 }
 

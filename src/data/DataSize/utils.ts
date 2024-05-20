@@ -2,6 +2,15 @@ import humanFormat from 'human-format';
 
 export type FormatSizeTypes = number | string | null | undefined;
 
+/**
+ * Given a size, format it to a human readable string.
+ *
+ * @param size the size to format
+ * @param emptyValue what to show when empty
+ * @param scale the scale to format on
+ * @param decimals number of decimal places
+ * @returns formatted string
+ */
 export function formatSize(
   size: FormatSizeTypes,
   emptyValue = 'N/A',

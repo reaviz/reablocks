@@ -28,9 +28,9 @@
 
 ## 🚀 Quick Links
 - [Website](https://reablocks.dev)
-- [Docs](https://storybook.reablocks.dev/?path=/docs/docs-intro--docs)
-- [Blocks](https://storybook.reablocks.dev/?path=/docs/blocks-introduction--docs)
-- [Changelog](https://storybook.reablocks.dev/?path=/docs/docs-changelog--docs)
+- [Docs](https://reablocks.dev/docs)
+- [Blocks](https://reablocks.dev/blocks)
+- [Changelog](https://reablocks.dev/docs/changelog)
 
 ## 🎁 Other Projects
 

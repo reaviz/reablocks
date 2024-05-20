@@ -182,14 +182,14 @@ export const CustomIcon = () => (
                   >
                     <g clip-path="url(#clip0_2375_7604)">
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M18.6121 0L0.166504 12.8969L18.6121 26V14.0903L14.4719 11.4237L12.1418 13L16.0195 15.5212V20.9207L4.7201 12.8969L18.6121 3.19474V0Z"
                         fill="url(#paint0_linear_2375_7604)"
                       />
                       <path
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M18.6118 4.19995L6.2644 12.9042L15.1392 19.2V15.9431L10.6581 13.0351L18.6118 7.42883V4.19995Z"
                         fill="url(#paint1_linear_2375_7604)"
                       />
@@ -203,10 +203,10 @@ export const CustomIcon = () => (
                         y2="21.8495"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#105EFF" />
-                        <stop offset="0.413357" stop-color="#009BFF" />
-                        <stop offset="0.735652" stop-color="#105EFF" />
-                        <stop offset="1" stop-color="#090E43" />
+                        <stop stopColor="#105EFF" />
+                        <stop offset="0.413357" stopColor="#009BFF" />
+                        <stop offset="0.735652" stopColor="#105EFF" />
+                        <stop offset="1" stopColor="#090E43" />
                       </linearGradient>
                       <linearGradient
                         id="paint1_linear_2375_7604"
@@ -216,10 +216,10 @@ export const CustomIcon = () => (
                         y2="4.56037"
                         gradientUnits="userSpaceOnUse"
                       >
-                        <stop stop-color="#105EFF" />
-                        <stop offset="0.413357" stop-color="#009BFF" />
-                        <stop offset="0.735652" stop-color="#105EFF" />
-                        <stop offset="1" stop-color="#090E43" />
+                        <stop stopColor="#105EFF" />
+                        <stop offset="0.413357" stopColor="#009BFF" />
+                        <stop offset="0.735652" stopColor="#105EFF" />
+                        <stop offset="1" stopColor="#090E43" />
                       </linearGradient>
                       <clipPath id="clip0_2375_7604">
                         <rect width="18.7778" height="26" fill="white" />

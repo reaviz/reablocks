@@ -11,10 +11,15 @@ export const Simple = () => {
   return <Toggle checked={state} onChange={setState} />;
 };
 
-export const Disabled = () => {
-  const [state, setState] = useState(true);
-  return <Toggle disabled checked={state} onChange={setState} />;
-};
+export const Disabled = () => (
+  <div
+    className="bg-panel p-20"
+    style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}
+  >
+    <Toggle disabled checked />
+    <Toggle disabled checked={false} />
+  </div>
+);
 
 export const Sizes = () => {
   const [stateSmall, setStateSmall] = useState(true);

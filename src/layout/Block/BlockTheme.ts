@@ -17,7 +17,7 @@ export interface BlockTheme {
 const baseTheme: BlockTheme = {
   base: 'mb-2.5',
   disableMargin: 'mb-0',
-  label: 'text-xs',
+  label: 'text-sm',
   centerAlign: 'items-center',
   endAlign: 'items-end',
   horizontal: {

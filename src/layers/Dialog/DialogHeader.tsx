@@ -4,15 +4,38 @@ import { useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
 
 export interface DialogHeaderProps {
+  /**
+   * The content of the dialog header.
+   */
   children?: any;
+
+  /**
+   * The CSS class name for the root element of the component.
+   */
   className?: string;
+
+  /**
+   * Whether to show the close button in the dialog header.
+   */
   showCloseButton?: boolean;
+
+  /**
+   * Whether to disable padding for the dialog header.
+   */
   disablePadding?: boolean;
+
+  /**
+   * Callback when the close button is clicked.
+   */
   onClose?: () => void;
+
+  /**
+   * Theme for the Dialog Header.
+   */
   theme?: DialogTheme;
 }
 
-export const DialogHeader: FC<Partial<DialogHeaderProps>> = ({
+export const DialogHeader: FC<DialogHeaderProps> = ({
   children,
   className,
   showCloseButton,

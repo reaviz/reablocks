@@ -219,7 +219,7 @@ export interface SelectProps {
   onCloseMenu?: () => void;
 }
 
-export const Select: FC<Partial<SelectProps>> = ({
+export const Select: FC<SelectProps> = ({
   id,
   name,
   autoFocus,

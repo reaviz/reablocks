@@ -112,7 +112,10 @@ import {
   legacyDividerTheme,
   JsonTreeTheme,
   jsonTreeTheme,
-  legacyJsonTreeTheme
+  legacyJsonTreeTheme,
+  breadcrumbsTheme,
+  BreadcrumbsTheme,
+  legacyBreadcrumbTheme
 } from '@/layout';
 
 import {
@@ -182,6 +185,7 @@ export interface ReablocksTheme {
     popover: PopoverTheme;
     pager: PagerTheme;
     tabs: TabsTheme;
+    breadcrumbs: BreadcrumbsTheme;
   };
 }
 
@@ -227,7 +231,8 @@ export const theme: ReablocksTheme = {
     popover: popoverTheme,
     pager: pagerTheme,
     tabs: tabsTheme,
-    jsonTree: jsonTreeTheme
+    jsonTree: jsonTreeTheme,
+    breadcrumbs: breadcrumbsTheme
   }
 };
 
@@ -273,6 +278,7 @@ export const legacyThemeVars: ReablocksTheme = {
     popover: legacyPopoverTheme,
     pager: legacyPagerTheme,
     tabs: legacyTabsTheme,
-    jsonTree: legacyJsonTreeTheme
+    jsonTree: legacyJsonTreeTheme,
+    breadcrumbs: legacyBreadcrumbTheme
   }
 };

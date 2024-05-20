@@ -15,6 +15,9 @@ export const portals: string[] = [];
 const START_INDEX = 990;
 
 export interface OverlayPortalRef {
+  /**
+   * Reference to the overlay portal element.
+   */
   ref?: LegacyRef<HTMLElement>;
 }
 

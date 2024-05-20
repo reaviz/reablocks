@@ -8,3 +8,4 @@ export * from './Stack';
 export * from './Tree';
 export * from './VerticalSpacer';
 export * from './Tabs';
+export * from './Breadcrumbs';

@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { FC, forwardRef, HTMLAttributes, LegacyRef } from 'react';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 import { StackTheme } from './StackTheme';
@@ -35,7 +35,17 @@ export interface StackProps extends HTMLAttributes<HTMLDivElement> {
   theme?: StackTheme;
 }
 
-export const Stack = forwardRef<HTMLDivElement, StackProps>(
+export interface StackRef {
+  /**
+   * Reference to the stack element.
+   */
+  ref?: LegacyRef<HTMLDivElement>;
+}
+
+export const Stack: FC<StackProps & StackRef> = forwardRef<
+  HTMLDivElement,
+  StackProps
+>(
   (
     {
       children,
