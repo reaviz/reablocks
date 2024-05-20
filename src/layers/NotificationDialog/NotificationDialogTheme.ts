@@ -76,11 +76,11 @@ export const notificationDialogTheme: NotificationDialogTheme = {
   header: {
     base: baseTheme.header.base,
     icon: baseTheme.header.icon,
-    text: 'text-base font-bold',
+    text: 'text-panel-content text-base font-bold',
     closeIcon: baseTheme.header.closeIcon,
     default: {
       icon: 'text-gray-300 light:text-secondary-active',
-      text: 'text-panel-content'
+      text: ''
     },
     success: {
       icon: 'text-success',
