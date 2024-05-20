@@ -69,12 +69,15 @@ import {
   legacyTooltipTheme,
   contextMenuTheme,
   dialogTheme,
+  notificationDialogTheme,
+  legacyNotificationDialogTheme,
   drawerTheme,
   menuTheme,
   notificationTheme,
   popoverTheme,
   tooltipTheme,
   DialogTheme,
+  NotificationDialogTheme,
   DrawerTheme,
   MenuTheme,
   NotificationTheme,
@@ -155,6 +158,7 @@ export interface ReablocksTheme {
     checkbox: CheckboxTheme;
     dateFormat: DateFormatTheme;
     dialog: DialogTheme;
+    notificationDialog: NotificationDialogTheme;
     divider: DividerTheme;
     dotsLoader: DotsLoaderTheme;
     drawer: DrawerTheme;
@@ -202,6 +206,7 @@ export const theme: ReablocksTheme = {
     checkbox: checkboxTheme,
     dateFormat: dateFormatTheme,
     dialog: dialogTheme,
+    notificationDialog: notificationDialogTheme,
     divider: dividerTheme,
     dotsLoader: dotsLoaderTheme,
     drawer: drawerTheme,
@@ -249,6 +254,7 @@ export const legacyThemeVars: ReablocksTheme = {
     checkbox: legacyCheckboxTheme,
     dateFormat: legacyDateFormatTheme,
     dialog: legacyDialogTheme,
+    notificationDialog: legacyNotificationDialogTheme,
     divider: legacyDividerTheme,
     dotsLoader: legacyLoaderTheme,
     drawer: legacyDrawerTheme,

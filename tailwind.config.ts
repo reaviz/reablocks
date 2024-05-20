@@ -221,8 +221,8 @@ const config: Config = {
           inactive: colorPalette.gray[500]
         },
         secondary: {
-          DEFAULT: colorPalette.blue[200],
-          active: colorPalette.blue[200],
+          DEFAULT: colorPalette.charade,
+          active: colorPalette.charade,
           hover: colorPalette.blue[300],
           inactive: colorPalette.waterloo
         },
@@ -273,8 +273,8 @@ const config: Config = {
           inactive: colorPalette.blue[200]
         },
         secondary: {
-          DEFAULT: colorPalette.charade,
-          active: colorPalette.charade,
+          DEFAULT: colorPalette.waterloo,
+          active: colorPalette.waterloo,
           hover: colorPalette.gray[700],
           inactive: colorPalette.gray[600]
         },
