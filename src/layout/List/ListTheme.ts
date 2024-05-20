@@ -37,7 +37,7 @@ const baseTheme: ListTheme = {
     disableGutters: 'pl-0 pr-0',
     dense: {
       base: 'p-1',
-      content: 'text-xs',
+      content: '',
       startAdornment: 'pr-[calc(5/2)]',
       endAdornment: 'pl-[calc(5/2)]'
     },
