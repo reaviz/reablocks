@@ -1,0 +1,27 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/addon-docs';
+import { notificationDialogTheme, NotificationDialog } from '../../../src/layers/NotificationDialog';
+import * as DialogStories from '../../../src/layers/NotificationDialog/NotificationDialog.story';
+import ThemeRender from '../../ThemeRender.tsx';
+
+<Meta title="Docs/Components/Layers/Notification Dialog" />
+
+# Notification Dialog
+the Notification Dialog is a component that helps to stay informed about important events or actions within an application and interact with it
+
+## Example
+### Notification Dialog Placements
+<Canvas sourceState="shown" of={DialogStories.Placement} />
+### Notification Dialog Variants
+<Canvas of={DialogStories.Variants} />
+### Custom Header and Footer of Notification Dialog
+<Canvas of={DialogStories.Custom} />
+
+## Theme
+This component uses the following default theme:
+
+<ThemeRender theme={notificationDialogTheme} />
+
+Learn more about how to customize in the [Theme documentation](?path=/docs/docs-theme-getting-started--docs).
+
+## API
+<ArgTypes of={NotificationDialog} />
