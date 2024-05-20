@@ -26,6 +26,9 @@ interface ExitListenerOptions {
   onEscape?: (event: KeyboardEvent) => void;
 }
 
+/**
+ * Hook to listen for click outside and escape key events.
+ */
 export const useExitListener = ({
   ref,
   open = true,

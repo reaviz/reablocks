@@ -21,10 +21,28 @@ export interface OverlayPortalRef {
   ref?: LegacyRef<HTMLElement>;
 }
 
+/**
+ * Represents an event that occurs when an overlay portal is mounted.
+ */
 export interface OverlayPortalMountEvent {
+  /**
+   * The index of the overlay.
+   */
   overlayIndex: number;
+
+  /**
+   * The index of the portal.
+   */
   portalIndex: number;
+
+  /**
+   * The ID of the portal.
+   */
   portalId: string;
+
+  /**
+   * The index of the backdrop.
+   */
   backdropIndex: number;
 }
 
