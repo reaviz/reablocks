@@ -36,7 +36,7 @@ export const Markers = () => (
           <span className="text-gray-400 light:text-gray-600"> to </span>In
           Progress
         </span>
-        <div className="px-4 py-2 border border-solid border-blue-700 bg-vulcan rounded-md">
+        <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
           website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
@@ -92,7 +92,7 @@ export const Numbered = () => (
           <span className="text-gray-400 light:text-gray-600"> to </span>In
           Progress
         </span>
-        <div className="px-4 py-2 border border-solid border-blue-700 bg-vulcan rounded-md">
+        <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
           website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
@@ -148,7 +148,7 @@ export const Labels = () => (
           <span className="text-gray-400 light:text-gray-600"> to </span>In
           Progress
         </span>
-        <div className="px-4 py-2 border border-solid border-blue-700 bg-vulcan rounded-md">
+        <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
           website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
@@ -204,7 +204,7 @@ export const Mixed = () => (
           <span className="text-gray-400 light:text-gray-600"> to </span>In
           Progress
         </span>
-        <div className="px-4 py-2 border border-solid border-blue-700 bg-vulcan rounded-md">
+        <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
           website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.

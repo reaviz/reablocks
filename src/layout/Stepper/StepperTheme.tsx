@@ -26,7 +26,7 @@ export const stepperTheme: StepperTheme = {
         'w-max pt-1 pb-0.5 backdrop-blur-md -translate-x-[calc(50%+0.5px)]',
       active: 'bg-info',
       label: {
-        base: 'flex flex-row items-center gap-1 border border-solid border-secondary px-3 py-1 rounded-[20px]',
+        base: 'flex flex-row items-center gap-1 border border-solid border-surface px-3 py-1 rounded-[20px]',
         active: 'border-info bg-info-background'
       }
     },
