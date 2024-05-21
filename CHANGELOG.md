@@ -1,3 +1,6 @@
+# 7.7.2 - 5/21/24
+- [feature] add stepper blocks
+
 # 7.7.1 - 5/21/24
 - [fix] fix stepper export
 
