@@ -6,7 +6,7 @@ import { Step, StepProps } from './Step';
 
 export interface StepperProps extends PropsWithChildren {
   /**
-   * CSS Classname to applied to the steper
+   * CSS Classname to applied to the Stepper
    */
   className?: string;
 
