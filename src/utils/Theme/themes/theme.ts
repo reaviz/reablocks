@@ -115,7 +115,10 @@ import {
   legacyJsonTreeTheme,
   breadcrumbsTheme,
   BreadcrumbsTheme,
-  legacyBreadcrumbTheme
+  legacyBreadcrumbTheme,
+  StepperTheme,
+  stepperTheme,
+  legacyStepperTheme
 } from '@/layout';
 
 import {
@@ -186,6 +189,7 @@ export interface ReablocksTheme {
     pager: PagerTheme;
     tabs: TabsTheme;
     breadcrumbs: BreadcrumbsTheme;
+    stepper: StepperTheme;
   };
 }
 
@@ -232,7 +236,8 @@ export const theme: ReablocksTheme = {
     pager: pagerTheme,
     tabs: tabsTheme,
     jsonTree: jsonTreeTheme,
-    breadcrumbs: breadcrumbsTheme
+    breadcrumbs: breadcrumbsTheme,
+    stepper: stepperTheme
   }
 };
 
@@ -279,6 +284,7 @@ export const legacyThemeVars: ReablocksTheme = {
     pager: legacyPagerTheme,
     tabs: legacyTabsTheme,
     jsonTree: legacyJsonTreeTheme,
-    breadcrumbs: legacyBreadcrumbTheme
+    breadcrumbs: legacyBreadcrumbTheme,
+    stepper: legacyStepperTheme
   }
 };
