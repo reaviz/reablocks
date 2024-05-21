@@ -63,7 +63,7 @@ export const Markers = () => (
 );
 
 export const Numbered = () => (
-  <Stepper numbered activeStep={2}>
+  <Stepper variant="numbered" activeStep={2}>
     <Step>
       <div className="flex flex-col gap-1">
         <span className="text-sm text-gray-400 light:text-gray-600">
@@ -120,7 +120,7 @@ export const Numbered = () => (
 
 export const Labels = () => (
   <Stepper>
-    <Step markerLabel="v6.8">
+    <Step label="v6.8">
       <div className="flex flex-col gap-1">
         <span className="text-sm text-gray-400 light:text-gray-600">
           03/01/2024, 8:00 AM
@@ -133,7 +133,7 @@ export const Labels = () => (
         </span>
       </div>
     </Step>
-    <Step markerLabel="v6.9">
+    <Step label="v6.9">
       <div className="flex flex-col gap-1">
         <span className="text-sm text-gray-400 light:text-gray-600">
           03/01/2024, 8:00 AM
@@ -155,7 +155,7 @@ export const Labels = () => (
         </div>
       </div>
     </Step>
-    <Step markerLabel="v7.0">
+    <Step label="v7.0">
       <div className="flex flex-col gap-1">
         <span className="text-sm text-gray-400 light:text-gray-600">
           03/01/2024, 8:00 AM
@@ -176,7 +176,7 @@ export const Labels = () => (
 
 export const Mixed = () => (
   <Stepper activeStep={3}>
-    <Step markerLabel="v6.8">
+    <Step label="v6.8">
       <div className="flex flex-col gap-1">
         <span className="text-sm text-gray-400 light:text-gray-600">
           03/01/2024, 8:00 AM
@@ -211,7 +211,7 @@ export const Mixed = () => (
         </div>
       </div>
     </Step>
-    <Step markerLabel="v7.0">
+    <Step label="v7.0">
       <div className="flex flex-col gap-1">
         <span className="text-sm text-gray-400 light:text-gray-600">
           03/01/2024, 8:00 AM

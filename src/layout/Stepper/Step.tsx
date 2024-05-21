@@ -4,7 +4,7 @@ export interface StepProps extends PropsWithChildren {
   /**
    * Optional Text of the marker
    */
-  markerLabel?: string;
+  label?: string;
 
   /**
    * CSS Classname to applied to the step
