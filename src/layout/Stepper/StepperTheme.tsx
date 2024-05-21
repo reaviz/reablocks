@@ -6,30 +6,32 @@ export interface StepperTheme {
       container: string;
       base: string;
       active: string;
-      labeled: {
+      label: {
         base: string;
         active: string;
       };
     };
     active: string;
+    content: string;
   };
 }
 
 export const stepperTheme: StepperTheme = {
-  base: '',
+  base: 'grid grid-cols-[min-content_1fr] gap-x-3',
   step: {
-    base: 'flex flex-row gap-3 items-start pb-4 border-l border-solid border-panel-accent',
+    base: 'border-l border-solid border-panel-accent translate-x-1/2',
     marker: {
-      container:
-        'w-max pt-1.5 pb-0.5 backdrop-blur-md -translate-x-[calc(50%+0.5px)]',
       base: 'rounded-full w-[9px] h-[9px] bg-surface',
+      container:
+        'w-max pt-1 pb-0.5 backdrop-blur-md -translate-x-[calc(50%+0.5px)]',
       active: 'bg-info',
-      labeled: {
+      label: {
         base: 'flex flex-row items-center gap-1 border border-solid border-secondary px-3 py-1 rounded-[20px]',
         active: 'border-info bg-info-background'
       }
     },
-    active: 'border-primary'
+    active: 'border-primary',
+    content: 'pb-6'
   }
 };
 

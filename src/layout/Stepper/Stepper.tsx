@@ -1,6 +1,6 @@
 import { StepperTheme } from '@/layout';
 import { cn, useComponentTheme } from '@/utils';
-import React, { Children, FC, PropsWithChildren } from 'react';
+import React, { Children, FC, Fragment, PropsWithChildren } from 'react';
 
 import { Step, StepProps } from './Step';
 
@@ -25,21 +25,20 @@ export const Stepper: FC<StepperProps> = ({ children, theme: customTheme }) => {
   const totalSteps = childrenStepProps.length - 1;
 
   return (
-    <div className="flex flex-col">
+    <div className={theme.base}>
       {childrenStepProps.map((props: StepProps, index) => (
-        <div
-          key={index}
-          className={cn(theme.step.base, {
-            'border-transparent': index === totalSteps,
-            [theme.step.active]: index < totalSteps - 1
-          })}
-        >
-          <div>
+        <Fragment key={index}>
+          <div
+            className={cn(theme.step.base, {
+              'border-transparent': index === totalSteps,
+              [theme.step.active]: index < totalSteps - 1
+            })}
+          >
             <div className={theme.step.marker.container}>
               {props.markerLabel ? (
                 <div
-                  className={cn(theme.step.marker.labeled.base, {
-                    [theme.step.marker.labeled.active]: index < totalSteps
+                  className={cn(theme.step.marker.label.base, {
+                    [theme.step.marker.label.active]: index < totalSteps
                   })}
                 >
                   <div
@@ -58,8 +57,11 @@ export const Stepper: FC<StepperProps> = ({ children, theme: customTheme }) => {
               )}
             </div>
           </div>
-          <Step {...props} />
-        </div>
+          <Step
+            className={cn(theme.step.content, props.className)}
+            {...props}
+          />
+        </Fragment>
       ))}
     </div>
   );

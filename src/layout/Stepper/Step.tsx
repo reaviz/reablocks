@@ -17,4 +17,6 @@ export interface StepProps {
   className?: string;
 }
 
-export const Step: FC<StepProps> = ({ content }) => <div>{content}</div>;
+export const Step: FC<StepProps> = ({ content, className }) => (
+  <div className={className}>{content}</div>
+);
