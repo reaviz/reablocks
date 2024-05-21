@@ -1,3 +1,7 @@
+# 7.7.0 - 5/21/24
+- [feature] add stepper component
+- [chore] upgrade storybook
+
 # 7.6.19 - 5/20/24
 - [fix] Fix DeletableChip theme #204
 - [improvement] Replace/remove inexistant text-xs classes #201
