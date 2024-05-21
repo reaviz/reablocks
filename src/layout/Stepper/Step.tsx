@@ -1,11 +1,6 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, PropsWithChildren } from 'react';
 
-export interface StepProps {
-  /**
-   * Content of the step
-   */
-  content: string | ReactElement;
-
+export interface StepProps extends PropsWithChildren {
   /**
    * Optional Text of the marker
    */
@@ -17,6 +12,6 @@ export interface StepProps {
   className?: string;
 }
 
-export const Step: FC<StepProps> = ({ content, className }) => (
-  <div className={className}>{content}</div>
+export const Step: FC<StepProps> = ({ children, className }) => (
+  <div className={className}>{children}</div>
 );
