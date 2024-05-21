@@ -7,7 +7,7 @@ export interface StepProps extends PropsWithChildren {
   label?: string;
 
   /**
-   * CSS Classname to applied to the step
+   * CSS Classname to applied to the Step
    */
   className?: string;
 }

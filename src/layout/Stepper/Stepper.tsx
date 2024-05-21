@@ -6,7 +6,7 @@ import { Step, StepProps } from './Step';
 
 export interface StepperProps extends PropsWithChildren {
   /**
-   * CSS Classname to applied to the steper
+   * CSS Classname to applied to the Stepper
    */
   className?: string;
 
@@ -28,7 +28,7 @@ export interface StepperProps extends PropsWithChildren {
   /**
    * Display link after last step
    */
-  continuously?: boolean;
+  continuous?: boolean;
 
   /**
    * Animate items appearance
@@ -41,7 +41,7 @@ export const Stepper: FC<StepperProps> = ({
   activeStep = 0,
   children,
   variant = 'default',
-  continuously,
+  continuous,
   animated,
   theme: customTheme
 }) => {
@@ -63,7 +63,7 @@ export const Stepper: FC<StepperProps> = ({
         <Fragment key={index}>
           <div
             className={cn(theme.step.base, {
-              'border-transparent': index === totalSteps && !continuously,
+              'border-transparent': index === totalSteps && !continuous,
               [theme.step.active]: index < activeStep - 1
             })}
           >
