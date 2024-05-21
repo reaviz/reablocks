@@ -1,10 +1,15 @@
-import { StepperTheme } from '@/layout';
+import { MotionGroup, MotionItem, StepperTheme } from '@/layout';
 import { cn, useComponentTheme } from '@/utils';
 import React, { Children, FC, Fragment, PropsWithChildren } from 'react';
 
 import { Step, StepProps } from './Step';
 
 export interface StepperProps extends PropsWithChildren {
+  /**
+   * CSS Classname to applied to the steper
+   */
+  className?: string;
+
   /**
    * Currently active step
    */
@@ -19,12 +24,25 @@ export interface StepperProps extends PropsWithChildren {
    * Style of the stepper. Default is dots but it can be numbered too.
    */
   variant?: 'default' | 'numbered';
+
+  /**
+   * Display link after last step
+   */
+  continuously?: boolean;
+
+  /**
+   * Animate items appearance
+   */
+  animated?: boolean;
 }
 
 export const Stepper: FC<StepperProps> = ({
+  className,
   activeStep = 0,
   children,
   variant = 'default',
+  continuously,
+  animated,
   theme: customTheme
 }) => {
   const theme: StepperTheme = useComponentTheme('stepper', customTheme);
@@ -36,57 +54,65 @@ export const Stepper: FC<StepperProps> = ({
   const totalSteps = childrenStepProps.length - 1;
 
   return (
-    <div className={theme.base}>
+    <MotionGroup
+      className={cn(theme.base, className)}
+      initial={animated ? 'initial' : null}
+      animate={animated ? 'animate' : null}
+    >
       {childrenStepProps.map((props: StepProps, index) => (
         <Fragment key={index}>
           <div
             className={cn(theme.step.base, {
-              'border-transparent': index === totalSteps,
+              'border-transparent': index === totalSteps && !continuously,
               [theme.step.active]: index < activeStep - 1
             })}
           >
-            <div className={theme.step.marker.container}>
-              {/* Numbered marker */}
-              {variant === 'numbered' && (
-                <div
-                  className={cn(theme.step.marker.label.base, {
-                    [theme.step.marker.label.active]: index < activeStep
-                  })}
-                >
-                  {index + 1}
-                </div>
-              )}
-              {/* Labeled marker */}
-              {variant !== 'numbered' && props.label && (
-                <div
-                  className={cn(theme.step.marker.label.base, {
-                    [theme.step.marker.label.active]: index < activeStep
-                  })}
-                >
+            <MotionItem>
+              <div className={theme.step.marker.container}>
+                {/* Numbered marker */}
+                {variant === 'numbered' && (
+                  <div
+                    className={cn(theme.step.marker.label.base, {
+                      [theme.step.marker.label.active]: index < activeStep
+                    })}
+                  >
+                    {index + 1}
+                  </div>
+                )}
+                {/* Labeled marker */}
+                {variant !== 'numbered' && props.label && (
+                  <div
+                    className={cn(theme.step.marker.label.base, {
+                      [theme.step.marker.label.active]: index < activeStep
+                    })}
+                  >
+                    <div
+                      className={cn(theme.step.marker.base, {
+                        [theme.step.marker.active]: index < activeStep
+                      })}
+                    />
+                    {props.label}
+                  </div>
+                )}
+                {/* Dot marker */}
+                {variant !== 'numbered' && !props.label && (
                   <div
                     className={cn(theme.step.marker.base, {
                       [theme.step.marker.active]: index < activeStep
                     })}
                   />
-                  {props.label}
-                </div>
-              )}
-              {/* Dot marker */}
-              {variant !== 'numbered' && !props.label && (
-                <div
-                  className={cn(theme.step.marker.base, {
-                    [theme.step.marker.active]: index < activeStep
-                  })}
-                />
-              )}
-            </div>
+                )}
+              </div>
+            </MotionItem>
           </div>
-          <Step
-            className={cn(theme.step.content, props.className)}
-            {...props}
-          />
+          <MotionItem>
+            <Step
+              className={cn(theme.step.content, props.className)}
+              {...props}
+            />
+          </MotionItem>
         </Fragment>
       ))}
-    </div>
+    </MotionGroup>
   );
 };
