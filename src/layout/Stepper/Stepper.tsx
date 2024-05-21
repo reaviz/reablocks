@@ -20,6 +20,7 @@ export interface StepperProps extends PropsWithChildren {
    */
   numbered?: boolean;
 }
+
 export const Stepper: FC<StepperProps> = ({
   activeStep = 0,
   children,
