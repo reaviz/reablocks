@@ -1,3 +1,6 @@
+# 7.7.1 - 5/21/24
+- [fix] fix stepper export
+
 # 7.7.0 - 5/21/24
 - [feature] add stepper component
 - [chore] upgrade storybook
