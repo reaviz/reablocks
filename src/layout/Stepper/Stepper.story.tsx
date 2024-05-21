@@ -69,7 +69,7 @@ export const Markers = () => (
 );
 
 export const Labels = () => (
-  <Stepper activeStep={2}>
+  <Stepper>
     <Step
       markerLabel="v6.8"
       content={
@@ -134,7 +134,7 @@ export const Labels = () => (
 );
 
 export const Mixed = () => (
-  <Stepper activeStep={2}>
+  <Stepper activeStep={3}>
     <Step
       markerLabel="v6.8"
       content={

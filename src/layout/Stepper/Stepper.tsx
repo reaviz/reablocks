@@ -8,14 +8,18 @@ export interface StepperProps extends PropsWithChildren {
   /**
    * Currently active step
    */
-  activeStep: number;
+  activeStep?: number;
 
   /**
    * Theme for the Stepper.
    */
   theme?: StepperTheme;
 }
-export const Stepper: FC<StepperProps> = ({ children, theme: customTheme }) => {
+export const Stepper: FC<StepperProps> = ({
+  activeStep = 0,
+  children,
+  theme: customTheme
+}) => {
   const theme: StepperTheme = useComponentTheme('stepper', customTheme);
 
   const childrenStepProps = Children.toArray(children)
@@ -31,19 +35,19 @@ export const Stepper: FC<StepperProps> = ({ children, theme: customTheme }) => {
           <div
             className={cn(theme.step.base, {
               'border-transparent': index === totalSteps,
-              [theme.step.active]: index < totalSteps - 1
+              [theme.step.active]: index < activeStep - 1
             })}
           >
             <div className={theme.step.marker.container}>
               {props.markerLabel ? (
                 <div
                   className={cn(theme.step.marker.label.base, {
-                    [theme.step.marker.label.active]: index < totalSteps
+                    [theme.step.marker.label.active]: index < activeStep
                   })}
                 >
                   <div
                     className={cn(theme.step.marker.base, {
-                      [theme.step.marker.active]: index < totalSteps
+                      [theme.step.marker.active]: index < activeStep
                     })}
                   />
                   {props.markerLabel}
@@ -51,7 +55,7 @@ export const Stepper: FC<StepperProps> = ({ children, theme: customTheme }) => {
               ) : (
                 <div
                   className={cn(theme.step.marker.base, {
-                    [theme.step.marker.active]: index < totalSteps
+                    [theme.step.marker.active]: index < activeStep
                   })}
                 />
               )}
