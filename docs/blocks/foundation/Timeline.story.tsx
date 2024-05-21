@@ -11,10 +11,8 @@ import {
   Textarea
 } from '../../../src';
 
-import AvatarImage from '../../assets/avatar.png';
-
 export default {
-  title: 'Blocks/Foundation/Activity Timeline'
+  title: 'Blocks/Foundation/Timeline'
 };
 
 export const ActivityTimeline = () => (
@@ -246,7 +244,7 @@ export const WorkspaceHistory = () => (
       <Stepper className="mt-8" animated>
         <Step>
           <Stack direction="row" className="relative -top-1.5">
-            <Avatar size={24} src={AvatarImage} />
+            <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Austin{' '}
               <span className="text-gray-400 light:text-gray-600 font-normal">
@@ -257,7 +255,7 @@ export const WorkspaceHistory = () => (
         </Step>
         <Step>
           <Stack direction="row" className="relative -top-1.5">
-            <Avatar size={24} src={AvatarImage} />
+            <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Kyle{' '}
               <span className="text-gray-400 light:text-gray-600 font-normal">
@@ -272,7 +270,7 @@ export const WorkspaceHistory = () => (
         </Step>
         <Step>
           <Stack direction="row" className="relative -top-1.5">
-            <Avatar size={24} src={AvatarImage} />
+            <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Laura{' '}
               <span className="text-gray-400 light:text-gray-600 font-normal">
@@ -287,7 +285,7 @@ export const WorkspaceHistory = () => (
         </Step>
         <Step>
           <Stack direction="row" className="relative -top-1.5">
-            <Avatar size={24} src={AvatarImage} />
+            <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Lisa{' '}
               <span className="text-gray-400 light:text-gray-600 font-normal">
@@ -302,7 +300,7 @@ export const WorkspaceHistory = () => (
         </Step>
         <Step>
           <Stack direction="row" className="relative -top-1.5">
-            <Avatar size={24} src={AvatarImage} />
+            <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Kenneth{' '}
               <span className="text-gray-400 light:text-gray-600 font-normal">
@@ -317,7 +315,7 @@ export const WorkspaceHistory = () => (
         </Step>
         <Step>
           <Stack direction="row" className="relative -top-1.5">
-            <Avatar size={24} src={AvatarImage} />
+            <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Carrington{' '}
               <span className="text-gray-400 light:text-gray-600 font-normal">
