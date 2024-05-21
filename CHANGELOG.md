@@ -1,3 +1,6 @@
+# 7.7.3 - 5/21/24
+- [chore] tweak stepper blocks
+
 # 7.7.2 - 5/21/24
 - [feature] add stepper blocks
 
