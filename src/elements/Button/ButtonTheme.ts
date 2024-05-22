@@ -50,6 +50,11 @@ export interface ButtonTheme {
       outline: string;
       text: string;
     };
+    [key: string]: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
   };
   sizes: {
     small: string;

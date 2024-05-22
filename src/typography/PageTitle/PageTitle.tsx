@@ -15,7 +15,8 @@ export interface PageTitleProps
     | 'error'
     | 'success'
     | 'warning'
-    | 'info';
+    | 'info'
+    | string;
 
   /**
    * Font variant for the title.

@@ -14,7 +14,8 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
     | 'error'
     | 'success'
     | 'warning'
-    | 'info';
+    | 'info'
+    | string;
 
   fontStyle?: 'default' | 'thin' | 'bold' | 'extraBold' | 'italic';
 
