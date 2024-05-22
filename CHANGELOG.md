@@ -1,3 +1,6 @@
+# 7.7.4 - 5/22/24
+- [chore] use json tree instead of syntax highlighter
+
 # 7.7.3 - 5/21/24
 - [chore] tweak stepper blocks
 
