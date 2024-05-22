@@ -27,7 +27,7 @@ import { Divider } from '@/layout/Divider';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
-export interface CalendarProps {
+export type CalendarProps = {
   /**
    * The selected date(s) for the calendar.
    */
@@ -55,11 +55,6 @@ export interface CalendarProps {
   disabled?: boolean;
 
   /**
-   * Whether the calendar is a range picker.
-   */
-  isRange?: boolean;
-
-  /**
    * The text or icon to use for next.
    */
   nextArrow?: React.ReactNode | string;
@@ -80,11 +75,6 @@ export interface CalendarProps {
   animated?: boolean;
 
   /**
-   * A callback function that is called when the selected date(s) change.
-   */
-  onChange?: (value: Date | [Date, Date]) => void;
-
-  /**
    * A callback function that is called when the calendar view changes.
    */
   onViewChange?: (view: CalendarViewType) => void;
@@ -93,7 +83,30 @@ export interface CalendarProps {
    * Theme for the Calendar.
    */
   theme?: CalendarTheme;
-}
+} & (
+  | {
+      /**
+       * Whether the calendar is a range picker.
+       */
+      isRange?: true;
+
+      /**
+       * A callback function that is called when the selected date(s) change.
+       */
+      onChange?: (value: [Date, Date]) => void;
+    }
+  | {
+      /**
+       * Whether the calendar is a range picker.
+       */
+      isRange?: false;
+
+      /**
+       * A callback function that is called when the selected date(s) change.
+       */
+      onChange?: (value: Date) => void;
+    }
+);
 
 export const Calendar: FC<CalendarProps> = ({
   min,
@@ -167,7 +180,7 @@ export const Calendar: FC<CalendarProps> = ({
 
   const dateChangeHandler = useCallback(
     (date: Date) => {
-      if (!isRange) {
+      if (isRange === false || isRange === undefined) {
         onChange?.(date);
         setMonthValue(getMonth(date));
         setYearValue(getYear(date));

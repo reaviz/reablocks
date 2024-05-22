@@ -24,7 +24,7 @@ const baseTheme: InputTheme = {
   input:
     'flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-none px-0.5 disabled:cursor-not-allowed disabled:text-disabled',
   inline: 'bg-transparent border-0 outline-none',
-  disabled: '',
+  disabled: 'text-waterloo',
   fullWidth: 'w-full',
   error: 'border-error',
   sizes: {
