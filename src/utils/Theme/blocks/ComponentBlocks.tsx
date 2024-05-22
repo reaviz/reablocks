@@ -1,7 +1,6 @@
 import React from 'react';
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import dracula from 'react-syntax-highlighter/dist/cjs/styles/prism/dracula.js';
 import { ReablocksTheme } from '@/utils/Theme/themes';
+import { JsonTree } from '@/layout/Tree';
 
 export const ComponentBlocks = ({
   components
@@ -19,7 +18,7 @@ export const ComponentBlocks = ({
       {components ? (
         <>
           {Object.keys(components).map(key => (
-            <div key={key}>
+            <div key={key} className="pb-3">
               <h3
                 style={{
                   fontSize: '24px',
@@ -32,13 +31,10 @@ export const ComponentBlocks = ({
               >
                 {key}
               </h3>
-              <SyntaxHighlighter
-                language="javascript"
-                style={dracula}
-                className="highlighter"
-              >
-                {JSON.stringify(components[key], null, 2)}
-              </SyntaxHighlighter>
+              <JsonTree
+                className="border border-gray-700 rounded"
+                data={components[key]}
+              />
             </div>
           ))}
         </>
