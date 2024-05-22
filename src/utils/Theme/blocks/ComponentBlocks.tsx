@@ -32,7 +32,8 @@ export const ComponentBlocks = ({
                 {key}
               </h3>
               <JsonTree
-                className="border border-gray-700 rounded"
+                className="border border-gray-700 rounded p-3"
+                expandDepth={Infinity}
                 data={components[key]}
               />
             </div>
