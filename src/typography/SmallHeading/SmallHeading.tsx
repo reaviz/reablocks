@@ -10,7 +10,8 @@ export type SmallHeadingColors =
   | 'error'
   | 'success'
   | 'warning'
-  | 'info';
+  | 'info'
+  | string;
 
 export interface SmallHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {

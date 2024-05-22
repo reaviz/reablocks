@@ -14,7 +14,8 @@ export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
     | 'error'
     | 'success'
     | 'warning'
-    | 'info';
+    | 'info'
+    | string;
 
   /**
    * Size variant for the chip.

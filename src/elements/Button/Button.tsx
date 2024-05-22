@@ -13,7 +13,14 @@ export interface ButtonProps
   /**
    * Color variation of the button.
    */
-  color?: 'default' | 'primary' | 'secondary' | 'error' | 'success' | 'warning';
+  color?:
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'error'
+    | 'success'
+    | 'warning'
+    | string;
 
   /**
    * Style variant of the button.

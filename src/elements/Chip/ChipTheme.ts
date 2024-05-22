@@ -5,7 +5,7 @@ interface ThemeColor {
     outline?: string;
   };
   selectable?: {
-    base: string;
+    base?: string;
     variants?: {
       filled?: {
         base?: string;
@@ -36,13 +36,14 @@ export interface ChipTheme {
     outline: string;
   };
   colors: {
-    default: ThemeColor;
+    default?: ThemeColor;
     primary?: ThemeColor;
     secondary?: ThemeColor;
     success?: ThemeColor;
     warning?: ThemeColor;
     error?: ThemeColor;
     info?: ThemeColor;
+    [key: string]: ThemeColor;
   };
   sizes: {
     small: string;

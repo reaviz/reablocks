@@ -17,6 +17,7 @@ export interface TypographyTheme {
     warning: string;
     error: string;
     info: string;
+    [key: string]: string;
   };
   sub: string;
   smallHeading: string;
