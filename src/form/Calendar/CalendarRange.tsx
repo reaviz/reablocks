@@ -52,6 +52,11 @@ export interface CalendarRangeProps
    * Theme for the CalendarRange.
    */
   theme?: CalendarRangeTheme;
+
+  /**
+   * A callback function that is called when the selected date(s) change.
+   */
+  onChange?: (value: [Date, Date]) => void;
 }
 
 export const CalendarRange: FC<CalendarRangeProps> = ({

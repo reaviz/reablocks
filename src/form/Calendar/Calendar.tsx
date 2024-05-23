@@ -180,7 +180,8 @@ export const Calendar: FC<CalendarProps> = ({
 
   const dateChangeHandler = useCallback(
     (date: Date) => {
-      if (isRange === false || isRange === undefined) {
+      if (!isRange) {
+        // @ts-ignore
         onChange?.(date);
         setMonthValue(getMonth(date));
         setYearValue(getYear(date));
