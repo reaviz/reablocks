@@ -15,6 +15,7 @@ import {
 } from '../../../src/layout';
 import { CloseIcon, Input, Radio } from '../../../src/form';
 import { Avatar, Badge, Button, Chip } from '../../../src/elements';
+import { Controller, useForm } from 'react-hook-form';
 
 const LogoIcon = ({ className }) => (
   <svg
@@ -168,19 +169,20 @@ const PhoneIcon = ({ className }) => (
   </svg>
 );
 
-const UserIcon = () => (
+const UserIcon = ({ size = 16, className }) => (
   <svg
-    width="16"
-    height="16"
+    width={size}
+    height={size}
     viewBox="0 0 16 16"
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
+    className={className}
   >
     <g id="User">
       <path
         id="Vector"
         d="M8 1.33334C6.16498 1.33334 4.66667 2.83165 4.66667 4.66668C4.66667 6.5017 6.16498 8.00001 8 8.00001C9.83503 8.00001 11.3333 6.5017 11.3333 4.66668C11.3333 2.83165 9.83503 1.33334 8 1.33334ZM8 2.33334C9.29459 2.33334 10.3333 3.37209 10.3333 4.66668C10.3333 5.96126 9.29459 7.00001 8 7.00001C6.70542 7.00001 5.66667 5.96126 5.66667 4.66668C5.66667 3.37209 6.70542 2.33334 8 2.33334ZM3.99284 9.33334C3.26624 9.33334 2.66667 9.93291 2.66667 10.6595V11.1667C2.66667 12.3681 3.42643 13.2974 4.43555 13.8542C5.44468 14.4109 6.72271 14.6667 8 14.6667C9.2773 14.6667 10.5553 14.4109 11.5645 13.8542C12.4249 13.3795 13.0724 12.6209 13.2539 11.6667H13.334V10.6595C13.334 9.93291 12.7338 9.33334 12.0072 9.33334H3.99284ZM3.99284 10.3333H12.0072C12.1932 10.3333 12.334 10.4735 12.334 10.6595V10.6667H12.3333V11.1667C12.3333 11.9653 11.8848 12.5359 11.0814 12.9792C10.278 13.4224 9.13937 13.6667 8 13.6667C6.86064 13.6667 5.722 13.4224 4.91862 12.9792C4.11525 12.5359 3.66667 11.9653 3.66667 11.1667V10.6595C3.66667 10.4735 3.80678 10.3333 3.99284 10.3333Z"
-        fill="#C9C9D6"
+        fill="currentColor"
       />
     </g>
   </svg>
@@ -1185,7 +1187,8 @@ export const Account = () => (
                     variant="filled"
                     className="bg-gray-950 px-3 py-1 border-gray-500 rounded-[20px] light:bg-white light:border-gray-200"
                   >
-                    <UserIcon /> <span className="pl-1">Joined</span>
+                    <UserIcon className="text-gray-300" />{' '}
+                    <span className="pl-1">Joined</span>
                   </Chip>
                   <span>March 15, 2020</span>
                 </Stack>
@@ -1656,3 +1659,167 @@ export const Overview = () => (
     </Card>
   </motion.div>
 );
+
+export const Settings = () => {
+  const {
+    control,
+    handleSubmit,
+    formState: { isSubmitting }
+  } = useForm({defaultValues: {
+    fullName: 'Austin McDaniel',
+    title: 'CEO / Cyber Security Wizard',
+    website: 'goodcode.us'
+  }});
+
+  return (
+    <motion.div
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      className="flex flex-col justify-center grow sm:mx-auto w-full"
+    >
+      <Card className="p-8 transition-colors w-full min-w-[960px] max-w-[1200px] light:bg-gray-100">
+        <Stack alignItems="start">
+          <Block className="border border-gray-600 p-3 rounded-sm">
+            <UserIcon className="text-gray-300 light:text-gray-700" />
+          </Block>
+          <Stack alignItems="start" direction="column" className="gap-0" dense>
+            <h4 className="text-xl font-bold text-gray-100 light:text-gray-900">
+              Profile Settings
+            </h4>
+            <div className="text-gray-400 light:text-gray-600">
+              Customize and edit essential profile details.
+            </div>
+          </Stack>
+        </Stack>
+
+        <Tabs variant="secondary" selectedIndex={0} className="mt-8">
+          <TabList>
+            <Tab>Profile Settings</Tab>
+            <Tab>Users</Tab>
+            <Tab>Billing</Tab>
+            <Tab>Integrations</Tab>
+            <Tab>Notifications</Tab>
+          </TabList>
+        </Tabs>
+        <TabPanel>
+          <Stack justifyContent="center">
+            <Block className="min-w-[350px] max-w-[350px] mt-12">
+              <form
+                onSubmit={handleSubmit(values => console.log('values', values))}
+              >
+                <Block>
+                  <Stack justifyContent="end">
+                    <Block className="p-5 items-center rounded-full border border-gray-700 bg-gray-900 light:bg-gray-200 light:border-gray-300">
+                      <UserIcon size={32} className="h-10 w-10" />
+                    </Block>
+                    <Stack
+                      direction="column"
+                      alignItems="start"
+                      className="gap-0"
+                      dense
+                    >
+                      <h6 className="text-lg text-gray-100 font-bold light:text-gray-900">
+                        Upload Image
+                      </h6>
+                      <div className="text-gray-400 light:text-gray-600">
+                        Min 400 x 400 px, PNG or JPEG formats.
+                      </div>
+
+                      <Button
+                        variant="filled"
+                        color="secondary"
+                        className="mt-4"
+                      >
+                        Upload
+                      </Button>
+                    </Stack>
+                  </Stack>
+                </Block>
+
+                <Divider className='my-8' />
+
+                <Block
+                  className="mb-7"
+                  labelClassName="text-sm font-medium mb-1"
+                  label="Full Name"
+                >
+                  <Controller
+                    name="fullName"
+                    control={control}
+                    render={({ field: { value, onBlur, onChange } }) => (
+                      <Input
+                        name="fullName"
+                        disabled={isSubmitting}
+                        placeholder="Enter your full name..."
+                        value={value}
+                        type="text"
+                        onChange={onChange}
+                        onBlur={onBlur}
+                      />
+                    )}
+                  />
+                </Block>
+                <Block
+                  className="mb-7"
+                  labelClassName="text-sm font-medium mb-1"
+                  label="Title"
+                >
+                  <Controller
+                    name="title"
+                    control={control}
+                    render={({ field: { value, onBlur, onChange } }) => (
+                      <Input
+                        name="title"
+                        disabled={isSubmitting}
+                        placeholder="Enter your position..."
+                        value={value}
+                        type="text"
+                        onChange={onChange}
+                        onBlur={onBlur}
+                      />
+                    )}
+                  />
+                </Block>
+                <Block
+                  className="mb-7"
+                  labelClassName="text-sm font-medium mb-1"
+                  label="Website"
+                >
+                  <Controller
+                    name="website"
+                    control={control}
+                    render={({ field: { value, onBlur, onChange } }) => (
+                      <Input
+                        name="website"
+                        disabled={isSubmitting}
+                        placeholder="Enter your website..."
+                        value={value}
+                        type="text"
+                        onChange={onChange}
+                        onBlur={onBlur}
+                      />
+                    )}
+                  />
+                </Block>
+                <Stack justifyContent="center">
+                  <Button variant="filled" color="secondary" className="w-1/2 min-h-10">
+                    Discard
+                  </Button>
+                  <Button
+                    type="submit"
+                    variant="filled"
+                    color="primary"
+                    className="w-1/2 min-h-10 rounded-sm px-4 py-2 !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+                    disabled={isSubmitting}
+                  >
+                    {isSubmitting ? 'Saving...' : 'Save'}
+                  </Button>
+                </Stack>
+              </form>
+            </Block>
+          </Stack>
+        </TabPanel>
+      </Card>
+    </motion.div>
+  );
+};
