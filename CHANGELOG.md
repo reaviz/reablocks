@@ -1,3 +1,6 @@
+# 7.8.1 - 5/23/24
+- [feat] Add Profile blocks
+
 # 7.8.0 - 5/22/24
 - [feature] Add ability to extend colors in component themes #211 
 - [feature] Add Account profile block #210 
