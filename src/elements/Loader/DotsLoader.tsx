@@ -18,7 +18,7 @@ export interface DotsLoaderProps {
   /**
    * The size of the loader.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * Theme for the DotsLoader.

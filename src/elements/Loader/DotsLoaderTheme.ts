@@ -5,6 +5,7 @@ export interface DotsLoaderTheme {
     small: string;
     medium: string;
     large: string;
+    [key: string]: string;
   };
 }
 

@@ -12,6 +12,7 @@ export interface RadioTheme {
       small: string;
       medium: string;
       large: string;
+      [key: string]: string;
     };
   };
   label: {
@@ -24,6 +25,7 @@ export interface RadioTheme {
     small: string;
     medium: string;
     large: string;
+    [key: string]: string;
   };
 }
 

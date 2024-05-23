@@ -10,6 +10,7 @@ export interface TextareaTheme {
     small: string;
     medium: string;
     large: string;
+    [key: string]: string;
   };
 }
 

@@ -25,12 +25,12 @@ export interface ButtonProps
   /**
    * Style variant of the button.
    */
-  variant?: 'filled' | 'outline' | 'text';
+  variant?: 'filled' | 'outline' | 'text' | string;
 
   /**
    * The size variation of the button.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * If true, the button will take up the full width of its container.

@@ -9,6 +9,7 @@ export interface ToggleTheme {
       small: string;
       medium: string;
       large: string;
+      [key: string]: string;
     };
     disabled: string;
     disabledAndChecked: string;
@@ -17,6 +18,7 @@ export interface ToggleTheme {
     small: string;
     medium: string;
     large: string;
+    [key: string]: string;
   };
 }
 
