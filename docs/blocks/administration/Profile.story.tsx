@@ -1420,7 +1420,7 @@ export const Overview = () => (
                 </Stack>
                 <Block className="grid grid-cols-2 gap-4 mt-4">
                   <Stack alignItems="center">
-                    <Block className="border border-gray-600 p-3 rounded-sm">
+                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
                       <EmailIcon className="text-gray-300 light:text-gray-700" />
                     </Block>
                     <div>
@@ -1435,7 +1435,7 @@ export const Overview = () => (
                     </div>
                   </Stack>
                   <Stack alignItems="center">
-                    <Block className="border border-gray-600 p-3 rounded-sm">
+                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
                       <PhoneIcon className="text-gray-300 light:text-gray-700" />
                     </Block>
                     <div>
@@ -1450,7 +1450,7 @@ export const Overview = () => (
                     </div>
                   </Stack>
                   <Stack alignItems="center">
-                    <Block className="border border-gray-600 p-3 rounded-sm">
+                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
                       <LoginIcon className="text-gray-300 light:text-gray-700" />
                     </Block>
                     <div>
@@ -1465,7 +1465,7 @@ export const Overview = () => (
                     </div>
                   </Stack>
                   <Stack alignItems="center">
-                    <Block className="border border-gray-600 p-3 rounded-sm">
+                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
                       <AdminIcon className="text-gray-300 light:text-gray-700" />
                     </Block>
                     <div>
@@ -1483,7 +1483,7 @@ export const Overview = () => (
                 <Divider variant="secondary" className="my-1" />
                 <Block className="grid grid-cols-1 gap-4 mt-4">
                   <Stack alignItems="center">
-                    <Block className="border border-gray-600 p-3 rounded-sm">
+                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
                       <LocationIcon className="text-gray-300 light:text-gray-700" />
                     </Block>
                     <div>
@@ -1498,7 +1498,7 @@ export const Overview = () => (
                     </div>
                   </Stack>
                   <Stack alignItems="center">
-                    <Block className="border border-gray-600 p-3 rounded-sm">
+                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
                       <PendingIcon className="text-gray-300 light:text-gray-700" />
                     </Block>
                     <div>
@@ -1527,7 +1527,7 @@ export const Overview = () => (
 
                 <Stack alignItems="center" className="mt-4 gap-4">
                   <Stack alignItems="center">
-                    <Block className="flex items-center justify-center mb-0 border border-gray-600 p-[14px] w-[60px] h-[60px]">
+                    <Block className="flex items-center justify-center mb-0 border border-gray-600 light:border-gray-300 p-[14px] w-[60px] h-[60px]">
                       <SymbolIcon />
                     </Block>
                     <div>
@@ -1542,7 +1542,7 @@ export const Overview = () => (
                     </div>
                   </Stack>
                   <Stack alignItems="center">
-                    <Block className="flex items-center justify-center mb-0 border border-gray-600 p-[14px] w-[60px] h-[60px]">
+                    <Block className="flex items-center justify-center mb-0 border border-gray-600 light:border-gray-300 p-[14px] w-[60px] h-[60px]">
                       <CloudburstLogo />
                     </Block>
                     <div>
@@ -1557,7 +1557,7 @@ export const Overview = () => (
                     </div>
                   </Stack>
                   <Stack alignItems="center">
-                    <Block className="flex items-center justify-center mb-0 border border-gray-600 p-[14px] w-[60px] h-[60px]">
+                    <Block className="flex items-center justify-center mb-0 border border-gray-600 light:border-gray-300 p-[14px] w-[60px] h-[60px]">
                       <CyberSainikLogo />
                     </Block>
                     <div>
@@ -1700,7 +1700,7 @@ export const Settings = () => {
     >
       <Card className="p-8 transition-colors w-full min-w-[960px] max-w-[1200px] light:bg-gray-100">
         <Stack alignItems="start">
-          <Block className="border border-gray-600 p-3 rounded-sm">
+          <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
             <UserIcon className="text-gray-300 light:text-gray-700" />
           </Block>
           <Stack alignItems="start" direction="column" className="gap-0" dense>
