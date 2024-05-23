@@ -5,6 +5,8 @@ import {
   Block,
   Card,
   Divider,
+  MotionGroup,
+  MotionItem,
   Stack,
   Step,
   Stepper,
@@ -13,8 +15,8 @@ import {
   TabPanel,
   Tabs
 } from '../../../src/layout';
-import { CloseIcon, Input, Radio } from '../../../src/form';
-import { Avatar, Badge, Button, Chip } from '../../../src/elements';
+import { Input, Radio } from '../../../src/form';
+import { Avatar, Button, Chip } from '../../../src/elements';
 import { Controller, useForm } from 'react-hook-form';
 
 const LogoIcon = ({ className }) => (
@@ -1124,215 +1126,14 @@ export const Account = () => (
         </TabList>
       </Tabs>
       <TabPanel>
-        <Stack
-          justifyContent="spaceBetween"
-          alignItems="start"
-          className="gap-5"
-        >
-          <Stack direction="column" alignItems="start" className="w-3/5">
-            <Stack direction="column" alignItems="start" dense>
-              <Stack>
-                <h2 className="text-2xl font-sans font-bold text-gray-100 light:text-gray-900">
-                  Austin McDaniel
-                </h2>
-                <Chip
-                  variant="filled"
-                  className="rounded-[20px] border-orange-500 bg-orange-950 light:bg-orange-100"
-                >
-                  Admin
-                </Chip>
-              </Stack>
-              <p className="text-base text-gray-400 light:text-gray-600">
-                CEO / Cyber Security Wizard
-              </p>
-            </Stack>
-
-            <Block className="min-w-[300px] mt-8 p-5 border rounded border-gray-600 light:border-gray-300">
-              <Stack direction="column" className="w-full gap-5">
-                <Stack justifyContent="spaceBetween" className="w-full">
-                  <Chip
-                    variant="filled"
-                    className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px] light:bg-blue-100"
-                  >
-                    <LocationIcon className="text-blue-500" />{' '}
-                    <span className="pl-1">Florida</span>
-                  </Chip>
-                  <span>Miami</span>
-                </Stack>
-
-                <Stack justifyContent="spaceBetween" className="w-full">
-                  <Chip
-                    variant="filled"
-                    className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px] light:bg-blue-100"
-                  >
-                    <EmailIcon className="text-blue-500" />{' '}
-                    <span className="pl-1">Email</span>
-                  </Chip>
-                  <span>Austin@goodcode.us</span>
-                </Stack>
-
-                <Stack justifyContent="spaceBetween" className="w-full">
-                  <Chip
-                    variant="filled"
-                    className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px] light:bg-blue-100"
-                  >
-                    <PhoneIcon className="text-blue-500" />{' '}
-                    <span className="pl-1">Phone</span>
-                  </Chip>
-                  <span>561-699-7050</span>
-                </Stack>
-
-                <Stack justifyContent="spaceBetween" className="w-full">
-                  <Chip
-                    variant="filled"
-                    className="bg-gray-950 px-3 py-1 border-gray-500 rounded-[20px] light:bg-white light:border-gray-200"
-                  >
-                    <UserIcon className="text-gray-300" />{' '}
-                    <span className="pl-1">Joined</span>
-                  </Chip>
-                  <span>March 15, 2020</span>
-                </Stack>
-              </Stack>
-            </Block>
-
-            <Divider variant="secondary" className="mt-8" />
-
-            <Block className="mt-2">
-              <Stepper>
-                <Step>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-sm text-gray-400 light:text-gray-600">
-                      03/01/2024, 8:00 AM
-                    </span>
-                    <span>
-                      Austin{' '}
-                      <span className="text-gray-400 light:text-gray-600">
-                        created ticket
-                      </span>
-                    </span>
-                  </div>
-                </Step>
-                <Step>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-sm text-gray-400 light:text-gray-600">
-                      03/02/2024, 10:00 AM
-                    </span>
-                    <span>
-                      Austin
-                      <span className="text-gray-400 light:text-gray-600">
-                        {' '}
-                        changed statues from{' '}
-                      </span>
-                      In Progress
-                      <span className="text-gray-400 light:text-gray-600">
-                        {' '}
-                        to{' '}
-                      </span>
-                      Done
-                    </span>
-                  </div>
-                </Step>
-                <Step>
-                  <div className="flex flex-col gap-1">
-                    <span className="text-sm text-gray-400 light:text-gray-600">
-                      03/03/2024, 10:10 AM
-                    </span>
-                    <span>
-                      Austin
-                      <span className="text-gray-400 light:text-gray-600">
-                        {' '}
-                        changed statues from{' '}
-                      </span>
-                      Backlog
-                      <span className="text-gray-400 light:text-gray-600">
-                        {' '}
-                        to{' '}
-                      </span>
-                      In Progress
-                    </span>
-                    <div className="p-[1px] bg-[linear-gradient(283deg,_#0d0dd2_0%,_rgba(23,_23,_255,_0.1)_100%)] text-gray-400 rounded-md">
-                      <div className="px-4 py-2 bg-gray-800 rounded-md light:bg-gray-200 light:text-gray-600">
-                        This looks fine, might've missed it but maybe we can add
-                        a link to the website where we also have the video of
-                        how to use the plug in? Otherwise this is a nice
-                        addition.
-                      </div>
-                    </div>
-                  </div>
-                </Step>
-              </Stepper>
-            </Block>
-          </Stack>
-          <Block className="w-2/5 min-w-[300px] mt-8 p-5 border rounded border-gray-600 light:border-gray-300">
-            <img src={AvatarImage} className="h-full w-full" />
-            <h3 className="text-gray-100 my-2.5 font-bold light:text-gray-900">
-              Teams
-              <span className="text-gray-400"> (2)</span>
-            </h3>
-            <Divider variant="secondary" />
-            <Stack justifyContent="spaceBetween">
-              <div className="inline-flex">
-                <SymbolIcon />
-                <span className="px-2.5 text-base text-gray-100 light:text-gray-900">
-                  GoodCode
-                </span>
-              </div>
-              <ChevronRightIcon />
-            </Stack>
-            <Stack justifyContent="spaceBetween" className="mt-3">
-              <div className="inline-flex">
-                <SymbolIcon />
-                <span className="px-2.5 text-base text-gray-100 light:text-gray-900">
-                  GoodCode
-                </span>
-              </div>
-              <ChevronRightIcon />
-            </Stack>
-
-            <Divider variant="secondary" />
-
-            <Stack className="w-full">
-              <Stack direction="column" className="w-2/4" dense>
-                <label className="text-[32px] text-gray-100 light:text-gray-900">
-                  2 days
-                </label>
-                <span className="font-semibold text-gray-400 light:text-gray-600">
-                  Avg turnaround time
-                </span>
-              </Stack>
-              <Stack direction="column" className="w-2/4" dense>
-                <label className="text-[32px] text-gray-100 light:text-gray-900">
-                  176
-                </label>
-                <span className="font-semibold text-gray-400 light:text-gray-600">
-                  Hours saved
-                </span>
-              </Stack>
-            </Stack>
-          </Block>
-        </Stack>
-      </TabPanel>
-    </Card>
-  </motion.div>
-);
-
-export const Overview = () => (
-  <motion.div
-    initial={{ y: -20, opacity: 0 }}
-    animate={{ y: 0, opacity: 1 }}
-    className="flex flex-col justify-center grow sm:mx-auto w-full"
-  >
-    <Card className="p-8 transition-colors w-full min-w-[960px] max-w-[1200px] light:bg-gray-100">
-      <Stack justifyContent="spaceBetween" alignItems="start" className="gap-5">
-        <Stack direction="column" alignItems="stretch" className="w-full">
-          <Block className="bg-gray-900 light:bg-white rounded-[20px] p-[30px]">
-            <Stack>
-              <Avatar
-                src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg"
-                name="Austin McDaniel"
-                size={72}
-              />
-              <Stack direction="column" alignItems="start">
+        <MotionGroup>
+          <Stack
+            justifyContent="spaceBetween"
+            alignItems="start"
+            className="gap-5"
+          >
+            <Stack direction="column" alignItems="start" className="w-3/5">
+              <Stack direction="column" alignItems="start" dense>
                 <Stack>
                   <h2 className="text-2xl font-sans font-bold text-gray-100 light:text-gray-900">
                     Austin McDaniel
@@ -1344,319 +1145,537 @@ export const Overview = () => (
                     Admin
                   </Chip>
                 </Stack>
-                <Stack className="text-gray-400 light:text-gray-600">
-                  <span>CEO</span>
-                  <DotIcon className="text-white light:text-black" />
-                  <span>Cyber Security Wizard</span>
+                <p className="text-base text-gray-400 light:text-gray-600">
+                  CEO / Cyber Security Wizard
+                </p>
+              </Stack>
+
+              <MotionItem>
+                <Block className="min-w-[300px] mt-8 p-5 border rounded border-gray-600 light:border-gray-300">
+                  <Stack direction="column" className="w-full gap-5">
+                    <Stack justifyContent="spaceBetween" className="w-full">
+                      <Chip
+                        variant="filled"
+                        className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px] light:bg-blue-100"
+                      >
+                        <LocationIcon className="text-blue-500" />{' '}
+                        <span className="pl-1">Florida</span>
+                      </Chip>
+                      <span>Miami</span>
+                    </Stack>
+
+                    <Stack justifyContent="spaceBetween" className="w-full">
+                      <Chip
+                        variant="filled"
+                        className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px] light:bg-blue-100"
+                      >
+                        <EmailIcon className="text-blue-500" />{' '}
+                        <span className="pl-1">Email</span>
+                      </Chip>
+                      <span>Austin@goodcode.us</span>
+                    </Stack>
+
+                    <Stack justifyContent="spaceBetween" className="w-full">
+                      <Chip
+                        variant="filled"
+                        className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px] light:bg-blue-100"
+                      >
+                        <PhoneIcon className="text-blue-500" />{' '}
+                        <span className="pl-1">Phone</span>
+                      </Chip>
+                      <span>561-699-7050</span>
+                    </Stack>
+
+                    <Stack justifyContent="spaceBetween" className="w-full">
+                      <Chip
+                        variant="filled"
+                        className="bg-gray-950 px-3 py-1 border-gray-500 rounded-[20px] light:bg-white light:border-gray-200"
+                      >
+                        <UserIcon className="text-gray-300" />{' '}
+                        <span className="pl-1">Joined</span>
+                      </Chip>
+                      <span>March 15, 2020</span>
+                    </Stack>
+                  </Stack>
+                </Block>
+              </MotionItem>
+
+              <Divider variant="secondary" className="mt-8" />
+
+              <Block className="mt-2">
+                <Stepper animated>
+                  <Step>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm text-gray-400 light:text-gray-600">
+                        03/01/2024, 8:00 AM
+                      </span>
+                      <span>
+                        Austin{' '}
+                        <span className="text-gray-400 light:text-gray-600">
+                          created ticket
+                        </span>
+                      </span>
+                    </div>
+                  </Step>
+                  <Step>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm text-gray-400 light:text-gray-600">
+                        03/02/2024, 10:00 AM
+                      </span>
+                      <span>
+                        Austin
+                        <span className="text-gray-400 light:text-gray-600">
+                          {' '}
+                          changed statues from{' '}
+                        </span>
+                        In Progress
+                        <span className="text-gray-400 light:text-gray-600">
+                          {' '}
+                          to{' '}
+                        </span>
+                        Done
+                      </span>
+                    </div>
+                  </Step>
+                  <Step>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-sm text-gray-400 light:text-gray-600">
+                        03/03/2024, 10:10 AM
+                      </span>
+                      <span>
+                        Austin
+                        <span className="text-gray-400 light:text-gray-600">
+                          {' '}
+                          changed statues from{' '}
+                        </span>
+                        Backlog
+                        <span className="text-gray-400 light:text-gray-600">
+                          {' '}
+                          to{' '}
+                        </span>
+                        In Progress
+                      </span>
+                      <div className="p-[1px] bg-[linear-gradient(283deg,_#0d0dd2_0%,_rgba(23,_23,_255,_0.1)_100%)] text-gray-400 rounded-md">
+                        <div className="px-4 py-2 bg-gray-800 rounded-md light:bg-gray-200 light:text-gray-600">
+                          This looks fine, might've missed it but maybe we can
+                          add a link to the website where we also have the video
+                          of how to use the plug in? Otherwise this is a nice
+                          addition.
+                        </div>
+                      </div>
+                    </div>
+                  </Step>
+                </Stepper>
+              </Block>
+            </Stack>
+            <Block className="w-2/5 min-w-[300px] mt-8 p-5 border rounded border-gray-600 light:border-gray-300">
+              <MotionItem>
+                <img src={AvatarImage} className="h-full w-full" />
+                <h3 className="text-gray-100 my-2.5 font-bold light:text-gray-900">
+                  Teams
+                  <span className="text-gray-400"> (2)</span>
+                </h3>
+                <Divider variant="secondary" />
+                <Stack justifyContent="spaceBetween">
+                  <div className="inline-flex">
+                    <SymbolIcon />
+                    <span className="px-2.5 text-base text-gray-100 light:text-gray-900">
+                      GoodCode
+                    </span>
+                  </div>
+                  <ChevronRightIcon />
+                </Stack>
+                <Stack justifyContent="spaceBetween" className="mt-3">
+                  <div className="inline-flex">
+                    <SymbolIcon />
+                    <span className="px-2.5 text-base text-gray-100 light:text-gray-900">
+                      GoodCode
+                    </span>
+                  </div>
+                  <ChevronRightIcon />
+                </Stack>
+
+                <Divider variant="secondary" />
+
+                <Stack className="w-full">
+                  <Stack direction="column" className="w-2/4" dense>
+                    <label className="text-[32px] text-gray-100 light:text-gray-900">
+                      2 days
+                    </label>
+                    <span className="font-semibold text-gray-400 light:text-gray-600">
+                      Avg turnaround time
+                    </span>
+                  </Stack>
+                  <Stack direction="column" className="w-2/4" dense>
+                    <label className="text-[32px] text-gray-100 light:text-gray-900">
+                      176
+                    </label>
+                    <span className="font-semibold text-gray-400 light:text-gray-600">
+                      Hours saved
+                    </span>
+                  </Stack>
+                </Stack>
+              </MotionItem>
+            </Block>
+          </Stack>
+        </MotionGroup>
+      </TabPanel>
+    </Card>
+  </motion.div>
+);
+
+export const Overview = () => (
+  <motion.div
+    initial={{ y: -20, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    className="flex flex-col justify-center grow sm:mx-auto w-full"
+  >
+    <MotionGroup>
+      <Card className="p-8 transition-colors w-full min-w-[960px] max-w-[1200px] light:bg-gray-100">
+        <Stack
+          justifyContent="spaceBetween"
+          alignItems="start"
+          className="gap-5"
+        >
+          <Stack direction="column" alignItems="stretch" className="w-full">
+            <Block className="bg-gray-900 light:bg-white rounded-[20px] p-[30px]">
+              <Stack>
+                <Avatar
+                  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg"
+                  name="Austin McDaniel"
+                  size={72}
+                />
+                <Stack direction="column" alignItems="start">
+                  <Stack>
+                    <h2 className="text-2xl font-sans font-bold text-gray-100 light:text-gray-900">
+                      Austin McDaniel
+                    </h2>
+                    <Chip
+                      variant="filled"
+                      className="rounded-[20px] border-orange-500 bg-orange-950 light:bg-orange-100"
+                    >
+                      Admin
+                    </Chip>
+                  </Stack>
+                  <Stack className="text-gray-400 light:text-gray-600">
+                    <span>CEO</span>
+                    <DotIcon className="text-white light:text-black" />
+                    <span>Cyber Security Wizard</span>
+                  </Stack>
                 </Stack>
               </Stack>
-            </Stack>
-            <Stack className="mt-4">
-              <Button
-                className="px-3"
-                variant="filled"
-                color="primary"
-                startAdornment={<BillingIcon className="text-white" />}
-              >
-                Overview
-              </Button>
-              <Button
-                className="px-3 bg-gray-700/40 light:bg-blue-200/40"
-                variant="filled"
-                color="secondary"
-                startAdornment={
-                  <ListIcon className="text-white light:text-black" />
-                }
-              >
-                Notes
-              </Button>
-              <Button
-                className="px-3 bg-gray-700/40 light:bg-blue-200/40"
-                variant="filled"
-                color="secondary"
-                startAdornment={
-                  <TeamManageIcon className="text-white light:text-black" />
-                }
-              >
-                Teams
-              </Button>
-              <Button
-                className="px-3 bg-gray-700/40 light:bg-blue-200/40"
-                variant="filled"
-                color="secondary"
-                startAdornment={
-                  <FilterIcon className="text-white light:text-black" />
-                }
-              >
-                History
-              </Button>
-            </Stack>
-          </Block>
-          <Block className="bg-gray-900 light:bg-white rounded-[20px] p-[30px]">
-            <Stack justifyContent="spaceBetween">
-              <h3 className="text-lg font-bold">Personal Information</h3>
-              <Button
-                variant="text"
-                color="primary"
-                className="text-lg"
-                startAdornment={<EditIcon />}
-              >
-                Edit
-              </Button>
-            </Stack>
-            <Block className="grid grid-cols-2 gap-4 mt-4">
-              <Stack alignItems="center">
-                <Block className="border border-gray-600 p-3 rounded-sm">
-                  <EmailIcon className="text-gray-300 light:text-gray-700" />
-                </Block>
-                <div>
-                  <Stack direction="column" alignItems="start" dense>
-                    <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
-                      austin@goodcode.us
-                    </div>
-                    <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
-                      Email Address
-                    </div>
-                  </Stack>
-                </div>
-              </Stack>
-              <Stack alignItems="center">
-                <Block className="border border-gray-600 p-3 rounded-sm">
-                  <PhoneIcon className="text-gray-300 light:text-gray-700" />
-                </Block>
-                <div>
-                  <Stack direction="column" alignItems="start" dense>
-                    <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
-                      561-699-7050
-                    </div>
-                    <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
-                      Mobile
-                    </div>
-                  </Stack>
-                </div>
-              </Stack>
-              <Stack alignItems="center">
-                <Block className="border border-gray-600 p-3 rounded-sm">
-                  <LoginIcon className="text-gray-300 light:text-gray-700" />
-                </Block>
-                <div>
-                  <Stack direction="column" alignItems="start" dense>
-                    <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
-                      Mar 15, 2024
-                    </div>
-                    <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
-                      Joined
-                    </div>
-                  </Stack>
-                </div>
-              </Stack>
-              <Stack alignItems="center">
-                <Block className="border border-gray-600 p-3 rounded-sm">
-                  <AdminIcon className="text-gray-300 light:text-gray-700" />
-                </Block>
-                <div>
-                  <Stack direction="column" alignItems="start" dense>
-                    <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
-                      Admin
-                    </div>
-                    <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
-                      Role
-                    </div>
-                  </Stack>
-                </div>
+              <Stack className="mt-4">
+                <Button
+                  className="px-3"
+                  variant="filled"
+                  color="primary"
+                  startAdornment={<BillingIcon className="text-white" />}
+                >
+                  Overview
+                </Button>
+                <Button
+                  className="px-3 bg-gray-700/40 light:bg-blue-200/40"
+                  variant="filled"
+                  color="secondary"
+                  startAdornment={
+                    <ListIcon className="text-white light:text-black" />
+                  }
+                >
+                  Notes
+                </Button>
+                <Button
+                  className="px-3 bg-gray-700/40 light:bg-blue-200/40"
+                  variant="filled"
+                  color="secondary"
+                  startAdornment={
+                    <TeamManageIcon className="text-white light:text-black" />
+                  }
+                >
+                  Teams
+                </Button>
+                <Button
+                  className="px-3 bg-gray-700/40 light:bg-blue-200/40"
+                  variant="filled"
+                  color="secondary"
+                  startAdornment={
+                    <FilterIcon className="text-white light:text-black" />
+                  }
+                >
+                  History
+                </Button>
               </Stack>
             </Block>
-            <Divider variant="secondary" className="my-1" />
-            <Block className="grid grid-cols-1 gap-4 mt-4">
-              <Stack alignItems="center">
-                <Block className="border border-gray-600 p-3 rounded-sm">
-                  <LocationIcon className="text-gray-300 light:text-gray-700" />
-                </Block>
-                <div>
-                  <Stack direction="column" alignItems="start" dense>
-                    <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
-                      United States of America
-                    </div>
-                    <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
-                      Location
+            <MotionItem>
+              <Block className="bg-gray-900 light:bg-white rounded-[20px] p-[30px]">
+                <Stack justifyContent="spaceBetween">
+                  <h3 className="text-lg font-bold">Personal Information</h3>
+                  <Button
+                    variant="text"
+                    color="primary"
+                    className="text-lg"
+                    startAdornment={<EditIcon />}
+                  >
+                    Edit
+                  </Button>
+                </Stack>
+                <Block className="grid grid-cols-2 gap-4 mt-4">
+                  <Stack alignItems="center">
+                    <Block className="border border-gray-600 p-3 rounded-sm">
+                      <EmailIcon className="text-gray-300 light:text-gray-700" />
+                    </Block>
+                    <div>
+                      <Stack direction="column" alignItems="start" dense>
+                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                          austin@goodcode.us
+                        </div>
+                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                          Email Address
+                        </div>
+                      </Stack>
                     </div>
                   </Stack>
-                </div>
-              </Stack>
-              <Stack alignItems="center">
-                <Block className="border border-gray-600 p-3 rounded-sm">
-                  <PendingIcon className="text-gray-300 light:text-gray-700" />
-                </Block>
-                <div>
-                  <Stack direction="column" alignItems="start" dense>
-                    <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
-                      Management, Development, Code Reviews
-                    </div>
-                    <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
-                      Responsibilities
+                  <Stack alignItems="center">
+                    <Block className="border border-gray-600 p-3 rounded-sm">
+                      <PhoneIcon className="text-gray-300 light:text-gray-700" />
+                    </Block>
+                    <div>
+                      <Stack direction="column" alignItems="start" dense>
+                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                          561-699-7050
+                        </div>
+                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                          Mobile
+                        </div>
+                      </Stack>
                     </div>
                   </Stack>
-                </div>
-              </Stack>
-            </Block>
-          </Block>
-          <Block className="bg-gray-900 light:bg-white rounded-[20px] p-[30px]">
-            <h3 className="text-lg font-bold align-middle">
-              <span>Teams</span>{' '}
-              <div className="ml-2.5 inline-flex justify-center text-sm items-center w-8 h-8 rounded-full bg-gray-950 text-center border border-gray-700 light:bg-blue-100 light:border-blue-500">
-                3
-              </div>
+                  <Stack alignItems="center">
+                    <Block className="border border-gray-600 p-3 rounded-sm">
+                      <LoginIcon className="text-gray-300 light:text-gray-700" />
+                    </Block>
+                    <div>
+                      <Stack direction="column" alignItems="start" dense>
+                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                          Mar 15, 2024
+                        </div>
+                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                          Joined
+                        </div>
+                      </Stack>
+                    </div>
+                  </Stack>
+                  <Stack alignItems="center">
+                    <Block className="border border-gray-600 p-3 rounded-sm">
+                      <AdminIcon className="text-gray-300 light:text-gray-700" />
+                    </Block>
+                    <div>
+                      <Stack direction="column" alignItems="start" dense>
+                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                          Admin
+                        </div>
+                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                          Role
+                        </div>
+                      </Stack>
+                    </div>
+                  </Stack>
+                </Block>
+                <Divider variant="secondary" className="my-1" />
+                <Block className="grid grid-cols-1 gap-4 mt-4">
+                  <Stack alignItems="center">
+                    <Block className="border border-gray-600 p-3 rounded-sm">
+                      <LocationIcon className="text-gray-300 light:text-gray-700" />
+                    </Block>
+                    <div>
+                      <Stack direction="column" alignItems="start" dense>
+                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                          United States of America
+                        </div>
+                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                          Location
+                        </div>
+                      </Stack>
+                    </div>
+                  </Stack>
+                  <Stack alignItems="center">
+                    <Block className="border border-gray-600 p-3 rounded-sm">
+                      <PendingIcon className="text-gray-300 light:text-gray-700" />
+                    </Block>
+                    <div>
+                      <Stack direction="column" alignItems="start" dense>
+                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                          Management, Development, Code Reviews
+                        </div>
+                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                          Responsibilities
+                        </div>
+                      </Stack>
+                    </div>
+                  </Stack>
+                </Block>
+              </Block>
+            </MotionItem>
+
+            <MotionItem>
+              <Block className="bg-gray-900 light:bg-white rounded-[20px] p-[30px]">
+                <h3 className="text-lg font-bold align-middle">
+                  <span>Teams</span>{' '}
+                  <div className="ml-2.5 inline-flex justify-center text-sm items-center w-8 h-8 rounded-full bg-gray-950 text-center border border-gray-700 light:bg-blue-100 light:border-blue-500">
+                    3
+                  </div>
+                </h3>
+
+                <Stack alignItems="center" className="mt-4 gap-4">
+                  <Stack alignItems="center">
+                    <Block className="flex items-center justify-center mb-0 border border-gray-600 p-[14px] w-[60px] h-[60px]">
+                      <SymbolIcon />
+                    </Block>
+                    <div>
+                      <Stack direction="column" alignItems="start" dense>
+                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                          Goodcode
+                        </div>
+                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                          Joined Mar 15, 2023
+                        </div>
+                      </Stack>
+                    </div>
+                  </Stack>
+                  <Stack alignItems="center">
+                    <Block className="flex items-center justify-center mb-0 border border-gray-600 p-[14px] w-[60px] h-[60px]">
+                      <CloudburstLogo />
+                    </Block>
+                    <div>
+                      <Stack direction="column" alignItems="start" dense>
+                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                          Cloudburst
+                        </div>
+                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                          Joined Mar 15, 2023
+                        </div>
+                      </Stack>
+                    </div>
+                  </Stack>
+                  <Stack alignItems="center">
+                    <Block className="flex items-center justify-center mb-0 border border-gray-600 p-[14px] w-[60px] h-[60px]">
+                      <CyberSainikLogo />
+                    </Block>
+                    <div>
+                      <Stack direction="column" alignItems="start" dense>
+                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                          Cyber Sainik
+                        </div>
+                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                          Joined Mar 15, 2023
+                        </div>
+                      </Stack>
+                    </div>
+                  </Stack>
+                </Stack>
+              </Block>
+            </MotionItem>
+          </Stack>
+          <Block className="bg-gray-900 light:bg-white rounded-[20px] p-[30px] min-w-[360px]">
+            <h3 className="text-gray-100 light:text-gray-900 font-bold text-lg">
+              Latest Activity
             </h3>
 
-            <Stack alignItems="center" className="mt-4 gap-4">
-              <Stack alignItems="center">
-                <Block className="flex items-center justify-center mb-0 border border-gray-600 p-[14px] w-[60px] h-[60px]">
-                  <SymbolIcon />
-                </Block>
-                <div>
-                  <Stack direction="column" alignItems="start" dense>
-                    <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
-                      Goodcode
-                    </div>
-                    <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
-                      Joined Mar 15, 2023
-                    </div>
-                  </Stack>
+            <Stepper activeStep={1} className="mt-4" animated>
+              <Step label="v6.0">
+                <div className="flex flex-col gap-1">
+                  <span className="text-gray-100 light:text-gray-900">
+                    New custom statuses for projects
+                  </span>
+                  <span className="text-sm text-gray-400 light:text-gray-600">
+                    <span>Austin McDaniel </span>
+                    <DotIcon
+                      size={4}
+                      className="inline text-gray-400 light:text-gray-600"
+                    />
+                    <span>1 hour ago</span>
+                  </span>
                 </div>
-              </Stack>
-              <Stack alignItems="center">
-                <Block className="flex items-center justify-center mb-0 border border-gray-600 p-[14px] w-[60px] h-[60px]">
-                  <CloudburstLogo />
-                </Block>
-                <div>
-                  <Stack direction="column" alignItems="start" dense>
-                    <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
-                      Cloudburst
-                    </div>
-                    <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
-                      Joined Mar 15, 2023
-                    </div>
-                  </Stack>
+              </Step>
+              <Step label="v5.0">
+                <div className="flex flex-col gap-1">
+                  <span className="text-gray-100 light:text-gray-900">
+                    Timeline UI overhaul
+                  </span>
+                  <span className="text-sm text-gray-400 light:text-gray-600">
+                    <span>Austin McDaniel </span>
+                    <DotIcon
+                      size={4}
+                      className="inline text-gray-400 light:text-gray-600"
+                    />
+                    <span>March 22, 2024</span>
+                  </span>
                 </div>
-              </Stack>
-              <Stack alignItems="center">
-                <Block className="flex items-center justify-center mb-0 border border-gray-600 p-[14px] w-[60px] h-[60px]">
-                  <CyberSainikLogo />
-                </Block>
-                <div>
-                  <Stack direction="column" alignItems="start" dense>
-                    <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
-                      Cyber Sainik
-                    </div>
-                    <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
-                      Joined Mar 15, 2023
-                    </div>
-                  </Stack>
+              </Step>
+              <Step label="v4.0">
+                <div className="flex flex-col gap-1">
+                  <span className="text-gray-100 light:text-gray-900">
+                    Google calendar integration
+                  </span>
+                  <span className="text-sm text-gray-400 light:text-gray-600">
+                    <span>Austin McDaniel </span>
+                    <DotIcon
+                      size={4}
+                      className="inline text-gray-400 light:text-gray-600"
+                    />
+                    <span>March 21, 2024</span>
+                  </span>
                 </div>
-              </Stack>
-            </Stack>
+              </Step>
+              <Step>
+                <div className="flex flex-col gap-1">
+                  <span className="text-gray-100 light:text-gray-900">
+                    Branch-specific workflow automations
+                  </span>
+                  <span className="text-sm text-gray-400 light:text-gray-600">
+                    <span>Austin McDaniel </span>
+                    <DotIcon
+                      size={4}
+                      className="inline text-gray-400 light:text-gray-600"
+                    />
+                    <span>February 28, 2024</span>
+                  </span>
+                </div>
+              </Step>
+              <Step>
+                <div className="flex flex-col gap-1">
+                  <span className="text-gray-100 light:text-gray-900">
+                    Project time frames
+                  </span>
+                  <span className="text-sm text-gray-400 light:text-gray-600">
+                    <span>Austin McDaniel </span>
+                    <DotIcon
+                      size={4}
+                      className="inline text-gray-400 light:text-gray-600"
+                    />
+                    <span>February 15, 2024</span>
+                  </span>
+                </div>
+              </Step>
+              <Step label="v3.0">
+                <div className="flex flex-col gap-1">
+                  <span className="text-gray-100 light:text-gray-900">
+                    GitHub Issues Sync
+                  </span>
+                  <span className="text-sm text-gray-400 light:text-gray-600">
+                    <span>Austin McDaniel </span>
+                    <DotIcon
+                      size={4}
+                      className="inline text-gray-400 light:text-gray-600"
+                    />
+                    <span>February 10, 2024</span>
+                  </span>
+                </div>
+              </Step>
+            </Stepper>
           </Block>
         </Stack>
-        <Block className="bg-gray-900 light:bg-white rounded-[20px] p-[30px] min-w-[360px]">
-          <h3 className="text-gray-100 light:text-gray-900 font-bold text-lg">
-            Latest Activity
-          </h3>
-
-          <Stepper activeStep={1} className="mt-4">
-            <Step label="v6.0">
-              <div className="flex flex-col gap-1">
-                <span className="text-gray-100 light:text-gray-900">
-                  New custom statuses for projects
-                </span>
-                <span className="text-sm text-gray-400 light:text-gray-600">
-                  <span>Austin McDaniel </span>
-                  <DotIcon
-                    size={4}
-                    className="inline text-gray-400 light:text-gray-600"
-                  />
-                  <span>1 hour ago</span>
-                </span>
-              </div>
-            </Step>
-            <Step label="v5.0">
-              <div className="flex flex-col gap-1">
-                <span className="text-gray-100 light:text-gray-900">
-                  Timeline UI overhaul
-                </span>
-                <span className="text-sm text-gray-400 light:text-gray-600">
-                  <span>Austin McDaniel </span>
-                  <DotIcon
-                    size={4}
-                    className="inline text-gray-400 light:text-gray-600"
-                  />
-                  <span>March 22, 2024</span>
-                </span>
-              </div>
-            </Step>
-            <Step label="v4.0">
-              <div className="flex flex-col gap-1">
-                <span className="text-gray-100 light:text-gray-900">
-                  Google calendar integration
-                </span>
-                <span className="text-sm text-gray-400 light:text-gray-600">
-                  <span>Austin McDaniel </span>
-                  <DotIcon
-                    size={4}
-                    className="inline text-gray-400 light:text-gray-600"
-                  />
-                  <span>March 21, 2024</span>
-                </span>
-              </div>
-            </Step>
-            <Step>
-              <div className="flex flex-col gap-1">
-                <span className="text-gray-100 light:text-gray-900">
-                  Branch-specific workflow automations
-                </span>
-                <span className="text-sm text-gray-400 light:text-gray-600">
-                  <span>Austin McDaniel </span>
-                  <DotIcon
-                    size={4}
-                    className="inline text-gray-400 light:text-gray-600"
-                  />
-                  <span>February 28, 2024</span>
-                </span>
-              </div>
-            </Step>
-            <Step>
-              <div className="flex flex-col gap-1">
-                <span className="text-gray-100 light:text-gray-900">
-                  Project time frames
-                </span>
-                <span className="text-sm text-gray-400 light:text-gray-600">
-                  <span>Austin McDaniel </span>
-                  <DotIcon
-                    size={4}
-                    className="inline text-gray-400 light:text-gray-600"
-                  />
-                  <span>February 15, 2024</span>
-                </span>
-              </div>
-            </Step>
-            <Step label="v3.0">
-              <div className="flex flex-col gap-1">
-                <span className="text-gray-100 light:text-gray-900">
-                  GitHub Issues Sync
-                </span>
-                <span className="text-sm text-gray-400 light:text-gray-600">
-                  <span>Austin McDaniel </span>
-                  <DotIcon
-                    size={4}
-                    className="inline text-gray-400 light:text-gray-600"
-                  />
-                  <span>February 10, 2024</span>
-                </span>
-              </div>
-            </Step>
-          </Stepper>
-        </Block>
-      </Stack>
-    </Card>
+      </Card>
+    </MotionGroup>
   </motion.div>
 );
 
@@ -1665,11 +1684,13 @@ export const Settings = () => {
     control,
     handleSubmit,
     formState: { isSubmitting }
-  } = useForm({defaultValues: {
-    fullName: 'Austin McDaniel',
-    title: 'CEO / Cyber Security Wizard',
-    website: 'goodcode.us'
-  }});
+  } = useForm({
+    defaultValues: {
+      fullName: 'Austin McDaniel',
+      title: 'CEO / Cyber Security Wizard',
+      website: 'goodcode.us'
+    }
+  });
 
   return (
     <motion.div
@@ -1702,122 +1723,132 @@ export const Settings = () => {
           </TabList>
         </Tabs>
         <TabPanel>
-          <Stack justifyContent="center">
-            <Block className="min-w-[350px] max-w-[350px] mt-12">
-              <form
-                onSubmit={handleSubmit(values => console.log('values', values))}
-              >
-                <Block>
-                  <Stack justifyContent="end">
-                    <Block className="p-5 items-center rounded-full border border-gray-700 bg-gray-900 light:bg-gray-200 light:border-gray-300">
-                      <UserIcon size={32} className="h-10 w-10" />
-                    </Block>
-                    <Stack
-                      direction="column"
-                      alignItems="start"
-                      className="gap-0"
-                      dense
-                    >
-                      <h6 className="text-lg text-gray-100 font-bold light:text-gray-900">
-                        Upload Image
-                      </h6>
-                      <div className="text-gray-400 light:text-gray-600">
-                        Min 400 x 400 px, PNG or JPEG formats.
-                      </div>
+          <MotionGroup>
+            <Stack justifyContent="center">
+              <MotionItem>
+                <Block className="min-w-[350px] max-w-[350px] mt-12">
+                  <form
+                    onSubmit={handleSubmit(values =>
+                      console.log('values', values)
+                    )}
+                  >
+                    <Block>
+                      <Stack justifyContent="end">
+                        <Block className="p-5 items-center rounded-full border border-gray-700 bg-gray-900 light:bg-gray-200 light:border-gray-300">
+                          <UserIcon size={32} className="h-10 w-10" />
+                        </Block>
+                        <Stack
+                          direction="column"
+                          alignItems="start"
+                          className="gap-0"
+                          dense
+                        >
+                          <h6 className="text-lg text-gray-100 font-bold light:text-gray-900">
+                            Upload Image
+                          </h6>
+                          <div className="text-gray-400 light:text-gray-600">
+                            Min 400 x 400 px, PNG or JPEG formats.
+                          </div>
 
+                          <Button
+                            variant="filled"
+                            color="secondary"
+                            className="mt-4"
+                          >
+                            Upload
+                          </Button>
+                        </Stack>
+                      </Stack>
+                    </Block>
+
+                    <Divider className="my-8" />
+
+                    <Block
+                      className="mb-7"
+                      labelClassName="text-sm font-medium mb-1"
+                      label="Full Name"
+                    >
+                      <Controller
+                        name="fullName"
+                        control={control}
+                        render={({ field: { value, onBlur, onChange } }) => (
+                          <Input
+                            name="fullName"
+                            disabled={isSubmitting}
+                            placeholder="Enter your full name..."
+                            value={value}
+                            type="text"
+                            onChange={onChange}
+                            onBlur={onBlur}
+                          />
+                        )}
+                      />
+                    </Block>
+                    <Block
+                      className="mb-7"
+                      labelClassName="text-sm font-medium mb-1"
+                      label="Title"
+                    >
+                      <Controller
+                        name="title"
+                        control={control}
+                        render={({ field: { value, onBlur, onChange } }) => (
+                          <Input
+                            name="title"
+                            disabled={isSubmitting}
+                            placeholder="Enter your position..."
+                            value={value}
+                            type="text"
+                            onChange={onChange}
+                            onBlur={onBlur}
+                          />
+                        )}
+                      />
+                    </Block>
+                    <Block
+                      className="mb-7"
+                      labelClassName="text-sm font-medium mb-1"
+                      label="Website"
+                    >
+                      <Controller
+                        name="website"
+                        control={control}
+                        render={({ field: { value, onBlur, onChange } }) => (
+                          <Input
+                            name="website"
+                            disabled={isSubmitting}
+                            placeholder="Enter your website..."
+                            value={value}
+                            type="text"
+                            onChange={onChange}
+                            onBlur={onBlur}
+                          />
+                        )}
+                      />
+                    </Block>
+                    <Stack justifyContent="center">
                       <Button
                         variant="filled"
                         color="secondary"
-                        className="mt-4"
+                        className="w-1/2 min-h-10"
                       >
-                        Upload
+                        Discard
+                      </Button>
+                      <Button
+                        type="submit"
+                        variant="filled"
+                        color="primary"
+                        className="w-1/2 min-h-10 rounded-sm px-4 py-2 !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+                        disabled={isSubmitting}
+                      >
+                        {isSubmitting ? 'Saving...' : 'Save'}
                       </Button>
                     </Stack>
-                  </Stack>
+                  </form>
                 </Block>
-
-                <Divider className='my-8' />
-
-                <Block
-                  className="mb-7"
-                  labelClassName="text-sm font-medium mb-1"
-                  label="Full Name"
-                >
-                  <Controller
-                    name="fullName"
-                    control={control}
-                    render={({ field: { value, onBlur, onChange } }) => (
-                      <Input
-                        name="fullName"
-                        disabled={isSubmitting}
-                        placeholder="Enter your full name..."
-                        value={value}
-                        type="text"
-                        onChange={onChange}
-                        onBlur={onBlur}
-                      />
-                    )}
-                  />
-                </Block>
-                <Block
-                  className="mb-7"
-                  labelClassName="text-sm font-medium mb-1"
-                  label="Title"
-                >
-                  <Controller
-                    name="title"
-                    control={control}
-                    render={({ field: { value, onBlur, onChange } }) => (
-                      <Input
-                        name="title"
-                        disabled={isSubmitting}
-                        placeholder="Enter your position..."
-                        value={value}
-                        type="text"
-                        onChange={onChange}
-                        onBlur={onBlur}
-                      />
-                    )}
-                  />
-                </Block>
-                <Block
-                  className="mb-7"
-                  labelClassName="text-sm font-medium mb-1"
-                  label="Website"
-                >
-                  <Controller
-                    name="website"
-                    control={control}
-                    render={({ field: { value, onBlur, onChange } }) => (
-                      <Input
-                        name="website"
-                        disabled={isSubmitting}
-                        placeholder="Enter your website..."
-                        value={value}
-                        type="text"
-                        onChange={onChange}
-                        onBlur={onBlur}
-                      />
-                    )}
-                  />
-                </Block>
-                <Stack justifyContent="center">
-                  <Button variant="filled" color="secondary" className="w-1/2 min-h-10">
-                    Discard
-                  </Button>
-                  <Button
-                    type="submit"
-                    variant="filled"
-                    color="primary"
-                    className="w-1/2 min-h-10 rounded-sm px-4 py-2 !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? 'Saving...' : 'Save'}
-                  </Button>
-                </Stack>
-              </form>
-            </Block>
-          </Stack>
+              </MotionItem>
+            </Stack>
+          </MotionGroup>
         </TabPanel>
       </Card>
     </motion.div>
