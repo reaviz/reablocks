@@ -340,27 +340,27 @@ export const Account = () => (
         <Stack direction="column" alignItems="start" className="w-3/5">
           <Stack direction="column" alignItems="start" dense>
             <Stack>
-              <h2 className="text-2xl font-sans font-bold text-gray-100">
+              <h2 className="text-2xl font-sans font-bold text-gray-100 light:text-gray-900">
                 Austin McDaniel
               </h2>
               <Chip
                 variant="filled"
-                className="rounded-[20px] border-orange-500 bg-orange-950"
+                className="rounded-[20px] border-orange-500 bg-orange-950 light:bg-orange-100"
               >
                 Admin
               </Chip>
             </Stack>
-            <p className="text-base text-gray-400">
+            <p className="text-base text-gray-400 light:text-gray-600">
               CEO / Cyber Security Wizard
             </p>
           </Stack>
 
-          <Block className="min-w-[300px] mt-8 p-5 border rounded border-gray-600">
+          <Block className="min-w-[300px] mt-8 p-5 border rounded border-gray-600 light:border-gray-300">
             <Stack direction="column" className="w-full gap-5">
               <Stack justifyContent="spaceBetween" className="w-full">
                 <Chip
                   variant="filled"
-                  className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px]"
+                  className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px] light:bg-blue-100"
                 >
                   <LocationIcon /> <span className="pl-1">Florida</span>
                 </Chip>
@@ -370,7 +370,7 @@ export const Account = () => (
               <Stack justifyContent="spaceBetween" className="w-full">
                 <Chip
                   variant="filled"
-                  className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px]"
+                  className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px] light:bg-blue-100"
                 >
                   <EmailIcon /> <span className="pl-1">Email</span>
                 </Chip>
@@ -380,7 +380,7 @@ export const Account = () => (
               <Stack justifyContent="spaceBetween" className="w-full">
                 <Chip
                   variant="filled"
-                  className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px]"
+                  className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px] light:bg-blue-100"
                 >
                   <PhoneIcon /> <span className="pl-1">Phone</span>
                 </Chip>
@@ -390,7 +390,7 @@ export const Account = () => (
               <Stack justifyContent="spaceBetween" className="w-full">
                 <Chip
                   variant="filled"
-                  className="bg-gray-950 px-3 py-1 border-gray-500 rounded-[20px]"
+                  className="bg-gray-950 px-3 py-1 border-gray-500 rounded-[20px] light:bg-white light:border-gray-200"
                 >
                   <UserIcon /> <span className="pl-1">Joined</span>
                 </Chip>
@@ -455,7 +455,7 @@ export const Account = () => (
                     In Progress
                   </span>
                   <div className="p-[1px] bg-[linear-gradient(283deg,_#0d0dd2_0%,_rgba(23,_23,_255,_0.1)_100%)] text-gray-400 rounded-md">
-                    <div className="px-4 py-2 bg-gray-800 rounded-md">
+                    <div className="px-4 py-2 bg-gray-800 rounded-md light:bg-gray-200 light:text-gray-600">
                       This looks fine, might've missed it but maybe we can add a
                       link to the website where we also have the video of how to
                       use the plug in? Otherwise this is a nice addition.
@@ -466,9 +466,9 @@ export const Account = () => (
             </Stepper>
           </Block>
         </Stack>
-        <Block className="w-2/5 min-w-[300px] mt-8 p-5 border rounded border-gray-600">
+        <Block className="w-2/5 min-w-[300px] mt-8 p-5 border rounded border-gray-600 light:border-gray-300">
           <img src={AvatarImage} className="h-full w-full" />
-          <h3 className="text-gray-100 my-2.5 font-bold">
+          <h3 className="text-gray-100 my-2.5 font-bold light:text-gray-900">
             Teams
             <span className="text-gray-400"> (2)</span>
           </h3>
@@ -476,14 +476,14 @@ export const Account = () => (
           <Stack justifyContent="spaceBetween">
             <div className="inline-flex">
               <SymbolIcon />
-              <span className="px-2.5 text-base text-gray-100">GoodCode</span>
+              <span className="px-2.5 text-base text-gray-100 light:text-gray-900">GoodCode</span>
             </div>
             <ChevronRightIcon />
           </Stack>
           <Stack justifyContent="spaceBetween" className="mt-3">
             <div className="inline-flex">
               <SymbolIcon />
-              <span className="px-2.5 text-base text-gray-100">GoodCode</span>
+              <span className="px-2.5 text-base text-gray-100 light:text-gray-900">GoodCode</span>
             </div>
             <ChevronRightIcon />
           </Stack>
@@ -492,12 +492,12 @@ export const Account = () => (
 
           <Stack className="w-full">
             <Stack direction="column" className="w-2/4" dense>
-              <label className="text-[32px] text-gray-100">2 days</label>
-              <span className="text-gray-400">Avg turnaround time</span>
+              <label className="text-[32px] text-gray-100 light:text-gray-900">2 days</label>
+              <span className="font-semibold text-gray-400 light:text-gray-600">Avg turnaround time</span>
             </Stack>
             <Stack direction="column" className="w-2/4" dense>
-              <label className="text-[32px] text-gray-100">176</label>
-              <span className="text-gray-400">Hours saved</span>
+              <label className="text-[32px] text-gray-100 light:text-gray-900">176</label>
+              <span className="font-semibold text-gray-400 light:text-gray-600">Hours saved</span>
             </Stack>
           </Stack>
         </Block>
