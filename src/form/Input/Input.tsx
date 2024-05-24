@@ -1,5 +1,4 @@
 import React, {
-  FC,
   forwardRef,
   RefObject,
   useImperativeHandle,
@@ -100,7 +99,7 @@ export interface InputRef {
   select?: () => void;
 }
 
-export const Input: FC<InputProps & InputRef> = forwardRef(
+export const Input = forwardRef<InputRef, InputProps>(
   (
     {
       className,
