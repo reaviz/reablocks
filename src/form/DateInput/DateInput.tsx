@@ -120,6 +120,7 @@ export const DateInput: FC<DateInputProps> = ({
         disabled={disabled}
         endAdornment={
           <IconButton
+            className="px-0"
             disabled={disabled}
             variant="text"
             onClick={() => setOpen(true)}
