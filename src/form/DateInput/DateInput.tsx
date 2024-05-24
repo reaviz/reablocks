@@ -13,7 +13,8 @@ import { IconButton } from '@/elements/IconButton';
 import { Menu } from '@/layers/Menu';
 import { Card } from '@/layout/Card';
 import { Placement } from '@/utils/Position';
-import { Calendar, Input, InputProps, InputRef } from '@/form';
+import { Calendar } from '@/form/Calendar';
+import { Input, InputProps, InputRef } from '@/form/Input';
 
 import CalendarIcon from '@/assets/icons/calendar.svg?react';
 
