@@ -11,18 +11,12 @@ import { format as formatDate, isValid, parse } from 'date-fns';
 import { IconButton } from '@/elements';
 import { Menu } from '@/layers';
 import { Card } from '@/layout';
-import { Calendar, Input, InputProps, InputRef } from '@/form';
 import { Placement } from '@/utils';
+import { Calendar, Input, InputProps, InputRef } from '@/form';
 
 import CalendarIcon from '@/assets/icons/calendar.svg?react';
 
-export interface DateInputProps extends Omit<InputProps, 'value' | 'onChange'> {
-  /**
-   * The current date value.
-   * @type {Date}
-   */
-  value: Date;
-
+export type DateInputProps = Omit<InputProps, 'value' | 'onChange'> & {
   /**
    * The format in which the date should be displayed.
    * @type {string}
@@ -33,18 +27,24 @@ export interface DateInputProps extends Omit<InputProps, 'value' | 'onChange'> {
    * Calendar placement type.
    */
   placement?: Placement;
-
-  /**
-   * Callback function to handle date changes.
-   * @param {Date} value - The new date value.
-   */
-  onChange: (value: Date) => void;
-}
+} & (
+    | {
+        isRange?: true;
+        value: [Date, Date];
+        onChange: (value: [Date, Date]) => void;
+      }
+    | {
+        isRange?: false;
+        value: Date;
+        onChange: (value: Date) => void;
+      }
+  );
 export const DateInput: FC<DateInputProps> = ({
   disabled,
   value,
   format = 'MM/dd/yyyy',
   placement = 'bottom-start',
+  isRange,
   onChange,
   ...rest
 }) => {
@@ -53,11 +53,20 @@ export const DateInput: FC<DateInputProps> = ({
   const [inputValue, setInputValue] = useState<string>('');
 
   const changeHandler = useCallback(
-    (value: Date) => {
-      setOpen(false);
-      onChange(value);
+    (value: Date | [Date, Date]) => {
+      if (isRange) {
+        onChange(value as [Date, Date]);
+
+        if (value[0] && value[1]) {
+          setOpen(false);
+        }
+      } else {
+        setOpen(false);
+        // @ts-expect-error because isRange optional
+        onChange(value);
+      }
     },
-    [onChange]
+    [isRange, onChange]
   );
 
   const inputChangeHandler = useCallback(
@@ -66,20 +75,43 @@ export const DateInput: FC<DateInputProps> = ({
 
       setInputValue(dateStr);
 
-      const date = parse(dateStr, format, new Date());
+      if (isRange) {
+        const [startStr, endStr] = dateStr.split('-');
+        const startDate = parse(startStr, format, new Date());
+        const endDate = parse(endStr, format, new Date());
 
-      if (isValid(date) && formatDate(date, format) === dateStr) {
-        onChange(date);
+        if (
+          isValid(startDate) &&
+          isValid(endDate) &&
+          formatDate(startDate, format) === startStr &&
+          formatDate(endDate, format) === endStr
+        ) {
+          onChange?.([startDate, endDate]);
+        }
+      } else {
+        const date = parse(dateStr, format, new Date());
+
+        if (isValid(date) && formatDate(date, format) === dateStr) {
+          // @ts-expect-error because isRange optional
+          onChange?.(date);
+        }
       }
     },
-    [format, onChange]
+    [format, isRange, onChange]
   );
 
   useEffect(() => {
     if (value) {
-      setInputValue(formatDate(value, format));
+      if (isRange) {
+        const [start, end] = value;
+        setInputValue(
+          `${start ? formatDate(start, format) : ''}-${end ? formatDate(end, format) : ''}`
+        );
+      } else if (!isRange) {
+        setInputValue(formatDate(value as Date, format));
+      }
     }
-  }, [format, value]);
+  }, [format, isRange, value]);
 
   return (
     <>
@@ -95,7 +127,11 @@ export const DateInput: FC<DateInputProps> = ({
             <CalendarIcon />
           </IconButton>
         }
-        placeholder={format.toUpperCase()}
+        placeholder={
+          isRange
+            ? `${format.toUpperCase()} - ${format.toUpperCase()}`
+            : format.toUpperCase()
+        }
         {...rest}
         value={inputValue}
         onChange={inputChangeHandler}
@@ -108,7 +144,12 @@ export const DateInput: FC<DateInputProps> = ({
       >
         {() => (
           <Card>
-            <Calendar value={value} showDayOfWeek onChange={changeHandler} />
+            <Calendar
+              value={value}
+              isRange={isRange}
+              showDayOfWeek
+              onChange={changeHandler}
+            />
           </Card>
         )}
       </Menu>

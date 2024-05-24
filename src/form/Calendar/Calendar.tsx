@@ -55,6 +55,11 @@ export type CalendarProps = {
   disabled?: boolean;
 
   /**
+   * Whether the calendar is a range picker.
+   */
+  isRange?: boolean;
+
+  /**
    * The text or icon to use for next.
    */
   nextArrow?: React.ReactNode | string;
@@ -83,30 +88,12 @@ export type CalendarProps = {
    * Theme for the Calendar.
    */
   theme?: CalendarTheme;
-} & (
-  | {
-      /**
-       * Whether the calendar is a range picker.
-       */
-      isRange?: true;
 
-      /**
-       * A callback function that is called when the selected date(s) change.
-       */
-      onChange?: (value: [Date, Date]) => void;
-    }
-  | {
-      /**
-       * Whether the calendar is a range picker.
-       */
-      isRange?: false;
-
-      /**
-       * A callback function that is called when the selected date(s) change.
-       */
-      onChange?: (value: Date) => void;
-    }
-);
+  /**
+   * A callback function that is called when the selected date(s) change.
+   */
+  onChange?: (value: Date | [Date, Date]) => void;
+};
 
 export const Calendar: FC<CalendarProps> = ({
   min,
@@ -181,7 +168,6 @@ export const Calendar: FC<CalendarProps> = ({
   const dateChangeHandler = useCallback(
     (date: Date) => {
       if (!isRange) {
-        // @ts-ignore
         onChange?.(date);
         setMonthValue(getMonth(date));
         setYearValue(getYear(date));
