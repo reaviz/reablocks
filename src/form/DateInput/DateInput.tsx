@@ -1,6 +1,7 @@
 import React, {
   ChangeEvent,
   FC,
+  ReactElement,
   useCallback,
   useEffect,
   useRef,
@@ -27,6 +28,11 @@ export type DateInputProps = Omit<InputProps, 'value' | 'onChange'> & {
    * Calendar placement type.
    */
   placement?: Placement;
+
+  /**
+   * Icon to show in open calendar button.
+   */
+  icon?: ReactElement;
 } & (
     | {
         isRange?: true;
@@ -45,6 +51,7 @@ export const DateInput: FC<DateInputProps> = ({
   format = 'MM/dd/yyyy',
   placement = 'bottom-start',
   isRange,
+  icon = <CalendarIcon />,
   onChange,
   ...rest
 }) => {
@@ -124,7 +131,7 @@ export const DateInput: FC<DateInputProps> = ({
             variant="text"
             onClick={() => setOpen(true)}
           >
-            <CalendarIcon />
+            {icon}
           </IconButton>
         }
         placeholder={
