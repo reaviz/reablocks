@@ -14,7 +14,8 @@ export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
     | 'error'
     | 'success'
     | 'warning'
-    | 'info';
+    | 'info'
+    | string;
 
   /**
    * Font variant for the text.

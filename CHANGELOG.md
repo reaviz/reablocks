@@ -1,3 +1,10 @@
+# 7.8.1 - 5/23/24
+- [feat] Add Profile blocks
+
+# 7.8.0 - 5/22/24
+- [feature] Add ability to extend colors in component themes #211 
+- [feature] Add Account profile block #210 
+
 # 7.7.4 - 5/22/24
 - [chore] use json tree instead of syntax highlighter
 

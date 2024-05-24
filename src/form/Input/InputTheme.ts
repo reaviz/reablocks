@@ -10,6 +10,7 @@ export interface InputTheme {
     small: string;
     medium: string;
     large: string;
+    [key: string]: string;
   };
   adornment: {
     base: string;

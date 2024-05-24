@@ -22,7 +22,7 @@ export interface BadgeProps
   /**
    * The color of the badge.
    */
-  color?: BadgeColor;
+  color?: BadgeColor | string;
 
   /**
    * Whether to disable the margins.
