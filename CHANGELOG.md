@@ -1,5 +1,9 @@
+# 7.9.2 - 5/23/24
+- [fix] fix date input exports
+
 # 7.9.1 - 5/23/24
-- [feat] DateInput component
+- [feature] DateInput component
+- [feature] Expand variants/sizes to allow for dynamic
 
 # 7.8.1 - 5/23/24
 - [feat] Add Profile blocks

@@ -1,5 +1,5 @@
-import { DateFormat } from '@/data';
-import { Stack } from '@/layout';
+import { DateFormat } from '../../data/DateFormat';
+import { Stack } from '../../layout/Stack';
 import { useState } from 'react';
 import { DateInput } from './DateInput';
 
