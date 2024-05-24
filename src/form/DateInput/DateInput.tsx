@@ -121,7 +121,6 @@ export const DateInput: FC<DateInputProps> = ({
         endAdornment={
           <IconButton
             className="px-0"
-            disabled={disabled}
             variant="text"
             onClick={() => setOpen(true)}
           >
@@ -146,6 +145,7 @@ export const DateInput: FC<DateInputProps> = ({
         {() => (
           <Card>
             <Calendar
+              disabled={disabled}
               value={value}
               isRange={isRange}
               showDayOfWeek
