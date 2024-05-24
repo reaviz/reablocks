@@ -36,7 +36,7 @@ export interface InputProps
   /**
    * Size of the input.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * Content to display before the input.

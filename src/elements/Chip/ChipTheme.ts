@@ -29,6 +29,7 @@ export interface ChipTheme {
       small: string;
       medium: string;
       large: string;
+      [key: string]: string;
     };
   };
   variants: {
@@ -49,6 +50,7 @@ export interface ChipTheme {
     small: string;
     medium: string;
     large: string;
+    [key: string]: string;
   };
   focus: string;
   deleteButton: {
@@ -57,6 +59,7 @@ export interface ChipTheme {
       small: string;
       medium: string;
       large: string;
+      [key: string]: string;
     };
   };
   disabled: string;

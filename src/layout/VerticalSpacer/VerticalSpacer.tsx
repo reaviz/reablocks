@@ -15,7 +15,14 @@ export interface VerticalSpacerProps extends HTMLAttributes<HTMLDivElement> {
   theme?: VerticalSpacerTheme;
 }
 
-export type VerticalSpaceType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+export type VerticalSpaceType =
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | 'xxl'
+  | string;
 
 export interface VerticalSpacerRef {
   /**

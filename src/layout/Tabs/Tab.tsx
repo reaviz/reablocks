@@ -47,7 +47,7 @@ export interface TabProps extends PropsWithChildren {
    *
    * @private
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * Theme for the Tabs.

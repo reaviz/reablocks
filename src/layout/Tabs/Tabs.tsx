@@ -49,7 +49,7 @@ export interface TabsProps extends PropsWithChildren {
   /**
    * The size of the tabs.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * The callback to be called when a tab is selected.

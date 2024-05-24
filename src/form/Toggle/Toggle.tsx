@@ -22,7 +22,7 @@ export interface ToggleProps {
   /**
    * The size of the toggle.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * When the toggle is changed.
