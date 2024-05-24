@@ -1,3 +1,6 @@
+# 7.9.1 - 5/23/24
+- [feat] DateInput component
+
 # 7.8.1 - 5/23/24
 - [feat] Add Profile blocks
 
