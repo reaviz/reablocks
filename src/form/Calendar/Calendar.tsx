@@ -27,7 +27,7 @@ import { Divider } from '@/layout/Divider';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
-export type CalendarProps = {
+export interface CalendarProps {
   /**
    * The selected date(s) for the calendar.
    */
@@ -80,6 +80,11 @@ export type CalendarProps = {
   animated?: boolean;
 
   /**
+   * A callback function that is called when the selected date(s) change.
+   */
+  onChange?: (value: Date | [Date, Date]) => void;
+
+  /**
    * A callback function that is called when the calendar view changes.
    */
   onViewChange?: (view: CalendarViewType) => void;
@@ -88,12 +93,7 @@ export type CalendarProps = {
    * Theme for the Calendar.
    */
   theme?: CalendarTheme;
-
-  /**
-   * A callback function that is called when the selected date(s) change.
-   */
-  onChange?: (value: Date | [Date, Date]) => void;
-};
+}
 
 export const Calendar: FC<CalendarProps> = ({
   min,
