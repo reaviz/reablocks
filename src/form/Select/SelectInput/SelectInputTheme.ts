@@ -95,7 +95,7 @@ export const selectInputTheme: SelectInputTheme = {
     'bg-panel text-panel-content border-panel-accent border-solid hover:border-panel-accent',
     // 'hover:after:bg-input-hover focus-within:after:bg-input-focus',
     'hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#242433_100%)]',
-    'focus-within:after:bg-[radial-gradient(circle,_#93B6FF_0%,_#105EFF_36%,_#3D3D4D 90%,_#242433_100%)]',
+    'focus-within:after:bg-[radial-gradient(circle,_#93B6FF_0%,_#105EFF_36%,_#3D3D4D_90%,_#242433_100%)]',
     'hover:after:content-[""] hover:after:absolute hover:after:mx-1 hover:after:h-px after:z-[2] hover:after:rounded hover:after:-bottom-[0px] hover:after:inset-x-0.5',
     'focus-within:after:content-[""] focus-within:after:absolute focus-within:after:mx-0 focus-within:after:h-px after:z-[2] focus-within:after:rounded focus-within:after:-bottom-[0px] focus-within:after:inset-x-0.5'
   ].join(' '),
