@@ -59,7 +59,7 @@ export const DateInput: FC<DateInputProps> = ({
   placement = 'bottom-start',
   isRange,
   icon = <CalendarIcon />,
-  openOnFocus,
+  openOnFocus = true,
   onChange,
   onFocus,
   ...rest
