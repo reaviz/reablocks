@@ -285,7 +285,8 @@ export const Select: FC<SelectProps> = ({
     options,
     {
       keys: ['children', 'group'],
-      ...searchOptions
+      ...searchOptions,
+      getFn: menuDisabled ? () => '' : searchOptions?.getFn
     }
   );
 
@@ -551,13 +552,26 @@ export const Select: FC<SelectProps> = ({
         } else {
           newSelection = result[index];
         }
-
-        if (newSelection) {
+        // Add new item if menu not disabled or item not presents in the list otherwise just clear input
+        if (
+          newSelection &&
+          (!menuDisabled || !value.includes(newSelection.value))
+        ) {
           toggleSelectedOption(newSelection);
+        } else if (menuDisabled && value.includes(newSelection.value)) {
+          resetInput();
         }
       }
     },
-    [createable, index, result, toggleSelectedOption]
+    [
+      createable,
+      index,
+      menuDisabled,
+      resetInput,
+      result,
+      toggleSelectedOption,
+      value
+    ]
   );
 
   const onTabKeyDown = useCallback(
