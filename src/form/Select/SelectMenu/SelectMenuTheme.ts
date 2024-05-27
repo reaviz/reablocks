@@ -67,14 +67,12 @@ export const selectMenuTheme: SelectMenuTheme = {
   option: {
     ...baseTheme.option,
     base: [baseTheme.option.base, 'text-panel-secondary-content '].join(' '),
-    hover: [baseTheme.option.hover, 'hover:bg-vulcan hover:text-mystic'].join(
-      ' '
-    ),
+    hover: [
+      baseTheme.option.hover,
+      'hover:bg-vulcan hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-panel-secondary-content'
+    ].join(' '),
     active: [baseTheme.option.active, 'bg-vulcan hover:text-mystic'].join(' '),
-    selected: [
-      baseTheme.option.selected,
-      'text-primary-active light:bg-primary-active light:[&>div>span]:invert'
-    ].join(' ')
+    selected: [baseTheme.option.selected, 'text-primary-active'].join(' ')
   }
 };
 
@@ -84,7 +82,10 @@ export const cssVarsSelectMenuTheme: SelectMenuTheme = {
     baseTheme.base,
     'bg-[var(--select-menu-background)] [border:_var(--select-menu-border)] rounded-[var(--select-menu-border-radius)]'
   ].join(' '),
-  groupTitle: [baseTheme.groupTitle, 'text-gray-600'].join(' '),
+  groupItem: {
+    ...baseTheme.groupItem,
+    title: [baseTheme.groupItem.title, 'text-gray-600'].join(' ')
+  },
   option: {
     ...baseTheme.option,
     base: [

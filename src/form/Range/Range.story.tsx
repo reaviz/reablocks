@@ -4,14 +4,7 @@ import { RangeSingle } from './RangeSingle';
 
 export default {
   title: 'Components/Form/Range',
-  component: RangeSingle,
-  decorators: [
-    Story => (
-      <div className="bg-panel p-20">
-        <Story />
-      </div>
-    )
-  ]
+  component: RangeSingle
 };
 
 export const Single = () => {
