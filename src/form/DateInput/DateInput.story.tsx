@@ -74,3 +74,9 @@ export const Range = () => {
     </Stack>
   );
 };
+
+export const OpenOnFocus = () => {
+  const [date, setDate] = useState<Date>(new Date());
+
+  return <DateInput fullWidth openOnFocus value={date} onChange={setDate} />;
+};
