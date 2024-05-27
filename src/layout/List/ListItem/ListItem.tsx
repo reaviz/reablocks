@@ -100,10 +100,10 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
       >
         {start && (
           <div
-            className={twMerge(
+            className={cn(
               theme.listItem.adornment.base,
               theme.listItem.adornment.start,
-              dense && theme.listItem.dense.startAdornment
+              { [theme.listItem.dense.startAdornment]: dense }
             )}
           >
             {start}
