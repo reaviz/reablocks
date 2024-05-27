@@ -1,3 +1,6 @@
+# 7.9.3 - 5/27/24
+- [fix] fix adding new item for creatable Select with disabled menu 
+
 # 7.9.2 - 5/23/24
 - [fix] fix date input exports
 
