@@ -1,6 +1,5 @@
 import React, {
   ChangeEvent,
-  FocusEvent,
   FC,
   ReactElement,
   useCallback,
@@ -32,11 +31,6 @@ export type DateInputProps = Omit<InputProps, 'value' | 'onChange'> & {
   placement?: Placement;
 
   /**
-   * Open calendar on field focus
-   */
-  openOnFocus?: boolean;
-
-  /**
    * Icon to show in open calendar button.
    */
   icon?: ReactElement;
@@ -59,9 +53,7 @@ export const DateInput: FC<DateInputProps> = ({
   placement = 'bottom-start',
   isRange,
   icon = <CalendarIcon />,
-  openOnFocus,
   onChange,
-  onFocus,
   ...rest
 }) => {
   const [open, setOpen] = useState<boolean>(false);
@@ -116,16 +108,6 @@ export const DateInput: FC<DateInputProps> = ({
     [format, isRange, onChange]
   );
 
-  const focusHandler = useCallback(
-    (e: FocusEvent<HTMLInputElement>) => {
-      if (openOnFocus) {
-        setOpen(true);
-      }
-      onFocus?.(e);
-    },
-    [onFocus, openOnFocus]
-  );
-
   useEffect(() => {
     if (value) {
       if (isRange) {
@@ -161,7 +143,6 @@ export const DateInput: FC<DateInputProps> = ({
         {...rest}
         value={inputValue}
         onChange={inputChangeHandler}
-        onFocus={focusHandler}
       />
       <Menu
         open={open}
