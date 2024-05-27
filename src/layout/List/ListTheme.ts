@@ -47,7 +47,7 @@ const baseTheme: ListTheme = {
       end: 'pl-1',
       svg: 'fill-current'
     },
-    content: 'text-sm overflow-wrap break-word word-wrap break-all flex-1'
+    content: 'overflow-wrap break-word word-wrap break-all flex-1'
   }
 };
 

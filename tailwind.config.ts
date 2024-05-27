@@ -40,7 +40,9 @@ const config: Config = {
         'button-gradient-hover':
           'linear-gradient(283deg, #44F 0%, rgba(23, 23, 255, 0.10) 100%)',
         'button-gradient-focus':
-          'linear-gradient(283deg, #0D0DD2 0%, rgba(23, 23, 255, 0.10) 100%)'
+          'linear-gradient(283deg, #0D0DD2 0%, rgba(23, 23, 255, 0.10) 100%)',
+        'input-hover': 'radial-gradient(circle, #105EFF 0%, #105EFF 36%, #242433 100%)',
+        'input-focus': 'radial-gradient(circle, #93B6FF 0%, #105EFF 36%, #3D3D4D 90%, #242433 100%)'
       }
     }
   },

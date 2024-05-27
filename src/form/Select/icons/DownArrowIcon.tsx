@@ -5,10 +5,13 @@ export const DownArrowIcon: FC = () => (
     xmlns="http://www.w3.org/2000/svg"
     x="0px"
     y="0px"
-    width="50"
-    height="50"
-    viewBox="0 0 32 32"
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
   >
-    <path d="M 4.21875 10.78125 L 2.78125 12.21875 L 15.28125 24.71875 L 16 25.40625 L 16.71875 24.71875 L 29.21875 12.21875 L 27.78125 10.78125 L 16 22.5625 Z"></path>
+    <path
+      d="M11.06 5.53003L8 8.58336L4.94 5.53003L4 6.47003L8 10.47L12 6.47003L11.06 5.53003Z"
+      fill="currentColor"
+    />
   </svg>
 );

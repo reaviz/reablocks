@@ -5,16 +5,19 @@ export type CloseIconProps = {
   width?: number;
 };
 
-export const CloseIcon: FC<CloseIconProps> = ({ height = 32, width = 32 }) => (
+export const CloseIcon: FC<CloseIconProps> = ({ height = 16, width = 16 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     x="0px"
     y="0px"
     width={width}
     height={height}
-    viewBox="0 0 32 32"
+    viewBox="0 0 16 16"
     fill="currentColor"
   >
-    <path d="M 7.21875 5.78125 L 5.78125 7.21875 L 14.5625 16 L 5.78125 24.78125 L 7.21875 26.21875 L 16 17.4375 L 24.78125 26.21875 L 26.21875 24.78125 L 17.4375 16 L 26.21875 7.21875 L 24.78125 5.78125 L 16 14.5625 Z"></path>
+    <path
+      d="M12.6667 4.27331L11.7267 3.33331L8.00004 7.05998L4.27337 3.33331L3.33337 4.27331L7.06004 7.99998L3.33337 11.7266L4.27337 12.6666L8.00004 8.93998L11.7267 12.6666L12.6667 11.7266L8.94004 7.99998L12.6667 4.27331Z"
+      fill="currentColor"
+    ></path>
   </svg>
 );
