@@ -24,6 +24,7 @@ export interface SelectInputTheme {
   multiple: {
     prefix: string;
     inputContainer: string;
+    counter: string;
   };
   open: string;
   chip: {
@@ -71,7 +72,8 @@ const baseTheme: SelectInputTheme = {
   },
   multiple: {
     prefix: 'contents',
-    inputContainer: 'flex-wrap'
+    inputContainer: 'flex-wrap',
+    counter: 'bg-primary text-athens-gray px-1.5 rounded-sm mx-1'
   },
   chip: {
     base: 'cursor-pointer flex text-sm leading-none box-border mr-1 px-1 py-1 rounded border-solid border-transparent',

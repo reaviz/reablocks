@@ -45,6 +45,29 @@ export const Basic = () => {
   );
 };
 
+export const ValueCount = () => {
+  const [value, setValue] = useState<string[]>(['facebook', 'twitter']);
+  return (
+    <div style={{ width: 300 }}>
+      <Select
+        multiple
+        multipleDisplayType="count"
+        closeOnSelect={false}
+        placeholder="Select a category..."
+        value={value}
+        onChange={v => {
+          setValue(v);
+          console.log('onChange', v);
+        }}
+      >
+        <SelectOption value="facebook">facebook</SelectOption>
+        <SelectOption value="twitter">twitter</SelectOption>
+        <SelectOption value="twitch">twitch</SelectOption>
+      </Select>
+    </div>
+  );
+};
+
 export const Disabled = () => {
   const [value, setValue] = useState<string[] | null>(['facebook']);
   return (

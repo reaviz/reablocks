@@ -15,7 +15,6 @@ import { CloseIcon } from '@/form/Select/icons/CloseIcon';
 import { DotsLoader } from '@/elements/Loader/DotsLoader';
 import { RefreshIcon } from '@/form/Select/icons/RefreshIcon';
 import { SelectInputChip, SelectInputChipProps } from './SelectInputChip';
-import { twMerge } from 'tailwind-merge';
 import { cn, useComponentTheme } from '@/utils';
 import { SelectTheme } from '@/form/Select/SelectTheme';
 import { CloneElement } from '@/utils';
@@ -95,6 +94,11 @@ export interface SelectInputProps {
    * If true, the select input allows multiple selection.
    */
   multiple?: boolean;
+
+  /**
+   * The display type of the selected values.
+   */
+  multipleDisplayType?: 'chip' | 'count';
 
   /**
    * If true, the select input is loading.
@@ -256,6 +260,7 @@ export const SelectInput: FC<SelectInputProps> = ({
   menuDisabled,
   menuOpen,
   size,
+  multipleDisplayType,
   refreshIcon = <RefreshIcon />,
   closeIcon = <CloseIcon />,
   expandIcon = <DownArrowIcon />,
@@ -436,14 +441,12 @@ export const SelectInput: FC<SelectInputProps> = ({
   const renderPrefix = useCallback(() => {
     if (multiple) {
       const multipleOptions = selectedOption as SelectOptionProps[];
-      if (multipleOptions?.length) {
+      if (multipleOptions?.length && multipleDisplayType === 'chip') {
         return (
           <div
-            className={twMerge(
-              theme.prefix,
-              multiple && theme.multiple?.prefix,
-              'select-input-value'
-            )}
+            className={cn(theme.prefix, 'select-input-value', {
+              [theme.multiple?.prefix]: multiple
+            })}
           >
             {multipleOptions.map(option => (
               <CloneElement<SelectInputChipProps>
@@ -465,7 +468,7 @@ export const SelectInput: FC<SelectInputProps> = ({
       if (singleOption?.inputLabel && !inputText) {
         return (
           <div
-            className={twMerge(
+            className={cn(
               theme.prefix,
               theme.single?.prefix,
               'select-input-value'
@@ -485,6 +488,7 @@ export const SelectInput: FC<SelectInputProps> = ({
     disabled,
     inputText,
     multiple,
+    multipleDisplayType,
     onSelectedChange,
     onTagKeyDown,
     selectedOption,
@@ -492,6 +496,18 @@ export const SelectInput: FC<SelectInputProps> = ({
     theme.prefix,
     theme.single
   ]);
+
+  const renderCount = useCallback(() => {
+    if (multiple) {
+      const multipleOptions = selectedOption as SelectOptionProps[];
+
+      if (multipleDisplayType === 'count') {
+        return (
+          <div className={theme.multiple.counter}>{multipleOptions.length}</div>
+        );
+      }
+    }
+  }, [multiple, multipleDisplayType, selectedOption, theme.multiple]);
 
   return (
     <div className={cn(theme.container)}>
@@ -544,13 +560,18 @@ export const SelectInput: FC<SelectInputProps> = ({
             placeholderIsMinWidth={false}
           />
         </div>
+        {multiple && multipleDisplayType === 'count' && (
+          <div className={theme.multiple.counter}>
+            {(selectedOption as SelectOptionProps[]).length}
+          </div>
+        )}
         <div className={theme.suffix?.container}>
           {refreshable && !loading && (
             <button
               type="button"
               title="Refresh Options"
               disabled={disabled}
-              className={twMerge(
+              className={cn(
                 theme.suffix?.button,
                 theme.suffix?.refresh,
                 'select-input-refresh'
@@ -566,7 +587,7 @@ export const SelectInput: FC<SelectInputProps> = ({
               type="button"
               title="Clear selection"
               disabled={disabled}
-              className={twMerge(
+              className={cn(
                 theme.suffix?.button,
                 theme.suffix?.close,
                 'select-input-clear'
@@ -581,7 +602,7 @@ export const SelectInput: FC<SelectInputProps> = ({
               type="button"
               title="Toggle options menu"
               disabled={disabled}
-              className={twMerge(
+              className={cn(
                 theme.suffix?.button,
                 theme.suffix?.expand,
                 'select-input-toggle'
