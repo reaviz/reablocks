@@ -1,4 +1,5 @@
 export interface SelectInputTheme {
+  container: string;
   base: string;
   inputContainer: string;
   input: string;
@@ -32,14 +33,21 @@ export interface SelectInputTheme {
     disabled: string;
     removeButton: string;
   };
+  size: {
+    small: string;
+    medium: string;
+    large: string;
+    [key: string]: string;
+  };
 }
 
 const baseTheme: SelectInputTheme = {
-  base: 'flex flex-nowrap items-center box-border border rounded py-1.5 px-3 ',
+  base: 'flex flex-nowrap items-center box-border border rounded',
+  container: 'relative',
   inputContainer:
     'flex-wrap flex items-center overflow-hidden flex-1 max-w-full [&>div]:max-w-full',
   input:
-    'p-0 bg-transparent text-base text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-none disabled:text-disabled',
+    'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-none disabled:text-disabled',
   placeholder: '',
   prefix: 'overflow-hidden whitespace-nowrap text-ellipsis',
   suffix: {
@@ -52,7 +60,7 @@ const baseTheme: SelectInputTheme = {
       'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-panel-secondary-content',
     expand: '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-panel-secondary-content'
   },
-  disabled: 'cursor-not-allowed text-disabled',
+  disabled: 'cursor-not-allowed text-disabled hover:after:content-none',
   unfilterable: 'caret-transparent',
   error: 'border border-solid',
   open: 'rounded rounded-ee-none rounded-es-none',
@@ -72,6 +80,11 @@ const baseTheme: SelectInputTheme = {
     disabled: 'disabled:cursor-not-allowed',
     removeButton:
       'cursor-pointer leading-[0] ml-1 p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none'
+  },
+  size: {
+    small: 'py-1 px-2 text-sm min-h-8',
+    medium: 'py-2 px-3 text-base min-h-[35px]',
+    large: 'py-2 px-3 text-lg min-h-[42px]'
   }
 };
 
@@ -79,20 +92,36 @@ export const selectInputTheme: SelectInputTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'bg-panel text-panel-content border-panel-accent border-solid'
+    'bg-panel text-panel-content border-panel-accent border-solid hover:border-panel-accent light:hover:border-panel-accent',
+    'hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#242433_100%)] light:hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#E6E6F0_100%)]',
+    'focus-within:after:bg-[radial-gradient(circle,_#93B6FF_0%,_#105EFF_36%,_#3D3D4D_90%,_#242433_100%)] light:focus-within:after:bg-[radial-gradient(circle,_#105EFF_10%,_#93B6FF_36%,_#E6E6F0_90%)]',
+    'hover:after:content-[""] hover:after:absolute hover:after:mx-1 hover:after:h-px after:z-[2] hover:after:rounded hover:after:-bottom-[0px] hover:after:inset-x-0.5',
+    'focus-within:after:content-[""] focus-within:after:absolute focus-within:after:mx-0 focus-within:after:h-px after:z-[2] focus-within:after:rounded focus-within:after:-bottom-[0px] focus-within:after:inset-x-0.5'
   ].join(' '),
-  disabled: [baseTheme.disabled, 'opacity-75'].join(' '),
-  error: [baseTheme.error, 'border-error'].join(' '),
+  placeholder: [
+    baseTheme.placeholder,
+    'placeholder:text-secondary-content'
+  ].join(' '),
+  disabled: [
+    baseTheme.disabled,
+    'text-panel-secondary-content/40 border-surface light:hover:border-surface'
+  ].join(' '),
+  error: [baseTheme.error, 'border-error light:border-error/20'].join(' '),
+  suffix: {
+    ...baseTheme.suffix,
+    button: [baseTheme.suffix.button, 'hover:cursor-pointer'].join(' ')
+  },
   chip: {
     ...baseTheme.chip,
-    base: [baseTheme.chip.base, 'bg-panel-accent text-surface-content'].join(
-      ' '
-    ),
+    base: [
+      baseTheme.chip.base,
+      '[&>svg]:fill-panel-content disabled:[&>svg]:fill-panel-secondary-content/40'
+    ].join(' '),
     hover: [baseTheme.chip.hover, 'hover:brightness-150'].join(' '),
     focused: [baseTheme.chip.focused, 'border-panel-accent'].join(' '),
     removeButton: [
       baseTheme.chip.removeButton,
-      '[&>svg]:fill-panel-content'
+      '[&>svg]:fill-panel-content disabled:[&>svg]:fill-panel-secondary-content/40'
     ].join(' ')
   }
 };

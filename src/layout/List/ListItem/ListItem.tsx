@@ -1,7 +1,6 @@
 import React, { FC, InputHTMLAttributes, LegacyRef, forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { ListTheme } from '@/layout/List/ListTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface ListItemProps extends InputHTMLAttributes<HTMLDivElement> {
   /**
@@ -28,6 +27,11 @@ export interface ListItemProps extends InputHTMLAttributes<HTMLDivElement> {
    * Whether the item data is dense and reduce the padding.
    */
   dense?: boolean;
+
+  /**
+   * Class name for the content element.
+   */
+  contentClassName?: string;
 
   /**
    * A start component for the list item.
@@ -59,6 +63,7 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
   (
     {
       className,
+      contentClassName,
       children,
       active,
       disabled,
@@ -82,7 +87,7 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
         role={onClick ? 'button' : 'listitem'}
         tabIndex={onClick ? 0 : undefined}
         onClick={e => !disabled && onClick?.(e)}
-        className={twMerge(
+        className={cn(
           theme.listItem.base,
           dense && theme.listItem.dense.base,
           disabled && theme.listItem.disabled,
@@ -95,29 +100,32 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
       >
         {start && (
           <div
-            className={twMerge(
+            className={cn(
               theme.listItem.adornment.base,
               theme.listItem.adornment.start,
-              dense && theme.listItem.dense.startAdornment
+              { [theme.listItem.dense.startAdornment]: dense }
             )}
           >
             {start}
           </div>
         )}
         <div
-          className={twMerge(
+          className={cn(
             theme.listItem.content,
-            dense && theme.listItem.dense.content
+            {
+              [theme.listItem.dense.content]: dense
+            },
+            contentClassName
           )}
         >
           {children}
         </div>
         {end && (
           <div
-            className={twMerge(
+            className={cn(
               theme.listItem.adornment.base,
               theme.listItem.adornment.end,
-              dense && theme.listItem.dense.endAdornment
+              { [theme.listItem.dense.endAdornment]: dense }
             )}
           >
             {end}

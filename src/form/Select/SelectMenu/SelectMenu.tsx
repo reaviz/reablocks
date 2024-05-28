@@ -4,9 +4,9 @@ import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
 import Highlighter from 'react-highlight-words';
 import { GroupOptions, GroupOption } from '@/form/Select/utils';
 import { List, ListItem } from '@/layout';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { SelectTheme } from '@/form/Select/SelectTheme';
-import { twMerge } from 'tailwind-merge';
+import { CheckIcon } from '@/form/Select/icons/CheckIcon';
 
 export interface SelectMenuProps {
   /**
@@ -75,6 +75,11 @@ export interface SelectMenuProps {
   loading?: boolean;
 
   /**
+   * The size of the select menu.
+   */
+  size?: 'small' | 'medium' | 'large' | string;
+
+  /**
    * Event fired when the selected option(s) change.
    */
   onSelectedChange?: (option: SelectValue) => void;
@@ -98,6 +103,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
   groups,
   multiple,
   inputSearchText,
+  size,
   onSelectedChange,
   theme: customTheme
 }) => {
@@ -128,13 +134,17 @@ export const SelectMenu: FC<SelectMenuProps> = ({
       items.map((o, i) => (
         <ListItem
           key={`${group?.name}-${o.value}`}
-          className={twMerge(
+          className={cn(
             theme.option?.base,
             theme.option?.hover,
-            checkOptionSelected(o) && theme.option?.selected,
-            index === i + (group?.offset || 0) && theme.option?.active,
-            (disabled || o.disabled) && theme.option?.disabled
+            theme.size?.[size],
+            {
+              [theme.option?.selected]: checkOptionSelected(o),
+              [theme.option?.active]: index === i + (group?.offset || 0),
+              [theme.option?.disabled]: disabled || o.disabled
+            }
           )}
+          contentClassName={theme.option.content}
           onClick={event => {
             event.preventDefault();
             event.stopPropagation();
@@ -150,6 +160,9 @@ export const SelectMenu: FC<SelectMenuProps> = ({
               textToHighlight={o.children}
             />
           )}
+          {Boolean(multiple && checkOptionSelected(o)) && (
+            <CheckIcon className={theme.option.checkIcon} />
+          )}
         </ListItem>
       )),
     [
@@ -157,15 +170,18 @@ export const SelectMenu: FC<SelectMenuProps> = ({
       disabled,
       index,
       inputSearchText,
+      size,
+      multiple,
       onSelectedChange,
-      theme.option
+      theme.option,
+      theme.size
     ]
   );
 
   return (
     <motion.div
       style={style}
-      className={twMerge(theme.base, className, 'select-menu')}
+      className={cn(theme.base, className, 'select-menu')}
       initial={{
         opacity: 0,
         y: -20,
@@ -227,11 +243,12 @@ export const SelectMenu: FC<SelectMenuProps> = ({
                   renderListItems(g.items, g)
                 ) : (
                   <ListItem
-                    className={twMerge(theme.groupItem, 'select-menu-group')}
+                    className={cn(theme.groupItem.base, 'select-menu-group')}
                   >
                     <h3
-                      className={twMerge(
-                        theme.groupTitle,
+                      className={cn(
+                        theme.groupItem.title,
+                        theme.groupItem.size[size],
                         'select-menu-group-header'
                       )}
                     >
