@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Button } from '@/elements';
 import { monthNames } from '@/form/Calendar/utils';
-import { useComponentTheme } from '@/utils';
+import { cn, theme, useComponentTheme } from '@/utils';
 import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { twMerge } from 'tailwind-merge';
 
@@ -30,11 +30,11 @@ export const CalendarMonths: FC<CalendarMonthsProps> = ({
   const { months }: CalendarTheme = useComponentTheme('calendar', customTheme);
 
   return (
-    <div className={twMerge(months.root)}>
+    <div className={months.root}>
       {monthNames.map((month, i) => (
         <Button
           key={month}
-          className={twMerge(months.month)}
+          className={cn(months.month, { [months.selected]: value === i })}
           color={value === i ? 'primary' : 'default'}
           variant={value === i ? 'filled' : 'text'}
           disableMargins

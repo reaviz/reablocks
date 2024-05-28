@@ -13,7 +13,6 @@ import { CalendarProps } from './Calendar';
 import { CalendarDays } from './CalendarDays';
 import { SmallHeading } from '@/typography';
 import { Divider, Stack } from '@/layout';
-import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
 
@@ -140,14 +139,14 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   }, [scrollDirection]);
 
   return (
-    <div className={twMerge(theme.base)}>
-      <header className={twMerge(theme.header.base)}>
+    <div className={theme.base}>
+      <header className={theme.header.base}>
         <Stack>
           <Button
             variant="text"
             disabled={disabled}
             onClick={previousYearClickHandler}
-            className={twMerge(theme.header.prev)}
+            className={theme.header.prev}
             disablePadding
           >
             {previousYearArrow}
@@ -156,13 +155,13 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             variant="text"
             disabled={disabled}
             onClick={previousClickHandler}
-            className={twMerge(theme.header.mid)}
+            className={theme.header.mid}
             disablePadding
           >
             {previousArrow}
           </Button>
         </Stack>
-        <SmallHeading className={twMerge(theme.title)} disableMargins>
+        <SmallHeading className={theme.title} disableMargins>
           {displayMonths.map(i => (
             <span key={addMonths(viewValue, showPast ? -i : i).toDateString()}>
               {format(addMonths(viewValue, showPast ? -i : i), 'MMMM')}
@@ -174,7 +173,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             variant="text"
             disabled={disabled}
             onClick={nextClickHandler}
-            className={twMerge(theme.header.next)}
+            className={theme.header.next}
             disablePadding
           >
             {nextArrow}
@@ -201,7 +200,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             scale: { type: animated ? 'tween' : false }
           }}
         >
-          <div className={twMerge(theme.content)}>
+          <div className={theme.content}>
             {displayMonths.map((offset, idx) => (
               <Fragment key={`calendar-${offset}`}>
                 <CalendarDays
