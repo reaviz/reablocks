@@ -85,11 +85,6 @@ export interface SelectProps {
   multiple?: boolean;
 
   /**
-   * The display type of the selected values.
-   */
-  multipleDisplayType?: 'chip' | 'count';
-
-  /**
    * Default placeholder text.
    */
   placeholder?: string;
@@ -255,7 +250,6 @@ export const Select: FC<SelectProps> = ({
   defaultFilterValue,
   required,
   size = 'medium',
-  multipleDisplayType = 'chip',
   input = <SelectInput />,
   menu = <SelectMenu />,
   onRefresh,
@@ -789,7 +783,6 @@ export const Select: FC<SelectProps> = ({
         clearable={clearable}
         menuDisabled={menuDisabled}
         size={size}
-        multipleDisplayType={multipleDisplayType}
         onSelectedChange={toggleSelectedOption}
         onExpandClick={onInputExpanded}
         onKeyDown={onInputKeyedDown}

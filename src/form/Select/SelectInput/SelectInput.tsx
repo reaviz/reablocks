@@ -96,11 +96,6 @@ export interface SelectInputProps {
   multiple?: boolean;
 
   /**
-   * The display type of the selected values.
-   */
-  multipleDisplayType?: 'chip' | 'count';
-
-  /**
    * If true, the select input is loading.
    */
   loading?: boolean;
@@ -260,7 +255,6 @@ export const SelectInput: FC<SelectInputProps> = ({
   menuDisabled,
   menuOpen,
   size,
-  multipleDisplayType,
   refreshIcon = <RefreshIcon />,
   closeIcon = <CloseIcon />,
   expandIcon = <DownArrowIcon />,
@@ -441,7 +435,7 @@ export const SelectInput: FC<SelectInputProps> = ({
   const renderPrefix = useCallback(() => {
     if (multiple) {
       const multipleOptions = selectedOption as SelectOptionProps[];
-      if (multipleOptions?.length && multipleDisplayType === 'chip') {
+      if (multipleOptions?.length) {
         return (
           <div
             className={cn(theme.prefix, 'select-input-value', {
@@ -488,7 +482,6 @@ export const SelectInput: FC<SelectInputProps> = ({
     disabled,
     inputText,
     multiple,
-    multipleDisplayType,
     onSelectedChange,
     onTagKeyDown,
     selectedOption,
@@ -496,18 +489,6 @@ export const SelectInput: FC<SelectInputProps> = ({
     theme.prefix,
     theme.single
   ]);
-
-  const renderCount = useCallback(() => {
-    if (multiple) {
-      const multipleOptions = selectedOption as SelectOptionProps[];
-
-      if (multipleDisplayType === 'count') {
-        return (
-          <div className={theme.multiple.counter}>{multipleOptions.length}</div>
-        );
-      }
-    }
-  }, [multiple, multipleDisplayType, selectedOption, theme.multiple]);
 
   return (
     <div className={cn(theme.container)}>
@@ -560,11 +541,6 @@ export const SelectInput: FC<SelectInputProps> = ({
             placeholderIsMinWidth={false}
           />
         </div>
-        {multiple && multipleDisplayType === 'count' && (
-          <div className={theme.multiple.counter}>
-            {(selectedOption as SelectOptionProps[]).length}
-          </div>
-        )}
         <div className={theme.suffix?.container}>
           {refreshable && !loading && (
             <button
