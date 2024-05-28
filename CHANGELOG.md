@@ -1,3 +1,7 @@
+# 7.9.4 - 5/28/24
+- [fix] improve select theme
+- [fix] make tooltip `content` optional for reaviz fix
+
 # 7.9.3 - 5/27/24
 - [fix] fix adding new item for creatable Select with disabled menu 
 
