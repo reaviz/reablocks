@@ -31,7 +31,7 @@ export interface TooltipProps {
   /**
    * Content for the tooltip.
    */
-  content: any;
+  content?: any;
 
   /**
    * Reference of the tooltip to align to.
