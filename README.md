@@ -31,6 +31,7 @@
 - [Docs](https://reablocks.dev/docs)
 - [Blocks](https://reablocks.dev/blocks)
 - [Storybook](https://storybook.reablocks.dev)
+- [CLI](https://github.com/reaviz/reablocks-cli)
 - [Changelog](https://reablocks.dev/docs/changelog)
 
 ## 🎁 Other Projects
