@@ -1,6 +1,6 @@
 {
   "name": "reablocks",
-  "version": "7.9.4",
+  "version": "7.9.5",
   "description": "Component library for React",
   "scripts": {
     "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run rewrite:blocks && npm run build:docs && npm run build:typedoc",
@@ -32,6 +32,7 @@
       "types": "./dist/index.d.ts"
     },
     "./typedoc.json": "./dist/typedoc.json",
+    "./typedoc/*": "./dist/typedoc/*",
     "./stories/*": "./dist/stories/*",
     "./blocks/*": "./dist/blocks/*"
   },
@@ -107,7 +108,6 @@
     "@vitest/coverage-v8": "^1.4.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^8.57.0",
-    "typedoc-better-json": "^0.9.3-test.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-no-relative-import-paths": "^1.5.4",
     "eslint-plugin-react": "^7.34.1",
@@ -129,6 +129,8 @@
     "tailwindcss": "^3.4.1",
     "tw-colors": "^3.3.1",
     "typedoc": "^0.25.13",
+    "typedoc-better-json": "^0.9.3-test.1",
+    "typedoc-nextra": "^0.1.6",
     "typescript": "^4.9.5",
     "typescript-rewrite-paths": "^1.3.1",
     "vite": "^5.2.2",

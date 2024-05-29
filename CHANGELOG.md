@@ -1,3 +1,6 @@
+# 7.9.5 - 5/29/24
+- [chore] testing typedoc build
+ 
 # 7.9.4 - 5/28/24
 - [fix] improve select theme
 - [fix] make tooltip `content` optional for reaviz fix

@@ -1,6 +1,7 @@
 import { transform } from 'typedoc-better-json';
 import { writeFile, readFile } from 'node:fs/promises';
 import TypeDoc from 'typedoc';
+import { createDocumentation } from 'typedoc-nextra';
 
 async function buildTypes() {
   // init typedoc
@@ -22,6 +23,13 @@ async function buildTypes() {
 
   // transform it
   const transformedData = transform(fileData);
+
+  // create the documentation
+  await createDocumentation({
+    jsonInputPath: 'dist/typedoc.json',
+    output: 'dist/typedoc',
+    markdown: true
+  });
 
   // save it in file
   await writeFile(
