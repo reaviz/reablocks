@@ -1,4 +1,8 @@
 # 7.9.5 - 5/29/24
+- [chore] remove typedoc build
+- [chore] fix storybook story build
+
+# 7.9.5 - 5/29/24
 - [chore] testing typedoc build
  
 # 7.9.4 - 5/28/24

@@ -3,8 +3,7 @@ import { Select } from './Select';
 import { SelectOption } from './SelectOption';
 import { SelectMenu } from './SelectMenu';
 import { SelectInput, SelectInputChip } from './SelectInput';
-import { Stack } from '@/layout';
-import { Label } from '@/layout/Block/Block.story';
+import { Stack } from '../../layout/Stack';
 
 export default {
   title: 'Components/Form/Select/Single',
