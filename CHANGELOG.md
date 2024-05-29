@@ -1,3 +1,9 @@
+# 7.9.7 - 5/29/24
+- [fix] fix paths for types
+
+# 7.9.6 - 5/29/24
+- [chore] remove typedoc build, fix select story
+
 # 7.9.5 - 5/29/24
 - [chore] remove typedoc build
 - [chore] fix storybook story build
