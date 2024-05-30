@@ -25,6 +25,25 @@ export const Simple = () => {
   );
 };
 
+export const Today = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <Card>
+      <Calendar
+        showToday
+        showDayOfWeek
+        value={date}
+        onChange={(date: Date) => setDate(date)}
+      />
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
 export const Disabled = () => {
   const [date, setDate] = useState<Date>();
 
@@ -121,6 +140,7 @@ export const Range = () => {
         onChange={val => setRange(val as [Date, Date | undefined])}
         isRange
         showDayOfWeek
+        showToday
       />
       <Divider />
       <Stack justifyContent="center">
