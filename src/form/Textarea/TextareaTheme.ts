@@ -20,7 +20,11 @@ const baseTheme: Partial<TextareaTheme> = {
 
 export const textareaTheme: TextareaTheme = {
   ...baseTheme,
-  base: [baseTheme.base, inputTheme.base].join(' '),
+  base: [
+    baseTheme.base,
+    inputTheme.base,
+    'disabled-within:hover:after:content-none'
+  ].join(' '),
   input: [baseTheme.input, inputTheme.input].join(' '),
   disabled: [baseTheme.disabled, inputTheme.disabled].join(' '),
   fullWidth: inputTheme.fullWidth,
