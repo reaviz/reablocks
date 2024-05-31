@@ -2,7 +2,7 @@ import React from 'react';
 import { Dialog } from './Dialog';
 import { useDialog } from './useDialog';
 import { Button } from '../../elements';
-import { Stack } from '@/layout';
+import { Stack } from '../../layout';
 
 export default {
   title: 'Components/Layers/Dialog',
