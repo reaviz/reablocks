@@ -62,15 +62,18 @@ const Icon = () => (
 );
 
 export const StartEnd = () => (
-  <List style={{ width: '150px' }}>
-    <ListItem start={<Icon />} end={<button>...</button>}>
-      Item 1
+  <List style={{ width: '200px' }}>
+    <ListItem disabled start={<Icon />} end={<button>...</button>}>
+      Item 1 (disabled)
     </ListItem>
     <ListItem start={<Icon />} end={<button>...</button>}>
       Item 2
     </ListItem>
+    <ListItem active start={<Icon />} end={<button>...</button>}>
+      Item 3 (active)
+    </ListItem>
     <ListItem start={<Icon />} end={<button>...</button>}>
-      Item 3
+      Item 4
     </ListItem>
   </List>
 );
