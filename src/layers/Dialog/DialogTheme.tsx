@@ -26,7 +26,10 @@ const baseTheme: DialogTheme = {
 
 export const dialogTheme: DialogTheme = {
   ...baseTheme,
-  inner: [baseTheme.inner, 'bg-panel text-panel-content'].join(' '),
+  inner: [
+    baseTheme.inner,
+    'bg-panel text-panel-content border border-panel-accent rounded'
+  ].join(' '),
   header: {
     ...baseTheme.header,
     closeButton: [baseTheme.header.closeButton, 'text-panel-content'].join(' ')
