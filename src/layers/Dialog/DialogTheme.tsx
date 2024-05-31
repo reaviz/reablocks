@@ -28,7 +28,7 @@ export const dialogTheme: DialogTheme = {
   ...baseTheme,
   inner: [
     baseTheme.inner,
-    'bg-panel text-panel-content border border-panel-accent rounded'
+    'bg-panel text-panel-content border border-panel-accent rounded shadow-2xl'
   ].join(' '),
   header: {
     ...baseTheme.header,
