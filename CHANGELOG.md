@@ -1,3 +1,9 @@
+# 7.10.0 - 5/31/24
+- [improvement] Update lib to generate doc #222
+- [improvement] Updates theme for Tooltip, List, Dialog #221
+- [improvement] Update gradient for input #220
+- [improvement] Update theme for Calendar component #218
+
 # 7.9.7 - 5/29/24
 - [fix] fix paths for types
 
