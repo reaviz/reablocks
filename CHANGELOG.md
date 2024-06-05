@@ -1,3 +1,6 @@
+# 7.10.1 - 6/5/24
+- [chore] export css from package
+
 # 7.10.0 - 5/31/24
 - [improvement] Update lib to generate doc #222
 - [improvement] Updates theme for Tooltip, List, Dialog #221
