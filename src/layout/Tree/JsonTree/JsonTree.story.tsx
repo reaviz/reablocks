@@ -168,3 +168,19 @@ export const Empties = props => (
     expandDepth={Infinity}
   />
 );
+
+export const NoRoot = props => (
+  <JsonTree
+    {...props}
+    data={{
+      name: 'John Doe',
+      age: 30,
+      over21: true,
+      children: [
+        { name: 'Jane Doe', age: 25 },
+        { name: 'Jim Doe', age: 33 }
+      ]
+    }}
+    root={false}
+  />
+);
