@@ -1,3 +1,6 @@
+# 7.11.0 - 6/5/24
+- [feature] Add root rendering option to JsonTree #224
+
 # 7.10.1 - 6/5/24
 - [chore] export css from package
 
