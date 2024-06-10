@@ -79,7 +79,10 @@ import {
   MenuTheme,
   NotificationTheme,
   PopoverTheme,
-  TooltipTheme
+  TooltipTheme,
+  CalloutTheme,
+  calloutTheme,
+  legacyCalloutTheme
 } from '@/layers';
 
 import {
@@ -190,6 +193,7 @@ export interface ReablocksTheme {
     tabs: TabsTheme;
     breadcrumbs: BreadcrumbsTheme;
     stepper: StepperTheme;
+    callout: CalloutTheme;
   };
 }
 
@@ -237,7 +241,8 @@ export const theme: ReablocksTheme = {
     tabs: tabsTheme,
     jsonTree: jsonTreeTheme,
     breadcrumbs: breadcrumbsTheme,
-    stepper: stepperTheme
+    stepper: stepperTheme,
+    callout: calloutTheme
   }
 };
 
@@ -285,6 +290,7 @@ export const legacyThemeVars: ReablocksTheme = {
     tabs: legacyTabsTheme,
     jsonTree: legacyJsonTreeTheme,
     breadcrumbs: legacyBreadcrumbTheme,
-    stepper: legacyStepperTheme
+    stepper: legacyStepperTheme,
+    callout: legacyCalloutTheme
   }
 };
