@@ -1,7 +1,14 @@
 import React from 'react';
 import { Stack } from '@/layout';
-import { Callout } from './Callout';
 import { Text } from '@/typography';
+
+import {
+  Callout,
+  SuccessCallout,
+  WarningCallout,
+  ErrorCallout,
+  InfoCallout
+} from '@/layers';
 
 import CalendarIcon from '@/assets/icons/calendar.svg?react';
 
@@ -18,34 +25,18 @@ export const Simple = () => (
 
 export const Variants = () => (
   <Stack direction="column" className="w-full">
-    <Callout
-      variant="default"
-      text="You will need admin privileges to install and access this application."
-    />
-    <Callout
-      variant="success"
-      text="You will need admin privileges to install and access this application."
-    />
-    <Callout
-      variant="warning"
-      text="You will need admin privileges to install and access this application."
-    />
-    <Callout
-      variant="error"
-      text="You will need admin privileges to install and access this application."
-    />
-    <Callout
-      variant="info"
-      text="You will need admin privileges to install and access this application."
-    />
+    <Callout text="You will need admin privileges to install and access this application." />
+    <SuccessCallout text="You will need admin privileges to install and access this application." />
+    <WarningCallout text="You will need admin privileges to install and access this application." />
+    <ErrorCallout text="You will need admin privileges to install and access this application." />
+    <InfoCallout text="You will need admin privileges to install and access this application." />
   </Stack>
 );
 
 export const CustomIcon = () => (
   <div className="w-[80%]">
-    <Callout
+    <InfoCallout
       icon={<CalendarIcon />}
-      variant="info"
       text="You will need admin privileges to install and access this application."
     />
   </div>
@@ -53,7 +44,7 @@ export const CustomIcon = () => (
 
 export const CustomText = () => (
   <div className="w-[80%]">
-    <Callout
+    <InfoCallout
       variant="info"
       text={
         <Text>
