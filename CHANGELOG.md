@@ -1,3 +1,6 @@
+# 7.12.0 - 6/11/24
+- [feature] Add Callout component #225
+
 # 7.11.0 - 6/5/24
 - [feature] Add root rendering option to JsonTree #224
 
