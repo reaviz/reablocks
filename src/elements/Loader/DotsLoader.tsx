@@ -5,9 +5,24 @@ import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 
 export interface DotsLoaderProps {
+  /**
+   * Additional class names for the loader.
+   */
   className?: string;
+
+  /**
+   * The speed of the animation.
+   */
   speed?: number;
-  size?: 'small' | 'medium' | 'large';
+
+  /**
+   * The size of the loader.
+   */
+  size?: 'small' | 'medium' | 'large' | string;
+
+  /**
+   * Theme for the DotsLoader.
+   */
   theme?: DotsLoaderTheme;
 }
 

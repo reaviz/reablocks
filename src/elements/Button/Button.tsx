@@ -13,17 +13,24 @@ export interface ButtonProps
   /**
    * Color variation of the button.
    */
-  color?: 'default' | 'primary' | 'secondary' | 'error' | 'success' | 'warning';
+  color?:
+    | 'default'
+    | 'primary'
+    | 'secondary'
+    | 'error'
+    | 'success'
+    | 'warning'
+    | string;
 
   /**
    * Style variant of the button.
    */
-  variant?: 'filled' | 'outline' | 'text';
+  variant?: 'filled' | 'outline' | 'text' | string;
 
   /**
    * The size variation of the button.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * If true, the button will take up the full width of its container.
@@ -62,6 +69,9 @@ export interface ButtonProps
 }
 
 export interface ButtonRef {
+  /**
+   * The ref to the button element.
+   */
   ref?: LegacyRef<HTMLButtonElement>;
 }
 

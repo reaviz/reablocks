@@ -1,18 +1,10 @@
 import { RangeDouble } from './RangeDouble';
 import React, { useState } from 'react';
 import { RangeSingle } from './RangeSingle';
-import { debounce } from 'lodash';
 
 export default {
   title: 'Components/Form/Range',
-  component: Range,
-  decorators: [
-    Story => (
-      <div className="bg-panel p-20">
-        <Story />
-      </div>
-    )
-  ]
+  component: RangeSingle
 };
 
 export const Single = () => {
@@ -116,12 +108,9 @@ export const CustomIntegerStep = () => {
 export const Double = () => {
   const [state, setState] = useState<[number, number]>([20, 40]);
 
-  const debounceRange = () =>
-    debounce((min: number, max: number) => setState([min, max]));
-
   return (
     <RangeDouble
-      onChange={debounceRange}
+      onChange={([min, max]) => setState([min, max])}
       min={10}
       max={50}
       value={state}
@@ -133,12 +122,9 @@ export const Double = () => {
 export const DoubleFloatStep = () => {
   const [state, setState] = useState<[number, number]>([5, 10]);
 
-  const debounceRange = () =>
-    debounce((min: number, max: number) => setState([min, max]));
-
   return (
     <RangeDouble
-      onChange={debounceRange}
+      onChange={([min, max]) => setState([min, max])}
       min={0.5}
       max={12.5}
       step={0.1}
@@ -151,12 +137,9 @@ export const DoubleFloatStep = () => {
 export const DoubleIntegerStep = () => {
   const [state, setState] = useState<[number, number]>([20, 40]);
 
-  const debounceRange = () =>
-    debounce((min: number, max: number) => setState([min, max]));
-
   return (
     <RangeDouble
-      onChange={debounceRange}
+      onChange={([min, max]) => setState([min, max])}
       min={10}
       max={50}
       step={5}

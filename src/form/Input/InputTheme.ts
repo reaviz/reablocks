@@ -10,6 +10,7 @@ export interface InputTheme {
     small: string;
     medium: string;
     large: string;
+    [key: string]: string;
   };
   adornment: {
     base: string;
@@ -24,7 +25,7 @@ const baseTheme: InputTheme = {
   input:
     'flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-none px-0.5 disabled:cursor-not-allowed disabled:text-disabled',
   inline: 'bg-transparent border-0 outline-none',
-  disabled: '',
+  disabled: 'text-waterloo cursor-not-allowed',
   fullWidth: 'w-full',
   error: 'border-error',
   sizes: {
@@ -43,11 +44,20 @@ export const inputTheme: InputTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'bg-panel border border-surface text-surface-content'
+    'bg-panel border border-panel-accent text-surface-content hover:border-panel-accent light:hover:border-panel-accent',
+    'hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#242433_100%)] light:hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#E6E6F0_100%)]',
+    'hover:after:content-[""] hover:after:absolute hover:after:mx-1 hover:after:h-px after:z-[2] hover:after:rounded hover:after:-bottom-[1px] hover:after:inset-x-0.5'
   ].join(' '),
-  focused: `${baseTheme.focused} after:bg-bottom-border-glow after:content-[""] after:absolute after:h-0.5 after:z-[2] after:rounded after:-bottom-px after:inset-x-0.5`,
+  focused: [
+    baseTheme.focused,
+    'focus-within:after:bg-[radial-gradient(circle,_#93B6FF_0%,_#105EFF_36%,_#3D3D4D_90%,_#242433_100%)] light:focus-within:after:bg-[radial-gradient(circle,_#105EFF_10%,_#93B6FF_36%,_#E6E6F0_90%)]',
+    'focus-within:after:content-[""] focus-within:after:absolute focus-within:after:mx-0 focus-within:after:h-px after:z-[2] focus-within:after:rounded focus-within:after:-bottom-[1px] focus-within:after:inset-x-0.5'
+  ].join(' '),
   input: [baseTheme.input, ' placeholder-accent'].join(' '),
-  disabled: [baseTheme.disabled, 'disabled-within:bg-dark-disabled'].join(' '),
+  disabled: [
+    baseTheme.disabled,
+    'disabled-within:bg-dark-disabled disabled-within:after:content-none'
+  ].join(' '),
   adornment: {
     ...baseTheme.adornment,
     base: [baseTheme.adornment.base, 'text-surface-content'].join(' ')

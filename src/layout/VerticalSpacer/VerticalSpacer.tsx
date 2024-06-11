@@ -1,4 +1,4 @@
-import React, { forwardRef, HTMLAttributes } from 'react';
+import React, { FC, forwardRef, HTMLAttributes, LegacyRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { VerticalSpacerTheme } from './VerticalSpacerTheme';
@@ -15,21 +15,36 @@ export interface VerticalSpacerProps extends HTMLAttributes<HTMLDivElement> {
   theme?: VerticalSpacerTheme;
 }
 
-export type VerticalSpaceType = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
+export type VerticalSpaceType =
+  | 'xs'
+  | 'sm'
+  | 'md'
+  | 'lg'
+  | 'xl'
+  | 'xxl'
+  | string;
 
-export const VerticalSpacer = forwardRef<HTMLDivElement, VerticalSpacerProps>(
-  ({ space = 'md', className, theme: customTheme, ...rest }, ref) => {
-    const theme: VerticalSpacerTheme = useComponentTheme(
-      'verticalSpacer',
-      customTheme
-    );
+export interface VerticalSpacerRef {
+  /**
+   * Reference to the HTML div element.
+   */
+  ref?: LegacyRef<HTMLDivElement>;
+}
 
-    return (
-      <div
-        className={twMerge(className, theme.base, theme.size[space])}
-        ref={ref}
-        {...rest}
-      />
-    );
-  }
-);
+export const VerticalSpacer: FC<VerticalSpacerProps & VerticalSpacerRef> =
+  forwardRef<HTMLDivElement, VerticalSpacerProps>(
+    ({ space = 'md', className, theme: customTheme, ...rest }, ref) => {
+      const theme: VerticalSpacerTheme = useComponentTheme(
+        'verticalSpacer',
+        customTheme
+      );
+
+      return (
+        <div
+          className={twMerge(className, theme.base, theme.size[space])}
+          ref={ref}
+          {...rest}
+        />
+      );
+    }
+  );

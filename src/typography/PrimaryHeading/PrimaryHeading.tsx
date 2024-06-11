@@ -15,7 +15,8 @@ export interface PrimaryHeadingProps
     | 'error'
     | 'success'
     | 'warning'
-    | 'info';
+    | 'info'
+    | string;
 
   /**
    * Font variant for the heading.
@@ -33,6 +34,9 @@ export interface PrimaryHeadingProps
   theme?: TypographyTheme;
 }
 export interface PrimaryHeadingRef {
+  /**
+   * Reference to the HTML heading element.
+   */
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 

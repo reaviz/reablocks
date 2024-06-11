@@ -152,6 +152,11 @@ export interface SelectProps {
   menuDisabled?: boolean;
 
   /**
+   * The size of the select.
+   */
+  size?: 'small' | 'medium' | 'large' | string;
+
+  /**
    * When the input receives a key down event.
    */
   onInputKeydown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
@@ -219,7 +224,7 @@ export interface SelectProps {
   onCloseMenu?: () => void;
 }
 
-export const Select: FC<Partial<SelectProps>> = ({
+export const Select: FC<SelectProps> = ({
   id,
   name,
   autoFocus,
@@ -244,6 +249,7 @@ export const Select: FC<Partial<SelectProps>> = ({
   value,
   defaultFilterValue,
   required,
+  size = 'medium',
   input = <SelectInput />,
   menu = <SelectMenu />,
   onRefresh,
@@ -285,7 +291,8 @@ export const Select: FC<Partial<SelectProps>> = ({
     options,
     {
       keys: ['children', 'group'],
-      ...searchOptions
+      ...searchOptions,
+      getFn: menuDisabled ? () => '' : searchOptions?.getFn
     }
   );
 
@@ -551,13 +558,26 @@ export const Select: FC<Partial<SelectProps>> = ({
         } else {
           newSelection = result[index];
         }
-
-        if (newSelection) {
+        // Add new item if menu not disabled or item not presents in the list otherwise just clear input
+        if (
+          newSelection &&
+          (!menuDisabled || !value.includes(newSelection.value))
+        ) {
           toggleSelectedOption(newSelection);
+        } else if (menuDisabled && value.includes(newSelection.value)) {
+          resetInput();
         }
       }
     },
-    [createable, index, result, toggleSelectedOption]
+    [
+      createable,
+      index,
+      menuDisabled,
+      resetInput,
+      result,
+      toggleSelectedOption,
+      value
+    ]
   );
 
   const onTabKeyDown = useCallback(
@@ -747,6 +767,7 @@ export const Select: FC<Partial<SelectProps>> = ({
           inputSearchText={keyword}
           loading={loading}
           filterable={filterable}
+          size={size}
           onSelectedChange={onMenuSelectedChange}
         />
       )}
@@ -775,6 +796,7 @@ export const Select: FC<Partial<SelectProps>> = ({
         selectedOption={selectedOption}
         clearable={clearable}
         menuDisabled={menuDisabled}
+        size={size}
         onSelectedChange={toggleSelectedOption}
         onExpandClick={onInputExpanded}
         onKeyDown={onInputKeyedDown}

@@ -3,16 +3,23 @@ import type { StorybookConfig } from '@storybook/react-vite';
 const config: StorybookConfig = {
   stories: [
     '../docs/**/*.mdx',
+    '../docs/**/*.story.tsx',
     '../src/**/*.story.tsx'
   ],
+
   addons: [
     '@storybook/addon-storysource',
     '@storybook/addon-essentials',
     '@storybook/addon-themes'
   ],
+
   framework: {
     name: '@storybook/react-vite',
     options: {}
+  },
+
+  typescript: {
+    reactDocgen: 'react-docgen-typescript'
   }
 };
 

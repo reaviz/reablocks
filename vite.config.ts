@@ -10,6 +10,7 @@ import external from 'rollup-plugin-peer-deps-external';
 import dts from 'vite-plugin-dts';
 import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 import { viteStaticCopy } from 'vite-plugin-static-copy';
+import path from 'path';
 
 export default defineConfig(({ mode }) =>
   mode === 'library'
@@ -31,6 +32,10 @@ export default defineConfig(({ mode }) =>
             {
               src: 'src/**/*.story.tsx',
               dest: 'stories/'
+            },
+            {
+              src: 'docs/blocks/**/*.story.tsx',
+              dest: 'blocks/'
             }
           ]
         })
@@ -38,6 +43,11 @@ export default defineConfig(({ mode }) =>
       test: {
         globals: true,
         environment: 'jsdom'
+      },
+      resolve: {
+        alias: {
+          '@': path.resolve(__dirname, './src'),
+        },
       },
       build: {
         minify: false,

@@ -15,8 +15,7 @@ import { CloseIcon } from '@/form/Select/icons/CloseIcon';
 import { DotsLoader } from '@/elements/Loader/DotsLoader';
 import { RefreshIcon } from '@/form/Select/icons/RefreshIcon';
 import { SelectInputChip, SelectInputChipProps } from './SelectInputChip';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { SelectTheme } from '@/form/Select/SelectTheme';
 import { CloneElement } from '@/utils';
 
@@ -39,7 +38,7 @@ export interface SelectInputProps {
   /**
    * The options for the select input.
    */
-  options: SelectOptionProps[];
+  options?: SelectOptionProps[];
 
   /**
    * If true, the select input is disabled.
@@ -52,14 +51,9 @@ export interface SelectInputProps {
   menuOpen?: boolean;
 
   /**
-   * The font size of the select input.
-   */
-  fontSize?: string | number;
-
-  /**
    * The input text of the select input.
    */
-  inputText: string;
+  inputText?: string;
 
   /**
    * If true, the select input will close on select.
@@ -137,6 +131,11 @@ export interface SelectInputProps {
   menuDisabled?: boolean;
 
   /**
+   * The size of the select input.
+   */
+  size?: 'small' | 'medium' | 'large' | string;
+
+  /**
    * The theme of the select input.
    */
   theme?: SelectTheme;
@@ -169,44 +168,44 @@ export interface SelectInputProps {
   /**
    * The function to handle selected change.
    */
-  onSelectedChange: (option: SelectValue) => void;
+  onSelectedChange?: (option: SelectValue) => void;
 
   /**
    * The function to handle expand click.
    */
-  onExpandClick: (event: React.MouseEvent<Element>) => void;
+  onExpandClick?: (event: React.MouseEvent<Element>) => void;
 
   /**
    * The function to handle key down.
    */
-  onKeyDown: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyDown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 
   /**
    * The function to handle key up.
    */
-  onKeyUp: (event: React.KeyboardEvent<HTMLInputElement>) => void;
+  onKeyUp?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
 
   /**
    * The function to handle focus.
    */
-  onFocus: (
+  onFocus?: (
     event: React.FocusEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement>
   ) => void;
 
   /**
    * The function to handle blur.
    */
-  onBlur: (event: React.FocusEvent<HTMLInputElement>) => void;
+  onBlur?: (event: React.FocusEvent<HTMLInputElement>) => void;
 
   /**
    * The function to handle input change.
    */
-  onInputChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  onInputChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 
   /**
    * The function to handle input paste event.
    */
-  onPaste: (event: React.ClipboardEvent<HTMLInputElement>) => void;
+  onPaste?: (event: React.ClipboardEvent<HTMLInputElement>) => void;
 
   /**
    * The function to handle refresh.
@@ -215,8 +214,19 @@ export interface SelectInputProps {
 }
 
 export interface SelectInputRef {
-  inputRef: RefObject<HTMLInputElement>;
-  containerRef: RefObject<HTMLDivElement>;
+  /**
+   * The reference of the input element.
+   */
+  inputRef?: RefObject<HTMLInputElement>;
+
+  /**
+   * The reference of the container element.
+   */
+  containerRef?: RefObject<HTMLDivElement>;
+
+  /**
+   * Focuses the input element.
+   */
   focus: () => void;
 }
 
@@ -224,14 +234,13 @@ const horiztonalArrowKeys = ['ArrowLeft', 'ArrowRight'];
 const verticalArrowKeys = ['ArrowUp', 'ArrowDown'];
 const actionKeys = [...verticalArrowKeys, 'Enter', 'Escape'];
 
-export const SelectInput: FC<Partial<SelectInputProps>> = ({
+export const SelectInput: FC<SelectInputProps> = ({
   reference,
   autoFocus,
   selectedOption,
   disabled,
   placeholder,
   filterable,
-  fontSize = 13,
   id,
   name,
   className,
@@ -245,6 +254,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
   error,
   menuDisabled,
   menuOpen,
+  size,
   refreshIcon = <RefreshIcon />,
   closeIcon = <CloseIcon />,
   expandIcon = <DownArrowIcon />,
@@ -428,11 +438,9 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
       if (multipleOptions?.length) {
         return (
           <div
-            className={twMerge(
-              theme.prefix,
-              multiple && theme.multiple?.prefix,
-              'select-input-value'
-            )}
+            className={cn(theme.prefix, 'select-input-value', {
+              [theme.multiple?.prefix]: multiple
+            })}
           >
             {multipleOptions.map(option => (
               <CloneElement<SelectInputChipProps>
@@ -454,7 +462,7 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
       if (singleOption?.inputLabel && !inputText) {
         return (
           <div
-            className={twMerge(
+            className={cn(
               theme.prefix,
               theme.single?.prefix,
               'select-input-value'
@@ -483,102 +491,105 @@ export const SelectInput: FC<Partial<SelectInputProps>> = ({
   ]);
 
   return (
-    <div
-      ref={containerRef}
-      className={twMerge(
-        theme.base,
-        disabled && theme.disabled,
-        !filterable && theme.unfilterable,
-        error && theme.error,
-        ...(menuOpen ? [activeClassName, theme.open] : []),
-        className
-      )}
-      onClick={onContainerClick}
-    >
+    <div className={cn(theme.container)}>
       <div
-        className={twMerge(
-          theme.inputContainer,
-          multiple && theme.multiple?.inputContainer,
-          !multiple && theme.single?.inputContainer
+        ref={containerRef}
+        className={cn(
+          theme.base,
+          theme.size[size],
+          {
+            [theme.disabled]: disabled,
+            [theme.unfilterable]: !filterable,
+            [theme.error]: error
+          },
+          ...(menuOpen ? [activeClassName, theme.open] : []),
+          className
         )}
-        onClick={onInputFocus}
+        onClick={onContainerClick}
       >
-        {renderPrefix()}
-        <InlineInput
-          inputRef={el => (inputRef.current = el)}
-          id={id}
-          style={{ fontSize }}
-          name={name}
-          disabled={disabled}
-          required={required}
-          autoFocus={autoFocus}
-          placeholder={placeholderText}
-          inputClassName={twMerge(
-            theme.input,
-            theme.placeholder,
-            'select-input-input'
+        <div
+          className={cn(theme.inputContainer, {
+            [theme.multiple?.inputContainer]: multiple,
+            [theme.single?.inputContainer]: !multiple
+          })}
+          onClick={onInputFocus}
+        >
+          {renderPrefix()}
+          <InlineInput
+            ref={inputRef}
+            id={id}
+            name={name}
+            disabled={disabled}
+            required={required}
+            autoFocus={autoFocus}
+            placeholder={placeholderText}
+            inputClassName={cn(
+              theme.input,
+              theme.placeholder,
+              'select-input-input'
+            )}
+            value={inputTextValue}
+            autoCorrect="off"
+            spellCheck="false"
+            autoComplete="off"
+            onKeyDown={onInputKeyDown}
+            onKeyUp={onInputKeyUp}
+            onChange={onChange}
+            onFocus={onInputFocus}
+            onBlur={onBlur}
+            onPaste={onPaste}
+            placeholderIsMinWidth={false}
+          />
+        </div>
+        <div className={theme.suffix?.container}>
+          {refreshable && !loading && (
+            <button
+              type="button"
+              title="Refresh Options"
+              disabled={disabled}
+              className={cn(
+                theme.suffix?.button,
+                theme.suffix?.refresh,
+                'select-input-refresh'
+              )}
+              onClick={onRefresh}
+            >
+              {refreshIcon}
+            </button>
           )}
-          value={inputTextValue}
-          autoCorrect="off"
-          spellCheck="false"
-          autoComplete="off"
-          onKeyDown={onInputKeyDown}
-          onKeyUp={onInputKeyUp}
-          onChange={onChange}
-          onFocus={onInputFocus}
-          onBlur={onBlur}
-          onPaste={onPaste}
-          placeholderIsMinWidth={false}
-        />
-      </div>
-      <div className={theme.suffix?.container}>
-        {refreshable && !loading && (
-          <button
-            type="button"
-            title="Refresh Options"
-            disabled={disabled}
-            className={twMerge(
-              theme.suffix?.button,
-              theme.suffix?.refresh,
-              'select-input-refresh'
-            )}
-            onClick={onRefresh}
-          >
-            {refreshIcon}
-          </button>
-        )}
-        {loading && <div className={theme.suffix?.loader}>{loadingIcon}</div>}
-        {showClear && (
-          <button
-            type="button"
-            title="Clear selection"
-            disabled={disabled}
-            className={twMerge(
-              theme.suffix?.button,
-              theme.suffix?.close,
-              'select-input-clear'
-            )}
-            onClick={onClearValues}
-          >
-            {closeIcon}
-          </button>
-        )}
-        {!menuDisabled && (
-          <button
-            type="button"
-            title="Toggle options menu"
-            disabled={disabled}
-            className={twMerge(
-              theme.suffix?.button,
-              theme.suffix?.expand,
-              'select-input-toggle'
-            )}
-            onClick={onExpandClick}
-            tabIndex={-1}
-          >
-            {expandIcon}
-          </button>
-        )}
+          {loading && <div className={theme.suffix?.loader}>{loadingIcon}</div>}
+          {showClear && (
+            <button
+              type="button"
+              title="Clear selection"
+              disabled={disabled}
+              className={cn(
+                theme.suffix?.button,
+                theme.suffix?.close,
+                'select-input-clear'
+              )}
+              onClick={onClearValues}
+            >
+              {closeIcon}
+            </button>
+          )}
+          {!menuDisabled && (
+            <button
+              type="button"
+              title="Toggle options menu"
+              disabled={disabled}
+              className={cn(
+                theme.suffix?.button,
+                theme.suffix?.expand,
+                'select-input-toggle'
+              )}
+              onClick={onExpandClick}
+              tabIndex={-1}
+            >
+              {expandIcon}
+            </button>
+          )}
+        </div>
       </div>
     </div>
   );

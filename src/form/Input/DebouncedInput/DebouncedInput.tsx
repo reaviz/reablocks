@@ -1,4 +1,4 @@
-import React, { forwardRef, Ref, useEffect, useRef, useState } from 'react';
+import React, { FC, forwardRef, Ref, useEffect, useRef, useState } from 'react';
 import { Input, InputProps, InputRef } from '@/form/Input/Input';
 
 export interface DebouncedInputProps extends InputProps {
@@ -8,7 +8,10 @@ export interface DebouncedInputProps extends InputProps {
   debounce?: number;
 }
 
-export const DebouncedInput = forwardRef<InputRef, DebouncedInputProps>(
+export const DebouncedInput: FC<DebouncedInputProps & InputRef> = forwardRef<
+  InputRef,
+  DebouncedInputProps
+>(
   (
     { debounce = 100, value, onChange, onValueChange, ...rest },
     ref: Ref<InputRef>

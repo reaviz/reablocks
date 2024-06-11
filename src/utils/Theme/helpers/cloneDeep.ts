@@ -1,5 +1,8 @@
 import { isObject } from './isObject';
 
+/**
+ * Deep clone an object.
+ */
 export function cloneDeep<T>(source: T): T {
   if (!isObject(source)) {
     return source;

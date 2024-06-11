@@ -14,7 +14,8 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
     | 'error'
     | 'success'
     | 'warning'
-    | 'info';
+    | 'info'
+    | string;
 
   fontStyle?: 'default' | 'thin' | 'bold' | 'extraBold' | 'italic';
 
@@ -30,6 +31,9 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
 }
 
 export interface TextRef {
+  /**
+   * Reference to the HTML heading element.
+   */
   ref?: LegacyRef<HTMLSpanElement>;
 }
 

@@ -35,7 +35,7 @@ export interface InputProps
   /**
    * Size of the input.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * Content to display before the input.
@@ -73,10 +73,29 @@ export interface InputProps
 }
 
 export interface InputRef {
-  inputRef: RefObject<HTMLInputElement>;
-  containerRef: RefObject<HTMLDivElement>;
+  /**
+   * Reference to the input element.
+   */
+  inputRef?: RefObject<HTMLInputElement>;
+
+  /**
+   * Reference to the container element.
+   */
+  containerRef?: RefObject<HTMLDivElement>;
+
+  /**
+   * Method to blur the input.
+   */
   blur?: () => void;
+
+  /**
+   * Method to focus the input.
+   */
   focus?: () => void;
+
+  /**
+   * Method to select the input.
+   */
   select?: () => void;
 }
 

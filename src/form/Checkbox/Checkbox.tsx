@@ -28,7 +28,7 @@ export interface CheckboxProps {
   /**
    * Size of the checkbox.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * Additional class names to apply to the checkbox.
@@ -77,6 +77,9 @@ export interface CheckboxProps {
 }
 
 export interface CheckboxRef {
+  /**
+   * The ref to the checkbox element.
+   */
   ref?: LegacyRef<HTMLDivElement>;
 }
 

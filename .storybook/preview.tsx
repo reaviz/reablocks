@@ -54,50 +54,11 @@ const preview: Preview = {
           [
             'Intro',
             'Getting Started',
-            [
-              'Setup',
-              'Philosophy',
-              'Storybook',
-              'Migration'
-            ],
-            'Theme',
-            [
-              'Getting Started',
-              'API',
-              'Blocks',
-              'Example'
-            ],
-            'Components',
-            'Utils',
-            [
-              'Introduction',
-              '*'
-            ],
-            'Advanced',
+
             'Changelog',
             'Support',
           ],
           'Components',
-          'Blocks',
-          [
-            'Introduction',
-            'Foundation',
-            [
-              'Introduction',
-              '*'
-            ],
-            'Authentication',
-            [
-              'Introduction',
-              '*'
-            ],
-            'Administration',
-            [
-              'Introduction',
-              '*'
-            ],
-          ],
-          'Recipes',
           '*'
         ]
       }

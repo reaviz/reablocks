@@ -17,6 +17,7 @@ export interface TypographyTheme {
     warning: string;
     error: string;
     info: string;
+    [key: string]: string;
   };
   sub: string;
   smallHeading: string;
@@ -45,7 +46,7 @@ const baseTheme: TypographyTheme = {
     error: 'text-error',
     info: 'text-info'
   },
-  sub: 'text-xs font-semibold mb-0.5',
+  sub: 'text-sm font-semibold mb-0.5',
   smallHeading: 'text-base font-normal mb-1',
   secondaryHeading: 'text-3xl font-normal mb-1',
   primaryHeading: 'text-3xl font-extrabold mb-1',

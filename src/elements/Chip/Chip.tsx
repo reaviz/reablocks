@@ -14,17 +14,18 @@ export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
     | 'error'
     | 'success'
     | 'warning'
-    | 'info';
+    | 'info'
+    | string;
 
   /**
    * Size variant for the chip.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * Style variant for the chip.
    */
-  variant?: 'filled' | 'outline';
+  variant?: 'filled' | 'outline' | string;
 
   /**
    * Whether the chip is selected.
@@ -58,6 +59,9 @@ export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 export interface ChipRef {
+  /**
+   * Reference to the root element.
+   */
   ref?: LegacyRef<HTMLDivElement>;
 }
 

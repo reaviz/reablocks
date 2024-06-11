@@ -1,8 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { motion } from 'framer-motion';
-import { twMerge } from 'tailwind-merge';
 import { ToggleTheme } from './ToggleTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface ToggleProps {
   /**
@@ -23,7 +22,7 @@ export interface ToggleProps {
   /**
    * The size of the toggle.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * When the toggle is changed.
@@ -42,10 +41,16 @@ export interface ToggleProps {
 }
 
 export interface ToggleRef {
+  /**
+   * Reference to the toggle element.
+   */
   ref?: LegacyRef<HTMLDivElement>;
 }
 
-export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef(
+export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
+  HTMLDivElement,
+  ToggleProps
+>(
   (
     {
       checked,
@@ -66,11 +71,15 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef(
         {...rest}
         ref={ref}
         tabIndex={0}
-        className={twMerge(
+        role="switch"
+        className={cn(
           theme.base,
-          disabled && theme.disabled,
-          checked && theme.checked,
           theme.sizes[size],
+          {
+            [theme.checked]: checked,
+            [theme.disabled]: disabled,
+            [theme.disabledAndChecked]: disabled && checked
+          },
           className
         )}
         onClick={() => {
@@ -86,7 +95,10 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef(
         }}
       >
         <motion.div
-          className={twMerge(theme.handle.base, theme.handle.sizes[size])}
+          className={cn(theme.handle.base, theme.handle.sizes[size], {
+            [theme.handle.disabled]: disabled,
+            [theme.handle.disabledAndChecked]: disabled && checked
+          })}
           layout
           transition={{
             type: 'spring',

@@ -75,6 +75,11 @@ export interface CalendarProps {
   showDayOfWeek?: boolean;
 
   /**
+   * Whether to highlight the today.
+   */
+  showToday?: boolean;
+
+  /**
    * Whether to animate the calendar.
    */
   animated?: boolean;
@@ -101,9 +106,10 @@ export const Calendar: FC<CalendarProps> = ({
   value,
   disabled,
   isRange,
-  previousArrow = '←',
-  nextArrow = '→',
+  previousArrow = '‹',
+  nextArrow = '›',
   showDayOfWeek,
+  showToday,
   animated = true,
   onChange,
   onViewChange,
@@ -221,7 +227,7 @@ export const Calendar: FC<CalendarProps> = ({
           variant="text"
           disabled={disabled}
           onClick={previousClickHandler}
-          className={twMerge(theme.header.prev)}
+          className={theme.header.prev}
           disablePadding
         >
           {previousArrow}
@@ -230,11 +236,11 @@ export const Calendar: FC<CalendarProps> = ({
           disabled={disabled}
           variant="text"
           onClick={headerClickHandler}
-          className={twMerge(theme.header.mid)}
+          className={theme.header.mid}
           disablePadding
           fullWidth
         >
-          <SmallHeading disableMargins className={twMerge(theme.title)}>
+          <SmallHeading disableMargins className={theme.title}>
             {view === 'days' && format(viewValue, 'MMMM')}
             {view === 'months' && <>{yearValue}</>}
             {view === 'years' && (
@@ -248,7 +254,7 @@ export const Calendar: FC<CalendarProps> = ({
           variant="text"
           disabled={disabled}
           onClick={nextClickHandler}
-          className={twMerge(theme.header.next)}
+          className={theme.header.next}
           disablePadding
         >
           {nextArrow}
@@ -277,6 +283,7 @@ export const Calendar: FC<CalendarProps> = ({
               isRange={isRange}
               current={isRange ? [rangeStart, rangeEnd] : value}
               showDayOfWeek={showDayOfWeek}
+              showToday={showToday}
               xAnimation={xAnimation}
               animated={animated}
               onChange={dateChangeHandler}

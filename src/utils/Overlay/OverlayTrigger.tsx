@@ -3,7 +3,14 @@ import React, { useCallback, forwardRef, FC, LegacyRef } from 'react';
 export type TriggerTypes = 'hover' | 'click' | 'contextmenu' | 'focus' | 'key';
 
 export interface OverlayTriggerEvent {
+  /**
+   * The type of event that triggered the overlay.
+   */
   type: TriggerTypes;
+
+  /**
+   * The native event that triggered the overlay.
+   */
   nativeEvent: any;
 }
 
@@ -24,17 +31,20 @@ export interface OverlayTriggerProps {
   elementType?: any;
 
   /**
-   * The type(s) of event(s) that will trigger the overlay. Can be a single trigger type or an array of trigger types.
+   * The type(s) of event(s) that will trigger the overlay.
+   * Can be a single trigger type or an array of trigger types.
    */
   trigger: TriggerTypes | TriggerTypes[];
 
   /**
-   * A function that is called when the overlay is opened. It receives an object of type OverlayTriggerEvent as an argument.
+   * A function that is called when the overlay is opened.
+   * It receives an object of type OverlayTriggerEvent as an argument.
    */
   onOpen?: (event: OverlayTriggerEvent) => void;
 
   /**
-   * A function that is called when the overlay is closed. It receives an object of type OverlayTriggerEvent as an argument.
+   * A function that is called when the overlay is closed.
+   * It receives an object of type OverlayTriggerEvent as an argument.
    */
   onClose?: (event: OverlayTriggerEvent) => void;
 }
@@ -123,7 +133,7 @@ export const OverlayTrigger: FC<
           onOpen({ type: 'contextmenu', nativeEvent: event });
         }
       },
-      [onOpen]
+      [hasTrigger, onOpen]
     );
 
     const tabIndex = hasTrigger('focus') ? -1 : undefined;

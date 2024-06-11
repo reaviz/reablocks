@@ -15,7 +15,8 @@ export interface SecondaryHeadingProps
     | 'error'
     | 'success'
     | 'warning'
-    | 'info';
+    | 'info'
+    | string;
 
   /**
    * Font variant for the heading.
@@ -34,6 +35,9 @@ export interface SecondaryHeadingProps
 }
 
 export interface SecondaryHeadingRef {
+  /**
+   * Reference to the HTML heading element.
+   */
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 

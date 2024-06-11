@@ -14,14 +14,29 @@ export type BadgePlacement =
 
 export interface BadgeProps
   extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'content'> {
+  /**
+   * The content of the badge.
+   */
   content?: string | React.JSX.Element;
 
-  color?: BadgeColor;
+  /**
+   * The color of the badge.
+   */
+  color?: BadgeColor | string;
 
+  /**
+   * Whether to disable the margins.
+   */
   disableMargins?: boolean;
 
+  /**
+   * Whether the badge is hidden or not.
+   */
   hidden?: boolean;
 
+  /**
+   * The placement of the badge.
+   */
   placement?: BadgePlacement;
 
   /**
@@ -31,6 +46,9 @@ export interface BadgeProps
 }
 
 export interface BadgeRef {
+  /**
+   * Reference to the HTML span element.
+   */
   ref?: LegacyRef<HTMLSpanElement>;
 }
 

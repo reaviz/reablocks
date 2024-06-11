@@ -10,16 +10,59 @@ import { DrawerTheme } from './DrawerTheme';
 import { useComponentTheme } from '@/utils';
 
 export interface DrawerProps extends Omit<GlobalOverlayProps, 'children'> {
+  /**
+   * Position of the drawer.
+   */
   position?: 'start' | 'end' | 'top' | 'bottom';
+
+  /**
+   * Size of the drawer.
+   */
   size?: string | number;
+
+  /**
+   * CSS class name for the drawer.
+   */
   className?: string;
+
+  /**
+   * CSS class name for the content of the drawer.
+   */
   contentClassName?: string;
+
+  /**
+   * CSS class name for the backdrop of the drawer.
+   */
   backdropClassName?: string;
+
+  /**
+   * Whether the drawer has a backdrop.
+   */
   disablePadding?: boolean;
+
+  /**
+   * Whether the drawer has a backdrop.
+   */
   header?: any;
+
+  /**
+   * Whether the drawer has a backdrop.
+   */
   showCloseButton?: boolean;
+
+  /**
+   * The content of the drawer.
+   */
   children?: any;
+
+  /**
+   * The React element for the drawer header.
+   */
   headerElement: ReactElement<DrawerHeaderProps, typeof DrawerHeader> | null;
+
+  /**
+   * Theme for the Drawer.
+   */
   theme?: DrawerTheme;
 }
 

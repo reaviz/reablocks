@@ -1,4 +1,3 @@
-import React from 'react';
 import { InfinityList } from './InfinityList';
 import { useInfinityList } from './useInfinityList';
 

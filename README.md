@@ -28,15 +28,17 @@
 
 ## 🚀 Quick Links
 - [Website](https://reablocks.dev)
-- [Docs](https://storybook.reablocks.dev/?path=/docs/docs-intro--docs)
-- [Blocks](https://storybook.reablocks.dev/?path=/docs/blocks-introduction--docs)
-- [Changelog](https://storybook.reablocks.dev/?path=/docs/docs-changelog--docs)
+- [Docs](https://reablocks.dev/docs)
+- [Blocks](https://reablocks.dev/blocks)
+- [Storybook](https://storybook.reablocks.dev)
+- [CLI](https://github.com/reaviz/reablocks-cli)
+- [Changelog](https://reablocks.dev/docs/changelog)
 
 ## 🎁 Other Projects
 
 - [Reaflow](https://reaflow.dev?utm=reablocks) - Open-source library for workflow and diagram graphs.
 - [Reagraph](https://reagraph.dev?utm=reablocks) - Open-source library for large webgl based network graphs.
-- [Reaviz](https://reaviz.io?utm=reablocks) - Open-source library for data visualizations for React. 
+- [Reaviz](https://reaviz.dev?utm=reablocks) - Open-source library for data visualizations for React. 
 
 ## 🔭 Development
 

@@ -14,7 +14,8 @@ export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
     | 'error'
     | 'success'
     | 'warning'
-    | 'info';
+    | 'info'
+    | string;
 
   /**
    * Font variant for the text.
@@ -33,6 +34,9 @@ export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
 }
 
 export interface SubRef {
+  /**
+   * Reference to the HTML heading element.
+   */
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 

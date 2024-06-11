@@ -19,14 +19,19 @@ export interface CalendarTheme {
     endRangeDate: string;
     cornerEndDateTop: string;
     range: string;
+    selected: string;
+    hover: string;
+    today: string;
   };
   months: {
     root: string;
     month: string;
+    selected: string;
   };
   years: {
     root: string;
     year: string;
+    selected: string;
   };
 }
 
@@ -34,43 +39,93 @@ const baseTheme: CalendarTheme = {
   base: 'relative overflow-hidden',
   header: {
     base: 'flex text-center justify-between mb-2 items-center',
-    prev: '',
+    prev: 'text-xl leading-4',
     mid: '',
-    next: ''
+    next: 'text-xl leading-4'
   },
   title: 'font-semibold',
   content: 'flex',
 
   days: {
-    header: 'text-center grid grid-cols-7 opacity-50 mb-1 pt-2',
-    dayOfWeek: 'text-center font-bold',
+    header: 'text-center grid grid-cols-7 mb-1 pt-2 font-medium',
+    dayOfWeek: 'text-center font-medium',
     week: 'grid grid-cols-7',
-    day: 'flex p-2',
+    day: 'font-normal flex p-2 border',
     outside: '',
     startRangeDate: 'rounded-tl-md rounded-tr-none rounded-br-none',
     cornerStartDateBottom: 'rounded-bl-none',
     endRangeDate: 'rounded-br-md rounded-bl-none rounded-tl-none',
     cornerEndDateTop: 'rounded-tr-none',
-    range: 'rounded-none'
+    range: 'rounded-none',
+    selected: '',
+    hover: 'rounded',
+    today: 'rounded border'
   },
 
   months: {
     root: 'grid grid-cols-4 gap-2',
-    month: 'p-1.5'
+    month: 'p-1.5',
+    selected: ''
   },
 
   years: {
     root: 'grid grid-cols-4 gap-2',
-    year: 'p-1.5'
+    year: 'p-1.5',
+    selected: ''
   }
 };
 
 export const calendarTheme: CalendarTheme = {
   ...baseTheme,
+  header: {
+    ...baseTheme.header,
+    base: [baseTheme.header.base, 'text-panel-secondary-content'].join(' ')
+  },
   days: {
     ...baseTheme.days,
-    header: [baseTheme.days.header, 'text-panel-content'].join(' '),
-    outside: [baseTheme.days.outside, 'opacity-50'].join(' ')
+    day: [
+      baseTheme.days.day,
+      'border-transparent text-panel-secondary-content opacity-90 hover:bg-primary-hover hover:text-black'
+    ].join(' '),
+    header: [baseTheme.days.header, 'text-panel-secondary-content'].join(' '),
+    outside: [
+      baseTheme.days.outside,
+      'opacity-40 text-panel-secondary-content'
+    ].join(' '),
+    selected: [
+      baseTheme.days.selected,
+      'text-black border-transparent light:text-white light:border-transparent opacity-100'
+    ].join(' '),
+    hover: [
+      baseTheme.days.hover,
+      'bg-primary-active text-black border-transparent light:text-white opacity-100'
+    ].join(' '),
+    today: [
+      baseTheme.days.today,
+      'border-panel-content text-panel-content opacity-100'
+    ].join(' ')
+  },
+  months: {
+    ...baseTheme.months,
+    month: [
+      baseTheme.months.month,
+      'hover:bg-primary-hover hover:text-black border-transparent text-panel-secondary-content light:hover:text-white'
+    ].join(' '),
+    selected: [
+      baseTheme.years.selected,
+      'border-transparent text-black light:text-white'
+    ].join(' ')
+  },
+  years: {
+    ...baseTheme.years,
+    year: [
+      baseTheme.years.year,
+      'hover:bg-primary-hover hover:text-black border-transparent text-panel-secondary-content light:hover:text-white'
+    ].join(' '),
+    selected: [
+      baseTheme.years.selected,
+      'border-transparent text-black light:text-white'
+    ].join(' ')
   }
 };
 

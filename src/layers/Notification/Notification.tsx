@@ -6,9 +6,24 @@ import { NotificationTheme } from './NotificationTheme';
 import { useComponentTheme } from '@/utils';
 
 export interface NotificationProps extends NotificationOptions {
+  /**
+   * Unique identifier for the notification.
+   */
   id: number;
+
+  /**
+   * Component to render as the notification.
+   */
   component?: ReactNode;
+
+  /**
+   * Callback to close the notification.
+   */
   onClose: (id: number) => void;
+
+  /**
+   * Theme for the Notification.
+   */
   theme?: NotificationTheme;
 }
 

@@ -15,7 +15,8 @@ export interface PageTitleProps
     | 'error'
     | 'success'
     | 'warning'
-    | 'info';
+    | 'info'
+    | string;
 
   /**
    * Font variant for the title.
@@ -34,6 +35,9 @@ export interface PageTitleProps
 }
 
 export interface PageTitleRef {
+  /**
+   * Reference to the HTML heading element.
+   */
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 

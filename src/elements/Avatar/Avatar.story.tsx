@@ -9,8 +9,8 @@ export default {
 
 const Template = args => <Avatar {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Simple = Template.bind({});
+Simple.args = {
   name: 'John Doe',
   size: 50,
   rounded: false

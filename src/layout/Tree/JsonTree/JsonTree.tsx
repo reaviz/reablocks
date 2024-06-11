@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import { Tree } from '@/layout/Tree/Tree';
 import { JsonTreeNode } from './JsonTreeNode';
 import { parseJsonTree } from './utils';
@@ -45,6 +45,11 @@ export interface JsonTreeProps {
   expandDepth?: number;
 
   /**
+   * If true, the JSON tree will be rendered with a root node.
+   */
+  root?: boolean;
+
+  /**
    * The CSS class name to be applied to the JSON tree.
    */
   className?: string;
@@ -60,6 +65,7 @@ export const JsonTree: FC<JsonTreeProps> = ({
   showAllLimit = 10,
   ellipsisText = true,
   ellipsisTextLength = 150,
+  root = true,
   ...rest
 }) => {
   const tree = parseJsonTree({ data, showEmpty });
@@ -67,18 +73,35 @@ export const JsonTree: FC<JsonTreeProps> = ({
   return (
     <div tabIndex={-1}>
       <Tree className={className} {...rest}>
-        <JsonTreeNode
-          key={`node-${tree.id}`}
-          depth={1}
-          data={tree}
-          showEmpty={showEmpty}
-          showCount={showCount}
-          expandDepth={expandDepth}
-          ellipsisText={ellipsisText}
-          ellipsisTextLength={ellipsisTextLength}
-          showAll={showAll}
-          showAllLimit={showAllLimit}
-        />
+        {root && (
+          <JsonTreeNode
+            key={`node-${tree.id}`}
+            depth={1}
+            data={tree}
+            showEmpty={showEmpty}
+            showCount={showCount}
+            expandDepth={expandDepth}
+            ellipsisText={ellipsisText}
+            ellipsisTextLength={ellipsisTextLength}
+            showAll={showAll}
+            showAllLimit={showAllLimit}
+          />
+        )}
+        {!root &&
+          tree?.data?.map(item => (
+            <JsonTreeNode
+              key={`node-${item.id}`}
+              depth={1}
+              data={item}
+              showEmpty={showEmpty}
+              showCount={showCount}
+              expandDepth={expandDepth}
+              ellipsisText={ellipsisText}
+              ellipsisTextLength={ellipsisTextLength}
+              showAll={showAll}
+              showAllLimit={showAllLimit}
+            />
+          ))}
       </Tree>
     </div>
   );
