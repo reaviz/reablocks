@@ -109,7 +109,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
   multiple,
   inputSearchText,
   size,
-  checkIcon = <CheckIcon />,
+  checkIcon,
   onSelectedChange,
   theme: customTheme
 }) => {
