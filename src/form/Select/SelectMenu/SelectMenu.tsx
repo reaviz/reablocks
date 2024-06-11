@@ -80,6 +80,11 @@ export interface SelectMenuProps {
   size?: 'small' | 'medium' | 'large' | string;
 
   /**
+   * Icon displayed for checked elements of the list
+   */
+  checkIcon?: any;
+
+  /**
    * Event fired when the selected option(s) change.
    */
   onSelectedChange?: (option: SelectValue) => void;
@@ -104,6 +109,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
   multiple,
   inputSearchText,
   size,
+  checkIcon = <CheckIcon />,
   onSelectedChange,
   theme: customTheme
 }) => {
@@ -160,12 +166,12 @@ export const SelectMenu: FC<SelectMenuProps> = ({
               textToHighlight={o.children}
             />
           )}
-          {Boolean(multiple && checkOptionSelected(o)) && (
-            <CheckIcon className={theme.option.checkIcon} />
-          )}
+          {Boolean(multiple && checkOptionSelected(o)) &&
+            (checkIcon ?? <CheckIcon className={theme.option.checkIcon} />)}
         </ListItem>
       )),
     [
+      checkIcon,
       checkOptionSelected,
       disabled,
       index,
