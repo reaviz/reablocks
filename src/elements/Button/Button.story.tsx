@@ -234,20 +234,35 @@ export const Gradients = () => {
               'bg-button-gradient hover:bg-button-gradient-hover light:bg-button-gradient-light light:hover:bg-button-gradient-hover-light'
           },
           secondary: {
-            filled:
-              'bg-button-gradient-secondary hover:bg-button-gradient-secondary-hover light:bg-button-gradient-secondary-light light:hover:bg-button-gradient-secondary-hover-light text-black'
+            filled: [
+              'bg-transparent',
+              'bg-[linear-gradient(283deg,_#E6E6F0_0%,_#E6E6F000_100%)]',
+              'hover:bg-[linear-gradient(283deg,_#E6E6F0_0%,_#E6E6F033_100%)]',
+              'light:bg-[linear-gradient(283deg,_#E6E6F0_0%,_#E6E6F000_100%)]',
+              'light:hover:bg-[linear-gradient(283deg,_#E6E6F0_0%,_#E6E6F033_100%)]',
+              'text-black'
+            ].join(' ')
           },
           success: {
-            filled:
-              'bg-button-gradient-success hover:bg-button-gradient-success-hover'
+            filled: [
+              'bg-transparent',
+              'bg-[linear-gradient(103deg,_#469D1D00_0%,_#469D1D_100%)]',
+              'hover:bg-[linear-gradient(103deg,_#80CE5B33_0%,_#80CE5B_100%)]'
+            ].join(' ')
           },
           warning: {
-            filled:
-              'bg-button-gradient-warning hover:bg-button-gradient-warning-hover'
+            filled: [
+              'bg-transparent',
+              'bg-[linear-gradient(103deg,_#CB6E0000_0%,_#CB6E00_100%)]',
+              'hover:bg-[linear-gradient(103deg,_#F8A34033_0%,_#F8A340_100%)]'
+            ].join(' ')
           },
           error: {
-            filled:
-              'bg-button-gradient-error hover:bg-button-gradient-error-hover'
+            filled: [
+              'bg-transparent',
+              'bg-[linear-gradient(103deg,_#B7000600_0%,_#B70006_100%)]',
+              'hover:bg-[linear-gradient(103deg,#F7BFC133_0%,_#E84045_100%)]'
+            ].join(' ')
           }
         }
       }

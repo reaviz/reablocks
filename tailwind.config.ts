@@ -41,20 +41,6 @@ const config: Config = {
         'button-gradient-focus': 'linear-gradient(283deg, #0D0DD2 0%, #1717ff1a 100%)',
         'button-gradient-light': 'linear-gradient(283deg, #009BFF 0%, #009bff00 100%)',
         'button-gradient-hover-light': 'linear-gradient(283deg, #45B6FF 0%, #45b6ff4d 100%)',
-        // Secondary
-        'button-gradient-secondary': `linear-gradient(283deg, ${colorPalette.gray['200']} 0%, ${colorPalette.gray['200']}00 100%)`,
-        'button-gradient-secondary-hover': `linear-gradient(283deg, ${colorPalette.gray['200']} 0%, ${colorPalette.gray['200']}33 100%)`,
-        'button-gradient-secondary-light': `linear-gradient(283deg, ${colorPalette.gray['200']} 0%, ${colorPalette.gray['200']}00 100%)`,
-        'button-gradient-secondary-hover-light': `linear-gradient(283deg, ${colorPalette.gray['200']} 0%, ${colorPalette.gray['200']}33 100%)`,
-        // Success
-        'button-gradient-success': `linear-gradient(103deg, ${colorPalette.green['600']}00 0%, ${colorPalette.green['600']} 100%)`,
-        'button-gradient-success-hover': `linear-gradient(103deg, ${colorPalette.green['400']}33 0%, ${colorPalette.green['600']} 100%)`,
-        // Warning
-        'button-gradient-warning': `linear-gradient(103deg, ${colorPalette.orange['600']}00 0%, ${colorPalette.orange['600']} 100%)`,
-        'button-gradient-warning-hover': `linear-gradient(103deg, ${colorPalette.orange['400']}33 0%, ${colorPalette.orange['400']} 100%)`,
-        // Error
-        'button-gradient-error': `linear-gradient(103deg, ${colorPalette.red['600']}00 0%, ${colorPalette.red['600']} 100%)`,
-        'button-gradient-error-hover': `linear-gradient(103deg, ${colorPalette.red['200']}33 0%, ${colorPalette.red['400']} 100%)`,
       }
     }
   },
