@@ -1,4 +1,10 @@
-import { useLayoutEffect, RefObject, useCallback } from 'react';
+import {
+  useLayoutEffect,
+  RefObject,
+  useCallback,
+  useEffect,
+  useMemo
+} from 'react';
 import {
   useFloating,
   Placement as FloatingUIPlacement,
@@ -24,7 +30,7 @@ export interface ReferenceObject {
 }
 
 export interface PositionOptions {
-  reference?: Element;
+  reference?: Element | ReferenceObject;
   floating?: HTMLElement;
   placement?: Placement;
   modifiers?: Modifiers;
@@ -40,15 +46,40 @@ export const usePosition = ({
   placement = 'top',
   modifiers = [flip(), shift({ limiter: limitShift() })]
 }: PositionOptions = {}) => {
+  const isVirtualElement = useMemo(
+    () => !(reference as Element)?.nodeType,
+    [reference]
+  );
+
   const { refs, floatingStyles, update } = useFloating({
     open: true,
     placement,
     middleware: modifiers,
     elements: {
-      reference: reference,
+      reference: isVirtualElement ? null : (reference as Element),
       floating: floating
     }
   });
+
+  useEffect(() => {
+    if (isVirtualElement) {
+      const refObject = reference as ReferenceObject;
+      refs.setPositionReference({
+        getBoundingClientRect() {
+          return {
+            width: refObject.width,
+            height: refObject.height,
+            x: refObject.left,
+            y: refObject.top,
+            left: refObject.left,
+            top: refObject.top,
+            right: refObject.left + refObject.width,
+            bottom: refObject.top + refObject.height
+          };
+        }
+      });
+    }
+  }, [reference, refs, isVirtualElement]);
 
   const onMouseMove = useCallback(
     ({ pageX, pageY }: MouseEvent) => {

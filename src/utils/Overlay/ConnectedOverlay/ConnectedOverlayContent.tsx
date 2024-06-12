@@ -98,7 +98,7 @@ export const ConnectedOverlayContent: FC<
     const id = useId();
     const [overlayIndex, setOverlayIndex] = useState<number | null>(null);
     const { refs, floatingStyles, update } = usePosition({
-      reference: triggerRef.current,
+      reference: triggerRef.current ?? triggerRef,
       followCursor,
       modifiers,
       placement
