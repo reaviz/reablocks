@@ -143,19 +143,6 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
   ) => {
     const id = useId();
 
-    const shiftByOnePixel = {
-      name: 'shiftByOnePixel',
-      fn({ x, y }) {
-        return {
-          x: x + 1,
-          y: y + 1,
-          data: {
-            amount: 1
-          }
-        };
-      }
-    };
-
     const internalModifiers = useMemo(() => {
       if (autoWidth) {
         const sameWidth = {

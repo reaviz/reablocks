@@ -52,7 +52,7 @@ export const usePosition = ({
 
   const onMouseMove = useCallback(
     ({ pageX, pageY }: MouseEvent) => {
-      console.log('pageXY', pageX, pageY);
+      // Virtual reference object for cursor position.
       refs.setPositionReference({
         getBoundingClientRect() {
           return {

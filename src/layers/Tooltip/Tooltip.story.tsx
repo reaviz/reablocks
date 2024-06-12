@@ -76,21 +76,7 @@ export const FollowScroll = () => (
       color: 'green'
     }}
   >
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+    <div className="mb-[200px]"></div>
     <Tooltip content="Hi there">Hover me</Tooltip>
   </div>
 );
