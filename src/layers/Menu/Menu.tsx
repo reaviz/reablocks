@@ -1,9 +1,9 @@
 import React, { FC, forwardRef, LegacyRef, useMemo } from 'react';
 import FocusTrap from 'focus-trap-react';
+import { MiddlewareState, size } from '@floating-ui/react';
 import { ConnectedOverlay, OverlayEvent } from '@/utils/Overlay';
-import { Placement } from '@/utils/Position';
+import { Modifiers, Placement } from '@/utils/Position';
 import { useId } from '@/utils';
-import { Modifiers } from 'popper.js';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { MenuTheme } from './MenuTheme';
@@ -41,7 +41,7 @@ export interface MenuProps {
   closeOnEscape?: boolean;
 
   /**
-   * Popper placement type.
+   * floating-ui placement type.
    */
   placement?: Placement;
 
@@ -66,7 +66,7 @@ export interface MenuProps {
   maxHeight?: string;
 
   /**
-   * Popper.js Position modifiers.
+   * floating-ui Position modifiers.
    */
   modifiers?: Modifiers;
 
@@ -146,12 +146,9 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
     const internalModifiers = useMemo(() => {
       if (autoWidth) {
         const sameWidth = {
-          enabled: true,
-          order: 840,
-          fn: data => {
-            const { width, left, right } = data.offsets.reference;
-            const passedOffset = modifiers?.offset?.offset;
-            let passedXOffset = 0;
+          name: 'sameWidth',
+          fn: (state: MiddlewareState) => {
+            const { width } = state.rects.reference;
             let menuWidth = width;
 
             if (maxWidth && menuWidth > maxWidth) {
@@ -160,25 +157,19 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
               menuWidth = minWidth;
             }
 
-            if (passedOffset) {
-              if (typeof passedOffset === 'number') {
-                passedXOffset = passedOffset;
-              } else {
-                const [skidding] = passedOffset.split(',');
-                passedXOffset = parseInt(skidding.trim(), 10);
-              }
-            }
-
-            data.styles.width = menuWidth;
-            data.offsets.popper.width = menuWidth;
-            data.offsets.popper.left = left + passedXOffset;
-            data.offsets.popper.right = right + passedXOffset;
-
-            return data;
+            return { data: { menuWidth } };
           }
         };
 
-        return modifiers ? { ...modifiers, sameWidth } : { sameWidth };
+        const sizeModifier = size({
+          apply({ middlewareData, elements }) {
+            elements.floating.style.width = `${middlewareData?.sameWidth?.menuWidth ?? 0}px`;
+          }
+        });
+
+        return modifiers
+          ? [...(modifiers ?? []), sameWidth, sizeModifier]
+          : [sameWidth, sizeModifier];
       }
 
       return modifiers;

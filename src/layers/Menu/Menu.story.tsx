@@ -149,7 +149,17 @@ export const AutoWidthModifiers = () => {
       <MenuComponent
         style={{ background: 'var(--slate-500)' }}
         autoWidth
-        modifiers={{ offset: { offset: '-100, 25' } }}
+        modifiers={[
+          {
+            name: 'offset',
+            fn({ x, y }) {
+              return {
+                x: x - 100,
+                y: y + 25
+              };
+            }
+          }
+        ]}
       >
         <Card disablePadding>
           <List>

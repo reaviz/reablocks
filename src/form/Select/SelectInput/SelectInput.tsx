@@ -538,7 +538,6 @@ export const SelectInput: FC<SelectInputProps> = ({
             onFocus={onInputFocus}
             onBlur={onBlur}
             onPaste={onPaste}
-            placeholderIsMinWidth={false}
           />
         </div>
         <div className={theme.suffix?.container}>

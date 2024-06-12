@@ -39,7 +39,7 @@ export interface TooltipProps {
   reference?: ReferenceObject | HTMLElement | any;
 
   /**
-   * Popperjs placement.
+   * floating-ui placement.
    */
   placement?: Placement;
 
@@ -54,7 +54,7 @@ export interface TooltipProps {
   leaveDelay?: number;
 
   /**
-   * Popperjs modifiers.
+   * floating-ui modifiers.
    */
   modifiers?: any;
 

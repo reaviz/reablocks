@@ -53,6 +53,34 @@ export const CustomTheme = () => {
   );
 };
 
+export const FollowCursor = () => (
+  <div
+    style={{
+      textAlign: 'center',
+      width: '100%',
+      margin: '50px',
+      color: 'green'
+    }}
+  >
+    <Tooltip visible content="I'm following, wait me" followCursor />
+  </div>
+);
+
+export const FollowScroll = () => (
+  <div
+    style={{
+      textAlign: 'center',
+      width: '100%',
+      height: '200vh',
+      margin: '50px',
+      color: 'green'
+    }}
+  >
+    <div className="mb-[200px]"></div>
+    <Tooltip content="Hi there">Hover me</Tooltip>
+  </div>
+);
+
 export const Disabled = () => (
   <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
     <Tooltip content="Hi there" disabled={true}>

@@ -1,4 +1,10 @@
-import { RefObject, useCallback, useEffect, useState } from 'react';
+import {
+  RefObject,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useState
+} from 'react';
 import { ConnectedOverlayContentRef } from '@/utils/Overlay';
 
 export const useWidth = (
@@ -21,12 +27,18 @@ export const useWidth = (
     updateWidthInternal();
   }, [updateWidthInternal]);
 
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', updateWidthInternal);
-      return () => window.removeEventListener('resize', updateWidthInternal);
+  useLayoutEffect(() => {
+    if (!ref?.current) {
+      return;
     }
-  }, [updateWidthInternal]);
+    const resizeObserver = new ResizeObserver(() => {
+      const { width } = ref.current.getBoundingClientRect();
+      setMenuWidth(width);
+    });
+    resizeObserver.observe(ref.current);
+
+    return () => resizeObserver.disconnect();
+  }, [ref]);
 
   const updateWidth = useCallback(() => {
     if (updateWidthInternal()) {
