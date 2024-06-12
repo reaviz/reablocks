@@ -1,7 +1,15 @@
-import { useRef, useLayoutEffect, RefObject, useMemo } from 'react';
-import PopperJS from 'popper.js';
+import { useLayoutEffect, RefObject, useCallback } from 'react';
+import {
+  useFloating,
+  Placement as FloatingUIPlacement,
+  Middleware,
+  flip,
+  limitShift,
+  shift
+} from '@floating-ui/react';
 
-export type Placement = PopperJS.Placement;
+export type Placement = FloatingUIPlacement;
+export type Modifiers = Middleware[];
 
 export type ReferenceProp =
   | ReferenceObject
@@ -16,122 +24,68 @@ export interface ReferenceObject {
 }
 
 export interface PositionOptions {
+  reference?: Element;
+  floating?: HTMLElement;
   placement?: Placement;
-  modifiers?: PopperJS.Modifiers;
+  modifiers?: Modifiers;
   followCursor?: boolean;
 }
 /**
  * Hook for positioning an element relative to another.
  */
-export const usePosition = (
-  reference: ReferenceProp,
-  { followCursor, placement, modifiers }: PositionOptions = {}
-) => {
-  const elementRef = useRef<any | null>(null);
-  const popper = useRef<PopperJS | null>(null);
-  const mouse = useRef<{ pageX: number; pageY: number }>({
-    pageX: 0,
-    pageY: 0
+export const usePosition = ({
+  reference,
+  floating,
+  followCursor,
+  placement = 'top',
+  modifiers = [flip(), shift({ limiter: limitShift() })]
+}: PositionOptions = {}) => {
+  const { refs, floatingStyles, update } = useFloating({
+    open: true,
+    placement,
+    middleware: modifiers,
+    elements: {
+      reference: reference,
+      floating: floating
+    }
   });
 
-  // Find the real reference pointer for updating
-  const refPointer = (reference as RefObject<HTMLElement>).current;
-
-  const popperRef = useMemo(() => {
-    const refObj = reference as RefObject<HTMLElement>;
-    if (refObj.current !== undefined) {
-      return refObj.current;
-    }
-
-    const refElement = reference as HTMLElement;
-    if (followCursor) {
-      return {
-        getBoundingClientRect: () => ({
-          top: mouse.current.pageY,
-          right: mouse.current.pageX,
-          bottom: mouse.current.pageY,
-          left: mouse.current.pageX,
-          width: 0,
-          height: 0
-        }),
-        clientWidth: 0,
-        clientHeight: 0
-      };
-    } else if (refElement && !refElement.getBoundingClientRect) {
-      const { top, left, width, height } = reference as ReferenceObject;
-
-      return {
-        getBoundingClientRect: () => ({
-          top,
-          left,
-          width,
-          bottom: top - height,
-          right: left - width,
-          height
-        }),
-        clientWidth: width,
-        clientHeight: height
-      };
-    }
-
-    return refElement;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [followCursor, reference, refPointer, mouse]);
-
-  useLayoutEffect(() => {
-    let rqf;
-
-    const onMouseMove = ({ pageX, pageY }: MouseEvent) => {
-      mouse.current = { pageX, pageY };
-      popper.current?.scheduleUpdate();
-    };
-
-    const onWindowScroll = () => {
-      rqf = requestAnimationFrame(() => {
-        popper.current?.scheduleUpdate();
-      });
-    };
-
-    if (elementRef.current && popperRef) {
-      //@ts-ignore
-      popper.current = new PopperJS(popperRef, elementRef.current, {
-        placement: placement || 'top',
-        modifiers: modifiers || {},
-        onCreate: () => {
-          if (typeof window !== 'undefined') {
-            window.addEventListener('scroll', onWindowScroll);
-
-            if (followCursor) {
-              window.addEventListener('mousemove', onMouseMove);
-            }
-          }
+  const onMouseMove = useCallback(
+    ({ pageX, pageY }: MouseEvent) => {
+      console.log('pageXY', pageX, pageY);
+      refs.setPositionReference({
+        getBoundingClientRect() {
+          return {
+            width: 0,
+            height: 0,
+            x: pageX,
+            y: pageY,
+            left: pageX,
+            top: pageY,
+            right: pageX,
+            bottom: pageY
+          };
         }
       });
+    },
+    [refs]
+  );
+
+  useLayoutEffect(() => {
+    if (followCursor) {
+      window.addEventListener('mousemove', onMouseMove);
     }
 
     return () => {
-      if (!elementRef.current) {
-        popper.current?.destroy();
-
-        cancelAnimationFrame(rqf);
-        if (typeof window !== 'undefined') {
-          window.removeEventListener('scroll', onWindowScroll);
-
-          if (followCursor) {
-            window.removeEventListener('mousemove', onMouseMove);
-          }
-        }
-      }
+      window.removeEventListener('mousemove', onMouseMove);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [elementRef.current]);
+  }, [followCursor, onMouseMove]);
 
-  useLayoutEffect(() => {
-    if (popper.current) {
-      popper.current.reference = popperRef as any;
-      popper.current.scheduleUpdate();
-    }
-  }, [popperRef]);
-
-  return [elementRef, popper];
+  return {
+    refs,
+    anchorRef: refs.reference,
+    floatingRef: refs.floating,
+    floatingStyles,
+    update
+  };
 };

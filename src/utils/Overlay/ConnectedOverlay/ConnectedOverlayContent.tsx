@@ -97,7 +97,8 @@ export const ConnectedOverlayContent: FC<
   ) => {
     const id = useId();
     const [overlayIndex, setOverlayIndex] = useState<number | null>(null);
-    const [positionRef, popperRef] = usePosition(triggerRef, {
+    const { refs, floatingStyles, update } = usePosition({
+      reference: triggerRef.current,
       followCursor,
       modifiers,
       placement
@@ -105,7 +106,7 @@ export const ConnectedOverlayContent: FC<
 
     useImperativeHandle(ref, () => ({
       updatePosition: () => {
-        popperRef?.current?.scheduleUpdate();
+        update();
       }
     }));
 
@@ -143,22 +144,24 @@ export const ConnectedOverlayContent: FC<
 
     useExitListener({
       open: true,
-      ref: positionRef,
+      ref: refs.floating,
       onClickOutside,
       onEscape
     });
 
     useEffect(() => {
-      if (positionRef && overlayIndex) {
-        positionRef.current.style.zIndex = overlayIndex;
+      if (refs.reference && overlayIndex) {
+        (refs.reference.current as HTMLElement).style.zIndex =
+          overlayIndex.toString();
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [positionRef.current, overlayIndex]);
+    }, [refs.reference.current, overlayIndex]);
 
     return (
       <OverlayPortal
         id={id}
-        ref={positionRef}
+        ref={refs.setFloating}
+        style={floatingStyles}
         className={portalClassName}
         elementType={elementType}
         appendToBody={appendToBody}

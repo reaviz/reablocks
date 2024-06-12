@@ -16,7 +16,7 @@ export interface NestedMenuProps {
   label: any;
 
   /**
-   * Popper placement type.
+   * floating-ui placement type.
    */
   placement?: Placement;
 
