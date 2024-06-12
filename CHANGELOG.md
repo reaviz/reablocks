@@ -1,3 +1,6 @@
+# 7.13.0 - 6/12/24
+- [improvement] Update popper.js to floating ui #226
+
 # 7.12.0 - 6/11/24
 - [feature] Add Callout component #225
 
