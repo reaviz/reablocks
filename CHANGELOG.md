@@ -1,3 +1,6 @@
+# 7.13.2 - 6/12/24
+- [fix] Add missing null check #229
+
 # 7.13.1 - 6/12/24
 - [fix] Add supporting virtual element via FloatingUI #228
 
