@@ -150,9 +150,11 @@ export const ConnectedOverlayContent: FC<
     });
 
     useEffect(() => {
-      if (refs.reference && overlayIndex) {
-        (refs.reference.current as HTMLElement).style.zIndex =
-          overlayIndex.toString();
+      if (refs.reference && refs.reference.current && overlayIndex) {
+        (refs.reference.current as HTMLElement).style?.setProperty(
+          'zIndex',
+          overlayIndex.toString()
+        );
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [refs.reference.current, overlayIndex]);
