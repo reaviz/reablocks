@@ -1,5 +1,8 @@
+# 7.13.1 - 6/12/24
+- [fix] Add supporting virtual element via FloatingUI #228
+
 # 7.13.0 - 6/12/24
-- [improvement] Update popper.js to floating ui #226
+- [improvement] Update popper.js to floating ui #227
 
 # 7.12.0 - 6/11/24
 - [feature] Add Callout component #225
