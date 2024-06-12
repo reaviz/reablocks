@@ -62,7 +62,7 @@ export const usePosition = ({
   });
 
   useEffect(() => {
-    if (isVirtualElement) {
+    if (isVirtualElement && reference) {
       const refObject = reference as ReferenceObject;
       refs.setPositionReference({
         getBoundingClientRect() {
