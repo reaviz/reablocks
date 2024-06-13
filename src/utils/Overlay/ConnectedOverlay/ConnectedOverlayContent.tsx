@@ -9,7 +9,7 @@ import React, {
   LegacyRef
 } from 'react';
 import { useExitListener } from '@/utils/ExitListener';
-import { Placement, usePosition } from '@/utils/Position';
+import { Modifiers, Placement, usePosition } from '@/utils/Position';
 import { OverlayPortal, portals } from '@/utils/Overlay/OverlayPortal';
 import { useId } from '@/utils/useId';
 
@@ -21,7 +21,7 @@ export interface ConnectedOverlayContentProps {
   /**
    * Modifiers to adjust the behavior of the overlay content.
    */
-  modifiers?: any;
+  modifiers?: Modifiers;
 
   /**
    * If true, the overlay content will follow the cursor.
