@@ -1,3 +1,6 @@
+# 7.13.4 - 6/12/24
+- [fix] Fix applying z-index to portal #231
+
 # 7.13.3 - 6/12/24
 - [fix] Fix tooltip position after scroll #230
 
