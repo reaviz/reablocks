@@ -18,7 +18,7 @@ export const commandPaletteInputTheme: CommandPaletteInputTheme = {
   ),
   input: [
     baseTheme.input,
-    'bg-panel text-panel-content placeholder:placeholder-accent'
+    'bg-panel text-text-content-primary placeholder:placeholder-accent'
   ].join(' ')
 };
 

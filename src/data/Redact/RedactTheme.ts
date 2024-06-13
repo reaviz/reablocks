@@ -10,7 +10,7 @@ const baseTheme: RedactTheme = {
 
 export const redactTheme: RedactTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-surface-content'].join(' ')
+  base: [baseTheme.base, 'text-text-content-primary'].join(' ')
 };
 
 export const legacyRedactTheme: RedactTheme = {

@@ -28,7 +28,7 @@ export const Support = () => {
           <h1 className="mt-2 mb-0 text-2xl font-sans font-bold">
             Report an issue
           </h1>
-          <div className="text-panel-secondary-content text-base">
+          <div className="text-text-content-secondary text-base">
             Found a bug? Please let us know so we can fix it.
           </div>
         </div>

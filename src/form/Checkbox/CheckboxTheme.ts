@@ -73,7 +73,7 @@ export const checkboxTheme: CheckboxTheme = {
   check: [baseTheme.check, 'stroke-primary'].join(' '),
   label: {
     ...baseTheme.label,
-    base: [baseTheme.label.base, 'text-surface-content'].join(' ')
+    base: [baseTheme.label.base, 'text-text-content-primary'].join(' ')
   },
   boxVariants: {
     hover: {

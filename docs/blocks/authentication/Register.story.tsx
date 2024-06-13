@@ -77,7 +77,7 @@ export const Register = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Welcome to Reablocks
           </h4>
-          <p className="text-base text-panel-secondary-content font-sans">
+          <p className="text-base text-text-content-secondary font-sans">
             Welcome! Let's get started by creating your account. Please provide
             your email address and choose a secure password to begin accessing
             our platform's features.
@@ -165,7 +165,7 @@ export const Register = () => {
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}
           </Button>
-          <div className="mt-5 text-sm text-panel-secondary-content flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-text-content-secondary flex items-center justify-center gap-2">
             By signing in, you agree to our
             <a
               href="#"
@@ -182,7 +182,7 @@ export const Register = () => {
             </a>
           </div>
           <Divider className="mt-5 mb-5" variant="secondary" />
-          <div className="mt-5 text-panel-secondary-content text-sm flex items-center justify-center gap-2">
+          <div className="mt-5 text-text-content-secondary text-sm flex items-center justify-center gap-2">
             Already have an account?
             <a
               href="#"
@@ -219,7 +219,7 @@ export const RegisterFull = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Welcome to Reablocks
           </h4>
-          <p className="text-base text-panel-secondary-content font-sans">
+          <p className="text-base text-text-content-secondary font-sans">
             Excited to have you onboard! Start by creating your account to gain
             access to our platform. Simply provide your email, choose a
             password, and include any necessary information about your company
@@ -507,7 +507,7 @@ export const RegisterFull = () => {
           </div>
           <Divider variant="secondary" className="mt-4" />
           <div className="flex flex-col items-center justify-between md:flex-row">
-            <div className="text-panel-secondary-content text-sm flex items-center justify-center gap-2">
+            <div className="text-text-content-secondary text-sm flex items-center justify-center gap-2">
               Already have an account?
               <a
                 href="#"
@@ -553,7 +553,7 @@ export const RegisterV2 = () => {
           <h4 className="text-2xl font-sans font-bold mb-0 text-center">
             Welcome to Reablocks
           </h4>
-          <p className="text-base text-panel-secondary-content font-sans text-center">
+          <p className="text-base text-text-content-secondary font-sans text-center">
             Welcome! Let's get started by creating your account. Please provide
             your email address and choose a secure password to begin accessing
             our platform's features.
@@ -662,7 +662,7 @@ export const RegisterV2 = () => {
           >
             {isSubmitting ? 'Creating...' : 'Create Account →'}
           </Button>
-          <div className="mt-5 text-sm text-panel-secondary-content flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-text-content-secondary flex items-center justify-center gap-2">
             By signing in, you agree to our
             <a
               href="#"
@@ -679,7 +679,7 @@ export const RegisterV2 = () => {
             </a>
           </div>
           <Divider className="mt-5 mb-5" variant="secondary" />
-          <div className="mt-5 text-panel-secondary-content text-sm flex items-center justify-center gap-2">
+          <div className="mt-5 text-text-content-secondary text-sm flex items-center justify-center gap-2">
             Already have an account?
             <a
               href="#"
@@ -851,7 +851,7 @@ export const RegisterWithSocial = () => {
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}
           </Button>
-          <div className="mt-5 text-sm text-panel-secondary-content flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-text-content-secondary flex items-center justify-center gap-2">
             By signing in, you agree to our
             <a
               href="#"
@@ -868,7 +868,7 @@ export const RegisterWithSocial = () => {
             </a>
           </div>
           <Divider className="mt-5 mb-5" variant="secondary" />
-          <div className="mt-5 text-panel-secondary-content text-sm flex items-center justify-center gap-2">
+          <div className="mt-5 text-text-content-secondary text-sm flex items-center justify-center gap-2">
             Already have an account?
             <a
               href="#"

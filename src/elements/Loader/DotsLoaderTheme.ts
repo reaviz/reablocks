@@ -21,7 +21,7 @@ const baseTheme: DotsLoaderTheme = {
 
 export const dotsLoaderTheme: DotsLoaderTheme = {
   ...baseTheme,
-  dot: [baseTheme.dot, 'bg-surface-content'].join(' ')
+  dot: [baseTheme.dot, 'light:bg-gray-900 dark:bg-gray-100'].join(' ')
 };
 
 export const legacyLoaderTheme: DotsLoaderTheme = {

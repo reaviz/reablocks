@@ -41,7 +41,9 @@ export const pagerTheme: PagerTheme = {
     ...baseTheme.pages,
     page: {
       base: [baseTheme.pages.page.base, 'text-slate-500'].join(' '),
-      active: [baseTheme.pages.page.active, '!text-surface-content'].join(' ')
+      active: [baseTheme.pages.page.active, '!text-text-content-primary'].join(
+        ' '
+      )
     }
   },
   control: [

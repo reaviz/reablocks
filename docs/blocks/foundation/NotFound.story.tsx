@@ -840,7 +840,7 @@ export const NotFound = () => (
       <div className="absolute top-0 left-0 w-full h-full dark:bg-[radial-gradient(circle,rgba(36,36,66,0.3)_2%,rgba(2,2,15,1)_80%)] light:bg-[radial-gradient(circle,rgba(224,224,232,0.3)_2%,rgba(247,247,250,1)_80%)]" />
       <div className="flex flex-col gap-3 h-full justify-center">
         <div className="grow" />
-        <div className="text-surface-content z-10 relative font-bold !text-5xl">
+        <div className="text-text-content-primary z-10 relative font-bold !text-5xl">
           We lost this page
         </div>
         <div className="dark:text-waterloo light:text-charade opacity-80 z-10 relative">
@@ -1121,7 +1121,7 @@ export const LostPage = () => (
             404 Error
           </Chip>
         </div>
-        <div className="text-surface-content z-10 relative font-bold !text-5xl">
+        <div className="text-text-content-primary z-10 relative font-bold !text-5xl">
           We lost this page
         </div>
         <div className="dark:text-waterloo light:text-charade opacity-80 z-10 relative">

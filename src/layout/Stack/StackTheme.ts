@@ -48,7 +48,7 @@ const baseTheme: StackTheme = {
 
 export const stackTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-surface-content'].join(' ')
+  base: [baseTheme.base, 'text-text-content-primary'].join(' ')
 };
 
 export const legacyStackTheme = {

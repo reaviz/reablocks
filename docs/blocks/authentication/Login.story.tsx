@@ -62,7 +62,7 @@ export const Login = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-panel-secondary-content font-sans">
+          <span className="text-base text-text-content-secondary font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -129,7 +129,7 @@ export const Login = () => {
           >
             Sign up with Google
           </Button>
-          <div className="mt-5 text-sm text-panel-secondary-content flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-text-content-secondary flex items-center justify-center gap-2">
             By signing in, you agree to our
             <a
               href="#"
@@ -170,7 +170,7 @@ export const LoginBasic = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-panel-secondary-content font-sans">
+          <span className="text-base text-text-content-secondary font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -237,7 +237,7 @@ export const LoginBasic = () => {
           >
             Sign up
           </Button>
-          <div className="mt-5 text-sm text-panel-secondary-content flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-text-content-secondary flex items-center justify-center gap-2">
             By signing in, you agree to our
             <a
               href="#"
@@ -281,7 +281,7 @@ export const LoginFull = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-panel-secondary-content font-sans">
+          <span className="text-base text-text-content-secondary font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
           <form
@@ -389,7 +389,7 @@ export const LoginFull = () => {
                 Sign up with Microsoft
               </Button>
             </div>
-            <div className="mt-5 text-sm text-panel-secondary-content flex items-center justify-center gap-1.5">
+            <div className="mt-5 text-sm text-text-content-secondary flex items-center justify-center gap-1.5">
               By signing in, you agree to our
               <a
                 href="#"
@@ -435,7 +435,7 @@ export const LoginPassword = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-panel-secondary-content font-sans">
+          <span className="text-base text-text-content-secondary font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -521,7 +521,7 @@ export const LoginPassword = () => {
           >
             {isSubmitting ? 'Logging in...' : 'Login'}
           </Button>
-          <div className="mt-5 text-sm text-panel-secondary-content flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-text-content-secondary flex items-center justify-center gap-2">
             Don't have an account?
             <a
               href="#"
@@ -555,7 +555,7 @@ export const LoginSocial = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-panel-secondary-content font-sans">
+          <span className="text-base text-text-content-secondary font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -664,7 +664,7 @@ export const LoginSocial = () => {
               Sign up with Microsoft
             </Button>
           </div>
-          <div className="mt-5 text-sm text-panel-secondary-content flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-text-content-secondary flex items-center justify-center gap-2">
             By signing in, you agree to our
             <a
               href="#"

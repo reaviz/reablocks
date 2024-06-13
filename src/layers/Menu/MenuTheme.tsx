@@ -10,7 +10,7 @@ const baseTheme: MenuTheme = {
 
 export const menuTheme: MenuTheme = {
   ...baseTheme,
-  inner: [baseTheme.inner, 'text-panel-content bg-panel'].join(' ')
+  inner: [baseTheme.inner, 'text-text-content-primary bg-panel'].join(' ')
 };
 
 export const legacyMenuTheme: MenuTheme = {
