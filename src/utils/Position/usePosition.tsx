@@ -62,7 +62,7 @@ export const usePosition = ({
   });
 
   useEffect(() => {
-    if (isVirtualElement && reference) {
+    if (isVirtualElement && reference && !followCursor) {
       const refObject = reference as ReferenceObject;
       refs.setPositionReference({
         getBoundingClientRect() {
@@ -79,22 +79,22 @@ export const usePosition = ({
         }
       });
     }
-  }, [reference, refs, isVirtualElement]);
+  }, [reference, refs, isVirtualElement, followCursor]);
 
   const onMouseMove = useCallback(
-    ({ pageX, pageY }: MouseEvent) => {
+    ({ clientX, clientY }: MouseEvent) => {
       // Virtual reference object for cursor position.
       refs.setPositionReference({
         getBoundingClientRect() {
           return {
             width: 0,
             height: 0,
-            x: pageX,
-            y: pageY,
-            left: pageX,
-            top: pageY,
-            right: pageX,
-            bottom: pageY
+            x: clientX,
+            y: clientY,
+            left: clientX,
+            top: clientY,
+            right: clientX,
+            bottom: clientY
           };
         }
       });

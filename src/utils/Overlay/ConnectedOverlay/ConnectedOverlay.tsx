@@ -9,7 +9,7 @@ import React, {
   useMemo
 } from 'react';
 import { TriggerTypes, OverlayTrigger } from '@/utils/Overlay/OverlayTrigger';
-import { Placement, ReferenceProp } from '@/utils/Position';
+import { Modifiers, Placement, ReferenceProp } from '@/utils/Position';
 import { AnimatePresence } from 'framer-motion';
 import { OverlayContext } from '@/utils/Overlay/OverlayContext';
 import {
@@ -93,7 +93,7 @@ export interface ConnectedOverlayProps {
   /**
    * Position modifiers.
    */
-  modifiers?: any;
+  modifiers?: Modifiers;
 
   /**
    * Overlay should follow cursor or not.
