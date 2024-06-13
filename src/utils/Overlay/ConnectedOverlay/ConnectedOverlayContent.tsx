@@ -149,21 +149,11 @@ export const ConnectedOverlayContent: FC<
       onEscape
     });
 
-    useEffect(() => {
-      if (refs.reference && refs.reference.current && overlayIndex) {
-        (refs.reference.current as HTMLElement).style?.setProperty(
-          'zIndex',
-          overlayIndex.toString()
-        );
-      }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [refs.reference.current, overlayIndex]);
-
     return (
       <OverlayPortal
         id={id}
         ref={refs.setFloating}
-        style={floatingStyles}
+        style={{ ...floatingStyles, 'z-index': overlayIndex }}
         className={portalClassName}
         elementType={elementType}
         appendToBody={appendToBody}
