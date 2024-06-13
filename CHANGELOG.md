@@ -1,3 +1,6 @@
+# 7.13.3 - 6/12/24
+- [fix] Fix tooltip position after scroll #230
+
 # 7.13.2 - 6/12/24
 - [fix] Add missing null check #229
 
