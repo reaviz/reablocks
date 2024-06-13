@@ -35,12 +35,12 @@ const config: Config = {
       colors: colorPalette,
       backgroundImage: {
         'bottom-border-glow': `radial-gradient(circle at center, ${colorPalette.anakiwa} 0, blue, transparent 100%)`,
-        'button-gradient':
-          'linear-gradient(283deg, #0808A5 0%, rgba(8, 8, 165, 0.00) 100%)',
-        'button-gradient-hover':
-          'linear-gradient(283deg, #44F 0%, rgba(23, 23, 255, 0.10) 100%)',
-        'button-gradient-focus':
-          'linear-gradient(283deg, #0D0DD2 0%, rgba(23, 23, 255, 0.10) 100%)'
+        // Primary
+        'button-gradient': 'linear-gradient(283deg, #0808A5 0%, #0808a500 100%)',
+        'button-gradient-hover': 'linear-gradient(283deg, #44F 0%, #1717ff1a 100%)',
+        'button-gradient-focus': 'linear-gradient(283deg, #0D0DD2 0%, #1717ff1a 100%)',
+        'button-gradient-light': 'linear-gradient(283deg, #009BFF 0%, #009bff00 100%)',
+        'button-gradient-hover-light': 'linear-gradient(283deg, #45B6FF 0%, #45b6ff4d 100%)',
       }
     }
   },

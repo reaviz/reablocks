@@ -12,10 +12,76 @@ export default {
 };
 
 export const Variants = () => (
-  <div style={{ display: 'flex', gap: 10 }}>
-    <Button variant="filled">Filled</Button>
-    <Button variant="outline">Outline</Button>
-    <Button variant="text">Text</Button>
+  <div style={{ display: 'flex', gap: 10, flexDirection: 'column' }}>
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Button variant="filled" color="default">
+        Filled
+      </Button>
+      <Button variant="filled" color="primary">
+        Filled
+      </Button>
+      <Button variant="filled" color="secondary">
+        Filled
+      </Button>
+      <Button variant="filled" color="success">
+        Filled
+      </Button>
+      <Button variant="filled" color="warning">
+        Filled
+      </Button>
+      <Button variant="filled" color="error">
+        Filled
+      </Button>
+      <Button variant="filled" disabled>
+        Filled
+      </Button>
+    </div>
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Button variant="outline" color="default">
+        Outline
+      </Button>
+      <Button variant="outline" color="primary">
+        Outline
+      </Button>
+      <Button variant="outline" color="secondary">
+        Outline
+      </Button>
+      <Button variant="outline" color="success">
+        Outline
+      </Button>
+      <Button variant="outline" color="warning">
+        Outline
+      </Button>
+      <Button variant="outline" color="error">
+        Outline
+      </Button>
+      <Button variant="outline" disabled>
+        Outline
+      </Button>
+    </div>
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Button variant="text" color="default">
+        Text
+      </Button>
+      <Button variant="text" color="primary">
+        Text
+      </Button>
+      <Button variant="text" color="secondary">
+        Text
+      </Button>
+      <Button variant="text" color="success">
+        Text
+      </Button>
+      <Button variant="text" color="warning">
+        Text
+      </Button>
+      <Button variant="text" color="error">
+        Text
+      </Button>
+      <Button variant="text" disabled>
+        Text
+      </Button>
+    </div>
   </div>
 );
 
@@ -153,6 +219,74 @@ export const CustomTheme = () => {
         <Button size="small">Small</Button>
         <Button size="medium">Medium</Button>
         <Button size="large">Large</Button>
+      </div>
+    </ThemeProvider>
+  );
+};
+
+export const Gradients = () => {
+  const customTheme: PartialReablocksTheme = {
+    components: {
+      button: {
+        colors: {
+          primary: {
+            filled:
+              'bg-button-gradient hover:bg-button-gradient-hover light:bg-button-gradient-light light:hover:bg-button-gradient-hover-light'
+          },
+          secondary: {
+            filled: [
+              'bg-transparent',
+              'bg-[linear-gradient(283deg,_#E6E6F0_0%,_#E6E6F000_100%)]',
+              'hover:bg-[linear-gradient(283deg,_#E6E6F0_0%,_#E6E6F033_100%)]',
+              'light:bg-[linear-gradient(283deg,_#E6E6F0_0%,_#E6E6F000_100%)]',
+              'light:hover:bg-[linear-gradient(283deg,_#E6E6F0_0%,_#E6E6F033_100%)]',
+              'text-black'
+            ].join(' ')
+          },
+          success: {
+            filled: [
+              'bg-transparent',
+              'bg-[linear-gradient(103deg,_#469D1D00_0%,_#469D1D_100%)]',
+              'hover:bg-[linear-gradient(103deg,_#80CE5B33_0%,_#80CE5B_100%)]'
+            ].join(' ')
+          },
+          warning: {
+            filled: [
+              'bg-transparent',
+              'bg-[linear-gradient(103deg,_#CB6E0000_0%,_#CB6E00_100%)]',
+              'hover:bg-[linear-gradient(103deg,_#F8A34033_0%,_#F8A340_100%)]'
+            ].join(' ')
+          },
+          error: {
+            filled: [
+              'bg-transparent',
+              'bg-[linear-gradient(103deg,_#B7000600_0%,_#B70006_100%)]',
+              'hover:bg-[linear-gradient(103deg,#F7BFC133_0%,_#E84045_100%)]'
+            ].join(' ')
+          }
+        }
+      }
+    }
+  };
+
+  return (
+    <ThemeProvider theme={extendTheme(theme, customTheme)}>
+      <div style={{ display: 'flex', gap: 10 }}>
+        <Button variant="filled" color="primary">
+          Primary
+        </Button>
+        <Button variant="filled" color="secondary">
+          Secondary
+        </Button>
+        <Button variant="filled" color="success">
+          Success
+        </Button>
+        <Button variant="filled" color="warning">
+          Warning
+        </Button>
+        <Button variant="filled" color="error">
+          Error
+        </Button>
       </div>
     </ThemeProvider>
   );
