@@ -69,6 +69,7 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
           </Button>
         }
         variant={variant}
+        theme={theme}
         {...rest}
       >
         {children}

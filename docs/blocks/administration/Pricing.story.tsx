@@ -660,7 +660,7 @@ export const PricingMinimal = () => {
             <Chip
               size="small"
               color="primary"
-              className="rounded-full dark:bg-blue-950 light:bg-blue-100 light:text-vulcan px-3 py-1"
+              className="rounded-full dark:bg-blue-950 light:bg-blue-100 dark:text-gray-100 light:text-vulcan px-3 py-1"
             >
               Save 16%
             </Chip>

@@ -8,6 +8,7 @@ export interface BadgeTheme {
     primary: string;
     secondary: string;
     error: string;
+    [key: string]: string;
   };
   positions: {
     'top-start': string;

@@ -9,7 +9,7 @@ import React, {
   LegacyRef
 } from 'react';
 import { useExitListener } from '@/utils/ExitListener';
-import { Placement, usePosition } from '@/utils/Position';
+import { Modifiers, Placement, usePosition } from '@/utils/Position';
 import { OverlayPortal, portals } from '@/utils/Overlay/OverlayPortal';
 import { useId } from '@/utils/useId';
 
@@ -21,7 +21,7 @@ export interface ConnectedOverlayContentProps {
   /**
    * Modifiers to adjust the behavior of the overlay content.
    */
-  modifiers?: any;
+  modifiers?: Modifiers;
 
   /**
    * If true, the overlay content will follow the cursor.
@@ -97,7 +97,8 @@ export const ConnectedOverlayContent: FC<
   ) => {
     const id = useId();
     const [overlayIndex, setOverlayIndex] = useState<number | null>(null);
-    const [positionRef, popperRef] = usePosition(triggerRef, {
+    const { refs, floatingStyles, update } = usePosition({
+      reference: triggerRef.current ?? triggerRef,
       followCursor,
       modifiers,
       placement
@@ -105,7 +106,7 @@ export const ConnectedOverlayContent: FC<
 
     useImperativeHandle(ref, () => ({
       updatePosition: () => {
-        popperRef?.current?.scheduleUpdate();
+        update();
       }
     }));
 
@@ -143,22 +144,16 @@ export const ConnectedOverlayContent: FC<
 
     useExitListener({
       open: true,
-      ref: positionRef,
+      ref: refs.floating,
       onClickOutside,
       onEscape
     });
 
-    useEffect(() => {
-      if (positionRef && overlayIndex) {
-        positionRef.current.style.zIndex = overlayIndex;
-      }
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [positionRef.current, overlayIndex]);
-
     return (
       <OverlayPortal
         id={id}
-        ref={positionRef}
+        ref={refs.setFloating}
+        style={{ ...floatingStyles, 'z-index': overlayIndex }}
         className={portalClassName}
         elementType={elementType}
         appendToBody={appendToBody}

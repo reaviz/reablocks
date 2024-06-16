@@ -12,12 +12,14 @@ export interface ButtonTheme {
       small: string;
       medium: string;
       large: string;
+      [key: string]: string;
     };
   };
   variants: {
     filled: string;
     outline: string;
     text: string;
+    [key: string]: string;
   };
   colors: {
     default: {
@@ -46,6 +48,11 @@ export interface ButtonTheme {
       text: string;
     };
     error: {
+      filled: string;
+      outline: string;
+      text: string;
+    };
+    [key: string]: {
       filled: string;
       outline: string;
       text: string;

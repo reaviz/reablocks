@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import { isAfter, isBefore } from 'date-fns';
+import { isAfter, isBefore, isToday } from 'date-fns';
 import { Button } from '@/elements';
 import {
   daysOfWeek,
@@ -9,7 +9,7 @@ import {
   isPreviousWeekEmpty
 } from '@/form/Calendar/utils';
 import { AnimatePresence, motion } from 'framer-motion';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { twMerge } from 'tailwind-merge';
 
@@ -65,6 +65,11 @@ export interface CalendarDaysProps {
   showDayOfWeek?: boolean;
 
   /**
+   * Whether to highlight the today.
+   */
+  showToday?: boolean;
+
+  /**
    * Customize the labels for the days of the week.
    */
   dayOfWeekLabels?: string[];
@@ -116,6 +121,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   animated,
   xAnimation = 0,
   showDayOfWeek,
+  showToday,
   dayOfWeekLabels = daysOfWeek,
   hidePrevMonthDays,
   hideNextMonthDays,
@@ -187,17 +193,19 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       return (
         <Button
           key={day.formattedDate}
-          className={twMerge(
-            days.day,
-            !isActive &&
-              (day.isNextMonth || day.isPreviousMonth) &&
-              days.outside,
-            isRangeMiddle && days.range,
-            isRange && isRangeStart && !isRangeEnd && days.startRangeDate,
-            isRange && !rangeConnectsBottom && days.cornerStartDateBottom,
-            isRange && isRangeEnd && !isRangeStart && days.endRangeDate,
-            isRange && !rangeConnectsTop && days.cornerEndDateTop
-          )}
+          className={cn(days.day, {
+            [days.outside]:
+              !isActive && (day.isNextMonth || day.isPreviousMonth),
+            [days.today]: showToday && isToday(day.date),
+            [days.selected]: isActive,
+            [days.hover]: day.date === currentHover,
+            [days.range]: isRangeMiddle,
+            [days.startRangeDate]: isRange && isRangeStart && !isRangeEnd,
+            [days.cornerStartDateBottom]:
+              isRange && isActive && !rangeConnectsBottom,
+            [days.endRangeDate]: isRange && isRangeEnd && !isRangeStart,
+            [days.cornerEndDateTop]: isRange && isActive && !rangeConnectsTop
+          })}
           onMouseEnter={() => handleHover(day.date)}
           onMouseLeave={() => handleHover(null)}
           variant={buttonVariant}
@@ -223,7 +231,8 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       hoveringDate,
       days,
       hideNextMonthDays,
-      hidePrevMonthDays
+      hidePrevMonthDays,
+      showToday
     ]
   );
 
@@ -239,16 +248,16 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         }}
       >
         {showDayOfWeek && (
-          <div className={twMerge(days.header)}>
+          <div className={days.header}>
             {dayOfWeekLabels.map(day => (
-              <div key={`day-${day}`} className={twMerge(days.dayOfWeek)}>
+              <div key={`day-${day}`} className={days.dayOfWeek}>
                 {day.substring(0, 2)}
               </div>
             ))}
           </div>
         )}
         {weeks.map((week, i) => (
-          <div key={`week-${i}`} className={twMerge(days.week)}>
+          <div key={`week-${i}`} className={days.week}>
             {week.map(renderDay)}
           </div>
         ))}

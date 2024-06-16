@@ -34,7 +34,7 @@ export interface CheckboxProps {
   /**
    * Size of the checkbox.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * Additional class names to apply to the checkbox.

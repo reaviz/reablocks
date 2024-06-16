@@ -1,6 +1,6 @@
 import React, { FC, useState, useRef, useEffect, ReactNode } from 'react';
 import { ConnectedOverlay, TriggerTypes } from '@/utils/Overlay';
-import { Placement, ReferenceObject } from '@/utils/Position';
+import { Modifiers, Placement, ReferenceObject } from '@/utils/Position';
 import { motion } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { useTooltipState } from './useTooltipState';
@@ -31,7 +31,7 @@ export interface TooltipProps {
   /**
    * Content for the tooltip.
    */
-  content: any;
+  content?: any;
 
   /**
    * Reference of the tooltip to align to.
@@ -39,7 +39,7 @@ export interface TooltipProps {
   reference?: ReferenceObject | HTMLElement | any;
 
   /**
-   * Popperjs placement.
+   * floating-ui placement.
    */
   placement?: Placement;
 
@@ -54,9 +54,9 @@ export interface TooltipProps {
   leaveDelay?: number;
 
   /**
-   * Popperjs modifiers.
+   * floating-ui modifiers.
    */
-  modifiers?: any;
+  modifiers?: Modifiers;
 
   /**
    * External setter for visibility.

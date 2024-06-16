@@ -7,6 +7,7 @@ export interface VerticalSpacerTheme {
     lg: string;
     xl: string;
     xxl: string;
+    [key: string]: string;
   };
 }
 

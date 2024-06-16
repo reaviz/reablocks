@@ -1,11 +1,11 @@
-import { RefObject, useEffect } from 'react';
+import { MutableRefObject, RefObject, useEffect } from 'react';
 
 interface ExitListenerOptions {
   /**
    * A ref object pointing to the target element that the hook should
    * observe for click outside and escape key events.
    */
-  ref: RefObject<HTMLElement | null>;
+  ref: RefObject<HTMLElement | null> | MutableRefObject<HTMLElement>;
 
   /**
    * An optional boolean to enable or disable the event listeners.
@@ -26,6 +26,9 @@ interface ExitListenerOptions {
   onEscape?: (event: KeyboardEvent) => void;
 }
 
+/**
+ * Hook to listen for click outside and escape key events.
+ */
 export const useExitListener = ({
   ref,
   open = true,

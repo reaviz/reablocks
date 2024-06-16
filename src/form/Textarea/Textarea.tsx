@@ -31,7 +31,7 @@ export interface TextareaProps extends TextareaAutosizeProps {
   /**
    * Size of the field.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * Theme for the Textarea.

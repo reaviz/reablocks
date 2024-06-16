@@ -37,7 +37,7 @@ export interface RadioProps {
   /**
    * Size of the radio.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * Event handler for when the radio is changed.

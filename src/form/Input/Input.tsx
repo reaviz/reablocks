@@ -1,5 +1,4 @@
 import React, {
-  FC,
   forwardRef,
   RefObject,
   useImperativeHandle,
@@ -36,7 +35,7 @@ export interface InputProps
   /**
    * Size of the input.
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * Content to display before the input.
@@ -100,7 +99,7 @@ export interface InputRef {
   select?: () => void;
 }
 
-export const Input: FC<InputProps & InputRef> = forwardRef(
+export const Input = forwardRef<InputRef, InputProps>(
   (
     {
       className,

@@ -1,4 +1,5 @@
 import React, {
+  CSSProperties,
   FC,
   forwardRef,
   LegacyRef,
@@ -21,10 +22,28 @@ export interface OverlayPortalRef {
   ref?: LegacyRef<HTMLElement>;
 }
 
+/**
+ * Represents an event that occurs when an overlay portal is mounted.
+ */
 export interface OverlayPortalMountEvent {
+  /**
+   * The index of the overlay.
+   */
   overlayIndex: number;
+
+  /**
+   * The index of the portal.
+   */
   portalIndex: number;
+
+  /**
+   * The ID of the portal.
+   */
   portalId: string;
+
+  /**
+   * The index of the backdrop.
+   */
   backdropIndex: number;
 }
 
@@ -38,6 +57,11 @@ export interface OverlayPortalProps {
    * The class name of the overlay portal.
    */
   className?: string;
+
+  /**
+   * The style of the overlay portal.
+   */
+  style?: CSSProperties;
 
   /**
    * The id of the overlay portal.
@@ -63,7 +87,15 @@ export interface OverlayPortalProps {
 export const OverlayPortal: FC<OverlayPortalProps & OverlayPortalRef> =
   forwardRef(
     (
-      { className, children, onMount, onUnmount, appendToBody = true, id },
+      {
+        className,
+        children,
+        onMount,
+        onUnmount,
+        appendToBody = true,
+        id,
+        style
+      },
       ref
     ) => {
       let portalId = useId(id);
@@ -78,6 +110,7 @@ export const OverlayPortal: FC<OverlayPortalProps & OverlayPortalRef> =
         <Portal
           className={className}
           ref={portalRef}
+          style={style}
           appendToBody={appendToBody}
           onMount={() => {
             portals.push(portalId);

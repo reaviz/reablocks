@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 
 /**
  * Hook for setting body cursors.
+ *
  * Credits: https://github.com/pmndrs/drei#usecursor
  */
 export function useCursor(
@@ -14,5 +15,5 @@ export function useCursor(
       document.body.style.cursor = onPointerOver;
       return () => void (document.body.style.cursor = onPointerOut);
     }
-  }, [hovered]);
+  }, [hovered, onPointerOut, onPointerOver]);
 }

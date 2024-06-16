@@ -29,8 +29,8 @@ const baseTheme: ListTheme = {
   header: 'pl-2 pr-2',
   listItem: {
     base: 'items-center flex p-2.5 relative rounded-none',
-    disabled: 'cursor-not-allowed',
-    active: 'underline',
+    disabled: 'cursor-not-allowed pointer-events-none',
+    active: '',
     clickable:
       'cursor-pointer transition-color duration-300 ease-linear transition-bg duration-300 ease-linear hover:color-inherit hover:bg-transparent',
     disablePadding: 'p-0',
@@ -47,14 +47,29 @@ const baseTheme: ListTheme = {
       end: 'pl-1',
       svg: 'fill-current'
     },
-    content: 'text-sm overflow-wrap break-word word-wrap break-all flex-1'
+    content: 'overflow-wrap break-word word-wrap break-all flex-1'
   }
 };
 
 export const listTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'text-surface-content'].join(' '),
-  header: [baseTheme.header, 'text-surface-content'].join(' ')
+  header: [baseTheme.header, 'text-surface-content'].join(' '),
+  listItem: {
+    ...baseTheme.listItem,
+    base: [
+      baseTheme.listItem.base,
+      'hover:bg-panel-accent hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-panel-secondary-content [&:has(h3)]:hover:bg-transparent'
+    ].join(' '),
+    active: [
+      baseTheme.listItem.active,
+      'text-primary-active hover:text-mystic'
+    ].join(' '),
+    disabled: [
+      baseTheme.listItem.disabled,
+      'opacity-40 text-panel-secondary-content'
+    ].join(' ')
+  }
 };
 
 export const legacyListTheme = {

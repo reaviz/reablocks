@@ -1,7 +1,7 @@
 import React, { FC, useMemo } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Button } from '@/elements';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { twMerge } from 'tailwind-merge';
 
@@ -68,7 +68,7 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
   return (
     <AnimatePresence mode="popLayout">
       <motion.div
-        className={twMerge(years.root)}
+        className={years.root}
         key={`${decadeStart.toString()}-${decadeEnd.toString()}`}
         initial={{ opacity: 0, x: xAnimation }}
         animate={{ opacity: 1, x: 0 }}
@@ -80,7 +80,7 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
         {yearDates.map(year => (
           <Button
             key={year}
-            className={twMerge(years.year)}
+            className={cn(years.year, { [years.selected]: value === year })}
             color={value === year ? 'primary' : 'default'}
             variant={value === year ? 'filled' : 'text'}
             disableMargins

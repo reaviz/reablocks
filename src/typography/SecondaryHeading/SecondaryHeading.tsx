@@ -15,7 +15,8 @@ export interface SecondaryHeadingProps
     | 'error'
     | 'success'
     | 'warning'
-    | 'info';
+    | 'info'
+    | string;
 
   /**
    * Font variant for the heading.

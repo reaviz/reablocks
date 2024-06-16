@@ -154,7 +154,7 @@ const config: Config = {
     plugin(({ addVariant }) => {
       addVariant(
         'disabled-within',
-        '&:has(input:is(:disabled),button:is(:disabled))'
+        '&:has(input:is(:disabled),textarea:is(:disabled),button:is(:disabled))'
       );
     })
   ]

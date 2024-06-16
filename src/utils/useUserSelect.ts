@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 /**
- * Set the body select style to none.
+ * Hook to disable user selection on the body.
  */
 export function useUserSelect(active: boolean) {
   useEffect(() => {

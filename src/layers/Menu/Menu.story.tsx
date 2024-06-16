@@ -35,7 +35,7 @@ export const Unstyled = () => {
 };
 
 export const Nested = () => {
-  const { toggleOpen, ref, Menu: MenuComponent } = useMenu({ open: true });
+  const { toggleOpen, ref, Menu: MenuComponent } = useMenu({ open: false });
   const itemStyle = { padding: 5, borderBottom: 'solid 1px black' };
 
   return (
@@ -149,7 +149,17 @@ export const AutoWidthModifiers = () => {
       <MenuComponent
         style={{ background: 'var(--slate-500)' }}
         autoWidth
-        modifiers={{ offset: { offset: '-100, 25' } }}
+        modifiers={[
+          {
+            name: 'offset',
+            fn({ x, y }) {
+              return {
+                x: x - 100,
+                y: y + 25
+              };
+            }
+          }
+        ]}
       >
         <Card disablePadding>
           <List>

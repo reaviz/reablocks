@@ -8,6 +8,7 @@ export interface TabsTheme {
         small: string;
         medium: string;
         large: string;
+        [key: string]: string;
       };
     };
     divider: string;
@@ -28,6 +29,7 @@ export interface TabsTheme {
         small: string;
         medium: string;
         large: string;
+        [key: string]: string;
       };
     };
   };

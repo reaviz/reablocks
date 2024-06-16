@@ -3,6 +3,7 @@ import { Select } from './Select';
 import { SelectOption } from './SelectOption';
 import { SelectMenu } from './SelectMenu';
 import { SelectInput, SelectInputChip } from './SelectInput';
+import { Stack } from '../../layout/Stack';
 
 export default {
   title: 'Components/Form/Select/Single',
@@ -39,6 +40,66 @@ export const Basic = () => {
         <SelectOption value="twitter">twitter</SelectOption>
         <SelectOption value="twitch">twitch</SelectOption>
       </Select>
+    </div>
+  );
+};
+
+export const Sizes = () => {
+  const [value, setValue] = useState<string | null>(null);
+  return (
+    <div style={{ width: 500 }}>
+      <Stack className="w-full" direction="column">
+        <Stack className="w-full">
+          <label className="w-[50px]">Small: </label>
+          <Select
+            placeholder="Select a category"
+            value={value}
+            size="small"
+            className="min-w-[250px]"
+            onChange={v => {
+              setValue(v);
+              console.log('onChange', v);
+            }}
+          >
+            <SelectOption value="facebook">facebook</SelectOption>
+            <SelectOption value="twitter">twitter</SelectOption>
+            <SelectOption value="twitch">twitch</SelectOption>
+          </Select>
+        </Stack>
+        <Stack className="w-full">
+          <label className="w-[50px]">Medium: </label>
+          <Select
+            placeholder="Select a category"
+            value={value}
+            className="min-w-[250px]"
+            onChange={v => {
+              setValue(v);
+              console.log('onChange', v);
+            }}
+          >
+            <SelectOption value="facebook">facebook</SelectOption>
+            <SelectOption value="twitter">twitter</SelectOption>
+            <SelectOption value="twitch">twitch</SelectOption>
+          </Select>
+        </Stack>
+        <Stack className="w-full">
+          <label className="w-[50px]">Large: </label>
+          <Select
+            placeholder="Select a category"
+            value={value}
+            size="large"
+            className="min-w-[250px]"
+            onChange={v => {
+              setValue(v);
+              console.log('onChange', v);
+            }}
+          >
+            <SelectOption value="facebook">facebook</SelectOption>
+            <SelectOption value="twitter">twitter</SelectOption>
+            <SelectOption value="twitch">twitch</SelectOption>
+          </Select>
+        </Stack>
+      </Stack>
     </div>
   );
 };

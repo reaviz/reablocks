@@ -1,3 +1,87 @@
+# 7.13.4 - 6/12/24
+- [fix] Fix applying z-index to portal #231
+
+# 7.13.3 - 6/12/24
+- [fix] Fix tooltip position after scroll #230
+
+# 7.13.2 - 6/12/24
+- [fix] Add missing null check #229
+
+# 7.13.1 - 6/12/24
+- [fix] Add supporting virtual element via FloatingUI #228
+
+# 7.13.0 - 6/12/24
+- [improvement] Update popper.js to floating ui #227
+
+# 7.12.0 - 6/11/24
+- [feature] Add Callout component #225
+
+# 7.11.0 - 6/5/24
+- [feature] Add root rendering option to JsonTree #224
+
+# 7.10.1 - 6/5/24
+- [chore] export css from package
+
+# 7.10.0 - 5/31/24
+- [improvement] Update lib to generate doc #222
+- [improvement] Updates theme for Tooltip, List, Dialog #221
+- [improvement] Update gradient for input #220
+- [improvement] Update theme for Calendar component #218
+
+# 7.9.7 - 5/29/24
+- [fix] fix paths for types
+
+# 7.9.6 - 5/29/24
+- [chore] remove typedoc build, fix select story
+
+# 7.9.5 - 5/29/24
+- [chore] remove typedoc build
+- [chore] fix storybook story build
+
+# 7.9.5 - 5/29/24
+- [chore] testing typedoc build
+ 
+# 7.9.4 - 5/28/24
+- [fix] improve select theme
+- [fix] make tooltip `content` optional for reaviz fix
+
+# 7.9.3 - 5/27/24
+- [fix] fix adding new item for creatable Select with disabled menu 
+
+# 7.9.2 - 5/23/24
+- [fix] fix date input exports
+
+# 7.9.1 - 5/23/24
+- [feature] DateInput component
+- [feature] Expand variants/sizes to allow for dynamic
+
+# 7.8.1 - 5/23/24
+- [feat] Add Profile blocks
+
+# 7.8.0 - 5/22/24
+- [feature] Add ability to extend colors in component themes #211 
+- [feature] Add Account profile block #210 
+
+# 7.7.4 - 5/22/24
+- [chore] use json tree instead of syntax highlighter
+
+# 7.7.3 - 5/21/24
+- [chore] tweak stepper blocks
+
+# 7.7.2 - 5/21/24
+- [feature] add stepper blocks
+
+# 7.7.1 - 5/21/24
+- [fix] fix stepper export
+
+# 7.7.0 - 5/21/24
+- [feature] add stepper component
+- [chore] upgrade storybook
+
+# 7.6.19 - 5/20/24
+- [fix] Fix DeletableChip theme #204
+- [improvement] Replace/remove inexistant text-xs classes #201
+
 # 7.6.18 - 5/17/24
 - [improvement] Add role to Toggle component
 - [improvement] Match font size for Select and Input

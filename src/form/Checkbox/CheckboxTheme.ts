@@ -7,6 +7,7 @@ export interface CheckboxTheme {
       small: string;
       medium: string;
       large: string;
+      [key: string]: string;
     };
   };
   border: string;
@@ -18,6 +19,7 @@ export interface CheckboxTheme {
     small: string;
     medium: string;
     large: string;
+    [key: string]: string;
   };
   boxVariants: {
     hover: {

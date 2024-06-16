@@ -1,6 +1,9 @@
 import { useContext } from 'react';
 import { OverlayContext } from './OverlayContext';
 
+/**
+ * Hook for using the Overlay's context.
+ */
 export const useOverlay = () => {
   const context = useContext(OverlayContext);
 
