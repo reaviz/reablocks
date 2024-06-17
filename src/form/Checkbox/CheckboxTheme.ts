@@ -3,6 +3,8 @@ export interface CheckboxTheme {
   label: {
     base: string;
     clickable: string;
+    disabled: string;
+    checked: string;
     sizes: {
       small: string;
       medium: string;
@@ -10,11 +12,21 @@ export interface CheckboxTheme {
       [key: string]: string;
     };
   };
-  border: string;
-  check: string;
-  checkbox: string;
-  disabled: string;
-  checked: string;
+  border: {
+    base: string;
+    disabled: string;
+    checked: string;
+  };
+  checkMark: {
+    base: string;
+    disabled: string;
+    checked: string;
+  };
+  checkbox: {
+    base: string;
+    disabled: string;
+    checked: string;
+  };
   sizes: {
     small: string;
     medium: string;
@@ -44,7 +56,9 @@ export interface CheckboxTheme {
 const baseTheme: Partial<CheckboxTheme> = {
   base: 'inline-flex items-center w-full group',
   label: {
-    base: 'ml-2.5 w-full',
+    base: 'text-surface-content dark:text-waterloo light:text-charade ml-2.5 w-full',
+    checked: 'checked dark:text-athens-gray light:text-vulcan',
+    disabled: 'cursor-not-allowed dark:text-gray-600 light:text-waterloo',
     clickable: 'cursor-pointer',
     sizes: {
       small: 'text-sm',
@@ -52,68 +66,85 @@ const baseTheme: Partial<CheckboxTheme> = {
       large: 'text-lg'
     }
   },
-  check: 'check',
-  border: '',
-  checkbox:
-    'checkbox flex items-center justify-center cursor-pointer focus-visible:outline-none',
-  checked: 'checked',
-  disabled: 'disabled dark:opacity-60 cursor-not-allowed',
+  checkMark: {
+    base: 'stroke-white',
+    checked: '',
+    disabled: 'cursor-not-allowed'
+  },
+  border: {
+    base: 'stroke-gray-400 light:stroke-gray-700',
+    checked: 'stroke-blue-500',
+    disabled: 'cursor-not-allowed stroke-gray-500'
+  },
+  checkbox: {
+    base: 'fill-transparent flex items-center justify-center cursor-pointer focus-visible:outline-none',
+    checked: 'fill-blue-500 checked',
+    disabled: 'fill-transparent disabled'
+  },
   sizes: {
     small: '[&>svg]:w-3 [&>svg]:h-3',
     medium: '[&>svg]:w-4 [&>svg]:h-4',
     large: '[&>svg]:w-5 [&>svg]:h-5'
   }
 };
-
 export const checkboxTheme: CheckboxTheme = {
   ...baseTheme,
-  checkbox: [
-    baseTheme.checkbox,
-    'fill-transparent border border-surface',
-    'light:group-hover:[&.checked]:fill-blue-600',
-    'light:[&.checked.disabled]:fill-waterloo',
-    'light:group-hover:[&.checked.disabled]:fill-waterloo',
-    'group-hover:[&.checked]:fill-blue-400',
-    'group-hover:[&.checked.disabled]:fill-gray-400',
-    '[&.checked]:fill-blue-500',
-    '[&.checked.disabled]:fill-gray-400 '
-  ].join(' '),
-  check: [
-    baseTheme.check,
-    'light:group-hover:stroke-white',
-    'light:[&.disabled]:stroke-white',
-    'stroke-white',
-    'group-hover:stroke-black',
-    'group-hover:[&.disabled]:stroke-black',
-    '[&.disabled]:stroke-black'
-  ].join(' '),
-  border: [
-    baseTheme.border,
-    'light:stroke-waterloo',
-    'light:group-hover:stroke-blue-600',
-    'light:group-hover:[&.disabled]:stroke-waterloo',
-    'stroke-gray-300',
-    'group-hover:stroke-blue-400',
-    'group-hover:[&.disabled]:stroke-gray-500',
-    '[&.checked]:stroke-blue-500',
-    '[&.disabled]:stroke-gray-500'
-  ].join(' '),
-
+  checkbox: {
+    ...baseTheme.checkbox,
+    base: [
+      baseTheme.checkbox.base,
+      'border border-surface',
+      '[&.checked.disabled]:fill-gray-400'
+    ].join(' '),
+    checked: [
+      baseTheme.checkbox.checked,
+      'group-hover:fill-blue-400',
+      'light:group-hover:fill-blue-600',
+      'light:group-hover:[&.disabled]:fill-gray-400'
+    ].join(' '),
+    disabled: [
+      baseTheme.checkbox.disabled,
+      'group-hover:transparent',
+      'light:group-hover:transparent'
+    ].join(' ')
+  },
+  checkMark: {
+    ...baseTheme.checkMark,
+    base: [
+      baseTheme.checkMark.base,
+      'group-hover:stroke-black light:group-hover:stroke-white'
+    ].join(' '),
+    disabled: [
+      baseTheme.checkMark.disabled,
+      'stroke-black light:stroke-white group-hover:stroke-black '
+    ].join(' ')
+  },
+  border: {
+    ...baseTheme.border,
+    base: [
+      baseTheme.border.base,
+      'dark:group-hover:stroke-blue-300',
+      'light:group-hover:stroke-blue-600'
+    ].join(' '),
+    disabled: [
+      baseTheme.border.disabled,
+      'dark:group-hover:stroke-gray-500',
+      'light:group-hover:stroke-waterloo'
+    ].join(' ')
+  },
   label: {
     ...baseTheme.label,
     base: [
       baseTheme.label.base,
-      'text-surface-content',
-      'light:text-charade',
-      'light:[&.disabled]:text-waterloo',
-      'light:group-hover:[&.disabled]:text-waterloo',
-      'light:[&.checked]:text-vulcan',
-      'light:group-hover:text-blue-400',
-      'dark:text-waterloo',
-      'group-hover:text-blue-300',
-      'group-hover:[&.disabled]:text-waterloo',
-      'group-hover:[&.checked.disabled]:text-athens-gray',
-      '[&.checked]:text-athens-gray'
+      'dark:group-hover:text-blue-300 light:group-hover:text-blue-400'
+    ].join(' '),
+    checked: [baseTheme.label.checked, 'group-hover:text-athens-gray'].join(
+      ' '
+    ),
+    disabled: [
+      baseTheme.label.disabled,
+      'light:group-hover:text-waterloo',
+      'dark:group-hover:text-gray-600'
     ].join(' ')
   },
   boxVariants: {
@@ -126,8 +157,13 @@ export const checkboxTheme: CheckboxTheme = {
 
 export const legacyCheckboxTheme: CheckboxTheme = {
   ...baseTheme,
-  checkbox: [baseTheme.checkbox, 'fill-transparent'].join(' '),
-  check: [baseTheme.check, 'stroke-[var(--checkbox-check-stroke)]'].join(' '),
+  checkbox: { base: [baseTheme.checkbox, 'fill-transparent'].join(' ') },
+  checkMark: {
+    base: [
+      baseTheme.checkMark.base,
+      'stroke-[var(--checkbox-check-stroke)]'
+    ].join(' ')
+  },
   label: {
     ...baseTheme.label,
     base: [

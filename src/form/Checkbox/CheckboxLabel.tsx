@@ -4,7 +4,7 @@ import { CheckboxTheme } from './CheckboxTheme';
 
 interface CheckboxLabelProps {
   label: string;
-  size: 'small' | 'medium' | 'large';
+  size: 'small' | 'medium' | 'large' | string;
   disabled?: boolean;
   checked?: boolean;
   onChange?: () => void;
@@ -26,8 +26,8 @@ export const CheckboxLabel: FC<CheckboxLabelProps> = ({
       className={twMerge(
         theme.label.base,
         theme.label.sizes[size],
-        disabled && theme.disabled,
-        checked && theme.checked,
+        checked && theme.label.checked,
+        disabled && theme.label.disabled,
         !disabled && onChange && theme.label.clickable,
         labelClassName
       )}

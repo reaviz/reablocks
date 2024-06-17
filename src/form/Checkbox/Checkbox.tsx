@@ -151,9 +151,9 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           ref={ref}
           tabIndex={disabled ? -1 : 0}
           className={twMerge(
-            theme.checkbox,
-            disabled && theme.disabled,
-            checked && theme.checked,
+            theme.checkbox.base,
+            checked && theme.checkbox.checked,
+            disabled && theme.checkbox.disabled,
             theme.sizes[size],
             className
           )}
@@ -180,9 +180,9 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           >
             <motion.path
               className={twMerge(
-                theme.border,
-                disabled && theme.disabled,
-                checked && theme.checked
+                theme.border.base,
+                checked && theme.border.checked,
+                disabled && theme.border.disabled
               )}
               d={borderPath}
               variants={theme.boxVariants}
@@ -192,7 +192,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
                 d={intermediatePath}
                 fill="transparent"
                 strokeWidth="1"
-                className={theme.check}
+                className={theme.checkMark.base}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}
                 custom={checked}
@@ -203,9 +203,9 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
                 fill="transparent"
                 strokeWidth="1"
                 className={twMerge(
-                  theme.check,
-                  disabled && theme.disabled,
-                  checked && theme.checked
+                  theme.checkMark.base,
+                  disabled && theme.checkMark.disabled,
+                  checked && theme.checkMark.checked
                 )}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}

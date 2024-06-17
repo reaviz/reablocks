@@ -75,7 +75,7 @@ export const TeamGeneral = () => {
 
   const checkboxTheme: CheckboxTheme = {
     ...defaultCheckboxTheme,
-    check: 'stroke-white',
+    checkMark: 'stroke-white',
     boxVariants: {
       ...defaultCheckboxTheme.boxVariants,
       checked: {
@@ -459,7 +459,7 @@ export const TeamRoles = () => {
 
   const checkboxTheme: CheckboxTheme = {
     ...defaultCheckboxTheme,
-    check: 'stroke-white',
+    checkMark: 'stroke-white',
     boxVariants: {
       ...defaultCheckboxTheme.boxVariants,
       checked: {
