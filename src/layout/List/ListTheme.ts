@@ -53,13 +53,13 @@ const baseTheme: ListTheme = {
 
 export const listTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-text-content-primary'].join(' '),
-  header: [baseTheme.header, 'text-text-content-primary'].join(' '),
+  base: [baseTheme.base, 'text-text-primary'].join(' '),
+  header: [baseTheme.header, 'text-text-primary'].join(' '),
   listItem: {
     ...baseTheme.listItem,
     base: [
       baseTheme.listItem.base,
-      'hover:bg-panel-accent hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-content-secondary [&:has(h3)]:hover:bg-transparent'
+      'hover:bg-panel-accent hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-secondary [&:has(h3)]:hover:bg-transparent'
     ].join(' '),
     active: [
       baseTheme.listItem.active,
@@ -67,7 +67,7 @@ export const listTheme = {
     ].join(' '),
     disabled: [
       baseTheme.listItem.disabled,
-      'opacity-40 text-text-content-secondary'
+      'opacity-40 text-text-secondary'
     ].join(' ')
   }
 };

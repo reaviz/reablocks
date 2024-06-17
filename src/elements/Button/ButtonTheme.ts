@@ -91,7 +91,7 @@ const baseTheme: Partial<ButtonTheme> = {
 };
 
 export const buttonTheme: ButtonTheme = {
-  base: [baseTheme.base, 'text-text-content-primary font-semibold'].join(' '),
+  base: [baseTheme.base, 'text-text-primary font-semibold'].join(' '),
   disabled: [
     baseTheme.disabled,
     'data-[variant=filled]:disabled:bg-gray-600 disabled:text-gray-400 border-gray-500'
@@ -111,35 +111,33 @@ export const buttonTheme: ButtonTheme = {
     default: {
       filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
       outline: 'border-secondary border',
-      text: 'text-text-content-primary'
+      text: 'text-text-primary'
     },
     primary: {
       filled:
-        'bg-primary hover:bg-primary-hover border-primary text-text-content-primary',
+        'bg-primary hover:bg-primary-hover border-primary text-text-primary',
       outline: 'border border-primary',
       text: 'text-primary hover:text-primary-hover'
     },
     secondary: {
-      filled:
-        'bg-secondary hover:bg-secondary-hover !text-text-content-primary',
+      filled: 'bg-secondary hover:bg-secondary-hover !text-text-primary',
       outline: 'border border-secondary',
       text: 'text-secondary hover:text-secondary-hover'
     },
     success: {
       filled:
-        'bg-success hover:bg-success-hover border-success text-text-content-primary',
+        'bg-success hover:bg-success-hover border-success text-text-primary',
       outline: 'border border-success',
       text: 'text-success hover:text-success-hover'
     },
     warning: {
       filled:
-        'bg-warning hover:bg-warning-hover border-warning text-text-content-primary',
+        'bg-warning hover:bg-warning-hover border-warning text-text-primary',
       outline: 'border border-warning',
       text: 'text-warning hover:text-warning-hover'
     },
     error: {
-      filled:
-        'bg-error hover:bg-error-hover border-error text-text-content-primary',
+      filled: 'bg-error hover:bg-error-hover border-error text-text-primary',
       outline: 'border border-error',
       text: 'text-error hover:text-error-hover'
     }

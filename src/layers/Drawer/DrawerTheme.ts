@@ -40,7 +40,7 @@ const baseTheme: DrawerTheme = {
 
 export const drawerTheme: DrawerTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-panel text-text-content-primary'].join(' ')
+  base: [baseTheme.base, 'bg-panel text-text-primary'].join(' ')
 };
 
 export const legacyDrawerTheme: DrawerTheme = {

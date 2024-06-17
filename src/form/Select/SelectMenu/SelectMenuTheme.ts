@@ -58,18 +58,18 @@ export const selectMenuTheme: SelectMenuTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'bg-panel text-text-content-primary border-panel-accent border-t-transparent'
+    'bg-panel text-text-primary border-panel-accent border-t-transparent'
   ].join(' '),
   groupItem: {
     ...baseTheme.groupItem,
-    title: [baseTheme.groupItem.title, 'text-text-content-primary'].join(' ')
+    title: [baseTheme.groupItem.title, 'text-text-primary'].join(' ')
   },
   option: {
     ...baseTheme.option,
-    base: [baseTheme.option.base, 'text-text-content-secondary '].join(' '),
+    base: [baseTheme.option.base, 'text-text-secondary '].join(' '),
     hover: [
       baseTheme.option.hover,
-      'hover:bg-vulcan hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-content-secondary'
+      'hover:bg-vulcan hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-secondary'
     ].join(' '),
     active: [baseTheme.option.active, 'bg-vulcan hover:text-mystic'].join(' '),
     selected: [baseTheme.option.selected, 'text-primary-active'].join(' ')

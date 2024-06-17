@@ -148,9 +148,8 @@ export const chipTheme: ChipTheme = {
   colors: {
     default: {
       variants: {
-        filled: 'bg-panel border-panel text-text-content-primary',
-        outline:
-          'text-text-content-primary dark:border-gray-100 light:border-gray-900'
+        filled: 'bg-panel border-panel text-text-primary',
+        outline: 'text-text-primary dark:border-gray-100 light:border-gray-900'
       },
       selectable: {
         base: `${baseTheme.colors.default.selectable.base}`,
@@ -187,7 +186,7 @@ export const chipTheme: ChipTheme = {
     },
     secondary: {
       variants: {
-        filled: 'bg-secondary border-secondary text-text-content-primary',
+        filled: 'bg-secondary border-secondary text-text-primary',
         outline: 'text-secondary border-panel-accent'
       },
       selectable: {

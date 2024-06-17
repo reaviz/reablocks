@@ -61,7 +61,7 @@ export const ForgotPassword = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Reset your password
           </h4>
-          <span className="text-base text-text-content-secondary font-sans">
+          <span className="text-base text-text-secondary font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -180,7 +180,7 @@ export const ForgotPasswordFull = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Forgot Password?
           </h4>
-          <span className="text-base text-text-content-secondary font-sans">
+          <span className="text-base text-text-secondary font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
@@ -261,7 +261,7 @@ export const ForgotPasswordMinimal = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Forgot Password?
           </h4>
-          <span className="text-base text-text-content-secondary font-sans">
+          <span className="text-base text-text-secondary font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
@@ -318,7 +318,7 @@ export const ForgotPasswordMinimal = () => {
             {isSubmitting ? 'Sending...' : 'Get Link'}
           </Button>
           <Stack className="w-full" justifyContent="center">
-            <span className="text-sm text-text-content-secondary">
+            <span className="text-sm text-text-secondary">
               Remember password?
             </span>
             <a href="#" className="text-primary text-lg font-semibold">
@@ -367,7 +367,7 @@ export const ResetPassword = () => {
             </svg>
           </div>
           <h4 className="text-2xl font-sans font-bold mb-0">Reset Password?</h4>
-          <span className="text-base text-text-content-secondary font-sans">
+          <span className="text-base text-text-secondary font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
@@ -483,7 +483,7 @@ export const ResetPasswordMinimal = () => {
             </svg>
           </div>
           <h4 className="text-2xl font-sans font-bold mb-0">Reset Password?</h4>
-          <span className="text-base text-text-content-secondary font-sans">
+          <span className="text-base text-text-secondary font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
@@ -537,7 +537,7 @@ export const ResetPasswordMinimal = () => {
             {isSubmitting ? 'Sending...' : 'Reset Password'}
           </Button>
           <Stack className="w-full" justifyContent="center">
-            <span className="text-sm text-text-content-secondary">
+            <span className="text-sm text-text-secondary">
               Remember your password?
             </span>
             <a

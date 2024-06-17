@@ -44,7 +44,7 @@ export const inputTheme: InputTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'bg-panel border border-panel-accent text-text-content-primary hover:border-panel-accent light:hover:border-panel-accent',
+    'bg-panel border border-panel-accent text-text-primary hover:border-panel-accent light:hover:border-panel-accent',
     'hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#242433_100%)] light:hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#E6E6F0_100%)]',
     'hover:after:content-[""] hover:after:absolute hover:after:mx-1 hover:after:h-px after:z-[2] hover:after:rounded hover:after:-bottom-[1px] hover:after:inset-x-0.5'
   ].join(' '),
@@ -60,7 +60,7 @@ export const inputTheme: InputTheme = {
   ].join(' '),
   adornment: {
     ...baseTheme.adornment,
-    base: [baseTheme.adornment.base, 'text-text-content-primary'].join(' ')
+    base: [baseTheme.adornment.base, 'text-text-primary'].join(' ')
   }
 };
 

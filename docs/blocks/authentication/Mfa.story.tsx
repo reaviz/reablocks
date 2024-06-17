@@ -991,7 +991,7 @@ export const Mfa = () => {
           <h1 className="mt-2 mb-0 text-2xl font-sans font-bold">
             One Time Password
           </h1>
-          <div className="text-text-content-secondary text-base">
+          <div className="text-text-secondary text-base">
             Please verify your identity using your registered email or phone
             number and follow the prompts to complete the password reset
             process.
@@ -1035,10 +1035,10 @@ export const Mfa = () => {
             </svg>
             {isSubmitting ? 'Verifying...' : 'Verify'}
           </Button>
-          <div className="text-center text-text-content-secondary text-sm mt-5">
+          <div className="text-center text-text-secondary text-sm mt-5">
             Are you facing any problems with receiving the code?
           </div>
-          <div className="mt-2.5 mb-5 text-text-content-secondary text-sm flex items-center justify-center gap-5">
+          <div className="mt-2.5 mb-5 text-text-secondary text-sm flex items-center justify-center gap-5">
             <a
               href="#"
               className="text-primary hover:text-primary-hover text-lg inline-flex items-center gap-2"
@@ -1056,8 +1056,8 @@ export const Mfa = () => {
             </a>
           </div>
           <Divider variant="secondary" className="my-4" />
-          <div className="mt-5 text-text-content-secondary text-sm flex items-center justify-center gap-5">
-            <span className="text-text-content-secondary text-sm">
+          <div className="mt-5 text-text-secondary text-sm flex items-center justify-center gap-5">
+            <span className="text-text-secondary text-sm">
               Remember your password?
             </span>
             <a
@@ -1117,7 +1117,7 @@ export const MfaLogin = () => {
           <h1 className="mt-2 mb-0 text-2xl font-sans font-bold">
             Enter your code
           </h1>
-          <div className="text-text-content-secondary text-base">
+          <div className="text-text-secondary text-base">
             We sent a code to{' '}
             <a href="#" className="text-primary">
               austin@goodcode.us
@@ -1144,7 +1144,7 @@ export const MfaLogin = () => {
             />
           </Block>
           <Stack justifyContent="spaceBetween" className="mb-[190px]">
-            <div className="text-center text-text-content-secondary text-base">
+            <div className="text-center text-text-secondary text-base">
               Didn't receive a email?
             </div>
             <a
@@ -1206,7 +1206,7 @@ export const MfaAuthenticator = () => {
           <h1 className="mb-0 text-2xl font-sans font-bold">
             Set up your two-factor authentication.
           </h1>
-          <div className="text-text-content-secondary">
+          <div className="text-text-secondary">
             Scan this code with your Google authenticator app to continue this
             process.
           </div>

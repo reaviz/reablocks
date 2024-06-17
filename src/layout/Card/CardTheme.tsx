@@ -18,7 +18,7 @@ export const cardTheme: CardTheme = {
   ...baseTheme,
   base: [
     baseTheme.base,
-    'bg-panel border border-panel-accent text-text-content-primary'
+    'bg-panel border border-panel-accent text-text-primary'
   ].join(' ')
 };
 

@@ -93,8 +93,8 @@ const config: Config = {
           accent: colorPalette.blue[500]
         },
         text: {
-          'content-primary': colorPalette['vulcan'],
-          'content-secondary': colorPalette.gray[700]
+          primary: colorPalette['vulcan'],
+          secondary: colorPalette.gray[700]
         }
       },
       dark: {
@@ -145,8 +145,8 @@ const config: Config = {
           accent: colorPalette.blue[500]
         },
         text: {
-          'content-primary': colorPalette['athens-gray'],
-          'content-secondary': colorPalette['waterloo']
+          primary: colorPalette['athens-gray'],
+          secondary: colorPalette['waterloo']
         }
       }
     }),

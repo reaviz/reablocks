@@ -10,7 +10,7 @@ const baseTheme: TooltipTheme = {
 
 export const tooltipTheme: TooltipTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-panel-accent text-text-content-primary'].join(' ')
+  base: [baseTheme.base, 'bg-panel-accent text-text-primary'].join(' ')
 };
 
 export const legacyTooltipTheme: TooltipTheme = {

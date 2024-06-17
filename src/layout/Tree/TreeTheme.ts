@@ -38,13 +38,13 @@ const baseTheme: TreeTheme = {
 
 export const treeTheme: TreeTheme = {
   ...baseTheme,
-  arrow: [baseTheme.arrow, 'fill-text-content-primary'].join(' '),
+  arrow: [baseTheme.arrow, 'fill-text-primary'].join(' '),
   node: {
     ...baseTheme.node,
-    base: [baseTheme.node.base, 'text-text-content-primary'].join(' '),
+    base: [baseTheme.node.base, 'text-text-primary'].join(' '),
     button: {
       ...baseTheme.node.button,
-      icon: [baseTheme.node.button.icon, 'fill-text-content-primary'].join(' ')
+      icon: [baseTheme.node.button.icon, 'fill-text-primary'].join(' ')
     }
   }
 };

@@ -121,28 +121,28 @@ export const CustomTheme = () => {
         ...chipTheme.colors.info,
         variants: {
           ...chipTheme.colors.info.variants,
-          filled: `${chipTheme?.colors?.info?.variants?.filled} text-text-content-primary bg-info/10 border-info`
+          filled: `${chipTheme?.colors?.info?.variants?.filled} text-text-primary bg-info/10 border-info`
         }
       },
       error: {
         ...chipTheme.colors.error,
         variants: {
           ...chipTheme.colors.error.variants,
-          filled: `${chipTheme?.colors?.error?.variants?.filled} text-text-content-primary bg-error/10 border-error`
+          filled: `${chipTheme?.colors?.error?.variants?.filled} text-text-primary bg-error/10 border-error`
         }
       },
       warning: {
         ...chipTheme.colors.warning,
         variants: {
           ...chipTheme.colors.warning.variants,
-          filled: `${chipTheme?.colors?.warning?.variants?.filled} text-text-content-primary bg-warning/10 border-warning`
+          filled: `${chipTheme?.colors?.warning?.variants?.filled} text-text-primary bg-warning/10 border-warning`
         }
       },
       success: {
         ...chipTheme.colors.success,
         variants: {
           ...chipTheme.colors.success.variants,
-          filled: `${chipTheme?.colors?.success?.variants?.filled} text-text-content-primary bg-success/10 border-success`
+          filled: `${chipTheme?.colors?.success?.variants?.filled} text-text-primary bg-success/10 border-success`
         }
       }
     }

@@ -28,14 +28,11 @@ export const dialogTheme: DialogTheme = {
   ...baseTheme,
   inner: [
     baseTheme.inner,
-    'bg-panel text-text-content-primary border border-panel-accent rounded shadow-2xl'
+    'bg-panel text-text-primary border border-panel-accent rounded shadow-2xl'
   ].join(' '),
   header: {
     ...baseTheme.header,
-    closeButton: [
-      baseTheme.header.closeButton,
-      'text-text-content-primary'
-    ].join(' ')
+    closeButton: [baseTheme.header.closeButton, 'text-text-primary'].join(' ')
   }
 };
 

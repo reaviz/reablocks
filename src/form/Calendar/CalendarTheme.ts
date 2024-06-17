@@ -79,19 +79,18 @@ export const calendarTheme: CalendarTheme = {
   ...baseTheme,
   header: {
     ...baseTheme.header,
-    base: [baseTheme.header.base, 'text-text-content-secondary'].join(' ')
+    base: [baseTheme.header.base, 'text-text-secondary'].join(' ')
   },
   days: {
     ...baseTheme.days,
     day: [
       baseTheme.days.day,
-      'border-transparent text-text-content-secondary opacity-90 hover:bg-primary-hover hover:text-black'
+      'border-transparent text-text-secondary opacity-90 hover:bg-primary-hover hover:text-black'
     ].join(' '),
-    header: [baseTheme.days.header, 'text-text-content-secondary'].join(' '),
-    outside: [
-      baseTheme.days.outside,
-      'opacity-40 text-text-content-secondary'
-    ].join(' '),
+    header: [baseTheme.days.header, 'text-text-secondary'].join(' '),
+    outside: [baseTheme.days.outside, 'opacity-40 text-text-secondary'].join(
+      ' '
+    ),
     selected: [
       baseTheme.days.selected,
       'text-black border-transparent light:text-white light:border-transparent opacity-100'
@@ -100,16 +99,15 @@ export const calendarTheme: CalendarTheme = {
       baseTheme.days.hover,
       'bg-primary-active text-black border-transparent light:text-white opacity-100'
     ].join(' '),
-    today: [
-      baseTheme.days.today,
-      'border-panel-accent text-text-content-primary'
-    ].join(' ')
+    today: [baseTheme.days.today, 'border-panel-accent text-text-primary'].join(
+      ' '
+    )
   },
   months: {
     ...baseTheme.months,
     month: [
       baseTheme.months.month,
-      'hover:bg-primary-hover hover:text-black border-transparent text-text-content-secondary light:hover:text-white'
+      'hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white'
     ].join(' '),
     selected: [
       baseTheme.years.selected,
@@ -120,7 +118,7 @@ export const calendarTheme: CalendarTheme = {
     ...baseTheme.years,
     year: [
       baseTheme.years.year,
-      'hover:bg-primary-hover hover:text-black border-transparent text-text-content-secondary light:hover:text-white'
+      'hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white'
     ].join(' '),
     selected: [
       baseTheme.years.selected,

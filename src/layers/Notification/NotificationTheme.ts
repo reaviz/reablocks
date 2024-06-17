@@ -59,7 +59,7 @@ const baseTheme: NotificationTheme = {
     closeContainer: 'inline-flex items-center',
     action: 'ml-auto mr-2 items-center flex',
     closeButton:
-      'cursor-pointer text-sm font-semibold m-0 border-0 text-text-content-primary hover:text-text-content-primary/70',
+      'cursor-pointer text-sm font-semibold m-0 border-0 text-text-primary hover:text-text-primary/70',
     body: 'opacity-70 text-sm mt-1'
   }
 };
@@ -70,7 +70,7 @@ export const notificationTheme: NotificationTheme = {
     ...baseTheme.notification,
     base: [
       baseTheme.notification.base,
-      'bg-panel text-text-content-primary border-panel-accent border'
+      'bg-panel text-text-primary border-panel-accent border'
     ].join(' ')
   }
 };
