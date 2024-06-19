@@ -977,7 +977,7 @@ export const Mfa = () => {
     >
       <Card className="w-full">
         <div className="flex flex-col items-center justify-center pt-2 pb-5 text-center">
-          <div className="p-3 border dark:border-waterloo light:border-gray-700 rounded mb-3">
+          <div className="p-3 border border-secondary-inactive rounded mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

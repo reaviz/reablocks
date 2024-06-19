@@ -355,7 +355,7 @@ export const ResetPassword = () => {
           </a>
         </Stack>
         <div className="w-full flex flex-col grow items-center justify-center text-center pt-2 mb-14">
-          <div className="p-3 border dark:border-waterloo light:border-gray-700 rounded mb-3">
+          <div className="p-3 border border-secondary-inactive rounded mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -471,7 +471,7 @@ export const ResetPasswordMinimal = () => {
     >
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center text-center pt-2 mb-10">
-          <div className="p-3 border dark:border-waterloo light:border-gray-700 rounded mb-3">
+          <div className="p-3 border border-secondary-inactive rounded mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
