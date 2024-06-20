@@ -53,6 +53,7 @@ export const DrawerHeader: FC<DrawerHeaderProps> = ({
           type="button"
           className={theme.closeButton.base}
           onClick={onClose}
+          aria-label="Close"
         >
           ✕
         </button>
