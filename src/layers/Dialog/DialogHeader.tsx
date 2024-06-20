@@ -65,6 +65,7 @@ export const DialogHeader: FC<DialogHeaderProps> = ({
           type="button"
           className={theme.header.closeButton}
           onClick={onClose}
+          aria-label="Close"
         >
           ✕
         </button>

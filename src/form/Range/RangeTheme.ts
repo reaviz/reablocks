@@ -51,7 +51,7 @@ export const rangeTheme: RangeTheme = {
       ' '
     )
   },
-  tooltip: [baseTheme.tooltip, 'text-surface-content bg-surface'].join(' ')
+  tooltip: [baseTheme.tooltip, 'text-text-primary bg-surface'].join(' ')
 };
 
 export const legacyRangeTheme: RangeTheme = {

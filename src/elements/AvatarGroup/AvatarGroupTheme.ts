@@ -12,7 +12,7 @@ const baseTheme: AvatarGroupTheme = {
 
 export const avatarGroupTheme: AvatarGroupTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-surface-content'].join(' ')
+  base: [baseTheme.base, 'text-text-primary'].join(' ')
 };
 
 export const legacyAvatarGroupTheme: AvatarGroupTheme = {

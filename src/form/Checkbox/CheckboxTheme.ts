@@ -56,7 +56,7 @@ export interface CheckboxTheme {
 const baseTheme: Partial<CheckboxTheme> = {
   base: 'inline-flex items-center w-full group',
   label: {
-    base: 'text-surface-content dark:text-waterloo light:text-charade ml-2.5 w-full',
+    base: 'text-text-primary dark:text-waterloo light:text-charade ml-2.5 w-full',
     checked: 'checked dark:text-athens-gray light:text-vulcan',
     disabled: 'cursor-not-allowed dark:text-gray-600 light:text-waterloo',
     clickable: 'cursor-pointer',

@@ -17,7 +17,7 @@ export const NoResults = () => (
     <Card className="w-full px-12 md:px-24 py-12">
       <div className="w-full flex-col flex items-center text-center mb-8">
         <span className="text-3xl font-bold">No Results Found</span>
-        <span className="text-panel-secondary-content text-base">
+        <span className="text-text-secondary text-base">
           There are no results matching your search criteria. Try adjusting your
           filters or search terms to find what you're looking for.
         </span>
@@ -39,7 +39,7 @@ export const NoResults = () => (
           <div className="flex flex-col gap-1 flex-1">
             <span className="font-bold">Documentation</span>
             <div>
-              <span className="text-base text-panel-secondary-content inline-block">
+              <span className="text-base text-text-secondary inline-block">
                 Learn how to integrate our tools with your app.
               </span>
             </div>
@@ -75,7 +75,7 @@ export const NoResults = () => (
           <div className="flex flex-col gap-1 flex-1">
             <span className="font-bold">API's</span>
             <div className="">
-              <span className="text-base text-panel-secondary-content inline-block">
+              <span className="text-base text-text-secondary inline-block">
                 Explore all API references.
               </span>
             </div>
@@ -111,7 +111,7 @@ export const NoResults = () => (
           <div className="flex flex-col gap-1 flex-1">
             <span className="font-bold">Guide</span>
             <div className="">
-              <span className="text-base text-panel-secondary-content inline-block">
+              <span className="text-base text-text-secondary inline-block">
                 Easy-to-follow installation guides.
               </span>
             </div>
@@ -147,7 +147,7 @@ export const NoResults = () => (
           <div className="flex flex-col gap-1 flex-1">
             <span className="font-bold">Blog</span>
             <div className="">
-              <span className="text-base text-panel-secondary-content inline-block">
+              <span className="text-base text-text-secondary inline-block">
                 Read our latest news.
               </span>
             </div>
@@ -179,7 +179,7 @@ export const MissingInfo = () => (
       contentClassName="flex flex-col gap-2 items-center text-center"
     >
       <span className="text-3xl font-bold">Missing Info</span>
-      <span className="text-panel-secondary-content text-base">
+      <span className="text-text-secondary text-base">
         Oops! It seems like something is missing. Try adjusting your search
         criteria or check back later.
       </span>
@@ -242,7 +242,7 @@ export const NothingToDisplay = () => (
         <path d="M19.4533 10.6666L16 14.12L12.5466 10.6666L10.6666 12.5466L14.12 16L10.6666 19.4533L12.5466 21.3333L16 17.88L19.4533 21.3333L21.3333 19.4533L17.88 16L21.3333 12.5466L19.4533 10.6666ZM16 2.66663C8.62663 2.66663 2.66663 8.62663 2.66663 16C2.66663 23.3733 8.62663 29.3333 16 29.3333C23.3733 29.3333 29.3333 23.3733 29.3333 16C29.3333 8.62663 23.3733 2.66663 16 2.66663ZM16 26.6666C10.12 26.6666 5.33329 21.88 5.33329 16C5.33329 10.12 10.12 5.33329 16 5.33329C21.88 5.33329 26.6666 10.12 26.6666 16C26.6666 21.88 21.88 26.6666 16 26.6666Z" />
       </svg>
       <span className="text-xl font-bold">Nothing to display</span>
-      <span className="text-panel-secondary-content text-base">
+      <span className="text-text-secondary text-base">
         We couldn't find any data to show here. Try refining your search or come
         back later to see if there's anything new.
       </span>

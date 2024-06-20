@@ -1,3 +1,10 @@
+# 8.0.1 - 6/20/24
+- [chore] Add aria-label for close buttons on Dialog and Drawer component
+
+# 8.0.0 - 6/20/24
+- [breaking] Move and consolidate panel and surface content tokens ([migration](https://reablocks.dev/docs/getting-started/migration#migrating-from-7x-to-8x))
+- [chore] Remove unused surface disabled token
+
 # 7.13.4 - 6/12/24
 - [fix] Fix applying z-index to portal #231
 

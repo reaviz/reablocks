@@ -1,5 +1,4 @@
 import { type Config } from 'tailwindcss';
-import colors from 'tailwindcss/colors';
 import plugin from 'tailwindcss/plugin';
 import { createThemes } from 'tw-colors';
 import { colorPalette } from './src/utils/Theme/themes/colorPalette';
@@ -86,16 +85,16 @@ const config: Config = {
         panel: {
           // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
           DEFAULT: colorPalette['white'],
-          content: colorPalette['vulcan'],
-          'secondary-content': colorPalette.gray[700],
           accent: colorPalette['mystic']
         },
         surface: {
           // Form component backgrounds, such as text fields, checkboxes, select, etc.
           DEFAULT: colorPalette.gray[300],
-          content: colorPalette.black,
-          accent: colorPalette.blue[500],
-          disabled: colors.gray[300]
+          accent: colorPalette.blue[500]
+        },
+        text: {
+          primary: colorPalette['vulcan'],
+          secondary: colorPalette.gray[700]
         }
       },
       dark: {
@@ -138,16 +137,16 @@ const config: Config = {
         panel: {
           // Panel backgrounds, such as cards, tables, popovers, dialogs, dropdown menus, etc.
           DEFAULT: colorPalette['black-pearl'],
-          content: colorPalette['athens-gray'],
-          'secondary-content': colorPalette['waterloo'],
           accent: colorPalette['charade']
         },
         surface: {
           // Form component backgrounds, such as text fields, checkboxes, select, etc.
           DEFAULT: colorPalette['charade'],
-          content: colorPalette['athens-gray'],
-          accent: colorPalette.blue[500],
-          disabled: colors.gray[800]
+          accent: colorPalette.blue[500]
+        },
+        text: {
+          primary: colorPalette['athens-gray'],
+          secondary: colorPalette['waterloo']
         }
       }
     }),
