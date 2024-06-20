@@ -60,8 +60,8 @@ const baseTheme: TabsTheme = {
     tab: {
       base: 'relative',
       button:
-        'transition-colors text-panel-secondary-content font-bold hover:text-primary-hover',
-      selected: 'text-panel-content',
+        'transition-colors text-text-secondary font-bold hover:text-primary-hover',
+      selected: 'text-text-primary',
       disabled: 'cursor-not-allowed opacity-40',
       size: {
         small: 'pb-1 text-sm',

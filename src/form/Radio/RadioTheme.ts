@@ -62,8 +62,8 @@ export const radioTheme: RadioTheme = {
   ...baseTheme,
   label: {
     ...baseTheme.label,
-    base: [baseTheme.label.base, 'text-panel-secondary-content'].join(' '),
-    checked: [baseTheme.label.checked, 'text-panel-content'].join(' '),
+    base: [baseTheme.label.base, 'text-text-secondary'].join(' '),
+    checked: [baseTheme.label.checked, 'text-text-primary'].join(' '),
     disabled: [baseTheme.label.disabled, '!text-secondary-inactive/40'].join(
       ' '
     )

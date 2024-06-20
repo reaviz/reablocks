@@ -10,7 +10,7 @@ const baseTheme: PopoverTheme = {
 
 export const popoverTheme: PopoverTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-panel text-panel-content'].join(' ')
+  base: [baseTheme.base, 'bg-panel text-text-primary'].join(' ')
 };
 
 export const legacyPopoverTheme: PopoverTheme = {

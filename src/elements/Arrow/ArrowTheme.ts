@@ -16,7 +16,7 @@ const baseTheme: ArrowTheme = {
 
 export const arrowTheme: ArrowTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'text-surface-content'].join(' ')
+  base: [baseTheme.base, 'text-text-primary'].join(' ')
 };
 
 export const legacyArrowTheme: ArrowTheme = {
