@@ -41,6 +41,7 @@ module.exports = {
     'no-relative-import-paths/no-relative-import-paths': [
       'warn',
       { 'allowSameFolder': true, 'prefix': '@', 'rootDir': 'src' }
-    ]
+    ],
+    'arrow-body-style': ['warn', 'as-needed'],
   }
 };

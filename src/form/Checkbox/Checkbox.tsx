@@ -1,8 +1,9 @@
-import React, { FC, forwardRef, LegacyRef } from 'react';
+import React, { FC, forwardRef, LegacyRef, useCallback } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { CheckboxTheme } from './CheckboxTheme';
 import { useComponentTheme } from '@/utils';
+import { CheckboxLabel } from './CheckboxLabel';
 
 export interface CheckboxProps {
   /**
@@ -19,6 +20,11 @@ export interface CheckboxProps {
    * Label for the checkbox.
    */
   label?: string;
+
+  /**
+   * Label position of checkbox.
+   */
+  labelPosition?: 'start' | 'end';
 
   /**
    * Whether the checkbox is disabled or not.
@@ -91,13 +97,14 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
       label,
       disabled,
       size = 'medium',
+      labelPosition = 'end',
       onChange,
       onBlur,
       className,
       containerClassName,
       labelClassName,
-      borderPath = 'M 0 0 L 0 16 L 16 16 L 16 0 Z',
-      checkedPath = 'M 5.36396 8.17792 L 7.34236 9.91424 L 10.6044 5.832',
+      borderPath = 'M 1 0 L 16 0 C 16.552 0 17 0.448 17 1 L 17 15 C 17 15.552 16.552 16 16 16 L 1 16 C 0.448 16 0 15.552 0 15 L 0 1 C 0 0.448 0.448 0 1 0 Z',
+      checkedPath = 'M 4 8 L 8 12 L 12 4',
       intermediatePath = 'M 5.36396 8.17792 L 10.6044 8.17792',
       theme: customTheme,
       ...rest
@@ -114,15 +121,39 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
       unchecked: { pathLength: 0 }
     };
 
+    const handleOnChange = useCallback(() => {
+      if (!disabled && onChange) {
+        onChange(!checked);
+      }
+    }, [disabled, onChange, checked]);
+
     return (
-      <div className={twMerge(theme.base, containerClassName)}>
+      <div
+        className={twMerge(
+          theme.base,
+          containerClassName,
+          checked && 'checked'
+        )}
+      >
+        {labelPosition === 'start' && label && (
+          <CheckboxLabel
+            label={label}
+            size={size}
+            checked={checked}
+            disabled={disabled}
+            onChange={handleOnChange}
+            labelClassName={twMerge('mr-2.5', labelClassName)}
+            theme={theme}
+          />
+        )}
         <motion.div
           {...rest}
           ref={ref}
           tabIndex={disabled ? -1 : 0}
           className={twMerge(
-            theme.checkbox,
-            disabled && theme.disabled,
+            theme.checkbox.base,
+            checked && theme.checkbox.checked,
+            disabled && theme.checkbox.disabled,
             theme.sizes[size],
             className
           )}
@@ -148,7 +179,11 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             height={16}
           >
             <motion.path
-              className={theme.border}
+              className={twMerge(
+                theme.border.base,
+                checked && theme.border.checked,
+                disabled && theme.border.disabled
+              )}
               d={borderPath}
               variants={theme.boxVariants}
             />
@@ -157,7 +192,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
                 d={intermediatePath}
                 fill="transparent"
                 strokeWidth="1"
-                className={theme.check}
+                className={theme.check.base}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}
                 custom={checked}
@@ -167,7 +202,11 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
                 d={checkedPath}
                 fill="transparent"
                 strokeWidth="1"
-                className={theme.check}
+                className={twMerge(
+                  theme.check.base,
+                  disabled && theme.check.disabled,
+                  checked && theme.check.checked
+                )}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}
                 custom={checked}
@@ -175,23 +214,16 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             )}
           </motion.svg>
         </motion.div>
-        {label && (
-          <span
-            className={twMerge(
-              theme.label.base,
-              theme.label.sizes[size],
-              disabled && theme.disabled,
-              !disabled && onChange && theme.label.clickable,
-              labelClassName
-            )}
-            onClick={() => {
-              if (!disabled && onChange) {
-                onChange?.(!checked);
-              }
-            }}
-          >
-            {label}
-          </span>
+        {labelPosition === 'end' && label && (
+          <CheckboxLabel
+            label={label}
+            size={size}
+            checked={checked}
+            disabled={disabled}
+            onChange={handleOnChange}
+            labelClassName={twMerge('ml-2.5', labelClassName)}
+            theme={theme}
+          />
         )}
       </div>
     );

@@ -11,6 +11,30 @@ export const Simple = () => {
   return <Checkbox checked={state} label="Check me" onChange={setState} />;
 };
 
+export const WithoutLabel = () => {
+  const [state, setState] = useState(true);
+  return <Checkbox checked={state} onChange={setState} />;
+};
+
+export const LabelPosition = () => {
+  const [state, setState] = useState(true);
+  return (
+    <Fragment>
+      <div style={{ padding: 20 }}>
+        <Checkbox
+          checked={state}
+          label="Start label"
+          labelPosition="start"
+          onChange={setState}
+        />
+      </div>
+      <div style={{ padding: 20 }}>
+        <Checkbox checked={state} label="End label" onChange={setState} />
+      </div>
+    </Fragment>
+  );
+};
+
 export const Intermediate = () => {
   const [state, setState] = useState(true);
   return (
@@ -81,8 +105,26 @@ export const Sizes = () => {
 
 export const Disabled = () => {
   const [state, setState] = useState(true);
+  const [state2, setState2] = useState(false);
   return (
-    <Checkbox checked={state} label="Disabled" onChange={setState} disabled />
+    <>
+      <div style={{ padding: 20 }}>
+        <Checkbox
+          checked={state}
+          label="Disabled"
+          onChange={setState}
+          disabled
+        />
+      </div>
+      <div style={{ padding: 20 }}>
+        <Checkbox
+          checked={state2}
+          label="Disabled"
+          onChange={setState2}
+          disabled
+        />
+      </div>
+    </>
   );
 };
 
