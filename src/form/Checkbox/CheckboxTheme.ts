@@ -17,7 +17,7 @@ export interface CheckboxTheme {
     disabled: string;
     checked: string;
   };
-  checkMark: {
+  check: {
     base: string;
     disabled: string;
     checked: string;
@@ -56,9 +56,9 @@ export interface CheckboxTheme {
 const baseTheme: Partial<CheckboxTheme> = {
   base: 'inline-flex items-center w-full group',
   label: {
-    base: 'text-text-primary dark:text-waterloo light:text-charade ml-2.5 w-full',
-    checked: 'checked dark:text-athens-gray light:text-vulcan',
-    disabled: 'cursor-not-allowed dark:text-gray-600 light:text-waterloo',
+    base: 'dark:text-gray-400 light:text-gray-700 ml-2.5 w-full',
+    checked: 'checked dark:text-gray-100 light:text-gray-900',
+    disabled: 'cursor-not-allowed dark:text-gray-600 light:text-gray-400',
     clickable: 'cursor-pointer',
     sizes: {
       small: 'text-sm',
@@ -66,7 +66,7 @@ const baseTheme: Partial<CheckboxTheme> = {
       large: 'text-lg'
     }
   },
-  checkMark: {
+  check: {
     base: 'stroke-white',
     checked: '',
     disabled: 'cursor-not-allowed'
@@ -108,14 +108,14 @@ export const checkboxTheme: CheckboxTheme = {
       'light:group-hover:transparent'
     ].join(' ')
   },
-  checkMark: {
-    ...baseTheme.checkMark,
+  check: {
+    ...baseTheme.check,
     base: [
-      baseTheme.checkMark.base,
+      baseTheme.check.base,
       'group-hover:stroke-black light:group-hover:stroke-white'
     ].join(' '),
     disabled: [
-      baseTheme.checkMark.disabled,
+      baseTheme.check.disabled,
       'stroke-black light:stroke-white group-hover:stroke-black '
     ].join(' ')
   },
@@ -129,21 +129,19 @@ export const checkboxTheme: CheckboxTheme = {
     disabled: [
       baseTheme.border.disabled,
       'dark:group-hover:stroke-gray-500',
-      'light:group-hover:stroke-waterloo'
+      'light:group-hover:stroke-gray-400'
     ].join(' ')
   },
   label: {
     ...baseTheme.label,
     base: [
       baseTheme.label.base,
-      'dark:group-hover:text-blue-300 light:group-hover:text-blue-400'
+      'text-text-primary dark:group-hover:text-blue-300 light:group-hover:text-blue-400'
     ].join(' '),
-    checked: [baseTheme.label.checked, 'group-hover:text-athens-gray'].join(
-      ' '
-    ),
+    checked: [baseTheme.label.checked, 'group-hover:text-gray-100'].join(' '),
     disabled: [
       baseTheme.label.disabled,
-      'light:group-hover:text-waterloo',
+      'light:group-hover:text-gray-400',
       'dark:group-hover:text-gray-600'
     ].join(' ')
   },
@@ -158,11 +156,10 @@ export const checkboxTheme: CheckboxTheme = {
 export const legacyCheckboxTheme: CheckboxTheme = {
   ...baseTheme,
   checkbox: { base: [baseTheme.checkbox, 'fill-transparent'].join(' ') },
-  checkMark: {
-    base: [
-      baseTheme.checkMark.base,
-      'stroke-[var(--checkbox-check-stroke)]'
-    ].join(' ')
+  check: {
+    base: [baseTheme.check.base, 'stroke-[var(--checkbox-check-stroke)]'].join(
+      ' '
+    )
   },
   label: {
     ...baseTheme.label,

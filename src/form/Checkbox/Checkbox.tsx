@@ -192,7 +192,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
                 d={intermediatePath}
                 fill="transparent"
                 strokeWidth="1"
-                className={theme.checkMark.base}
+                className={theme.check.base}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}
                 custom={checked}
@@ -203,9 +203,9 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
                 fill="transparent"
                 strokeWidth="1"
                 className={twMerge(
-                  theme.checkMark.base,
-                  disabled && theme.checkMark.disabled,
-                  checked && theme.checkMark.checked
+                  theme.check.base,
+                  disabled && theme.check.disabled,
+                  checked && theme.check.checked
                 )}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}
