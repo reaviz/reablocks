@@ -11,7 +11,8 @@ import {
   Middleware,
   flip,
   limitShift,
-  shift
+  shift,
+  autoUpdate
 } from '@floating-ui/react';
 
 export type Placement = FloatingUIPlacement;
@@ -58,7 +59,8 @@ export const usePosition = ({
     elements: {
       reference: isVirtualElement ? null : (reference as Element),
       floating: floating
-    }
+    },
+    whileElementsMounted: autoUpdate
   });
 
   useEffect(() => {

@@ -196,7 +196,7 @@ export const InvalidValues = () => {
 export const OptionsArray = () => {
   const [value, setValue] = useState<string | null>('github');
   return (
-    <div style={{ width: 300 }}>
+    <div style={{ width: 300, marginTop: '100px' }}>
       <Select value={value} onChange={v => setValue(v)}>
         {options.map(o => (
           <SelectOption key={o.value} value={o.value}>
