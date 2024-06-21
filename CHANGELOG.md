@@ -1,3 +1,6 @@
+# 8.0.2 - 6/21/24
+- [fix] Update floating position on resize #235
+
 # 8.0.1 - 6/20/24
 - [chore] Add aria-label for close buttons on Dialog and Drawer component
 
