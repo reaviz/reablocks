@@ -69,7 +69,7 @@
     "classnames": "^2.5.1",
     "coverup": "^0.1.1",
     "create-global-state-hook": "^0.0.2",
-    "ctrl-keys": "^1.0.2",
+    "ctrl-keys": "^1.0.3",
     "date-fns": "^3.6.0",
     "ellipsize": "^0.5.1",
     "focus-trap-react": "^10.2.3",
