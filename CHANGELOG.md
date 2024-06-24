@@ -1,3 +1,6 @@
+# 8.0.3 - 6/24/24
+- [chore] Update ctrl-keys dependency #236
+
 # 8.0.2 - 6/21/24
 - [fix] Update floating position on resize #235
 
