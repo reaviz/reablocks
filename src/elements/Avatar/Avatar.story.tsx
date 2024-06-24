@@ -6,47 +6,79 @@ export default {
   title: 'Components/Elements/Avatar',
   component: Avatar
 } as Meta;
-
-const Template = args => <Avatar {...args} />;
-
-export const Simple = Template.bind({});
-Simple.args = {
-  name: 'John Doe',
-  size: 50,
-  rounded: false
-};
-
-export const Outline = Template.bind({});
-Outline.args = {
-  name: 'John Doe',
-  size: 50,
-  rounded: false,
-  variant: 'outline'
-};
-
-export const RoundedWithImage = Template.bind({});
-RoundedWithImage.args = {
-  src: 'https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg',
-  size: 50,
-  rounded: true
-};
-
-export const LargeRounded = Template.bind({});
-LargeRounded.args = {
-  name: 'John Doe',
-  size: 100,
-  rounded: true
-};
-
-export const MultipleAvatars = args => (
-  <div style={{ display: 'flex', gap: '1em' }}>
-    <Avatar {...args} name="Alice" />
-    <Avatar {...args} name="Bob Meyer Bogger" />
-    <Avatar {...args} name="Charlie" onClick={() => console.log('here')} />
+const ComponentsBlock = args => (
+  <div
+    className="bg-panel p-20"
+    style={{
+      display: 'flex',
+      gap: '1em',
+      flexDirection: 'column',
+      alignItems: 'start'
+    }}
+  >
+    <div
+      style={{
+        display: 'flex',
+        gap: '1em',
+        flexDirection: 'row',
+        justifyContent: 'start',
+        alignItems: 'center'
+      }}
+    >
+      <Avatar {...args} interactable tabIndex={1} />
+      <span>Active</span>
+    </div>
+    <div
+      style={{
+        display: 'flex',
+        gap: '1em',
+        flexDirection: 'row',
+        justifyContent: 'start',
+        alignItems: 'center'
+      }}
+    >
+      <Avatar {...args} disabled />
+      <span>Disabled</span>
+    </div>
   </div>
 );
 
-MultipleAvatars.args = {
+export const Outline = args => <ComponentsBlock {...args} />;
+Outline.args = {
+  name: 'John Doe',
   size: 50,
-  rounded: true
+  variant: 'outline',
+  type: 'monochrome'
+};
+
+export const Filled = args => <ComponentsBlock {...args} />;
+Filled.args = {
+  name: 'John Doe',
+  size: 50,
+  variant: 'filled',
+  type: 'monochrome'
+};
+
+export const Colored = args => <ComponentsBlock {...args} />;
+Colored.args = {
+  name: 'John Doe',
+  size: 50,
+  variant: 'filled',
+  type: 'colored'
+};
+export const Image = args => <ComponentsBlock {...args} />;
+Image.args = {
+  src: 'https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg',
+  size: 50
+};
+
+export const Sizes = args => (
+  <div style={{ display: 'flex', gap: '1em' }}>
+    <Avatar {...args} size={50} />
+    <Avatar {...args} size={75} />
+    <Avatar {...args} size={100} />
+  </div>
+);
+Sizes.args = {
+  src: 'https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg'
 };
