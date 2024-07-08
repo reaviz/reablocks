@@ -13,7 +13,8 @@ import {
   startOfMonth,
   min,
   max,
-  subDays
+  subDays,
+  isWithinInterval
 } from 'date-fns';
 
 /**
@@ -155,10 +156,7 @@ export function getDayAttributes(
     const startDate = min(range);
     const endDate = max(range);
 
-    return (
-      isAfter(date, addDays(startDate, -1)) &&
-      isBefore(date, addDays(endDate, 1))
-    );
+    return isWithinInterval(date, { start: startDate, end: endDate });
   };
 
   const isSelectionStarted = Array.isArray(current) && isValid(current[0]);
