@@ -1,3 +1,7 @@
+# 8.0.4 - 7/8/24
+- [feature] Allow ReactNode type as label for checkbox #238
+- [fix] Fix checking "is the day in range" #237
+
 # 8.0.3 - 6/24/24
 - [chore] Update ctrl-keys dependency #236
 
