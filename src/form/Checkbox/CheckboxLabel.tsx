@@ -1,9 +1,9 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { CheckboxTheme } from './CheckboxTheme';
 
 interface CheckboxLabelProps {
-  label: string;
+  label: string | ReactNode;
   size: 'small' | 'medium' | 'large' | string;
   disabled?: boolean;
   checked?: boolean;

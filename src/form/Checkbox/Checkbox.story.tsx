@@ -142,3 +142,19 @@ export const Custom = () => {
     </Fragment>
   );
 };
+
+export const CustomLabel = () => {
+  const [state, setState] = useState(true);
+  return (
+    <Checkbox
+      checked={state}
+      label={
+        <div>
+          <span className="mr-1">Check</span>
+          <b>me</b>
+        </div>
+      }
+      onChange={setState}
+    />
+  );
+};
