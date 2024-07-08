@@ -1,4 +1,10 @@
-import React, { FC, forwardRef, LegacyRef, useCallback } from 'react';
+import React, {
+  FC,
+  forwardRef,
+  LegacyRef,
+  ReactNode,
+  useCallback
+} from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { CheckboxTheme } from './CheckboxTheme';
@@ -19,7 +25,7 @@ export interface CheckboxProps {
   /**
    * Label for the checkbox.
    */
-  label?: string;
+  label?: string | ReactNode;
 
   /**
    * Label position of checkbox.
