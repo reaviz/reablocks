@@ -1,3 +1,6 @@
+# 8.0.5 - 7/11/24
+- [fix] Fix theming types for custom variants in Chip theme
+
 # 8.0.4 - 7/8/24
 - [feature] Allow ReactNode type as label for checkbox #238
 - [fix] Fix checking "is the day in range" #237
