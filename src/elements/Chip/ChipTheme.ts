@@ -3,6 +3,7 @@ interface ThemeColor {
   variants?: {
     filled?: string;
     outline?: string;
+    [key: string]: string;
   };
   selectable?: {
     base?: string;
@@ -12,6 +13,10 @@ interface ThemeColor {
         selected?: string;
       };
       outline?: {
+        base?: string;
+        selected?: string;
+      };
+      [key: string]: {
         base?: string;
         selected?: string;
       };
@@ -35,6 +40,7 @@ export interface ChipTheme {
   variants: {
     filled: string;
     outline: string;
+    [key: string]: string;
   };
   colors: {
     default?: ThemeColor;
