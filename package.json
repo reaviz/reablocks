@@ -1,6 +1,6 @@
 {
   "name": "reablocks",
-  "version": "8.0.5",
+  "version": "8.1.0",
   "description": "Component library for React",
   "scripts": {
     "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run build:docs && npm run build:typedoc",

@@ -1,3 +1,6 @@
+# 8.1.0 - 7/12/24
+- [feature] add confirm dialog
+
 # 8.0.5 - 7/11/24
 - [fix] Fix theming types for custom variants in Chip theme
 
