@@ -4,12 +4,39 @@ import { Dialog } from '@/layers/Dialog';
 import { Button } from '@/elements/Button';
 
 export interface ConfirmDialogProps {
+  /**
+   * Whether the dialog is open or not
+   */
   open: boolean;
+
+  /**
+   * The header of the dialog
+   */
   header: string | ReactNode;
+
+  /**
+   * The description of the dialog
+   */
   description: string | ReactNode;
+
+  /**
+   * The label for the confirm button
+   */
   confirmLabel?: string;
+
+  /**
+   * The label for the cancel button
+   */
   cancelLabel?: string;
+
+  /**
+   * Callback when the confirm button is clicked
+   */
   onConfirm?: () => void;
+
+  /**
+   * Callback when the cancel button is clicked
+   */
   onCancel?: () => void;
 }
 
