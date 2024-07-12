@@ -7,3 +7,4 @@ export * from './ContextMenu';
 export * from './Notification';
 export * from './Backdrop';
 export * from './Callout';
+export * from './ConfirmDialog';

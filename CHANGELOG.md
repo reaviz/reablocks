@@ -1,3 +1,6 @@
+# 8.1.1 - 7/12/24
+- [fix] fix export of confirmation dialog
+
 # 8.1.0 - 7/12/24
 - [feature] add confirm dialog
 
