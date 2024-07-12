@@ -21,7 +21,7 @@ export const useConfirmDialog = () => {
     setDialogProps(null);
   }, []);
 
-  const openConfirmDialog = useCallback(
+  const openDialog = useCallback(
     (props: OpenConfirmDialogProps) => {
       setDialogProps({
         ...props,
@@ -41,7 +41,8 @@ export const useConfirmDialog = () => {
   }, [isOpen, dialogProps]);
 
   return {
-    openConfirmDialog,
+    isOpen,
+    openDialog,
     closeDialog,
     DialogComponent
   };
