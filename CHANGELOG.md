@@ -1,3 +1,6 @@
+# 8.1.4 - 7/12/24
+- [chore] minor confirm dialog improvements
+
 # 8.1.3 - 7/12/24
 - [chore] improve confirm dialog api
 
