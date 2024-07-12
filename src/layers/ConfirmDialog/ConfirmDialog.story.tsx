@@ -8,7 +8,7 @@ export default {
   component: ConfirmDialog,
   argTypes: {
     header: { control: 'text' },
-    description: { control: 'text' },
+    content: { control: 'text' },
     confirmLabel: { control: 'text' },
     cancelLabel: { control: 'text' },
     onConfirm: { action: 'confirmed' },
@@ -26,11 +26,11 @@ const Template: StoryFn<ConfirmDialogProps> = args => {
         {...args}
         open={isOpen}
         onConfirm={() => {
-          args?.onConfirm();
+          args?.onConfirm?.();
           setIsOpen(false);
         }}
         onCancel={() => {
-          args?.onCancel();
+          args?.onCancel?.();
           setIsOpen(false);
         }}
       />
@@ -41,7 +41,7 @@ const Template: StoryFn<ConfirmDialogProps> = args => {
 export const Default = Template.bind({});
 Default.args = {
   header: 'Confirm Action',
-  description: 'Are you sure you want to proceed?',
+  content: 'Are you sure you want to proceed?',
   confirmLabel: 'Confirm',
   cancelLabel: 'Cancel'
 };

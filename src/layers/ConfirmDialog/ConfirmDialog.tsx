@@ -15,9 +15,9 @@ export interface ConfirmDialogProps {
   header: string | ReactNode;
 
   /**
-   * The description of the dialog
+   * The content of the dialog
    */
-  description: string | ReactNode;
+  content: string | ReactNode;
 
   /**
    * The label for the confirm button
@@ -43,7 +43,7 @@ export interface ConfirmDialogProps {
 export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   open,
   header,
-  description,
+  content,
   confirmLabel = 'Confirm',
   cancelLabel = 'Cancel',
   onConfirm,
@@ -52,7 +52,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   <Dialog open={open} onClose={onCancel} header={header}>
     {() => (
       <>
-        <p className="mb-6">{description}</p>
+        <div className="mb-6">{content}</div>
         <footer className="flex justify-end space-x-4">
           <Button className="px-4 py-2" onClick={onConfirm} color="primary">
             {confirmLabel}

@@ -1,14 +1,7 @@
 import React, { useState, useCallback, ReactNode } from 'react';
-import { ConfirmDialog } from './ConfirmDialog';
+import { ConfirmDialog, ConfirmDialogProps } from './ConfirmDialog';
 
-interface OpenConfirmDialogProps {
-  header: ReactNode | string;
-  description: ReactNode | string;
-  confirmLabel?: string;
-  cancelLabel?: string;
-  onConfirm: () => void;
-  onCancel?: () => void;
-}
+export type OpenConfirmDialogProps = Omit<ConfirmDialogProps, 'open'>;
 
 export const useConfirmDialog = () => {
   const [isOpen, setIsOpen] = useState(false);
