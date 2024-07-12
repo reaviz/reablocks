@@ -1,3 +1,6 @@
+# 8.1.2 - 7/12/24
+- [chore] improve stories of confirm dialog
+
 # 8.1.1 - 7/12/24
 - [fix] fix export of confirmation dialog
 

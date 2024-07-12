@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Meta, StoryFn } from '@storybook/react';
 import { ConfirmDialog, ConfirmDialogProps } from './ConfirmDialog';
+import { Button } from '@/elements/Button';
 
 export default {
-  title: 'Components/Layers/Confirmation Dialog',
+  title: 'Components/Layers/Confirm Dialog',
   component: ConfirmDialog,
   argTypes: {
     header: { control: 'text' },
@@ -16,21 +17,24 @@ export default {
 } as Meta;
 
 const Template: StoryFn<ConfirmDialogProps> = args => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <ConfirmDialog
-      {...args}
-      open={isOpen}
-      onConfirm={() => {
-        args.onConfirm();
-        setIsOpen(false);
-      }}
-      onCancel={() => {
-        args.onCancel();
-        setIsOpen(false);
-      }}
-    />
+    <>
+      <Button onClick={() => setIsOpen(true)}>Open Dialog</Button>
+      <ConfirmDialog
+        {...args}
+        open={isOpen}
+        onConfirm={() => {
+          args?.onConfirm();
+          setIsOpen(false);
+        }}
+        onCancel={() => {
+          args?.onCancel();
+          setIsOpen(false);
+        }}
+      />
+    </>
   );
 };
 
