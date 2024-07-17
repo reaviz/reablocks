@@ -473,6 +473,61 @@ export const AsyncDefaultValue = () => {
   );
 };
 
+export const AsyncFiltering = () => {
+  const [inputValue, setInputValue] = useState<string | null>(null);
+  const [value, setValue] = useState<string | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [opts, setOpts] = useState<{ value: string; label: string }[] | null>(
+    null
+  );
+
+  useEffect(() => {
+    let timeout;
+
+    async function getOptions() {
+      const next = await new Promise<any>(resolve => {
+        timeout = setTimeout(() => {
+          resolve(options);
+        }, 300);
+      });
+
+      const filtered = next.filter(n => n.label.includes(inputValue));
+      setOpts(filtered);
+      setLoading(false);
+    }
+
+    if (inputValue) {
+      getOptions();
+    } else {
+      setOpts(null);
+      setLoading(false);
+    }
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [inputValue]);
+
+  return (
+    <div style={{ width: 300 }}>
+      <Select
+        placeholder="Start typing to find options..."
+        filterable="async"
+        loading={loading}
+        value={value}
+        onChange={v => setValue(v)}
+        onInputKeydown={(e: any) => setInputValue(e.target.value)}
+      >
+        {opts?.map(o => (
+          <SelectOption key={o.value} value={o.value}>
+            {o.label}
+          </SelectOption>
+        ))}
+      </Select>
+    </div>
+  );
+};
+
 export const CustomLabels = () => {
   const [value, setValue] = useState<string | null>('facebook');
   return (

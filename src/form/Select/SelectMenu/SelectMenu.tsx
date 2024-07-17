@@ -67,7 +67,7 @@ export interface SelectMenuProps {
   /**
    * Whether users can filter the options or not.
    */
-  filterable?: boolean;
+  filterable?: boolean | 'async';
 
   /**
    * Whether the component is loading or not.
@@ -226,7 +226,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
         )}
         {options?.length === 0 &&
           !createable &&
-          filterable &&
+          filterable === true &&
           trimmedText &&
           !loading && (
             <ListItem className="select-menu-empty-search">
@@ -235,7 +235,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
           )}
         {options?.length === 0 &&
           !createable &&
-          filterable &&
+          filterable === true &&
           !trimmedText &&
           !loading && (
             <ListItem className="select-menu-empty">

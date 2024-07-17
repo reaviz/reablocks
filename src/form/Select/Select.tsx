@@ -92,7 +92,7 @@ export interface SelectProps {
   /**
    * Whether you can filter the select options.
    */
-  filterable?: boolean;
+  filterable?: boolean | 'async';
 
   /**
    * Whether you can clear the select after selection.
@@ -287,14 +287,19 @@ export const Select: FC<SelectProps> = ({
     }
   }, [children, options]);
 
-  const { result, keyword, search, resetSearch } = useFuzzy<SelectOptionProps>(
-    options,
-    {
-      keys: ['children', 'group'],
-      ...searchOptions,
-      getFn: menuDisabled ? () => '' : searchOptions?.getFn
-    }
-  );
+  const {
+    result: fuseResult,
+    keyword,
+    search,
+    resetSearch
+  } = useFuzzy<SelectOptionProps>(options, {
+    keys: ['children', 'group'],
+    ...searchOptions,
+    getFn: menuDisabled ? () => '' : searchOptions?.getFn
+  });
+
+  // TODO: Come back and cleanup the fuzzy search to be more extensible
+  const result = filterable === 'async' ? options : fuseResult;
 
   // If a keyword is used to filter options, automatically
   // highlight the first option for easy selection
