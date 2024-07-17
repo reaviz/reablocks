@@ -491,7 +491,9 @@ export const AsyncFiltering = () => {
         }, 300);
       });
 
-      const filtered = next.filter(n => n.label.startsWith(inputValue));
+      const filtered = next.filter(n =>
+        n.label.toLowerCase().startsWith(inputValue.toLowerCase())
+      );
       setOpts(filtered);
       setLoading(false);
     }
