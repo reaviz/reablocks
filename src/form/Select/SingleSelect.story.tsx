@@ -491,7 +491,7 @@ export const AsyncFiltering = () => {
         }, 300);
       });
 
-      const filtered = next.filter(n => n.label.includes(inputValue));
+      const filtered = next.filter(n => n.label.startsWith(inputValue));
       setOpts(filtered);
       setLoading(false);
     }
