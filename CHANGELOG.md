@@ -1,3 +1,7 @@
+# 8.3.0 - 7/18/24
+- [improvement] Add containerClassName to Select #244
+- [feature] Allow theming visibleRange for pager #243
+
 # 8.2.0 - 7/18/24
 - [feature] add async filtering for select
 
