@@ -9,6 +9,7 @@ export interface PagerTheme {
   };
   ellipsis: string;
   pagerDisplayItems: string;
+  visibleRange: string;
   control: string;
   firstPage: string;
   prevPage: string;
@@ -28,6 +29,7 @@ const baseTheme: PagerTheme = {
   },
   ellipsis: 'cursor-pointer',
   pagerDisplayItems: 'mr-1.5',
+  visibleRange: '',
   control: '[&>svg]:w-5 [&>svg]:h-5',
   firstPage: '',
   prevPage: '',
