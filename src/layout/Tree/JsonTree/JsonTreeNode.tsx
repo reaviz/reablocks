@@ -34,7 +34,12 @@ export interface JsonTreeNodeProps {
   depth?: number;
 
   /**
-   * The limit for the number of nodes to show when `showAll` is true.
+   * If true, all nodes in the JSON tree will be expanded by default.
+   */
+  showAll?: boolean;
+
+  /**
+   * The limit for the number of nodes to show when `showAll` is false.
    */
   showAllLimit?: number;
 
@@ -66,6 +71,7 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
   className,
   showCount,
   showEmpty,
+  showAll,
   showAllLimit,
   ellipsisText,
   ellipsisTextLength,
@@ -80,7 +86,7 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
     showNext
   } = useInfinityList({
     items: isList ? data.data : [],
-    size: showAllLimit,
+    size: showAll ? Infinity : showAllLimit,
     threshold: 3,
     nextSize: Infinity
   });
@@ -180,6 +186,8 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
               ellipsisTextLength={ellipsisTextLength}
               showCount={showCount}
               showEmpty={showEmpty}
+              showAll={showAll}
+              showAllLimit={showAllLimit}
             />
           ))}
         </>
