@@ -44,6 +44,11 @@ export interface SelectProps {
   className?: string;
 
   /**
+   * Additional class names to apply to the select container.
+   */
+  containerClassName?: string;
+
+  /**
    * Additional class names to apply to the select when the
    * menu is open
    */
@@ -244,6 +249,7 @@ export const Select: FC<SelectProps> = ({
   multiple,
   error,
   className,
+  containerClassName,
   activeClassName,
   children,
   value,
@@ -757,6 +763,7 @@ export const Select: FC<SelectProps> = ({
       ref={overlayRef}
       onClose={onOverlayClose}
       onOpen={onOpenMenu}
+      triggerClassName={containerClassName}
       content={() => (
         <CloneElement<SelectMenuProps>
           element={menu}
