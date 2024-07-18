@@ -15,7 +15,7 @@ export interface JsonTreeProps {
   showAll?: boolean;
 
   /**
-   * The limit for the number of nodes to show when `showAll` is true.
+   * The limit for the number of nodes to show when `showAll` is false.
    */
   showAllLimit?: number;
 
