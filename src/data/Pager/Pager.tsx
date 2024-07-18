@@ -140,7 +140,7 @@ export const Pager: FC<PagerProps> = ({
           {pageCount > 1 && (
             <Stack dense>
               <Text>
-                <Text className={theme.visibleRange}>
+                <Text className={theme.showPageRange}>
                   {startItem.toLocaleString()}-{endItem.toLocaleString()}
                 </Text>{' '}
                 of <Pluralize count={total} singular="item" />
