@@ -1,3 +1,6 @@
+# 8.2.0 - 7/18/24
+- [feature] add async filtering for select
+
 # 8.1.4 - 7/12/24
 - [chore] minor confirm dialog improvements
 
