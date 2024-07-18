@@ -88,7 +88,7 @@ export interface SelectInputProps {
   /**
    * If true, the select input is filterable.
    */
-  filterable?: boolean;
+  filterable?: boolean | 'async';
 
   /**
    * If true, the select input allows multiple selection.
