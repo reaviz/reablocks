@@ -1,3 +1,6 @@
+# 8.4.0 - 7/18/24
+- [fix] Fix `showAll` and `showAllLimit` for JSON Tree #245
+
 # 8.3.0 - 7/18/24
 - [improvement] Add containerClassName to Select #244
 - [feature] Allow theming visibleRange for pager #243
