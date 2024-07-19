@@ -157,3 +157,78 @@ export const CustomTheme = () => {
     </ThemeProvider>
   );
 };
+
+export const CustomColor = () => {
+  const customTheme: PartialReablocksTheme = {
+    components: {
+      button: {
+        colors: {
+          gradient: {
+            filled: 'bg-gradient-to-r from-cyan-500 to-blue-500'
+          }
+        }
+      }
+    }
+  };
+
+  return (
+    <ThemeProvider theme={extendTheme(theme, customTheme)}>
+      <Button color="gradient">Gradient</Button>
+    </ThemeProvider>
+  );
+};
+
+export const CustomVariant = () => {
+  const customTheme: PartialReablocksTheme = {
+    components: {
+      button: {
+        variants: {
+          gradient: 'border rounded-lg'
+        },
+        colors: {
+          default: {
+            gradient:
+              'bg-gradient-to-r from-cyan-500 to-blue-500 border-blue-500'
+          },
+          primary: {
+            gradient:
+              'bg-gradient-to-r from-violet-500 to-fuchsia-500 border-violet-500'
+          }
+        }
+      }
+    }
+  };
+
+  return (
+    <ThemeProvider theme={extendTheme(theme, customTheme)}>
+      <div style={{ display: 'flex', gap: 10 }}>
+        <Button variant="gradient">Gradient - Default</Button>
+        <Button variant="gradient" color="primary">
+          Gradient - Primary
+        </Button>
+      </div>
+    </ThemeProvider>
+  );
+};
+
+export const CustomSize = () => {
+  const customTheme: PartialReablocksTheme = {
+    components: {
+      button: {
+        sizes: {
+          xsmall: 'text-xs px-1 py-0.5',
+          xlarge: 'text-2xl px-6 py-3'
+        }
+      }
+    }
+  };
+
+  return (
+    <ThemeProvider theme={extendTheme(theme, customTheme)}>
+      <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+        <Button size="xsmall">xsmall</Button>
+        <Button size="xlarge">xlarge</Button>
+      </div>
+    </ThemeProvider>
+  );
+};
