@@ -1,3 +1,6 @@
+# 8.4.1 - 7/18/24
+- [fix] Fix theming types for custom variants, colors, sizes in Button component
+
 # 8.4.0 - 7/18/24
 - [fix] Fix `showAll` and `showAllLimit` for JSON Tree #245
 
