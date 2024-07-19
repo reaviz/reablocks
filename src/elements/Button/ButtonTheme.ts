@@ -26,42 +26,50 @@ export interface ButtonTheme {
       filled: string;
       outline: string;
       text: string;
+      [key: string]: string;
     };
     primary: {
       filled: string;
       outline: string;
       text: string;
+      [key: string]: string;
     };
     secondary: {
       filled: string;
       outline: string;
       text: string;
+      [key: string]: string;
     };
     success: {
       filled: string;
       outline: string;
       text: string;
+      [key: string]: string;
     };
     warning: {
       filled: string;
       outline: string;
       text: string;
+      [key: string]: string;
     };
     error: {
       filled: string;
       outline: string;
       text: string;
+      [key: string]: string;
     };
     [key: string]: {
       filled: string;
       outline: string;
       text: string;
+      [key: string]: string;
     };
   };
   sizes: {
     small: string;
     medium: string;
     large: string;
+    [key: string]: string;
   };
 }
 
