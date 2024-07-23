@@ -9,7 +9,9 @@ export interface PagerTheme {
   };
   ellipsis: string;
   pagerDisplayItems: string;
+  itemsDisplay: string;
   showPageRange: string;
+  totalCount: string;
   control: string;
   firstPage: string;
   prevPage: string;
@@ -19,7 +21,6 @@ export interface PagerTheme {
 
 const baseTheme: PagerTheme = {
   base: 'items-center flex user-select-none',
-  arrows: 'h-8 w-8',
   pages: {
     base: 'inline-flex',
     page: {
@@ -29,7 +30,9 @@ const baseTheme: PagerTheme = {
   },
   ellipsis: 'cursor-pointer',
   pagerDisplayItems: 'mr-1.5',
+  itemsDisplay: '',
   showPageRange: '',
+  totalCount: '',
   control: '[&>svg]:w-5 [&>svg]:h-5',
   firstPage: '',
   prevPage: '',
