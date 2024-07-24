@@ -52,7 +52,10 @@ export const ShowAll = () => {
 export const CustomTheme = () => {
   const [page, setPage] = useState<number>(0);
   const customTheme = pagerTheme;
-  customTheme.showPageRange = 'text-blue-400 font-bold';
+  customTheme.itemsDisplay = 'text-slate-500';
+  customTheme.showPageRange =
+    "text-blue-400 font-bold before:content-['Showing_'] before:text-slate-500 before:font-normal";
+  customTheme.totalCount = 'text-blue-400 font-bold';
 
   return (
     <Pager
