@@ -1,3 +1,6 @@
+# 8.4.2 - 7/24/24
+- [improvement] Update pager custom theme story
+
 # 8.4.1 - 7/18/24
 - [fix] Fix theming types for custom variants, colors, sizes in Button component
 
