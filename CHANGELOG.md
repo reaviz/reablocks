@@ -1,3 +1,6 @@
+# 8.4.3 - 7/25/24
+- [improvement] allow wildcards on theme hook
+
 # 8.4.2 - 7/24/24
 - [improvement] Update pager custom theme story
 
