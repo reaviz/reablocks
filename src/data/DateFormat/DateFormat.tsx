@@ -142,7 +142,7 @@ export const DateFormat: FC<DateFormatProps> = ({
     return () => clearTimeout(cur);
   });
 
-  const theme: DateFormatTheme = useComponentTheme('dateFormat', customTheme);
+  const theme = useComponentTheme<DateFormatTheme>('dateFormat', customTheme);
 
   if (!date) {
     return <>{emptyMessage}</>;

@@ -194,7 +194,6 @@ export interface ReablocksTheme {
     breadcrumbs: BreadcrumbsTheme;
     stepper: StepperTheme;
     callout: CalloutTheme;
-    [key: string]: any;
   };
 }
 

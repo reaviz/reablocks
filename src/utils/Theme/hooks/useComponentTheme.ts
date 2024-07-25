@@ -7,12 +7,10 @@ import { ReablocksTheme } from '@/utils/Theme/themes/theme';
  * @param customTheme
  * @returns theme object
  */
-export const useComponentTheme = <
-  T extends keyof Partial<ReablocksTheme['components']>
->(
-  component: T,
-  customTheme?: ReablocksTheme['components'][T]
-): ReablocksTheme['components'][T] => {
+export const useComponentTheme = <T extends any>(
+  component: string,
+  customTheme?: T
+): T => {
   const context = useTheme();
 
   if (customTheme) {
