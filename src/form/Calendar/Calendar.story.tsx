@@ -186,6 +186,7 @@ export const Multiview = () => {
         value={range}
         onChange={val => setRange(val as [Date, Date])}
         showDayOfWeek
+        headerDateFormat="MMMM yyyy"
       />
       <Divider />
       <Stack justifyContent="center">
