@@ -1,3 +1,6 @@
+# 8.4.4 - 7/30/24
+- [improvement] Added format of the date displayed in the calendar header
+- 
 # 8.4.3 - 7/25/24
 - [improvement] allow wildcards on theme hook
 
