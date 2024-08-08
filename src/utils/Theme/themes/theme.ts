@@ -82,7 +82,10 @@ import {
   TooltipTheme,
   CalloutTheme,
   calloutTheme,
-  legacyCalloutTheme
+  legacyCalloutTheme,
+  BackdropTheme,
+  backdropTheme,
+  legacyBackdropTheme
 } from '@/layers';
 
 import {
@@ -194,6 +197,7 @@ export interface ReablocksTheme {
     breadcrumbs: BreadcrumbsTheme;
     stepper: StepperTheme;
     callout: CalloutTheme;
+    backdrop: BackdropTheme;
   };
 }
 
@@ -242,7 +246,8 @@ export const theme: ReablocksTheme = {
     jsonTree: jsonTreeTheme,
     breadcrumbs: breadcrumbsTheme,
     stepper: stepperTheme,
-    callout: calloutTheme
+    callout: calloutTheme,
+    backdrop: backdropTheme
   }
 };
 
@@ -291,6 +296,7 @@ export const legacyThemeVars: ReablocksTheme = {
     jsonTree: legacyJsonTreeTheme,
     breadcrumbs: legacyBreadcrumbTheme,
     stepper: legacyStepperTheme,
-    callout: legacyCalloutTheme
+    callout: legacyCalloutTheme,
+    backdrop: legacyBackdropTheme
   }
 };
