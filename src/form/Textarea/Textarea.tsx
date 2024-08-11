@@ -73,22 +73,22 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
       theme: customTheme,
       ...rest
     },
-    ref
+    inputRef
   ) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
-    const inputRef = useRef<HTMLTextAreaElement | null>(null);
+    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
-    useImperativeHandle(ref, () => ({
-      inputRef,
+    useImperativeHandle(inputRef, () => ({
+      textareaRef,
       containerRef,
-      blur: () => inputRef.current?.blur(),
-      focus: () => inputRef.current?.focus()
+      blur: () => textareaRef.current?.blur(),
+      focus: () => textareaRef.current?.focus()
     }));
 
     useLayoutEffect(() => {
       if (autoFocus) {
         // Small timeout for page loading
-        requestAnimationFrame(() => inputRef.current?.focus());
+        requestAnimationFrame(() => textareaRef.current?.focus());
       }
     }, [autoFocus]);
 
@@ -105,7 +105,7 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
         ref={containerRef}
       >
         <TextareaAutosize
-          ref={inputRef}
+          ref={textareaRef}
           className={twMerge(
             theme.input,
             fullWidth && theme.fullWidth,
