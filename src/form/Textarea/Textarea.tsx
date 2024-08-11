@@ -1,8 +1,8 @@
-import React, {
-  FC,
+import {
   forwardRef,
   RefObject,
   useImperativeHandle,
+  useLayoutEffect,
   useRef
 } from 'react';
 import TextareaAutosize, {
@@ -61,10 +61,7 @@ export interface TextAreaRef {
   focus?: () => void;
 }
 
-export const Textarea: FC<TextareaProps & TextAreaRef> = forwardRef<
-  TextAreaRef,
-  TextareaProps
->(
+export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
   (
     {
       fullWidth,
@@ -72,6 +69,7 @@ export const Textarea: FC<TextareaProps & TextAreaRef> = forwardRef<
       containerClassName,
       className,
       error,
+      autoFocus,
       theme: customTheme,
       ...rest
     },
@@ -86,6 +84,13 @@ export const Textarea: FC<TextareaProps & TextAreaRef> = forwardRef<
       blur: () => inputRef.current?.blur(),
       focus: () => inputRef.current?.focus()
     }));
+
+    useLayoutEffect(() => {
+      if (autoFocus) {
+        // Small timeout for page loading
+        requestAnimationFrame(() => inputRef.current?.focus());
+      }
+    }, [autoFocus]);
 
     const theme: TextareaTheme = useComponentTheme('textarea', customTheme);
 
@@ -108,6 +113,7 @@ export const Textarea: FC<TextareaProps & TextAreaRef> = forwardRef<
             theme.sizes[size],
             className
           )}
+          autoFocus={autoFocus}
           {...rest}
         />
       </div>
