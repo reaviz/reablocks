@@ -1,8 +1,8 @@
-import React, {
-  FC,
+import {
   forwardRef,
   RefObject,
   useImperativeHandle,
+  useLayoutEffect,
   useRef
 } from 'react';
 import TextareaAutosize, {
@@ -61,10 +61,7 @@ export interface TextAreaRef {
   focus?: () => void;
 }
 
-export const Textarea: FC<TextareaProps & TextAreaRef> = forwardRef<
-  TextAreaRef,
-  TextareaProps
->(
+export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
   (
     {
       fullWidth,
@@ -72,20 +69,28 @@ export const Textarea: FC<TextareaProps & TextAreaRef> = forwardRef<
       containerClassName,
       className,
       error,
+      autoFocus,
       theme: customTheme,
       ...rest
     },
-    ref
+    inputRef
   ) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
-    const inputRef = useRef<HTMLTextAreaElement | null>(null);
+    const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
-    useImperativeHandle(ref, () => ({
-      inputRef,
+    useImperativeHandle(inputRef, () => ({
+      textareaRef,
       containerRef,
-      blur: () => inputRef.current?.blur(),
-      focus: () => inputRef.current?.focus()
+      blur: () => textareaRef.current?.blur(),
+      focus: () => textareaRef.current?.focus()
     }));
+
+    useLayoutEffect(() => {
+      if (autoFocus) {
+        // Small timeout for page loading
+        requestAnimationFrame(() => textareaRef.current?.focus());
+      }
+    }, [autoFocus]);
 
     const theme: TextareaTheme = useComponentTheme('textarea', customTheme);
 
@@ -100,7 +105,7 @@ export const Textarea: FC<TextareaProps & TextAreaRef> = forwardRef<
         ref={containerRef}
       >
         <TextareaAutosize
-          ref={inputRef}
+          ref={textareaRef}
           className={twMerge(
             theme.input,
             fullWidth && theme.fullWidth,
@@ -108,6 +113,7 @@ export const Textarea: FC<TextareaProps & TextAreaRef> = forwardRef<
             theme.sizes[size],
             className
           )}
+          autoFocus={autoFocus}
           {...rest}
         />
       </div>

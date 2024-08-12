@@ -1,6 +1,7 @@
-import React from 'react';
+import { useRef } from 'react';
 import { Stack } from '../../layout/Stack';
 import { Textarea } from './Textarea';
+import { Button } from '@/elements';
 
 export default {
   title: 'Components/Form/Textarea',
@@ -32,3 +33,14 @@ export const Sizes = () => (
     <Textarea value="Large" size="large" />
   </Stack>
 );
+
+export const OutsideFocus = () => {
+  const inputRef = useRef(null);
+
+  return (
+    <Stack direction="column">
+      <Button onClick={() => inputRef?.current.focus()}>Click to focus</Button>
+      <Textarea ref={inputRef} />
+    </Stack>
+  );
+};
