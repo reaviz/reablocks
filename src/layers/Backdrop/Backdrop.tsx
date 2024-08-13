@@ -1,7 +1,8 @@
 import React, { FC, MouseEvent } from 'react';
-import classNames from 'classnames';
 import { motion } from 'framer-motion';
-import css from './Backdrop.module.css';
+import { cn, useComponentTheme } from '@/utils';
+
+import { BackdropTheme } from './BackdropTheme';
 
 export interface BackdropProps {
   /**
@@ -20,6 +21,11 @@ export interface BackdropProps {
   className?: string;
 
   /**
+   * Theme for the Backdrop.
+   */
+  theme?: BackdropTheme;
+
+  /**
    * Callback for when the backdrop is clicked.
    */
   onClick?: (event: MouseEvent) => void;
@@ -29,14 +35,19 @@ export const Backdrop: FC<BackdropProps> = ({
   zIndex = 998,
   portalIndex = 0,
   className,
+  theme: customTheme,
   onClick
-}) => (
-  <motion.div
-    className={classNames(css.backdrop, className)}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 0.8 - (portalIndex as number) / 10 }}
-    exit={{ opacity: 0 }}
-    style={{ zIndex }}
-    onClick={onClick}
-  />
-);
+}) => {
+  const theme = useComponentTheme<BackdropTheme>('backdrop', customTheme);
+
+  return (
+    <motion.div
+      className={cn(theme.base, className)}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: theme.opacity - (portalIndex as number) / 10 }}
+      exit={{ opacity: 0 }}
+      style={{ zIndex }}
+      onClick={onClick}
+    />
+  );
+};

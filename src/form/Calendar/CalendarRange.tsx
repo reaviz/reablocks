@@ -48,6 +48,11 @@ export interface CalendarRangeProps
   previousYearArrow?: React.ReactNode | string;
 
   /**
+   * The format of the date displayed in the calendar header.
+   */
+  headerDateFormat?: string;
+
+  /**
    * Theme for the CalendarRange.
    */
   theme?: CalendarRangeTheme;
@@ -67,6 +72,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   onChange,
   monthsToDisplay = 2,
   direction = 'future',
+  headerDateFormat = 'MMMM',
   theme: customTheme,
   ...rest
 }) => {
@@ -164,7 +170,10 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         <SmallHeading className={theme.title} disableMargins>
           {displayMonths.map(i => (
             <span key={addMonths(viewValue, showPast ? -i : i).toDateString()}>
-              {format(addMonths(viewValue, showPast ? -i : i), 'MMMM')}
+              {format(
+                addMonths(viewValue, showPast ? -i : i),
+                headerDateFormat
+              )}
             </span>
           ))}
         </SmallHeading>

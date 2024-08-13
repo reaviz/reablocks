@@ -38,7 +38,8 @@
 
 - [Reaflow](https://reaflow.dev?utm=reablocks) - Open-source library for workflow and diagram graphs.
 - [Reagraph](https://reagraph.dev?utm=reablocks) - Open-source library for large webgl based network graphs.
-- [Reaviz](https://reaviz.dev?utm=reablocks) - Open-source library for data visualizations for React. 
+- [Reaviz](https://reaviz.dev?utm=reablocks) - Open-source library for data visualizations for React.
+- [Reachat](https://reachat.dev?utm=reablocks) - Open-source library for building LLM/Chat UIs for React.
 
 ## 🔭 Development
 

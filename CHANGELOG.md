@@ -1,3 +1,15 @@
+# 8.4.7 - 8/12/24
+- [fix] Fix ref for textarea
+
+# 8.4.6 - 8/9/24
+- [improvement] Move Backdrop to TW theme #253
+
+# 8.4.5 - 8/9/24
+- [fix] Add "use client" for ThemeProvider #252
+
+# 8.4.4 - 7/30/24
+- [improvement] Added format of the date displayed in the calendar header
+- 
 # 8.4.3 - 7/25/24
 - [improvement] allow wildcards on theme hook
 
