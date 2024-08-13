@@ -78,6 +78,7 @@ export const Ellipsis: FC<EllipsisProps> = ({
   const [isTruncated, setIsTruncated] = useState<boolean>(false);
   const [truncatedText, setTruncatedText] = useState<string>(value);
   const contentRef = useRef<HTMLDivElement>(null);
+  const isMeasured = useRef<boolean>(false);
 
   const substr = useMemo(() => {
     const formatted = removeLinebreaks
@@ -98,6 +99,7 @@ export const Ellipsis: FC<EllipsisProps> = ({
         setTruncatedText(substr);
         setIsTruncated(true);
       }
+      isMeasured.current = true;
       return;
     }
 
@@ -125,7 +127,8 @@ export const Ellipsis: FC<EllipsisProps> = ({
 
     content.style.maxHeight = '';
     content.style.overflow = '';
-  }, [value, lines, moreText]);
+    isMeasured.current = true;
+  }, [lines, value, moreText, substr]);
 
   useEffect(() => {
     measureText();
@@ -143,20 +146,26 @@ export const Ellipsis: FC<EllipsisProps> = ({
       <div ref={contentRef} className="invisible">
         {value}
       </div>
-      <span title={title !== false ? title || value : undefined}>
-        {expanded ? value : truncatedText}
-      </span>
-      {expandable && isTruncated && (
-        <button
-          type="button"
-          title={
-            expanded ? 'Click to show less' : 'Click to view rest of content'
-          }
-          className={theme.dots}
-          onClick={toggleExpand}
-        >
-          {expanded ? lessText : moreText}
-        </button>
+      {isMeasured.current && (
+        <>
+          <span title={title !== false ? title || value : undefined}>
+            {expanded ? value : truncatedText}
+          </span>
+          {expandable && isTruncated && (
+            <button
+              type="button"
+              title={
+                expanded
+                  ? 'Click to show less'
+                  : 'Click to view rest of content'
+              }
+              className={theme.dots}
+              onClick={toggleExpand}
+            >
+              {expanded ? lessText : moreText}
+            </button>
+          )}
+        </>
       )}
     </div>
   );
