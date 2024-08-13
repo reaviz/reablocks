@@ -1,3 +1,6 @@
+# 8.4.7 - 8/12/24
+- [fix] Fix ref for textarea
+
 # 8.4.6 - 8/9/24
 - [improvement] Move Backdrop to TW theme #253
 
