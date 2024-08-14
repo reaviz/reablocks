@@ -79,6 +79,7 @@ export const Ellipsis: FC<EllipsisProps> = ({
   const [truncatedText, setTruncatedText] = useState<string>(value);
   const contentRef = useRef<HTMLDivElement>(null);
   const isMeasured = useRef<boolean>(false);
+  const theme: EllipsisTheme = useComponentTheme('ellipsis', customTheme);
 
   const substr = useMemo(() => {
     const formatted = removeLinebreaks
@@ -86,8 +87,6 @@ export const Ellipsis: FC<EllipsisProps> = ({
       : value;
     return ellipsize(formatted, limit, { ellipse: expandable ? '' : '...' });
   }, [expandable, limit, value, removeLinebreaks]);
-
-  const theme: EllipsisTheme = useComponentTheme('ellipsis', customTheme);
 
   const measureText = useCallback(() => {
     if (!contentRef.current) {
@@ -131,10 +130,12 @@ export const Ellipsis: FC<EllipsisProps> = ({
   }, [lines, value, moreText, substr]);
 
   useEffect(() => {
-    measureText();
-    window.addEventListener('resize', measureText);
-    return () => window.removeEventListener('resize', measureText);
-  }, [measureText]);
+    if (lines !== undefined) {
+      measureText();
+      window.addEventListener('resize', measureText);
+      return () => window.removeEventListener('resize', measureText);
+    }
+  }, [measureText, lines]);
 
   const toggleExpand = (event: React.MouseEvent) => {
     event.stopPropagation();
@@ -152,18 +153,21 @@ export const Ellipsis: FC<EllipsisProps> = ({
             {expanded ? value : truncatedText}
           </span>
           {expandable && isTruncated && (
-            <button
-              type="button"
-              title={
-                expanded
-                  ? 'Click to show less'
-                  : 'Click to view rest of content'
-              }
-              className={theme.dots}
-              onClick={toggleExpand}
-            >
-              {expanded ? lessText : moreText}
-            </button>
+            <>
+              {expanded ? ' ' : ''}
+              <button
+                type="button"
+                title={
+                  expanded
+                    ? 'Click to show less'
+                    : 'Click to view rest of content'
+                }
+                className={theme.dots}
+                onClick={toggleExpand}
+              >
+                {expanded ? lessText : moreText}
+              </button>
+            </>
           )}
         </>
       )}
