@@ -76,9 +76,9 @@ export const Ellipsis: FC<EllipsisProps> = ({
 }) => {
   const [expanded, setExpanded] = useState<boolean>(false);
   const [isTruncated, setIsTruncated] = useState<boolean>(false);
+  const [isMeasured, setIsMeasured] = useState<boolean>(false);
   const [truncatedText, setTruncatedText] = useState<string>(value);
   const contentRef = useRef<HTMLDivElement>(null);
-  const isMeasured = useRef<boolean>(false);
   const theme: EllipsisTheme = useComponentTheme('ellipsis', customTheme);
 
   const substr = useMemo(() => {
@@ -98,7 +98,7 @@ export const Ellipsis: FC<EllipsisProps> = ({
         setTruncatedText(substr);
         setIsTruncated(true);
       }
-      isMeasured.current = true;
+      setIsMeasured(true);
       return;
     }
 
@@ -126,12 +126,15 @@ export const Ellipsis: FC<EllipsisProps> = ({
 
     content.style.maxHeight = '';
     content.style.overflow = '';
-    isMeasured.current = true;
+    setIsMeasured(true);
   }, [lines, value, moreText, substr]);
 
   useEffect(() => {
+    // NOTE: The contentRef is used to measure the text. It must be a child of the parent element
+    // and positioned as a block element (div). The contentRef is not used to render the text due
+    // to the way wrapping works in CSS.
     measureText();
-    if (lines !== undefined) {
+    if (lines !== undefined && typeof window !== 'undefined') {
       window.addEventListener('resize', measureText);
       return () => window.removeEventListener('resize', measureText);
     }
@@ -144,10 +147,12 @@ export const Ellipsis: FC<EllipsisProps> = ({
 
   return (
     <div className={className}>
-      <div ref={contentRef} className="invisible">
-        {value}
-      </div>
-      {isMeasured.current && (
+      {!isMeasured && lines !== undefined && (
+        <div ref={contentRef} className="invisible">
+          {value}
+        </div>
+      )}
+      {isMeasured && (
         <>
           <span title={title !== false ? title || value : undefined}>
             {expanded ? value : truncatedText}
