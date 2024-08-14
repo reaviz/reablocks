@@ -130,8 +130,8 @@ export const Ellipsis: FC<EllipsisProps> = ({
   }, [lines, value, moreText, substr]);
 
   useEffect(() => {
+    measureText();
     if (lines !== undefined) {
-      measureText();
       window.addEventListener('resize', measureText);
       return () => window.removeEventListener('resize', measureText);
     }
