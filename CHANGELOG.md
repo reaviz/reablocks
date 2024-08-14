@@ -1,3 +1,6 @@
+# 8.5.0
+- [feature] add ability to pass `lines` to ellsisps for line clamping
+
 # 8.4.7 - 8/12/24
 - [fix] Fix ref for textarea
 
