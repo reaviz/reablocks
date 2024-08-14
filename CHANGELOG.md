@@ -1,3 +1,6 @@
+# 8.5.2
+- [fix] improve ellipsis sizing in real world
+
 # 8.5.1
 - [fix] fix mesasure not firing on ellispsis
 
