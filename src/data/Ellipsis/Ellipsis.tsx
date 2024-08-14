@@ -1,4 +1,11 @@
-import React, { FC, useState, useMemo } from 'react';
+import React, {
+  FC,
+  useState,
+  useRef,
+  useEffect,
+  useCallback,
+  useMemo
+} from 'react';
 import ellipsize from 'ellipsize';
 import { EllipsisTheme } from './EllipsisTheme';
 import { useComponentTheme } from '@/utils';
@@ -38,6 +45,21 @@ export interface EllipsisProps {
    * Theme for the Ellipsis.
    */
   theme?: EllipsisTheme;
+
+  /**
+   * Number of lines to show before truncation. If set, overrides the character limit.
+   */
+  lines?: number;
+
+  /**
+   * Custom text for the expand button. Default: "..."
+   */
+  moreText?: string;
+
+  /**
+   * Custom text for the collapse button. Default: "Show less"
+   */
+  lessText?: string;
 }
 
 export const Ellipsis: FC<EllipsisProps> = ({
@@ -47,9 +69,17 @@ export const Ellipsis: FC<EllipsisProps> = ({
   removeLinebreaks = true,
   expandable = true,
   limit = 256,
+  lines,
+  moreText = '...',
+  lessText = 'Show less',
   theme: customTheme
 }) => {
   const [expanded, setExpanded] = useState<boolean>(false);
+  const [isTruncated, setIsTruncated] = useState<boolean>(false);
+  const [truncatedText, setTruncatedText] = useState<string>(value);
+  const contentRef = useRef<HTMLDivElement>(null);
+  const isMeasured = useRef<boolean>(false);
+  const theme: EllipsisTheme = useComponentTheme('ellipsis', customTheme);
 
   const substr = useMemo(() => {
     const formatted = removeLinebreaks
@@ -58,30 +88,89 @@ export const Ellipsis: FC<EllipsisProps> = ({
     return ellipsize(formatted, limit, { ellipse: expandable ? '' : '...' });
   }, [expandable, limit, value, removeLinebreaks]);
 
-  const theme: EllipsisTheme = useComponentTheme('ellipsis', customTheme);
+  const measureText = useCallback(() => {
+    if (!contentRef.current) {
+      return;
+    }
+
+    if (lines === undefined) {
+      if (substr.length !== value.length) {
+        setTruncatedText(substr);
+        setIsTruncated(true);
+      }
+      isMeasured.current = true;
+      return;
+    }
+
+    const content = contentRef.current;
+    const lineHeight = parseInt(window.getComputedStyle(content).lineHeight);
+    const maxHeight = lines ? lineHeight * lines : content.clientHeight;
+
+    content.style.maxHeight = `${maxHeight}px`;
+    content.style.overflow = 'hidden';
+
+    let truncated = value;
+    content.textContent = truncated + moreText;
+
+    if (content.scrollHeight > maxHeight) {
+      setIsTruncated(true);
+      while (content.scrollHeight > maxHeight && truncated.length > 0) {
+        truncated = truncated.slice(0, -1).trim();
+        content.textContent = truncated + moreText;
+      }
+      setTruncatedText(truncated);
+    } else {
+      setIsTruncated(false);
+      setTruncatedText(value);
+    }
+
+    content.style.maxHeight = '';
+    content.style.overflow = '';
+    isMeasured.current = true;
+  }, [lines, value, moreText, substr]);
+
+  useEffect(() => {
+    if (lines !== undefined) {
+      measureText();
+      window.addEventListener('resize', measureText);
+      return () => window.removeEventListener('resize', measureText);
+    }
+  }, [measureText, lines]);
+
+  const toggleExpand = (event: React.MouseEvent) => {
+    event.stopPropagation();
+    setExpanded(!expanded);
+  };
 
   return (
-    <span className={className}>
-      {expanded ? (
-        value
-      ) : (
-        <span title={title !== false ? title || value : undefined}>
-          {substr}
-        </span>
+    <div className={className}>
+      <div ref={contentRef} className="invisible">
+        {value}
+      </div>
+      {isMeasured.current && (
+        <>
+          <span title={title !== false ? title || value : undefined}>
+            {expanded ? value : truncatedText}
+          </span>
+          {expandable && isTruncated && (
+            <>
+              {expanded ? ' ' : ''}
+              <button
+                type="button"
+                title={
+                  expanded
+                    ? 'Click to show less'
+                    : 'Click to view rest of content'
+                }
+                className={theme.dots}
+                onClick={toggleExpand}
+              >
+                {expanded ? lessText : moreText}
+              </button>
+            </>
+          )}
+        </>
       )}
-      {expandable && !expanded && value.length > limit && (
-        <button
-          type="button"
-          title="Click to view rest of content"
-          className={theme.dots}
-          onClick={event => {
-            event.stopPropagation();
-            setExpanded(true);
-          }}
-        >
-          ...
-        </button>
-      )}
-    </span>
+    </div>
   );
 };

@@ -13,3 +13,9 @@ export const Simple = () => <Ellipsis value={words} />;
 export const Short = () => <Ellipsis value="A short sentence." />;
 
 export const Unexpandable = () => <Ellipsis expandable={false} value={words} />;
+
+export const Lines = () => (
+  <div style={{ width: '250px' }}>
+    <Ellipsis lines={3} value={words} />
+  </div>
+);
