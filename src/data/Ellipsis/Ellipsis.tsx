@@ -89,16 +89,16 @@ export const Ellipsis: FC<EllipsisProps> = ({
   }, [expandable, limit, value, removeLinebreaks]);
 
   const measureText = useCallback(() => {
-    if (!contentRef.current) {
-      return;
-    }
-
     if (lines === undefined) {
       if (substr.length !== value.length) {
         setTruncatedText(substr);
         setIsTruncated(true);
       }
       setIsMeasured(true);
+      return;
+    }
+
+    if (!contentRef.current) {
       return;
     }
 
