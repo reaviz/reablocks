@@ -1,3 +1,6 @@
+# 8.5.3
+- [improvement] add ability to independently control icon button sizes with theme
+
 # 8.5.2
 - [fix] improve ellipsis sizing in real world
 
