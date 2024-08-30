@@ -71,6 +71,12 @@ export interface ButtonTheme {
     large: string;
     [key: string]: string;
   };
+  iconSizes: {
+    small: string;
+    medium: string;
+    large: string;
+    [key: string]: string;
+  };
 }
 
 const baseTheme: Partial<ButtonTheme> = {
@@ -95,6 +101,11 @@ const baseTheme: Partial<ButtonTheme> = {
     small: 'text-sm px-2 py-1 leading-[normal]',
     medium: 'text-base px-4 py-2 leading-[normal]',
     large: 'text-xl px-5 py-2.5 leading-[normal]'
+  },
+  iconSizes: {
+    small: 'px-2 py-1',
+    medium: 'px-4 py-2',
+    large: 'px-5 py-2.5'
   }
 };
 
@@ -109,6 +120,7 @@ export const buttonTheme: ButtonTheme = {
   groupText: baseTheme.groupText,
   adornment: baseTheme.adornment,
   sizes: baseTheme.sizes,
+  iconSizes: baseTheme.iconSizes,
   variants: {
     filled:
       'bg-secondary hover:bg-border-secondary-hover border-secondary light:text-gray-100',
@@ -165,6 +177,11 @@ export const legacyButtonTheme: ButtonTheme = {
   group: baseTheme.group,
   groupText: baseTheme.groupText,
   sizes: {
+    small: '[font-size:_var(--font-size-sm)] p-[var(--button-spacing-sm)]',
+    medium: '[font-size:_var(--font-size-md)] p-[var(--button-spacing-md)]',
+    large: '[font-size:_var(--font-size-lg)] p-[var(--button-spacing-lg)]'
+  },
+  iconSizes: {
     small: '[font-size:_var(--font-size-sm)] p-[var(--button-spacing-sm)]',
     medium: '[font-size:_var(--font-size-md)] p-[var(--button-spacing-md)]',
     large: '[font-size:_var(--font-size-lg)] p-[var(--button-spacing-lg)]'
