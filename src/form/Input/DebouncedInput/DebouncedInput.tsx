@@ -8,10 +8,7 @@ export interface DebouncedInputProps extends InputProps {
   debounce?: number;
 }
 
-export const DebouncedInput: FC<DebouncedInputProps & InputRef> = forwardRef<
-  InputRef,
-  DebouncedInputProps
->(
+export const DebouncedInput = forwardRef<InputRef, DebouncedInputProps>(
   (
     { debounce = 100, value, onChange, onValueChange, ...rest },
     ref: Ref<InputRef>
