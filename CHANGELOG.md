@@ -1,3 +1,6 @@
+# 8.5.4
+- [fix] fix type for debounce input #257
+
 # 8.5.3
 - [improvement] add ability to independently control icon button sizes with theme
 
