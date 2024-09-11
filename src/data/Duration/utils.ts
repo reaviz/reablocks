@@ -27,7 +27,9 @@ export function formatDuration(time: DurationFormatTypes, emptyValue = 'N/A') {
   const [valueStr, unitStr] = humanized.split(' ');
 
   const value = parseFloat(valueStr);
-  if (value === 1) {
+  if (value === 0) {
+    return '0 ms';
+  } else if (value === 1) {
     return humanized;
   }
 

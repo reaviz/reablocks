@@ -8,6 +8,10 @@ export default {
 
 export const Simple = () => (
   <Fragment>
+    <Duration value="0" />
+    <br />
+    <Duration value="1" />
+    <br />
     <Duration value="125" />
     <br />
     <Duration value="256" />
