@@ -1,3 +1,6 @@
+# 8.5.5
+- [fix] fix json tree node alignment #258
+
 # 8.5.4
 - [fix] fix type for debounce input #257
 
