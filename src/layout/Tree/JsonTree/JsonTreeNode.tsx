@@ -134,7 +134,11 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
         )}
         <span className={twMerge(theme.node.value)}>
           {ellipsis && !isEmptyString ? (
-            <Ellipsis value={data.data} limit={ellipsisTextLength} />
+            <Ellipsis
+              value={data.data}
+              limit={ellipsisTextLength}
+              className="inline"
+            />
           ) : (
             valueLabel
           )}
