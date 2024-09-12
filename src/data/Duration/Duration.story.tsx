@@ -8,6 +8,10 @@ export default {
 
 export const Simple = () => (
   <Fragment>
+    <Duration value="0" />
+    <br />
+    <Duration value="1" />
+    <br />
     <Duration value="125" />
     <br />
     <Duration value="256" />
@@ -20,13 +24,17 @@ export const Simple = () => (
   </Fragment>
 );
 
+export const CustomZero = () => <Duration value="0" zeroValue="No value" />;
+
 export const Empty = () => (
   <Fragment>
     <Duration value={null} />
     <br />
     <Duration value={undefined} />
     <br />
-    <Duration value={null} emptyValue="Nothing to see" />
-    <br />
   </Fragment>
+);
+
+export const CustomEmpty = () => (
+  <Duration value={null} emptyValue="Nothing to see" />
 );

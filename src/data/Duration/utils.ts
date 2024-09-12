@@ -12,7 +12,11 @@ const timeScale = new humanFormat.Scale({
   month: 2592000 * 1000
 });
 
-export function formatDuration(time: DurationFormatTypes, emptyValue = 'N/A') {
+export function formatDuration(
+  time: DurationFormatTypes,
+  emptyValue = 'N/A',
+  zeroValue = '0 ms'
+) {
   let newTime = time;
 
   // Try and tease out the different formats users might pass
@@ -27,7 +31,9 @@ export function formatDuration(time: DurationFormatTypes, emptyValue = 'N/A') {
   const [valueStr, unitStr] = humanized.split(' ');
 
   const value = parseFloat(valueStr);
-  if (value === 1) {
+  if (value === 0) {
+    return zeroValue;
+  } else if (value === 1) {
     return humanized;
   }
 
