@@ -161,7 +161,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             variant="text"
             disabled={disabled}
             onClick={previousClickHandler}
-            className={theme.header.mid}
+            className={theme.header.prev}
             disablePadding
           >
             {previousArrow}
@@ -191,6 +191,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             variant="text"
             disabled={disabled}
             onClick={nextYearClickHandler}
+            className={theme.header.next}
             disablePadding
           >
             {nextYearArrow}
