@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
 import { useId, CloneElement } from '@/utils';
 import FocusTrap from 'focus-trap-react';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
 import { DialogHeader, DialogHeaderProps } from './DialogHeader';
 import { useComponentTheme } from '@/utils';
@@ -64,6 +64,11 @@ export interface DialogProps extends Omit<GlobalOverlayProps, 'children'> {
    * Theme for the Dialog.
    */
   theme?: DialogTheme;
+
+  /**
+   * Custom motion props to override default animations.
+   */
+  motionProps?: MotionProps;
 }
 
 export const Dialog: FC<DialogProps> = ({
@@ -82,7 +87,13 @@ export const Dialog: FC<DialogProps> = ({
   showCloseButton = true,
   closeOnBackdropClick = true,
   closeOnEscape = true,
-  theme: customTheme
+  theme: customTheme,
+  motionProps = {
+    initial: { opacity: 0, y: '-20%' },
+    animate: { opacity: 1, y: 0 },
+    exit: { opacity: 0, y: '20%' },
+    transition: { duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }
+  }
 }) => {
   const id = useId();
   const theme: DialogTheme = useComponentTheme('dialog', customTheme);
@@ -105,10 +116,7 @@ export const Dialog: FC<DialogProps> = ({
         >
           <div id={id} tabIndex={-1}>
             <motion.div
-              initial={{ opacity: 0, y: '-20%' }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: '20%' }}
-              transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
+              {...motionProps}
               style={{ zIndex: overlayIndex }}
               className={twMerge(theme.base, className)}
             >
