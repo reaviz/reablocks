@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { MotionProps } from 'framer-motion';
 import { Dialog } from './Dialog';
 import { useDialog } from './useDialog';
 import { Button } from '../../elements';
@@ -109,6 +110,30 @@ export const ConfirmDialog = () => {
           This is notification text. Fusce dapibus, tellus ac cursus commodo,
           tortor mauris condimentum nibh, ut fermentum massa justo sit amet
           risus.
+        </div>
+      </Dialog>
+    </div>
+  );
+};
+
+export const CustomAnimation = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div style={{ textAlign: 'center', margin: '50px' }}>
+      <Button onClick={() => setOpen(true)}>Open</Button>
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        header="Custom Animation Dialog"
+        initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        exit={{ opacity: 0, scale: 0.5, rotate: 10 }}
+        transition={{ duration: 0.4, type: 'spring', stiffness: 150 }}
+      >
+        <div className="p-4">
+          <p>This dialog uses custom animation properties.</p>
+          <p>It scales and rotates while fading in and out.</p>
         </div>
       </Dialog>
     </div>
