@@ -2,14 +2,16 @@ import React, { FC, ReactElement } from 'react';
 import FocusTrap from 'focus-trap-react';
 import { useId, CloneElement } from '@/utils';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
-import { motion } from 'framer-motion';
+import { motion, MotionProps } from 'framer-motion';
 import { variants } from './variants';
 import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
 import { twMerge } from 'tailwind-merge';
 import { DrawerTheme } from './DrawerTheme';
 import { useComponentTheme } from '@/utils';
 
-export interface DrawerProps extends Omit<GlobalOverlayProps, 'children'> {
+export interface DrawerProps
+  extends Omit<GlobalOverlayProps, 'children'>,
+    MotionProps {
   /**
    * Position of the drawer.
    */
@@ -82,7 +84,8 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
   disablePadding = false,
   showCloseButton = true,
   onClose,
-  theme: customTheme
+  theme: customTheme,
+  ...rest
 }) => {
   const id = useId();
   const variant = variants[position];
@@ -129,6 +132,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                 disablePadding && theme.disablePadding,
                 className
               )}
+              {...rest}
             >
               {(header || headerElement) && (
                 <CloneElement<DrawerHeaderProps>

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import { useDrawer } from './useDrawer';
 import { Drawer } from './Drawer';
 import { Button } from '../../elements';
@@ -73,6 +73,29 @@ export const CustomHeader = () => {
         <p>Hello There!</p>
       </Drawer>
       <Button type="button" onClick={toggleOpen}>
+        Open
+      </Button>
+    </Fragment>
+  );
+};
+
+export const CustomAnimation = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <Fragment>
+      <Drawer
+        className="max-w-[400px] mr-10 max-h-[90vh] my-auto rounded-xl"
+        initial={{ x: '120%', opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        exit={{ x: '120%', opacity: 0 }}
+        transition={{ duration: 0.5, ease: [0.12, 0.78, 0.32, 0.98] }}
+        open={isOpen}
+        onClose={() => setIsOpen(false)}
+      >
+        <p>Hello There!</p>
+      </Drawer>
+      <Button type="button" onClick={() => setIsOpen(!isOpen)}>
         Open
       </Button>
     </Fragment>
