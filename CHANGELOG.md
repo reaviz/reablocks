@@ -1,3 +1,8 @@
+# 8.6.0 - 10/23/24
+- [feature] Add custom animation to Dialog #261
+- [fix] fix incorrect classname for calendar date range arrows #260
+- [fix] handle 0 value durations #259
+
 # 8.5.5
 - [fix] fix json tree node alignment #258
 
