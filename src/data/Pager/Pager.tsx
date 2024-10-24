@@ -123,10 +123,6 @@ export const Pager: FC<PagerProps> = ({
     }
   }, [canNext, page, onPageChange, pageCount]);
 
-  if (pageCount === 1) {
-    return null;
-  }
-
   return (
     <div className={twMerge(theme.base, className)}>
       {(displayMode === 'items' || displayMode === 'all') && (
