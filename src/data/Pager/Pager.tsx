@@ -79,15 +79,6 @@ export interface PagerProps {
   displayMode?: 'pages' | 'items' | 'all';
 
   /**
-   * Determines whether content should be shown when there is only a single page.
-   *
-   * @type {boolean}
-   * @default true
-   * @optional
-   */
-  hideOnSinglePage?: boolean;
-
-  /**
    * The theme for the Pager.
    */
   theme?: PagerTheme;
@@ -107,7 +98,6 @@ export const Pager: FC<PagerProps> = ({
   nextArrow = <NextArrow />,
   onPageChange,
   displayMode = 'pages',
-  hideOnSinglePage = true,
   theme: customTheme
 }) => {
   const pageCount = Math.ceil(total / size);
@@ -132,10 +122,6 @@ export const Pager: FC<PagerProps> = ({
       onPageChange?.(pageCount - 1);
     }
   }, [canNext, page, onPageChange, pageCount]);
-
-  if (hideOnSinglePage && pageCount === 1) {
-    return null;
-  }
 
   return (
     <div className={twMerge(theme.base, className)}>
