@@ -108,9 +108,13 @@ export const Dialog: FC<DialogProps> = ({
         >
           <div id={id} tabIndex={-1}>
             <motion.div
-              {...rest}
+              initial={{ opacity: 0, y: '-20%' }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: '20%' }}
+              transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
               style={{ zIndex: overlayIndex }}
               className={twMerge(theme.base, className)}
+              {...rest}
             >
               <div
                 className={twMerge(theme.inner, innerClassName)}
