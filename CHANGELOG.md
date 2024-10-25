@@ -1,3 +1,10 @@
+# 8.7.1
+- [fix] Put back default Dialog animation (#264)
+
+# 8.7.0
+- [feature] add show on single page prop to Pager
+- [feature] Add Drawer custom animations #262
+
 # 8.6.0 - 10/23/24
 - [feature] Add custom animation to Dialog #261
 - [fix] fix incorrect classname for calendar date range arrows #260
