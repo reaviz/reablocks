@@ -1,3 +1,6 @@
+# 8.7.2
+- [fix] Add initial state for checkbox #265
+
 # 8.7.1
 - [fix] Put back default Dialog animation (#264)
 
