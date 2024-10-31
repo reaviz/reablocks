@@ -177,6 +177,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           }}
         >
           <motion.svg
+            initial={checked ? 'checked' : 'unchecked'}
             animate={checked ? 'checked' : 'unchecked'}
             whileHover={!disabled ? 'hover' : undefined}
             whileTap={!disabled ? 'pressed' : undefined}
