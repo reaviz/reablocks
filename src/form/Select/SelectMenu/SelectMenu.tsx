@@ -156,6 +156,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
             event.stopPropagation();
             onSelectedChange(o);
           }}
+          disabled={o.disabled}
         >
           {o.menuLabel ? (
             o.menuLabel

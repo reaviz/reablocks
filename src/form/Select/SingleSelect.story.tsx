@@ -622,6 +622,21 @@ export const Disabled = () => (
   </div>
 );
 
+export const DisabledOption = () => {
+  const [value, setValue] = useState<string | null>(null);
+  return (
+    <div style={{ width: 300 }}>
+      <Select value={value} onChange={v => setValue(v)} placeholder="Select...">
+        <SelectOption value="facebook">facebook</SelectOption>
+        <SelectOption value="twitter" disabled>
+          twitter
+        </SelectOption>
+        <SelectOption value="twitch">twitch</SelectOption>
+      </Select>
+    </div>
+  );
+};
+
 export const Unfilterable = () => {
   const [value, setValue] = useState<string | null>('facebook');
   return (
