@@ -1,3 +1,6 @@
+# 8.7.3 - 11/1/24
+- [fix] fix disabled option for select #266
+
 # 8.7.2
 - [fix] Add initial state for checkbox #265
 
