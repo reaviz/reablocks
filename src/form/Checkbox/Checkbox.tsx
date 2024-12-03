@@ -3,7 +3,8 @@ import React, {
   forwardRef,
   LegacyRef,
   ReactNode,
-  useCallback
+  useCallback,
+  useEffect
 } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import { twMerge } from 'tailwind-merge';
@@ -121,6 +122,12 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
     const pathLength = useMotionValue(0);
     const opacity = useTransform(pathLength, [0.05, 0.15], [0, 1]);
 
+    useEffect(() => {
+      // If the checkbox is inside a dialog, the animation will not work.
+      // This is a workaround to force the animation to work.
+      pathLength.set(checked ? 1 : 0);
+    }, [checked, pathLength]);
+
     const checkVariants = {
       pressed: (isChecked: boolean) => ({ pathLength: isChecked ? 0.85 : 0.3 }),
       checked: { pathLength: 1 },
@@ -177,7 +184,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           }}
         >
           <motion.svg
-            initial={checked ? 'checked' : 'unchecked'}
+            initial={false}
             animate={checked ? 'checked' : 'unchecked'}
             whileHover={!disabled ? 'hover' : undefined}
             whileTap={!disabled ? 'pressed' : undefined}
@@ -196,16 +203,19 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             />
             {intermediate ? (
               <motion.path
+                layoutId="checkPath"
                 d={intermediatePath}
                 fill="transparent"
                 strokeWidth="1"
                 className={theme.check.base}
                 variants={checkVariants}
+                initial={checked ? 'checked' : 'unchecked'}
                 style={{ pathLength, opacity }}
                 custom={checked}
               />
             ) : (
               <motion.path
+                layoutId="checkPath"
                 d={checkedPath}
                 fill="transparent"
                 strokeWidth="1"
@@ -215,6 +225,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
                   checked && theme.check.checked
                 )}
                 variants={checkVariants}
+                initial={checked ? 'checked' : 'unchecked'}
                 style={{ pathLength, opacity }}
                 custom={checked}
               />
