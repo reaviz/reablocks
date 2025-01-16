@@ -97,6 +97,7 @@
     "@storybook/react-vite": "^8.1.1",
     "@storybook/theming": "^8.1.1",
     "@types/classnames": "^2.3.1",
+    "@types/node": "^22.10.7",
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.6.0",
