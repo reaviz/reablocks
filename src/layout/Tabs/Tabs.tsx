@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { useId } from '@/utils';
 import { twMerge } from 'tailwind-merge';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'motion/react';
 import { useComponentTheme } from '@/utils/Theme/hooks';
 import { TabsTheme } from './TabsTheme';
 import { TabPanel } from './TabPanel';

@@ -6,7 +6,7 @@ import React, {
   useContext,
   useMemo
 } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { RadioGroupContext } from './RadioGroupContext';
 import { cn, useComponentTheme } from '@/utils';
 import { RadioTheme } from './RadioTheme';

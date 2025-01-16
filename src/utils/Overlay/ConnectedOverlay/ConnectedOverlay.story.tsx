@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import React, { useState, useRef } from 'react';
 import { ConnectedOverlay } from './ConnectedOverlay';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 const meta: Meta<typeof ConnectedOverlay> = {
   title: 'Components/Utils/Overlay/Connected Overlay',

@@ -4,7 +4,7 @@ import {
   clearAllBodyScrollLocks
 } from 'body-scroll-lock-upgrade';
 import { OverlayContext } from '@/utils/Overlay/OverlayContext';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'motion/react';
 import { OverlayPortal } from '@/utils/Overlay/OverlayPortal';
 import { useExitListener } from '@/utils/ExitListener';
 import { Backdrop } from '@/layers/Backdrop';

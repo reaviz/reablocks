@@ -1,5 +1,5 @@
 import React, { FC, forwardRef, LegacyRef, useContext } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ButtonGroupContext } from './ButtonGroupContext';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';

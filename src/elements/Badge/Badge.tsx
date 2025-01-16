@@ -1,5 +1,5 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { BadgeTheme } from './BadgeTheme';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';

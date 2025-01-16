@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import React, { Fragment, useState } from 'react';
 import { GlobalOverlay } from './GlobalOverlay';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { useOverlay } from '../useOverlay';
 
 const meta: Meta<typeof GlobalOverlay> = {

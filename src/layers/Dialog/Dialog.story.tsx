@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MotionProps } from 'framer-motion';
+import { MotionProps } from 'motion/react';
 import { Dialog } from './Dialog';
 import { useDialog } from './useDialog';
 import { Button } from '../../elements';

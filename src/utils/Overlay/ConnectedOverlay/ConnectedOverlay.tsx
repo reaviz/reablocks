@@ -10,7 +10,7 @@ import React, {
 } from 'react';
 import { TriggerTypes, OverlayTrigger } from '@/utils/Overlay/OverlayTrigger';
 import { Modifiers, Placement, ReferenceProp } from '@/utils/Position';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence } from 'motion/react';
 import { OverlayContext } from '@/utils/Overlay/OverlayContext';
 import {
   ConnectedOverlayContent,

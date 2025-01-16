@@ -6,7 +6,7 @@ import React, {
   FC,
   useMemo
 } from 'react';
-import { motion, useMotionValue } from 'framer-motion';
+import { motion, useMotionValue } from 'motion/react';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
 import { twMerge } from 'tailwind-merge';
 import { cn, useComponentTheme } from '@/utils';

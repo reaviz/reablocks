@@ -26,7 +26,7 @@ Outline.args = {
 
 export const RoundedWithImage = Template.bind({});
 RoundedWithImage.args = {
-  src: 'https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg',
+  src: 'https://i.pravatar.cc/128',
   size: 50,
   rounded: true
 };

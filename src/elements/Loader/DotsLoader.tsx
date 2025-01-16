@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { DotsLoaderTheme } from './DotsLoaderTheme';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';

@@ -1,7 +1,7 @@
 import React, { FC, useState, useRef, useEffect, ReactNode } from 'react';
 import { ConnectedOverlay, TriggerTypes } from '@/utils/Overlay';
 import { Modifiers, Placement, ReferenceObject } from '@/utils/Position';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { twMerge } from 'tailwind-merge';
 import { useTooltipState } from './useTooltipState';
 import { TooltipTheme } from './TooltipTheme';
