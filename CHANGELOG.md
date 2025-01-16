@@ -1,3 +1,6 @@
+# 8.7.4 - 1/16/25
+- [improvement] Upgrade framer #272
+
 # 8.7.3 - 11/1/24
 - [fix] fix disabled option for select #266
 
