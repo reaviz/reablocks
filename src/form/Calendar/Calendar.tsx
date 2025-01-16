@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import React, { FC, useCallback, useMemo, useState } from 'react';
 import { Button } from '@/elements/Button';
 import {

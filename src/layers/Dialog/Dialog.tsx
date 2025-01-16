@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
 import { useId, CloneElement } from '@/utils';
 import FocusTrap from 'focus-trap-react';
-import { motion, MotionProps } from 'framer-motion';
+import { motion, MotionProps } from 'motion/react';
 import { twMerge } from 'tailwind-merge';
 import { DialogHeader, DialogHeaderProps } from './DialogHeader';
 import { useComponentTheme } from '@/utils';

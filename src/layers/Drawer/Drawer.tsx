@@ -2,7 +2,7 @@ import React, { FC, ReactElement } from 'react';
 import FocusTrap from 'focus-trap-react';
 import { useId, CloneElement } from '@/utils';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
-import { motion, MotionProps } from 'framer-motion';
+import { motion, MotionProps } from 'motion/react';
 import { variants } from './variants';
 import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
 import { twMerge } from 'tailwind-merge';

@@ -4,7 +4,7 @@ import { MiddlewareState, size } from '@floating-ui/react';
 import { ConnectedOverlay, OverlayEvent } from '@/utils/Overlay';
 import { Modifiers, Placement } from '@/utils/Position';
 import { useId } from '@/utils';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { twMerge } from 'tailwind-merge';
 import { MenuTheme } from './MenuTheme';
 import { useComponentTheme } from '@/utils';

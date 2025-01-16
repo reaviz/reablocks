@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import { toggleTheme, Toggle } from '../../../src/form/Toggle';
 import { radioTheme, Radio } from '../../../src/form/Radio';

@@ -7,7 +7,7 @@ import {
   sub,
   format
 } from 'date-fns';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { Button } from '@/elements';
 import { CalendarProps } from './Calendar';
 import { CalendarDays } from './CalendarDays';

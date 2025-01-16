@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { HTMLMotionProps, motion } from 'framer-motion';
+import { HTMLMotionProps, motion } from 'motion/react';
 
 export const verticalVariant = {
   initial: {

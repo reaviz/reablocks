@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'motion/react';
 import { CollapseTheme } from './CollapseTheme';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';

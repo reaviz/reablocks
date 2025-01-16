@@ -1,5 +1,5 @@
 import React, { FC, MouseEvent } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { cn, useComponentTheme } from '@/utils';
 
 import { BackdropTheme } from './BackdropTheme';

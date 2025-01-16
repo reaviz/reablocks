@@ -8,7 +8,7 @@ import {
   isNextWeekEmpty,
   isPreviousWeekEmpty
 } from '@/form/Calendar/utils';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { twMerge } from 'tailwind-merge';

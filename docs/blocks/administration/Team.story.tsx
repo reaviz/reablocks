@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 
 import { Card } from '../../../src/layout/Card';
 import { Tabs, Tab, TabList, TabPanel } from '../../../src/layout/Tabs';

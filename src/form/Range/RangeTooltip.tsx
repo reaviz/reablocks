@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'motion/react';
 import { RangeTheme } from './RangeTheme';
 import { useComponentTheme } from '@/utils';
 

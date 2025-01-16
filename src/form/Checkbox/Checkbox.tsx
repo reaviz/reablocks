@@ -5,7 +5,7 @@ import React, {
   ReactNode,
   useCallback
 } from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'motion/react';
 import { twMerge } from 'tailwind-merge';
 import { CheckboxTheme } from './CheckboxTheme';
 import { useComponentTheme } from '@/utils';

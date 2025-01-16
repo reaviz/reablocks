@@ -1,5 +1,5 @@
 import React, { FC, Fragment, useCallback } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
 import Highlighter from 'react-highlight-words';
 import { GroupOptions, GroupOption } from '@/form/Select/utils';

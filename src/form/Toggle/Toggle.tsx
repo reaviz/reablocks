@@ -1,5 +1,5 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ToggleTheme } from './ToggleTheme';
 import { cn, useComponentTheme } from '@/utils';
 

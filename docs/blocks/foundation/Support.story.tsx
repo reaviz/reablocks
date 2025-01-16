@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { Controller, useForm } from 'react-hook-form';
 
 import { Block, Card } from '../../../src/layout';
