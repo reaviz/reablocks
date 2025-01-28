@@ -1,3 +1,6 @@
+# 8.7.5 - 1/28/25
+- [fix] Update ctrl-keys import #272
+
 # 8.7.4 - 1/16/25
 - [improvement] Upgrade framer #272
 
