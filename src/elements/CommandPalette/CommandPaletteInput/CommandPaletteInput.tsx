@@ -11,7 +11,8 @@ import { SearchIcon } from './SearchIcon';
 import { HotkeyIem } from '@/elements/CommandPalette/useFlattenedTree';
 import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 import { useComponentTheme } from '@/utils';
-import keys, { Handler } from 'ctrl-keys';
+import type { HandlerInterface } from 'ctrl-keys';
+import keys from 'ctrl-keys';
 
 export interface CommandPaletteInputProps {
   /**
@@ -78,7 +79,7 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
   theme: customTheme
 }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
-  const handlerRef = useRef<Handler>(keys());
+  const handlerRef = useRef<HandlerInterface>(keys());
   const keyMapRef = useRef<Map<string, any>>(new Map());
 
   useLayoutEffect(() => {
