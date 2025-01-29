@@ -13,8 +13,7 @@ export const DebouncedInput = forwardRef<InputRef, DebouncedInputProps>(
     { debounce = 100, value, onChange, onValueChange, ...rest },
     ref: Ref<InputRef>
   ) => {
-    // eslint-disable-next-line no-undef
-    const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+    const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const [internalValue, setInternalValue] = useState<
       string | number | readonly string[]
     >(value);
