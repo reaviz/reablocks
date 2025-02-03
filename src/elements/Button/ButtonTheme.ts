@@ -80,7 +80,7 @@ export interface ButtonTheme {
 }
 
 const baseTheme: Partial<ButtonTheme> = {
-  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-sm font-sans',
+  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-xs font-sans',
   disabled: 'disabled:cursor-not-allowed',
   fullWidth: 'flex w-full',
   group:
@@ -140,7 +140,7 @@ export const buttonTheme: ButtonTheme = {
       text: 'text-primary hover:text-primary-hover'
     },
     secondary: {
-      filled: 'bg-secondary hover:bg-secondary-hover !text-text-primary',
+      filled: 'bg-secondary hover:bg-secondary-hover text-text-primary!',
       outline: 'border border-secondary',
       text: 'text-secondary hover:text-secondary-hover'
     },

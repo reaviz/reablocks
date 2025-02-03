@@ -7,7 +7,7 @@ export interface CommandPaletteInputTheme {
 const baseTheme: CommandPaletteInputTheme = {
   base: 'flex w-full items-center border-b-2',
   input:
-    'flex-1 border-0 box-border p-2.5 focus-within:outline-none focus-visible:outline-none',
+    'flex-1 border-0 box-border p-2.5 focus-within:outline-hidden focus-visible:outline-hidden',
   icon: 'w-4 h-4 ml-2.5'
 };
 

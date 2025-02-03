@@ -54,7 +54,7 @@ const baseTheme: TabsTheme = {
         divider: 'bg-surface'
       },
       secondary: {
-        divider: 'bg-gradient-to-r from-transparent to-transparent via-primary'
+        divider: 'bg-linear-to-r from-transparent to-transparent via-primary'
       }
     },
     tab: {

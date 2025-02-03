@@ -1,3 +1,4 @@
+// TODO: remove file after migration
 export const colorPalette = {
   white: '#FFFFFF',
   black: '#000000',

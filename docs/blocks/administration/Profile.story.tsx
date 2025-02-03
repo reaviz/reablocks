@@ -1044,10 +1044,10 @@ export const Profile = () => (
           </p>
         </Stack>
         <Stack justifyContent="end">
-          <div className="p-2 flex h-full items-center rounded ">
+          <div className="p-2 flex h-full items-center rounded-sm ">
             <Avatar className="h-10 w-10" name="Austin M" size={50} />
           </div>
-          <div className="border w-full border-dotted rounded text-sm opacity-75 text-center p-2 border-blue-500">
+          <div className="border w-full border-dotted rounded-sm text-sm opacity-75 text-center p-2 border-blue-500">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -1151,7 +1151,7 @@ export const Account = () => (
               </Stack>
 
               <MotionItem>
-                <Block className="min-w-[300px] mt-8 p-5 border rounded border-gray-600 light:border-gray-300">
+                <Block className="min-w-[300px] mt-8 p-5 border rounded-sm border-gray-600 light:border-gray-300">
                   <Stack direction="column" className="w-full gap-5">
                     <Stack justifyContent="spaceBetween" className="w-full">
                       <Chip
@@ -1268,7 +1268,7 @@ export const Account = () => (
                 </Stepper>
               </Block>
             </Stack>
-            <Block className="w-2/5 min-w-[300px] mt-8 p-5 border rounded border-gray-600 light:border-gray-300">
+            <Block className="w-2/5 min-w-[300px] mt-8 p-5 border rounded-sm border-gray-600 light:border-gray-300">
               <MotionItem>
                 <img src={AvatarImage} className="h-full w-full" />
                 <h3 className="text-gray-100 my-2.5 font-bold light:text-gray-900">
@@ -1420,7 +1420,7 @@ export const Overview = () => (
                 </Stack>
                 <Block className="grid grid-cols-2 gap-4 mt-4">
                   <Stack alignItems="center">
-                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
+                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
                       <EmailIcon className="text-gray-300 light:text-gray-700" />
                     </Block>
                     <div>
@@ -1435,7 +1435,7 @@ export const Overview = () => (
                     </div>
                   </Stack>
                   <Stack alignItems="center">
-                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
+                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
                       <PhoneIcon className="text-gray-300 light:text-gray-700" />
                     </Block>
                     <div>
@@ -1450,7 +1450,7 @@ export const Overview = () => (
                     </div>
                   </Stack>
                   <Stack alignItems="center">
-                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
+                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
                       <LoginIcon className="text-gray-300 light:text-gray-700" />
                     </Block>
                     <div>
@@ -1465,7 +1465,7 @@ export const Overview = () => (
                     </div>
                   </Stack>
                   <Stack alignItems="center">
-                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
+                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
                       <AdminIcon className="text-gray-300 light:text-gray-700" />
                     </Block>
                     <div>
@@ -1483,7 +1483,7 @@ export const Overview = () => (
                 <Divider variant="secondary" className="my-1" />
                 <Block className="grid grid-cols-1 gap-4 mt-4">
                   <Stack alignItems="center">
-                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
+                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
                       <LocationIcon className="text-gray-300 light:text-gray-700" />
                     </Block>
                     <div>
@@ -1498,7 +1498,7 @@ export const Overview = () => (
                     </div>
                   </Stack>
                   <Stack alignItems="center">
-                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
+                    <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
                       <PendingIcon className="text-gray-300 light:text-gray-700" />
                     </Block>
                     <div>
@@ -1700,7 +1700,7 @@ export const Settings = () => {
     >
       <Card className="p-8 transition-colors w-full min-w-[960px] max-w-[1200px] light:bg-gray-100">
         <Stack alignItems="start">
-          <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-sm">
+          <Block className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
             <UserIcon className="text-gray-300 light:text-gray-700" />
           </Block>
           <Stack alignItems="start" direction="column" className="gap-0" dense>
@@ -1838,7 +1838,7 @@ export const Settings = () => {
                         type="submit"
                         variant="filled"
                         color="primary"
-                        className="w-1/2 min-h-10 rounded-sm px-4 py-2 !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+                        className="w-1/2 min-h-10 rounded-xs px-4 py-2 text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? 'Saving...' : 'Save'}

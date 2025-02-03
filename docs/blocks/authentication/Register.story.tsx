@@ -51,7 +51,7 @@ const RadioTheme = {
   base: 'box-border leading-3',
   radio: {
     ...radioTheme.radio,
-    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-none focus-visible:border-primary-hover',
+    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-hidden focus-visible:border-primary-hover',
     checked: 'border-primary'
   }
 };
@@ -160,7 +160,7 @@ export const Register = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-5 mb-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+            className="mt-5 mb-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}
@@ -521,7 +521,7 @@ export const RegisterFull = () => {
                 type="submit"
                 variant="filled"
                 color="primary"
-                className="mt-5 mb-2 px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+                className="mt-5 mb-2 px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Creating...' : 'Create Account →'}
@@ -657,7 +657,7 @@ export const RegisterV2 = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-5 mb-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+            className="mt-5 mb-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Creating...' : 'Create Account →'}
@@ -846,7 +846,7 @@ export const RegisterWithSocial = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 mb-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+            className="mt-7 mb-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}

@@ -34,7 +34,7 @@ export const PaletteBlocks: FC<PaletteBlocksProps> = ({ palettes }) => {
                 key={`${key}-${item}`}
                 name={`${key}-${item}`}
                 color={palettes![key][item]}
-                className="rounded border border-slate-500"
+                className="rounded-sm border border-slate-500"
               />
             ))}
           </div>

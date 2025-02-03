@@ -1,6 +1,6 @@
-import resolveConfig from 'tailwindcss/resolveConfig';
+// import resolveConfig from 'tailwindcss/resolveConfig';
 import tailwindConfig from '../../../tailwind.config';
 
-const { theme: TWConfig } = resolveConfig(tailwindConfig);
+// const { theme: TWConfig } = resolveConfig(tailwindConfig);
 
-export default TWConfig;
+export default {};

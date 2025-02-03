@@ -1,3 +1,4 @@
+// TODO: remove file after migration
 import { type Config } from 'tailwindcss';
 import plugin from 'tailwindcss/plugin';
 import { createThemes } from 'tw-colors';

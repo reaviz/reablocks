@@ -38,8 +38,8 @@ const CheckIcon = () => (
 
 const ToggleTheme = {
   ...toggleTheme,
-  base: 'flex items-center justify-start cursor-pointer box-border border dark:border-charade dark:bg-[#1E1E2E] light:border-mystic light:bg-[#C9C9D6] hover:bg-primary-hover focus-visible:outline-none focus-visible:border-primary-hover rounded-xl transition-colors',
-  checked: 'justify-end !bg-blue-500',
+  base: 'flex items-center justify-start cursor-pointer box-border border dark:border-charade dark:bg-[#1E1E2E] light:border-mystic light:bg-[#C9C9D6] hover:bg-primary-hover focus-visible:outline-hidden focus-visible:border-primary-hover rounded-xl transition-colors',
+  checked: 'justify-end bg-blue-500!',
   handle: {
     base: 'rounded-full dark:bg-black light:bg-white',
     sizes: {
@@ -58,7 +58,7 @@ const RadioTheme = {
   base: 'box-border leading-3',
   radio: {
     ...radioTheme.radio,
-    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-none focus-visible:border-primary-hover',
+    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-hidden focus-visible:border-primary-hover',
     checked: 'border-primary'
   }
 };
@@ -70,7 +70,7 @@ export const Pricing = () => {
     <MotionGroup className="w-full grid grid-cols-3 gap-2.5">
       <MotionItem>
         <Card
-          className={cn('w-full h-[515px] rounded transition-colors', {
+          className={cn('w-full h-[515px] rounded-sm transition-colors', {
             'dark:dark:bg-[#1E1E2E]': selected !== 'free',
             'light:border-primary-active light:bg-athens-gray':
               selected === 'free'
@@ -123,11 +123,11 @@ export const Pricing = () => {
               variant={selected === 'free' ? 'filled' : 'outline'}
               color={selected === 'free' ? 'primary' : 'default'}
               className={cn(
-                'px-4 py-2 flex items-center gap-2 self-stretch !text-lg rounded-sm focus:outline-none transition-colors',
+                'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
                 {
                   'bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
                     selected === 'free',
-                  'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:!border-waterloo':
+                  'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:border-waterloo!':
                     selected !== 'free'
                 }
               )}
@@ -150,7 +150,7 @@ export const Pricing = () => {
       </MotionItem>
       <MotionItem>
         <Card
-          className={cn('w-full h-[515px] rounded transition-colors', {
+          className={cn('w-full h-[515px] rounded-sm transition-colors', {
             'dark:bg-[#1E1E2E]': selected !== 'starter',
             'light:border-primary-active light:bg-athens-gray':
               selected === 'starter'
@@ -209,11 +209,11 @@ export const Pricing = () => {
               variant={selected === 'starter' ? 'filled' : 'outline'}
               color={selected === 'starter' ? 'primary' : 'default'}
               className={cn(
-                'px-4 py-2 flex items-center gap-2 self-stretch !text-lg rounded-sm focus:outline-none transition-colors',
+                'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
                 {
                   'bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
                     selected === 'starter',
-                  'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:!border-waterloo':
+                  'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:border-waterloo!':
                     selected !== 'starter'
                 }
               )}
@@ -236,7 +236,7 @@ export const Pricing = () => {
       </MotionItem>
       <MotionItem>
         <Card
-          className={cn('w-full h-[515px] rounded transition-colors', {
+          className={cn('w-full h-[515px] rounded-sm transition-colors', {
             'dark:bg-[#1E1E2E]': selected !== 'custom',
             'light:border-primary-active light:bg-athens-gray':
               selected === 'custom'
@@ -288,11 +288,11 @@ export const Pricing = () => {
               variant={selected === 'custom' ? 'filled' : 'outline'}
               color={selected === 'custom' ? 'primary' : 'default'}
               className={cn(
-                'px-4 py-2 flex items-center gap-2 self-stretch !text-lg rounded-sm focus:outline-none transition-colors',
+                'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
                 {
                   'bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
                     selected === 'custom',
-                  'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:!border-waterloo':
+                  'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:border-waterloo!':
                     selected !== 'custom'
                 }
               )}
@@ -324,7 +324,7 @@ export const PricingFull = () => {
     <Card className="w-full transition-colors" contentClassName="w-full h-full">
       <Stack justifyContent="spaceBetween">
         <Stack>
-          <div className="dark:bg-charade/40 light:bg-blue-200/40 rounded-sm p-3">
+          <div className="dark:bg-charade/40 light:bg-blue-200/40 rounded-xs p-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -348,7 +348,7 @@ export const PricingFull = () => {
             Back to billing
           </a>
         </Stack>
-        <Stack className="dark:bg-vulcan light:bg-mystic rounded p-1" dense>
+        <Stack className="dark:bg-vulcan light:bg-mystic rounded-sm p-1" dense>
           {['Monthly', 'Yearly'].map(type => (
             <Button
               key={type}
@@ -369,7 +369,7 @@ export const PricingFull = () => {
         Change your current workspace plan
       </span>
       <MotionGroup className="flex flex-col gap-2.5 mt-7">
-        <div className="grid grid-cols-[400px,1fr,1fr,1fr] gap-2.5">
+        <div className="grid grid-cols-[400px_1fr_1fr_1fr] gap-2.5">
           <MotionItem className="self-end font-bold">Core Features</MotionItem>
           <MotionItem className="flex flex-col">
             <h6 className="text-lg font-bold">Founders Package</h6>
@@ -380,7 +380,7 @@ export const PricingFull = () => {
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
             <VerticalSpacer space="md" />
-            <div className="dark:bg-charade/40 light:bg-blue-200/40 py-2 px-4 rounded-sm flex gap-2 items-center justify-center">
+            <div className="dark:bg-charade/40 light:bg-blue-200/40 py-2 px-4 rounded-xs flex gap-2 items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
@@ -405,7 +405,7 @@ export const PricingFull = () => {
             <VerticalSpacer space="md" />
             <Button
               color="primary"
-              className="px-4 py-2 text-lg gap-2 bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+              className="px-4 py-2 text-lg gap-2 bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -445,7 +445,7 @@ export const PricingFull = () => {
             <Divider />
           </MotionItem>
         </div>
-        <MotionItem className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center gap-2.5 text-base">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center gap-2.5 text-base">
           <div className="justify-self-start">Design Support (Add On)</div>
           <div>
             <Chip
@@ -475,7 +475,7 @@ export const PricingFull = () => {
         <MotionItem>
           <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
           <div className="justify-self-start dark:text-athens-gray light:text-charade">
             Product Research
           </div>
@@ -502,7 +502,7 @@ export const PricingFull = () => {
         <MotionItem>
           <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
           <div className="justify-self-start dark:text-athens-gray light:text-charade">
             Brand Style Guide
           </div>
@@ -555,7 +555,7 @@ export const PricingFull = () => {
         <MotionItem>
           <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
           <div className="justify-self-start dark:text-athens-gray light:text-charade">
             Prototype of Web Application
           </div>
@@ -582,7 +582,7 @@ export const PricingFull = () => {
         <MotionItem>
           <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px,1fr,1fr,1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
           <div className="justify-self-start dark:text-athens-gray light:text-charade">
             Development of Web Application
           </div>
@@ -669,7 +669,7 @@ export const PricingMinimal = () => {
             <MotionItem>
               <Card
                 className={cn('px-5 py-7', {
-                  'border-solid border-transparent rounded dark:[border-image:linear-gradient(to_top_right,#2F6AFF,#0B0B11)_10] light:[border-image:linear-gradient(to_top_right,#105EFF,#F7F7FA)_10] dark:bg-blue-900/40 light:bg-blue-200/40':
+                  'border-solid border-transparent rounded-sm dark:[border-image:linear-gradient(to_top_right,#2F6AFF,#0B0B11)_10] light:[border-image:linear-gradient(to_top_right,#105EFF,#F7F7FA)_10] dark:bg-blue-900/40 light:bg-blue-200/40':
                     isFree
                 })}
               >
@@ -768,7 +768,7 @@ export const PricingMinimal = () => {
           <Stack direction="rowReverse">
             <Button
               color="primary"
-              className="px-4 py-2 text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+              className="px-4 py-2 text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
               endAdornment={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

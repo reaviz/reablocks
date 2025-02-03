@@ -64,7 +64,7 @@ export const radioTheme: RadioTheme = {
     ...baseTheme.label,
     base: [baseTheme.label.base, 'text-text-secondary'].join(' '),
     checked: [baseTheme.label.checked, 'text-text-primary'].join(' '),
-    disabled: [baseTheme.label.disabled, '!text-secondary-inactive/40'].join(
+    disabled: [baseTheme.label.disabled, 'text-secondary-inactive/40!'].join(
       ' '
     )
   },
@@ -78,7 +78,7 @@ export const radioTheme: RadioTheme = {
       baseTheme.radio.checked,
       'border-primary-active group-hover:border-primary-hover'
     ].join(' '),
-    disabled: [baseTheme.radio.disabled, '!border-secondary-inactive'].join(' ')
+    disabled: [baseTheme.radio.disabled, 'border-secondary-inactive!'].join(' ')
   },
   indicator: {
     ...baseTheme.indicator,
@@ -86,7 +86,7 @@ export const radioTheme: RadioTheme = {
       baseTheme.indicator.base,
       'bg-primary group-hover:bg-primary-hover'
     ].join(' '),
-    disabled: [baseTheme.indicator.disabled, '!bg-secondary-inactive'].join(' ')
+    disabled: [baseTheme.indicator.disabled, 'bg-secondary-inactive!'].join(' ')
   }
 };
 

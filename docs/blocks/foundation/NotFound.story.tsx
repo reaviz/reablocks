@@ -834,13 +834,13 @@ const GridPatternIcon = ({ className }) => (
 export const NotFound = () => (
   <div className="flex flex-row justify-center w-full md:min-w-[960px] min-h-[600px] relative dark:bg-black-pearl p-6">
     <div className="text-center">
-      <div className="absolute top-0 left-0 z-0 w-full leading-[600px] text-center text-transparent bg-clip-text text-[400px] opacity-30 bg-gradient-to-r from-waterloo to-charade font-bold">
+      <div className="absolute top-0 left-0 z-0 w-full leading-[600px] text-center text-transparent bg-clip-text text-[400px] opacity-30 bg-linear-to-r from-waterloo to-charade font-bold">
         404
       </div>
       <div className="absolute top-0 left-0 w-full h-full dark:bg-[radial-gradient(circle,rgba(36,36,66,0.3)_2%,rgba(2,2,15,1)_80%)] light:bg-[radial-gradient(circle,rgba(224,224,232,0.3)_2%,rgba(247,247,250,1)_80%)]" />
       <div className="flex flex-col gap-3 h-full justify-center">
         <div className="grow" />
-        <div className="text-text-primary z-10 relative font-bold !text-5xl">
+        <div className="text-text-primary z-10 relative font-bold text-5xl!">
           We lost this page
         </div>
         <div className="dark:text-waterloo light:text-charade opacity-80 z-10 relative">
@@ -874,7 +874,7 @@ export const NotFound = () => (
         <div className="grow flex flex-col justify-center">
           <Button
             color="primary"
-            className="z-10 mx-auto relative rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors font-semibold"
+            className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors font-semibold"
           >
             ← Back to Home
           </Button>
@@ -966,7 +966,7 @@ export const DoesNotExist = () => (
         </span>
       </MotionItem>
       <div className="flex flex-col items-center w-full md:w-[600px] pb-[50px] m-auto">
-        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded group/item">
+        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded-sm group/item">
           <svg
             className="group-hover/item:fill-primary-active dark:fill-mystic transition-colors"
             xmlns="http://www.w3.org/2000/svg"
@@ -999,7 +999,7 @@ export const DoesNotExist = () => (
         <MotionItem className="w-full">
           <Divider variant="secondary" disableMargins />
         </MotionItem>
-        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded group/item">
+        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded-sm group/item">
           <svg
             className="group-hover/item:fill-primary-active dark:fill-mystic transition-colors"
             xmlns="http://www.w3.org/2000/svg"
@@ -1032,7 +1032,7 @@ export const DoesNotExist = () => (
         <MotionItem className="w-full">
           <Divider variant="secondary" disableMargins />
         </MotionItem>
-        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded group/item">
+        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded-sm group/item">
           <svg
             className="group-hover/item:fill-primary-active dark:fill-mystic transition-colors"
             xmlns="http://www.w3.org/2000/svg"
@@ -1065,7 +1065,7 @@ export const DoesNotExist = () => (
         <MotionItem className="w-full">
           <Divider variant="secondary" disableMargins />
         </MotionItem>
-        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded group/item">
+        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded-sm group/item">
           <svg
             className="group-hover/item:fill-primary-active dark:fill-mystic transition-colors"
             xmlns="http://www.w3.org/2000/svg"
@@ -1099,7 +1099,7 @@ export const DoesNotExist = () => (
       <MotionItem>
         <Button
           color="primary"
-          className="z-10 mx-auto relative rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors font-semibold"
+          className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors font-semibold"
         >
           ← Back to Home
         </Button>
@@ -1121,7 +1121,7 @@ export const LostPage = () => (
             404 Error
           </Chip>
         </div>
-        <div className="text-text-primary z-10 relative font-bold !text-5xl">
+        <div className="text-text-primary z-10 relative font-bold text-5xl!">
           We lost this page
         </div>
         <div className="dark:text-waterloo light:text-charade opacity-80 z-10 relative">
@@ -1129,7 +1129,7 @@ export const LostPage = () => (
         </div>
         <Button
           color="primary"
-          className="z-10 mx-auto relative rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors font-semibold"
+          className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors font-semibold"
         >
           ← Back to Home
         </Button>

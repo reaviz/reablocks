@@ -58,8 +58,8 @@ const baseTheme: CalendarTheme = {
     cornerEndDateTop: 'rounded-tr-none',
     range: 'rounded-none',
     selected: '',
-    hover: 'rounded',
-    today: 'rounded border'
+    hover: 'rounded-sm',
+    today: 'rounded-sm border'
   },
 
   months: {

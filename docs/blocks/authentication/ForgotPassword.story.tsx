@@ -135,7 +135,7 @@ export const ForgotPassword = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             <svg
@@ -211,7 +211,7 @@ export const ForgotPasswordFull = () => {
                 fullWidth
                 variant="filled"
                 color="primary"
-                className="mt-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+                className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
                 disabled={isSubmitting}
               >
                 <svg
@@ -299,7 +299,7 @@ export const ForgotPasswordMinimal = () => {
             type="submit"
             variant="filled"
             color="primary"
-            className="my-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+            className="my-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
             fullWidth
           >
@@ -355,7 +355,7 @@ export const ResetPassword = () => {
           </a>
         </Stack>
         <div className="w-full flex flex-col grow items-center justify-center text-center pt-2 mb-14">
-          <div className="p-3 border border-secondary-inactive rounded mb-3">
+          <div className="p-3 border border-secondary-inactive rounded-sm mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -407,7 +407,7 @@ export const ResetPassword = () => {
               type="submit"
               variant="filled"
               color="primary"
-              className="my-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+              className="my-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
               disabled={isSubmitting}
               fullWidth
             >
@@ -446,10 +446,10 @@ export const ResetPassword = () => {
           </form>
         </div>
         <Stack justifyContent="center">
-          <div className="h-[4px] w-[60px] bg-primary rounded" />
-          <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded" />
-          <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded" />
-          <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded" />
+          <div className="h-[4px] w-[60px] bg-primary rounded-sm" />
+          <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded-sm" />
+          <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded-sm" />
+          <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded-sm" />
         </Stack>
       </Card>
     </motion.div>
@@ -471,7 +471,7 @@ export const ResetPasswordMinimal = () => {
     >
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center text-center pt-2 mb-10">
-          <div className="p-3 border border-secondary-inactive rounded mb-3">
+          <div className="p-3 border border-secondary-inactive rounded-sm mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -521,7 +521,7 @@ export const ResetPasswordMinimal = () => {
             type="submit"
             variant="filled"
             color="primary"
-            className="my-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+            className="my-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
             fullWidth
           >
