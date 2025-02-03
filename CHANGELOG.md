@@ -1,3 +1,6 @@
+# 8.7.6 - 2/3/25
+- [fix] Update ctrl-keys version
+
 # 8.7.5 - 1/28/25
 - [fix] Update ctrl-keys import #272
 
