@@ -11,8 +11,8 @@ import { SearchIcon } from './SearchIcon';
 import { HotkeyIem } from '@/elements/CommandPalette/useFlattenedTree';
 import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 import { useComponentTheme } from '@/utils';
-import type { HandlerInterface } from 'ctrl-keys';
-import keys from 'ctrl-keys';
+import type { HandlerInterface, Key } from 'ctrl-keys';
+import { keys } from 'ctrl-keys';
 
 export interface CommandPaletteInputProps {
   /**
@@ -96,14 +96,14 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
 
       for (const hotkey of hotkeys) {
         const callback = () => onHotkey(hotkey);
-        handler.add(hotkey.hotkey, callback);
+        handler.add(hotkey.hotkey as Key, callback);
         keyMap.set(hotkey.hotkey, callback);
       }
 
       window.addEventListener('keydown', handler.handle);
 
       return () => {
-        [...keyMap].forEach(([key, cb]) => handler.remove(key, cb));
+        [...keyMap].forEach(([key, cb]) => handler.remove(key as Key, cb));
         window.removeEventListener('keydown', handler.handle);
         keyMapRef.current = new Map();
       };
