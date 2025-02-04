@@ -196,15 +196,6 @@
   /* Text colors */
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
-
-  /* Named colors */
-  --color-black-pearl: var(--black-pearl);
-  --color-athens-gray: var(--athens-gray);
-  --color-mystic: var(--mystic);
-  --color-vulcan: var(--vulcan);
-  --color-charade: var(--charade);
-  --color-waterloo: var(--waterloo);
-  --color-anakiwa: var(--anakiwa);
 }
 
 /* @config '../tailwind.config.ts'; */
