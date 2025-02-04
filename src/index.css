@@ -50,11 +50,34 @@
   /* Text colors */
   --text-primary: var(--athens-gray);
   --text-secondary: var(--waterloo);
+
+  /* Custom Backgrounds */
+  --bottom-border-glow: radial-gradient(
+    circle at center,
+    var(--anakiwa) 0,
+    blue,
+    transparent 100%
+  );
+  --button-gradient: linear-gradient(
+    283deg,
+    #0808a5 0%,
+    rgba(8, 8, 165, 0) 100%
+  );
+  --button-gradient-hover: linear-gradient(
+    283deg,
+    #44f 0%,
+    rgba(23, 23, 255, 0.1) 100%
+  );
+  --button-gradient-focus: linear-gradient(
+    283deg,
+    #0d0dd2 0%,
+    rgba(23, 23, 255, 0.1) 100%
+  );
 }
 
 .light {
   /* Primary colors */
-  --primary: var(--red-500);
+  --primary: var(--blue-500);
   --primary-active: var(--blue-500);
   --primary-hover: var(--blue-600);
   --primary-inactive: var(--gray-500);
@@ -102,9 +125,10 @@
   --text-secondary: var(--gray-700);
 }
 
-/* Detect variant by classname or data-theme attribute */
+/* Custom variants */
 @custom-variant dark (&:where(.dark, .dark *, [data-theme=dark], [data-theme=dark] *));
 @custom-variant light (&:where(.light, .light *, [data-theme=light], [data-theme=light] *));
+@custom-variant disabled-within (&:has(input:is(:disabled), textarea:is(:disabled), button:is(:disabled)));
 
 /* Define theme tokens */
 @theme inline {
@@ -171,6 +195,15 @@
   /* Text colors */
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
+
+  /* Named colors */
+  --color-black-pearl: var(--black-pearl);
+  --color-athens-gray: var(--athens-gray);
+  --color-mystic: var(--mystic);
+  --color-vulcan: var(--vulcan);
+  --color-charade: var(--charade);
+  --color-waterloo: var(--waterloo);
+  --color-anakiwa: var(--anakiwa);
 }
 
 /* @config '../tailwind.config.ts'; */

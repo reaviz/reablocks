@@ -224,7 +224,7 @@ export const PayAndBilling = () => {
                 Cancel Subscription
               </Button>
               <Button
-                className="bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover flex items-center gap-2 self-stretch px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover flex items-center gap-2 self-stretch px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                 endAdornment={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -448,7 +448,7 @@ export const BillingSubscription = () => (
           <h2 className="text-2xl font-bold">Billing</h2>
           <Stack>
             <Button
-              className="bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+              className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
               endAdornment={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -730,7 +730,7 @@ export const BillingInformation = () => {
             </span>
           </div>
           <Button
-            className="bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+            className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
             color="primary"
             endAdornment={
               <svg

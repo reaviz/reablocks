@@ -135,7 +135,7 @@ export const ForgotPassword = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             <svg
@@ -211,7 +211,7 @@ export const ForgotPasswordFull = () => {
                 fullWidth
                 variant="filled"
                 color="primary"
-                className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+                className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
                 disabled={isSubmitting}
               >
                 <svg
@@ -299,7 +299,7 @@ export const ForgotPasswordMinimal = () => {
             type="submit"
             variant="filled"
             color="primary"
-            className="my-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="my-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
             fullWidth
           >
@@ -407,7 +407,7 @@ export const ResetPassword = () => {
               type="submit"
               variant="filled"
               color="primary"
-              className="my-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+              className="my-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
               disabled={isSubmitting}
               fullWidth
             >
@@ -521,7 +521,7 @@ export const ResetPasswordMinimal = () => {
             type="submit"
             variant="filled"
             color="primary"
-            className="my-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="my-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
             fullWidth
           >

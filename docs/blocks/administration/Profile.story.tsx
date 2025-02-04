@@ -1838,7 +1838,7 @@ export const Settings = () => {
                         type="submit"
                         variant="filled"
                         color="primary"
-                        className="w-1/2 min-h-10 rounded-xs px-4 py-2 text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+                        className="w-1/2 min-h-10 rounded-xs px-4 py-2 text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? 'Saving...' : 'Save'}

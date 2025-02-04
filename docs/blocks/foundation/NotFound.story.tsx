@@ -874,7 +874,7 @@ export const NotFound = () => (
         <div className="grow flex flex-col justify-center">
           <Button
             color="primary"
-            className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors font-semibold"
+            className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors font-semibold"
           >
             ← Back to Home
           </Button>
@@ -1099,7 +1099,7 @@ export const DoesNotExist = () => (
       <MotionItem>
         <Button
           color="primary"
-          className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors font-semibold"
+          className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors font-semibold"
         >
           ← Back to Home
         </Button>
@@ -1129,7 +1129,7 @@ export const LostPage = () => (
         </div>
         <Button
           color="primary"
-          className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors font-semibold"
+          className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors font-semibold"
         >
           ← Back to Home
         </Button>

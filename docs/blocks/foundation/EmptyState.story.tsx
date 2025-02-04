@@ -200,7 +200,7 @@ export const MissingInfo = () => (
         placeholder="Search our site..."
       />
       <Button
-        className="mt-6 w-fit font-semibold px-4 py-2 border-none bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+        className="mt-6 w-fit font-semibold px-4 py-2 border-none bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
         startAdornment={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -247,7 +247,7 @@ export const NothingToDisplay = () => (
         back later to see if there's anything new.
       </span>
       <Button
-        className="mt-6 w-fit font-semibold px-4 py-2 border-none bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+        className="mt-6 w-fit font-semibold px-4 py-2 border-none bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
         startAdornment={
           <svg
             xmlns="http://www.w3.org/2000/svg"

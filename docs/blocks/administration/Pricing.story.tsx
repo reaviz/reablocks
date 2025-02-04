@@ -125,7 +125,7 @@ export const Pricing = () => {
               className={cn(
                 'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
                 {
-                  'bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
+                  'bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
                     selected === 'free',
                   'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:border-waterloo!':
                     selected !== 'free'
@@ -211,7 +211,7 @@ export const Pricing = () => {
               className={cn(
                 'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
                 {
-                  'bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
+                  'bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
                     selected === 'starter',
                   'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:border-waterloo!':
                     selected !== 'starter'
@@ -290,7 +290,7 @@ export const Pricing = () => {
               className={cn(
                 'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
                 {
-                  'bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
+                  'bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
                     selected === 'custom',
                   'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:border-waterloo!':
                     selected !== 'custom'
@@ -405,7 +405,7 @@ export const PricingFull = () => {
             <VerticalSpacer space="md" />
             <Button
               color="primary"
-              className="px-4 py-2 text-lg gap-2 bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+              className="px-4 py-2 text-lg gap-2 bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -768,7 +768,7 @@ export const PricingMinimal = () => {
           <Stack direction="rowReverse">
             <Button
               color="primary"
-              className="px-4 py-2 text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+              className="px-4 py-2 text-lg bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
               endAdornment={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
