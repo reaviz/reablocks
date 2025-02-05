@@ -1,3 +1,4 @@
+import React from 'react';
 import theme from './theme';
 import { Preview } from '@storybook/react';
 import { withThemeByClassName } from '@storybook/addon-themes';
@@ -19,10 +20,10 @@ const preview: Preview = {
     withProvider,
     withThemeByClassName({
       themes: {
-        light: 'light',
-        dark: 'dark',
+        light: 'theme-light',
+        dark: 'theme-dark',
       },
-      defaultTheme: 'dark',
+      defaultTheme: 'theme-dark',
     }),
   ],
   parameters: {

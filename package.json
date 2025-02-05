@@ -63,7 +63,7 @@
     "@marko19907/string-to-color": "^1.0.0",
     "@reaviz/react-use-fuzzy": "^1.0.3",
     "body-scroll-lock-upgrade": "^1.1.0",
-    "chroma-js": "^2.4.2",
+    "chroma-js": "^3.1.2",
     "classnames": "^2.5.1",
     "coverup": "^0.1.1",
     "create-global-state-hook": "^0.0.2",

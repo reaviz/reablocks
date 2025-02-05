@@ -9,18 +9,40 @@ import {
   ComponentBlocks
 } from './blocks';
 import favoriteIcon from './icon-demo.svg';
-import TWConfig from './config';
 import { useTheme } from './hooks/useTheme';
 import { extractTheme } from './themes/extractTheme';
+import { useThemeVariables } from './config';
 
 export default {
   title: 'Components/Theme',
   decorators: [
-    Story => (
-      <div style={{ width: '95vw' }}>
-        <Story />
-      </div>
-    )
+    Story => {
+      const tokens = useThemeVariables();
+
+      const {
+        colors,
+        borderRadius,
+        boxShadow,
+        spacing,
+        fontFamily,
+        fontSize,
+        fontWeight
+      } = extractTheme(tokens);
+
+      return (
+        <div style={{ width: '95vw' }}>
+          <Story
+            colors={colors}
+            borderRadius={borderRadius}
+            boxShadow={boxShadow}
+            spacing={spacing}
+            fontFamily={fontFamily}
+            fontSize={fontSize}
+            fontWeight={fontWeight}
+          />
+        </div>
+      );
+    }
   ]
 };
 
@@ -32,9 +54,11 @@ const {
   fontFamily,
   fontSize,
   fontWeight
-} = extractTheme(TWConfig);
+} = extractTheme({});
 
-export const Colors = () => <ColorBlocks colors={colors} />;
+export const Colors = (_, { colors }) => {
+  return <ColorBlocks colors={colors} />;
+};
 
 export const Typography = () => (
   <TypographyBlocks
