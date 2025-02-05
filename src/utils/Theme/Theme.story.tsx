@@ -56,11 +56,14 @@ const {
   fontWeight
 } = extractTheme({});
 
-export const Colors = (_, { colors }) => {
+export const Colors = (_: unknown, { colors }) => {
   return <ColorBlocks colors={colors} />;
 };
 
-export const Typography = () => (
+export const Typography = (
+  __: unknown,
+  { fontFamily, fontSize, fontWeight }
+) => (
   <TypographyBlocks
     families={fontFamily}
     sizes={fontSize}

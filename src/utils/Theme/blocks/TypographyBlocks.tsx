@@ -45,46 +45,48 @@ export const TypographySizeBlock: FC<TypographySizeBlockProps> = ({
   className
 }) => (
   <div className={className}>
-    {Object.keys(sizes).map(size => (
-      <div
-        key={size}
-        style={{
-          fontSize: sizes[size][0],
-          lineHeight: sizes[size][1].lineHeight,
-          display: 'flex',
-          alignItems: 'center',
-          margin: '20px'
-        }}
-      >
+    {Object.keys(sizes)
+      .filter(size => !size.endsWith('--line-height'))
+      .map(size => (
         <div
+          key={size}
           style={{
-            fontSize: 16,
-            minWidth: 110,
-            marginRight: '6px',
-            color: 'var(--body-color)'
+            fontSize: sizes[size],
+            lineHeight: sizes[`${size}-line-height`],
+            display: 'flex',
+            alignItems: 'center',
+            margin: '20px'
           }}
         >
-          <code
-            style={{ cursor: 'pointer', fontSize: 14 }}
-            onDoubleClick={() => navigator.clipboard.writeText(`font-${size}`)}
+          <div
+            style={{
+              fontSize: 16,
+              minWidth: 110,
+              marginRight: '6px',
+              color: 'var(--body-color)'
+            }}
           >
-            font-{size}
-          </code>
-          <br />
-          <small>
             <code
-              style={{ cursor: 'pointer' }}
-              onDoubleClick={() =>
-                navigator.clipboard.writeText(sizes[size][0])
-              }
+              style={{ cursor: 'pointer', fontSize: 14 }}
+              onDoubleClick={() => navigator.clipboard.writeText(size)}
             >
-              {sizes[size][0]}
+              {size.replace('--', '')}
             </code>
-          </small>
+            <br />
+            <small>
+              <code
+                style={{ cursor: 'pointer' }}
+                onDoubleClick={() =>
+                  navigator.clipboard.writeText(sizes[size][0])
+                }
+              >
+                {sizes[size]}
+              </code>
+            </small>
+          </div>
+          The quick brown fox jumps over the lazy dog.
         </div>
-        The quick brown fox jumps over the lazy dog.
-      </div>
-    ))}
+      ))}
   </div>
 );
 
@@ -121,7 +123,7 @@ export const TypographyWeightBlock: FC<TypographyWeightBlockProps> = ({
               navigator.clipboard.writeText(`font-${weight}`)
             }
           >
-            font-{weight}
+            {weight.replace('--', '').replace('-weight', '')}
           </span>
           <br />
           <div
@@ -139,7 +141,17 @@ export const TypographyWeightBlock: FC<TypographyWeightBlockProps> = ({
   </div>
 );
 
-export const TypographyBlocks = ({ families, sizes, weights }) => {
+export const TypographyBlocks = ({
+  families,
+  sizes,
+  weights
+}: {
+  families: Record<string, string>;
+  sizes: Record<string, string>;
+  weights: Record<string, string>;
+}) => {
+  console.log('[log] TypographyBlocks', weights);
+
   return (
     <div
       style={{
@@ -161,7 +173,7 @@ export const TypographyBlocks = ({ families, sizes, weights }) => {
         >
           <h3 style={{ fontWeight: 600, fontSize: '20px' }}>
             <small>
-              <code>font-{family}</code>
+              <code>{family.replace('--font-', '')}</code>
             </small>
             <br />
           </h3>
