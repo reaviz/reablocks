@@ -46,16 +46,6 @@ export default {
   ]
 };
 
-const {
-  colors,
-  borderRadius,
-  boxShadow,
-  spacing,
-  fontFamily,
-  fontSize,
-  fontWeight
-} = extractTheme({});
-
 export const Colors = (_: unknown, { colors }) => {
   return <ColorBlocks colors={colors} />;
 };
@@ -75,9 +65,13 @@ export const Spacings = (__: unknown, { spacing }) => (
   <SpacingBlocks spacings={spacing} />
 );
 
-export const Borders = () => <BorderBlocks borders={borderRadius} />;
+export const Borders = (_: unknown, { borderRadius }) => (
+  <BorderBlocks borders={borderRadius} />
+);
 
-export const Shadows = () => <ShadowBlocks shadows={boxShadow} />;
+export const Shadows = (_: unknown, { boxShadow }) => (
+  <ShadowBlocks shadows={boxShadow} />
+);
 
 export const Components = () => {
   const { theme } = useTheme();
