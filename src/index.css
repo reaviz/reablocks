@@ -46,7 +46,7 @@
   --panel-accent: var(--color-charade);
 
   /* Surface colors */
-  --surface: var(-color-charade);
+  --surface: var(--color-charade);
   --surface-accent: var(--color-blue-500);
 
   /* Text colors */
