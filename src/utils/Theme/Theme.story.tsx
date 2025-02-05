@@ -11,13 +11,12 @@ import {
 import favoriteIcon from './icon-demo.svg';
 import { useTheme } from './hooks/useTheme';
 import { extractTheme } from './themes/extractTheme';
-import { useThemeVariables } from './config';
 
 export default {
   title: 'Components/Theme',
   decorators: [
     Story => {
-      const tokens = useThemeVariables();
+      const { tokens } = useTheme();
 
       const {
         colors,

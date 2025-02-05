@@ -1,10 +1,8 @@
-import { useEffect, useState } from 'react';
-
 /**
  * Gets the theme name from the document element.
  * @returns The theme name.
  */
-const getThemeName = (): string => {
+export const getThemeName = (): string => {
   const themeClassname = Array.from(document.documentElement.classList).find(
     className => className.startsWith('theme-')
   );
@@ -16,7 +14,7 @@ const getThemeName = (): string => {
  * @param callback - Function called with the new theme ("light" or "dark") whenever the theme changes.
  * @returns The MutationObserver instance (can be disconnected later via observer.disconnect()).
  */
-const observeThemeSwitcher = (
+export const observeThemeSwitcher = (
   callback: (theme: string) => void
 ): MutationObserver => {
   const targetElement = document.documentElement;
@@ -71,7 +69,7 @@ const extractVariablesFromRule = (
  * Gets the theme variables from the document.
  * @returns The theme variables.
  */
-const getThemeVariables = () => {
+export const getThemeVariables = (): Record<string, string> => {
   const computedStyles = getComputedStyle(document.documentElement);
 
   function getMatchingStyleRules(cssRules: CSSRuleList): CSSStyleRule[] {
@@ -105,31 +103,11 @@ const getThemeVariables = () => {
     selectorVariablesMap[`${rule.selectorText}-${index}`] = variableMap;
   });
 
-  const tokens = Object.entries(selectorVariablesMap)
+  const variables = Object.entries(selectorVariablesMap)
     .map(([, tokens]) => tokens)
     .reduce((acc, item) => ({ ...acc, ...item }), {});
 
-  return tokens;
-};
-
-/**
- * Hook to get the theme variables.
- * @returns The theme variables.
- */
-export const useThemeVariables = () => {
-  const [tokens, setTokens] = useState<Record<string, string>>({});
-
-  useEffect(() => {
-    setTokens(getThemeVariables());
-
-    const observer = observeThemeSwitcher(theme => {
-      setTokens(getThemeVariables());
-    });
-
-    return () => observer.disconnect();
-  }, []);
-
-  return tokens;
+  return variables;
 };
 
 /**
