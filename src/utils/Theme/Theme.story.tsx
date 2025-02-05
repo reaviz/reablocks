@@ -71,7 +71,9 @@ export const Typography = (
   />
 );
 
-export const Spacings = () => <SpacingBlocks spacings={spacing} />;
+export const Spacings = (__: unknown, { spacing }) => (
+  <SpacingBlocks spacings={spacing} />
+);
 
 export const Borders = () => <BorderBlocks borders={borderRadius} />;
 
