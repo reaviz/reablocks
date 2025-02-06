@@ -124,8 +124,8 @@ export const buttonTheme: ButtonTheme = {
   variants: {
     filled:
       'bg-secondary hover:bg-border-secondary-hover border-secondary light:text-gray-100',
-    outline: 'bg-opacity-0 border-grey border',
-    text: 'bg-opacity-0 border-0'
+    outline: 'border-grey border',
+    text: 'border-0'
   },
   colors: {
     default: {
@@ -209,8 +209,8 @@ export const legacyButtonTheme: ButtonTheme = {
     filled:
       'bg-[var(--button-background)] text-[var(--button-color-on-background)] hover:bg-[var(--button-background-hover)] border-[var(--button-background)] hover:border-[var(--button-background-hover)]',
     outline:
-      'bg-opacity-0 border-[var(--button-background)] hover:border-[var(--button-background-hover)] text-[var(--button-color)] hover:text-[var(--button-color-hover)] border',
-    text: 'bg-opacity-0 border-0'
+      'border-[var(--button-background)] hover:border-[var(--button-background-hover)] text-[var(--button-color)] hover:text-[var(--button-color-hover)] border',
+    text: 'border-0'
   },
   colors: {
     default: {
