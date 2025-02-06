@@ -149,7 +149,7 @@ export const chipTheme: ChipTheme = {
   focus: baseTheme.focus,
   variants: {
     filled: 'border border-transparent box-border',
-    outline: 'opacity-0 border hover:bg-transparent'
+    outline: 'bg-transparent border hover:bg-transparent'
   },
   colors: {
     default: {
