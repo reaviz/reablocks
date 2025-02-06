@@ -43,7 +43,7 @@ const baseTheme: CalendarTheme = {
     mid: '',
     next: 'text-xl leading-4'
   },
-  title: 'font-semibold',
+  title: 'font-semibold leading-[normal]',
   content: 'flex',
 
   days: {
