@@ -1,7 +1,7 @@
-import React, { Fragment, useState } from 'react';
-import { Checkbox } from './Checkbox';
-import { Dialog, useDialog } from '@/layers/Dialog';
 import { Button } from '@/elements/Button';
+import { Dialog, useDialog } from '@/layers/Dialog';
+import { Fragment, useState } from 'react';
+import { Checkbox } from './Checkbox';
 
 export default {
   title: 'Components/Form/Checkbox',
@@ -182,6 +182,13 @@ export const WithDialog = () => {
               label="Test checkbox"
               checked={checked}
               onChange={setChecked}
+            />
+            <br />
+            <Checkbox
+              label="Test indeterminate state"
+              checked={checked}
+              onChange={setChecked}
+              intermediate
             />
           </div>
         )}

@@ -1,16 +1,17 @@
+import { useComponentTheme } from '@/utils';
+import { motion, useMotionValue, useTransform } from 'motion/react';
 import React, {
   FC,
   forwardRef,
   LegacyRef,
   ReactNode,
   useCallback,
-  useEffect
+  useEffect,
+  useState
 } from 'react';
-import { motion, useMotionValue, useTransform } from 'motion/react';
 import { twMerge } from 'tailwind-merge';
-import { CheckboxTheme } from './CheckboxTheme';
-import { useComponentTheme } from '@/utils';
 import { CheckboxLabel } from './CheckboxLabel';
+import { CheckboxTheme } from './CheckboxTheme';
 
 export interface CheckboxProps {
   /**
@@ -122,11 +123,15 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
     const pathLength = useMotionValue(0);
     const opacity = useTransform(pathLength, [0.05, 0.15], [0, 1]);
 
+    // If the checkbox is inside a dialog, the animation will not work.
+    // This is a workaround to force the animation to work by triggering
+    // a re-render once after initial mount
+    const [_, setForceAnimation] = useState<boolean>(false);
     useEffect(() => {
-      // If the checkbox is inside a dialog, the animation will not work.
-      // This is a workaround to force the animation to work.
-      pathLength.set(checked ? 1 : 0);
-    }, [checked, pathLength]);
+      if (checked || intermediate) {
+        setForceAnimation(true);
+      }
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     const checkVariants = {
       pressed: (isChecked: boolean) => ({ pathLength: isChecked ? 0.85 : 0.3 }),
@@ -184,7 +189,6 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           }}
         >
           <motion.svg
-            initial={false}
             animate={checked ? 'checked' : 'unchecked'}
             whileHover={!disabled ? 'hover' : undefined}
             whileTap={!disabled ? 'pressed' : undefined}
@@ -203,19 +207,16 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             />
             {intermediate ? (
               <motion.path
-                layoutId="checkPath"
                 d={intermediatePath}
                 fill="transparent"
                 strokeWidth="1"
                 className={theme.check.base}
                 variants={checkVariants}
-                initial={checked ? 'checked' : 'unchecked'}
                 style={{ pathLength, opacity }}
                 custom={checked}
               />
             ) : (
               <motion.path
-                layoutId="checkPath"
                 d={checkedPath}
                 fill="transparent"
                 strokeWidth="1"
@@ -225,7 +226,6 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
                   checked && theme.check.checked
                 )}
                 variants={checkVariants}
-                initial={checked ? 'checked' : 'unchecked'}
                 style={{ pathLength, opacity }}
                 custom={checked}
               />
