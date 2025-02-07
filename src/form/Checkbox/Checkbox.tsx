@@ -1,15 +1,17 @@
+import { useComponentTheme } from '@/utils';
+import { motion, useMotionValue, useTransform } from 'motion/react';
 import React, {
   FC,
   forwardRef,
   LegacyRef,
   ReactNode,
-  useCallback
+  useCallback,
+  useEffect,
+  useState
 } from 'react';
-import { motion, useMotionValue, useTransform } from 'motion/react';
 import { twMerge } from 'tailwind-merge';
-import { CheckboxTheme } from './CheckboxTheme';
-import { useComponentTheme } from '@/utils';
 import { CheckboxLabel } from './CheckboxLabel';
+import { CheckboxTheme } from './CheckboxTheme';
 
 export interface CheckboxProps {
   /**
@@ -121,6 +123,16 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
     const pathLength = useMotionValue(0);
     const opacity = useTransform(pathLength, [0.05, 0.15], [0, 1]);
 
+    // If the checkbox is inside a dialog, the animation will not work.
+    // This is a workaround to force the animation to work by triggering
+    // a re-render once after initial mount
+    const [_, setForceAnimation] = useState<boolean>(false);
+    useEffect(() => {
+      if (checked || intermediate) {
+        setForceAnimation(true);
+      }
+    }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
     const checkVariants = {
       pressed: (isChecked: boolean) => ({ pathLength: isChecked ? 0.85 : 0.3 }),
       checked: { pathLength: 1 },
@@ -177,7 +189,6 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           }}
         >
           <motion.svg
-            initial={checked ? 'checked' : 'unchecked'}
             animate={checked ? 'checked' : 'unchecked'}
             whileHover={!disabled ? 'hover' : undefined}
             whileTap={!disabled ? 'pressed' : undefined}
