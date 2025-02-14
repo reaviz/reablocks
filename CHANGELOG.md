@@ -1,3 +1,6 @@
+# 9.0.0-beta.0 - 2/14/25
+- [feature] Tailwind 4 Upgrade
+
 # 8.7.7 - 2/14/25
 - [improvement] Update framer
 
