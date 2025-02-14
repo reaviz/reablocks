@@ -1,3 +1,6 @@
+# 8.7.7 - 2/14/25
+- [improvement] Update framer
+
 # 8.7.6 - 2/3/25
 - [fix] Update ctrl-keys version
 
