@@ -1,4 +1,6 @@
-import React, { Fragment, useState } from 'react';
+import { Button } from '@/elements/Button';
+import { Dialog, useDialog } from '@/layers/Dialog';
+import { Fragment, useState } from 'react';
 import { Checkbox } from './Checkbox';
 
 export default {
@@ -156,5 +158,41 @@ export const CustomLabel = () => {
       }
       onChange={setState}
     />
+  );
+};
+
+export const WithDialog = () => {
+  const { isOpen, setOpen } = useDialog();
+  const [checked, setChecked] = useState(true);
+
+  return (
+    <main className="flex flex-col items-center gap-8 py-16 max-w-[1280px] mx-auto">
+      <div className="flex flex-row items-center gap-6">
+        <Button onClick={() => setOpen(true)}>Open</Button>
+      </div>
+      <Dialog
+        size={600}
+        open={isOpen}
+        onClose={() => setOpen(false)}
+        header="Checkbox test"
+      >
+        {() => (
+          <div>
+            <Checkbox
+              label="Test checkbox"
+              checked={checked}
+              onChange={setChecked}
+            />
+            <br />
+            <Checkbox
+              label="Test indeterminate state"
+              checked={checked}
+              onChange={setChecked}
+              intermediate
+            />
+          </div>
+        )}
+      </Dialog>
+    </main>
   );
 };
