@@ -71,7 +71,7 @@ export const BillingFull = () => (
                   </span>
                 </div>
                 <Button
-                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-none"
+                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                   variant="outline"
                   startAdornment={
                     <svg
@@ -101,7 +101,7 @@ export const BillingFull = () => (
                   </span>
                 </div>
                 <Button
-                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-none"
+                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                   variant="outline"
                   startAdornment={
                     <svg
@@ -128,13 +128,13 @@ export const BillingFull = () => (
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: '33%', opacity: 1 }}
                 transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-blue-400"
+                className="absolute h-full rounded-full bg-linear-to-r from-transparent to-blue-400"
               />
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: '33%', opacity: 1 }}
                 transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-blue-400 blur-md"
+                className="absolute h-full rounded-full bg-linear-to-r from-transparent to-blue-400 blur-md"
               />
             </div>
             <div className="flex items-center justify-between">
@@ -207,7 +207,7 @@ export const PayAndBilling = () => {
             </div>
             <Stack>
               <Button
-                className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-none"
+                className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                 variant="outline"
                 endAdornment={
                   <svg
@@ -224,7 +224,7 @@ export const PayAndBilling = () => {
                 Cancel Subscription
               </Button>
               <Button
-                className="bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover flex items-center gap-2 self-stretch px-4 py-2 font-semibold transition-colors focus:outline-none"
+                className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover flex items-center gap-2 self-stretch px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                 endAdornment={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -335,13 +335,13 @@ export const PayAndBilling = () => {
                   initial={{ width: 0, opacity: 0 }}
                   animate={{ width: `${(100 / 500) * 100}%`, opacity: 1 }}
                   transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                  className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-blue-400"
+                  className="absolute h-full rounded-full bg-linear-to-r from-transparent to-blue-400"
                 />
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${(100 / 500) * 100}%` }}
                   transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                  className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-blue-400 blur-md"
+                  className="absolute h-full rounded-full bg-linear-to-r from-transparent to-blue-400 blur-md"
                 />
               </div>
             </Card>
@@ -377,13 +377,13 @@ export const PayAndBilling = () => {
                   initial={{ width: 0, opacity: 0 }}
                   animate={{ width: `${(33 / 50) * 100}%`, opacity: 1 }}
                   transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                  className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-blue-400"
+                  className="absolute h-full rounded-full bg-linear-to-r from-transparent to-blue-400"
                 />
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${(33 / 50) * 100}%` }}
                   transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                  className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-blue-400 blur-md"
+                  className="absolute h-full rounded-full bg-linear-to-r from-transparent to-blue-400 blur-md"
                 />
               </div>
             </Card>
@@ -419,13 +419,13 @@ export const PayAndBilling = () => {
                   initial={{ width: 0, opacity: 0 }}
                   animate={{ width: `${(47 / 125) * 100}%`, opacity: 1 }}
                   transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                  className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-blue-400"
+                  className="absolute h-full rounded-full bg-linear-to-r from-transparent to-blue-400"
                 />
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{ width: `${(47 / 125) * 100}%` }}
                   transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                  className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-blue-400 blur-md"
+                  className="absolute h-full rounded-full bg-linear-to-r from-transparent to-blue-400 blur-md"
                 />
               </div>
             </Card>
@@ -448,7 +448,7 @@ export const BillingSubscription = () => (
           <h2 className="text-2xl font-bold">Billing</h2>
           <Stack>
             <Button
-              className="bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-none"
+              className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
               endAdornment={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -568,13 +568,13 @@ export const BillingSubscription = () => (
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: `${(11 / 30) * 100}%`, opacity: 1 }}
                 transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-blue-400"
+                className="absolute h-full rounded-full bg-linear-to-r from-transparent to-blue-400"
               />
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${(11 / 30) * 100}%` }}
                 transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-blue-400 blur-md"
+                className="absolute h-full rounded-full bg-linear-to-r from-transparent to-blue-400 blur-md"
               />
             </div>
             <Button
@@ -606,13 +606,13 @@ export const BillingSubscription = () => (
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: `${(18 / 20) * 100}%`, opacity: 1 }}
                 transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-orange-500"
+                className="absolute h-full rounded-full bg-linear-to-r from-transparent to-orange-500"
               />
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${(18 / 20) * 100}%` }}
                 transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-orange-500 blur-md"
+                className="absolute h-full rounded-full bg-linear-to-r from-transparent to-orange-500 blur-md"
               />
             </div>
             <Button
@@ -645,13 +645,13 @@ export const BillingSubscription = () => (
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: `${(11 / 15) * 100}%`, opacity: 1 }}
                 transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-orange-500"
+                className="absolute h-full rounded-full bg-linear-to-r from-transparent to-orange-500"
               />
               <motion.div
                 initial={{ width: 0 }}
                 animate={{ width: `${(11 / 15) * 100}%` }}
                 transition={{ type: 'spring', bounce: 0, delay: 0.2 }}
-                className="absolute h-full rounded-full bg-gradient-to-r from-transparent to-orange-500 blur-md"
+                className="absolute h-full rounded-full bg-linear-to-r from-transparent to-orange-500 blur-md"
               />
             </div>
             <Button
@@ -730,7 +730,7 @@ export const BillingInformation = () => {
             </span>
           </div>
           <Button
-            className="bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-none"
+            className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
             color="primary"
             endAdornment={
               <svg
@@ -763,7 +763,7 @@ export const BillingInformation = () => {
               <div className="flex items-center justify-between">
                 <span className="font-bold">Payment Method</span>
                 <Button
-                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-none"
+                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                   color="secondary"
                 >
                   Update
@@ -786,7 +786,7 @@ export const BillingInformation = () => {
               <div className="flex items-center justify-between">
                 <span className="font-bold">Billing Details</span>
                 <Button
-                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-none"
+                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                   color="secondary"
                 >
                   Update

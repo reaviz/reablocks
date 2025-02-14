@@ -9,34 +9,50 @@ import {
   ComponentBlocks
 } from './blocks';
 import favoriteIcon from './icon-demo.svg';
-import TWConfig from './config';
 import { useTheme } from './hooks/useTheme';
 import { extractTheme } from './themes/extractTheme';
 
 export default {
   title: 'Components/Theme',
   decorators: [
-    Story => (
-      <div style={{ width: '95vw' }}>
-        <Story />
-      </div>
-    )
+    Story => {
+      const { tokens } = useTheme();
+
+      const {
+        colors,
+        borderRadius,
+        boxShadow,
+        spacing,
+        fontFamily,
+        fontSize,
+        fontWeight
+      } = extractTheme(tokens);
+
+      return (
+        <div style={{ width: '95vw' }}>
+          <Story
+            colors={colors}
+            borderRadius={borderRadius}
+            boxShadow={boxShadow}
+            spacing={spacing}
+            fontFamily={fontFamily}
+            fontSize={fontSize}
+            fontWeight={fontWeight}
+          />
+        </div>
+      );
+    }
   ]
 };
 
-const {
-  colors,
-  borderRadius,
-  boxShadow,
-  spacing,
-  fontFamily,
-  fontSize,
-  fontWeight
-} = extractTheme(TWConfig);
+export const Colors = (_: unknown, { colors }) => {
+  return <ColorBlocks colors={colors} />;
+};
 
-export const Colors = () => <ColorBlocks colors={colors} />;
-
-export const Typography = () => (
+export const Typography = (
+  __: unknown,
+  { fontFamily, fontSize, fontWeight }
+) => (
   <TypographyBlocks
     families={fontFamily}
     sizes={fontSize}
@@ -44,11 +60,17 @@ export const Typography = () => (
   />
 );
 
-export const Spacings = () => <SpacingBlocks spacings={spacing} />;
+export const Spacings = (__: unknown, { spacing }) => (
+  <SpacingBlocks spacings={spacing} />
+);
 
-export const Borders = () => <BorderBlocks borders={borderRadius} />;
+export const Borders = (_: unknown, { borderRadius }) => (
+  <BorderBlocks borders={borderRadius} />
+);
 
-export const Shadows = () => <ShadowBlocks shadows={boxShadow} />;
+export const Shadows = (_: unknown, { boxShadow }) => (
+  <ShadowBlocks shadows={boxShadow} />
+);
 
 export const Components = () => {
   const { theme } = useTheme();

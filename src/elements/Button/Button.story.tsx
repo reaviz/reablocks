@@ -164,7 +164,7 @@ export const CustomColor = () => {
       button: {
         colors: {
           gradient: {
-            filled: 'bg-gradient-to-r from-cyan-500 to-blue-500'
+            filled: 'bg-linear-to-r from-cyan-500 to-blue-500'
           }
         }
       }
@@ -187,12 +187,11 @@ export const CustomVariant = () => {
         },
         colors: {
           default: {
-            gradient:
-              'bg-gradient-to-r from-cyan-500 to-blue-500 border-blue-500'
+            gradient: 'bg-linear-to-r from-cyan-500 to-blue-500 border-blue-500'
           },
           primary: {
             gradient:
-              'bg-gradient-to-r from-violet-500 to-fuchsia-500 border-violet-500'
+              'bg-linear-to-r from-violet-500 to-fuchsia-500 border-violet-500'
           }
         }
       }

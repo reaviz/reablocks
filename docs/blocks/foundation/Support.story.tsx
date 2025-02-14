@@ -86,7 +86,7 @@ export const Support = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-5 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus focus:outline-none transition-colors"
+            className="mt-5 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-none focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Sending Report...' : 'Send Report →'}

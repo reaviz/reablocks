@@ -1,6 +1,5 @@
-import React, { FC } from 'react';
+import React, { FC, useMemo } from 'react';
 import chroma from 'chroma-js';
-import { RecursiveKeyValuePair, ResolvableTo } from 'tailwindcss/types/config';
 
 export interface ColorBlockProps {
   name: string;
@@ -67,13 +66,26 @@ export const ColorPaletteBlock: FC<ColorPaletteBlockProps> = ({
   className,
   showName = true
 }) => {
-  const valid = chroma.valid(color);
-  const fontColor =
-    valid && !name.includes('overlay')
-      ? chroma(color).luminance() >= 0.3
-        ? chroma(color).darken(100).css()
-        : chroma(color).brighten(100).css()
-      : 'var(--body-color)';
+  let fontColor = 'var(--body-color)';
+  if (!name.includes('overlay')) {
+    const isOklch = color.trim().startsWith('oklch(');
+    const oklchColor = isOklch
+      ? color
+          .replace('oklch(', '')
+          .replace(')', '')
+          .split(' ')
+          .map(i => parseFloat(i))
+      : null;
+    const valid = isOklch ? chroma.oklch(oklchColor) : chroma.valid(color);
+
+    if (valid) {
+      const colorInstance = isOklch ? chroma.oklch(oklchColor) : chroma(color);
+      fontColor =
+        colorInstance.luminance() >= 0.3
+          ? colorInstance.darken(100).css()
+          : colorInstance.brighten(100).css();
+    }
+  }
 
   return (
     <div
@@ -124,6 +136,11 @@ export interface ColorPaletteBlocksProps {
   showNames?: boolean;
 }
 
+const extractColorName = (colorToken: string): string => {
+  const withoutPrefix = colorToken.replace('--color-', '');
+  return withoutPrefix.replace(/-\d+$/, '');
+};
+
 export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
   name,
   colors,
@@ -147,14 +164,14 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
       }}
     >
       {typeof colors === 'string' && (
-        <ColorBlock name={`${name}`} color={colors} showName={showNames} />
+        <ColorBlock name={`${name}`} color={colors} />
       )}
       {typeof colors === 'object' && (
         <>
           {Object.keys(colors).map(color => (
             <ColorPaletteBlock
-              key={`${name}-${color}`}
-              name={`${name}-${color}`}
+              key={color}
+              name={color.replace('--color-', '')}
               color={colors[color]}
               showName={showNames}
             />
@@ -162,21 +179,40 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
         </>
       )}
       {typeof colors === 'function' && (
-        <ColorBlock
-          name={`${name}`}
-          color={(colors as any)({})}
-          showName={showNames}
-        />
+        <ColorBlock name={`${name}`} color={(colors as any)({})} />
       )}
     </div>
   </div>
 );
 
-export const ColorBlocks = ({
-  colors
-}: {
-  colors: ResolvableTo<RecursiveKeyValuePair>;
-}) => {
+export const ColorBlocks = ({ colors }: { colors: Record<string, string> }) => {
+  const groupedColors = useMemo((): Record<string, Record<string, string>> => {
+    const groups = Object.keys(colors).reduce(
+      (acc, token) => {
+        const match = token.match(/^--(?:color-)?([^-]+)(?:-|$)/);
+        const groupName = match ? match[1] : token;
+        if (!acc[groupName]) {
+          acc[groupName] = {};
+        }
+        acc[groupName][token] = colors[token];
+        return acc;
+      },
+      {} as Record<string, Record<string, string>>
+    );
+
+    const sortedGroupNames = Object.keys(groups).sort(
+      (a, b) => Object.keys(groups[a]).length - Object.keys(groups[b]).length
+    );
+
+    return sortedGroupNames.reduce(
+      (sorted, groupName) => {
+        sorted[groupName] = groups[groupName];
+        return sorted;
+      },
+      {} as Record<string, Record<string, string>>
+    );
+  }, [colors]);
+
   return (
     <div
       style={{
@@ -185,10 +221,14 @@ export const ColorBlocks = ({
         width: '100%'
       }}
     >
-      {colors ? (
+      {groupedColors ? (
         <>
-          {Object.keys(colors).map(key => (
-            <ColorPaletteBlocks key={key} name={key} colors={colors[key]} />
+          {Object.keys(groupedColors).map(key => (
+            <ColorPaletteBlocks
+              key={key}
+              name={extractColorName(key)}
+              colors={groupedColors[key]}
+            />
           ))}
         </>
       ) : (
