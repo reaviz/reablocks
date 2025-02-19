@@ -680,12 +680,12 @@ export const CustomCreatableOption = () => {
     <div style={{ width: 300 }}>
       <Select
         createable
-        renderCreateOption={(value, onSelect) => (
+        renderCreateOption={({ text, onSelect }) => (
           <ListItem
             onClick={() =>
               onSelect({
-                value: value.toLowerCase(),
-                children: value.toLowerCase()
+                value: text.toLowerCase(),
+                children: text.toLowerCase()
               })
             }
           >

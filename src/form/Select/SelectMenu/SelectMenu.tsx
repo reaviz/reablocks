@@ -47,10 +47,13 @@ export interface SelectMenuProps {
   /**
    * Function to render the create option.
    */
-  renderCreateOption?: (
-    text: string,
-    onSelect: (option: SelectValue) => void
-  ) => ReactElement;
+  renderCreateOption?: ({
+    text,
+    onSelect
+  }: {
+    text: string;
+    onSelect: (option: SelectValue) => void;
+  }) => ReactElement;
 
   /**
    * Additional class names to apply to the select menu.
@@ -224,7 +227,10 @@ export const SelectMenu: FC<SelectMenuProps> = ({
           trimmedText &&
           !loading &&
           (renderCreateOption ? (
-            renderCreateOption(trimmedText, onSelectedChange)
+            renderCreateOption({
+              text: trimmedText,
+              onSelect: onSelectedChange
+            })
           ) : (
             <ListItem
               className="select-menu-create-option"

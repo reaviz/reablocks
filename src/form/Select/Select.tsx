@@ -127,10 +127,13 @@ export interface SelectProps {
   /**
    * Function to render the create option.
    */
-  renderCreateOption?: (
-    text: string,
-    onSelect: (option: SelectValue) => void
-  ) => ReactElement;
+  renderCreateOption?: ({
+    text,
+    onSelect
+  }: {
+    text: string;
+    onSelect: (option: SelectValue) => void;
+  }) => ReactElement;
 
   /**
    * Select options when paste text inside input.
