@@ -689,7 +689,7 @@ export const CustomCreatableOption = () => {
               })
             }
           >
-            ➕&nbsp;Create "{value}"
+            ➕&nbsp;Create "{text}"
           </ListItem>
         )}
         placeholder="Add a category or pick existing one..."
