@@ -133,7 +133,7 @@ export interface SelectProps {
    */
   renderCreateOption?: ({
     text,
-    onSelect
+    onCreate
   }: RenderCreateOptionArgs) => ReactElement;
 
   /**

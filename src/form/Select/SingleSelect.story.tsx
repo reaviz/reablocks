@@ -680,17 +680,8 @@ export const CustomCreatableOption = () => {
     <div style={{ width: 300 }}>
       <Select
         createable
-        renderCreateOption={({ text, onSelect }) => (
-          <ListItem
-            onClick={() =>
-              onSelect({
-                value: text.toLowerCase(),
-                children: text.toLowerCase()
-              })
-            }
-          >
-            ➕&nbsp;Create "{text}"
-          </ListItem>
+        renderCreateOption={({ text, onCreate }) => (
+          <ListItem onClick={onCreate}>➕&nbsp;Create "{text}"</ListItem>
         )}
         placeholder="Add a category or pick existing one..."
         value={value}

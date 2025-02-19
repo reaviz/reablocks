@@ -10,7 +10,7 @@ import { CheckIcon } from '@/form/Select/icons/CheckIcon';
 
 export interface RenderCreateOptionArgs {
   text: string;
-  onSelect: (option: SelectValue) => void;
+  onCreate: () => void;
 }
 
 export interface SelectMenuProps {
@@ -54,7 +54,7 @@ export interface SelectMenuProps {
    */
   renderCreateOption?: ({
     text,
-    onSelect
+    onCreate
   }: RenderCreateOptionArgs) => ReactElement;
 
   /**
@@ -149,6 +149,13 @@ export const SelectMenu: FC<SelectMenuProps> = ({
     customTheme
   );
 
+  const onCreateOption = useCallback(() => {
+    onSelectedChange({
+      value: trimmedText.toLowerCase(),
+      children: trimmedText.toLowerCase()
+    });
+  }, [onSelectedChange, trimmedText]);
+
   const renderListItems = useCallback(
     (items: SelectOptionProps[], group?: GroupOption) =>
       items.map((o, i) => (
@@ -231,7 +238,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
           (renderCreateOption ? (
             renderCreateOption({
               text: trimmedText,
-              onSelect: onSelectedChange
+              onCreate: onCreateOption
             })
           ) : (
             <ListItem
@@ -239,10 +246,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
               onClick={event => {
                 event.preventDefault();
                 event.stopPropagation();
-                onSelectedChange({
-                  value: trimmedText.toLowerCase(),
-                  children: trimmedText.toLowerCase()
-                });
+                onCreateOption();
               }}
             >
               Create option &quot;{trimmedText.toLowerCase()}&quot;
