@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useCallback } from 'react';
+import React, { FC, Fragment, ReactElement, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
 import Highlighter from 'react-highlight-words';
@@ -7,6 +7,11 @@ import { List, ListItem } from '@/layout';
 import { cn, useComponentTheme } from '@/utils';
 import { SelectTheme } from '@/form/Select/SelectTheme';
 import { CheckIcon } from '@/form/Select/icons/CheckIcon';
+
+export interface RenderCreateOptionArgs {
+  text: string;
+  onCreate: () => void;
+}
 
 export interface SelectMenuProps {
   /**
@@ -43,6 +48,14 @@ export interface SelectMenuProps {
    * Whether users can create options or not.
    */
   createable?: boolean;
+
+  /**
+   * Function to render the create option.
+   */
+  renderCreateOption?: ({
+    text,
+    onCreate
+  }: RenderCreateOptionArgs) => ReactElement;
 
   /**
    * Additional class names to apply to the select menu.
@@ -99,6 +112,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
   style,
   disabled,
   createable,
+  renderCreateOption,
   selectedOption,
   options,
   loading,
@@ -134,6 +148,13 @@ export const SelectMenu: FC<SelectMenuProps> = ({
     'select',
     customTheme
   );
+
+  const onCreateOption = useCallback(() => {
+    onSelectedChange({
+      value: trimmedText.toLowerCase(),
+      children: trimmedText.toLowerCase()
+    });
+  }, [onSelectedChange, trimmedText]);
 
   const renderListItems = useCallback(
     (items: SelectOptionProps[], group?: GroupOption) =>
@@ -210,21 +231,27 @@ export const SelectMenu: FC<SelectMenuProps> = ({
       }}
     >
       <List>
-        {options?.length === 0 && createable && trimmedText && !loading && (
-          <ListItem
-            className="select-menu-create-option"
-            onClick={event => {
-              event.preventDefault();
-              event.stopPropagation();
-              onSelectedChange({
-                value: trimmedText.toLowerCase(),
-                children: trimmedText.toLowerCase()
-              });
-            }}
-          >
-            Create option &quot;{trimmedText.toLowerCase()}&quot;
-          </ListItem>
-        )}
+        {options?.length === 0 &&
+          createable &&
+          trimmedText &&
+          !loading &&
+          (renderCreateOption ? (
+            renderCreateOption({
+              text: trimmedText,
+              onCreate: onCreateOption
+            })
+          ) : (
+            <ListItem
+              className="select-menu-create-option"
+              onClick={event => {
+                event.preventDefault();
+                event.stopPropagation();
+                onCreateOption();
+              }}
+            >
+              Create option &quot;{trimmedText.toLowerCase()}&quot;
+            </ListItem>
+          ))}
         {options?.length === 0 &&
           !createable &&
           filterable === true &&
