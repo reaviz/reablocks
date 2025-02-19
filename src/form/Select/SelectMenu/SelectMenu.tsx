@@ -1,4 +1,4 @@
-import React, { FC, Fragment, ReactNode, useCallback } from 'react';
+import React, { FC, Fragment, ReactElement, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
 import Highlighter from 'react-highlight-words';
@@ -50,7 +50,7 @@ export interface SelectMenuProps {
   renderCreateOption?: (
     text: string,
     onSelect: (option: SelectValue) => void
-  ) => ReactNode;
+  ) => ReactElement;
 
   /**
    * Additional class names to apply to the select menu.

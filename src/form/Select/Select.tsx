@@ -1,7 +1,6 @@
 import React, {
   FC,
   ReactElement,
-  ReactNode,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -131,7 +130,7 @@ export interface SelectProps {
   renderCreateOption?: (
     text: string,
     onSelect: (option: SelectValue) => void
-  ) => ReactNode;
+  ) => ReactElement;
 
   /**
    * Select options when paste text inside input.
