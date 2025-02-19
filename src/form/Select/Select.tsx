@@ -1,6 +1,7 @@
 import React, {
   FC,
   ReactElement,
+  ReactNode,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -125,6 +126,14 @@ export interface SelectProps {
   createable?: boolean;
 
   /**
+   * Function to render the create option.
+   */
+  renderCreateOption?: (
+    text: string,
+    onSelect: (option: SelectValue) => void
+  ) => ReactNode;
+
+  /**
    * Select options when paste text inside input.
    */
   selectOnPaste?: boolean;
@@ -243,6 +252,7 @@ export const Select: FC<SelectProps> = ({
   placeholder,
   disabled,
   createable,
+  renderCreateOption,
   selectOnPaste,
   selectOnKeys = ['Enter'],
   loading,
@@ -771,6 +781,7 @@ export const Select: FC<SelectProps> = ({
           style={{ width: menuWidth }}
           selectedOption={selectedOption}
           createable={createable}
+          renderCreateOption={renderCreateOption}
           disabled={disabled}
           options={result}
           groups={groups}

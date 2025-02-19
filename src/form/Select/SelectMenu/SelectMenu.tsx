@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useCallback } from 'react';
+import React, { FC, Fragment, ReactNode, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
 import Highlighter from 'react-highlight-words';
@@ -43,6 +43,14 @@ export interface SelectMenuProps {
    * Whether users can create options or not.
    */
   createable?: boolean;
+
+  /**
+   * Function to render the create option.
+   */
+  renderCreateOption?: (
+    text: string,
+    onSelect: (option: SelectValue) => void
+  ) => ReactNode;
 
   /**
    * Additional class names to apply to the select menu.
@@ -99,6 +107,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
   style,
   disabled,
   createable,
+  renderCreateOption,
   selectedOption,
   options,
   loading,
@@ -210,21 +219,27 @@ export const SelectMenu: FC<SelectMenuProps> = ({
       }}
     >
       <List>
-        {options?.length === 0 && createable && trimmedText && !loading && (
-          <ListItem
-            className="select-menu-create-option"
-            onClick={event => {
-              event.preventDefault();
-              event.stopPropagation();
-              onSelectedChange({
-                value: trimmedText.toLowerCase(),
-                children: trimmedText.toLowerCase()
-              });
-            }}
-          >
-            Create option &quot;{trimmedText.toLowerCase()}&quot;
-          </ListItem>
-        )}
+        {options?.length === 0 &&
+          createable &&
+          trimmedText &&
+          !loading &&
+          (renderCreateOption ? (
+            renderCreateOption(trimmedText, onSelectedChange)
+          ) : (
+            <ListItem
+              className="select-menu-create-option"
+              onClick={event => {
+                event.preventDefault();
+                event.stopPropagation();
+                onSelectedChange({
+                  value: trimmedText.toLowerCase(),
+                  children: trimmedText.toLowerCase()
+                });
+              }}
+            >
+              Create option &quot;{trimmedText.toLowerCase()}&quot;
+            </ListItem>
+          ))}
         {options?.length === 0 &&
           !createable &&
           filterable === true &&

@@ -4,6 +4,7 @@ import { SelectOption } from './SelectOption';
 import { SelectMenu } from './SelectMenu';
 import { SelectInput, SelectInputChip } from './SelectInput';
 import { Stack } from '../../layout/Stack';
+import { ListItem } from '@/layout';
 
 export default {
   title: 'Components/Form/Select/Single',
@@ -657,6 +658,40 @@ export const Createable = () => {
     <div style={{ width: 300 }}>
       <Select
         createable
+        placeholder="Add a category or pick existing one..."
+        value={value}
+        onChange={v => setValue(v)}
+        onOptionsChange={opts => setAnimals(opts.map(o => o.value))}
+      >
+        {animals.map(o => (
+          <SelectOption key={o} value={o}>
+            {o}
+          </SelectOption>
+        ))}
+      </Select>
+    </div>
+  );
+};
+
+export const CustomCreatableOption = () => {
+  const [value, setValue] = useState<string | null>(null);
+  const [animals, setAnimals] = useState<string[]>(['chicken', 'cow', 'mouse']);
+  return (
+    <div style={{ width: 300 }}>
+      <Select
+        createable
+        renderCreateOption={(value, onSelect) => (
+          <ListItem
+            onClick={() =>
+              onSelect({
+                value: value.toLowerCase(),
+                children: value.toLowerCase()
+              })
+            }
+          >
+            ➕&nbsp;Create "{value}"
+          </ListItem>
+        )}
         placeholder="Add a category or pick existing one..."
         value={value}
         onChange={v => setValue(v)}
