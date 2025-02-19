@@ -16,7 +16,11 @@ import {
 } from '@/utils';
 import { CloneElement, useId } from '@/utils';
 import { SelectInput, SelectInputProps, SelectInputRef } from './SelectInput';
-import { SelectMenu, SelectMenuProps } from './SelectMenu';
+import {
+  RenderCreateOptionArgs,
+  SelectMenu,
+  SelectMenuProps
+} from './SelectMenu';
 import { SelectOptionProps, SelectValue } from './SelectOption';
 import { useFuzzy } from '@reaviz/react-use-fuzzy';
 import { createOptions, getGroups, useWidth, keyNameToCode } from './utils';
@@ -130,10 +134,7 @@ export interface SelectProps {
   renderCreateOption?: ({
     text,
     onSelect
-  }: {
-    text: string;
-    onSelect: (option: SelectValue) => void;
-  }) => ReactElement;
+  }: RenderCreateOptionArgs) => ReactElement;
 
   /**
    * Select options when paste text inside input.

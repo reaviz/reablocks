@@ -8,6 +8,11 @@ import { cn, useComponentTheme } from '@/utils';
 import { SelectTheme } from '@/form/Select/SelectTheme';
 import { CheckIcon } from '@/form/Select/icons/CheckIcon';
 
+export interface RenderCreateOptionArgs {
+  text: string;
+  onSelect: (option: SelectValue) => void;
+}
+
 export interface SelectMenuProps {
   /**
    * The id of the select.
@@ -50,10 +55,7 @@ export interface SelectMenuProps {
   renderCreateOption?: ({
     text,
     onSelect
-  }: {
-    text: string;
-    onSelect: (option: SelectValue) => void;
-  }) => ReactElement;
+  }: RenderCreateOptionArgs) => ReactElement;
 
   /**
    * Additional class names to apply to the select menu.
