@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { Select } from './Select';
 import { SelectOption } from './SelectOption';
 import { SelectMenu } from './SelectMenu';
@@ -680,9 +680,13 @@ export const CustomCreatableOption = () => {
     <div style={{ width: 300 }}>
       <Select
         createable
-        renderCreateOption={({ text, onCreate }) => (
-          <ListItem onClick={onCreate}>➕&nbsp;Create "{text}"</ListItem>
-        )}
+        menu={
+          <SelectMenu
+            renderCreateOption={({ text, onCreate }) => (
+              <ListItem onClick={onCreate}>➕&nbsp;Create "{text}"</ListItem>
+            )}
+          />
+        }
         placeholder="Add a category or pick existing one..."
         value={value}
         onChange={v => setValue(v)}

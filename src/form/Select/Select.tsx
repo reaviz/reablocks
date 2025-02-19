@@ -16,11 +16,7 @@ import {
 } from '@/utils';
 import { CloneElement, useId } from '@/utils';
 import { SelectInput, SelectInputProps, SelectInputRef } from './SelectInput';
-import {
-  RenderCreateOptionArgs,
-  SelectMenu,
-  SelectMenuProps
-} from './SelectMenu';
+import { SelectMenu, SelectMenuProps } from './SelectMenu';
 import { SelectOptionProps, SelectValue } from './SelectOption';
 import { useFuzzy } from '@reaviz/react-use-fuzzy';
 import { createOptions, getGroups, useWidth, keyNameToCode } from './utils';
@@ -127,14 +123,6 @@ export interface SelectProps {
    * Whether you can create new options or not.
    */
   createable?: boolean;
-
-  /**
-   * Function to render the create option.
-   */
-  renderCreateOption?: ({
-    text,
-    onCreate
-  }: RenderCreateOptionArgs) => ReactElement;
 
   /**
    * Select options when paste text inside input.
@@ -255,7 +243,6 @@ export const Select: FC<SelectProps> = ({
   placeholder,
   disabled,
   createable,
-  renderCreateOption,
   selectOnPaste,
   selectOnKeys = ['Enter'],
   loading,
@@ -784,7 +771,6 @@ export const Select: FC<SelectProps> = ({
           style={{ width: menuWidth }}
           selectedOption={selectedOption}
           createable={createable}
-          renderCreateOption={renderCreateOption}
           disabled={disabled}
           options={result}
           groups={groups}
