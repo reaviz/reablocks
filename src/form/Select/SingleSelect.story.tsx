@@ -4,7 +4,7 @@ import { SelectOption } from './SelectOption';
 import { SelectMenu } from './SelectMenu';
 import { SelectInput, SelectInputChip } from './SelectInput';
 import { Stack } from '../../layout/Stack';
-import { ListItem } from '@/layout';
+import { ListItem } from '../../layout/List/ListItem';
 
 export default {
   title: 'Components/Form/Select/Single',
