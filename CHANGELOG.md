@@ -1,3 +1,9 @@
+# 8.7.9 - 2/20/25
+- [improvement] Update framer
+
+# 8.7.8 - 2/20/25
+- [improvement] Add ability to customize create option for Select
+
 # 8.7.7 - 2/14/25
 - [improvement] Update framer
 
