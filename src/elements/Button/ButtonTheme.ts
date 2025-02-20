@@ -80,7 +80,7 @@ export interface ButtonTheme {
 }
 
 const baseTheme: Partial<ButtonTheme> = {
-  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-sm font-sans',
+  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-xs font-sans cursor-pointer',
   disabled: 'disabled:cursor-not-allowed',
   fullWidth: 'flex w-full',
   group:
@@ -124,8 +124,8 @@ export const buttonTheme: ButtonTheme = {
   variants: {
     filled:
       'bg-secondary hover:bg-border-secondary-hover border-secondary light:text-gray-100',
-    outline: 'bg-opacity-0 border-grey border',
-    text: 'bg-opacity-0 border-0'
+    outline: 'border-grey border',
+    text: 'border-0'
   },
   colors: {
     default: {
@@ -140,7 +140,7 @@ export const buttonTheme: ButtonTheme = {
       text: 'text-primary hover:text-primary-hover'
     },
     secondary: {
-      filled: 'bg-secondary hover:bg-secondary-hover !text-text-primary',
+      filled: 'bg-secondary hover:bg-secondary-hover text-text-primary!',
       outline: 'border border-secondary',
       text: 'text-secondary hover:text-secondary-hover'
     },
@@ -209,8 +209,8 @@ export const legacyButtonTheme: ButtonTheme = {
     filled:
       'bg-[var(--button-background)] text-[var(--button-color-on-background)] hover:bg-[var(--button-background-hover)] border-[var(--button-background)] hover:border-[var(--button-background-hover)]',
     outline:
-      'bg-opacity-0 border-[var(--button-background)] hover:border-[var(--button-background-hover)] text-[var(--button-color)] hover:text-[var(--button-color-hover)] border',
-    text: 'bg-opacity-0 border-0'
+      'border-[var(--button-background)] hover:border-[var(--button-background-hover)] text-[var(--button-color)] hover:text-[var(--button-color-hover)] border',
+    text: 'border-0'
   },
   colors: {
     default: {

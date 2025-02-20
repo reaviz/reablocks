@@ -977,7 +977,7 @@ export const Mfa = () => {
     >
       <Card className="w-full">
         <div className="flex flex-col items-center justify-center pt-2 pb-5 text-center">
-          <div className="p-3 border border-secondary-inactive rounded mb-3">
+          <div className="p-3 border border-secondary-inactive rounded-sm mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -1021,7 +1021,7 @@ export const Mfa = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             <svg
@@ -1103,7 +1103,7 @@ export const MfaLogin = () => {
           </a>
         </Stack>
         <div className="flex flex-col items-center justify-center pb-5 mt-[190px] text-center">
-          <div className="p-3 bg-primary rounded mb-3">
+          <div className="p-3 bg-primary rounded-sm mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -1168,7 +1168,7 @@ export const MfaLogin = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             Continue
@@ -1240,7 +1240,7 @@ export const MfaAuthenticator = () => {
           <div className="grid grid-cols-2 gap-4">
             <Button
               variant="outline"
-              className="mt-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg hover:border-secondary-hover focus:border-secondary-hover focus:outline-none transition-colors"
+              className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! hover:border-secondary-hover focus:border-secondary-hover focus:outline-hidden transition-colors"
               disabled={isSubmitting}
               fullWidth
             >
@@ -1251,7 +1251,7 @@ export const MfaAuthenticator = () => {
               fullWidth
               variant="filled"
               color="primary"
-              className="mt-7 rounded-sm px-4 py-2 flex items-center gap-2 self-stretch !text-lg bg-button-gradient hover:bg-button-gradient-hover focus:bg-button-gradient-focus light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-none transition-colors"
+              className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
               disabled={isSubmitting}
             >
               {isSubmitting ? 'Confirming...' : 'Confirm'}

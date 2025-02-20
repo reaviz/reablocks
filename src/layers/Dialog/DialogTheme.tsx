@@ -20,7 +20,7 @@ const baseTheme: DialogTheme = {
     base: 'flex justify-between pt-[20px] px-[20px] pb-[10px]',
     text: 'flex-1 m-0 p-0 inline-flex text-3xl font-bold',
     closeButton:
-      'p-0 m-0 ml-[15px] opacity-80 h-auto w-auto inline-flex bg-none border-none cursor-pointer items-center text-[16px] focus:outline-none'
+      'p-0 m-0 ml-[15px] opacity-80 h-auto w-auto inline-flex bg-none border-none cursor-pointer items-center text-[16px] focus:outline-hidden'
   }
 };
 
@@ -28,7 +28,7 @@ export const dialogTheme: DialogTheme = {
   ...baseTheme,
   inner: [
     baseTheme.inner,
-    'bg-panel text-text-primary border border-panel-accent rounded shadow-2xl'
+    'bg-panel text-text-primary border border-panel-accent rounded-sm shadow-2xl'
   ].join(' '),
   header: {
     ...baseTheme.header,
