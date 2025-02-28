@@ -162,9 +162,9 @@ export interface SelectProps {
   size?: 'small' | 'medium' | 'large' | string;
 
   /**
-   * Whether to prevent clearing the input on blur.
+   * Whether to clear the input on blur.
    */
-  preventClearOnBlur?: boolean;
+  clearOnBlur?: boolean;
 
   /**
    * When the input receives a key down event.
@@ -260,7 +260,7 @@ export const Select: FC<SelectProps> = ({
   value,
   defaultFilterValue,
   required,
-  preventClearOnBlur,
+  clearOnBlur = true,
   size = 'medium',
   input = <SelectInput />,
   menu = <SelectMenu />,
@@ -400,11 +400,11 @@ export const Select: FC<SelectProps> = ({
   }, [createable, internalValue, multiple, options, onOptionsChange]);
 
   const resetInput = useCallback(() => {
-    if (!preventClearOnBlur) {
+    if (clearOnBlur) {
       setIndex(-1);
       resetSearch();
     }
-  }, [preventClearOnBlur, resetSearch]);
+  }, [clearOnBlur, resetSearch]);
 
   const resetSelect = useCallback(() => {
     setOpen(false);

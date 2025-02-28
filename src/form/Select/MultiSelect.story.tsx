@@ -56,7 +56,7 @@ export const PreventClearInput = () => {
         closeOnSelect={false}
         placeholder="Select a category..."
         value={value}
-        preventClearOnBlur
+        clearOnBlur={false}
         onChange={v => {
           setValue(v);
           console.log('onChange', v);
