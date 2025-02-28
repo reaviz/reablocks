@@ -1,3 +1,6 @@
+# 8.7.10 - 2/28/25
+- [feature] add clearOnBlur flag to control select input behavior
+
 # 8.7.9 - 2/20/25
 - [improvement] Update framer
 
