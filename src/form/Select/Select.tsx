@@ -199,6 +199,11 @@ export interface SelectProps {
   onRefresh?: () => void;
 
   /**
+   * When the user clears the select input.
+   */
+  onClear?: () => void;
+
+  /**
    * When the value changes.
    */
   onChange?: (value) => void;
@@ -266,6 +271,7 @@ export const Select: FC<SelectProps> = ({
   menu = <SelectMenu />,
   onRefresh,
   onChange,
+  onClear,
   onBlur: onInputBlur,
   onFocus: onInputFocus,
   onInputKeydown,
@@ -732,6 +738,11 @@ export const Select: FC<SelectProps> = ({
     ]
   );
 
+  const onClearHandler = useCallback(() => {
+    resetSearch();
+    onClear?.();
+  }, [onClear, resetSearch]);
+
   const onMenuSelectedChange = useCallback(
     (option: SelectValue) => {
       toggleSelectedOption(option);
@@ -826,6 +837,7 @@ export const Select: FC<SelectProps> = ({
         onFocus={onInputFocused}
         onRefresh={onRefresh}
         onPaste={onPasteHandler}
+        onClear={onClearHandler}
       />
     </ConnectedOverlay>
   );

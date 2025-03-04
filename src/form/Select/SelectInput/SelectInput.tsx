@@ -211,6 +211,11 @@ export interface SelectInputProps {
    * The function to handle refresh.
    */
   onRefresh?: () => void;
+
+  /**
+   * The function to handle clear event.
+   */
+  onClear?: () => void;
 }
 
 export interface SelectInputRef {
@@ -269,6 +274,7 @@ export const SelectInput: FC<SelectInputProps> = ({
   onBlur,
   onRefresh,
   onPaste,
+  onClear,
   chip = <SelectInputChip />,
   theme: customTheme
 }) => {
@@ -313,8 +319,9 @@ export const SelectInput: FC<SelectInputProps> = ({
         event.stopPropagation();
       }
       onSelectedChange(null);
+      onClear?.();
     },
-    [onSelectedChange, closeOnSelect]
+    [onSelectedChange, closeOnSelect, onClear]
   );
 
   const focusInput = useCallback(() => {
