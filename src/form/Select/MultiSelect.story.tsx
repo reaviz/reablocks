@@ -48,7 +48,8 @@ export const Basic = () => {
 };
 
 export const PreventClearInput = () => {
-  const [value, setValue] = useState<string[] | null>(null);
+  const [value, setValue] = useState<string[] | null>(['facebook']);
+
   return (
     <div style={{ width: 300 }}>
       <Select
@@ -57,10 +58,7 @@ export const PreventClearInput = () => {
         placeholder="Select a category..."
         value={value}
         clearOnBlur={false}
-        onChange={v => {
-          setValue(v);
-          console.log('onChange', v);
-        }}
+        onChange={v => setValue(v)}
       >
         <SelectOption value="facebook">facebook</SelectOption>
         <SelectOption value="twitter">twitter</SelectOption>
