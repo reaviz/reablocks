@@ -1,3 +1,6 @@
+# 8.7.11 - 3/4/25
+- [feature] Add clear event to select & reset search in clear
+
 # 8.7.10 - 2/28/25
 - [feature] add clearOnBlur flag to control select input behavior
 
