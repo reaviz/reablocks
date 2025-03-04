@@ -58,11 +58,7 @@ export const PreventClearInput = () => {
         placeholder="Select a category..."
         value={value}
         clearOnBlur={false}
-        onClear={() => console.log('onClear')}
-        onChange={v => {
-          setValue(v);
-          console.log('onChange', v);
-        }}
+        onChange={v => setValue(v)}
       >
         <SelectOption value="facebook">facebook</SelectOption>
         <SelectOption value="twitter">twitter</SelectOption>
