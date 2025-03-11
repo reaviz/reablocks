@@ -53,11 +53,6 @@ export interface DrawerProps
   showCloseButton?: boolean;
 
   /**
-   * Whether the drawer content should update on animation complete.
-   */
-  refreshOnAnimateEnd?: boolean;
-
-  /**
    * The content of the drawer.
    */
   children?: any;
@@ -88,14 +83,12 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
   closeOnBackdropClick = true,
   disablePadding = false,
   showCloseButton = true,
-  refreshOnAnimateEnd = false,
   onClose,
   theme: customTheme,
   ...rest
 }) => {
   const id = useId();
   const variant = variants[position];
-  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
 
   const style = {
     width: position === 'start' || position === 'end' ? size : 'auto',
@@ -132,8 +125,6 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                 ease: [0.04, 0.62, 0.23, 0.98],
                 when: 'beforeChildren'
               }}
-              onAnimationStart={() => setIsAnimationComplete(false)}
-              onAnimationComplete={() => setIsAnimationComplete(true)}
               style={{ ...style, zIndex: overlayIndex }}
               className={twMerge(
                 theme.base,
@@ -142,6 +133,12 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                 className
               )}
               {...rest}
+              onAnimationComplete={() => {
+                // Force a resize event to recalculate the children
+                // This is required for child components that are animated
+                // like the RangeDouble component
+                window.dispatchEvent(new Event('resize'));
+              }}
             >
               {(header || headerElement) && (
                 <CloneElement<DrawerHeaderProps>
@@ -164,10 +161,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                   ✕
                 </button>
               )}
-              <div
-                className={twMerge(theme.content, contentClassName)}
-                key={refreshOnAnimateEnd ? isAnimationComplete.toString() : ''}
-              >
+              <div className={twMerge(theme.content, contentClassName)}>
                 {typeof children === 'function' ? children() : children}
               </div>
             </motion.div>
