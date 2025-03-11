@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 import FocusTrap from 'focus-trap-react';
 import { useId, CloneElement } from '@/utils';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
@@ -53,6 +53,11 @@ export interface DrawerProps
   showCloseButton?: boolean;
 
   /**
+   * Whether the drawer content should update on animation complete.
+   */
+  refreshOnAnimateEnd?: boolean;
+
+  /**
    * The content of the drawer.
    */
   children?: any;
@@ -83,12 +88,14 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
   closeOnBackdropClick = true,
   disablePadding = false,
   showCloseButton = true,
+  refreshOnAnimateEnd = false,
   onClose,
   theme: customTheme,
   ...rest
 }) => {
   const id = useId();
   const variant = variants[position];
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
 
   const style = {
     width: position === 'start' || position === 'end' ? size : 'auto',
@@ -125,6 +132,8 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                 ease: [0.04, 0.62, 0.23, 0.98],
                 when: 'beforeChildren'
               }}
+              onAnimationStart={() => setIsAnimationComplete(false)}
+              onAnimationComplete={() => setIsAnimationComplete(true)}
               style={{ ...style, zIndex: overlayIndex }}
               className={twMerge(
                 theme.base,
@@ -155,7 +164,10 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                   ✕
                 </button>
               )}
-              <div className={twMerge(theme.content, contentClassName)}>
+              <div
+                className={twMerge(theme.content, contentClassName)}
+                key={refreshOnAnimateEnd ? isAnimationComplete.toString() : ''}
+              >
                 {typeof children === 'function' ? children() : children}
               </div>
             </motion.div>
