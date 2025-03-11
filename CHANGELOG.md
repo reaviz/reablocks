@@ -1,3 +1,6 @@
+# 8.7.12 - 3/11/25
+- [fix] Fix Range slider in Drawer #282
+
 # 8.7.11 - 3/4/25
 - [feature] Add clear event to select & reset search in clear
 
