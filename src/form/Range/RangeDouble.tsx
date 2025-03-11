@@ -107,11 +107,18 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
       minX.set(getPosition(currentMin));
       maxX.set(getPosition(currentMax));
     };
-    updateRange();
 
     // the callback inside requestAnimationFrame is ran when the browser is ready to accept the next repaint
     // this fixes issues setting range width when the slider is placed in an animated parent element like a popup
     requestAnimationFrame(updateRange);
+
+    // Add window resize event listener to recalculate dimensions when window size changes
+    window.addEventListener('resize', updateRange);
+
+    // Clean up the event listener when component unmounts
+    return () => {
+      window.removeEventListener('resize', updateRange);
+    };
   }, [currentMin, minX, currentMax, maxX, getPosition]);
 
   useEffect(() => {
