@@ -76,7 +76,9 @@
     rgba(23, 23, 255, 0.1) 100%
   );
 
+  .theme-light,
   &.theme-light,
+  [data-theme='light'],
   &[data-theme='light'] {
     --reablocks-theme: light;
 
