@@ -35,12 +35,12 @@ const preview: Preview = {
       container: ({ children, ...props }: any) => {
         // For whatever reason the theme is not getting applied to docs
         // This is a workaround to apply the theme to the docs
-        const isLight = props.context?.store?.globals?.globals?.theme === 'light';
+        const isLight = props.context?.store?.globals?.globals?.theme === 'theme-light';
 
         return (
           <DocsContainer {...props}>
             <ThemeProvider theme={reablocksTheme}>
-              <div className={isLight ? 'light' : 'dark'}>
+              <div className={isLight ? 'theme-light' : 'theme-dark'}>
                 {children}
               </div>
             </ThemeProvider>
