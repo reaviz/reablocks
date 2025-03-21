@@ -23,7 +23,7 @@ const preview: Preview = {
         light: 'theme-light',
         dark: 'theme-dark',
       },
-      defaultTheme: 'theme-dark',
+      defaultTheme: 'dark',
     }),
   ],
   parameters: {
@@ -35,7 +35,7 @@ const preview: Preview = {
       container: ({ children, ...props }: any) => {
         // For whatever reason the theme is not getting applied to docs
         // This is a workaround to apply the theme to the docs
-        const isLight = props.context?.store?.globals?.globals?.theme === 'theme-light';
+        const isLight = props.context?.store?.globals?.globals?.theme === 'light';
 
         return (
           <DocsContainer {...props}>
