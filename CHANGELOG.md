@@ -1,3 +1,6 @@
+# 9.0.0 - 3/21/25
+- [feature] Migration to Tailwind 4
+
 # 9.0.0-beta.2 - 3/18/25
 - [feature] Tailwind 4 Upgrade
 
