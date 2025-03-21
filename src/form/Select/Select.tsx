@@ -162,6 +162,11 @@ export interface SelectProps {
   size?: 'small' | 'medium' | 'large' | string;
 
   /**
+   * Whether to clear the input on blur.
+   */
+  clearOnBlur?: boolean;
+
+  /**
    * When the input receives a key down event.
    */
   onInputKeydown?: (event: React.KeyboardEvent<HTMLInputElement>) => void;
@@ -192,6 +197,11 @@ export interface SelectProps {
    * When the user manually refreshed the options.
    */
   onRefresh?: () => void;
+
+  /**
+   * When the user clears the select input.
+   */
+  onClear?: () => void;
 
   /**
    * When the value changes.
@@ -255,11 +265,13 @@ export const Select: FC<SelectProps> = ({
   value,
   defaultFilterValue,
   required,
+  clearOnBlur = true,
   size = 'medium',
   input = <SelectInput />,
   menu = <SelectMenu />,
   onRefresh,
   onChange,
+  onClear,
   onBlur: onInputBlur,
   onFocus: onInputFocus,
   onInputKeydown,
@@ -394,9 +406,11 @@ export const Select: FC<SelectProps> = ({
   }, [createable, internalValue, multiple, options, onOptionsChange]);
 
   const resetInput = useCallback(() => {
-    setIndex(-1);
-    resetSearch();
-  }, [resetSearch]);
+    if (clearOnBlur) {
+      setIndex(-1);
+      resetSearch();
+    }
+  }, [clearOnBlur, resetSearch]);
 
   const resetSelect = useCallback(() => {
     setOpen(false);
@@ -724,6 +738,11 @@ export const Select: FC<SelectProps> = ({
     ]
   );
 
+  const onClearHandler = useCallback(() => {
+    resetSearch();
+    onClear?.();
+  }, [onClear, resetSearch]);
+
   const onMenuSelectedChange = useCallback(
     (option: SelectValue) => {
       toggleSelectedOption(option);
@@ -818,6 +837,7 @@ export const Select: FC<SelectProps> = ({
         onFocus={onInputFocused}
         onRefresh={onRefresh}
         onPaste={onPasteHandler}
+        onClear={onClearHandler}
       />
     </ConnectedOverlay>
   );

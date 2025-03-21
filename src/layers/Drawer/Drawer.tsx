@@ -1,4 +1,4 @@
-import React, { FC, ReactElement } from 'react';
+import React, { FC, ReactElement, useState } from 'react';
 import FocusTrap from 'focus-trap-react';
 import { useId, CloneElement } from '@/utils';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
@@ -133,6 +133,12 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                 className
               )}
               {...rest}
+              onAnimationComplete={() => {
+                // Force a resize event to recalculate the children
+                // This is required for child components that are animated
+                // like the RangeDouble component
+                window.dispatchEvent(new Event('resize'));
+              }}
             >
               {(header || headerElement) && (
                 <CloneElement<DrawerHeaderProps>

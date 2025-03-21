@@ -47,6 +47,27 @@ export const Basic = () => {
   );
 };
 
+export const PreventClearInput = () => {
+  const [value, setValue] = useState<string[] | null>(['facebook']);
+
+  return (
+    <div style={{ width: 300 }}>
+      <Select
+        multiple
+        closeOnSelect={false}
+        placeholder="Select a category..."
+        value={value}
+        clearOnBlur={false}
+        onChange={v => setValue(v)}
+      >
+        <SelectOption value="facebook">facebook</SelectOption>
+        <SelectOption value="twitter">twitter</SelectOption>
+        <SelectOption value="twitch">twitch</SelectOption>
+      </Select>
+    </div>
+  );
+};
+
 export const Disabled = () => {
   const [value, setValue] = useState<string[] | null>(['facebook']);
   return (

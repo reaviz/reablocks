@@ -1,6 +1,8 @@
 import { RangeDouble } from './RangeDouble';
-import React, { useState } from 'react';
+import React, { Fragment, useState } from 'react';
 import { RangeSingle } from './RangeSingle';
+import { useDrawer } from '@/layers';
+import { Button } from '@/elements';
 
 export default {
   title: 'Components/Form/Range',
@@ -116,6 +118,28 @@ export const Double = () => {
       value={state}
       style={{ width: 250 }}
     />
+  );
+};
+
+export const RangeInDrawer = () => {
+  const { toggleOpen, Drawer } = useDrawer();
+  const [state, setState] = useState<[number, number]>([20, 60]);
+
+  return (
+    <Fragment>
+      <Drawer className="bg-gray-800">
+        <RangeDouble
+          onChange={([min, max]) => setState([min, max])}
+          min={1}
+          max={100}
+          value={state}
+          style={{ width: 250 }}
+        />
+      </Drawer>
+      <Button type="button" onClick={toggleOpen}>
+        Open
+      </Button>
+    </Fragment>
   );
 };
 

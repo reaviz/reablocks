@@ -1,6 +1,21 @@
 # 9.0.0-beta.2 - 3/18/25
 - [feature] Tailwind 4 Upgrade
 
+# 8.7.12 - 3/11/25
+- [fix] Fix Range slider in Drawer #282
+
+# 8.7.11 - 3/4/25
+- [feature] Add clear event to select & reset search in clear
+
+# 8.7.10 - 2/28/25
+- [feature] add clearOnBlur flag to control select input behavior
+
+# 8.7.9 - 2/20/25
+- [improvement] Update framer
+
+# 8.7.8 - 2/20/25
+- [improvement] Add ability to customize create option for Select
+
 # 8.7.7 - 2/14/25
 - [improvement] Update framer
 
