@@ -74,7 +74,7 @@ export const InlineInput: FC<InlineInputProps & InlineInputRef> = forwardRef<
           placeholder={placeholder}
           value={value}
           className={cn(
-            'border-none bg-transparent focus:outline-none',
+            'border-none bg-transparent focus:outline-hidden',
             theme.inline,
             inputClassName
           )}

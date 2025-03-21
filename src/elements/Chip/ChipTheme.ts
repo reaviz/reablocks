@@ -74,7 +74,7 @@ export interface ChipTheme {
 const baseTheme: Partial<ChipTheme> = {
   base: `
   inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5
-  rounded-sm leading-none text-white transition-colors
+  rounded-xs leading-none text-white transition-colors
   duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium
   `,
   colors: {
@@ -125,9 +125,9 @@ const baseTheme: Partial<ChipTheme> = {
     }
   },
   sizes: {
-    small: 'text-[10px] px-1 py-0.5',
-    medium: 'text-sm px-2 py-0.5',
-    large: 'text-base px-3 py-0.5'
+    small: 'text-[10px] leading-[inherit] px-1 py-0.5',
+    medium: 'text-sm leading-[inherit] px-2 py-0.5',
+    large: 'text-base leading-[inherit] px-3 py-0.5'
   },
   focus:
     'focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-2',
@@ -139,7 +139,7 @@ const baseTheme: Partial<ChipTheme> = {
       large: 'leading-[14px] max-h-3.5'
     }
   },
-  disabled: 'bg-opacity-50 border-opacity-50 text-opacity-50 cursor-not-allowed'
+  disabled: 'opacity-50 cursor-not-allowed'
 };
 
 export const chipTheme: ChipTheme = {
@@ -149,7 +149,7 @@ export const chipTheme: ChipTheme = {
   focus: baseTheme.focus,
   variants: {
     filled: 'border border-transparent box-border',
-    outline: 'bg-opacity-0 border hover:bg-transparent'
+    outline: 'bg-transparent border hover:bg-transparent'
   },
   colors: {
     default: {

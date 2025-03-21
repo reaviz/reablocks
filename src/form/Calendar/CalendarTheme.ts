@@ -43,7 +43,7 @@ const baseTheme: CalendarTheme = {
     mid: '',
     next: 'text-xl leading-4'
   },
-  title: 'font-semibold',
+  title: 'font-semibold leading-[normal]',
   content: 'flex',
 
   days: {
@@ -58,8 +58,8 @@ const baseTheme: CalendarTheme = {
     cornerEndDateTop: 'rounded-tr-none',
     range: 'rounded-none',
     selected: '',
-    hover: 'rounded',
-    today: 'rounded border'
+    hover: 'rounded-sm',
+    today: 'rounded-sm border'
   },
 
   months: {

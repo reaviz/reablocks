@@ -46,7 +46,7 @@ export const pagerTheme: PagerTheme = {
     ...baseTheme.pages,
     page: {
       base: [baseTheme.pages.page.base, 'text-slate-500'].join(' '),
-      active: [baseTheme.pages.page.active, '!text-text-primary'].join(' ')
+      active: [baseTheme.pages.page.active, 'text-text-primary!'].join(' ')
     }
   },
   control: [
@@ -62,9 +62,7 @@ export const legacyPagerTheme: PagerTheme = {
     ...baseTheme.pages,
     page: {
       base: [baseTheme.pages.page.base, 'px-[var(--spacing-sm)]'].join(' '),
-      active: [baseTheme.pages.page.active, '!text-[var(--input-color)]'].join(
-        ' '
-      )
+      active: [baseTheme.pages.page.active, 'text-(--input-color)!'].join(' ')
     }
   },
   pagerDisplayItems: ['text-[var(--gray-100)] mr-[var(--spacing-sm)]'].join(' ')

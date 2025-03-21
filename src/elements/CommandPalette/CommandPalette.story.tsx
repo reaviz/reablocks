@@ -50,7 +50,7 @@ export const Sections = () => (
       </CommandPaletteSection>
       <Divider />
       <CommandPaletteSection key="aws">
-        <div className="m-2 mt-0 p-2 bg-red-600 rounded">
+        <div className="m-2 mt-0 p-2 bg-red-600 rounded-sm">
           🚨 AWS Account not configured. Link your account →
         </div>
       </CommandPaletteSection>

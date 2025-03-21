@@ -1,3 +1,6 @@
+# 9.0.0-beta.2 - 3/18/25
+- [feature] Tailwind 4 Upgrade
+
 # 8.7.12 - 3/11/25
 - [fix] Fix Range slider in Drawer #282
 

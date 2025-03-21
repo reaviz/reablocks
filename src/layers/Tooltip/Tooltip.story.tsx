@@ -28,7 +28,7 @@ export const Simple = () => (
 
 export const CustomTheme = () => {
   const customTheme = extendComponentTheme<TooltipTheme>(tooltipTheme, {
-    base: 'rounded bg-green-800 text-white font-bold p-3 text-base'
+    base: 'rounded-sm bg-green-800 text-white font-bold p-3 text-base'
   });
 
   return (

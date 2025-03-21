@@ -28,7 +28,7 @@ const baseTheme: RangeTheme = {
   disabled: 'cursor-not-allowed',
   input: 'absolute left-[-9999px]', // The hidden input used for keyboard controls
   tooltip:
-    'absolute top-[-45px] -translate-x-2/4 whitespace-nowrap text-center left-2/4 rounded-lg p-2.5'
+    'absolute top-[-45px] whitespace-nowrap text-center left-2/4 rounded-lg p-2.5'
 };
 
 export const rangeTheme: RangeTheme = {

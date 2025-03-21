@@ -77,7 +77,7 @@ const baseTheme: Partial<CheckboxTheme> = {
     disabled: 'cursor-not-allowed stroke-gray-500'
   },
   checkbox: {
-    base: 'fill-transparent flex items-center justify-center cursor-pointer focus-visible:outline-none',
+    base: 'fill-transparent flex items-center justify-center cursor-pointer focus-visible:outline-hidden',
     checked: 'fill-blue-500 checked',
     disabled: 'fill-transparent disabled'
   },

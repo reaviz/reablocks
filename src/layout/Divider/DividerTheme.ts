@@ -19,7 +19,7 @@ const baseTheme: DividerTheme = {
   },
   variant: {
     primary: 'bg-surface',
-    secondary: 'bg-gradient-to-r from-transparent to-transparent via-blue-500'
+    secondary: 'bg-linear-to-r from-transparent to-transparent via-blue-500'
   },
   disableMargins: 'my-0 mx-0'
 };

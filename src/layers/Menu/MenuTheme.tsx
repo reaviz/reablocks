@@ -5,7 +5,7 @@ export interface MenuTheme {
 
 const baseTheme: MenuTheme = {
   base: 'relative min-w-[112px] max-w-[500px] p-px',
-  inner: 'focus:outline-none'
+  inner: 'focus:outline-hidden'
 };
 
 export const menuTheme: MenuTheme = {

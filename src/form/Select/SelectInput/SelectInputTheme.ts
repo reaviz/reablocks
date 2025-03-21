@@ -42,12 +42,12 @@ export interface SelectInputTheme {
 }
 
 const baseTheme: SelectInputTheme = {
-  base: 'flex flex-nowrap items-center box-border border rounded',
+  base: 'flex flex-nowrap items-center box-border border rounded-sm',
   container: 'relative',
   inputContainer:
     'flex-wrap flex items-center overflow-hidden flex-1 max-w-full [&>div]:max-w-full [&_.invisible]:text-ellipsis [&_.invisible]:overflow-hidden',
   input:
-    'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-none disabled:text-disabled',
+    'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-hidden disabled:text-disabled',
   placeholder: '',
   prefix: 'overflow-hidden whitespace-nowrap text-ellipsis',
   suffix: {
@@ -61,7 +61,7 @@ const baseTheme: SelectInputTheme = {
   disabled: 'cursor-not-allowed text-disabled hover:after:content-none',
   unfilterable: 'caret-transparent',
   error: 'border border-solid',
-  open: 'rounded rounded-ee-none rounded-es-none',
+  open: 'rounded-sm rounded-ee-none rounded-es-none',
   single: {
     prefix: 'overflow-hidden whitespace-nowrap text-ellipsis max-w-full',
     inputContainer: 'flex-nowrap',
@@ -72,12 +72,12 @@ const baseTheme: SelectInputTheme = {
     inputContainer: 'flex-wrap'
   },
   chip: {
-    base: 'cursor-pointer flex text-sm leading-none box-border mr-1 px-1 py-1 rounded border-solid border-transparent',
+    base: 'cursor-pointer flex text-sm leading-none box-border mr-1 px-1 py-1 rounded-sm border-solid border-transparent',
     hover: '',
     focused: 'focused:border-transparent focused:outline-none',
     disabled: 'disabled:cursor-not-allowed',
     removeButton:
-      'cursor-pointer leading-[0] ml-1 p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none'
+      'cursor-pointer leading-0 ml-1 p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none'
   },
   size: {
     small: 'py-1 px-2 text-sm min-h-8',
@@ -93,8 +93,8 @@ export const selectInputTheme: SelectInputTheme = {
     'bg-panel text-text-primary border-panel-accent border-solid hover:border-panel-accent light:hover:border-panel-accent',
     'hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#242433_100%)] light:hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#E6E6F0_100%)]',
     'focus-within:after:bg-[radial-gradient(circle,_#93B6FF_0%,_#105EFF_36%,_#3D3D4D_90%,_#242433_100%)] light:focus-within:after:bg-[radial-gradient(circle,_#105EFF_10%,_#93B6FF_36%,_#E6E6F0_90%)]',
-    'hover:after:content-[""] hover:after:absolute hover:after:mx-1 hover:after:h-px after:z-[2] hover:after:rounded hover:after:-bottom-[0px] hover:after:inset-x-0.5',
-    'focus-within:after:content-[""] focus-within:after:absolute focus-within:after:mx-0 focus-within:after:h-px after:z-[2] focus-within:after:rounded focus-within:after:-bottom-[0px] focus-within:after:inset-x-0.5'
+    'hover:after:content-[""] hover:after:absolute hover:after:mx-1 hover:after:h-px after:z-2 hover:after:rounded-sm hover:after:-bottom-[0px] hover:after:inset-x-0.5',
+    'focus-within:after:content-[""] focus-within:after:absolute focus-within:after:mx-0 focus-within:after:h-px after:z-2 focus-within:after:rounded-sm focus-within:after:-bottom-[0px] focus-within:after:inset-x-0.5'
   ].join(' '),
   placeholder: [
     baseTheme.placeholder,
@@ -113,13 +113,13 @@ export const selectInputTheme: SelectInputTheme = {
     ...baseTheme.chip,
     base: [
       baseTheme.chip.base,
-      '[&>svg]:fill-text-primary disabled:[&>svg]:fill-text-secondary/40'
+      '[&>svg]:fill-text-primary [&>svg]:disabled:fill-text-secondary/40'
     ].join(' '),
     hover: [baseTheme.chip.hover, 'hover:brightness-150'].join(' '),
     focused: [baseTheme.chip.focused, 'border-panel-accent'].join(' '),
     removeButton: [
       baseTheme.chip.removeButton,
-      '[&>svg]:fill-text-primary disabled:[&>svg]:fill-text-secondary/40'
+      '[&>svg]:fill-text-primary [&>svg]:disabled:fill-text-secondary/40'
     ].join(' ')
   }
 };

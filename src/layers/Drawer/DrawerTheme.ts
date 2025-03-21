@@ -27,7 +27,7 @@ const baseTheme: DrawerTheme = {
   content: 'px-8 py-5',
   disablePadding: 'p-0',
   closeButton: {
-    base: 'opacity-80 h-auto w-auto min-w-[auto] min-h-[auto] cursor-pointer text-base p-0 border-0 focus:outline-none',
+    base: 'opacity-80 h-auto w-auto min-w-[auto] min-h-[auto] cursor-pointer text-base p-0 border-0 focus:outline-hidden',
     headerless: 'absolute right-5 top-5'
   },
   positions: {
