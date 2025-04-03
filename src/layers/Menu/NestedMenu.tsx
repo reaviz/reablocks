@@ -1,4 +1,12 @@
-import React, { FC, Fragment, useCallback, useRef, useState } from 'react';
+import React, {
+  FC,
+  forwardRef,
+  Fragment,
+  useCallback,
+  useImperativeHandle,
+  useRef,
+  useState
+} from 'react';
 import { OverlayEvent } from '@/utils/Overlay';
 import { Placement } from '@/utils/Position';
 import { Menu } from './Menu';
@@ -81,108 +89,122 @@ export interface NestedMenuProps {
   onClose?: (event: OverlayEvent) => void;
 }
 
-export const NestedMenu: FC<NestedMenuProps> = ({
-  label,
-  children,
-  style,
-  placement = 'right-start',
-  menuClassName,
-  menuStyle,
-  enterDelay = 0,
-  autofocus = true,
-  leaveDelay = 100,
-  className,
-  maxHeight,
-  activeClassName,
-  closeOnBodyClick = true,
-  closeOnEscape = true,
-  onClose
-}) => {
-  const [active, setActive] = useState<boolean>(false);
-  const itemRef = useRef<HTMLDivElement | null>(null);
-  const menuRef = useRef<HTMLDivElement | null>(null);
-  const menuEntered = useRef<boolean>(false);
-  const enterTimeoutRef = useRef<any | null>(null);
-  const leaveTimeoutRef = useRef<any | null>(null);
+export const NestedMenu: FC<NestedMenuProps> = forwardRef(
+  (
+    {
+      label,
+      children,
+      style,
+      placement = 'right-start',
+      menuClassName,
+      menuStyle,
+      enterDelay = 0,
+      autofocus = true,
+      leaveDelay = 100,
+      className,
+      maxHeight,
+      activeClassName,
+      closeOnBodyClick = true,
+      closeOnEscape = true,
+      onClose
+    },
+    ref
+  ) => {
+    const [active, setActive] = useState<boolean>(false);
+    const itemRef = useRef<HTMLDivElement | null>(null);
+    const menuRef = useRef<HTMLDivElement | null>(null);
+    const menuEntered = useRef<boolean>(false);
+    const enterTimeoutRef = useRef<any | null>(null);
+    const leaveTimeoutRef = useRef<any | null>(null);
 
-  const onMouseEnterItem = useCallback(() => {
-    clearTimeout(enterTimeoutRef.current);
-    clearTimeout(leaveTimeoutRef.current);
-    enterTimeoutRef.current = setTimeout(() => setActive(true), enterDelay);
-  }, [enterDelay]);
-
-  const onClickItem = useCallback(() => {
-    clearTimeout(enterTimeoutRef.current);
-    clearTimeout(leaveTimeoutRef.current);
-    setActive(!active);
-  }, [active]);
-
-  const onMouseLeaveItem = useCallback(() => {
-    leaveTimeoutRef.current = setTimeout(() => {
-      if (!menuEntered.current) {
-        setActive(false);
-      }
-    }, leaveDelay);
-  }, [leaveDelay]);
-
-  const onMouseEnterMenu = useCallback(event => {
-    clearTimeout(enterTimeoutRef.current);
-    clearTimeout(leaveTimeoutRef.current);
-    menuEntered.current = true;
-  }, []);
-
-  const onMouseLeaveMenu = useCallback(
-    event => {
+    const onMouseEnterItem = useCallback(() => {
       clearTimeout(enterTimeoutRef.current);
       clearTimeout(leaveTimeoutRef.current);
-      menuEntered.current = false;
+      enterTimeoutRef.current = setTimeout(() => setActive(true), enterDelay);
+    }, [enterDelay]);
 
+    const onClickItem = useCallback(() => {
+      clearTimeout(enterTimeoutRef.current);
+      clearTimeout(leaveTimeoutRef.current);
+      setActive(!active);
+    }, [active]);
+
+    const onMouseLeaveItem = useCallback(() => {
       leaveTimeoutRef.current = setTimeout(() => {
-        if (!itemRef.current?.contains(event.target)) {
+        if (!menuEntered.current) {
           setActive(false);
         }
       }, leaveDelay);
-    },
-    [leaveDelay]
-  );
+    }, [leaveDelay]);
 
-  const onNestedMenuClose = useCallback(
-    event => {
-      setActive(false);
-      onClose?.(event);
-    },
-    [onClose]
-  );
+    const onMouseEnterMenu = useCallback(event => {
+      clearTimeout(enterTimeoutRef.current);
+      clearTimeout(leaveTimeoutRef.current);
+      menuEntered.current = true;
+    }, []);
 
-  return (
-    <Fragment>
-      <div
-        className={classNames(className, { [activeClassName]: active })}
-        style={style}
-        ref={itemRef}
-        onClick={onClickItem}
-        onMouseEnter={onMouseEnterItem}
-        onMouseLeave={onMouseLeaveItem}
-      >
-        {label}
-      </div>
-      <Menu
-        className={menuClassName}
-        autofocus={autofocus}
-        style={menuStyle}
-        reference={itemRef}
-        closeOnBodyClick={closeOnBodyClick}
-        closeOnEscape={closeOnEscape}
-        open={active}
-        placement={placement}
-        maxHeight={maxHeight}
-        ref={menuRef}
-        onMouseEnter={onMouseEnterMenu}
-        onMouseLeave={onMouseLeaveMenu}
-        onClose={onNestedMenuClose}
-      >
-        {children}
-      </Menu>
-    </Fragment>
-  );
-};
+    const onMouseLeaveMenu = useCallback(
+      event => {
+        clearTimeout(enterTimeoutRef.current);
+        clearTimeout(leaveTimeoutRef.current);
+        menuEntered.current = false;
+
+        leaveTimeoutRef.current = setTimeout(() => {
+          if (!itemRef.current?.contains(event.target)) {
+            setActive(false);
+          }
+        }, leaveDelay);
+      },
+      [leaveDelay]
+    );
+
+    const onNestedMenuClose = useCallback(
+      event => {
+        setActive(false);
+        onClose?.(event);
+      },
+      [onClose]
+    );
+
+    /**
+     * Expose the close ability to the outside
+     */
+    useImperativeHandle(ref, () => ({
+      close: () => {
+        setActive(false);
+      }
+    }));
+
+    return (
+      <Fragment>
+        <div
+          className={classNames(className, { [activeClassName]: active })}
+          style={style}
+          ref={itemRef}
+          onClick={onClickItem}
+          onMouseEnter={onMouseEnterItem}
+          onMouseLeave={onMouseLeaveItem}
+        >
+          {label}
+        </div>
+        <Menu
+          className={menuClassName}
+          autofocus={autofocus}
+          style={menuStyle}
+          reference={itemRef}
+          closeOnBodyClick={closeOnBodyClick}
+          closeOnEscape={closeOnEscape}
+          open={active}
+          placement={placement}
+          maxHeight={maxHeight}
+          ref={menuRef}
+          onMouseEnter={onMouseEnterMenu}
+          onMouseLeave={onMouseLeaveMenu}
+          onClose={onNestedMenuClose}
+        >
+          {children}
+        </Menu>
+      </Fragment>
+    );
+  }
+);
