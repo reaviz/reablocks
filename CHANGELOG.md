@@ -1,3 +1,6 @@
+# 9.0.1 - 4/03/25
+- [feature] Expose close method from NestedMenu component via ref
+
 # 9.0.0 - 3/21/25
 - [feature] Migration to Tailwind 4
 
