@@ -37,7 +37,7 @@ export const Unstyled = () => {
 export const Nested = () => {
   const { toggleOpen, ref, Menu: MenuComponent } = useMenu({ open: false });
   const itemStyle = { padding: 5, borderBottom: 'solid 1px black' };
-  const nestedMenuRef = useRef<NestedMenuRef>(null);
+  const nestedMenuRef = useRef<NestedMenuRef | null>(null);
 
   return (
     <Fragment>
@@ -100,7 +100,7 @@ export const Nested = () => {
             </div>
             <ListItem
               onClick={() => {
-                nestedMenuRef.current.close();
+                nestedMenuRef.current?.close();
               }}
             >
               Close

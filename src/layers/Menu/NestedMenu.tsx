@@ -12,6 +12,9 @@ import { Menu } from './Menu';
 import classNames from 'classnames';
 
 export interface NestedMenuRef {
+  /**
+   * Close the menu.
+   */
   close: () => void;
 }
 
