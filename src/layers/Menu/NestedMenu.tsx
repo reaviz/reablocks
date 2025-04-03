@@ -1,5 +1,4 @@
 import React, {
-  FC,
   forwardRef,
   Fragment,
   useCallback,
@@ -11,6 +10,10 @@ import { OverlayEvent } from '@/utils/Overlay';
 import { Placement } from '@/utils/Position';
 import { Menu } from './Menu';
 import classNames from 'classnames';
+
+export interface NestedMenuRef {
+  close: () => void;
+}
 
 export interface NestedMenuProps {
   /**
@@ -89,7 +92,7 @@ export interface NestedMenuProps {
   onClose?: (event: OverlayEvent) => void;
 }
 
-export const NestedMenu: FC<NestedMenuProps> = forwardRef(
+export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
   (
     {
       label,
