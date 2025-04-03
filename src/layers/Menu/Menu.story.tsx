@@ -2,7 +2,7 @@ import React, { Fragment, useRef, useState } from 'react';
 import { Card } from '../../layout/Card';
 import { List, ListItem } from '../../layout/List';
 import { Menu } from './Menu';
-import { NestedMenu } from './NestedMenu';
+import { NestedMenu, NestedMenuRef } from './NestedMenu';
 import { useMenu } from './useMenu';
 import { Button } from '../../elements/Button';
 
@@ -37,7 +37,7 @@ export const Unstyled = () => {
 export const Nested = () => {
   const { toggleOpen, ref, Menu: MenuComponent } = useMenu({ open: false });
   const itemStyle = { padding: 5, borderBottom: 'solid 1px black' };
-  const nestedMenuRef = useRef<{ close: () => void }>(null);
+  const nestedMenuRef = useRef<NestedMenuRef>(null);
 
   return (
     <Fragment>
