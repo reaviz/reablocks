@@ -399,15 +399,15 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
               {/* Pane Content with Animation */}
               <AnimatePresence initial={false} mode="wait">
                 <motion.div
-                  key={currentPaneView} // Animate based on view change for this pane
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
+                  key={currentPaneView}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
                   transition={{
-                    duration: 0.15,
-                    type: animated ? 'tween' : false
+                    duration: 0.1,
+                    ease: 'easeInOut'
                   }}
-                  className="relative w-full" // Placeholder for pane content style
+                  className="relative w-full"
                 >
                   {currentPaneView === 'days' && (
                     <CalendarDays
