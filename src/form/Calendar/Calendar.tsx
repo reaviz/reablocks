@@ -24,6 +24,7 @@ import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { CalendarTheme } from './CalendarTheme';
 import { Divider } from '@/layout/Divider';
+import { useContentHeight } from './hooks/useContentHeight';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -116,6 +117,7 @@ export const Calendar: FC<CalendarProps> = ({
   theme: customTheme
 }) => {
   const theme: CalendarTheme = useComponentTheme('calendar', customTheme);
+  const { contentRefs, getHeightStyle } = useContentHeight();
 
   const date = useMemo(
     () => (Array.isArray(value) ? value[0] : value ?? new Date()),
@@ -306,51 +308,51 @@ export const Calendar: FC<CalendarProps> = ({
           </Button>
         </header>
         <Divider />
-        <AnimatePresence initial={false} mode="wait">
-          <motion.div
-            className={twMerge(theme.content)}
-            key={view}
-            // minimal animation
-            initial={{ opacity: 0, scale: 0.99 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.99 }}
-            transition={{
-              opacity: { duration: 0.05, type: 'keyframes' },
-              scale: { type: 'keyframes' }
-            }}
-            // persist the height and width of the content
-            style={{ height: 'fit-content', width: 'fit-content' }}
-          >
-            {view === 'days' && (
-              <CalendarDays
-                value={viewValue}
-                min={min}
-                max={max}
-                disabled={disabled}
-                isRange={isRange}
-                current={isRange ? [rangeStart, rangeEnd] : value}
-                showDayOfWeek={showDayOfWeek}
-                showToday={showToday}
-                xAnimation={xAnimation}
-                animated={animated}
-                onChange={dateChangeHandler}
-              />
-            )}
-            {view === 'months' && (
-              <CalendarMonths
-                value={monthValue}
-                onChange={monthsChangeHandler}
-              />
-            )}
-            {view === 'years' && (
-              <CalendarYears
-                animated={animated}
-                value={yearValue}
-                onChange={yearChangeHandler}
-              />
-            )}
-          </motion.div>
-        </AnimatePresence>
+        <div style={getHeightStyle(0)} className="relative">
+          <AnimatePresence initial={false} mode="wait">
+            <motion.div
+              ref={el => (contentRefs.current[0] = el)}
+              key={view}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{
+                duration: 0.1,
+                ease: 'easeInOut'
+              }}
+              className="relative w-full"
+            >
+              {view === 'days' && (
+                <CalendarDays
+                  value={viewValue}
+                  min={min}
+                  max={max}
+                  disabled={disabled}
+                  isRange={isRange}
+                  current={isRange ? [rangeStart, rangeEnd] : value}
+                  showDayOfWeek={showDayOfWeek}
+                  showToday={showToday}
+                  xAnimation={xAnimation}
+                  animated={animated}
+                  onChange={dateChangeHandler}
+                />
+              )}
+              {view === 'months' && (
+                <CalendarMonths
+                  value={monthValue}
+                  onChange={monthsChangeHandler}
+                />
+              )}
+              {view === 'years' && (
+                <CalendarYears
+                  animated={animated}
+                  value={yearValue}
+                  onChange={yearChangeHandler}
+                />
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </div>
   );

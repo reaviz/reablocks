@@ -1,4 +1,12 @@
-import React, { FC, Fragment, useCallback, useMemo, useState } from 'react';
+import React, {
+  FC,
+  Fragment,
+  useCallback,
+  useMemo,
+  useState,
+  useEffect,
+  useRef
+} from 'react';
 import {
   add,
   addMonths,
@@ -27,6 +35,7 @@ import { Divider, Stack } from '@/layout';
 import { useComponentTheme } from '@/utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
 import { twMerge } from 'tailwind-merge';
+import { useContentHeight } from './hooks/useContentHeight';
 
 // Type for the state tracking which picker is open for which pane
 type PickerState = { view: 'months' | 'years'; paneIndex: number } | null;
@@ -111,6 +120,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   >(null);
   const [hoveringDate, setHoveringDate] = useState<Date | null>(null);
   const [pickerState, setPickerState] = useState<PickerState>(null);
+  const { contentRefs, getHeightStyle } = useContentHeight({ paneCount: 2 });
 
   const displayMonths = Array.from(Array(monthsToDisplay).keys());
   const showPast = direction === 'past';
@@ -397,58 +407,61 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
           return (
             <div key={`pane-${paneIndex}`} className="flex-1 min-w-0">
               {/* Pane Content with Animation */}
-              <AnimatePresence initial={false} mode="wait">
-                <motion.div
-                  key={currentPaneView}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{
-                    duration: 0.1,
-                    ease: 'easeInOut'
-                  }}
-                  className="relative w-full"
-                >
-                  {currentPaneView === 'days' && (
-                    <CalendarDays
-                      value={paneDate} // Use calculated paneDate
-                      min={min}
-                      max={max}
-                      disabled={disabled}
-                      current={[rangeStart, rangeEnd]}
-                      showDayOfWeek={showDayOfWeek && paneIndex === 0}
-                      xAnimation={xAnimation} // Still use overall month scroll animation
-                      animated={animated}
-                      hover={hoveringDate}
-                      onHover={setHoveringDate}
-                      hidePrevMonthDays={true} // Always hide previous month days
-                      hideNextMonthDays={paneIndex < monthsToDisplay - 1}
-                      onChange={dateChangeHandler}
-                      isRange
-                      {...rest}
-                    />
-                  )}
-                  {currentPaneView === 'months' && (
-                    <CalendarMonths
-                      value={paneMonth}
-                      onChange={handleMonthSelect}
-                      // Pass min/max constraints if CalendarMonths supports them
-                      // min={min ? startOfMonth(min) : undefined}
-                      // max={max ? endOfMonth(max) : undefined}
-                    />
-                  )}
-                  {currentPaneView === 'years' && (
-                    <CalendarYears
-                      value={paneYear}
-                      onChange={handleYearSelect}
-                      animated={animated}
-                      // Pass min/max constraints if CalendarYears supports them
-                      // min={min ? getYear(min) : undefined}
-                      // max={max ? getYear(max) : undefined}
-                    />
-                  )}
-                </motion.div>
-              </AnimatePresence>
+              <div style={getHeightStyle(paneIndex)} className="relative">
+                <AnimatePresence initial={false} mode="wait">
+                  <motion.div
+                    ref={el => (contentRefs.current[paneIndex] = el)}
+                    key={currentPaneView}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{
+                      duration: 0.1,
+                      ease: 'easeInOut'
+                    }}
+                    className="relative w-full"
+                  >
+                    {currentPaneView === 'days' && (
+                      <CalendarDays
+                        value={paneDate}
+                        min={min}
+                        max={max}
+                        disabled={disabled}
+                        current={[rangeStart, rangeEnd]}
+                        showDayOfWeek={showDayOfWeek && paneIndex === 0}
+                        xAnimation={xAnimation}
+                        animated={animated}
+                        hover={hoveringDate}
+                        onHover={setHoveringDate}
+                        hidePrevMonthDays={true}
+                        hideNextMonthDays={paneIndex < monthsToDisplay - 1}
+                        onChange={dateChangeHandler}
+                        isRange
+                        {...rest}
+                      />
+                    )}
+                    {currentPaneView === 'months' && (
+                      <CalendarMonths
+                        value={paneMonth}
+                        onChange={handleMonthSelect}
+                        // Pass min/max constraints if CalendarMonths supports them
+                        // min={min ? startOfMonth(min) : undefined}
+                        // max={max ? endOfMonth(max) : undefined}
+                      />
+                    )}
+                    {currentPaneView === 'years' && (
+                      <CalendarYears
+                        value={paneYear}
+                        onChange={handleYearSelect}
+                        animated={animated}
+                        // Pass min/max constraints if CalendarYears supports them
+                        // min={min ? getYear(min) : undefined}
+                        // max={max ? getYear(max) : undefined}
+                      />
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </div>
             </div>
           );
         })}
