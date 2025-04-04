@@ -33,9 +33,8 @@ const TimeColumn: FC<TimeColumnProps> = ({
           <li
             key={option}
             className={twMerge(
-              'px-2 py-1 text-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700',
-              selectedValue === option &&
-                'bg-primary-100 text-primary-700 dark:bg-primary-700 dark:text-primary-100'
+              theme.item.base,
+              selectedValue === option && theme.item.selected
             )}
             onClick={() => onSelect(option)}
             role="option"

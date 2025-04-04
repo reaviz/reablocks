@@ -140,11 +140,11 @@ export const calendarTheme: CalendarTheme = {
     ),
     selected: [
       baseTheme.days.selected,
-      'text-black border-transparent light:text-white light:border-transparent opacity-100'
+      'bg-blue-500 text-white dark:bg-blue-600 dark:text-white border-transparent opacity-100'
     ].join(' '),
     hover: [
       baseTheme.days.hover,
-      'bg-primary-active text-black border-transparent light:text-white opacity-100'
+      'bg-blue-500/10 text-blue-500 dark:text-blue-400 border-transparent opacity-100'
     ].join(' '),
     today: [baseTheme.days.today, 'border-panel-accent text-text-primary'].join(
       ' '
@@ -177,10 +177,12 @@ export const calendarTheme: CalendarTheme = {
     wrapper: [baseTheme.time.wrapper, 'border-panel-border'].join(' '),
     item: {
       ...baseTheme.time.item,
-      base: [baseTheme.time.item.base, 'text-text-secondary'].join(' '),
+      base: [baseTheme.time.item.base, 'px-1.5', 'text-text-secondary'].join(
+        ' '
+      ),
       selected: [
         baseTheme.time.item.selected,
-        'text-text-primary bg-primary-active'
+        'bg-blue-500 text-white dark:bg-blue-600 dark:text-white'
       ].join(' ')
     }
   }
