@@ -27,6 +27,11 @@ export interface CalendarInputsProps {
   theme?: CalendarTheme;
 
   /**
+   * Whether to show time input.
+   */
+  showTime?: boolean;
+
+  /**
    * Additional class name.
    */
   className?: string;
@@ -36,37 +41,29 @@ export const CalendarInputs: FC<CalendarInputsProps> = ({
   value,
   onChange,
   theme,
+  showTime = false,
   className
 }) => {
-  const dateStr = format(value, 'MM/dd/yyyy');
-  const timeStr = format(value, 'HH:mm:ss');
+  const currentFormat = showTime ? 'dd-MM-yyyy HH:mm:ss' : 'dd-MM-yyyy';
+  const placeholder = showTime ? 'DD-MM-YYYY HH:MM:SS' : 'DD-MM-YYYY';
+  const dateTimeStr = format(value, currentFormat);
 
-  const handleDateChange = useCallback(
+  const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      const newDate = parse(e.target.value, 'MM/dd/yyyy', new Date());
-      if (isValid(newDate)) {
-        // Preserve the time when changing the date
-        const newValue = new Date(newDate);
-        newValue.setHours(value.getHours());
-        newValue.setMinutes(value.getMinutes());
-        newValue.setSeconds(value.getSeconds());
-        onChange(newValue);
+      const newDateTime = parse(e.target.value, currentFormat, new Date());
+      if (isValid(newDateTime)) {
+        let finalDateTime = newDateTime;
+        if (!showTime) {
+          finalDateTime = setSeconds(
+            setMinutes(setHours(newDateTime, 0), 0),
+            0
+          );
+        }
+
+        onChange(finalDateTime);
       }
     },
-    [value, onChange]
-  );
-
-  const handleTimeChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const [hours, minutes, seconds] = e.target.value.split(':').map(Number);
-      if (!isNaN(hours) && !isNaN(minutes) && !isNaN(seconds)) {
-        const newValue = new Date(value);
-        onChange(
-          setHours(setMinutes(setSeconds(newValue, seconds), minutes), hours)
-        );
-      }
-    },
-    [value, onChange]
+    [onChange, showTime, currentFormat]
   );
 
   return (
@@ -79,17 +76,13 @@ export const CalendarInputs: FC<CalendarInputsProps> = ({
       <div className="flex items-center gap-2">
         <input
           type="text"
-          value={dateStr}
-          onChange={handleDateChange}
-          placeholder="MM/DD/YYYY"
-          className="w-24 px-2 py-1 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
-        />
-        <input
-          type="text"
-          value={timeStr}
-          onChange={handleTimeChange}
-          placeholder="HH:MM:SS"
-          className="w-20 px-2 py-1 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500"
+          value={dateTimeStr}
+          onChange={handleChange}
+          placeholder={placeholder}
+          className={twMerge(
+            'px-2 py-1 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border text-center border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500',
+            showTime ? 'w-40' : 'w-28'
+          )}
         />
       </div>
     </section>

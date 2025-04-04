@@ -273,20 +273,20 @@ export const Calendar: FC<CalendarProps> = ({
   }, [scrollDirection]);
 
   return (
-    <div className={twMerge(theme.base, 'relative')}>
+    <div className={twMerge(theme.base)}>
+      {showInputPreview && (
+        <>
+          <CalendarInputs
+            value={viewValue}
+            onChange={dateChangeHandler}
+            theme={theme}
+            className={theme?.inputPreview?.base}
+          />
+          <Divider variant="secondary" />
+        </>
+      )}
       <div className="relative flex">
         <div className="flex-1">
-          {showInputPreview && (
-            <>
-              <CalendarInputs
-                value={viewValue}
-                onChange={dateChangeHandler}
-                theme={theme}
-                className={theme?.inputPreview?.base}
-              />
-              <Divider variant="secondary" />
-            </>
-          )}
           <header className={twMerge(theme.header.base)}>
             <Button
               variant="text"
@@ -372,7 +372,11 @@ export const Calendar: FC<CalendarProps> = ({
               {nextArrow}
             </Button>
           </header>
-          <Divider style={{ opacity: showInputPreview ? 0.6 : 1 }} />
+          <Divider
+            className={twMerge(
+              showInputPreview && 'border-gray-200 dark:border-gray-700'
+            )}
+          />
           <div style={getHeightStyle(0)} className="relative">
             <AnimatePresence initial={false} mode="wait">
               <motion.div
@@ -419,12 +423,13 @@ export const Calendar: FC<CalendarProps> = ({
             </AnimatePresence>
           </div>
         </div>
-        {showTime && value && !Array.isArray(value) && (
+        {showTime && !isRange && !Array.isArray(value) && (
           <div className={theme.time?.wrapper}>
             <CalendarTimes
               value={value}
               onChange={handleTimeChange}
               theme={theme.time}
+              showDayOfWeek={showDayOfWeek}
             />
           </div>
         )}
@@ -434,6 +439,7 @@ export const Calendar: FC<CalendarProps> = ({
               value={value[0]}
               onChange={newDate => handleTimeChange(newDate)}
               theme={theme.time}
+              showDayOfWeek={showDayOfWeek}
             />
           </div>
         )}

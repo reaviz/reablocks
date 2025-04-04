@@ -41,6 +41,21 @@ export const Demo = () => {
   );
 };
 
+export const DemoWithTime = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <Card>
+      <Calendar
+        value={date}
+        onChange={(date: Date) => setDate(date)}
+        showInputPreview
+        showTime
+      />
+    </Card>
+  );
+};
+
 export const Simple = () => {
   const [date, setDate] = useState<Date>();
 

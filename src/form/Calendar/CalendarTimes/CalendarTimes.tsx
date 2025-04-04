@@ -78,12 +78,18 @@ export interface CalendarTimesProps {
    * Theme for the Calendar Time section.
    */
   theme?: CalendarTheme['time'];
+
+  /**
+   * Whether day of week labels are shown in the calendar
+   */
+  showDayOfWeek?: boolean;
 }
 
 export const CalendarTimes: FC<CalendarTimesProps> = ({
   value,
   onChange,
-  theme
+  theme,
+  showDayOfWeek = false
 }) => {
   // Provide default theme structure if theme or theme.time is not passed
   const timeTheme = theme;
@@ -119,7 +125,12 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
 
   return (
     <div className={timeTheme.base}>
-      <div className="flex h-54 border-t border-gray-200 dark:border-gray-700 pt-1">
+      <div
+        className={twMerge(
+          'flex border-t border-gray-200 dark:border-gray-700 pt-1',
+          showDayOfWeek ? 'h-54' : 'h-46'
+        )}
+      >
         <div className="flex-1 border-r border-gray-200 dark:border-gray-700">
           <TimeColumn
             theme={timeTheme}
