@@ -52,6 +52,10 @@ export const DemoWithTime = () => {
         showInputPreview
         showTime
       />
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {date?.toLocaleTimeString() ?? 'No date selected'}
+      </Stack>
     </Card>
   );
 };

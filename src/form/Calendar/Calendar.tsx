@@ -281,6 +281,7 @@ export const Calendar: FC<CalendarProps> = ({
             onChange={dateChangeHandler}
             theme={theme}
             className={theme?.inputPreview?.base}
+            showTime={showTime}
           />
           <Divider variant="secondary" />
         </>
