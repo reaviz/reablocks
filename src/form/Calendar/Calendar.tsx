@@ -133,8 +133,6 @@ export const Calendar: FC<CalendarProps> = ({
   const [viewValue, setViewValue] = useState<Date>(date);
   const [monthValue, setMonthValue] = useState<number>(getMonth(date));
   const [yearValue, setYearValue] = useState<number>(getYear(date));
-  const [decadeStart, setDecadeStart] = useState<Date>(startOfDecade(date));
-  const [decadeEnd, setDecadeEnd] = useState<Date>(endOfDecade(date));
   const [view, setView] = useState<CalendarViewType>('days');
   const [scrollDirection, setScrollDirection] = useState<
     'forward' | 'back' | null
@@ -146,11 +144,8 @@ export const Calendar: FC<CalendarProps> = ({
       setViewValue(sub(viewValue, { months: 1 }));
     } else if (view === 'months') {
       setYearValue(yearValue - 1);
-    } else {
-      setDecadeStart(subYears(decadeStart, 10));
-      setDecadeEnd(subYears(decadeEnd, 10));
     }
-  }, [decadeEnd, decadeStart, view, viewValue, yearValue]);
+  }, [view, viewValue, yearValue]);
 
   const nextClickHandler = useCallback(() => {
     setScrollDirection('forward');
@@ -158,11 +153,8 @@ export const Calendar: FC<CalendarProps> = ({
       setViewValue(add(viewValue, { months: 1 }));
     } else if (view === 'months') {
       setYearValue(yearValue + 1);
-    } else {
-      setDecadeStart(addYears(decadeStart, 10));
-      setDecadeEnd(addYears(decadeEnd, 10));
     }
-  }, [decadeEnd, decadeStart, view, viewValue, yearValue]);
+  }, [view, viewValue, yearValue]);
 
   const handleMonthHeaderClick = useCallback(() => {
     setScrollDirection(null);
@@ -241,7 +233,6 @@ export const Calendar: FC<CalendarProps> = ({
           <Button
             disabled={disabled}
             variant="text"
-            onClick={view === 'months' ? handleYearHeaderClick : undefined}
             className={theme.header.mid}
             disablePadding
             fullWidth
@@ -278,11 +269,29 @@ export const Calendar: FC<CalendarProps> = ({
                   </span>
                 </>
               )}
-              {view === 'months' && <>{yearValue}</>}
-              {view === 'years' && (
+              {view === 'months' && (
                 <>
-                  {decadeStart.getFullYear()}-{decadeEnd.getFullYear()}
+                  <span className="text-gray-500">
+                    {format(viewValue, 'MMMM')}
+                  </span>
+                  <span className="mx-1"> </span>
+                  <span
+                    onClick={e => {
+                      if (!disabled) {
+                        e.stopPropagation();
+                        handleYearHeaderClick();
+                      }
+                    }}
+                    className="cursor-pointer hover:text-primary-500"
+                    role="button"
+                    tabIndex={disabled ? -1 : 0}
+                  >
+                    {format(viewValue, 'yyyy')}
+                  </span>
                 </>
+              )}
+              {view === 'years' && (
+                <span className="text-gray-500">Select Year</span>
               )}
             </SmallHeading>
           </Button>
@@ -335,11 +344,8 @@ export const Calendar: FC<CalendarProps> = ({
             )}
             {view === 'years' && (
               <CalendarYears
-                decadeStart={decadeStart}
-                decadeEnd={decadeEnd}
                 animated={animated}
                 value={yearValue}
-                xAnimation={xAnimation}
                 onChange={yearChangeHandler}
               />
             )}
