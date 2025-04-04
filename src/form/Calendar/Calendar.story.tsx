@@ -161,10 +161,6 @@ export const WithDatePresetsAndTime = () => {
     {
       label: 'Tomorrow evening',
       value: setHours(setMinutes(setSeconds(addDays(new Date(), 1), 0), 0), 18)
-    },
-    {
-      label: 'Next week',
-      value: setHours(setMinutes(setSeconds(addDays(new Date(), 7), 0), 0), 9)
     }
   ];
 
