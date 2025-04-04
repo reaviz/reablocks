@@ -63,13 +63,13 @@ const baseTheme: CalendarTheme = {
   },
 
   months: {
-    root: 'grid grid-cols-4 gap-2',
+    root: 'grid grid-cols-4 gap-5 py-5.75 px-0.75',
     month: 'p-1.5',
     selected: ''
   },
 
   years: {
-    root: 'grid grid-cols-4 gap-2',
+    root: 'grid grid-cols-4 gap-5 py-5.75 px-0.25',
     year: 'p-1.5',
     selected: ''
   }

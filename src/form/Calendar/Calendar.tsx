@@ -164,12 +164,17 @@ export const Calendar: FC<CalendarProps> = ({
     }
   }, [decadeEnd, decadeStart, view, viewValue, yearValue]);
 
-  const headerClickHandler = useCallback(() => {
-    const newView = view === 'days' ? 'months' : 'years';
+  const handleMonthHeaderClick = useCallback(() => {
     setScrollDirection(null);
-    setView(newView);
-    onViewChange?.(newView);
-  }, [onViewChange, view]);
+    setView('months');
+    onViewChange?.('months');
+  }, [onViewChange]);
+
+  const handleYearHeaderClick = useCallback(() => {
+    setScrollDirection(null);
+    setView('years');
+    onViewChange?.('years');
+  }, [onViewChange]);
 
   const dateChangeHandler = useCallback(
     (date: Date) => {
@@ -203,8 +208,8 @@ export const Calendar: FC<CalendarProps> = ({
     year => {
       setViewValue(setYear(min || new Date(), year));
       setYearValue(year);
-      setView('months');
-      onViewChange?.('months');
+      setView('days');
+      onViewChange?.('days');
     },
     [min, onViewChange]
   );
@@ -221,93 +226,126 @@ export const Calendar: FC<CalendarProps> = ({
   }, [scrollDirection]);
 
   return (
-    <div className={twMerge(theme.base)}>
-      <header className={twMerge(theme.header.base)}>
-        <Button
-          variant="text"
-          disabled={disabled}
-          onClick={previousClickHandler}
-          className={theme.header.prev}
-          disablePadding
-        >
-          {previousArrow}
-        </Button>
-        <Button
-          disabled={disabled}
-          variant="text"
-          onClick={headerClickHandler}
-          className={theme.header.mid}
-          disablePadding
-          fullWidth
-        >
-          <SmallHeading disableMargins className={theme.title}>
-            {view === 'days' && format(viewValue, 'MMMM')}
-            {view === 'months' && <>{yearValue}</>}
-            {view === 'years' && (
-              <>
-                {decadeStart.getFullYear()}-{decadeEnd.getFullYear()}
-              </>
+    <div className={twMerge(theme.base, 'relative')}>
+      <div className="relative">
+        <header className={twMerge(theme.header.base)}>
+          <Button
+            variant="text"
+            disabled={disabled}
+            onClick={previousClickHandler}
+            className={theme.header.prev}
+            disablePadding
+          >
+            {previousArrow}
+          </Button>
+          <Button
+            disabled={disabled}
+            variant="text"
+            onClick={view === 'months' ? handleYearHeaderClick : undefined}
+            className={theme.header.mid}
+            disablePadding
+            fullWidth
+          >
+            <SmallHeading disableMargins className={theme.title}>
+              {view === 'days' && (
+                <>
+                  <span
+                    onClick={e => {
+                      if (!disabled) {
+                        e.stopPropagation();
+                        handleMonthHeaderClick();
+                      }
+                    }}
+                    className="cursor-pointer hover:text-primary-500"
+                    role="button"
+                    tabIndex={disabled ? -1 : 0}
+                  >
+                    {format(viewValue, 'MMMM')}
+                  </span>
+                  <span className="mx-1"> </span>
+                  <span
+                    onClick={e => {
+                      if (!disabled) {
+                        e.stopPropagation();
+                        handleYearHeaderClick();
+                      }
+                    }}
+                    className="cursor-pointer hover:text-primary-500"
+                    role="button"
+                    tabIndex={disabled ? -1 : 0}
+                  >
+                    {format(viewValue, 'yyyy')}
+                  </span>
+                </>
+              )}
+              {view === 'months' && <>{yearValue}</>}
+              {view === 'years' && (
+                <>
+                  {decadeStart.getFullYear()}-{decadeEnd.getFullYear()}
+                </>
+              )}
+            </SmallHeading>
+          </Button>
+          <Button
+            variant="text"
+            disabled={disabled}
+            onClick={nextClickHandler}
+            className={theme.header.next}
+            disablePadding
+          >
+            {nextArrow}
+          </Button>
+        </header>
+        <Divider />
+        <AnimatePresence initial={false} mode="wait">
+          <motion.div
+            className={twMerge(theme.content)}
+            key={view}
+            // minimal animation
+            initial={{ opacity: 0, scale: 0.99 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.99 }}
+            transition={{
+              opacity: { duration: 0.05, type: 'keyframes' },
+              scale: { type: 'keyframes' }
+            }}
+            // persist the height and width of the content
+            style={{ height: 'fit-content', width: 'fit-content' }}
+          >
+            {view === 'days' && (
+              <CalendarDays
+                value={viewValue}
+                min={min}
+                max={max}
+                disabled={disabled}
+                isRange={isRange}
+                current={isRange ? [rangeStart, rangeEnd] : value}
+                showDayOfWeek={showDayOfWeek}
+                showToday={showToday}
+                xAnimation={xAnimation}
+                animated={animated}
+                onChange={dateChangeHandler}
+              />
             )}
-          </SmallHeading>
-        </Button>
-        <Button
-          variant="text"
-          disabled={disabled}
-          onClick={nextClickHandler}
-          className={theme.header.next}
-          disablePadding
-        >
-          {nextArrow}
-        </Button>
-      </header>
-      <Divider />
-      <AnimatePresence initial={false} mode="wait">
-        <motion.div
-          className={twMerge(theme.content)}
-          key={view}
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0, opacity: 1 }}
-          transition={{
-            x: { type: animated ? 'keyframes' : false },
-            opacity: { duration: 0.2, type: animated ? 'tween' : false },
-            scale: { type: animated ? 'tween' : false }
-          }}
-        >
-          {view === 'days' && (
-            <CalendarDays
-              value={viewValue}
-              min={min}
-              max={max}
-              disabled={disabled}
-              isRange={isRange}
-              current={isRange ? [rangeStart, rangeEnd] : value}
-              showDayOfWeek={showDayOfWeek}
-              showToday={showToday}
-              xAnimation={xAnimation}
-              animated={animated}
-              onChange={dateChangeHandler}
-            />
-          )}
-          {view === 'months' && (
-            <CalendarMonths
-              value={monthValue}
-              animated={animated}
-              onChange={monthsChangeHandler}
-            />
-          )}
-          {view === 'years' && (
-            <CalendarYears
-              decadeStart={decadeStart}
-              decadeEnd={decadeEnd}
-              animated={animated}
-              value={yearValue}
-              xAnimation={xAnimation}
-              onChange={yearChangeHandler}
-            />
-          )}
-        </motion.div>
-      </AnimatePresence>
+            {view === 'months' && (
+              <CalendarMonths
+                value={monthValue}
+                onChange={monthsChangeHandler}
+              />
+            )}
+            {view === 'years' && (
+              <CalendarYears
+                decadeStart={decadeStart}
+                decadeEnd={decadeEnd}
+                animated={animated}
+                value={yearValue}
+                xAnimation={xAnimation}
+                onChange={yearChangeHandler}
+              />
+            )}
+          </motion.div>
+        </AnimatePresence>
+      </div>
     </div>
   );
 };
