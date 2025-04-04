@@ -103,12 +103,13 @@ const baseTheme: CalendarTheme = {
 
   time: {
     base: 'flex gap-4 px-0.5',
-    wrapper: 'border-l border-gray-200 mt-6 dark:border-gray-700 ml-2 pl-1.5',
+    wrapper:
+      'border-l border-gray-200 mt-6 dark:border-gray-700 ml-2 pl-1.5 border-t border-gray-200',
     header:
-      'flex gap-4 px-0.5 pb-2.5 mb-2 border-b border-gray-200 dark:border-gray-700',
+      'flex gap-4 px-0.5 pb-2.5 mb-2 border-b border-gray-200 dark:border-gray-700 ',
     column: {
       base: 'w-6',
-      wrapper: 'overflow-y-auto h-52 border-t border-gray-200',
+      wrapper: 'overflow-y-auto h-52',
       label: 'text-center text-xs text-gray-500',
       list: 'p-0 m-0 list-none',
       scrollbar:

@@ -119,7 +119,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
 
   return (
     <div className={timeTheme.base}>
-      <div className="flex h-54 border-t border-gray-200 dark:border-gray-700">
+      <div className="flex h-54 border-t border-gray-200 dark:border-gray-700 pt-1">
         <div className="flex-1 border-r border-gray-200 dark:border-gray-700">
           <TimeColumn
             theme={timeTheme}
