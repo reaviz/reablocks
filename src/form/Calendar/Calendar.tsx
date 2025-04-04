@@ -32,6 +32,7 @@ import { CalendarTheme } from './CalendarTheme';
 import { Divider } from '@/layout/Divider';
 import { useContentHeight } from './hooks/useContentHeight';
 import { CalendarTimes } from './CalendarTimes';
+import { CalendarInputs } from './CalendarInputs';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -132,6 +133,7 @@ export const Calendar: FC<CalendarProps> = ({
   onChange,
   onViewChange,
   showTime,
+  showInputPreview,
   theme: customTheme
 }) => {
   const theme: CalendarTheme = useComponentTheme('calendar', customTheme);
@@ -274,6 +276,17 @@ export const Calendar: FC<CalendarProps> = ({
     <div className={twMerge(theme.base, 'relative')}>
       <div className="relative flex">
         <div className="flex-1">
+          {showInputPreview && (
+            <>
+              <CalendarInputs
+                value={viewValue}
+                onChange={dateChangeHandler}
+                theme={theme}
+                className={theme?.inputPreview?.base}
+              />
+              <Divider variant="secondary" />
+            </>
+          )}
           <header className={twMerge(theme.header.base)}>
             <Button
               variant="text"
@@ -359,7 +372,7 @@ export const Calendar: FC<CalendarProps> = ({
               {nextArrow}
             </Button>
           </header>
-          <Divider />
+          <Divider style={{ opacity: showInputPreview ? 0.6 : 1 }} />
           <div style={getHeightStyle(0)} className="relative">
             <AnimatePresence initial={false} mode="wait">
               <motion.div
