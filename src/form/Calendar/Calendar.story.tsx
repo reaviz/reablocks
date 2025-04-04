@@ -457,3 +457,23 @@ export const MultiviewWithCombinedPresets = () => {
     </Card>
   );
 };
+
+export const WithTime = () => {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+
+  return (
+    <Card>
+      <Calendar
+        value={date}
+        onChange={(newDate: Date) => setDate(newDate)}
+        showDayOfWeek
+        showToday
+        showTime
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {date ? format(date, 'yyyy-MM-dd HH:mm:ss') : 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
