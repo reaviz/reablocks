@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { FC, useCallback, useMemo, useRef, useEffect } from 'react';
 import {
   getHours,
   getMinutes,
@@ -25,13 +25,28 @@ const TimeColumn: FC<TimeColumnProps> = ({
   theme,
   className
 }) => {
-  // TODO: Add scrolling logic to center selected value later
+  const listRef = useRef<HTMLDivElement>(null);
+  const selectedRef = useRef<HTMLLIElement>(null);
+
+  useEffect(() => {
+    if (listRef.current && selectedRef.current) {
+      const selectedItem = selectedRef.current;
+
+      // Scroll the selected item to the top with smooth animation
+      selectedItem.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  }, [selectedValue]);
+
   return (
-    <div className="h-full overflow-y-auto">
+    <div ref={listRef} className="h-full overflow-y-auto">
       <ul className="p-0 m-0 list-none">
         {options.map(option => (
           <li
             key={option}
+            ref={selectedValue === option ? selectedRef : null}
             className={twMerge(
               theme.item.base,
               selectedValue === option && theme.item.selected
