@@ -551,6 +551,11 @@ export const MonthsToDisplay = () => {
           headerDateFormat="MMMM yyyy"
           monthsToDisplay={3}
         />
+        <Stack justifyContent="center" className="mt-4">
+          {range
+            ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
+            : 'No date selected'}
+        </Stack>
       </Card>
     </>
   );

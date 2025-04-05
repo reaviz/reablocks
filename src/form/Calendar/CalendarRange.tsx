@@ -82,9 +82,15 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
   );
   const [paneDates, setPaneDates] = useState<Date[]>(() => {
     const initialDate = date || new Date();
-    return Array.from({ length: monthsToDisplay }, (_, i) =>
-      addMonths(initialDate, direction === 'past' ? -i : i)
-    );
+    return Array.from({ length: monthsToDisplay }, (_, i) => {
+      const newDate = new Date(initialDate);
+      if (direction === 'past') {
+        newDate.setMonth(initialDate.getMonth() - i);
+      } else {
+        newDate.setMonth(initialDate.getMonth() + i);
+      }
+      return startOfMonth(newDate);
+    });
   });
   const [scrollDirection, setScrollDirection] = useState<
     'forward' | 'back' | null
@@ -93,11 +99,12 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
   const [pickerState, setPickerState] = useState<PickerState>(null);
   const { contentRefs, getHeightStyle } = useContentHeight({ paneCount: 2 });
 
-  const displayMonths = Array.from(Array(monthsToDisplay).keys());
+  const displayMonths = useMemo(() => {
+    const months = Array.from({ length: monthsToDisplay }, (_, i) => i);
+    return direction === 'past' ? months.reverse() : months;
+  }, [monthsToDisplay, direction]);
+
   const showPast = direction === 'past';
-  if (direction === 'past') {
-    displayMonths.reverse();
-  }
 
   const dateChangeHandler = useCallback(
     (date: Date) => {
@@ -145,9 +152,12 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
   };
 
   // Replace viewValue calculations with pane-specific dates
-  const getPaneDate = (paneIndex: number): Date => {
-    return paneDates[paneIndex];
-  };
+  const getPaneDate = useCallback(
+    (paneIndex: number): Date => {
+      return paneDates[paneIndex] || startOfMonth(new Date());
+    },
+    [paneDates]
+  );
 
   const handleYearSelect = useCallback(
     (year: number) => {
@@ -206,22 +216,46 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
   // Update navigation handlers to use both pane dates
   const previousClickHandler = useCallback(() => {
     setScrollDirection('back');
-    setPaneDates(prev => prev.map(date => subMonths(date, 1)));
+    setPaneDates(prev =>
+      prev.map(date => {
+        const newDate = new Date(date);
+        newDate.setMonth(date.getMonth() - 1);
+        return startOfMonth(newDate);
+      })
+    );
   }, []);
 
   const previousYearClickHandler = useCallback(() => {
     setScrollDirection('back');
-    setPaneDates(prev => prev.map(date => subYears(date, 1)));
+    setPaneDates(prev =>
+      prev.map(date => {
+        const newDate = new Date(date);
+        newDate.setFullYear(date.getFullYear() - 1);
+        return startOfMonth(newDate);
+      })
+    );
   }, []);
 
   const nextClickHandler = useCallback(() => {
     setScrollDirection('forward');
-    setPaneDates(prev => prev.map(date => addMonths(date, 1)));
+    setPaneDates(prev =>
+      prev.map(date => {
+        const newDate = new Date(date);
+        newDate.setMonth(date.getMonth() + 1);
+        return startOfMonth(newDate);
+      })
+    );
   }, []);
 
   const nextYearClickHandler = useCallback(() => {
     setScrollDirection('forward');
-    setPaneDates(prev => prev.map(date => addYears(date, 1)));
+    setPaneDates(prev =>
+      prev.map(date => {
+        const newDate = new Date(date);
+        newDate.setFullYear(date.getFullYear() + 1);
+        return startOfMonth(newDate);
+      })
+    );
   }, []);
 
   const xAnimation = useMemo(() => {
@@ -247,26 +281,20 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
   // Update view when value changes (including from presets)
   useEffect(() => {
     if (value?.[0]) {
-      // Set panes based on the start date's month
       const startMonth = startOfMonth(value[0]);
-      if (value[1]) {
-        const endMonth = startOfMonth(value[1]);
-        const nextMonthAfterStart = addMonths(startMonth, 1);
-        // If end date is in same month or before start date, show next month
-        const rightMonth =
-          endMonth <= startMonth ? nextMonthAfterStart : endMonth;
-        setPaneDates([startMonth, rightMonth]);
-      } else {
-        setPaneDates([startMonth, addMonths(startMonth, 1)]);
-      }
-      setScrollDirection(null);
-    } else if (value?.[1]) {
-      // If only end date is set, show its month and previous month
-      const endMonth = startOfMonth(value[1]);
-      setPaneDates([subMonths(endMonth, 1), endMonth]);
+      const dates = Array.from({ length: monthsToDisplay }, (_, i) => {
+        const newDate = new Date(startMonth);
+        if (direction === 'past') {
+          newDate.setMonth(startMonth.getMonth() - i);
+        } else {
+          newDate.setMonth(startMonth.getMonth() + i);
+        }
+        return startOfMonth(newDate);
+      });
+      setPaneDates(dates);
       setScrollDirection(null);
     }
-  }, [value]);
+  }, [value, monthsToDisplay, direction]);
 
   return (
     <Stack direction="row" className="gap-1.75">

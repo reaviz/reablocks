@@ -31,17 +31,24 @@ const TimeColumn: FC<TimeColumnProps> = ({
   useEffect(() => {
     if (listRef.current && selectedRef.current) {
       const selectedItem = selectedRef.current;
+      const container = listRef.current;
 
-      // Scroll the selected item to the top with smooth animation
-      selectedItem.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
+      // Calculate scroll position to center the item
+      const itemOffset = selectedItem.offsetTop;
+      const containerHeight = container.clientHeight;
+      const itemHeight = selectedItem.clientHeight;
+      const centerPosition = itemOffset - containerHeight / 2 + itemHeight / 2;
+
+      // Smooth scroll to centered position
+      container.scrollTo({
+        top: centerPosition,
+        behavior: 'smooth'
       });
     }
   }, [selectedValue]);
 
   return (
-    <div ref={listRef} className="h-full overflow-y-auto">
+    <div ref={listRef} className="h-full overflow-y-auto scroll-smooth">
       <ul className="p-0 m-0 list-none">
         {options.map(option => (
           <li
@@ -49,7 +56,8 @@ const TimeColumn: FC<TimeColumnProps> = ({
             ref={selectedValue === option ? selectedRef : null}
             className={twMerge(
               theme.item.base,
-              selectedValue === option && theme.item.selected
+              selectedValue === option && theme.item.selected,
+              'transition-colors duration-150'
             )}
             onClick={() => onSelect(option)}
             role="option"
