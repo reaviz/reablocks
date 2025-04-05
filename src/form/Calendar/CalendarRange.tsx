@@ -276,20 +276,25 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
           <>
             <div className="px-4">
               <Stack direction="row" className="gap-0 justify-center">
-                <CalendarInputs
-                  value={rangeStart}
-                  onChange={date => {
-                    if (!rangeEnd) {
-                      onChange?.([date, undefined]);
-                    } else {
-                      const range = [date, rangeEnd];
-                      onChange?.([minDate(range), maxDate(range)]);
-                    }
-                  }}
-                  showTime={false}
-                  className="w-28"
-                  inputClassName="border-r-0 rounded-r-none"
-                />
+                <div className="relative">
+                  <CalendarInputs
+                    value={rangeStart}
+                    onChange={date => {
+                      if (!rangeEnd) {
+                        onChange?.([date, undefined]);
+                      } else {
+                        const range = [date, rangeEnd];
+                        onChange?.([minDate(range), maxDate(range)]);
+                      }
+                    }}
+                    showTime={false}
+                    className="w-28"
+                    inputClassName="border-r-0 rounded-r-none"
+                  />
+                  <span className="absolute right-[-4px] top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                    →
+                  </span>
+                </div>
 
                 <CalendarInputs
                   value={rangeEnd}
