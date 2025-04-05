@@ -27,7 +27,8 @@ import {
   getSeconds,
   setHours,
   setMinutes,
-  setSeconds
+  setSeconds,
+  startOfToday
 } from 'date-fns';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
@@ -65,7 +66,8 @@ export const Calendar: FC<SingleCalendarProps> = ({
   showTime,
   showInputPreview,
   theme: customTheme,
-  preset
+  preset,
+  onOk
 }) => {
   const theme: CalendarTheme = useComponentTheme('calendar', customTheme);
   const { contentRefs, getHeightStyle } = useContentHeight();
@@ -312,6 +314,22 @@ export const Calendar: FC<SingleCalendarProps> = ({
     }
   }, [scrollDirection]);
 
+  const handleNowClick = useCallback(() => {
+    const now = new Date();
+    onChange?.(now);
+    setViewValue(now);
+    setMonthValue(getMonth(now));
+    setYearValue(getYear(now));
+  }, [onChange]);
+
+  const handleTodayClick = useCallback(() => {
+    const today = startOfToday();
+    onChange?.(today);
+    setViewValue(today);
+    setMonthValue(getMonth(today));
+    setYearValue(getYear(today));
+  }, [onChange]);
+
   return (
     <div className={twMerge(theme.base)}>
       {showInputPreview && (
@@ -549,6 +567,33 @@ export const Calendar: FC<SingleCalendarProps> = ({
           )}
         </div>
       </Stack>
+      {onOk && (
+        <div className="flex justify-between mt-4 pt-2 border-t border-gray-200 dark:border-gray-700">
+          <Button
+            variant="filled"
+            size="small"
+            disabled={disabled}
+            onClick={showTime ? handleNowClick : handleTodayClick}
+          >
+            {showTime ? 'Now' : 'Today'}
+          </Button>
+          {onOk && (
+            <Button
+              variant="filled"
+              size="small"
+              disabled={disabled || !internalValue}
+              onClick={() => {
+                if (internalValue) {
+                  onOk(internalValue);
+                  onChange?.(internalValue);
+                }
+              }}
+            >
+              OK
+            </Button>
+          )}
+        </div>
+      )}
     </div>
   );
 };

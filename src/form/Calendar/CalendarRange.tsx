@@ -19,7 +19,9 @@ import {
   startOfMonth,
   getHours,
   getMinutes,
-  getSeconds
+  getSeconds,
+  startOfWeek,
+  endOfWeek
 } from 'date-fns';
 import { AnimatePresence, motion } from 'motion/react';
 import { Button } from '@/elements';
@@ -62,6 +64,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
   preset,
   showInputPreview = false,
   showTime = false,
+  onOk,
   ...rest
 }) => {
   const theme: CalendarRangeTheme = useComponentTheme(
@@ -412,352 +415,411 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [activeTimePane]);
 
+  const handleThisWeekClick = useCallback(() => {
+    const today = new Date();
+    const weekStart = startOfWeek(today);
+    const weekEnd = endOfWeek(today);
+
+    if (showTime) {
+      // For time picker, preserve current time in weekStart
+      weekStart.setHours(today.getHours());
+      weekStart.setMinutes(today.getMinutes());
+      weekStart.setSeconds(today.getSeconds());
+    }
+
+    onChange?.([weekStart, weekEnd]);
+    setPaneDates(prev => {
+      const newDates = [...prev];
+      newDates[0] = weekStart;
+      if (monthsToDisplay > 1) {
+        newDates[1] = add(weekStart, { months: 1 });
+      }
+      return newDates;
+    });
+  }, [onChange, monthsToDisplay, showTime]);
+
   return (
-    <Stack direction="row" className="gap-1.75" alignItems="end">
-      {preset && (
-        <CalendarPresets
-          className="before:top-7.25"
-          type={presetType}
-          isRange={true}
-          value={
-            internalValue && internalValue.length >= 2
-              ? [internalValue[0] as Date, internalValue[1] as Date]
-              : undefined
-          }
-          onChange={handlePresetChange}
-        >
-          {hasCustomPresets ? preset : undefined}
-        </CalendarPresets>
-      )}
-      <div className={theme.base}>
-        {/* Show input preview at the top if enabled */}
-        {showInputPreview && (
-          <>
-            <Stack direction="row" className="gap-0 justify-center">
-              <div className="relative w-auto">
+    <div className="flex flex-col">
+      <Stack direction="row" className="gap-1.75" alignItems="end">
+        {preset && (
+          <CalendarPresets
+            className="before:top-7.25"
+            type={presetType}
+            isRange={true}
+            value={
+              internalValue && internalValue.length >= 2
+                ? [internalValue[0] as Date, internalValue[1] as Date]
+                : undefined
+            }
+            onChange={handlePresetChange}
+          >
+            {hasCustomPresets ? preset : undefined}
+          </CalendarPresets>
+        )}
+        <div className={theme.base}>
+          {/* Show input preview at the top if enabled */}
+          {showInputPreview && (
+            <>
+              <Stack direction="row" className="gap-0 justify-center">
+                <div className="relative w-auto">
+                  <CalendarInputs
+                    value={rangeStart}
+                    onChange={date => handleInputChange(date, true)}
+                    showTime={showTime}
+                    className={showTime ? 'w-40' : 'w-28'}
+                    inputClassName="border-r-0 rounded-r-none"
+                  />
+                  <span className="absolute right-[-8px] top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none z-10">
+                    →
+                  </span>
+                </div>
+
                 <CalendarInputs
-                  value={rangeStart}
-                  onChange={date => handleInputChange(date, true)}
+                  value={rangeEnd}
+                  onChange={date => handleInputChange(date, false)}
                   showTime={showTime}
                   className={showTime ? 'w-40' : 'w-28'}
-                  inputClassName="border-r-0 rounded-r-none"
+                  inputClassName="border-l-0 rounded-l-none text-sm"
                 />
-                <span className="absolute right-[-8px] top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none z-10">
-                  →
-                </span>
-              </div>
-
-              <CalendarInputs
-                value={rangeEnd}
-                onChange={date => handleInputChange(date, false)}
-                showTime={showTime}
-                className={showTime ? 'w-40' : 'w-28'}
-                inputClassName="border-l-0 rounded-l-none text-sm"
-              />
-            </Stack>
-            <Divider variant="secondary" className="mb-4" />
-          </>
-        )}
-        <header className={theme.header.base}>
-          <Stack>
-            {pickerState === null && (
+              </Stack>
+              <Divider variant="secondary" className="mb-4" />
+            </>
+          )}
+          <header className={theme.header.base}>
+            <Stack>
+              {pickerState === null && (
+                <Button
+                  variant="text"
+                  disabled={disabled}
+                  onClick={previousYearClickHandler}
+                  className={theme.header.prev}
+                  disablePadding
+                  aria-label="Previous year"
+                >
+                  {previousYearArrow}
+                </Button>
+              )}
               <Button
                 variant="text"
                 disabled={disabled}
-                onClick={previousYearClickHandler}
+                onClick={previousClickHandler}
                 className={theme.header.prev}
                 disablePadding
-                aria-label="Previous year"
+                aria-label={
+                  pickerState === null
+                    ? 'Previous month'
+                    : pickerState.view === 'months'
+                      ? 'Previous year'
+                      : 'Previous decade'
+                }
               >
-                {previousYearArrow}
+                {previousArrow}
               </Button>
-            )}
-            <Button
-              variant="text"
-              disabled={disabled}
-              onClick={previousClickHandler}
-              className={theme.header.prev}
-              disablePadding
-              aria-label={
-                pickerState === null
-                  ? 'Previous month'
-                  : pickerState.view === 'months'
-                    ? 'Previous year'
-                    : 'Previous decade'
-              }
+            </Stack>
+            <Stack
+              className={twMerge(
+                theme.title,
+                'justify-center items-center w-full'
+              )}
             >
-              {previousArrow}
-            </Button>
-          </Stack>
-          <Stack
-            className={twMerge(
-              theme.title,
-              'justify-center items-center w-full'
-            )}
-          >
-            <div className="flex w-full justify-around">
-              {displayMonths.map(paneIndex => {
-                const paneDate = getPaneDate(paneIndex);
-                const isPickerOpenForPane =
-                  pickerState?.paneIndex === paneIndex;
-                const isFirstOrLastPane =
-                  paneIndex === 0 || paneIndex === displayMonths.length - 1;
+              <div className="flex w-full justify-around">
+                {displayMonths.map(paneIndex => {
+                  const paneDate = getPaneDate(paneIndex);
+                  const isPickerOpenForPane =
+                    pickerState?.paneIndex === paneIndex;
+                  const isFirstOrLastPane =
+                    paneIndex === 0 || paneIndex === displayMonths.length - 1;
 
-                return (
-                  <div
-                    key={`header-${paneIndex}`}
-                    className="flex items-center space-x-2"
-                  >
-                    {isFirstOrLastPane ? (
-                      <>
-                        <Button
-                          variant="text"
-                          className="p-1"
-                          onClick={() => handleMonthHeaderClick(paneIndex)}
-                          aria-live="polite"
-                          aria-atomic="true"
-                          disablePadding
-                        >
-                          <SmallHeading disableMargins>
+                  return (
+                    <div
+                      key={`header-${paneIndex}`}
+                      className="flex items-center space-x-2"
+                    >
+                      {isFirstOrLastPane ? (
+                        <>
+                          <Button
+                            variant="text"
+                            className="p-1"
+                            onClick={() => handleMonthHeaderClick(paneIndex)}
+                            aria-live="polite"
+                            aria-atomic="true"
+                            disablePadding
+                          >
+                            <SmallHeading disableMargins>
+                              {format(paneDate, 'MMMM')}
+                            </SmallHeading>
+                          </Button>
+                          <Button
+                            variant="text"
+                            className="p-1"
+                            onClick={() => handleYearHeaderClick(paneIndex)}
+                            aria-live="polite"
+                            aria-atomic="true"
+                            disablePadding
+                          >
+                            <SmallHeading disableMargins>
+                              {format(paneDate, 'yyyy')}
+                            </SmallHeading>
+                          </Button>
+                        </>
+                      ) : (
+                        <div className="flex items-center space-x-2">
+                          <SmallHeading
+                            disableMargins
+                            className="p-1 text-gray-500 pointer-events-none"
+                          >
                             {format(paneDate, 'MMMM')}
                           </SmallHeading>
-                        </Button>
-                        <Button
-                          variant="text"
-                          className="p-1"
-                          onClick={() => handleYearHeaderClick(paneIndex)}
-                          aria-live="polite"
-                          aria-atomic="true"
-                          disablePadding
-                        >
-                          <SmallHeading disableMargins>
+                          <SmallHeading
+                            disableMargins
+                            className="p-1 text-gray-500 pointer-events-none"
+                          >
                             {format(paneDate, 'yyyy')}
                           </SmallHeading>
-                        </Button>
-                      </>
-                    ) : (
-                      <div className="flex items-center space-x-2">
-                        <SmallHeading
-                          disableMargins
-                          className="p-1 text-gray-500 pointer-events-none"
-                        >
-                          {format(paneDate, 'MMMM')}
-                        </SmallHeading>
-                        <SmallHeading
-                          disableMargins
-                          className="p-1 text-gray-500 pointer-events-none"
-                        >
-                          {format(paneDate, 'yyyy')}
-                        </SmallHeading>
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </Stack>
-          <Stack>
-            <Button
-              variant="text"
-              disabled={disabled}
-              onClick={nextClickHandler}
-              className={theme.header.next}
-              disablePadding
-              aria-label={
-                pickerState === null
-                  ? 'Next month'
-                  : pickerState.view === 'months'
-                    ? 'Next year'
-                    : 'Next decade'
-              }
-            >
-              {nextArrow}
-            </Button>
-            {pickerState === null && (
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </Stack>
+            <Stack>
               <Button
                 variant="text"
                 disabled={disabled}
-                onClick={nextYearClickHandler}
+                onClick={nextClickHandler}
                 className={theme.header.next}
                 disablePadding
-                aria-label="Next year"
+                aria-label={
+                  pickerState === null
+                    ? 'Next month'
+                    : pickerState.view === 'months'
+                      ? 'Next year'
+                      : 'Next decade'
+                }
               >
-                {nextYearArrow}
+                {nextArrow}
               </Button>
-            )}
-          </Stack>
-        </header>
-        <Divider className={showInputPreview ? 'opacity-30' : ''} />
-        <div className={theme.content}>
-          {displayMonths.map(paneIndex => {
-            const paneDate = getPaneDate(paneIndex);
-            const paneYear = getYear(paneDate);
-            const paneMonth = getMonth(paneDate);
-            const isPickerOpenForPane = pickerState?.paneIndex === paneIndex;
-            const currentPaneView = isPickerOpenForPane
-              ? pickerState.view
-              : 'days';
+              {pickerState === null && (
+                <Button
+                  variant="text"
+                  disabled={disabled}
+                  onClick={nextYearClickHandler}
+                  className={theme.header.next}
+                  disablePadding
+                  aria-label="Next year"
+                >
+                  {nextYearArrow}
+                </Button>
+              )}
+            </Stack>
+          </header>
+          <Divider className={showInputPreview ? 'opacity-30' : ''} />
+          <div className={theme.content}>
+            {displayMonths.map(paneIndex => {
+              const paneDate = getPaneDate(paneIndex);
+              const paneYear = getYear(paneDate);
+              const paneMonth = getMonth(paneDate);
+              const isPickerOpenForPane = pickerState?.paneIndex === paneIndex;
+              const currentPaneView = isPickerOpenForPane
+                ? pickerState.view
+                : 'days';
 
-            // Determine if this pane should show time picker
-            const isStartDatePane =
-              internalValue?.[0] &&
-              format(internalValue[0], 'yyyy-MM') ===
-                format(paneDate, 'yyyy-MM');
-            const isEndDatePane =
-              internalValue?.[1] &&
-              format(internalValue[1], 'yyyy-MM') ===
-                format(paneDate, 'yyyy-MM');
-            const shouldShowTimePicker =
-              showTime &&
-              currentPaneView === 'days' &&
-              ((isStartDatePane && !internalValue?.[1]) || // Show in start pane when selecting range start
-                (isEndDatePane && internalValue?.[1])); // Show in end pane when range is complete
+              // Determine if this pane should show time picker
+              const isStartDatePane =
+                internalValue?.[0] &&
+                format(internalValue[0], 'yyyy-MM') ===
+                  format(paneDate, 'yyyy-MM');
+              const isEndDatePane =
+                internalValue?.[1] &&
+                format(internalValue[1], 'yyyy-MM') ===
+                  format(paneDate, 'yyyy-MM');
+              const shouldShowTimePicker =
+                showTime &&
+                currentPaneView === 'days' &&
+                ((isStartDatePane && !internalValue?.[1]) || // Show in start pane when selecting range start
+                  (isEndDatePane && internalValue?.[1])); // Show in end pane when range is complete
 
-            // Check if this pane has a selected date
-            const isPaneSelected = internalValue?.some(
-              date =>
-                date &&
-                format(date, 'yyyy-MM-dd') === format(paneDate, 'yyyy-MM-dd')
-            );
+              // Check if this pane has a selected date
+              const isPaneSelected = internalValue?.some(
+                date =>
+                  date &&
+                  format(date, 'yyyy-MM-dd') === format(paneDate, 'yyyy-MM-dd')
+              );
 
-            // Get the selected date for this pane (if any)
-            const paneSelectedDate = internalValue?.[0];
+              // Get the selected date for this pane (if any)
+              const paneSelectedDate = internalValue?.[0];
 
-            return (
-              <div key={`pane-${paneIndex}`} className="flex-1 min-w-0">
-                <div style={getHeightStyle(paneIndex)} className="relative">
-                  <AnimatePresence initial={false} mode="wait">
-                    <motion.div
-                      ref={el => (contentRefs.current[paneIndex] = el)}
-                      key={`${currentPaneView}-${paneDate.getTime()}`}
-                      initial={{ opacity: 0 }}
-                      animate={{ opacity: 1 }}
-                      exit={{ opacity: 0 }}
-                      transition={{
-                        duration: 0.1,
-                        ease: 'easeInOut'
-                      }}
-                      className="relative w-full"
-                    >
-                      {currentPaneView === 'days' && (
-                        <div className="relative">
-                          <CalendarDays
-                            value={paneDate}
-                            min={min}
-                            max={max}
-                            disabled={disabled}
-                            current={[rangeStart, rangeEnd]}
-                            showDayOfWeek={true}
-                            xAnimation={xAnimation}
-                            animated={animated}
-                            hover={hoveringDate}
-                            onHover={setHoveringDate}
-                            hidePrevMonthDays={false}
-                            hideNextMonthDays={paneIndex < monthsToDisplay - 1}
-                            onChange={dateChangeHandler}
-                            isRange
-                            {...rest}
-                          />
-                          {shouldShowTimePicker && (
-                            <>
-                              <div
-                                ref={el =>
-                                  (timeIconRefs.current[paneIndex] = el)
-                                }
-                                onClick={() =>
-                                  setActiveTimePane(
-                                    activeTimePane === paneIndex
-                                      ? null
-                                      : paneIndex
-                                  )
-                                }
-                                className={twMerge(
-                                  'absolute -bottom-1 -right-1 p-1.5 rounded cursor-pointer bg-black/50',
-                                  'text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300',
-                                  'transition-colors duration-150',
-                                  activeTimePane === paneIndex &&
-                                    'text-primary-500'
-                                )}
-                                aria-label="Time picker"
-                              >
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  className="w-4 h-4"
+              return (
+                <div key={`pane-${paneIndex}`} className="flex-1 min-w-0">
+                  <div style={getHeightStyle(paneIndex)} className="relative">
+                    <AnimatePresence initial={false} mode="wait">
+                      <motion.div
+                        ref={el => (contentRefs.current[paneIndex] = el)}
+                        key={`${currentPaneView}-${paneDate.getTime()}`}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{
+                          duration: 0.1,
+                          ease: 'easeInOut'
+                        }}
+                        className="relative w-full"
+                      >
+                        {currentPaneView === 'days' && (
+                          <div className="relative">
+                            <CalendarDays
+                              value={paneDate}
+                              min={min}
+                              max={max}
+                              disabled={disabled}
+                              current={[rangeStart, rangeEnd]}
+                              showDayOfWeek={true}
+                              xAnimation={xAnimation}
+                              animated={animated}
+                              hover={hoveringDate}
+                              onHover={setHoveringDate}
+                              hidePrevMonthDays={false}
+                              hideNextMonthDays={
+                                paneIndex < monthsToDisplay - 1
+                              }
+                              onChange={dateChangeHandler}
+                              isRange
+                              {...rest}
+                            />
+                            {shouldShowTimePicker && (
+                              <>
+                                <div
+                                  ref={el =>
+                                    (timeIconRefs.current[paneIndex] = el)
+                                  }
+                                  onClick={() =>
+                                    setActiveTimePane(
+                                      activeTimePane === paneIndex
+                                        ? null
+                                        : paneIndex
+                                    )
+                                  }
+                                  className={twMerge(
+                                    'absolute -bottom-1 -right-1 p-1.5 rounded cursor-pointer bg-black/50',
+                                    'text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300',
+                                    'transition-colors duration-150',
+                                    activeTimePane === paneIndex &&
+                                      'text-primary-500'
+                                  )}
+                                  aria-label="Time picker"
                                 >
-                                  <circle
-                                    cx="12"
-                                    cy="12"
-                                    r="9"
-                                    strokeWidth="2"
-                                  />
-                                  <path strokeWidth="2" d="M12 7v5l3 3" />
-                                </svg>
-                              </div>
-                              <AnimatePresence>
-                                {activeTimePane === paneIndex && (
-                                  <motion.div
-                                    ref={el =>
-                                      (timePickerRefs.current[paneIndex] = el)
-                                    }
-                                    initial={{ opacity: 0, y: 0 }}
-                                    animate={{ opacity: 1, y: 15 }}
-                                    exit={{ opacity: 0, y: 0 }}
-                                    transition={{
-                                      type: 'spring',
-                                      stiffness: 300,
-                                      damping: 30
-                                    }}
-                                    className="absolute bottom-8 right-0 bg-gray-900/95 dark:bg-gray-950/95 backdrop-blur-sm border border-gray-500 dark:border-gray-500 rounded-sm"
+                                  <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    className="w-4 h-4"
                                   >
-                                    <CalendarTimes
-                                      value={
-                                        isEndDatePane
-                                          ? internalValue[1]
-                                          : internalValue[0]
-                                      }
-                                      onChange={date =>
-                                        handleTimeChange(date, paneIndex)
-                                      }
-                                      theme={theme.time}
-                                      showDayOfWeek={showDayOfWeek}
+                                    <circle
+                                      cx="12"
+                                      cy="12"
+                                      r="9"
+                                      strokeWidth="2"
                                     />
-                                  </motion.div>
-                                )}
-                              </AnimatePresence>
-                            </>
-                          )}
-                        </div>
-                      )}
-                      {currentPaneView === 'months' && (
-                        <CalendarMonths
-                          value={paneMonth}
-                          onChange={handleMonthSelect}
-                          // Pass min/max constraints if CalendarMonths supports them
-                          // min={min ? startOfMonth(min) : undefined}
-                          // max={max ? endOfMonth(max) : undefined}
-                        />
-                      )}
-                      {currentPaneView === 'years' && (
-                        <CalendarYears
-                          value={paneYear}
-                          onChange={handleYearSelect}
-                          animated={animated}
-                          // Pass min/max constraints if CalendarYears supports them
-                          // min={min ? getYear(min) : undefined}
-                          // max={max ? getYear(max) : undefined}
-                        />
-                      )}
-                    </motion.div>
-                  </AnimatePresence>
+                                    <path strokeWidth="2" d="M12 7v5l3 3" />
+                                  </svg>
+                                </div>
+                                <AnimatePresence>
+                                  {activeTimePane === paneIndex && (
+                                    <motion.div
+                                      ref={el =>
+                                        (timePickerRefs.current[paneIndex] = el)
+                                      }
+                                      initial={{ opacity: 0, y: 0 }}
+                                      animate={{ opacity: 1, y: 15 }}
+                                      exit={{ opacity: 0, y: 0 }}
+                                      transition={{
+                                        type: 'spring',
+                                        stiffness: 300,
+                                        damping: 30
+                                      }}
+                                      className="absolute bottom-8 right-0 bg-gray-900/95 dark:bg-gray-950/95 backdrop-blur-sm border border-gray-500 dark:border-gray-500 rounded-sm"
+                                    >
+                                      <CalendarTimes
+                                        value={
+                                          isEndDatePane
+                                            ? internalValue[1]
+                                            : internalValue[0]
+                                        }
+                                        onChange={date =>
+                                          handleTimeChange(date, paneIndex)
+                                        }
+                                        theme={theme.time}
+                                        showDayOfWeek={showDayOfWeek}
+                                      />
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </>
+                            )}
+                          </div>
+                        )}
+                        {currentPaneView === 'months' && (
+                          <CalendarMonths
+                            value={paneMonth}
+                            onChange={handleMonthSelect}
+                            // Pass min/max constraints if CalendarMonths supports them
+                            // min={min ? startOfMonth(min) : undefined}
+                            // max={max ? endOfMonth(max) : undefined}
+                          />
+                        )}
+                        {currentPaneView === 'years' && (
+                          <CalendarYears
+                            value={paneYear}
+                            onChange={handleYearSelect}
+                            animated={animated}
+                            // Pass min/max constraints if CalendarYears supports them
+                            // min={min ? getYear(min) : undefined}
+                            // max={max ? getYear(max) : undefined}
+                          />
+                        )}
+                      </motion.div>
+                    </AnimatePresence>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </Stack>
+      </Stack>
+      {onOk && (
+        <div className="flex justify-between mt-4 pt-2 border-t border-gray-200 dark:border-gray-700">
+          <Button
+            variant="filled"
+            size="small"
+            disabled={disabled}
+            onClick={handleThisWeekClick}
+          >
+            This Week
+          </Button>
+          {onOk && (
+            <Button
+              variant="filled"
+              size="small"
+              disabled={
+                disabled ||
+                !internalValue ||
+                !internalValue[0] ||
+                !internalValue[1]
+              }
+              onClick={() => {
+                if (internalValue && internalValue[0] && internalValue[1]) {
+                  onOk(internalValue as [Date, Date]);
+                  onChange?.(internalValue as [Date, Date]);
+                }
+              }}
+            >
+              OK
+            </Button>
+          )}
+        </div>
+      )}
+    </div>
   );
 };
