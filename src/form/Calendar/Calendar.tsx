@@ -468,15 +468,37 @@ export const Calendar: FC<SingleCalendarProps> = ({
               </AnimatePresence>
             </div>
           </div>
-          {showTime && isRange && Array.isArray(value) && (
-            <div className={theme.time?.wrapper}>
-              <CalendarTimes
-                value={rangeEnd ? rangeEnd : value[0] || new Date()}
-                onChange={handleTimeChange}
-                theme={theme.time}
-                showDayOfWeek={showDayOfWeek}
-              />
-            </div>
+          {showTime && (
+            <AnimatePresence>
+              {((isRange && Array.isArray(value) && value[0]) ||
+                (!isRange && value)) && (
+                <motion.div
+                  initial={{ opacity: 0, x: 20, width: 0 }}
+                  animate={{ opacity: 1, x: 0, width: 'auto' }}
+                  exit={{ opacity: 0, x: 20, width: 0 }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 300,
+                    damping: 25,
+                    duration: 0.3
+                  }}
+                  className={theme.time?.wrapper}
+                >
+                  <CalendarTimes
+                    value={
+                      isRange
+                        ? rangeEnd
+                          ? rangeEnd
+                          : value[0]
+                        : (value as Date)
+                    }
+                    onChange={handleTimeChange}
+                    theme={theme.time}
+                    showDayOfWeek={showDayOfWeek}
+                  />
+                </motion.div>
+              )}
+            </AnimatePresence>
           )}
         </div>
       </Stack>
