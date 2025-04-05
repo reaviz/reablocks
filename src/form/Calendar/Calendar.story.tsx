@@ -288,6 +288,30 @@ export const Range = () => {
   );
 };
 
+export const RangeWithTime = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          value={range}
+          onChange={val => setRange(val as [Date, Date | undefined])}
+          isRange
+          showDayOfWeek
+          showToday
+          showTime
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {range
+          ? `${range[0]?.toLocaleDateString()} ${range[0]?.toLocaleTimeString()}-${range[1]?.toLocaleDateString()} ${range[1]?.toLocaleTimeString()}`
+          : 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
 export const CurrentMonth = () => {
   const [range, setRange] = useState<[Date, Date]>([
     startOfMonth(new Date()),

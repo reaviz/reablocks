@@ -154,16 +154,36 @@ export const Calendar: FC<SingleCalendarProps> = ({
           getSeconds(newDate) !== 0;
 
         if (!hasTime) {
-          const originalTimeSource = Array.isArray(value)
-            ? rangeStart ?? value[0] ?? new Date()
-            : value ?? new Date();
-          finalDate = setSeconds(
-            setMinutes(
-              setHours(newDate, getHours(originalTimeSource)),
-              getMinutes(originalTimeSource)
-            ),
-            getSeconds(originalTimeSource)
-          );
+          if (!isRange) {
+            // For single date, inherit time from previous value
+            const originalTimeSource = Array.isArray(value)
+              ? value[0] ?? new Date()
+              : value ?? new Date();
+            finalDate = setSeconds(
+              setMinutes(
+                setHours(newDate, getHours(originalTimeSource)),
+                getMinutes(originalTimeSource)
+              ),
+              getSeconds(originalTimeSource)
+            );
+          } else {
+            // For range, only inherit time for first date
+            if (!rangeStart) {
+              const originalTimeSource = Array.isArray(value)
+                ? value[0] ?? new Date()
+                : value ?? new Date();
+              finalDate = setSeconds(
+                setMinutes(
+                  setHours(newDate, getHours(originalTimeSource)),
+                  getMinutes(originalTimeSource)
+                ),
+                getSeconds(originalTimeSource)
+              );
+            } else {
+              // Reset time to start of day for second date
+              finalDate = setSeconds(setMinutes(setHours(newDate, 0), 0), 0);
+            }
+          }
         }
       }
 
@@ -214,12 +234,23 @@ export const Calendar: FC<SingleCalendarProps> = ({
         onChange?.(newTimeDate);
         setViewValue(newTimeDate);
       } else {
-        const newRangeStart = newTimeDate;
-        onChange?.([newRangeStart, rangeEnd]);
-        setViewValue(newRangeStart);
+        if (rangeEnd) {
+          const newRangeEnd = setSeconds(
+            setMinutes(
+              setHours(rangeEnd, getHours(newTimeDate)),
+              getMinutes(newTimeDate)
+            ),
+            getSeconds(newTimeDate)
+          );
+          onChange?.([rangeStart!, newRangeEnd]);
+        } else {
+          const newRangeStart = newTimeDate;
+          onChange?.([newRangeStart, rangeEnd]);
+        }
+        setViewValue(newTimeDate);
       }
     },
-    [isRange, onChange, rangeEnd, setViewValue]
+    [isRange, onChange, rangeStart, rangeEnd, setViewValue]
   );
 
   const xAnimation = useMemo(() => {
@@ -437,21 +468,11 @@ export const Calendar: FC<SingleCalendarProps> = ({
               </AnimatePresence>
             </div>
           </div>
-          {showTime && !isRange && !Array.isArray(value) && (
+          {showTime && isRange && Array.isArray(value) && (
             <div className={theme.time?.wrapper}>
               <CalendarTimes
-                value={value}
+                value={rangeEnd ? rangeEnd : value[0] || new Date()}
                 onChange={handleTimeChange}
-                theme={theme.time}
-                showDayOfWeek={showDayOfWeek}
-              />
-            </div>
-          )}
-          {showTime && isRange && Array.isArray(value) && value[0] && (
-            <div className={theme.time?.wrapper}>
-              <CalendarTimes
-                value={value[0]}
-                onChange={newDate => handleTimeChange(newDate)}
                 theme={theme.time}
                 showDayOfWeek={showDayOfWeek}
               />
