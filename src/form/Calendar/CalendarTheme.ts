@@ -33,6 +33,39 @@ export interface CalendarTheme {
     year: string;
     selected: string;
   };
+  inputPreview: {
+    base: string;
+    input: string;
+    button: string;
+  };
+  time?: {
+    base: string;
+    wrapper: string;
+    header: string;
+    column: {
+      base: string;
+      wrapper: string;
+      label: string;
+      list: string;
+      scrollbar: string;
+    };
+    item: {
+      base: string;
+      selected: string;
+    };
+  };
+  presets: {
+    base: string;
+    content: string;
+    group: {
+      base: string;
+      title: string;
+    };
+    button: {
+      base: string;
+      active: string;
+    };
+  };
 }
 
 const baseTheme: CalendarTheme = {
@@ -45,6 +78,12 @@ const baseTheme: CalendarTheme = {
   },
   title: 'font-semibold leading-[normal]',
   content: 'flex',
+
+  inputPreview: {
+    base: 'flex items-center gap-2',
+    input: 'w-full',
+    button: 'w-full'
+  },
 
   days: {
     header: 'text-center grid grid-cols-7 mb-1 pt-2 font-medium',
@@ -63,15 +102,49 @@ const baseTheme: CalendarTheme = {
   },
 
   months: {
-    root: 'grid grid-cols-4 gap-2',
+    root: 'grid grid-cols-4 gap-5 py-5.75 px-0.75',
     month: 'p-1.5',
     selected: ''
   },
 
   years: {
-    root: 'grid grid-cols-4 gap-2',
+    root: 'grid grid-cols-4 gap-5 py-5.75 px-0.25',
     year: 'p-1.5',
     selected: ''
+  },
+
+  time: {
+    base: 'flex gap-4 px-0.5',
+    wrapper:
+      'border-l border-gray-200 mt-6.5 dark:border-gray-700 ml-2 pl-1.5 border-gray-200',
+    header:
+      'flex gap-4 px-0.5 pb-2.5 mb-2 border-b border-gray-200 dark:border-gray-700 ',
+    column: {
+      base: 'w-6',
+      wrapper: 'overflow-y-auto h-52',
+      label: 'text-center text-xs text-gray-500',
+      list: 'p-0 m-0 list-none',
+      scrollbar:
+        'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500'
+    },
+    item: {
+      base: 'py-0.5 px-0.5 text-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors',
+      selected:
+        'font-semibold bg-primary-100 text-primary-700 dark:bg-primary-700 dark:text-primary-100'
+    }
+  },
+  presets: {
+    base: 'relative h-59 max-w-52 before:absolute before:right-0 before:top-5.75 before:bottom-0 before:w-px before:bg-gray-200 dark:before:bg-gray-700 pr-1',
+    content: 'h-full overflow-y-auto',
+    group: {
+      base: 'mb-3',
+      title: 'text-xs font-medium text-gray-500 dark:text-gray-400 mb-1 px-2'
+    },
+    button: {
+      base: 'justify-start hover:bg-gray-100 dark:hover:bg-gray-800 w-full text-left',
+      active:
+        'bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400'
+    }
   }
 };
 
@@ -93,11 +166,11 @@ export const calendarTheme: CalendarTheme = {
     ),
     selected: [
       baseTheme.days.selected,
-      'text-black border-transparent light:text-white light:border-transparent opacity-100'
+      'bg-blue-500 text-white dark:bg-blue-600 dark:text-white border-transparent opacity-100'
     ].join(' '),
     hover: [
       baseTheme.days.hover,
-      'bg-primary-active text-black border-transparent light:text-white opacity-100'
+      'bg-blue-500/10 text-blue-500 dark:text-blue-400 border-transparent opacity-100'
     ].join(' '),
     today: [baseTheme.days.today, 'border-panel-accent text-text-primary'].join(
       ' '
@@ -124,6 +197,24 @@ export const calendarTheme: CalendarTheme = {
       baseTheme.years.selected,
       'border-transparent text-black light:text-white'
     ].join(' ')
+  },
+  time: {
+    ...baseTheme.time,
+    wrapper: [baseTheme.time.wrapper, 'border-panel-border'].join(' '),
+    item: {
+      ...baseTheme.time.item,
+      base: [baseTheme.time.item.base, 'px-1.5', 'text-text-secondary'].join(
+        ' '
+      ),
+      selected: [
+        baseTheme.time.item.selected,
+        'bg-blue-500 text-white dark:bg-blue-600 dark:text-white'
+      ].join(' ')
+    }
+  },
+  presets: {
+    ...baseTheme.presets,
+    base: [baseTheme.presets.base, 'flex'].join(' ')
   }
 };
 

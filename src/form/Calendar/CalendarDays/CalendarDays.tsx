@@ -11,7 +11,6 @@ import {
 import { AnimatePresence, motion } from 'motion/react';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
-import { twMerge } from 'tailwind-merge';
 
 export interface CalendarDaysProps {
   /**
