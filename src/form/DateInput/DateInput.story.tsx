@@ -288,3 +288,50 @@ export const OpenOnFocus = () => {
   const [date, setDate] = useState<Date>(new Date());
   return <DateInput fullWidth openOnFocus value={date} onChange={setDate} />;
 };
+
+export const WithInputPreview = () => {
+  const [date, setDate] = useState<Date>(new Date());
+
+  return (
+    <Stack direction="column" className="gap-2">
+      <div>Type a date in MM/dd/yyyy format to see live preview</div>
+      <div>
+        Current Value: <DateFormat date={date} format="MM/dd/yyyy" />
+      </div>
+      <DateInput
+        value={date}
+        onChange={setDate}
+        format="MM/dd/yyyy"
+        showInputPreview
+        onOk={setDate}
+      />
+    </Stack>
+  );
+};
+
+export const RangeWithInputPreview = () => {
+  const [dateRange, setDateRange] = useState<[Date, Date]>([
+    new Date(),
+    addDays(new Date(), 7)
+  ]);
+
+  return (
+    <Stack direction="column" className="gap-2">
+      <div>
+        Type date range in MM/dd/yyyy - MM/dd/yyyy format to see live preview
+      </div>
+      <div>
+        Current Range: <DateFormat date={dateRange[0]} format="MM/dd/yyyy" /> -{' '}
+        <DateFormat date={dateRange[1]} format="MM/dd/yyyy" />
+      </div>
+      <DateInput
+        isRange
+        value={dateRange}
+        onChange={setDateRange}
+        format="MM/dd/yyyy"
+        showInputPreview
+        onOk={setDateRange}
+      />
+    </Stack>
+  );
+};
