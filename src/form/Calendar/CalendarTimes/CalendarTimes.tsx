@@ -98,29 +98,46 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
   const minutes = useMemo(() => Array.from({ length: 60 }, (_, i) => i), []);
   const seconds = useMemo(() => Array.from({ length: 60 }, (_, i) => i), []);
 
-  const currentHour = getHours(value);
-  const currentMinute = getMinutes(value);
-  const currentSecond = getSeconds(value);
+  // Ensure we have a valid date to work with
+  const safeDate = useMemo(() => {
+    if (!value || isNaN(value.getTime())) {
+      return new Date();
+    }
+    return value;
+  }, [value]);
+
+  const currentHour = getHours(safeDate);
+  const currentMinute = getMinutes(safeDate);
+  const currentSecond = getSeconds(safeDate);
 
   const handleHourChange = useCallback(
     (hour: number) => {
-      onChange(setHours(value, hour));
+      const newDate = setHours(safeDate, hour);
+      if (!isNaN(newDate.getTime())) {
+        onChange(newDate);
+      }
     },
-    [onChange, value]
+    [onChange, safeDate]
   );
 
   const handleMinuteChange = useCallback(
     (minute: number) => {
-      onChange(setMinutes(value, minute));
+      const newDate = setMinutes(safeDate, minute);
+      if (!isNaN(newDate.getTime())) {
+        onChange(newDate);
+      }
     },
-    [onChange, value]
+    [onChange, safeDate]
   );
 
   const handleSecondChange = useCallback(
     (second: number) => {
-      onChange(setSeconds(value, second));
+      const newDate = setSeconds(safeDate, second);
+      if (!isNaN(newDate.getTime())) {
+        onChange(newDate);
+      }
     },
-    [onChange, value]
+    [onChange, safeDate]
   );
 
   return (
