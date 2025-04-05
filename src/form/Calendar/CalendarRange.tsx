@@ -464,7 +464,9 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
       }
       return newDates;
     });
-  }, [onChange, monthsToDisplay, showTime]);
+    // Trigger onOk if it exists
+    onOk?.([weekStart, weekEnd]);
+  }, [onChange, monthsToDisplay, showTime, onOk]);
 
   return (
     <div className="flex flex-col">

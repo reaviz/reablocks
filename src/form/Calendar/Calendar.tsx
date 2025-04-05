@@ -320,6 +320,7 @@ export const Calendar: FC<SingleCalendarProps> = ({
     setViewValue(now);
     setMonthValue(getMonth(now));
     setYearValue(getYear(now));
+    onOk?.(now);
   }, [onChange]);
 
   const handleTodayClick = useCallback(() => {
@@ -328,7 +329,8 @@ export const Calendar: FC<SingleCalendarProps> = ({
     setViewValue(today);
     setMonthValue(getMonth(today));
     setYearValue(getYear(today));
-  }, [onChange]);
+    onOk?.(today);
+  }, [onChange, onOk]);
 
   return (
     <div className={twMerge(theme.base)}>
