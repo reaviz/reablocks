@@ -87,6 +87,16 @@ export interface CalendarProps {
   previousArrow?: React.ReactNode | string;
 
   /**
+   * The text or icon to use for next year.
+   */
+  nextYearArrow?: React.ReactNode | string;
+
+  /**
+   * The text or icon to use for previous year.
+   */
+  previousYearArrow?: React.ReactNode | string;
+
+  /**
    * Whether to display day of week labels
    */
   showDayOfWeek?: boolean;
@@ -149,6 +159,8 @@ export const Calendar: FC<CalendarProps> = ({
   isRange,
   previousArrow = '‹',
   nextArrow = '›',
+  previousYearArrow = '«',
+  nextYearArrow = '»',
   showDayOfWeek,
   showToday,
   animated = true,
@@ -206,6 +218,22 @@ export const Calendar: FC<CalendarProps> = ({
     if (view === 'days') {
       setViewValue(add(viewValue, { months: 1 }));
     } else if (view === 'months') {
+      setYearValue(yearValue + 1);
+    }
+  }, [view, viewValue, yearValue]);
+
+  const previousYearClickHandler = useCallback(() => {
+    setScrollDirection('back');
+    if (view === 'days') {
+      setViewValue(sub(viewValue, { years: 1 }));
+      setYearValue(yearValue - 1);
+    }
+  }, [view, viewValue, yearValue]);
+
+  const nextYearClickHandler = useCallback(() => {
+    setScrollDirection('forward');
+    if (view === 'days') {
+      setViewValue(add(viewValue, { years: 1 }));
       setYearValue(yearValue + 1);
     }
   }, [view, viewValue, yearValue]);
@@ -303,9 +331,9 @@ export const Calendar: FC<CalendarProps> = ({
   const xAnimation = useMemo(() => {
     switch (scrollDirection) {
       case 'forward':
-        return '100%';
+        return '50%';
       case 'back':
-        return '-100%';
+        return '-50%';
       default:
         return 0;
     }
@@ -340,15 +368,29 @@ export const Calendar: FC<CalendarProps> = ({
         <div className="relative flex flex-1">
           <div className="flex-1">
             <header className={twMerge(theme.header.base)}>
-              <Button
-                variant="text"
-                disabled={disabled}
-                onClick={previousClickHandler}
-                className={theme.header.prev}
-                disablePadding
-              >
-                {previousArrow}
-              </Button>
+              <div className="flex items-center gap-3">
+                <Button
+                  variant="text"
+                  disabled={disabled}
+                  onClick={previousYearClickHandler}
+                  className={twMerge(
+                    theme.header.prev,
+                    'text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300'
+                  )}
+                  disablePadding
+                >
+                  {previousYearArrow}
+                </Button>
+                <Button
+                  variant="text"
+                  disabled={disabled}
+                  onClick={previousClickHandler}
+                  className={theme.header.prev}
+                  disablePadding
+                >
+                  {previousArrow}
+                </Button>
+              </div>
               <Button
                 disabled={disabled}
                 variant="text"
@@ -414,15 +456,29 @@ export const Calendar: FC<CalendarProps> = ({
                   )}
                 </SmallHeading>
               </Button>
-              <Button
-                variant="text"
-                disabled={disabled}
-                onClick={nextClickHandler}
-                className={theme.header.next}
-                disablePadding
-              >
-                {nextArrow}
-              </Button>
+              <div className="flex items-center gap-3">
+                <Button
+                  variant="text"
+                  disabled={disabled}
+                  onClick={nextClickHandler}
+                  className={theme.header.next}
+                  disablePadding
+                >
+                  {nextArrow}
+                </Button>
+                <Button
+                  variant="text"
+                  disabled={disabled}
+                  onClick={nextYearClickHandler}
+                  className={twMerge(
+                    theme.header.next,
+                    'text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300'
+                  )}
+                  disablePadding
+                >
+                  {nextYearArrow}
+                </Button>
+              </div>
             </header>
             <Divider
               className={twMerge(
@@ -434,11 +490,17 @@ export const Calendar: FC<CalendarProps> = ({
                 <motion.div
                   ref={el => (contentRefs.current[0] = el)}
                   key={view}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
+                  initial={{
+                    opacity: 0,
+                    x: scrollDirection === 'forward' ? '15%' : '-15%'
+                  }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{
+                    opacity: 0,
+                    x: scrollDirection === 'forward' ? '-15%' : '15%'
+                  }}
                   transition={{
-                    duration: 0.1,
+                    duration: 0.15,
                     ease: 'easeInOut'
                   }}
                   className="relative w-full"
