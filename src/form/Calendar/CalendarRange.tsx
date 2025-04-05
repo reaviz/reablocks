@@ -295,6 +295,15 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     return preset as PresetType;
   }, [preset, hasCustomPresets, direction]);
 
+  // Update view when value changes (including from presets)
+  useEffect(() => {
+    if (value?.[0]) {
+      setLeftPaneDate(value[0]);
+      setRightPaneDate(addMonths(value[0], 1));
+      setScrollDirection(null);
+    }
+  }, [value]);
+
   return (
     <Stack direction="row" className="gap-1.75">
       {preset && (
