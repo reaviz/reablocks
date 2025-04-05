@@ -23,6 +23,22 @@ export default {
   component: Calendar
 };
 
+// Basic Calendar Examples
+export const Simple = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <>
+      <Card>
+        <Calendar value={date} onChange={(date: Date) => setDate(date)} />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
 export const Demo = () => {
   const [date, setDate] = useState<Date>();
 
@@ -42,6 +58,61 @@ export const Demo = () => {
   );
 };
 
+export const DefaultValue = () => {
+  const [date, setDate] = useState<Date>(addMonths(new Date(), 1));
+
+  return (
+    <>
+      <Card>
+        <Calendar value={date} onChange={(date: Date) => setDate(date)} />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
+export const WithLabels = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          value={date}
+          onChange={(date: Date) => setDate(date)}
+          showDayOfWeek
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
+export const Today = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          showToday
+          showDayOfWeek
+          value={date}
+          onChange={(date: Date) => setDate(date)}
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
+// Time-related Examples
 export const DemoWithTime = () => {
   const [date, setDate] = useState<Date>();
 
@@ -57,21 +128,6 @@ export const DemoWithTime = () => {
       </Card>
       <Stack justifyContent="center" className="mt-4">
         {date?.toLocaleTimeString() ?? 'No date selected'}
-      </Stack>
-    </>
-  );
-};
-
-export const Simple = () => {
-  const [date, setDate] = useState<Date>();
-
-  return (
-    <>
-      <Card>
-        <Calendar value={date} onChange={(date: Date) => setDate(date)} />
-      </Card>
-      <Stack justifyContent="center" className="mt-4">
-        {date?.toLocaleDateString() ?? 'No date selected'}
       </Stack>
     </>
   );
@@ -98,6 +154,39 @@ export const WithTime = () => {
   );
 };
 
+export const WithTimeAndOkButton = () => {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [confirmedDate, setConfirmedDate] = useState<Date | null>(null);
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          value={date}
+          onChange={(newDate: Date) => setDate(newDate)}
+          showDayOfWeek
+          showToday
+          showTime
+          onOk={(val: Date) => setConfirmedDate(val)}
+        />
+      </Card>
+      <Stack direction="column" className="mt-4 gap-2">
+        <div>
+          Selected:{' '}
+          {date ? format(date, 'yyyy-MM-dd HH:mm:ss') : 'No date selected'}
+        </div>
+        <div>
+          Confirmed:{' '}
+          {confirmedDate
+            ? format(confirmedDate, 'yyyy-MM-dd HH:mm:ss')
+            : 'Not confirmed'}
+        </div>
+      </Stack>
+    </>
+  );
+};
+
+// Preset Examples
 export const WithDatePresets = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
@@ -141,121 +230,68 @@ export const WithDatePresetsAndTime = () => {
   );
 };
 
-export const Today = () => {
-  const [date, setDate] = useState<Date>();
+export const WithCustomPresets = () => {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+
+  const CustomContent = () => {
+    const customPresets = [
+      {
+        label: 'Start of Business Day',
+        value: setHours(setMinutes(setSeconds(new Date(), 0), 0), 9)
+      },
+      {
+        label: 'End of Business Day',
+        value: setHours(setMinutes(setSeconds(new Date(), 0), 0), 17)
+      },
+      {
+        label: 'Next Business Day',
+        value: setHours(setMinutes(setSeconds(addDays(new Date(), 1), 0), 0), 9)
+      }
+    ];
+
+    return (
+      <Stack
+        direction="column"
+        alignItems="center"
+        className="h-full p-2 overflow-auto"
+      >
+        <div className="text-sm font-medium mb-4">Quick Actions</div>
+        {customPresets.map(preset => (
+          <Button
+            key={preset.label}
+            variant="text"
+            size="sm"
+            className="justify-start hover:bg-gray-100 dark:hover:bg-gray-800"
+            onClick={() => setDate(preset.value)}
+          >
+            {preset.label}
+          </Button>
+        ))}
+        <Divider className="my-4" />
+        <div className="text-sm text-gray-500 dark:text-gray-400">
+          {date ? format(date, 'PPP p') : 'No date selected'}
+        </div>
+      </Stack>
+    );
+  };
 
   return (
     <>
       <Card>
         <Calendar
+          value={date}
+          onChange={(newDate: Date) => setDate(newDate)}
+          showDayOfWeek
           showToday
-          showDayOfWeek
-          value={date}
-          onChange={(date: Date) => setDate(date)}
+          showTime
+          preset={<CustomContent />}
         />
       </Card>
-      <Stack justifyContent="center" className="mt-4">
-        {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
     </>
   );
 };
 
-export const Disabled = () => {
-  const [date, setDate] = useState<Date>();
-
-  return (
-    <>
-      <Card>
-        <Calendar
-          value={date}
-          disabled
-          onChange={(date: Date) => setDate(date)}
-        />
-      </Card>
-      <Stack justifyContent="center" className="mt-4">
-        {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
-    </>
-  );
-};
-
-export const NoAnimation = () => {
-  const [date, setDate] = useState<Date>();
-
-  return (
-    <>
-      <Card>
-        <Calendar
-          value={date}
-          animated={false}
-          onChange={(date: Date) => setDate(date)}
-        />
-      </Card>
-      <Stack justifyContent="center" className="mt-4">
-        {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
-    </>
-  );
-};
-
-export const DefaultValue = () => {
-  const [date, setDate] = useState<Date>(addMonths(new Date(), 1));
-
-  return (
-    <>
-      <Card>
-        <Calendar value={date} onChange={(date: Date) => setDate(date)} />
-      </Card>
-      <Stack justifyContent="center" className="mt-4">
-        {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
-    </>
-  );
-};
-
-const prevMonth = sub(new Date(), { months: 1 });
-const nextMonth = add(new Date(), { months: 1 });
-
-export const MinMax = () => {
-  const [date, setDate] = useState<Date>(new Date());
-
-  return (
-    <>
-      <Card>
-        <Calendar
-          value={date}
-          min={prevMonth}
-          max={nextMonth}
-          onChange={(date: Date) => setDate(date)}
-        />
-      </Card>
-      <Stack justifyContent="center" className="mt-4">
-        {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
-    </>
-  );
-};
-
-export const WithLabels = () => {
-  const [date, setDate] = useState<Date>();
-
-  return (
-    <>
-      <Card>
-        <Calendar
-          value={date}
-          onChange={(date: Date) => setDate(date)}
-          showDayOfWeek
-        />
-      </Card>
-      <Stack justifyContent="center" className="mt-4">
-        {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
-    </>
-  );
-};
-
+// Range Calendar Examples
 export const Range = () => {
   const [range, setRange] = useState<[Date, Date]>();
 
@@ -329,6 +365,7 @@ export const CurrentMonth = () => {
   );
 };
 
+// Multi-view Calendar Examples
 export const Multiview = () => {
   const [range, setRange] = useState<[Date, Date]>();
 
@@ -373,6 +410,7 @@ export const MultiviewPast = () => {
   );
 };
 
+// Multi-view with Presets Examples
 export const MultiviewWithPastPresets = () => {
   const [range, setRange] = useState<[Date, Date]>();
 
@@ -444,6 +482,7 @@ export const MultiviewWithCombinedPresets = () => {
   );
 };
 
+// Advanced Multi-view Examples
 export const MultiviewWithInputPreview = () => {
   const [range, setRange] = useState<[Date, Date]>();
 
@@ -492,68 +531,6 @@ export const MultiviewWithTimeAndInputPreview = () => {
   );
 };
 
-export const WithCustomPresets = () => {
-  const [date, setDate] = useState<Date | undefined>(new Date());
-
-  const CustomContent = () => {
-    const customPresets = [
-      {
-        label: 'Start of Business Day',
-        value: setHours(setMinutes(setSeconds(new Date(), 0), 0), 9)
-      },
-      {
-        label: 'End of Business Day',
-        value: setHours(setMinutes(setSeconds(new Date(), 0), 0), 17)
-      },
-      {
-        label: 'Next Business Day',
-        value: setHours(setMinutes(setSeconds(addDays(new Date(), 1), 0), 0), 9)
-      }
-    ];
-
-    return (
-      <Stack
-        direction="column"
-        alignItems="center"
-        className="h-full p-2 overflow-auto"
-      >
-        <div className="text-sm font-medium mb-4">Quick Actions</div>
-        {customPresets.map(preset => (
-          <Button
-            key={preset.label}
-            variant="text"
-            size="sm"
-            className="justify-start hover:bg-gray-100 dark:hover:bg-gray-800"
-            onClick={() => setDate(preset.value)}
-          >
-            {preset.label}
-          </Button>
-        ))}
-        <Divider className="my-4" />
-        <div className="text-sm text-gray-500 dark:text-gray-400">
-          {date ? format(date, 'PPP p') : 'No date selected'}
-        </div>
-      </Stack>
-    );
-  };
-
-  return (
-    <>
-      <Card>
-        <Calendar
-          value={date}
-          onChange={(newDate: Date) => setDate(newDate)}
-          showDayOfWeek
-          showToday
-          showTime
-          preset={<CustomContent />}
-        />
-      </Card>
-    </>
-  );
-};
-
-// monthsToDisplay usage
 export const MonthsToDisplay = () => {
   const [range, setRange] = useState<[Date, Date]>();
 
@@ -577,38 +554,6 @@ export const MonthsToDisplay = () => {
   );
 };
 
-export const WithTimeAndOkButton = () => {
-  const [date, setDate] = useState<Date | undefined>(new Date());
-  const [confirmedDate, setConfirmedDate] = useState<Date | null>(null);
-
-  return (
-    <>
-      <Card>
-        <Calendar
-          value={date}
-          onChange={(newDate: Date) => setDate(newDate)}
-          showDayOfWeek
-          showToday
-          showTime
-          onOk={(val: Date) => setConfirmedDate(val)}
-        />
-      </Card>
-      <Stack direction="column" className="mt-4 gap-2">
-        <div>
-          Selected:{' '}
-          {date ? format(date, 'yyyy-MM-dd HH:mm:ss') : 'No date selected'}
-        </div>
-        <div>
-          Confirmed:{' '}
-          {confirmedDate
-            ? format(confirmedDate, 'yyyy-MM-dd HH:mm:ss')
-            : 'Not confirmed'}
-        </div>
-      </Stack>
-    </>
-  );
-};
-
 export const RangeWithTimeAndOkButton = () => {
   const [range, setRange] = useState<[Date, Date] | undefined>();
   const [confirmedRange, setConfirmedRange] = useState<[Date, Date] | null>(
@@ -624,7 +569,7 @@ export const RangeWithTimeAndOkButton = () => {
           showDayOfWeek
           headerDateFormat="MMMM yyyy"
           showTime
-          onOk={val => setConfirmedRange(val)}
+          onOk={val => setConfirmedRange(val as [Date, Date])}
         />
       </Card>
       <Stack direction="column" className="mt-4 gap-2">
@@ -640,6 +585,68 @@ export const RangeWithTimeAndOkButton = () => {
             ? `${format(confirmedRange[0], 'yyyy-MM-dd HH:mm:ss')} - ${format(confirmedRange[1], 'yyyy-MM-dd HH:mm:ss')}`
             : 'Not confirmed'}
         </div>
+      </Stack>
+    </>
+  );
+};
+
+// Special States
+export const Disabled = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          value={date}
+          disabled
+          onChange={(date: Date) => setDate(date)}
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
+export const NoAnimation = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          value={date}
+          animated={false}
+          onChange={(date: Date) => setDate(date)}
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
+const prevMonth = sub(new Date(), { months: 1 });
+const nextMonth = add(new Date(), { months: 1 });
+
+export const MinMax = () => {
+  const [date, setDate] = useState<Date>(new Date());
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          value={date}
+          min={prevMonth}
+          max={nextMonth}
+          onChange={(date: Date) => setDate(date)}
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {date?.toLocaleDateString() ?? 'No date selected'}
       </Stack>
     </>
   );

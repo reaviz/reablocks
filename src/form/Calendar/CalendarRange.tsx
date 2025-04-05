@@ -470,10 +470,10 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
 
   return (
     <div className="flex flex-col">
-      <Stack direction="row" className="gap-1.75" alignItems="end">
+      <Stack direction="row" className="gap-1.75 w-full" alignItems="end">
         {preset && (
           <CalendarPresets
-            className="before:top-7.25"
+            className="before:top-7.25 min-w-[100px] w-auto flex-shrink-0"
             type={presetType}
             isRange={true}
             value={
@@ -486,7 +486,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
             {hasCustomPresets ? preset : undefined}
           </CalendarPresets>
         )}
-        <div className={theme.base}>
+        <div className={`${theme.base} flex-1`}>
           {/* Show input preview at the top if enabled */}
           {showInputPreview && (
             <>
