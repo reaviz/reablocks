@@ -247,8 +247,23 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
   // Update view when value changes (including from presets)
   useEffect(() => {
     if (value?.[0]) {
-      setLeftPaneDate(value[0]);
-      setRightPaneDate(addMonths(value[0], 1));
+      // Set panes based on the start date's month
+      const startMonth = startOfMonth(value[0]);
+      if (value[1]) {
+        const endMonth = startOfMonth(value[1]);
+        const nextMonthAfterStart = addMonths(startMonth, 1);
+        // If end date is in same month or before start date, show next month
+        const rightMonth =
+          endMonth <= startMonth ? nextMonthAfterStart : endMonth;
+        setPaneDates([startMonth, rightMonth]);
+      } else {
+        setPaneDates([startMonth, addMonths(startMonth, 1)]);
+      }
+      setScrollDirection(null);
+    } else if (value?.[1]) {
+      // If only end date is set, show its month and previous month
+      const endMonth = startOfMonth(value[1]);
+      setPaneDates([subMonths(endMonth, 1), endMonth]);
       setScrollDirection(null);
     }
   }, [value]);
