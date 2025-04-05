@@ -274,8 +274,8 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
         {/* Show input preview at the top if enabled */}
         {showInputPreview && (
           <>
-            <div className="mb-4 px-4">
-              <Stack direction="row" className="gap-2 justify-center">
+            <div className="px-4">
+              <Stack direction="row" className="gap-0 justify-center">
                 <CalendarInputs
                   value={rangeStart}
                   onChange={date => {
@@ -288,10 +288,9 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
                   }}
                   showTime={false}
                   className="w-28"
+                  inputClassName="border-r-0 rounded-r-none"
                 />
-                <span className="text-gray-500 dark:text-gray-400 self-center">
-                  -
-                </span>
+
                 <CalendarInputs
                   value={rangeEnd}
                   onChange={date => {
@@ -304,6 +303,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
                   }}
                   showTime={false}
                   className="w-28"
+                  inputClassName="border-l-0 rounded-l-none"
                 />
               </Stack>
             </div>

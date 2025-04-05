@@ -38,6 +38,11 @@ export interface CalendarInputsProps {
    * Additional class name.
    */
   className?: string;
+
+  /**
+   * Additional class name for the input.
+   */
+  inputClassName?: string;
 }
 
 const isValidTimeFormat = (timeStr: string): boolean => {
@@ -90,7 +95,8 @@ export const CalendarInputs: FC<CalendarInputsProps> = ({
   onChange,
   theme,
   showTime = false,
-  className
+  className,
+  inputClassName
 }) => {
   const currentFormat = showTime ? 'dd-MM-yyyy HH:mm:ss' : 'dd-MM-yyyy';
   const placeholder = showTime ? 'DD-MM-YYYY HH:MM:SS' : 'DD-MM-YYYY';
@@ -162,6 +168,7 @@ export const CalendarInputs: FC<CalendarInputsProps> = ({
           placeholder={placeholder}
           className={twMerge(
             'px-2 py-1 text-sm text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 border text-center border-gray-300 dark:border-gray-600 rounded focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500',
+            inputClassName,
             showTime ? 'w-40' : 'w-28'
           )}
         />
