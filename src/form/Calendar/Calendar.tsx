@@ -464,7 +464,7 @@ export const Calendar: FC<SingleCalendarProps> = ({
               <AnimatePresence initial={false} mode="wait">
                 <motion.div
                   ref={el => (contentRefs.current[0] = el)}
-                  key={view}
+                  key={`${view}-${viewValue.getMonth()}-${viewValue.getFullYear()}`}
                   initial={{
                     opacity: 0,
                     x: scrollDirection === 'forward' ? '15%' : '-15%'
@@ -491,7 +491,7 @@ export const Calendar: FC<SingleCalendarProps> = ({
                       showDayOfWeek={showDayOfWeek}
                       showToday={showToday}
                       xAnimation={xAnimation}
-                      animated={animated}
+                      animated={animated && scrollDirection !== null}
                       onChange={dateChangeHandler}
                     />
                   )}
