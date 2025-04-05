@@ -22,7 +22,13 @@ import {
   format,
   getMonth,
   startOfMonth,
-  endOfMonth
+  endOfMonth,
+  getHours,
+  getMinutes,
+  getSeconds,
+  setHours,
+  setMinutes,
+  setSeconds
 } from 'date-fns';
 import { AnimatePresence, motion } from 'motion/react';
 import { Button } from '@/elements';
@@ -39,6 +45,7 @@ import { CalendarPresets } from './CalendarPresets';
 import { RangeCalendarProps } from './hooks/useCalendar';
 import { PresetType } from './CalendarPresets';
 import { CalendarInputs } from './CalendarInputs';
+import { CalendarTimes } from './CalendarTimes';
 
 // Type for the state tracking which picker is open for which pane
 type PickerState = { view: 'months' | 'years'; paneIndex: number } | null;
@@ -63,6 +70,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
   theme: customTheme,
   preset,
   showInputPreview = false,
+  showTime = false,
   ...rest
 }) => {
   const theme: CalendarRangeTheme = useComponentTheme(
@@ -155,6 +163,46 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
     [onChange, rangeStart, rangeEnd]
   );
 
+  // Replace viewValue calculations with pane-specific dates
+  const getPaneDate = useCallback(
+    (paneIndex: number): Date => {
+      return paneDates[paneIndex] || startOfMonth(new Date());
+    },
+    [paneDates]
+  );
+
+  const handleTimeChange = useCallback(
+    (newTimeDate: Date, paneIndex: number) => {
+      const isEndDate =
+        value?.[1] &&
+        format(value[1], 'yyyy-MM-dd') ===
+          format(getPaneDate(paneIndex), 'yyyy-MM-dd');
+
+      if (isEndDate && value?.[0]) {
+        // Updating end date time
+        const newEnd = setSeconds(
+          setMinutes(
+            setHours(value[1], getHours(newTimeDate)),
+            getMinutes(newTimeDate)
+          ),
+          getSeconds(newTimeDate)
+        );
+        onChange?.([value[0], newEnd]);
+      } else if (value?.[0]) {
+        // Updating start date time
+        const newStart = setSeconds(
+          setMinutes(
+            setHours(value[0], getHours(newTimeDate)),
+            getMinutes(newTimeDate)
+          ),
+          getSeconds(newTimeDate)
+        );
+        onChange?.([newStart, value[1]]);
+      }
+    },
+    [onChange, value, getPaneDate]
+  );
+
   // --- Handlers for Pane Pickers ---
 
   const handleMonthHeaderClick = useCallback(
@@ -197,14 +245,6 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
     // We need to adjust the view value so that the selected date appears in the correct pane
     return showPast ? addMonths(newDate, offset) : subMonths(newDate, offset);
   };
-
-  // Replace viewValue calculations with pane-specific dates
-  const getPaneDate = useCallback(
-    (paneIndex: number): Date => {
-      return paneDates[paneIndex] || startOfMonth(new Date());
-    },
-    [paneDates]
-  );
 
   const handleYearSelect = useCallback(
     (year: number) => {
@@ -538,37 +578,45 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
         </header>
         <Divider className={showInputPreview ? 'opacity-30' : ''} />
         <div className={theme.content}>
-          {/* Existing panes */}
           {displayMonths.map(paneIndex => {
             const paneDate = getPaneDate(paneIndex);
             const paneYear = getYear(paneDate);
             const paneMonth = getMonth(paneDate);
-
             const isPickerOpenForPane = pickerState?.paneIndex === paneIndex;
             const currentPaneView = isPickerOpenForPane
               ? pickerState.view
               : 'days';
 
-            const renderPaneHeaderContent = () => {
-              if (currentPaneView === 'months') {
-                return format(paneDate, 'yyyy');
-              }
-              if (currentPaneView === 'years') {
-                const startDecade = Math.floor(paneYear / 10) * 10;
-                return `${startDecade} - ${startDecade + 9}`;
-              }
-              // 'days' view
-              return format(paneDate, headerDateFormat);
-            };
+            // Determine if this pane should show time picker
+            const isStartDatePane =
+              value?.[0] &&
+              format(value[0], 'yyyy-MM') === format(paneDate, 'yyyy-MM');
+            const isEndDatePane =
+              value?.[1] &&
+              format(value[1], 'yyyy-MM') === format(paneDate, 'yyyy-MM');
+            const shouldShowTimePicker =
+              showTime &&
+              currentPaneView === 'days' &&
+              ((isStartDatePane && !value?.[1]) || // Show in start pane when selecting range start
+                (isEndDatePane && value?.[1])); // Show in end pane when range is complete
+
+            // Check if this pane has a selected date
+            const isPaneSelected = value?.some(
+              date =>
+                date &&
+                format(date, 'yyyy-MM-dd') === format(paneDate, 'yyyy-MM-dd')
+            );
+
+            // Get the selected date for this pane (if any)
+            const paneSelectedDate = value?.[0];
 
             return (
               <div key={`pane-${paneIndex}`} className="flex-1 min-w-0">
-                {/* Pane Content with Animation */}
                 <div style={getHeightStyle(paneIndex)} className="relative">
                   <AnimatePresence initial={false} mode="wait">
                     <motion.div
                       ref={el => (contentRefs.current[paneIndex] = el)}
-                      key={currentPaneView}
+                      key={`${currentPaneView}-${paneDate.getTime()}`}
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
@@ -579,23 +627,50 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
                       className="relative w-full"
                     >
                       {currentPaneView === 'days' && (
-                        <CalendarDays
-                          value={paneDate}
-                          min={min}
-                          max={max}
-                          disabled={disabled}
-                          current={[rangeStart, rangeEnd]}
-                          showDayOfWeek={showDayOfWeek && paneIndex === 0}
-                          xAnimation={xAnimation}
-                          animated={animated}
-                          hover={hoveringDate}
-                          onHover={setHoveringDate}
-                          hidePrevMonthDays={true}
-                          hideNextMonthDays={paneIndex < monthsToDisplay - 1}
-                          onChange={dateChangeHandler}
-                          isRange
-                          {...rest}
-                        />
+                        <div className="relative">
+                          <CalendarDays
+                            value={paneDate}
+                            min={min}
+                            max={max}
+                            disabled={disabled}
+                            current={[rangeStart, rangeEnd]}
+                            showDayOfWeek={true}
+                            xAnimation={xAnimation}
+                            animated={animated}
+                            hover={hoveringDate}
+                            onHover={setHoveringDate}
+                            hidePrevMonthDays={false}
+                            hideNextMonthDays={paneIndex < monthsToDisplay - 1}
+                            onChange={dateChangeHandler}
+                            isRange
+                            {...rest}
+                          />
+                          {shouldShowTimePicker && (
+                            <div className="absolute top-0 right-0 h-full w-[32px] group">
+                              <div className="absolute top-0 right-[-24px] w-full h-full bg-transparent cursor-pointer group-hover:bg-gray-200/10" />
+                              <motion.div
+                                initial={{ opacity: 0, x: '100%' }}
+                                animate={{ opacity: 0, x: '100%' }}
+                                whileHover={{ opacity: 1, x: 58 }}
+                                transition={{
+                                  type: 'spring',
+                                  stiffness: 300,
+                                  damping: 30
+                                }}
+                                className="absolute top-0 right-0 h-full w-[120px] bg-gray-900/95 dark:bg-gray-950/95 backdrop-blur-sm shadow-xl rounded-l-lg"
+                              >
+                                <CalendarTimes
+                                  value={isEndDatePane ? value[1] : value[0]}
+                                  onChange={date =>
+                                    handleTimeChange(date, paneIndex)
+                                  }
+                                  theme={theme.time}
+                                  showDayOfWeek={showDayOfWeek}
+                                />
+                              </motion.div>
+                            </div>
+                          )}
+                        </div>
                       )}
                       {currentPaneView === 'months' && (
                         <CalendarMonths
