@@ -589,7 +589,10 @@ const getCombinedPresets = (
       },
       {
         label: 'This Week',
-        value: [startOfWeek(new Date()), endOfWeek(new Date())],
+        value: [
+          showTime ? new Date() : startOfDay(new Date()),
+          endOfDay(addDays(new Date(), 6))
+        ],
         group: 'Current'
       },
       {

@@ -21,7 +21,10 @@ import {
   getMinutes,
   getSeconds,
   startOfWeek,
-  endOfWeek
+  endOfWeek,
+  startOfDay,
+  endOfDay,
+  addDays
 } from 'date-fns';
 import { AnimatePresence, motion } from 'motion/react';
 import { Button } from '@/elements';
@@ -375,23 +378,37 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
     const isSelectingRange = internalValue?.[0] && !internalValue?.[1];
 
     if (internalValue?.[0] && isFromPresetOrInput && !isSelectingRange) {
-      const startMonth = startOfMonth(internalValue[0]);
+      // For combined presets, treat 'Current' group like future direction
+      const shouldUsePastBehavior = direction === 'past' && preset === 'past';
+
+      // For past direction with past presets, use the end date as reference point
+      const referenceDate =
+        shouldUsePastBehavior && internalValue[1]
+          ? internalValue[1]
+          : internalValue[0];
+      const referenceMonth = startOfMonth(referenceDate);
+
       const dates = Array.from({ length: monthsToDisplay }, (_, i) => {
-        const newDate = new Date(startMonth);
-        if (direction === 'past') {
-          newDate.setMonth(startMonth.getMonth() - i);
+        const newDate = new Date(referenceMonth);
+        if (shouldUsePastBehavior) {
+          // For past direction with past presets, start from reference month and go backwards
+          const reverseIndex = monthsToDisplay - 1 - i;
+          newDate.setMonth(referenceMonth.getMonth() - reverseIndex);
         } else {
-          newDate.setMonth(startMonth.getMonth() + i);
+          // For future direction and current/combined presets, start from reference month and go forwards
+          newDate.setMonth(referenceMonth.getMonth() + i);
         }
         return startOfMonth(newDate);
       });
-      setPaneDates(dates);
+
+      // Only reverse for past direction with past presets
+      setPaneDates(shouldUsePastBehavior ? dates.reverse() : dates);
       setScrollDirection(null);
     }
 
     // Reset the source after handling
     valueChangeSourceRef.current = null;
-  }, [internalValue, monthsToDisplay, direction]);
+  }, [internalValue, monthsToDisplay, direction, preset]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -417,22 +434,33 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
 
   const handleThisWeekClick = useCallback(() => {
     const today = new Date();
-    const weekStart = startOfWeek(today);
-    const weekEnd = endOfWeek(today);
+    const weekStart = today; // Start from current day
+    const weekEnd = endOfDay(addDays(today, 6));
 
     if (showTime) {
       // For time picker, preserve current time in weekStart
       weekStart.setHours(today.getHours());
       weekStart.setMinutes(today.getMinutes());
       weekStart.setSeconds(today.getSeconds());
+    } else {
+      // If no time picker, start from beginning of current day
+      weekStart.setHours(0, 0, 0, 0);
     }
 
     onChange?.([weekStart, weekEnd]);
     setPaneDates(prev => {
       const newDates = [...prev];
-      newDates[0] = weekStart;
+      // Set both panes to show the current month
+      const currentMonth = startOfMonth(today);
+      newDates[0] = currentMonth;
       if (monthsToDisplay > 1) {
-        newDates[1] = add(weekStart, { months: 1 });
+        // Show next month in second pane only if week spans two months
+        const nextMonth = add(currentMonth, { months: 1 });
+        const weekEndMonth = startOfMonth(weekEnd);
+        newDates[1] =
+          format(weekEndMonth, 'yyyy-MM') !== format(currentMonth, 'yyyy-MM')
+            ? weekEndMonth
+            : nextMonth;
       }
       return newDates;
     });

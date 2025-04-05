@@ -373,7 +373,7 @@ export const MultiviewPast = () => {
   );
 };
 
-export const MultiviewWithPresets = () => {
+export const MultiviewWithPastPresets = () => {
   const [range, setRange] = useState<[Date, Date]>();
 
   return (
