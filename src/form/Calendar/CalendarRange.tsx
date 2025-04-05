@@ -164,27 +164,30 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
       if (pickerState) {
         const paneIndex = pickerState.paneIndex;
         const currentPaneDate = getPaneDate(paneIndex);
-        const newPaneDate = setYear(currentPaneDate, year);
 
-        if (paneIndex === 0) {
-          // Left pane selected
-          setLeftPaneDate(newPaneDate);
-          // If new year is greater than right pane year, update right pane
-          if (year > getYear(rightPaneDate)) {
-            setRightPaneDate(setYear(rightPaneDate, year));
-          }
+        // Create new dates array and only update the selected pane
+        const newDates = [...paneDates];
+        newDates[paneIndex] = startOfMonth(setYear(currentPaneDate, year));
+
+        // Ensure the new date maintains chronological order with adjacent panes
+        const prevPane = paneIndex > 0 ? newDates[paneIndex - 1] : null;
+        const nextPane =
+          paneIndex < newDates.length - 1 ? newDates[paneIndex + 1] : null;
+
+        if (direction === 'future') {
+          if (prevPane && newDates[paneIndex] <= prevPane) return;
+          if (nextPane && newDates[paneIndex] >= nextPane) return;
         } else {
-          // Right pane selected - independent update
-          // Ensure right pane year is not less than left pane
-          if (year >= getYear(leftPaneDate)) {
-            setRightPaneDate(newPaneDate);
-          }
+          if (prevPane && newDates[paneIndex] >= prevPane) return;
+          if (nextPane && newDates[paneIndex] <= nextPane) return;
         }
+
+        setPaneDates(newDates);
         setPickerState(null);
         setScrollDirection(null);
       }
     },
-    [pickerState, leftPaneDate, rightPaneDate]
+    [pickerState, paneDates, direction, getPaneDate]
   );
 
   const handleMonthSelect = useCallback(
@@ -192,25 +195,30 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
       if (pickerState) {
         const paneIndex = pickerState.paneIndex;
         const currentPaneDate = getPaneDate(paneIndex);
-        const newPaneDate = setMonth(currentPaneDate, month);
 
-        if (paneIndex === 0) {
-          setLeftPaneDate(newPaneDate);
-          // If new date is greater than right pane, update right pane
-          if (newPaneDate >= rightPaneDate) {
-            setRightPaneDate(addMonths(newPaneDate, 1));
-          }
+        // Create new dates array and only update the selected pane
+        const newDates = [...paneDates];
+        newDates[paneIndex] = startOfMonth(setMonth(currentPaneDate, month));
+
+        // Ensure the new date maintains chronological order with adjacent panes
+        const prevPane = paneIndex > 0 ? newDates[paneIndex - 1] : null;
+        const nextPane =
+          paneIndex < newDates.length - 1 ? newDates[paneIndex + 1] : null;
+
+        if (direction === 'future') {
+          if (prevPane && newDates[paneIndex] <= prevPane) return;
+          if (nextPane && newDates[paneIndex] >= nextPane) return;
         } else {
-          // Ensure right pane date is not less than left pane
-          if (newPaneDate > leftPaneDate) {
-            setRightPaneDate(newPaneDate);
-          }
+          if (prevPane && newDates[paneIndex] >= prevPane) return;
+          if (nextPane && newDates[paneIndex] <= nextPane) return;
         }
+
+        setPaneDates(newDates);
         setPickerState(null);
         setScrollDirection(null);
       }
     },
-    [pickerState, leftPaneDate, rightPaneDate]
+    [pickerState, paneDates, direction, getPaneDate]
   );
 
   // Update navigation handlers to use both pane dates
@@ -280,7 +288,12 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
 
   // Update view when value changes (including from presets)
   useEffect(() => {
-    if (value?.[0]) {
+    // Skip view update if the change came from clicking calendar days
+    const isCalendarClick = document.activeElement?.closest('.calendar-days');
+    // Skip view update if we're in the middle of selecting a range (have start but no end)
+    const isSelectingRange = value?.[0] && !value?.[1];
+
+    if (value?.[0] && !isCalendarClick && !isSelectingRange) {
       const startMonth = startOfMonth(value[0]);
       const dates = Array.from({ length: monthsToDisplay }, (_, i) => {
         const newDate = new Date(startMonth);
