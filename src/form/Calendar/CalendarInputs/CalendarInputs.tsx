@@ -17,7 +17,7 @@ export interface CalendarInputsProps {
   /**
    * The current date time value.
    */
-  value: Date;
+  value?: Date;
 
   /**
    * Callback fired when the value changes.
@@ -54,6 +54,8 @@ const isValidTimeFormat = (timeStr: string): boolean => {
 };
 
 const isValidDateFormat = (dateStr: string, showTime: boolean): boolean => {
+  if (!dateStr) return false;
+
   const parts = dateStr.split(' ');
 
   // Validate parts length based on showTime
@@ -93,16 +95,25 @@ export const CalendarInputs: FC<CalendarInputsProps> = ({
   const currentFormat = showTime ? 'dd-MM-yyyy HH:mm:ss' : 'dd-MM-yyyy';
   const placeholder = showTime ? 'DD-MM-YYYY HH:MM:SS' : 'DD-MM-YYYY';
 
-  const [inputValue, setInputValue] = useState(format(value, currentFormat));
+  const [inputValue, setInputValue] = useState<string>('');
 
   useEffect(() => {
-    setInputValue(format(value, currentFormat));
+    if (value && isValid(value)) {
+      setInputValue(format(value, currentFormat));
+    } else {
+      setInputValue('');
+    }
   }, [value, currentFormat]);
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = e.target.value;
       setInputValue(newValue);
+
+      // Don't try to parse empty or incomplete values
+      if (!newValue || newValue.length < currentFormat.length) {
+        return;
+      }
 
       // Validate format first
       if (!isValidDateFormat(newValue, showTime)) {
@@ -120,8 +131,18 @@ export const CalendarInputs: FC<CalendarInputsProps> = ({
   );
 
   const handleBlur = useCallback(() => {
+    // If input is empty, keep it empty
+    if (!inputValue) {
+      return;
+    }
+
+    // If input is invalid, reset to current value if exists, or empty if not
     if (!isValidDateFormat(inputValue, showTime)) {
-      setInputValue(format(value, currentFormat));
+      if (value && isValid(value)) {
+        setInputValue(format(value, currentFormat));
+      } else {
+        setInputValue('');
+      }
     }
   }, [inputValue, value, currentFormat, showTime]);
 

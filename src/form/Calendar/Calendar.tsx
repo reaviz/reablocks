@@ -63,10 +63,14 @@ export const Calendar: FC<SingleCalendarProps> = ({
   const theme: CalendarTheme = useComponentTheme('calendar', customTheme);
   const { contentRefs, getHeightStyle } = useContentHeight();
 
-  const date = useMemo(
-    () => (Array.isArray(value) ? value[0] : value ?? new Date()),
-    [value]
-  );
+  // Initialize with undefined if no valid value is provided
+  const date = useMemo(() => {
+    if (Array.isArray(value)) {
+      return value[0] || new Date();
+    }
+    return value || new Date();
+  }, [value]);
+
   const rangeStart = useMemo(
     () => (isRange && Array.isArray(value) ? value?.[0] : undefined),
     [isRange, value]
@@ -76,6 +80,7 @@ export const Calendar: FC<SingleCalendarProps> = ({
     [isRange, value]
   );
 
+  // Use date for view state but not for display
   const [viewValue, setViewValue] = useState<Date>(date);
   const [monthValue, setMonthValue] = useState<number>(getMonth(date));
   const [yearValue, setYearValue] = useState<number>(getYear(date));
@@ -233,7 +238,13 @@ export const Calendar: FC<SingleCalendarProps> = ({
       {showInputPreview && (
         <>
           <CalendarInputs
-            value={viewValue}
+            value={
+              isRange
+                ? Array.isArray(value) && value[0]
+                  ? value[0]
+                  : undefined
+                : (value as Date)
+            }
             onChange={dateChangeHandler}
             theme={theme}
             className={theme?.inputPreview?.base}

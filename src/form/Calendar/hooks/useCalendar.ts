@@ -66,6 +66,11 @@ export interface BaseCalendarProps {
    * Whether to highlight today.
    */
   showToday?: boolean;
+
+  /**
+   * Whether to show the input preview.
+   */
+  showInputPreview?: boolean;
 }
 
 export interface SingleCalendarProps extends BaseCalendarProps {
@@ -83,11 +88,6 @@ export interface SingleCalendarProps extends BaseCalendarProps {
    * Theme for the Calendar.
    */
   theme?: CalendarTheme;
-
-  /**
-   * Whether to show the input preview.
-   */
-  showInputPreview?: boolean;
 
   /**
    * Whether to show the time picker.

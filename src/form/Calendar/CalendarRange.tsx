@@ -38,6 +38,7 @@ import { useContentHeight } from './hooks/useContentHeight';
 import { CalendarPresets } from './CalendarPresets';
 import { RangeCalendarProps } from './hooks/useCalendar';
 import { PresetType } from './CalendarPresets';
+import { CalendarInputs } from './CalendarInputs';
 
 // Type for the state tracking which picker is open for which pane
 type PickerState = { view: 'months' | 'years'; paneIndex: number } | null;
@@ -61,6 +62,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
   headerDateFormat = 'MMMM',
   theme: customTheme,
   preset,
+  showInputPreview = false,
   ...rest
 }) => {
   const theme: CalendarRangeTheme = useComponentTheme(
@@ -269,9 +271,47 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
         </CalendarPresets>
       )}
       <div className={theme.base}>
+        {/* Show input preview at the top if enabled */}
+        {showInputPreview && (
+          <>
+            <div className="mb-4 px-4">
+              <Stack direction="row" className="gap-2 justify-center">
+                <CalendarInputs
+                  value={rangeStart}
+                  onChange={date => {
+                    if (!rangeEnd) {
+                      onChange?.([date, undefined]);
+                    } else {
+                      const range = [date, rangeEnd];
+                      onChange?.([minDate(range), maxDate(range)]);
+                    }
+                  }}
+                  showTime={false}
+                  className="w-28"
+                />
+                <span className="text-gray-500 dark:text-gray-400 self-center">
+                  -
+                </span>
+                <CalendarInputs
+                  value={rangeEnd}
+                  onChange={date => {
+                    if (!rangeStart) {
+                      onChange?.([undefined, date]);
+                    } else {
+                      const range = [rangeStart, date];
+                      onChange?.([minDate(range), maxDate(range)]);
+                    }
+                  }}
+                  showTime={false}
+                  className="w-28"
+                />
+              </Stack>
+            </div>
+            <Divider variant="secondary" className="mb-4" />
+          </>
+        )}
         <header className={theme.header.base}>
           <Stack>
-            {/* Show Year arrows only if no picker is open */}
             {pickerState === null && (
               <Button
                 variant="text"
@@ -294,15 +334,13 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
                 pickerState === null
                   ? 'Previous month'
                   : pickerState.view === 'months'
-                    ? 'Previous year' // TODO: Make arrows context-aware of picker
-                    : 'Previous decade' // TODO: Make arrows context-aware of picker
+                    ? 'Previous year'
+                    : 'Previous decade'
               }
-              // TODO: Disable/hide if picker is open?
             >
               {previousArrow}
             </Button>
           </Stack>
-          {/* Render clickable headers for each pane centrally */}
           <Stack
             className={twMerge(
               theme.title,
@@ -360,14 +398,12 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
                 pickerState === null
                   ? 'Next month'
                   : pickerState.view === 'months'
-                    ? 'Next year' // TODO: Make arrows context-aware of picker
-                    : 'Next decade' // TODO: Make arrows context-aware of picker
+                    ? 'Next year'
+                    : 'Next decade'
               }
-              // TODO: Disable/hide if picker is open?
             >
               {nextArrow}
             </Button>
-            {/* Show Year arrows only if no picker is open */}
             {pickerState === null && (
               <Button
                 variant="text"
@@ -382,9 +418,9 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
             )}
           </Stack>
         </header>
-        <Divider />
-        {/* Render each pane */}
+        <Divider className={showInputPreview ? 'opacity-30' : ''} />
         <div className={theme.content}>
+          {/* Existing panes */}
           {displayMonths.map(paneIndex => {
             const paneDate = getPaneDate(paneIndex);
             const paneYear = getYear(paneDate);

@@ -429,6 +429,29 @@ export const MultiviewWithCombinedPresets = () => {
   );
 };
 
+export const MultiviewWithInputPreview = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <>
+      <Card>
+        <CalendarRange
+          value={range}
+          onChange={val => setRange(val as [Date, Date])}
+          showDayOfWeek
+          headerDateFormat="MMMM yyyy"
+          showInputPreview
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {range
+          ? `${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
 export const WithCustomPresets = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
