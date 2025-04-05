@@ -50,7 +50,7 @@ export type { SingleCalendarProps as CalendarProps };
 export const Calendar: FC<SingleCalendarProps> = ({
   min,
   max,
-  value,
+  value: internalValue,
   disabled,
   isRange,
   previousArrow = '‹',
@@ -72,19 +72,21 @@ export const Calendar: FC<SingleCalendarProps> = ({
 
   // Initialize with undefined if no valid value is provided
   const date = useMemo(() => {
-    if (Array.isArray(value)) {
-      return value[0] || new Date();
+    if (Array.isArray(internalValue)) {
+      return internalValue[0] || new Date();
     }
-    return value || new Date();
-  }, [value]);
+    return internalValue || new Date();
+  }, [internalValue]);
 
   const rangeStart = useMemo(
-    () => (isRange && Array.isArray(value) ? value?.[0] : undefined),
-    [isRange, value]
+    () =>
+      isRange && Array.isArray(internalValue) ? internalValue?.[0] : undefined,
+    [isRange, internalValue]
   );
   const rangeEnd = useMemo(
-    () => (isRange && Array.isArray(value) ? value?.[1] : undefined),
-    [isRange, value]
+    () =>
+      isRange && Array.isArray(internalValue) ? internalValue?.[1] : undefined,
+    [isRange, internalValue]
   );
 
   // Use date for view state but not for display
@@ -129,8 +131,10 @@ export const Calendar: FC<SingleCalendarProps> = ({
 
   // Update view when value changes from presets
   useEffect(() => {
-    if (valueChangeSourceRef.current === 'preset' && value) {
-      const targetDate = Array.isArray(value) ? value[0] : value;
+    if (valueChangeSourceRef.current === 'preset' && internalValue) {
+      const targetDate = Array.isArray(internalValue)
+        ? internalValue[0]
+        : internalValue;
       if (targetDate) {
         setViewValue(targetDate);
         setMonthValue(getMonth(targetDate));
@@ -140,7 +144,7 @@ export const Calendar: FC<SingleCalendarProps> = ({
       }
     }
     valueChangeSourceRef.current = null;
-  }, [value]);
+  }, [internalValue]);
 
   const previousClickHandler = useCallback(() => {
     setScrollDirection('back');
@@ -191,7 +195,7 @@ export const Calendar: FC<SingleCalendarProps> = ({
   const dateChangeHandler = useCallback(
     (newDate: Date) => {
       let finalDate = newDate;
-      if (showTime && value) {
+      if (showTime && internalValue) {
         const hasTime =
           getHours(newDate) !== 0 ||
           getMinutes(newDate) !== 0 ||
@@ -200,9 +204,9 @@ export const Calendar: FC<SingleCalendarProps> = ({
         if (!hasTime) {
           if (!isRange) {
             // For single date, inherit time from previous value
-            const originalTimeSource = Array.isArray(value)
-              ? value[0] ?? new Date()
-              : value ?? new Date();
+            const originalTimeSource = Array.isArray(internalValue)
+              ? internalValue[0] ?? new Date()
+              : internalValue ?? new Date();
             finalDate = setSeconds(
               setMinutes(
                 setHours(newDate, getHours(originalTimeSource)),
@@ -213,9 +217,9 @@ export const Calendar: FC<SingleCalendarProps> = ({
           } else {
             // For range, only inherit time for first date
             if (!rangeStart) {
-              const originalTimeSource = Array.isArray(value)
-                ? value[0] ?? new Date()
-                : value ?? new Date();
+              const originalTimeSource = Array.isArray(internalValue)
+                ? internalValue[0] ?? new Date()
+                : internalValue ?? new Date();
               finalDate = setSeconds(
                 setMinutes(
                   setHours(newDate, getHours(originalTimeSource)),
@@ -249,7 +253,7 @@ export const Calendar: FC<SingleCalendarProps> = ({
         setViewValue(finalDate);
       }
     },
-    [isRange, onChange, rangeEnd, rangeStart, showTime, value]
+    [isRange, onChange, rangeEnd, rangeStart, showTime, internalValue]
   );
 
   const monthsChangeHandler = useCallback(
@@ -315,10 +319,10 @@ export const Calendar: FC<SingleCalendarProps> = ({
           <CalendarInputs
             value={
               isRange
-                ? Array.isArray(value) && value[0]
-                  ? value[0]
+                ? Array.isArray(internalValue) && internalValue[0]
+                  ? internalValue[0]
                   : undefined
-                : (value as Date)
+                : (internalValue as Date)
             }
             onChange={dateChangeHandler}
             theme={theme}
@@ -334,7 +338,7 @@ export const Calendar: FC<SingleCalendarProps> = ({
             type={presetType}
             isRange={isRange}
             showTime={showTime}
-            value={value}
+            value={internalValue}
             onChange={handlePresetChange}
           >
             {hasCustomPresets ? preset : undefined}
@@ -487,7 +491,7 @@ export const Calendar: FC<SingleCalendarProps> = ({
                       max={max}
                       disabled={disabled}
                       isRange={isRange}
-                      current={isRange ? [rangeStart, rangeEnd] : value}
+                      current={isRange ? [rangeStart, rangeEnd] : internalValue}
                       showDayOfWeek={showDayOfWeek}
                       showToday={showToday}
                       xAnimation={xAnimation}
@@ -532,8 +536,8 @@ export const Calendar: FC<SingleCalendarProps> = ({
                       isRange
                         ? rangeEnd
                           ? rangeEnd
-                          : value?.[0] || new Date()
-                        : (value as Date) || new Date()
+                          : internalValue?.[0] || new Date()
+                        : (internalValue as Date) || new Date()
                     }
                     onChange={handleTimeChange}
                     theme={theme.time}

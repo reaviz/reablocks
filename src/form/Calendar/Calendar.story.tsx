@@ -576,3 +576,71 @@ export const MonthsToDisplay = () => {
     </>
   );
 };
+
+export const WithTimeAndOkButton = () => {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [confirmedDate, setConfirmedDate] = useState<Date | null>(null);
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          value={date}
+          onChange={(newDate: Date) => setDate(newDate)}
+          showDayOfWeek
+          showToday
+          showTime
+          onOk={(val: Date) => setConfirmedDate(val)}
+        />
+      </Card>
+      <Stack direction="column" className="mt-4 gap-2">
+        <div>
+          Selected:{' '}
+          {date ? format(date, 'yyyy-MM-dd HH:mm:ss') : 'No date selected'}
+        </div>
+        <div>
+          Confirmed:{' '}
+          {confirmedDate
+            ? format(confirmedDate, 'yyyy-MM-dd HH:mm:ss')
+            : 'Not confirmed'}
+        </div>
+      </Stack>
+    </>
+  );
+};
+
+export const RangeWithTimeAndOkButton = () => {
+  const [range, setRange] = useState<[Date, Date] | undefined>();
+  const [confirmedRange, setConfirmedRange] = useState<[Date, Date] | null>(
+    null
+  );
+
+  return (
+    <>
+      <Card>
+        <CalendarRange
+          value={range}
+          onChange={val => setRange(val as [Date, Date])}
+          showDayOfWeek
+          headerDateFormat="MMMM yyyy"
+          showTime
+          onOk={val => setConfirmedRange(val)}
+        />
+      </Card>
+      <Stack direction="column" className="mt-4 gap-2">
+        <div>
+          Selected:{' '}
+          {range && range[0] && range[1]
+            ? `${format(range[0], 'yyyy-MM-dd HH:mm:ss')} - ${format(range[1], 'yyyy-MM-dd HH:mm:ss')}`
+            : 'No range selected'}
+        </div>
+        <div>
+          Confirmed:{' '}
+          {confirmedRange && confirmedRange[0] && confirmedRange[1]
+            ? `${format(confirmedRange[0], 'yyyy-MM-dd HH:mm:ss')} - ${format(confirmedRange[1], 'yyyy-MM-dd HH:mm:ss')}`
+            : 'Not confirmed'}
+        </div>
+      </Stack>
+    </>
+  );
+};

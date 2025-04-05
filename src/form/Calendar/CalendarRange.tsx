@@ -1,6 +1,5 @@
 import React, {
   FC,
-  Fragment,
   useCallback,
   useMemo,
   useState,
@@ -10,25 +9,17 @@ import React, {
 import {
   add,
   addMonths,
-  addYears,
   min as minDate,
   max as maxDate,
-  sub,
-  subYears,
-  subMonths,
   getYear,
   setYear,
   setMonth,
   format,
   getMonth,
   startOfMonth,
-  endOfMonth,
   getHours,
   getMinutes,
-  getSeconds,
-  setHours,
-  setMinutes,
-  setSeconds
+  getSeconds
 } from 'date-fns';
 import { AnimatePresence, motion } from 'motion/react';
 import { Button } from '@/elements';
@@ -55,7 +46,7 @@ export type { RangeCalendarProps as CalendarRangeProps };
 export const CalendarRange: FC<RangeCalendarProps> = ({
   min,
   max,
-  value,
+  value: internalValue,
   disabled,
   previousArrow = '‹',
   previousYearArrow = '«',
@@ -78,11 +69,20 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
     customTheme
   );
   const date = useMemo(
-    () => (Array.isArray(value) && value[0] ? value[0] : new Date()),
-    [value]
+    () =>
+      Array.isArray(internalValue) && internalValue[0]
+        ? internalValue[0]
+        : new Date(),
+    [internalValue]
   );
-  const rangeStart = useMemo(() => (value ? value[0] : undefined), [value]);
-  const rangeEnd = useMemo(() => (value ? value[1] : undefined), [value]);
+  const rangeStart = useMemo(
+    () => (internalValue ? internalValue[0] : undefined),
+    [internalValue]
+  );
+  const rangeEnd = useMemo(
+    () => (internalValue ? internalValue[1] : undefined),
+    [internalValue]
+  );
 
   const [leftPaneDate, setLeftPaneDate] = useState<Date>(date || new Date());
   const [rightPaneDate, setRightPaneDate] = useState<Date>(
@@ -178,27 +178,27 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
     (newTimeDate: Date, paneIndex: number) => {
       // Check if this is the end date pane
       const isEndDatePane =
-        value?.[1] &&
-        format(value[1], 'yyyy-MM') ===
+        internalValue?.[1] &&
+        format(internalValue[1], 'yyyy-MM') ===
           format(getPaneDate(paneIndex), 'yyyy-MM');
 
-      if (isEndDatePane && value?.[1]) {
+      if (isEndDatePane && internalValue?.[1]) {
         // Update end date time
-        const newEnd = new Date(value[1]);
+        const newEnd = new Date(internalValue[1]);
         newEnd.setHours(getHours(newTimeDate));
         newEnd.setMinutes(getMinutes(newTimeDate));
         newEnd.setSeconds(getSeconds(newTimeDate));
-        onChange?.([value[0], newEnd]);
-      } else if (value?.[0]) {
+        onChange?.([internalValue[0], newEnd]);
+      } else if (internalValue?.[0]) {
         // Update start date time
-        const newStart = new Date(value[0]);
+        const newStart = new Date(internalValue[0]);
         newStart.setHours(getHours(newTimeDate));
         newStart.setMinutes(getMinutes(newTimeDate));
         newStart.setSeconds(getSeconds(newTimeDate));
-        onChange?.([newStart, value[1]]);
+        onChange?.([newStart, internalValue[1]]);
       }
     },
-    [onChange, value, getPaneDate]
+    [onChange, internalValue, getPaneDate]
   );
 
   // --- Handlers for Pane Pickers ---
@@ -369,10 +369,10 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
     const isFromPresetOrInput =
       valueChangeSourceRef.current === 'preset' ||
       valueChangeSourceRef.current === 'input';
-    const isSelectingRange = value?.[0] && !value?.[1];
+    const isSelectingRange = internalValue?.[0] && !internalValue?.[1];
 
-    if (value?.[0] && isFromPresetOrInput && !isSelectingRange) {
-      const startMonth = startOfMonth(value[0]);
+    if (internalValue?.[0] && isFromPresetOrInput && !isSelectingRange) {
+      const startMonth = startOfMonth(internalValue[0]);
       const dates = Array.from({ length: monthsToDisplay }, (_, i) => {
         const newDate = new Date(startMonth);
         if (direction === 'past') {
@@ -388,7 +388,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
 
     // Reset the source after handling
     valueChangeSourceRef.current = null;
-  }, [value, monthsToDisplay, direction]);
+  }, [internalValue, monthsToDisplay, direction]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -420,8 +420,8 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
           type={presetType}
           isRange={true}
           value={
-            value && value.length >= 2
-              ? [value[0] as Date, value[1] as Date]
+            internalValue && internalValue.length >= 2
+              ? [internalValue[0] as Date, internalValue[1] as Date]
               : undefined
           }
           onChange={handlePresetChange}
@@ -600,26 +600,28 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
 
             // Determine if this pane should show time picker
             const isStartDatePane =
-              value?.[0] &&
-              format(value[0], 'yyyy-MM') === format(paneDate, 'yyyy-MM');
+              internalValue?.[0] &&
+              format(internalValue[0], 'yyyy-MM') ===
+                format(paneDate, 'yyyy-MM');
             const isEndDatePane =
-              value?.[1] &&
-              format(value[1], 'yyyy-MM') === format(paneDate, 'yyyy-MM');
+              internalValue?.[1] &&
+              format(internalValue[1], 'yyyy-MM') ===
+                format(paneDate, 'yyyy-MM');
             const shouldShowTimePicker =
               showTime &&
               currentPaneView === 'days' &&
-              ((isStartDatePane && !value?.[1]) || // Show in start pane when selecting range start
-                (isEndDatePane && value?.[1])); // Show in end pane when range is complete
+              ((isStartDatePane && !internalValue?.[1]) || // Show in start pane when selecting range start
+                (isEndDatePane && internalValue?.[1])); // Show in end pane when range is complete
 
             // Check if this pane has a selected date
-            const isPaneSelected = value?.some(
+            const isPaneSelected = internalValue?.some(
               date =>
                 date &&
                 format(date, 'yyyy-MM-dd') === format(paneDate, 'yyyy-MM-dd')
             );
 
             // Get the selected date for this pane (if any)
-            const paneSelectedDate = value?.[0];
+            const paneSelectedDate = internalValue?.[0];
 
             return (
               <div key={`pane-${paneIndex}`} className="flex-1 min-w-0">
@@ -712,7 +714,9 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
                                   >
                                     <CalendarTimes
                                       value={
-                                        isEndDatePane ? value[1] : value[0]
+                                        isEndDatePane
+                                          ? internalValue[1]
+                                          : internalValue[0]
                                       }
                                       onChange={date =>
                                         handleTimeChange(date, paneIndex)
