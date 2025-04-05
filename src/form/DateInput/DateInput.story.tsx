@@ -2,6 +2,7 @@ import { DateFormat } from '../../data/DateFormat';
 import { Stack } from '../../layout/Stack';
 import { useState } from 'react';
 import { DateInput } from './DateInput';
+import { addDays, addMonths, startOfDay, endOfDay } from 'date-fns';
 
 export default {
   title: 'Components/Form/Date Input',
@@ -12,22 +13,249 @@ export const Simple = () => {
   const [date, setDate] = useState<Date>(new Date());
 
   return (
-    <Stack direction="column">
+    <Stack direction="column" className="gap-2">
       <DateFormat date={date} format="MM/dd/yyyy" />
       <DateInput value={date} onChange={setDate} />
     </Stack>
   );
 };
 
-export const Error = () => {
+export const WithTime = () => {
   const [date, setDate] = useState<Date>(new Date());
 
+  return (
+    <Stack direction="column" className="gap-2">
+      <DateFormat date={date} format="MM/dd/yyyy HH:mm:ss" />
+      <DateInput
+        value={date}
+        onChange={setDate}
+        showTime
+        format="MM/dd/yyyy HH:mm:ss"
+      />
+    </Stack>
+  );
+};
+
+export const WithOkButton = () => {
+  const [date, setDate] = useState<Date>(new Date());
+  const [confirmedDate, setConfirmedDate] = useState<Date | null>(null);
+
+  return (
+    <Stack direction="column" className="gap-2">
+      <div>
+        Selected: <DateFormat date={date} format="MM/dd/yyyy" />
+      </div>
+      <div>
+        Confirmed:{' '}
+        {confirmedDate && (
+          <DateFormat date={confirmedDate} format="MM/dd/yyyy" />
+        )}
+      </div>
+      <DateInput value={date} onChange={setDate} onOk={setConfirmedDate} />
+    </Stack>
+  );
+};
+
+export const WithPresets = () => {
+  const [date, setDate] = useState<Date>(new Date());
+
+  return (
+    <Stack direction="column" className="gap-2">
+      <DateFormat date={date} format="MM/dd/yyyy" />
+      <DateInput value={date} onChange={setDate} preset="future" />
+    </Stack>
+  );
+};
+
+export const WithCustomPresets = () => {
+  const [date, setDate] = useState<Date>(new Date());
+
+  const customPresets = (
+    <Stack direction="column" className="gap-1">
+      <button onClick={() => setDate(addDays(new Date(), 7))}>Next Week</button>
+      <button onClick={() => setDate(addMonths(new Date(), 1))}>
+        Next Month
+      </button>
+    </Stack>
+  );
+
+  return (
+    <Stack direction="column" className="gap-2">
+      <DateFormat date={date} format="MM/dd/yyyy" />
+      <DateInput value={date} onChange={setDate} preset={customPresets} />
+    </Stack>
+  );
+};
+
+export const RangeSimple = () => {
+  const [date, setDate] = useState<[Date, Date]>([
+    new Date(),
+    addDays(new Date(), 7)
+  ]);
+
+  return (
+    <Stack className="w-[300px] gap-2" direction="column">
+      <Stack>
+        <DateFormat date={date[0]} format="MM/dd/yyyy" /> -{' '}
+        <DateFormat date={date[1]} format="MM/dd/yyyy" />
+      </Stack>
+      <DateInput fullWidth isRange value={date} onChange={setDate} />
+    </Stack>
+  );
+};
+
+export const RangeWithTime = () => {
+  const [date, setDate] = useState<[Date, Date]>([
+    new Date(),
+    addDays(new Date(), 7)
+  ]);
+
+  return (
+    <Stack className="w-[400px] gap-2" direction="column">
+      <Stack>
+        <DateFormat date={date[0]} format="MM/dd/yyyy HH:mm:ss" /> -{' '}
+        <DateFormat date={date[1]} format="MM/dd/yyyy HH:mm:ss" />
+      </Stack>
+      <DateInput
+        fullWidth
+        isRange
+        showTime
+        format="MM/dd/yyyy HH:mm:ss"
+        value={date}
+        onChange={setDate}
+      />
+    </Stack>
+  );
+};
+
+export const RangeWithSingleMonth = () => {
+  const [date, setDate] = useState<[Date, Date]>([
+    new Date(),
+    addDays(new Date(), 7)
+  ]);
+
+  return (
+    <Stack className="w-[300px] gap-2" direction="column">
+      <Stack>
+        <DateFormat date={date[0]} format="MM/dd/yyyy" /> -{' '}
+        <DateFormat date={date[1]} format="MM/dd/yyyy" />
+      </Stack>
+      <DateInput
+        fullWidth
+        isRange
+        value={date}
+        onChange={setDate}
+        monthsToDisplay={1}
+      />
+    </Stack>
+  );
+};
+
+export const RangeWithPresets = () => {
+  const [date, setDate] = useState<[Date, Date]>([
+    new Date(),
+    addDays(new Date(), 7)
+  ]);
+
+  return (
+    <Stack className="w-[300px] gap-2" direction="column">
+      <Stack>
+        <DateFormat date={date[0]} format="MM/dd/yyyy" /> -{' '}
+        <DateFormat date={date[1]} format="MM/dd/yyyy" />
+      </Stack>
+      <DateInput
+        fullWidth
+        isRange
+        value={date}
+        onChange={setDate}
+        preset="combined"
+      />
+    </Stack>
+  );
+};
+
+export const RangeWithCustomPresets = () => {
+  const [date, setDate] = useState<[Date, Date]>([
+    new Date(),
+    addDays(new Date(), 7)
+  ]);
+
+  const customPresets = (
+    <Stack direction="column" className="gap-1">
+      <button
+        onClick={() =>
+          setDate([startOfDay(new Date()), endOfDay(addDays(new Date(), 6))])
+        }
+      >
+        Next 7 Days
+      </button>
+      <button
+        onClick={() =>
+          setDate([startOfDay(new Date()), endOfDay(addDays(new Date(), 29))])
+        }
+      >
+        Next 30 Days
+      </button>
+    </Stack>
+  );
+
+  return (
+    <Stack className="w-[300px] gap-2" direction="column">
+      <Stack>
+        <DateFormat date={date[0]} format="MM/dd/yyyy" /> -{' '}
+        <DateFormat date={date[1]} format="MM/dd/yyyy" />
+      </Stack>
+      <DateInput
+        fullWidth
+        isRange
+        value={date}
+        onChange={setDate}
+        preset={customPresets}
+      />
+    </Stack>
+  );
+};
+
+export const RangeWithOkButton = () => {
+  const [date, setDate] = useState<[Date, Date]>([
+    new Date(),
+    addDays(new Date(), 7)
+  ]);
+  const [confirmedDate, setConfirmedDate] = useState<[Date, Date] | null>(null);
+
+  return (
+    <Stack className="w-[300px] gap-2" direction="column">
+      <div>
+        Selected: <DateFormat date={date[0]} format="MM/dd/yyyy" /> -{' '}
+        <DateFormat date={date[1]} format="MM/dd/yyyy" />
+      </div>
+      <div>
+        Confirmed:{' '}
+        {confirmedDate && (
+          <>
+            <DateFormat date={confirmedDate[0]} format="MM/dd/yyyy" /> -{' '}
+            <DateFormat date={confirmedDate[1]} format="MM/dd/yyyy" />
+          </>
+        )}
+      </div>
+      <DateInput
+        fullWidth
+        isRange
+        value={date}
+        onChange={setDate}
+        onOk={setConfirmedDate}
+      />
+    </Stack>
+  );
+};
+
+export const Error = () => {
+  const [date, setDate] = useState<Date>(new Date());
   return <DateInput error value={date} onChange={setDate} />;
 };
 
 export const Disabled = () => {
   const [date, setDate] = useState<Date>(new Date());
-
   return <DateInput disabled value={date} onChange={setDate} />;
 };
 
@@ -56,27 +284,7 @@ export const CustomIcon = () => {
   );
 };
 
-export const Range = () => {
-  const [date, setDate] = useState<[Date, Date]>([new Date(), new Date()]);
-
-  return (
-    <Stack className="w-[300px]" direction="column">
-      <Stack>
-        <DateFormat date={date[0]} format="MM/dd/yyyy" /> -{' '}
-        <DateFormat date={date[1]} format="MM/dd/yyyy" />
-      </Stack>
-      <DateInput
-        fullWidth
-        isRange
-        value={date}
-        onChange={(value: [Date, Date]) => setDate(value)}
-      />
-    </Stack>
-  );
-};
-
 export const OpenOnFocus = () => {
   const [date, setDate] = useState<Date>(new Date());
-
   return <DateInput fullWidth openOnFocus value={date} onChange={setDate} />;
 };
