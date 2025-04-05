@@ -480,6 +480,7 @@ export const MultiviewWithTimeAndInputPreview = () => {
           headerDateFormat="MMMM yyyy"
           showTime
           showInputPreview
+          preset="combined"
         />
       </Card>
       <Stack justifyContent="center" className="mt-4">

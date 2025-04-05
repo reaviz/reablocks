@@ -413,7 +413,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
   }, [activeTimePane]);
 
   return (
-    <Stack direction="row" className="gap-1.75">
+    <Stack direction="row" className="gap-1.75" alignItems="end">
       {preset && (
         <CalendarPresets
           className="before:top-7.25"

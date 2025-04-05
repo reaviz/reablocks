@@ -328,7 +328,7 @@ export const Calendar: FC<SingleCalendarProps> = ({
           <Divider variant="secondary" />
         </>
       )}
-      <Stack direction="row" className="gap-1.75">
+      <Stack direction="row" className="gap-1.75" alignItems="end">
         {preset && (
           <CalendarPresets
             type={presetType}
@@ -514,17 +514,16 @@ export const Calendar: FC<SingleCalendarProps> = ({
           </div>
           {showTime && (
             <AnimatePresence>
-              {((isRange && Array.isArray(value) && value[0]) ||
-                (!isRange && value)) && (
+              {showTime && (
                 <motion.div
-                  initial={{ opacity: 0, x: 20, width: 0 }}
+                  initial={{ opacity: 0, x: 10, width: 0 }}
                   animate={{ opacity: 1, x: 0, width: 'auto' }}
-                  exit={{ opacity: 0, x: 20, width: 0 }}
+                  exit={{ opacity: 0, x: 10, width: 0 }}
                   transition={{
                     type: 'spring',
-                    stiffness: 300,
-                    damping: 25,
-                    duration: 0.3
+                    stiffness: 500,
+                    damping: 40,
+                    duration: 0.2
                   }}
                   className={theme.time?.wrapper}
                 >
@@ -533,8 +532,8 @@ export const Calendar: FC<SingleCalendarProps> = ({
                       isRange
                         ? rangeEnd
                           ? rangeEnd
-                          : value[0]
-                        : (value as Date)
+                          : value?.[0] || new Date()
+                        : (value as Date) || new Date()
                     }
                     onChange={handleTimeChange}
                     theme={theme.time}
