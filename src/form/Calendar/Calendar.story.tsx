@@ -3,21 +3,13 @@ import {
   add,
   addDays,
   addMonths,
-  endOfDay,
   endOfMonth,
   format,
   setHours,
   setMinutes,
   setSeconds,
-  startOfDay,
   startOfMonth,
-  startOfWeek,
-  startOfYear,
-  sub,
-  subDays,
-  subMonths,
-  subWeeks,
-  subYears
+  sub
 } from 'date-fns';
 import { Stack } from '../../layout/Stack';
 import { Button } from '../../elements/Button';
@@ -25,7 +17,6 @@ import { Card } from '../../layout/Card';
 import { Divider } from '../../layout/Divider';
 import { Calendar } from './Calendar';
 import { CalendarRange } from './CalendarRange';
-import { CalendarPresets } from './CalendarPresets';
 
 export default {
   title: 'Components/Form/Calendar',
@@ -470,6 +461,29 @@ export const MultiviewWithInputPreview = () => {
       <Stack justifyContent="center" className="mt-4">
         {range
           ? `${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
+export const MultiviewWithTime = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <>
+      <Card>
+        <CalendarRange
+          value={range}
+          onChange={val => setRange(val as [Date, Date])}
+          showDayOfWeek
+          headerDateFormat="MMMM yyyy"
+          showTime
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {range
+          ? `${range[0]?.toLocaleDateString()} ${range[0]?.toLocaleTimeString()}-${range[1]?.toLocaleDateString()} ${range[1]?.toLocaleTimeString()}`
           : 'No date selected'}
       </Stack>
     </>

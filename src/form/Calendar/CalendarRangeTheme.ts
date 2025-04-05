@@ -22,7 +22,8 @@ export const calendarRangeTheme: CalendarRangeTheme = {
   content: baseTheme.content,
   days: calendarTheme.days,
   inputPreview: calendarTheme.inputPreview,
-  presets: calendarTheme.presets
+  presets: calendarTheme.presets,
+  time: calendarTheme.time
 };
 
 export const legacyCalendarRangeTheme: CalendarRangeTheme = {
@@ -32,5 +33,6 @@ export const legacyCalendarRangeTheme: CalendarRangeTheme = {
   content: baseTheme.content,
   days: calendarTheme.days,
   inputPreview: calendarTheme.inputPreview,
-  presets: calendarTheme.presets
+  presets: calendarTheme.presets,
+  time: calendarTheme.time
 };
