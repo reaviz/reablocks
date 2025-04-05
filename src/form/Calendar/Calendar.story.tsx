@@ -449,21 +449,24 @@ export const WithCustomPresets = () => {
     ];
 
     return (
-      <Stack direction="column" className="h-full p-2">
+      <Stack
+        direction="column"
+        alignItems="center"
+        className="h-full p-2 overflow-auto"
+      >
         <div className="text-sm font-medium mb-4">Quick Actions</div>
         {customPresets.map(preset => (
           <Button
             key={preset.label}
             variant="text"
             size="sm"
-            className="justify-start mb-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+            className="justify-start hover:bg-gray-100 dark:hover:bg-gray-800"
             onClick={() => setDate(preset.value)}
           >
             {preset.label}
           </Button>
         ))}
         <Divider className="my-4" />
-        <div className="text-sm font-medium mb-2">Current Selection</div>
         <div className="text-sm text-gray-500 dark:text-gray-400">
           {date ? format(date, 'PPP p') : 'No date selected'}
         </div>
@@ -483,9 +486,6 @@ export const WithCustomPresets = () => {
           preset={<CustomContent />}
         />
       </Card>
-      <Stack justifyContent="center" className="mt-4">
-        {date ? format(date, 'PPP p') : 'No date selected'}
-      </Stack>
     </>
   );
 };
