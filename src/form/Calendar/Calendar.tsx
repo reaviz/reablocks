@@ -567,7 +567,7 @@ export const Calendar: FC<SingleCalendarProps> = ({
           )}
         </div>
       </Stack>
-      {onOk && (
+      {(showTime || onOk) && (
         <div className="flex justify-between mt-4 pt-2 border-t border-gray-200 dark:border-gray-700">
           <Button
             variant="text"

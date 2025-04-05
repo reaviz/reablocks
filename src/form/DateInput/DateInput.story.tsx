@@ -31,6 +31,7 @@ export const WithTime = () => {
         onChange={setDate}
         showTime
         format="MM/dd/yyyy HH:mm:ss"
+        onOk={setDate}
       />
     </Stack>
   );
