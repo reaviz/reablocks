@@ -161,6 +161,16 @@ const getPastPresets = (
         group: 'Days'
       },
       {
+        label: 'Last 60 Days',
+        value: [startOfDay(subDays(new Date(), 60)), endOfDay(new Date())],
+        group: 'Days'
+      },
+      {
+        label: 'Last 90 Days',
+        value: [startOfDay(subDays(new Date(), 90)), endOfDay(new Date())],
+        group: 'Days'
+      },
+      {
         label: 'Last Week',
         value: [
           startOfWeek(subWeeks(new Date(), 1)),
@@ -174,6 +184,11 @@ const getPastPresets = (
         group: 'Weeks'
       },
       {
+        label: 'Last 4 Weeks',
+        value: [startOfWeek(subWeeks(new Date(), 4)), endOfWeek(new Date())],
+        group: 'Weeks'
+      },
+      {
         label: 'Last Month',
         value: [
           startOfMonth(subMonths(new Date(), 1)),
@@ -184,6 +199,16 @@ const getPastPresets = (
       {
         label: 'Last 2 Months',
         value: [startOfMonth(subMonths(new Date(), 2)), endOfMonth(new Date())],
+        group: 'Months'
+      },
+      {
+        label: 'Last 3 Months',
+        value: [startOfMonth(subMonths(new Date(), 3)), endOfMonth(new Date())],
+        group: 'Months'
+      },
+      {
+        label: 'Last 6 Months',
+        value: [startOfMonth(subMonths(new Date(), 6)), endOfMonth(new Date())],
         group: 'Months'
       },
       {
@@ -203,11 +228,29 @@ const getPastPresets = (
         group: 'Quarters'
       },
       {
+        label: 'Last 4 Quarters',
+        value: [
+          startOfQuarter(subMonths(new Date(), 12)),
+          endOfQuarter(new Date())
+        ],
+        group: 'Quarters'
+      },
+      {
         label: 'Last Year',
         value: [
           startOfYear(subYears(new Date(), 1)),
           endOfYear(subYears(new Date(), 1))
         ],
+        group: 'Years'
+      },
+      {
+        label: 'Last 2 Years',
+        value: [startOfYear(subYears(new Date(), 2)), endOfYear(new Date())],
+        group: 'Years'
+      },
+      {
+        label: 'Last 3 Years',
+        value: [startOfYear(subYears(new Date(), 3)), endOfYear(new Date())],
         group: 'Years'
       }
     ];
@@ -246,6 +289,16 @@ const getPastPresets = (
       group: 'Recent'
     },
     {
+      label: '2 Days Ago',
+      value: subDays(new Date(), 2),
+      group: 'Recent'
+    },
+    {
+      label: '3 Days Ago',
+      value: subDays(new Date(), 3),
+      group: 'Recent'
+    },
+    {
       label: 'Last Week',
       value: subWeeks(new Date(), 1),
       group: 'Recent'
@@ -256,8 +309,18 @@ const getPastPresets = (
       group: 'Recent'
     },
     {
+      label: '3 Weeks Ago',
+      value: subWeeks(new Date(), 3),
+      group: 'Recent'
+    },
+    {
       label: 'Last Month',
       value: subMonths(new Date(), 1),
+      group: 'Past'
+    },
+    {
+      label: '2 Months Ago',
+      value: subMonths(new Date(), 2),
       group: 'Past'
     },
     {
@@ -273,6 +336,16 @@ const getPastPresets = (
     {
       label: 'Last Year',
       value: subYears(new Date(), 1),
+      group: 'Past'
+    },
+    {
+      label: '2 Years Ago',
+      value: subYears(new Date(), 2),
+      group: 'Past'
+    },
+    {
+      label: '3 Years Ago',
+      value: subYears(new Date(), 3),
       group: 'Past'
     }
   ];
@@ -313,6 +386,16 @@ const getFuturePresets = (
         group: 'Days'
       },
       {
+        label: 'Next 60 Days',
+        value: [startOfDay(new Date()), endOfDay(addDays(new Date(), 60))],
+        group: 'Days'
+      },
+      {
+        label: 'Next 90 Days',
+        value: [startOfDay(new Date()), endOfDay(addDays(new Date(), 90))],
+        group: 'Days'
+      },
+      {
         label: 'Next Week',
         value: [
           startOfWeek(addWeeks(new Date(), 1)),
@@ -322,7 +405,12 @@ const getFuturePresets = (
       },
       {
         label: 'Next 2 Weeks',
-        value: [startOfDay(new Date()), endOfWeek(addWeeks(new Date(), 2))],
+        value: [startOfWeek(new Date()), endOfWeek(addWeeks(new Date(), 2))],
+        group: 'Weeks'
+      },
+      {
+        label: 'Next 4 Weeks',
+        value: [startOfWeek(new Date()), endOfWeek(addWeeks(new Date(), 4))],
         group: 'Weeks'
       },
       {
@@ -335,7 +423,17 @@ const getFuturePresets = (
       },
       {
         label: 'Next 2 Months',
-        value: [startOfDay(new Date()), endOfMonth(addMonths(new Date(), 2))],
+        value: [startOfMonth(new Date()), endOfMonth(addMonths(new Date(), 2))],
+        group: 'Months'
+      },
+      {
+        label: 'Next 3 Months',
+        value: [startOfMonth(new Date()), endOfMonth(addMonths(new Date(), 3))],
+        group: 'Months'
+      },
+      {
+        label: 'Next 6 Months',
+        value: [startOfMonth(new Date()), endOfMonth(addMonths(new Date(), 6))],
         group: 'Months'
       },
       {
@@ -348,7 +446,18 @@ const getFuturePresets = (
       },
       {
         label: 'Next 2 Quarters',
-        value: [startOfDay(new Date()), endOfQuarter(addMonths(new Date(), 6))],
+        value: [
+          startOfQuarter(new Date()),
+          endOfQuarter(addMonths(new Date(), 6))
+        ],
+        group: 'Quarters'
+      },
+      {
+        label: 'Next 4 Quarters',
+        value: [
+          startOfQuarter(new Date()),
+          endOfQuarter(addMonths(new Date(), 12))
+        ],
         group: 'Quarters'
       },
       {
@@ -357,6 +466,16 @@ const getFuturePresets = (
           startOfYear(addYears(new Date(), 1)),
           endOfYear(addYears(new Date(), 1))
         ],
+        group: 'Years'
+      },
+      {
+        label: 'Next 2 Years',
+        value: [startOfYear(new Date()), endOfYear(addYears(new Date(), 2))],
+        group: 'Years'
+      },
+      {
+        label: 'Next 3 Years',
+        value: [startOfYear(new Date()), endOfYear(addYears(new Date(), 3))],
         group: 'Years'
       }
     ];
@@ -395,6 +514,16 @@ const getFuturePresets = (
       group: 'Soon'
     },
     {
+      label: 'In 2 Days',
+      value: addDays(new Date(), 2),
+      group: 'Soon'
+    },
+    {
+      label: 'In 3 Days',
+      value: addDays(new Date(), 3),
+      group: 'Soon'
+    },
+    {
       label: 'Next Week',
       value: addWeeks(new Date(), 1),
       group: 'Soon'
@@ -405,8 +534,18 @@ const getFuturePresets = (
       group: 'Soon'
     },
     {
+      label: 'In 3 Weeks',
+      value: addWeeks(new Date(), 3),
+      group: 'Soon'
+    },
+    {
       label: 'Next Month',
       value: addMonths(new Date(), 1),
+      group: 'Future'
+    },
+    {
+      label: 'In 2 Months',
+      value: addMonths(new Date(), 2),
       group: 'Future'
     },
     {
@@ -422,6 +561,16 @@ const getFuturePresets = (
     {
       label: 'Next Year',
       value: addYears(new Date(), 1),
+      group: 'Future'
+    },
+    {
+      label: 'In 2 Years',
+      value: addYears(new Date(), 2),
+      group: 'Future'
+    },
+    {
+      label: 'In 3 Years',
+      value: addYears(new Date(), 3),
       group: 'Future'
     }
   ];
