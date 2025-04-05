@@ -5,7 +5,10 @@ import {
   isValid,
   setHours,
   setMinutes,
-  setSeconds
+  setSeconds,
+  isMatch,
+  parseISO,
+  isDate
 } from 'date-fns';
 import { twMerge } from 'tailwind-merge';
 import { CalendarTheme } from '../CalendarTheme';
@@ -38,69 +41,43 @@ export interface CalendarInputsProps {
 }
 
 const isValidTimeFormat = (timeStr: string): boolean => {
-  if (!timeStr) return false;
+  // First check if the string matches HH:mm:ss format
+  const parsedTime = parse(timeStr, 'HH:mm:ss', new Date());
 
-  // Check the overall format using a strict regex
-  const timeRegex = /^([0-1][0-9]|2[0-3]):([0-5][0-9]):([0-5][0-9])$/;
-  if (!timeRegex.test(timeStr)) {
-    console.log('Time format regex failed');
+  if (!isValid(parsedTime)) {
     return false;
   }
 
-  const [hours, minutes, seconds] = timeStr.split(':');
-
-  // Debug logs
-  console.log('Time parts:', { hours, minutes, seconds });
-
-  // Parse the numbers (we know they're valid from regex)
-  const h = parseInt(hours, 10);
-  const m = parseInt(minutes, 10);
-  const s = parseInt(seconds, 10);
-
-  console.log('Parsed values:', { h, m, s });
-
-  // Double-check ranges (although regex already ensures this)
-  if (h < 0 || h > 23 || m < 0 || m > 59 || s < 0 || s > 59) {
-    console.log('Range check failed');
-    return false;
-  }
-
-  return true;
+  // Ensure the time string has exactly 2 digits for each component
+  const formattedBack = format(parsedTime, 'HH:mm:ss');
+  return formattedBack === timeStr;
 };
 
 const isValidDateFormat = (dateStr: string, showTime: boolean): boolean => {
-  // Split into date and time parts
   const parts = dateStr.split(' ');
-  console.log('Date string parts:', parts);
 
+  // Validate parts length based on showTime
   if (showTime && parts.length !== 2) return false;
   if (!showTime && parts.length !== 1) return false;
 
   const datePart = parts[0];
-  const [day, month, year] = datePart.split('-');
 
-  // Check if all date parts exist
-  if (!day?.length || !month?.length || !year?.length) return false;
+  // Parse and validate date part
+  const parsedDate = parse(datePart, 'dd-MM-yyyy', new Date());
 
-  // Check if date parts are in correct format (DD-MM-YYYY)
-  if (day.length !== 2 || month.length !== 2 || year.length !== 4) return false;
-  if (!/^\d{2}$/.test(day) || !/^\d{2}$/.test(month) || !/^\d{4}$/.test(year))
+  if (!isValid(parsedDate)) {
     return false;
+  }
 
-  // Check if date numbers are in valid ranges
-  const d = parseInt(day, 10);
-  const m = parseInt(month, 10);
-  const y = parseInt(year, 10);
+  // Ensure the date string has exactly 2 digits for day/month
+  const formattedBack = format(parsedDate, 'dd-MM-yyyy');
+  if (formattedBack !== datePart) {
+    return false;
+  }
 
-  if (d < 1 || d > 31) return false;
-  if (m < 1 || m > 12) return false;
-  if (y < 1000) return false;
-
-  // If time is required, validate time part
+  // If time is included, validate time part
   if (showTime) {
-    const timeValid = isValidTimeFormat(parts[1]);
-    console.log('Time validation result:', timeValid);
-    return timeValid;
+    return isValidTimeFormat(parts[1]);
   }
 
   return true;
@@ -127,56 +104,22 @@ export const CalendarInputs: FC<CalendarInputsProps> = ({
       const newValue = e.target.value;
       setInputValue(newValue);
 
-      console.log('Input value:', newValue);
-      console.log('Show time:', showTime);
-
-      // Only proceed with date parsing if format is valid
-      const formatValid = isValidDateFormat(newValue, showTime);
-      console.log('Is valid format:', formatValid);
-
-      if (!formatValid) {
+      // Validate format first
+      if (!isValidDateFormat(newValue, showTime)) {
         return;
       }
 
-      try {
-        // Split into date and time parts for separate handling
-        const [datePart, timePart] = newValue.split(' ');
-        const [day, month, year] = datePart.split('-').map(Number);
+      // Parse the full datetime string
+      const parsedDateTime = parse(newValue, currentFormat, new Date());
 
-        // Create base date from the date part
-        let finalDateTime = new Date(year, month - 1, day);
-
-        // If showing time, parse and set time components
-        if (showTime && timePart) {
-          const [hours, minutes, seconds] = timePart.split(':').map(Number);
-          console.log('Time components:', { hours, minutes, seconds });
-
-          finalDateTime = setHours(finalDateTime, hours);
-          finalDateTime = setMinutes(finalDateTime, minutes);
-          finalDateTime = setSeconds(finalDateTime, seconds);
-        } else {
-          // Reset time to midnight if not showing time
-          finalDateTime = setHours(finalDateTime, 0);
-          finalDateTime = setMinutes(finalDateTime, 0);
-          finalDateTime = setSeconds(finalDateTime, 0);
-        }
-
-        console.log('Final datetime:', finalDateTime);
-
-        // Only trigger onChange if the date is valid
-        if (finalDateTime instanceof Date && !isNaN(finalDateTime.getTime())) {
-          onChange(finalDateTime);
-        }
-      } catch (error) {
-        // If any parsing error occurs, don't trigger onChange
-        console.error('Error parsing date:', error);
+      if (isValid(parsedDateTime)) {
+        onChange(parsedDateTime);
       }
     },
-    [onChange, showTime]
+    [onChange, showTime, currentFormat]
   );
 
   const handleBlur = useCallback(() => {
-    // If current input is invalid, reset to the last valid value
     if (!isValidDateFormat(inputValue, showTime)) {
       setInputValue(format(value, currentFormat));
     }
