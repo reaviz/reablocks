@@ -48,7 +48,18 @@ const TimeColumn: FC<TimeColumnProps> = ({
   }, [selectedValue]);
 
   return (
-    <div ref={listRef} className="h-full overflow-y-auto scroll-smooth">
+    <div
+      ref={listRef}
+      className={twMerge(
+        'h-full overflow-y-auto [&::-webkit-scrollbar]:hidden',
+        'scrollbar-none touch-pan-y'
+      )}
+      style={{
+        msOverflowStyle: 'none',
+        scrollbarWidth: 'none',
+        WebkitOverflowScrolling: 'touch'
+      }}
+    >
       <ul className="p-0 m-0 list-none">
         {options.map(option => (
           <li
@@ -152,7 +163,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
     <div className={timeTheme.base}>
       <div
         className={twMerge(
-          'flex border-t border-gray-200 dark:border-gray-700 pt-1',
+          'flex border-t gap-0.25 border-gray-200 dark:border-gray-700 pt-1',
           showDayOfWeek ? 'h-54' : 'h-46'
         )}
       >
