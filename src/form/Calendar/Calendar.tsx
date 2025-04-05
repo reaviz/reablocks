@@ -1,5 +1,12 @@
 import { AnimatePresence, motion } from 'motion/react';
-import React, { FC, useCallback, useMemo, useState } from 'react';
+import React, {
+  FC,
+  useCallback,
+  useMemo,
+  useState,
+  useRef,
+  useEffect
+} from 'react';
 import { Button } from '@/elements/Button';
 import {
   add,
@@ -88,6 +95,9 @@ export const Calendar: FC<SingleCalendarProps> = ({
   const [scrollDirection, setScrollDirection] = useState<
     'forward' | 'back' | null
   >(null);
+  const valueChangeSourceRef = useRef<'calendar' | 'preset' | 'input' | null>(
+    null
+  );
 
   // Determine if we have custom preset content
   const hasCustomPresets = preset && React.isValidElement(preset);
@@ -97,6 +107,40 @@ export const Calendar: FC<SingleCalendarProps> = ({
     if (!preset || hasCustomPresets) return 'past';
     return preset as PresetType;
   }, [preset, hasCustomPresets]);
+
+  // Handle preset changes
+  const handlePresetChange = useCallback(
+    (newValue: Date | [Date, Date]) => {
+      valueChangeSourceRef.current = 'preset';
+      onChange?.(newValue);
+
+      // Update view to focus on the selected date
+      const targetDate = Array.isArray(newValue) ? newValue[0] : newValue;
+      if (targetDate) {
+        setViewValue(targetDate);
+        setMonthValue(getMonth(targetDate));
+        setYearValue(getYear(targetDate));
+        setView('days');
+        setScrollDirection(null);
+      }
+    },
+    [onChange]
+  );
+
+  // Update view when value changes from presets
+  useEffect(() => {
+    if (valueChangeSourceRef.current === 'preset' && value) {
+      const targetDate = Array.isArray(value) ? value[0] : value;
+      if (targetDate) {
+        setViewValue(targetDate);
+        setMonthValue(getMonth(targetDate));
+        setYearValue(getYear(targetDate));
+        setView('days');
+        setScrollDirection(null);
+      }
+    }
+    valueChangeSourceRef.current = null;
+  }, [value]);
 
   const previousClickHandler = useCallback(() => {
     setScrollDirection('back');
@@ -291,7 +335,7 @@ export const Calendar: FC<SingleCalendarProps> = ({
             isRange={isRange}
             showTime={showTime}
             value={value}
-            onChange={onChange}
+            onChange={handlePresetChange}
           >
             {hasCustomPresets ? preset : undefined}
           </CalendarPresets>

@@ -97,6 +97,9 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
   >(null);
   const [hoveringDate, setHoveringDate] = useState<Date | null>(null);
   const [pickerState, setPickerState] = useState<PickerState>(null);
+  const valueChangeSourceRef = useRef<'calendar' | 'preset' | 'input' | null>(
+    null
+  );
   const { contentRefs, getHeightStyle } = useContentHeight({ paneCount: 2 });
 
   const displayMonths = useMemo(() => {
@@ -108,6 +111,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
 
   const dateChangeHandler = useCallback(
     (date: Date) => {
+      valueChangeSourceRef.current = 'calendar';
       if (!rangeStart) {
         onChange?.([date, undefined]);
       } else if (!rangeEnd) {
@@ -120,29 +124,72 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
     [onChange, rangeEnd, rangeStart]
   );
 
+  // Update handlers for preset and input changes
+  const handlePresetChange = useCallback(
+    (newValue: [Date, Date]) => {
+      valueChangeSourceRef.current = 'preset';
+      onChange?.(newValue);
+    },
+    [onChange]
+  );
+
+  const handleInputChange = useCallback(
+    (date: Date, isStart: boolean) => {
+      valueChangeSourceRef.current = 'input';
+      if (isStart) {
+        if (!rangeEnd) {
+          onChange?.([date, undefined]);
+        } else {
+          const range = [date, rangeEnd];
+          onChange?.([minDate(range), maxDate(range)]);
+        }
+      } else {
+        if (!rangeStart) {
+          onChange?.([undefined, date]);
+        } else {
+          const range = [rangeStart, date];
+          onChange?.([minDate(range), maxDate(range)]);
+        }
+      }
+    },
+    [onChange, rangeStart, rangeEnd]
+  );
+
   // --- Handlers for Pane Pickers ---
 
-  const handleMonthHeaderClick = useCallback((paneIndex: number) => {
-    setPickerState(current => {
-      if (current?.paneIndex === paneIndex && current.view === 'months') {
-        return null; // Close if months view is already open
-      } else {
-        return { view: 'months', paneIndex };
-      }
-    });
-    setScrollDirection(null);
-  }, []);
+  const handleMonthHeaderClick = useCallback(
+    (paneIndex: number) => {
+      // Only allow first and last panes to open month picker
+      if (paneIndex !== 0 && paneIndex !== monthsToDisplay - 1) return;
 
-  const handleYearHeaderClick = useCallback((paneIndex: number) => {
-    setPickerState(current => {
-      if (current?.paneIndex === paneIndex && current.view === 'years') {
-        return null; // Close if years view is already open
-      } else {
-        return { view: 'years', paneIndex };
-      }
-    });
-    setScrollDirection(null);
-  }, []);
+      setPickerState(current => {
+        if (current?.paneIndex === paneIndex && current.view === 'months') {
+          return null; // Close if months view is already open
+        } else {
+          return { view: 'months', paneIndex };
+        }
+      });
+      setScrollDirection(null);
+    },
+    [monthsToDisplay]
+  );
+
+  const handleYearHeaderClick = useCallback(
+    (paneIndex: number) => {
+      // Only allow first and last panes to open year picker
+      if (paneIndex !== 0 && paneIndex !== monthsToDisplay - 1) return;
+
+      setPickerState(current => {
+        if (current?.paneIndex === paneIndex && current.view === 'years') {
+          return null; // Close if years view is already open
+        } else {
+          return { view: 'years', paneIndex };
+        }
+      });
+      setScrollDirection(null);
+    },
+    [monthsToDisplay]
+  );
 
   // Calculates the new viewValue needed to show the selected month/year in the target pane
   const calculateNewViewValue = (paneIndex: number, newDate: Date): Date => {
@@ -286,14 +333,14 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
     return preset as PresetType;
   }, [preset, hasCustomPresets, direction]);
 
-  // Update view when value changes (including from presets)
   useEffect(() => {
-    // Skip view update if the change came from clicking calendar days
-    const isCalendarClick = document.activeElement?.closest('.calendar-days');
-    // Skip view update if we're in the middle of selecting a range (have start but no end)
+    // Only update view if change came from preset or input
+    const isFromPresetOrInput =
+      valueChangeSourceRef.current === 'preset' ||
+      valueChangeSourceRef.current === 'input';
     const isSelectingRange = value?.[0] && !value?.[1];
 
-    if (value?.[0] && !isCalendarClick && !isSelectingRange) {
+    if (value?.[0] && isFromPresetOrInput && !isSelectingRange) {
       const startMonth = startOfMonth(value[0]);
       const dates = Array.from({ length: monthsToDisplay }, (_, i) => {
         const newDate = new Date(startMonth);
@@ -307,6 +354,9 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
       setPaneDates(dates);
       setScrollDirection(null);
     }
+
+    // Reset the source after handling
+    valueChangeSourceRef.current = null;
   }, [value, monthsToDisplay, direction]);
 
   return (
@@ -321,7 +371,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
               ? [value[0] as Date, value[1] as Date]
               : undefined
           }
-          onChange={onChange}
+          onChange={handlePresetChange}
         >
           {hasCustomPresets ? preset : undefined}
         </CalendarPresets>
@@ -335,14 +385,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
                 <div className="relative">
                   <CalendarInputs
                     value={rangeStart}
-                    onChange={date => {
-                      if (!rangeEnd) {
-                        onChange?.([date, undefined]);
-                      } else {
-                        const range = [date, rangeEnd];
-                        onChange?.([minDate(range), maxDate(range)]);
-                      }
-                    }}
+                    onChange={date => handleInputChange(date, true)}
                     showTime={false}
                     className="w-28"
                     inputClassName="border-r-0 rounded-r-none"
@@ -354,14 +397,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
 
                 <CalendarInputs
                   value={rangeEnd}
-                  onChange={date => {
-                    if (!rangeStart) {
-                      onChange?.([undefined, date]);
-                    } else {
-                      const range = [rangeStart, date];
-                      onChange?.([minDate(range), maxDate(range)]);
-                    }
-                  }}
+                  onChange={date => handleInputChange(date, false)}
                   showTime={false}
                   className="w-28"
                   inputClassName="border-l-0 rounded-l-none"
@@ -413,36 +449,57 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
                 const paneDate = getPaneDate(paneIndex);
                 const isPickerOpenForPane =
                   pickerState?.paneIndex === paneIndex;
+                const isFirstOrLastPane =
+                  paneIndex === 0 || paneIndex === displayMonths.length - 1;
 
                 return (
                   <div
                     key={`header-${paneIndex}`}
                     className="flex items-center space-x-2"
                   >
-                    <Button
-                      variant="text"
-                      className="p-1"
-                      onClick={() => handleMonthHeaderClick(paneIndex)}
-                      aria-live="polite"
-                      aria-atomic="true"
-                      disablePadding
-                    >
-                      <SmallHeading disableMargins>
-                        {format(paneDate, 'MMMM')}
-                      </SmallHeading>
-                    </Button>
-                    <Button
-                      variant="text"
-                      className="p-1"
-                      onClick={() => handleYearHeaderClick(paneIndex)}
-                      aria-live="polite"
-                      aria-atomic="true"
-                      disablePadding
-                    >
-                      <SmallHeading disableMargins>
-                        {format(paneDate, 'yyyy')}
-                      </SmallHeading>
-                    </Button>
+                    {isFirstOrLastPane ? (
+                      <>
+                        <Button
+                          variant="text"
+                          className="p-1"
+                          onClick={() => handleMonthHeaderClick(paneIndex)}
+                          aria-live="polite"
+                          aria-atomic="true"
+                          disablePadding
+                        >
+                          <SmallHeading disableMargins>
+                            {format(paneDate, 'MMMM')}
+                          </SmallHeading>
+                        </Button>
+                        <Button
+                          variant="text"
+                          className="p-1"
+                          onClick={() => handleYearHeaderClick(paneIndex)}
+                          aria-live="polite"
+                          aria-atomic="true"
+                          disablePadding
+                        >
+                          <SmallHeading disableMargins>
+                            {format(paneDate, 'yyyy')}
+                          </SmallHeading>
+                        </Button>
+                      </>
+                    ) : (
+                      <div className="flex items-center space-x-2">
+                        <SmallHeading
+                          disableMargins
+                          className="p-1 text-gray-500 pointer-events-none"
+                        >
+                          {format(paneDate, 'MMMM')}
+                        </SmallHeading>
+                        <SmallHeading
+                          disableMargins
+                          className="p-1 text-gray-500 pointer-events-none"
+                        >
+                          {format(paneDate, 'yyyy')}
+                        </SmallHeading>
+                      </div>
+                    )}
                   </div>
                 );
               })}
