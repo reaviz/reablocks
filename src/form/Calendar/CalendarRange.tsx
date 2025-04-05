@@ -109,6 +109,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
     null
   );
   const { contentRefs, getHeightStyle } = useContentHeight({ paneCount: 2 });
+  const [activeTimePane, setActiveTimePane] = useState<number | null>(null);
 
   const displayMonths = useMemo(() => {
     const months = Array.from({ length: monthsToDisplay }, (_, i) => i);
@@ -173,30 +174,25 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
 
   const handleTimeChange = useCallback(
     (newTimeDate: Date, paneIndex: number) => {
-      const isEndDate =
+      // Check if this is the end date pane
+      const isEndDatePane =
         value?.[1] &&
-        format(value[1], 'yyyy-MM-dd') ===
-          format(getPaneDate(paneIndex), 'yyyy-MM-dd');
+        format(value[1], 'yyyy-MM') ===
+          format(getPaneDate(paneIndex), 'yyyy-MM');
 
-      if (isEndDate && value?.[0]) {
-        // Updating end date time
-        const newEnd = setSeconds(
-          setMinutes(
-            setHours(value[1], getHours(newTimeDate)),
-            getMinutes(newTimeDate)
-          ),
-          getSeconds(newTimeDate)
-        );
+      if (isEndDatePane && value?.[1]) {
+        // Update end date time
+        const newEnd = new Date(value[1]);
+        newEnd.setHours(getHours(newTimeDate));
+        newEnd.setMinutes(getMinutes(newTimeDate));
+        newEnd.setSeconds(getSeconds(newTimeDate));
         onChange?.([value[0], newEnd]);
       } else if (value?.[0]) {
-        // Updating start date time
-        const newStart = setSeconds(
-          setMinutes(
-            setHours(value[0], getHours(newTimeDate)),
-            getMinutes(newTimeDate)
-          ),
-          getSeconds(newTimeDate)
-        );
+        // Update start date time
+        const newStart = new Date(value[0]);
+        newStart.setHours(getHours(newTimeDate));
+        newStart.setMinutes(getMinutes(newTimeDate));
+        newStart.setSeconds(getSeconds(newTimeDate));
         onChange?.([newStart, value[1]]);
       }
     },
@@ -646,29 +642,67 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
                             {...rest}
                           />
                           {shouldShowTimePicker && (
-                            <div className="absolute top-0 right-0 h-full w-[32px] group">
-                              <div className="absolute top-0 right-[-24px] w-full h-full bg-transparent cursor-pointer group-hover:bg-gray-200/10" />
-                              <motion.div
-                                initial={{ opacity: 0, x: '100%' }}
-                                animate={{ opacity: 0, x: '100%' }}
-                                whileHover={{ opacity: 1, x: 58 }}
-                                transition={{
-                                  type: 'spring',
-                                  stiffness: 300,
-                                  damping: 30
-                                }}
-                                className="absolute top-0 right-0 h-full w-[120px] bg-gray-900/95 dark:bg-gray-950/95 backdrop-blur-sm shadow-xl rounded-l-lg"
+                            <>
+                              <div
+                                onClick={() =>
+                                  setActiveTimePane(
+                                    activeTimePane === paneIndex
+                                      ? null
+                                      : paneIndex
+                                  )
+                                }
+                                className={twMerge(
+                                  'absolute -bottom-1 -right-1 p-1.5 rounded cursor-pointer bg-black/50',
+                                  'text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300',
+                                  'transition-colors duration-150',
+                                  activeTimePane === paneIndex &&
+                                    'text-primary-500'
+                                )}
+                                aria-label="Time picker"
                               >
-                                <CalendarTimes
-                                  value={isEndDatePane ? value[1] : value[0]}
-                                  onChange={date =>
-                                    handleTimeChange(date, paneIndex)
-                                  }
-                                  theme={theme.time}
-                                  showDayOfWeek={showDayOfWeek}
-                                />
-                              </motion.div>
-                            </div>
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  className="w-4 h-4"
+                                >
+                                  <circle
+                                    cx="12"
+                                    cy="12"
+                                    r="9"
+                                    strokeWidth="2"
+                                  />
+                                  <path strokeWidth="2" d="M12 7v5l3 3" />
+                                </svg>
+                              </div>
+                              <AnimatePresence>
+                                {activeTimePane === paneIndex && (
+                                  <motion.div
+                                    initial={{ opacity: 0, y: 0 }}
+                                    animate={{ opacity: 1, y: 15 }}
+                                    exit={{ opacity: 0, y: 0 }}
+                                    transition={{
+                                      type: 'spring',
+                                      stiffness: 300,
+                                      damping: 30
+                                    }}
+                                    className="absolute bottom-8 right-0 bg-gray-900/95 dark:bg-gray-950/95 backdrop-blur-sm border border-gray-500 dark:border-gray-500 rounded-sm"
+                                  >
+                                    <CalendarTimes
+                                      value={
+                                        isEndDatePane ? value[1] : value[0]
+                                      }
+                                      onChange={date =>
+                                        handleTimeChange(date, paneIndex)
+                                      }
+                                      theme={theme.time}
+                                      showDayOfWeek={showDayOfWeek}
+                                    />
+                                  </motion.div>
+                                )}
+                              </AnimatePresence>
+                            </>
                           )}
                         </div>
                       )}
