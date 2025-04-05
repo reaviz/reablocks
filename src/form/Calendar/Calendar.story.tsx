@@ -467,7 +467,7 @@ export const MultiviewWithInputPreview = () => {
   );
 };
 
-export const MultiviewWithTime = () => {
+export const MultiviewWithTimeAndInputPreview = () => {
   const [range, setRange] = useState<[Date, Date]>();
 
   return (
@@ -479,6 +479,7 @@ export const MultiviewWithTime = () => {
           showDayOfWeek
           headerDateFormat="MMMM yyyy"
           showTime
+          showInputPreview
         />
       </Card>
       <Stack justifyContent="center" className="mt-4">

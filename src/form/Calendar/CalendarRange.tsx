@@ -110,6 +110,8 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
   );
   const { contentRefs, getHeightStyle } = useContentHeight({ paneCount: 2 });
   const [activeTimePane, setActiveTimePane] = useState<number | null>(null);
+  const timePickerRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const timeIconRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const displayMonths = useMemo(() => {
     const months = Array.from({ length: monthsToDisplay }, (_, i) => i);
@@ -234,13 +236,6 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
     },
     [monthsToDisplay]
   );
-
-  // Calculates the new viewValue needed to show the selected month/year in the target pane
-  const calculateNewViewValue = (paneIndex: number, newDate: Date): Date => {
-    const offset = displayMonths[paneIndex];
-    // We need to adjust the view value so that the selected date appears in the correct pane
-    return showPast ? addMonths(newDate, offset) : subMonths(newDate, offset);
-  };
 
   const handleYearSelect = useCallback(
     (year: number) => {
@@ -395,6 +390,28 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
     valueChangeSourceRef.current = null;
   }, [value, monthsToDisplay, direction]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (activeTimePane === null) return;
+
+      const timePickerElement = timePickerRefs.current[activeTimePane];
+      const timeIconElement = timeIconRefs.current[activeTimePane];
+
+      if (!timePickerElement || !timeIconElement) return;
+
+      // Check if click is outside both the time picker and its trigger icon
+      if (
+        !timePickerElement.contains(event.target as Node) &&
+        !timeIconElement.contains(event.target as Node)
+      ) {
+        setActiveTimePane(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [activeTimePane]);
+
   return (
     <Stack direction="row" className="gap-1.75">
       {preset && (
@@ -416,30 +433,28 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
         {/* Show input preview at the top if enabled */}
         {showInputPreview && (
           <>
-            <div className="px-4">
-              <Stack direction="row" className="gap-0 justify-center">
-                <div className="relative">
-                  <CalendarInputs
-                    value={rangeStart}
-                    onChange={date => handleInputChange(date, true)}
-                    showTime={false}
-                    className="w-28"
-                    inputClassName="border-r-0 rounded-r-none"
-                  />
-                  <span className="absolute right-[-4px] top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
-                    →
-                  </span>
-                </div>
-
+            <Stack direction="row" className="gap-0 justify-center">
+              <div className="relative w-auto">
                 <CalendarInputs
-                  value={rangeEnd}
-                  onChange={date => handleInputChange(date, false)}
-                  showTime={false}
-                  className="w-28"
-                  inputClassName="border-l-0 rounded-l-none"
+                  value={rangeStart}
+                  onChange={date => handleInputChange(date, true)}
+                  showTime={showTime}
+                  className={showTime ? 'w-40' : 'w-28'}
+                  inputClassName="border-r-0 rounded-r-none"
                 />
-              </Stack>
-            </div>
+                <span className="absolute right-[-8px] top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none z-10">
+                  →
+                </span>
+              </div>
+
+              <CalendarInputs
+                value={rangeEnd}
+                onChange={date => handleInputChange(date, false)}
+                showTime={showTime}
+                className={showTime ? 'w-40' : 'w-28'}
+                inputClassName="border-l-0 rounded-l-none text-sm"
+              />
+            </Stack>
             <Divider variant="secondary" className="mb-4" />
           </>
         )}
@@ -644,6 +659,9 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
                           {shouldShowTimePicker && (
                             <>
                               <div
+                                ref={el =>
+                                  (timeIconRefs.current[paneIndex] = el)
+                                }
                                 onClick={() =>
                                   setActiveTimePane(
                                     activeTimePane === paneIndex
@@ -679,6 +697,9 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
                               <AnimatePresence>
                                 {activeTimePane === paneIndex && (
                                   <motion.div
+                                    ref={el =>
+                                      (timePickerRefs.current[paneIndex] = el)
+                                    }
                                     initial={{ opacity: 0, y: 0 }}
                                     animate={{ opacity: 1, y: 15 }}
                                     exit={{ opacity: 0, y: 0 }}
