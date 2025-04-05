@@ -26,7 +26,7 @@ import {
 } from 'date-fns';
 import { AnimatePresence, motion } from 'motion/react';
 import { Button } from '@/elements';
-import { CalendarProps } from './Calendar';
+import { CalendarProps, CalendarPresetType } from './Calendar';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
@@ -36,12 +36,16 @@ import { useComponentTheme } from '@/utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
 import { twMerge } from 'tailwind-merge';
 import { useContentHeight } from './hooks/useContentHeight';
+import { CalendarPresets, PresetType } from './CalendarPresets';
 
 // Type for the state tracking which picker is open for which pane
 type PickerState = { view: 'months' | 'years'; paneIndex: number } | null;
 
 export interface CalendarRangeProps
-  extends Omit<CalendarProps, 'value' | 'isRange' | 'onViewChange' | 'theme'> {
+  extends Omit<
+    CalendarProps,
+    'value' | 'isRange' | 'onViewChange' | 'theme' | 'preset'
+  > {
   /**
    * The selected date(s) for the calendar.
    */
@@ -80,6 +84,19 @@ export interface CalendarRangeProps
    * Theme for the CalendarRange.
    */
   theme?: CalendarRangeTheme;
+
+  /**
+   * Preset configuration for the calendar range.
+   * - 'past': Shows past date range presets
+   * - 'future': Shows future date range presets
+   * - 'combined': Shows both past and future range presets
+   * - ReactNode: Custom preset content
+   *
+   * Default behavior:
+   * - Automatically uses 'past' or 'future' based on direction prop
+   * - Falls back to 'past' if no direction is specified
+   */
+  preset?: CalendarPresetType;
 }
 
 export const CalendarRange: FC<CalendarRangeProps> = ({
@@ -98,6 +115,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   direction = 'future',
   headerDateFormat = 'MMMM',
   theme: customTheme,
+  preset,
   ...rest
 }) => {
   const theme: CalendarRangeTheme = useComponentTheme(
@@ -268,204 +286,234 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     }
   }, [scrollDirection]);
 
+  // Determine if we have custom preset content
+  const hasCustomPresets = preset && React.isValidElement(preset);
+
+  // Determine preset type based on direction
+  const presetType = useMemo((): PresetType => {
+    if (!preset || hasCustomPresets) return direction as PresetType;
+    return preset as PresetType;
+  }, [preset, hasCustomPresets, direction]);
+
   return (
-    <div className={theme.base}>
-      <header className={theme.header.base}>
-        <Stack>
-          {/* Show Year arrows only if no picker is open */}
-          {pickerState === null && (
+    <Stack direction="row" className="gap-1.75">
+      {preset && (
+        <CalendarPresets
+          className="before:top-7.25"
+          type={presetType}
+          isRange={true}
+          value={
+            value && value.length >= 2
+              ? [value[0] as Date, value[1] as Date]
+              : undefined
+          }
+          onChange={onChange}
+        >
+          {hasCustomPresets ? preset : undefined}
+        </CalendarPresets>
+      )}
+      <div className={theme.base}>
+        <header className={theme.header.base}>
+          <Stack>
+            {/* Show Year arrows only if no picker is open */}
+            {pickerState === null && (
+              <Button
+                variant="text"
+                disabled={disabled}
+                onClick={previousYearClickHandler}
+                className={theme.header.prev}
+                disablePadding
+                aria-label="Previous year"
+              >
+                {previousYearArrow}
+              </Button>
+            )}
             <Button
               variant="text"
               disabled={disabled}
-              onClick={previousYearClickHandler}
+              onClick={previousClickHandler}
               className={theme.header.prev}
               disablePadding
-              aria-label="Previous year"
+              aria-label={
+                pickerState === null
+                  ? 'Previous month'
+                  : pickerState.view === 'months'
+                    ? 'Previous year' // TODO: Make arrows context-aware of picker
+                    : 'Previous decade' // TODO: Make arrows context-aware of picker
+              }
+              // TODO: Disable/hide if picker is open?
             >
-              {previousYearArrow}
+              {previousArrow}
             </Button>
-          )}
-          <Button
-            variant="text"
-            disabled={disabled}
-            onClick={previousClickHandler}
-            className={theme.header.prev}
-            disablePadding
-            aria-label={
-              pickerState === null
-                ? 'Previous month'
-                : pickerState.view === 'months'
-                  ? 'Previous year' // TODO: Make arrows context-aware of picker
-                  : 'Previous decade' // TODO: Make arrows context-aware of picker
-            }
-            // TODO: Disable/hide if picker is open?
+          </Stack>
+          {/* Render clickable headers for each pane centrally */}
+          <Stack
+            className={twMerge(
+              theme.title,
+              'justify-center items-center w-full'
+            )}
           >
-            {previousArrow}
-          </Button>
-        </Stack>
-        {/* Render clickable headers for each pane centrally */}
-        <Stack
-          className={twMerge(theme.title, 'justify-center items-center w-full')}
-        >
-          <div className="flex w-full justify-around">
-            {[0, 1].map(paneIndex => {
-              const paneDate = getPaneDate(paneIndex);
-              const isPickerOpenForPane = pickerState?.paneIndex === paneIndex;
+            <div className="flex w-full justify-around">
+              {[0, 1].map(paneIndex => {
+                const paneDate = getPaneDate(paneIndex);
+                const isPickerOpenForPane =
+                  pickerState?.paneIndex === paneIndex;
 
-              return (
-                <div
-                  key={`header-${paneIndex}`}
-                  className="flex items-center space-x-2"
-                >
-                  <Button
-                    variant="text"
-                    className="p-1"
-                    onClick={() => handleMonthHeaderClick(paneIndex)}
-                    aria-live="polite"
-                    aria-atomic="true"
-                    disablePadding
+                return (
+                  <div
+                    key={`header-${paneIndex}`}
+                    className="flex items-center space-x-2"
                   >
-                    <SmallHeading disableMargins>
-                      {format(paneDate, 'MMMM')}
-                    </SmallHeading>
-                  </Button>
-                  <Button
-                    variant="text"
-                    className="p-1"
-                    onClick={() => handleYearHeaderClick(paneIndex)}
-                    aria-live="polite"
-                    aria-atomic="true"
-                    disablePadding
-                  >
-                    <SmallHeading disableMargins>
-                      {format(paneDate, 'yyyy')}
-                    </SmallHeading>
-                  </Button>
-                </div>
-              );
-            })}
-          </div>
-        </Stack>
-        <Stack>
-          <Button
-            variant="text"
-            disabled={disabled}
-            onClick={nextClickHandler}
-            className={theme.header.next}
-            disablePadding
-            aria-label={
-              pickerState === null
-                ? 'Next month'
-                : pickerState.view === 'months'
-                  ? 'Next year' // TODO: Make arrows context-aware of picker
-                  : 'Next decade' // TODO: Make arrows context-aware of picker
-            }
-            // TODO: Disable/hide if picker is open?
-          >
-            {nextArrow}
-          </Button>
-          {/* Show Year arrows only if no picker is open */}
-          {pickerState === null && (
+                    <Button
+                      variant="text"
+                      className="p-1"
+                      onClick={() => handleMonthHeaderClick(paneIndex)}
+                      aria-live="polite"
+                      aria-atomic="true"
+                      disablePadding
+                    >
+                      <SmallHeading disableMargins>
+                        {format(paneDate, 'MMMM')}
+                      </SmallHeading>
+                    </Button>
+                    <Button
+                      variant="text"
+                      className="p-1"
+                      onClick={() => handleYearHeaderClick(paneIndex)}
+                      aria-live="polite"
+                      aria-atomic="true"
+                      disablePadding
+                    >
+                      <SmallHeading disableMargins>
+                        {format(paneDate, 'yyyy')}
+                      </SmallHeading>
+                    </Button>
+                  </div>
+                );
+              })}
+            </div>
+          </Stack>
+          <Stack>
             <Button
               variant="text"
               disabled={disabled}
-              onClick={nextYearClickHandler}
+              onClick={nextClickHandler}
               className={theme.header.next}
               disablePadding
-              aria-label="Next year"
+              aria-label={
+                pickerState === null
+                  ? 'Next month'
+                  : pickerState.view === 'months'
+                    ? 'Next year' // TODO: Make arrows context-aware of picker
+                    : 'Next decade' // TODO: Make arrows context-aware of picker
+              }
+              // TODO: Disable/hide if picker is open?
             >
-              {nextYearArrow}
+              {nextArrow}
             </Button>
-          )}
-        </Stack>
-      </header>
-      <Divider />
-      {/* Render each pane */}
-      <div className={theme.content}>
-        {[0, 1].map(paneIndex => {
-          const paneDate = getPaneDate(paneIndex);
-          const paneYear = getYear(paneDate);
-          const paneMonth = getMonth(paneDate);
+            {/* Show Year arrows only if no picker is open */}
+            {pickerState === null && (
+              <Button
+                variant="text"
+                disabled={disabled}
+                onClick={nextYearClickHandler}
+                className={theme.header.next}
+                disablePadding
+                aria-label="Next year"
+              >
+                {nextYearArrow}
+              </Button>
+            )}
+          </Stack>
+        </header>
+        <Divider />
+        {/* Render each pane */}
+        <div className={theme.content}>
+          {[0, 1].map(paneIndex => {
+            const paneDate = getPaneDate(paneIndex);
+            const paneYear = getYear(paneDate);
+            const paneMonth = getMonth(paneDate);
 
-          const isPickerOpenForPane = pickerState?.paneIndex === paneIndex;
-          const currentPaneView = isPickerOpenForPane
-            ? pickerState.view
-            : 'days';
+            const isPickerOpenForPane = pickerState?.paneIndex === paneIndex;
+            const currentPaneView = isPickerOpenForPane
+              ? pickerState.view
+              : 'days';
 
-          const renderPaneHeaderContent = () => {
-            if (currentPaneView === 'months') {
-              return format(paneDate, 'yyyy');
-            }
-            if (currentPaneView === 'years') {
-              const startDecade = Math.floor(paneYear / 10) * 10;
-              return `${startDecade} - ${startDecade + 9}`;
-            }
-            // 'days' view
-            return format(paneDate, headerDateFormat);
-          };
+            const renderPaneHeaderContent = () => {
+              if (currentPaneView === 'months') {
+                return format(paneDate, 'yyyy');
+              }
+              if (currentPaneView === 'years') {
+                const startDecade = Math.floor(paneYear / 10) * 10;
+                return `${startDecade} - ${startDecade + 9}`;
+              }
+              // 'days' view
+              return format(paneDate, headerDateFormat);
+            };
 
-          return (
-            <div key={`pane-${paneIndex}`} className="flex-1 min-w-0">
-              {/* Pane Content with Animation */}
-              <div style={getHeightStyle(paneIndex)} className="relative">
-                <AnimatePresence initial={false} mode="wait">
-                  <motion.div
-                    ref={el => (contentRefs.current[paneIndex] = el)}
-                    key={currentPaneView}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{
-                      duration: 0.1,
-                      ease: 'easeInOut'
-                    }}
-                    className="relative w-full"
-                  >
-                    {currentPaneView === 'days' && (
-                      <CalendarDays
-                        value={paneDate}
-                        min={min}
-                        max={max}
-                        disabled={disabled}
-                        current={[rangeStart, rangeEnd]}
-                        showDayOfWeek={showDayOfWeek && paneIndex === 0}
-                        xAnimation={xAnimation}
-                        animated={animated}
-                        hover={hoveringDate}
-                        onHover={setHoveringDate}
-                        hidePrevMonthDays={true}
-                        hideNextMonthDays={paneIndex < monthsToDisplay - 1}
-                        onChange={dateChangeHandler}
-                        isRange
-                        {...rest}
-                      />
-                    )}
-                    {currentPaneView === 'months' && (
-                      <CalendarMonths
-                        value={paneMonth}
-                        onChange={handleMonthSelect}
-                        // Pass min/max constraints if CalendarMonths supports them
-                        // min={min ? startOfMonth(min) : undefined}
-                        // max={max ? endOfMonth(max) : undefined}
-                      />
-                    )}
-                    {currentPaneView === 'years' && (
-                      <CalendarYears
-                        value={paneYear}
-                        onChange={handleYearSelect}
-                        animated={animated}
-                        // Pass min/max constraints if CalendarYears supports them
-                        // min={min ? getYear(min) : undefined}
-                        // max={max ? getYear(max) : undefined}
-                      />
-                    )}
-                  </motion.div>
-                </AnimatePresence>
+            return (
+              <div key={`pane-${paneIndex}`} className="flex-1 min-w-0">
+                {/* Pane Content with Animation */}
+                <div style={getHeightStyle(paneIndex)} className="relative">
+                  <AnimatePresence initial={false} mode="wait">
+                    <motion.div
+                      ref={el => (contentRefs.current[paneIndex] = el)}
+                      key={currentPaneView}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{
+                        duration: 0.1,
+                        ease: 'easeInOut'
+                      }}
+                      className="relative w-full"
+                    >
+                      {currentPaneView === 'days' && (
+                        <CalendarDays
+                          value={paneDate}
+                          min={min}
+                          max={max}
+                          disabled={disabled}
+                          current={[rangeStart, rangeEnd]}
+                          showDayOfWeek={showDayOfWeek && paneIndex === 0}
+                          xAnimation={xAnimation}
+                          animated={animated}
+                          hover={hoveringDate}
+                          onHover={setHoveringDate}
+                          hidePrevMonthDays={true}
+                          hideNextMonthDays={paneIndex < monthsToDisplay - 1}
+                          onChange={dateChangeHandler}
+                          isRange
+                          {...rest}
+                        />
+                      )}
+                      {currentPaneView === 'months' && (
+                        <CalendarMonths
+                          value={paneMonth}
+                          onChange={handleMonthSelect}
+                          // Pass min/max constraints if CalendarMonths supports them
+                          // min={min ? startOfMonth(min) : undefined}
+                          // max={max ? endOfMonth(max) : undefined}
+                        />
+                      )}
+                      {currentPaneView === 'years' && (
+                        <CalendarYears
+                          value={paneYear}
+                          onChange={handleYearSelect}
+                          animated={animated}
+                          // Pass min/max constraints if CalendarYears supports them
+                          // min={min ? getYear(min) : undefined}
+                          // max={max ? getYear(max) : undefined}
+                        />
+                      )}
+                    </motion.div>
+                  </AnimatePresence>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
       </div>
-    </div>
+    </Stack>
   );
 };

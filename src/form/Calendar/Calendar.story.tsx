@@ -1,26 +1,31 @@
 import { useState } from 'react';
-import { Card } from '../../layout/Card';
-import { Calendar } from './Calendar';
-import { CalendarRange } from './CalendarRange';
 import {
   add,
-  addMonths,
-  endOfMonth,
-  startOfMonth,
-  sub,
-  subDays,
-  subMonths,
-  endOfDay,
-  startOfDay,
   addDays,
+  addMonths,
+  endOfDay,
+  endOfMonth,
   format,
   setHours,
   setMinutes,
-  setSeconds
+  setSeconds,
+  startOfDay,
+  startOfMonth,
+  startOfWeek,
+  startOfYear,
+  sub,
+  subDays,
+  subMonths,
+  subWeeks,
+  subYears
 } from 'date-fns';
-import { Divider } from '../../layout/Divider';
 import { Stack } from '../../layout/Stack';
 import { Button } from '../../elements/Button';
+import { Card } from '../../layout/Card';
+import { Divider } from '../../layout/Divider';
+import { Calendar } from './Calendar';
+import { CalendarRange } from './CalendarRange';
+import { CalendarPresets } from './CalendarPresets';
 
 export default {
   title: 'Components/Form/Calendar',
@@ -97,67 +102,18 @@ export const WithTime = () => {
 export const WithDatePresets = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
-  const presets = [
-    {
-      label: 'Yesterday',
-      value: subDays(new Date(), 1)
-    },
-    {
-      label: 'Today',
-      value: new Date()
-    },
-    {
-      label: 'Tomorrow',
-      value: addDays(new Date(), 1)
-    },
-    {
-      label: 'In 3 days',
-      value: addDays(new Date(), 3)
-    },
-    {
-      label: 'In a week',
-      value: addDays(new Date(), 7)
-    },
-    {
-      label: 'In 2 weeks',
-      value: addDays(new Date(), 14)
-    }
-  ];
-
   return (
     <Card>
-      <Stack direction="row" className="gap-4">
-        {/* Left side - Presets */}
-        <Stack
-          direction="column"
-          className="gap-1 border-r border-gray-200 dark:border-gray-700 pr-4 min-w-[140px]"
-        >
-          {presets.map(preset => (
-            <Button
-              key={preset.label}
-              variant="text"
-              size="sm"
-              className="justify-start hover:bg-gray-100 dark:hover:bg-gray-800"
-              onClick={() => setDate(preset.value)}
-            >
-              {preset.label}
-            </Button>
-          ))}
-        </Stack>
-
-        {/* Right side - Calendar and selected date */}
-        <Stack direction="column" className="gap-4 flex-1">
-          <Calendar
-            value={date}
-            onChange={(newDate: Date) => setDate(newDate)}
-            showDayOfWeek
-            showToday
-          />
-          <Divider />
-          <Stack justifyContent="center">
-            {date ? format(date, 'yyyy-MM-dd') : 'No date selected'}
-          </Stack>
-        </Stack>
+      <Calendar
+        value={date}
+        onChange={(newDate: Date) => setDate(newDate)}
+        showDayOfWeek
+        showToday
+        preset="combined"
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {date ? format(date, 'yyyy-MM-dd') : 'No date selected'}
       </Stack>
     </Card>
   );
@@ -166,72 +122,19 @@ export const WithDatePresets = () => {
 export const WithDatePresetsAndTime = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
 
-  const presets = [
-    {
-      label: 'Today midnight',
-      value: setHours(setMinutes(setSeconds(new Date(), 0), 0), 0)
-    },
-    {
-      label: 'Today morning',
-      value: setHours(setMinutes(setSeconds(new Date(), 0), 0), 8)
-    },
-    {
-      label: 'Today noon',
-      value: setHours(setMinutes(setSeconds(new Date(), 0), 0), 12)
-    },
-    {
-      label: 'Today evening',
-      value: setHours(setMinutes(setSeconds(new Date(), 0), 0), 18)
-    },
-    {
-      label: 'Tomorrow morning',
-      value: setHours(setMinutes(setSeconds(addDays(new Date(), 1), 0), 0), 8)
-    },
-    {
-      label: 'Tomorrow noon',
-      value: setHours(setMinutes(setSeconds(addDays(new Date(), 1), 0), 0), 12)
-    },
-    {
-      label: 'Tomorrow evening',
-      value: setHours(setMinutes(setSeconds(addDays(new Date(), 1), 0), 0), 18)
-    }
-  ];
-
   return (
     <Card>
-      <Stack direction="row" className="gap-4">
-        {/* Left side - Presets */}
-        <Stack
-          direction="column"
-          className="gap-1 border-r border-gray-200 dark:border-gray-700 pr-4 min-w-[140px]"
-        >
-          {presets.map(preset => (
-            <Button
-              key={preset.label}
-              variant="text"
-              size="sm"
-              className="justify-start hover:bg-gray-100 dark:hover:bg-gray-800"
-              onClick={() => setDate(preset.value)}
-            >
-              {preset.label}
-            </Button>
-          ))}
-        </Stack>
-
-        {/* Right side - Calendar and selected date */}
-        <Stack direction="column" className="gap-4 flex-1">
-          <Calendar
-            value={date}
-            onChange={(newDate: Date) => setDate(newDate)}
-            showDayOfWeek
-            showToday
-            showTime
-          />
-          <Divider />
-          <Stack justifyContent="center">
-            {date ? format(date, 'yyyy-MM-dd HH:mm:ss') : 'No date selected'}
-          </Stack>
-        </Stack>
+      <Calendar
+        value={date}
+        onChange={(newDate: Date) => setDate(newDate)}
+        showDayOfWeek
+        showToday
+        showTime
+        preset="combined"
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {date ? format(date, 'yyyy-MM-dd HH:mm:ss') : 'No date selected'}
       </Stack>
     </Card>
   );
@@ -434,72 +337,21 @@ export const MultiviewPast = () => {
 export const MultiviewWithPresets = () => {
   const [range, setRange] = useState<[Date, Date]>();
 
-  const presetRanges = [
-    {
-      label: 'Last 7 Days',
-      value: [subDays(new Date(), 7), new Date()] as [Date, Date]
-    },
-    {
-      label: 'Last 14 Days',
-      value: [subDays(new Date(), 14), new Date()] as [Date, Date]
-    },
-    {
-      label: 'Last 30 Days',
-      value: [subDays(new Date(), 30), new Date()] as [Date, Date]
-    },
-    {
-      label: 'Last 90 Days',
-      value: [subDays(new Date(), 90), new Date()] as [Date, Date]
-    },
-    {
-      label: 'This Month',
-      value: [startOfMonth(new Date()), endOfMonth(new Date())] as [Date, Date]
-    },
-    {
-      label: 'Last Month',
-      value: [
-        startOfMonth(subMonths(new Date(), 1)),
-        endOfMonth(subMonths(new Date(), 1))
-      ] as [Date, Date]
-    }
-  ];
-
   return (
     <Card>
-      <Stack direction="row" className="gap-4">
-        {/* Left side - Presets */}
-        <Stack
-          direction="column"
-          className="gap-1 border-r border-gray-200 dark:border-gray-700 pr-4 min-w-[140px]"
-        >
-          {presetRanges.map(preset => (
-            <Button
-              key={preset.label}
-              variant="text"
-              size="sm"
-              className="justify-start hover:bg-gray-100 dark:hover:bg-gray-800"
-              onClick={() => setRange(preset.value)}
-            >
-              {preset.label}
-            </Button>
-          ))}
-        </Stack>
-
-        {/* Right side - Calendar and selected range */}
-        <Stack direction="column" className="gap-4 flex-1">
-          <CalendarRange
-            value={range}
-            onChange={val => setRange(val as [Date, Date])}
-            showDayOfWeek
-            headerDateFormat="MMMM yyyy"
-          />
-          <Divider />
-          <Stack justifyContent="center">
-            {range
-              ? `${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
-              : 'No date selected'}
-          </Stack>
-        </Stack>
+      <CalendarRange
+        value={range}
+        onChange={val => setRange(val as [Date, Date])}
+        showDayOfWeek
+        headerDateFormat="MMMM yyyy"
+        direction="past"
+        preset="past"
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {range
+          ? `${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
       </Stack>
     </Card>
   );
@@ -508,72 +360,21 @@ export const MultiviewWithPresets = () => {
 export const MultiviewWithFuturePresets = () => {
   const [range, setRange] = useState<[Date, Date]>();
 
-  const presetRanges = [
-    {
-      label: 'Next 7 Days',
-      value: [new Date(), addDays(new Date(), 7)] as [Date, Date]
-    },
-    {
-      label: 'Next 14 Days',
-      value: [new Date(), addDays(new Date(), 14)] as [Date, Date]
-    },
-    {
-      label: 'Next 30 Days',
-      value: [new Date(), addDays(new Date(), 30)] as [Date, Date]
-    },
-    {
-      label: 'Next 90 Days',
-      value: [new Date(), addDays(new Date(), 90)] as [Date, Date]
-    },
-    {
-      label: 'Next Month',
-      value: [
-        startOfMonth(addMonths(new Date(), 1)),
-        endOfMonth(addMonths(new Date(), 1))
-      ] as [Date, Date]
-    },
-    {
-      label: 'In 2 Months',
-      value: [
-        startOfMonth(addMonths(new Date(), 2)),
-        endOfMonth(addMonths(new Date(), 2))
-      ] as [Date, Date]
-    }
-  ];
-
   return (
     <Card>
-      <Stack direction="row" className="gap-4">
-        <Stack
-          direction="column"
-          className="gap-1 border-r border-gray-200 dark:border-gray-700 pr-4 min-w-[140px]"
-        >
-          {presetRanges.map(preset => (
-            <Button
-              key={preset.label}
-              variant="text"
-              size="sm"
-              className="justify-start hover:bg-gray-100 dark:hover:bg-gray-800"
-              onClick={() => setRange(preset.value)}
-            >
-              {preset.label}
-            </Button>
-          ))}
-        </Stack>
-        <Stack direction="column" className="gap-4 flex-1">
-          <CalendarRange
-            value={range}
-            onChange={val => setRange(val as [Date, Date])}
-            showDayOfWeek
-            headerDateFormat="MMMM yyyy"
-          />
-          <Divider />
-          <Stack justifyContent="center">
-            {range
-              ? `${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
-              : 'No date selected'}
-          </Stack>
-        </Stack>
+      <CalendarRange
+        value={range}
+        onChange={val => setRange(val as [Date, Date])}
+        showDayOfWeek
+        headerDateFormat="MMMM yyyy"
+        direction="future"
+        preset="future"
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {range
+          ? `${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
       </Stack>
     </Card>
   );
@@ -582,76 +383,80 @@ export const MultiviewWithFuturePresets = () => {
 export const MultiviewWithCombinedPresets = () => {
   const [range, setRange] = useState<[Date, Date]>();
 
-  const presetRanges = [
-    {
-      label: 'Last Week',
-      value: [subDays(new Date(), 7), new Date()] as [Date, Date]
-    },
-    {
-      label: 'Next Week',
-      value: [new Date(), addDays(new Date(), 7)] as [Date, Date]
-    },
-    {
-      label: 'Last Month',
-      value: [
-        startOfMonth(subMonths(new Date(), 1)),
-        endOfMonth(subMonths(new Date(), 1))
-      ] as [Date, Date]
-    },
-    {
-      label: 'This Month',
-      value: [startOfMonth(new Date()), endOfMonth(new Date())] as [Date, Date]
-    },
-    {
-      label: 'Next Month',
-      value: [
-        startOfMonth(addMonths(new Date(), 1)),
-        endOfMonth(addMonths(new Date(), 1))
-      ] as [Date, Date]
-    },
-    {
-      label: 'Last Quarter',
-      value: [subMonths(new Date(), 3), new Date()] as [Date, Date]
-    },
-    {
-      label: 'Next Quarter',
-      value: [new Date(), addMonths(new Date(), 3)] as [Date, Date]
-    }
-  ];
+  return (
+    <Card>
+      <CalendarRange
+        value={range}
+        onChange={val => setRange(val as [Date, Date])}
+        showDayOfWeek
+        headerDateFormat="MMMM yyyy"
+        preset="combined"
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {range
+          ? `${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
+export const WithCustomPresets = () => {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+
+  const CustomContent = () => {
+    const customPresets = [
+      {
+        label: 'Start of Business Day',
+        value: setHours(setMinutes(setSeconds(new Date(), 0), 0), 9)
+      },
+      {
+        label: 'End of Business Day',
+        value: setHours(setMinutes(setSeconds(new Date(), 0), 0), 17)
+      },
+      {
+        label: 'Next Business Day',
+        value: setHours(setMinutes(setSeconds(addDays(new Date(), 1), 0), 0), 9)
+      }
+    ];
+
+    return (
+      <Stack direction="column" className="h-full p-2">
+        <div className="text-sm font-medium mb-4">Quick Actions</div>
+        {customPresets.map(preset => (
+          <Button
+            key={preset.label}
+            variant="text"
+            size="sm"
+            className="justify-start mb-2 hover:bg-gray-100 dark:hover:bg-gray-800"
+            onClick={() => setDate(preset.value)}
+          >
+            {preset.label}
+          </Button>
+        ))}
+        <Divider className="my-4" />
+        <div className="text-sm font-medium mb-2">Current Selection</div>
+        <div className="text-sm text-gray-500 dark:text-gray-400">
+          {date ? format(date, 'PPP p') : 'No date selected'}
+        </div>
+      </Stack>
+    );
+  };
 
   return (
     <Card>
-      <Stack direction="row" className="gap-4">
-        <Stack
-          direction="column"
-          className="gap-1 border-r border-gray-200 dark:border-gray-700 pr-4 min-w-[140px]"
-        >
-          {presetRanges.map(preset => (
-            <Button
-              key={preset.label}
-              variant="text"
-              size="sm"
-              className="justify-start hover:bg-gray-100 dark:hover:bg-gray-800"
-              onClick={() => setRange(preset.value)}
-            >
-              {preset.label}
-            </Button>
-          ))}
-        </Stack>
-        <Stack direction="column" className="gap-4 flex-1">
-          <CalendarRange
-            value={range}
-            onChange={val => setRange(val as [Date, Date])}
-            showDayOfWeek
-            headerDateFormat="MMMM yyyy"
-          />
-          <Divider />
-          <Stack justifyContent="center">
-            {range
-              ? `${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
-              : 'No date selected'}
-          </Stack>
-        </Stack>
+      <Calendar
+        value={date}
+        onChange={(newDate: Date) => setDate(newDate)}
+        showDayOfWeek
+        showToday
+        showTime
+        preset={<CustomContent />}
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {date ? format(date, 'PPP p') : 'No date selected'}
       </Stack>
     </Card>
   );

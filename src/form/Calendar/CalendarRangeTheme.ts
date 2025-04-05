@@ -20,7 +20,9 @@ export const calendarRangeTheme: CalendarRangeTheme = {
   header: baseTheme.header,
   title: baseTheme.title,
   content: baseTheme.content,
-  days: calendarTheme.days
+  days: calendarTheme.days,
+  inputPreview: calendarTheme.inputPreview,
+  presets: calendarTheme.presets
 };
 
 export const legacyCalendarRangeTheme: CalendarRangeTheme = {
@@ -28,5 +30,7 @@ export const legacyCalendarRangeTheme: CalendarRangeTheme = {
   header: baseTheme.header,
   title: baseTheme.title,
   content: baseTheme.content,
-  days: calendarTheme.days
+  days: calendarTheme.days,
+  inputPreview: calendarTheme.inputPreview,
+  presets: calendarTheme.presets
 };

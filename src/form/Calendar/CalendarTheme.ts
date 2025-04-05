@@ -54,6 +54,18 @@ export interface CalendarTheme {
       selected: string;
     };
   };
+  presets: {
+    base: string;
+    content: string;
+    group: {
+      base: string;
+      title: string;
+    };
+    button: {
+      base: string;
+      active: string;
+    };
+  };
 }
 
 const baseTheme: CalendarTheme = {
@@ -119,6 +131,19 @@ const baseTheme: CalendarTheme = {
       base: 'py-0.5 px-0.5 text-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors',
       selected:
         'font-semibold bg-primary-100 text-primary-700 dark:bg-primary-700 dark:text-primary-100'
+    }
+  },
+  presets: {
+    base: 'relative h-59 max-w-52 before:absolute before:right-0 before:top-5.75 before:bottom-0 before:w-px before:bg-gray-200 dark:before:bg-gray-700 pr-1',
+    content: 'h-full overflow-y-auto',
+    group: {
+      base: 'mb-3',
+      title: 'text-xs font-medium text-gray-500 dark:text-gray-400 mb-1 px-2'
+    },
+    button: {
+      base: 'justify-start hover:bg-gray-100 dark:hover:bg-gray-800 w-full text-left',
+      active:
+        'bg-gray-100 dark:bg-gray-800 text-primary-600 dark:text-primary-400'
     }
   }
 };
@@ -186,6 +211,10 @@ export const calendarTheme: CalendarTheme = {
         'bg-blue-500 text-white dark:bg-blue-600 dark:text-white'
       ].join(' ')
     }
+  },
+  presets: {
+    ...baseTheme.presets,
+    base: [baseTheme.presets.base, 'flex'].join(' ')
   }
 };
 
