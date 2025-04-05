@@ -489,3 +489,22 @@ export const WithCustomPresets = () => {
     </>
   );
 };
+
+// monthsToDisplay usage
+export const MonthsToDisplay = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <>
+      <Card>
+        <CalendarRange
+          value={range}
+          onChange={val => setRange(val as [Date, Date])}
+          showDayOfWeek
+          headerDateFormat="MMMM yyyy"
+          monthsToDisplay={3}
+        />
+      </Card>
+    </>
+  );
+};

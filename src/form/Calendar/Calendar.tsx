@@ -33,125 +33,14 @@ import { Divider } from '@/layout/Divider';
 import { useContentHeight } from './hooks/useContentHeight';
 import { CalendarTimes } from './CalendarTimes';
 import { CalendarInputs } from './CalendarInputs';
-import { CalendarPresets, PresetType } from './CalendarPresets';
+import { CalendarPresets } from './CalendarPresets';
 import { Stack } from '@/layout/Stack';
+import { SingleCalendarProps, CalendarViewType } from './hooks/useCalendar';
+import { PresetType } from './CalendarPresets';
 
-export type CalendarViewType = 'days' | 'months' | 'years';
+export type { SingleCalendarProps as CalendarProps };
 
-export type CalendarPresetType =
-  | 'past' // Shows past date presets (e.g., "Last 7 days", "Last month")
-  | 'future' // Shows future date presets (e.g., "Next 7 days", "Next month")
-  | 'combined' // Shows both past and future presets
-  | React.ReactNode; // Custom preset content
-
-export interface CalendarProps {
-  /**
-   * The selected date(s) for the calendar.
-   */
-  value?:
-    | Date
-    | [Date, Date]
-    | [Date, undefined]
-    | [undefined, undefined]
-    | undefined;
-
-  /**
-   * The minimum selectable date for the calendar.
-   */
-  min?: Date;
-
-  /**
-   * The maximum selectable date for the calendar.
-   * Can also be set to 'now' to use the current date.
-   */
-  max?: Date | 'now';
-
-  /**
-   * Whether the calendar is disabled.
-   */
-  disabled?: boolean;
-
-  /**
-   * Whether the calendar is a range picker.
-   */
-  isRange?: boolean;
-
-  /**
-   * The text or icon to use for next.
-   */
-  nextArrow?: React.ReactNode | string;
-
-  /**
-   * The text or icon to use for previous.
-   */
-  previousArrow?: React.ReactNode | string;
-
-  /**
-   * The text or icon to use for next year.
-   */
-  nextYearArrow?: React.ReactNode | string;
-
-  /**
-   * The text or icon to use for previous year.
-   */
-  previousYearArrow?: React.ReactNode | string;
-
-  /**
-   * Whether to display day of week labels
-   */
-  showDayOfWeek?: boolean;
-
-  /**
-   * Whether to highlight the today.
-   */
-  showToday?: boolean;
-
-  /**
-   * Whether to animate the calendar.
-   */
-  animated?: boolean;
-
-  /**
-   * A callback function that is called when the selected date(s) change.
-   */
-  onChange?: (value: Date | [Date, Date]) => void;
-
-  /**
-   * A callback function that is called when the calendar view changes.
-   */
-  onViewChange?: (view: CalendarViewType) => void;
-
-  /**
-   * Theme for the Calendar.
-   */
-  theme?: CalendarTheme;
-
-  /**
-   * Whether to show the input preview.
-   */
-  showInputPreview?: boolean;
-
-  /**
-   * Whether to show the time picker.
-   */
-  showTime?: boolean;
-
-  /**
-   * Preset configuration for the calendar.
-   * - 'past': Shows past date presets
-   * - 'future': Shows future date presets
-   * - 'combined': Shows both past and future presets
-   * - ReactNode: Custom preset content
-   *
-   * Default behavior:
-   * - Calendar: 'combined' for single dates
-   * - Calendar with time: 'combined' with time presets
-   * - CalendarRange: 'past' or 'future' based on direction
-   */
-  preset?: CalendarPresetType;
-}
-
-export const Calendar: FC<CalendarProps> = ({
+export const Calendar: FC<SingleCalendarProps> = ({
   min,
   max,
   value,

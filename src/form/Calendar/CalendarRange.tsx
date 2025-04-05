@@ -26,7 +26,6 @@ import {
 } from 'date-fns';
 import { AnimatePresence, motion } from 'motion/react';
 import { Button } from '@/elements';
-import { CalendarProps, CalendarPresetType } from './Calendar';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
@@ -36,70 +35,16 @@ import { useComponentTheme } from '@/utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
 import { twMerge } from 'tailwind-merge';
 import { useContentHeight } from './hooks/useContentHeight';
-import { CalendarPresets, PresetType } from './CalendarPresets';
+import { CalendarPresets } from './CalendarPresets';
+import { RangeCalendarProps } from './hooks/useCalendar';
+import { PresetType } from './CalendarPresets';
 
 // Type for the state tracking which picker is open for which pane
 type PickerState = { view: 'months' | 'years'; paneIndex: number } | null;
 
-export interface CalendarRangeProps
-  extends Omit<
-    CalendarProps,
-    'value' | 'isRange' | 'onViewChange' | 'theme' | 'preset'
-  > {
-  /**
-   * The selected date(s) for the calendar.
-   */
-  value?:
-    | [Date, Date]
-    | [undefined, undefined]
-    | [Date | undefined]
-    | undefined;
+export type { RangeCalendarProps as CalendarRangeProps };
 
-  /**
-   * The number of calendar months to display.
-   */
-  monthsToDisplay?: number;
-
-  /**
-   * Defaults view to show past or future months if multiple months shown.
-   */
-  direction?: 'past' | 'future';
-
-  /**
-   * The text or icon to use for next year.
-   */
-  nextYearArrow?: React.ReactNode | string;
-
-  /**
-   * The text or icon to use for previous year.
-   */
-  previousYearArrow?: React.ReactNode | string;
-
-  /**
-   * The format of the date displayed in the calendar header.
-   */
-  headerDateFormat?: string;
-
-  /**
-   * Theme for the CalendarRange.
-   */
-  theme?: CalendarRangeTheme;
-
-  /**
-   * Preset configuration for the calendar range.
-   * - 'past': Shows past date range presets
-   * - 'future': Shows future date range presets
-   * - 'combined': Shows both past and future range presets
-   * - ReactNode: Custom preset content
-   *
-   * Default behavior:
-   * - Automatically uses 'past' or 'future' based on direction prop
-   * - Falls back to 'past' if no direction is specified
-   */
-  preset?: CalendarPresetType;
-}
-
-export const CalendarRange: FC<CalendarRangeProps> = ({
+export const CalendarRange: FC<RangeCalendarProps> = ({
   min,
   max,
   value,
@@ -133,6 +78,12 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   const [rightPaneDate, setRightPaneDate] = useState<Date>(
     addMonths(date || new Date(), 1)
   );
+  const [paneDates, setPaneDates] = useState<Date[]>(() => {
+    const initialDate = date || new Date();
+    return Array.from({ length: monthsToDisplay }, (_, i) =>
+      addMonths(initialDate, direction === 'past' ? -i : i)
+    );
+  });
   const [scrollDirection, setScrollDirection] = useState<
     'forward' | 'back' | null
   >(null);
@@ -193,7 +144,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
 
   // Replace viewValue calculations with pane-specific dates
   const getPaneDate = (paneIndex: number): Date => {
-    return paneIndex === 0 ? leftPaneDate : rightPaneDate;
+    return paneDates[paneIndex];
   };
 
   const handleYearSelect = useCallback(
@@ -253,26 +204,22 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   // Update navigation handlers to use both pane dates
   const previousClickHandler = useCallback(() => {
     setScrollDirection('back');
-    setLeftPaneDate(prev => subMonths(prev, 1));
-    setRightPaneDate(prev => subMonths(prev, 1));
+    setPaneDates(prev => prev.map(date => subMonths(date, 1)));
   }, []);
 
   const previousYearClickHandler = useCallback(() => {
     setScrollDirection('back');
-    setLeftPaneDate(prev => subYears(prev, 1));
-    setRightPaneDate(prev => subYears(prev, 1));
+    setPaneDates(prev => prev.map(date => subYears(date, 1)));
   }, []);
 
   const nextClickHandler = useCallback(() => {
     setScrollDirection('forward');
-    setLeftPaneDate(prev => addMonths(prev, 1));
-    setRightPaneDate(prev => addMonths(prev, 1));
+    setPaneDates(prev => prev.map(date => addMonths(date, 1)));
   }, []);
 
   const nextYearClickHandler = useCallback(() => {
     setScrollDirection('forward');
-    setLeftPaneDate(prev => addYears(prev, 1));
-    setRightPaneDate(prev => addYears(prev, 1));
+    setPaneDates(prev => prev.map(date => addYears(date, 1)));
   }, []);
 
   const xAnimation = useMemo(() => {
@@ -363,7 +310,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
             )}
           >
             <div className="flex w-full justify-around">
-              {[0, 1].map(paneIndex => {
+              {displayMonths.map(paneIndex => {
                 const paneDate = getPaneDate(paneIndex);
                 const isPickerOpenForPane =
                   pickerState?.paneIndex === paneIndex;
@@ -438,7 +385,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         <Divider />
         {/* Render each pane */}
         <div className={theme.content}>
-          {[0, 1].map(paneIndex => {
+          {displayMonths.map(paneIndex => {
             const paneDate = getPaneDate(paneIndex);
             const paneYear = getYear(paneDate);
             const paneMonth = getMonth(paneDate);
