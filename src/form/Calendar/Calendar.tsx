@@ -194,16 +194,23 @@ export const Calendar: FC<CalendarProps> = ({
     (newDate: Date) => {
       let finalDate = newDate;
       if (showTime && value) {
-        const originalTimeSource = Array.isArray(value)
-          ? rangeStart ?? value[0] ?? new Date()
-          : value ?? new Date();
-        finalDate = setSeconds(
-          setMinutes(
-            setHours(newDate, getHours(originalTimeSource)),
-            getMinutes(originalTimeSource)
-          ),
-          getSeconds(originalTimeSource)
-        );
+        const hasTime =
+          getHours(newDate) !== 0 ||
+          getMinutes(newDate) !== 0 ||
+          getSeconds(newDate) !== 0;
+
+        if (!hasTime) {
+          const originalTimeSource = Array.isArray(value)
+            ? rangeStart ?? value[0] ?? new Date()
+            : value ?? new Date();
+          finalDate = setSeconds(
+            setMinutes(
+              setHours(newDate, getHours(originalTimeSource)),
+              getMinutes(originalTimeSource)
+            ),
+            getSeconds(originalTimeSource)
+          );
+        }
       }
 
       if (!isRange) {
