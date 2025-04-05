@@ -76,6 +76,11 @@ export interface BaseCalendarProps {
    * Whether to show the time picker.
    */
   showTime?: boolean;
+
+  /**
+   * Callback when clicking the OK button in time picker mode
+   */
+  onOk?: (value: Date | [Date, Date]) => void;
 }
 
 export interface SingleCalendarProps extends BaseCalendarProps {
@@ -103,11 +108,6 @@ export interface SingleCalendarProps extends BaseCalendarProps {
    * A callback function that is called when the selected date(s) change.
    */
   onChange?: (value: Date | [Date, Date]) => void;
-
-  /**
-   * Callback when clicking the OK button in time picker mode
-   */
-  onOk?: (value: Date | [Date, Date]) => void;
 }
 
 export interface RangeCalendarProps extends BaseCalendarProps {
@@ -140,11 +140,6 @@ export interface RangeCalendarProps extends BaseCalendarProps {
    * A callback function that is called when the selected date(s) change.
    */
   onChange?: (value: [Date, Date]) => void;
-
-  /**
-   * Callback when clicking the OK button in time picker mode
-   */
-  onOk?: (value: [Date, Date]) => void;
 }
 
 export type UseCalendarProps = SingleCalendarProps | RangeCalendarProps;
