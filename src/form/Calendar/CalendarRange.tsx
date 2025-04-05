@@ -791,7 +791,7 @@ export const CalendarRange: FC<RangeCalendarProps> = ({
       {onOk && (
         <div className="flex justify-between mt-4 pt-2 border-t border-gray-200 dark:border-gray-700">
           <Button
-            variant="filled"
+            variant="text"
             size="small"
             disabled={disabled}
             onClick={handleThisWeekClick}
