@@ -1,3 +1,6 @@
+# 9.0.2 - 4/07/25
+- [fix] Fix syntax errors in class names that cause an error when using prebuilt styles without tailwind 
+
 # 9.0.1 - 4/03/25
 - [feature] Expose close method from NestedMenu component via ref
 
