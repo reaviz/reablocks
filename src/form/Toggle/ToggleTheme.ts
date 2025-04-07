@@ -63,9 +63,9 @@ export const legacyToggleTheme: ToggleTheme = {
   ].join(' '),
   sizes: {
     small:
-      'h-[calc(var(--toggle-height,35px)_/_2)] w-[calc(var(--toggle-width,55px)_/_2)] pt-[calc(var(--toggle-spacing)] pb-[2)] px-[/]',
+      'h-[calc(var(--toggle-height,35px)_/_2)] w-[calc(var(--toggle-width,55px)_/_2)] pt-[calc(var(--toggle-spacing)] pb-[2)]',
     medium:
-      'h-[calc(var(--toggle-height,35px)_/_1.5)] w-[calc(var(--toggle-width,55px)_/_1.5)] pt-[calc(var(--toggle-spacing)] pb-[1.5)] px-[/]',
+      'h-[calc(var(--toggle-height,35px)_/_1.5)] w-[calc(var(--toggle-width,55px)_/_1.5)] pt-[calc(var(--toggle-spacing)] pb-[1.5)]',
     large:
       'h-[var(--toggle-height,35px)] w-[var(--toggle-width,55px)] pt-[var(--toggle-spacing)] pr-[var(--toggle-spacing)] pb-[var(--toggle-spacing)] pl-[var(--toggle-spacing)]'
   },
