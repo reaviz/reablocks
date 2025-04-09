@@ -1,5 +1,4 @@
 import React, { FC, ReactElement } from 'react';
-import classNames from 'classnames';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
 import { useId, CloneElement } from '@/utils';
 import FocusTrap from 'focus-trap-react';
@@ -132,7 +131,7 @@ export const Dialog: FC<DialogProps> = ({
                 )}
                 <section
                   id={`${id}-content`}
-                  className={classNames(
+                  className={twMerge(
                     theme.content,
                     contentClassName,
                     !header && 'p-[20px]',
