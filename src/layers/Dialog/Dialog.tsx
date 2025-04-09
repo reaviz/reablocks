@@ -1,9 +1,8 @@
 import React, { FC, ReactElement } from 'react';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
-import { useId, CloneElement } from '@/utils';
+import { useId, CloneElement, cn } from '@/utils';
 import FocusTrap from 'focus-trap-react';
 import { motion, MotionProps } from 'motion/react';
-import { twMerge } from 'tailwind-merge';
 import { DialogHeader, DialogHeaderProps } from './DialogHeader';
 import { useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
@@ -112,11 +111,11 @@ export const Dialog: FC<DialogProps> = ({
               exit={{ opacity: 0, y: '20%' }}
               transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
               style={{ zIndex: overlayIndex }}
-              className={twMerge(theme.base, className)}
+              className={cn(theme.base, className)}
               {...rest}
             >
               <div
-                className={twMerge(theme.inner, innerClassName)}
+                className={cn(theme.inner, innerClassName)}
                 style={{ width: size }}
               >
                 {(header || headerElement) && (
@@ -131,12 +130,10 @@ export const Dialog: FC<DialogProps> = ({
                 )}
                 <section
                   id={`${id}-content`}
-                  className={twMerge(
-                    theme.content,
-                    contentClassName,
-                    !header && 'p-[20px]',
-                    disablePadding && 'pt-0 pb-0 pl-0 pr-0'
-                  )}
+                  className={cn(theme.content, contentClassName, {
+                    'p-[20px]': !header,
+                    'pt-0 pb-0 pl-0 pr-0': disablePadding
+                  })}
                 >
                   {typeof children === 'function' ? children() : children}
                 </section>
