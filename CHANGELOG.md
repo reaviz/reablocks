@@ -1,4 +1,7 @@
-# 9.0.3 - 4/09/25
+# 9.0.4 - 4/09/25
+- [fix] Fixed classes merge issue for TabList component
+- 
+- # 9.0.3 - 4/09/25
 - [fix] Fixed classes merge issue for Dialog component 
 
 # 9.0.2 - 4/07/25
