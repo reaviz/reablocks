@@ -2,8 +2,6 @@ import React, { FC, PropsWithChildren, Children } from 'react';
 import { Tab } from './Tab';
 import { cn, useComponentTheme } from '@/utils';
 import { TabsTheme } from './TabsTheme';
-import { twMerge } from 'tailwind-merge';
-import classNames from 'classnames';
 
 export interface TabListProps extends PropsWithChildren {
   /**
@@ -73,11 +71,9 @@ export const TabList: FC<TabListProps> = ({
   return (
     <nav
       role="tablist"
-      className={twMerge(
-        classNames(className, theme.list.base, {
-          'justify-end': direction === 'rtl'
-        })
-      )}
+      className={cn(theme.list.base, className, {
+        'justify-end': direction === 'rtl'
+      })}
     >
       {childs.map(({ children, ...rest }, index) => (
         <Tab
