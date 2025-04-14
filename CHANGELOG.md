@@ -1,6 +1,9 @@
+# 9.0.5 - 4/14/25
+- [fix] Do not unselect option when paste already selected value #291
+
 # 9.0.4 - 4/09/25
 - [fix] Fixed classes merge issue for TabList component
-- 
+
 - # 9.0.3 - 4/09/25
 - [fix] Fixed classes merge issue for Dialog component 
 
