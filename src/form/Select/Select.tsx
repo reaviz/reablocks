@@ -702,7 +702,9 @@ export const Select: FC<SelectProps> = ({
           );
           const expression = `[${separators}]`;
           const regex = new RegExp(expression, 'g');
-          const items = value.split(regex);
+          const items = value
+            .split(regex)
+            .filter(item => !internalValue?.includes(item));
           const result = toggleSelectedMultiOption(
             items.map(item => ({ value: item, children: item }))
           );
