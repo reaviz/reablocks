@@ -14,7 +14,7 @@ export function getHotkeyText(hotkey: string) {
     .replace('modifier', MODIFIER_KEY)
     .replace('mod', MODIFIER_KEY)
     .replace('meta', MODIFIER_KEY)
-    .replace('shift', '⌥')
+    .replace('shift', '⇧')
     .replace('plus', '+')
     .replace('minus', '-');
 }
