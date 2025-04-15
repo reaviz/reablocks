@@ -1,3 +1,6 @@
+# 9.0.6 - 4/15/25
+- [fix] Fix shift hotkey text in Kbd #292
+
 # 9.0.5 - 4/14/25
 - [fix] Do not unselect option when paste already selected value #291
 
