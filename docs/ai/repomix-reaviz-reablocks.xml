@@ -720,7 +720,7 @@ Browser:
 - [ ] Safari (iOS) version XX
 - [ ] IE version XX
 - [ ] Edge version XX
- 
+
 For Tooling issues:
 - Node version: XX  <!-- run `node --version` -->
 - Platform:  <!-- Mac, Linux, Windows -->
@@ -12018,10 +12018,10 @@ function buildDocs() {
         const hasPropAdditionalDescription = prop.declarations.find((declaration) => {
           return !declaration.fileName.includes('node_modules');
         });
-  
+
         return Boolean(hasPropAdditionalDescription);
       }
-  
+
       return true;
     },
   };
@@ -40498,10 +40498,10 @@ overrides:
 - [fix] Fixed classes merge issue for TabList component
 
 - # 9.0.3 - 4/09/25
-- [fix] Fixed classes merge issue for Dialog component 
+- [fix] Fixed classes merge issue for Dialog component
 
 # 9.0.2 - 4/07/25
-- [fix] Fix syntax errors in class names that cause an error when using prebuilt styles without tailwind 
+- [fix] Fix syntax errors in class names that cause an error when using prebuilt styles without tailwind
 
 # 9.0.1 - 4/03/25
 - [feature] Expose close method from NestedMenu component via ref
@@ -40586,7 +40586,7 @@ overrides:
 
 # 8.4.4 - 7/30/24
 - [improvement] Added format of the date displayed in the calendar header
-- 
+-
 # 8.4.3 - 7/25/24
 - [improvement] allow wildcards on theme hook
 
@@ -40683,13 +40683,13 @@ overrides:
 
 # 7.9.5 - 5/29/24
 - [chore] testing typedoc build
- 
+
 # 7.9.4 - 5/28/24
 - [fix] improve select theme
 - [fix] make tooltip `content` optional for reaviz fix
 
 # 7.9.3 - 5/27/24
-- [fix] fix adding new item for creatable Select with disabled menu 
+- [fix] fix adding new item for creatable Select with disabled menu
 
 # 7.9.2 - 5/23/24
 - [fix] fix date input exports
@@ -40702,8 +40702,8 @@ overrides:
 - [feat] Add Profile blocks
 
 # 7.8.0 - 5/22/24
-- [feature] Add ability to extend colors in component themes #211 
-- [feature] Add Account profile block #210 
+- [feature] Add ability to extend colors in component themes #211
+- [feature] Add Account profile block #210
 
 # 7.7.4 - 5/22/24
 - [chore] use json tree instead of syntax highlighter
@@ -41470,5 +41470,1914 @@ export default defineConfig(({ mode }) =>
     }
 );
 </file>
+
+<file path="pages/docs/api/_meta.json">
+{
+  "models": "Models",
+  "components": "Components"
+}
+</file>
+
+<file path="pages/docs/api/components.mdx">
+import { PropsTable } from '@/components/ui/props-table';
+import diagram from './architecture.png';
+
+# Components API
+## Diagram
+Below is a diagram of the components that make up the package.
+
+<br />
+<img src={diagram.src} alt="Architecture" width="75%" style={{ margin: '0 auto' }} />
+
+## Components
+Below is the API for the components.
+
+### Chat
+<PropsTable name="Chat" />
+
+### ChatInput
+<PropsTable name="ChatInput" />
+
+### SessionList
+<PropsTable name="SessionList" />
+
+### SessionListItem
+<PropsTable name="SessionListItem" />
+
+### SessionGroups
+<PropsTable name="SessionGroups" />
+
+### SessionGroup
+<PropsTable name="SessionGroup" />
+
+### NewSessionButton
+<PropsTable name="NewSessionButton" />
+
+### SessionMessages
+<PropsTable name="SessionMessages" />
+
+### SessionMessage
+<PropsTable name="SessionMessage" />
+
+### SessionMessagePanel
+<PropsTable name="SessionMessagePanel" />
+
+### SessionMessagesHeader
+<PropsTable name="SessionMessagesHeader" />
+
+### SessionEmpty
+<PropsTable name="SessionEmpty" />
+
+### MessageSources
+<PropsTable name="MessageSources" />
+
+### MessageSource
+<PropsTable name="MessageSource" />
+
+### MessageActions
+<PropsTable name="MessageActions" />
+
+### MessageQuestion
+<PropsTable name="MessageQuestion" />
+
+### MessageResponse
+<PropsTable name="MessageResponse" />
+
+### MessageFiles
+<PropsTable name="MessageFiles" />
+
+### MessageFile
+<PropsTable name="MessageFile" />
+</file>
+
+<file path="pages/docs/api/models.mdx">
+# API Models
+Below is the API for the `sessions` and `conversations` data.
+
+## `Session`
+```ts
+export interface Session {
+  /**
+   * Unique identifier for the session
+   */
+  id: string;
+
+  /**
+   * Title of the session
+   */
+  title?: string;
+
+  /**
+   * Date and time when the session was created
+   */
+  createdAt?: Date;
+
+  /**
+   * Date and time when the session was last updated
+   */
+  updatedAt?: Date;
+
+  /**
+   * Array of conversations within this session
+   */
+  conversations: Conversation[];
+}
+```
+
+
+## `Conversation`
+```ts
+export interface Conversation {
+  /**
+   * Unique identifier for the conversation
+   */
+  id: string;
+
+  /**
+   * Date and time when the conversation was created
+   */
+  createdAt: Date;
+
+  /**
+   * Date and time when the conversation was last updated
+   */
+  updatedAt?: Date;
+
+  /**
+   * The user's question or input that initiated the conversation
+   */
+  question: string;
+
+  /**
+   * The AI's response to the user's question
+   */
+  response?: string;
+
+  /**
+   * Array of sources referenced in the conversation
+   */
+  sources?: ConversationSource[];
+
+  /**
+   * Array of file paths or identifiers associated with the conversation
+   */
+  files?: ConversationFile[];
+}
+```
+
+## `ConversationSource`
+```ts
+export interface ConversationSource {
+  /**
+   * URL of the source, if applicable
+   */
+  url?: string;
+
+  /**
+   * Title or description of the source
+   */
+  title?: string;
+
+  /**
+   * Image URL of the source, if applicable.
+   */
+  image?: string;
+}
+```
+
+## `ConversationFile`
+```ts
+export interface ConversationFile {
+  /**
+   * Name of the file
+   */
+  name: string;
+
+  /**
+   * Type of the file
+   */
+  type?: string;
+
+  /**
+   * Size of the file
+   */
+  size?: number;
+
+  /**
+   * URL of the file
+   */
+  url?: string;
+}
+```
+</file>
+
+<file path="pages/docs/customization/_meta.json">
+{
+  "theme": "Theme",
+  "custom": "Custom Components",
+  "markdown": "Markdown Plugins"
+}
+</file>
+
+<file path="pages/docs/customization/custom.mdx">
+## Custom Components
+reachat is completely customizable. You can change the look and feel of the chat by
+customizing the theme or by providing your own components. Components can even be overriden using
+[slots](https://radix-ui.com/docs/primitives/slots).
+
+### Custom Components Example
+Below is example markup that creates a custom session empty message and also
+provides a custom session list item.
+
+```tsx
+const CustomSessionMessage: FC<any> = ({
+  question,
+  response
+}) => (
+  <div className="p-4 border border-blue-500 rounded mb-4">
+    <span className="text-lg font-semibold text-blue-500">
+      This is my question: {question}
+    </span>
+    <br />
+    This is the response: {response}
+  </div>
+);
+
+const CustomSessionListItem: FC<SessionListItemProps> = ({ session }) => {
+  const [open, setOpen] = useState(false);
+  const btnRef = useRef(null);
+  return (
+    <>
+      <ListItem
+        end={
+          <IconButton
+            ref={btnRef}
+            size="small"
+            variant="text"
+            onClick={e => {
+              e.stopPropagation();
+              setOpen(true);
+            }}
+          >
+            <MenuIcon />
+          </IconButton>
+        }
+      >
+        <span className="truncate">{session.title}</span>
+      </ListItem>
+      <Menu open={open} onClose={() => setOpen(false)} reference={btnRef}>
+        <Card disablePadding>
+          <List>
+            <ListItem onClick={() => alert('rename')}>Rename</ListItem>
+            <ListItem onClick={() => alert('delete')}>Delete</ListItem>
+          </List>
+        </Card>
+      </Menu>
+    </>
+  );
+};
+```
+
+Then in the master component you can leverage them like:
+
+```tsx
+export const CustomComponents = () => {
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        right: 0,
+        bottom: 0,
+        padding: 20,
+        margin: 20,
+        background: '#02020F',
+        borderRadius: 5
+      }}
+    >
+      <Sessions sessions={fakeSessions}>
+        <SessionsList>
+          <NewSessionButton>
+            <button className="text-blue-500">New Session</button>
+          </NewSessionButton>
+          <Divider />
+          <SessionGroups>
+            {groups =>
+              groups.map(({ heading, sessions }) => (
+                <SessionsGroup heading={heading} key={heading}>
+                  {sessions.map(s => (
+                    <SessionListItem key={s.id} session={s}>
+                      <CustomSessionListItem session={s} />
+                    </SessionListItem>
+                  ))}
+                </SessionsGroup>
+              ))
+            }
+          </SessionGroups>
+        </SessionsList>
+        <div className="flex-1 h-full flex flex-col">
+          <SessionMessages>
+            <CustomSessionMessage />
+          </SessionMessages>
+          <SessionInput />
+        </div>
+      </Sessions>
+    </div>
+  );
+};
+```
+
+### Using SessionContext
+The `SessionContext` hook provides access to the current session state and methods to
+interact with it. Here's how you can use it:
+
+```tsx
+import { useSessionContext } from 'reachat';
+
+const CustomSendButton = () => {
+  const { sendMessage } = useSessionContext();
+  const handleSend = () => {
+    sendMessage('Hello, AI!');
+    return <button onClick={handleSend}>Send Custom Message</button>;
+  };
+};
+```
+
+The `SessionContext` hook provides the following properties and methods:
+
+```ts
+export interface SessionContextProps {
+  sessions: Session[];
+  activeSessionId: string | null;
+  theme?: ChatTheme;
+  isLoading?: boolean;
+  activeSession?: Session | null;
+  remarkPlugins?: PluggableList[];
+  selectSession?: (sessionId: string) => void;
+  deleteSession?: (sessionId: string) => void;
+  createSession?: () => void;
+}
+```
+
+By using these overrides and the `SessionContext` hook, you can create a fully customized chat
+experience while still leveraging the core functionality of reachat.
+</file>
+
+<file path="pages/docs/customization/markdown.mdx">
+## Markdown Plugins
+reachat uses [remark](https://github.com/remarkjs/remark) to parse and render markdown.
+You can use the `remarkPlugins` prop to add custom plugins to the markdown parser.
+Any plugin that is supported by remark should work here as well.
+
+### Pre-packaged plugins
+Out of the box, we provide a sample plugin but we plan to expand this later on.
+
+- [CVE Plugin](https://github.com/reaviz/reachat/blob/master/src/Markdown/plugins/remarkCve.ts)
+
+You can view the [Storybook Stories](https://storybook.reachat.dev) for more examples.
+
+### Writing your own plugin
+
+We will build a plugin that will identify and render CVE links. Below is a sample response:
+
+```md
+Please review the following CVEs:
+
+- CVE-2021-34527
+- CVE-2021-44228
+- CVE-2021-45046
+```
+
+We can leverage the `remarkPlugins` prop to add custom plugins to the markdown parser. Below
+is an example of the plugin code:
+
+```ts
+import { findAndReplace } from 'mdast-util-find-and-replace';
+
+const CVE_REGEX = /(CVE-(19|20)\d{2}-\d{4,7})/gi;
+
+export function remarkCve() {
+  return (tree, _file) => {
+    findAndReplace(tree, [[
+      CVE_REGEX,
+      replaceCve as unknown as any
+    ]]);
+  };
+
+  function replaceCve(value, id) {
+    return [
+      {
+        type: 'link',
+        url: `https://cve.mitre.org/cgi-bin/cvename.cgi?name=${id}`,
+        children: [
+          { children: [{ type: 'text', value: value.trim() }] }
+        ]
+      }
+    ];
+  }
+}
+```
+
+After you integrate this into your app, the above markdown will render as follows:
+
+```md
+Please review the following CVEs:
+
+- [CVE-2021-34527](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-34527)
+- [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228)
+- [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046)
+```
+
+To leverage our new plugin, we need to include it in the `remarkPlugins` prop.
+
+```tsx
+import { Chat } from 'reachat';
+import { remarkCve } from 'PATH_YOU_SAVED_THE_PLUGIN';
+
+export function App() {
+  return (
+    <Chat remarkPlugins={[remarkCve]}>
+      ...rest of your code...
+    </Chat>
+  );
+}
+```
+</file>
+
+<file path="pages/docs/customization/theme.mdx">
+# Themeing
+
+You can theme reachat by passing a custom `theme` to the `Session` component.
+
+```tsx
+export default function App() {
+  return <Sessions theme={theme} />;
+}
+```
+
+The theme interface is as follows:
+
+```ts
+export interface ChatTheme {
+  base: string;
+  console: string;
+  companion: string;
+  empty: string;
+  sessions: {
+    base: string;
+    console: string;
+    companion: string;
+    create: string;
+    group: string;
+    session: {
+      base: string;
+      active: string;
+      delete: string;
+    };
+  };
+  messages: {
+    base: string;
+    console: string;
+    companion: string;
+    back: string;
+    inner: string;
+    title: string;
+    date: string;
+    content: string;
+    header: string;
+    showMore: string;
+    message: {
+      base: string;
+      question: string;
+      response: string;
+      cursor: string;
+      files: {
+        base: string;
+        file: {
+          base: string;
+          name: string;
+        };
+      };
+      sources: {
+        base: string;
+        source: {
+          base: string;
+          image: string;
+          title: string;
+          url: string;
+        };
+      };
+      markdown: {
+        p: string;
+        a: string;
+        table: string;
+        th: string;
+        td: string;
+        code: string;
+        li: string;
+        ul: string;
+        ol: string;
+        copy: string;
+      };
+      footer: {
+        base: string;
+        copy: string;
+        upvote: string;
+        downvote: string;
+        refresh: string;
+      };
+    };
+  };
+  input: {
+    base: string;
+    upload: string;
+    input: string;
+    send: string;
+    stop: string;
+  };
+}
+```
+
+Below is an example theme:
+
+```ts
+export const chatTheme: ChatTheme = {
+  base: 'text-white',
+  console: 'flex w-full gap-5 h-full',
+  companion: 'w-full h-full overflow-hidden',
+  empty: 'text-center flex-1',
+  sessions: {
+    base: 'overflow-auto',
+    console: 'min-w-[150px] w-[30%] max-w-[300px] bg-[#11111F] p-5 rounded',
+    companion: 'w-full h-full',
+    group: 'text-xs text-gray-400 mt-4',
+    create: 'mb-4',
+    session: {
+      base: '',
+      active: ' text-primary',
+      delete: '[&>svg]:w-4 [&>svg]:h-4 opacity-50'
+    }
+  },
+  messages: {
+    base: '',
+    console: 'flex flex-col flex-1 overflow-hidden',
+    companion: 'flex w-full h-full',
+    back: 'self-start p-0 my-2',
+    inner: 'flex-1 h-full flex flex-col',
+    title: 'text-2xl font-bold',
+    date: 'text-sm whitespace-nowrap pt-2',
+    content: 'mt-2 flex-1 overflow-auto',
+    header: 'flex justify-between items-start gap-2',
+    showMore: 'mb-4',
+    message: {
+      base: 'mb-6 flex flex-col p-5 rounded',
+      question: 'font-semibold text-gray-400 mb-1',
+      response: '',
+      cursor: 'inline-block w-1 h-4 bg-current',
+      files: {
+        base: 'mb-2 flex flex-wrap gap-3 ',
+        file: {
+          base: 'flex items-center gap-2 border border-gray-700 p-2 rounded cursor-pointer',
+          name: 'text-sm'
+        }
+      },
+      sources: {
+        base: 'my-4 flex flex-wrap gap-3',
+        source: {
+          base: 'flex gap-2 border border-gray-700 p-2 rounded cursor-pointer',
+          image: 'w-6 h-6 rounded-md',
+          title: 'text-md block',
+          url: 'text-sm text-blue-700 underline'
+        }
+      },
+      markdown: {
+        copy: 'absolute right-0 top-0 [&>svg]:w-4 [&>svg]:h-4 opacity-50',
+        p: 'mb-2',
+        a: 'text-blue-700 underline',
+        table: 'table-auto w-full m-2',
+        th: 'px-4 py-2 text-left font-bold border-b border-gray-500',
+        td: 'px-4 py-2',
+        code: 'm-2 rounded',
+        li: 'mb-2 ml-6',
+        ul: 'mb-4 list-disc',
+        ol: 'mb-4 list-decimal'
+      },
+      footer: {
+        base: 'mt-3 flex gap-3',
+        copy: '[&>svg]:w-4 [&>svg]:h-4 opacity-50',
+        upvote: '[&>svg]:w-4 [&>svg]:h-4 opacity-50',
+        downvote: '[&>svg]:w-4 [&>svg]:h-4 opacity-50',
+        refresh: '[&>svg]:w-4 [&>svg]:h-4 opacity-50'
+      }
+    }
+  },
+  input: {
+    base: 'flex mt-4',
+    upload: 'px-4 py-2 text-white',
+    input: 'w-full',
+    send: 'px-4 py-2 text-white',
+    stop: 'px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700'
+  }
+};
+```
+</file>
+
+<file path="pages/docs/examples/_meta.json">
+{
+  "console": "Console",
+  "companion": "Companion",
+  "providers": "Providers"
+}
+</file>
+
+<file path="pages/docs/examples/companion.mdx">
+import {
+  Chat,
+  SessionsList,
+  SessionsGroup,
+  SessionListItem,
+  NewSessionButton,
+  SessionMessages,
+  SessionGroups,
+  ChatInput,
+  SessionMessagePanel,
+  SessionMessagesHeader,
+  SessionMessage,
+} from "reachat";
+
+# Companion
+The companion view is a compact view designed to sit in a sidebar or similar
+location. It offers the same chat experience as the console view, but is designed
+to be more compact and less cluttered.
+
+Below is a bare-bones example of a console chat. The only difference between this experience and the console
+experience is setting `viewType="companion"` on the `<Chat />` component.
+
+<div style={{ width: 350, height: '500px', backgroundColor: '#02020F', padding: 20, borderRadius: 5, margin: '20px auto' }}>
+  <Chat
+    sessions={[
+      {
+        id: '1',
+        title: 'Session 1',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        conversations: [
+          {
+            id: '1',
+            question: 'What is React?',
+            response: 'React is a JavaScript library for building user interfaces.',
+            createdAt: new Date(),
+            updatedAt: new Date()
+          },
+          {
+            id: '2',
+            question: 'What is JSX?',
+            response: 'JSX is a syntax extension for JavaScript.',
+            createdAt: new Date(),
+            updatedAt: new Date()
+          }
+        ]
+      }
+    ]}
+    viewType="companion"
+    onDeleteSession={() => alert("delete!")}
+  >
+    <SessionsList>
+      <NewSessionButton />
+      <SessionGroups>
+        {(groups) =>
+          groups.map(({ heading, sessions }) => (
+            <SessionsGroup heading={heading} key={heading}>
+              {sessions.map((s) => (
+                <SessionListItem key={s.id} session={s} />
+              ))}
+            </SessionsGroup>
+          ))
+        }
+      </SessionGroups>
+    </SessionsList>
+    <SessionMessagePanel>
+      <SessionMessagesHeader />
+      <SessionMessages>
+        {(conversations) =>
+          conversations.map((conversation) => (
+            <SessionMessage
+              key={conversation.id}
+              conversation={conversation}
+            />
+          ))
+        }
+      </SessionMessages>
+      <ChatInput />
+    </SessionMessagePanel>
+  </Chat>
+</div>
+
+Below is the code for the above example.
+
+```tsx
+<Chat
+  sessions={[
+    {
+      id: '1',
+      title: 'Session 1',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      conversations: [
+        {
+          id: '1',
+          question: 'What is React?',
+          response: 'React is a JavaScript library for building user interfaces.',
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          id: '2',
+          question: 'What is JSX?',
+          response: 'JSX is a syntax extension for JavaScript.',
+          createdAt: new Date(),
+          updatedAt: new Date()
+        }
+      ]
+    }
+  ]}
+viewType="companion"
+  onDeleteSession={() => alert("delete!")}
+  >
+  <SessionsList>
+    <NewSessionButton />
+    <SessionGroups>
+      {(groups) =>
+        groups.map(({ heading, sessions }) => (
+          <SessionsGroup heading={heading} key={heading}>
+            {sessions.map((s) => (
+              <SessionListItem key={s.id} session={s} />
+            ))}
+          </SessionsGroup>
+        ))
+      }
+    </SessionGroups>
+  </SessionsList>
+  <SessionMessagePanel>
+    <SessionMessagesHeader />
+    <SessionMessages>
+      {(conversations) =>
+        conversations.map((conversation) => (
+          <SessionMessage
+            key={conversation.id}
+            conversation={conversation}
+          />
+        ))
+      }
+    </SessionMessages>
+    <ChatInput />
+  </SessionMessagePanel>
+  </Chat>
+```
+
+For more information on how to set up a console chat, please refer to the
+[getting started documentation](/docs/getting-started/getting-started). For
+more examples of how to use Reachat, please refer to the
+[storybook demos](https://storybook.reachat.dev).
+</file>
+
+<file path="pages/docs/examples/console.mdx">
+import {
+  Chat,
+  SessionsList,
+  SessionsGroup,
+  SessionListItem,
+  NewSessionButton,
+  SessionMessages,
+  SessionGroups,
+  ChatInput,
+  SessionMessagePanel,
+  SessionMessagesHeader,
+  SessionMessage,
+} from "reachat";
+
+# Console
+The console is the default view type for Reachat. It is a full-screen view that
+allows you to chat with your bot in a console-like interface. Below is a bare-bones
+example of a console chat. Its worth noting that If the console doesn't have enough space to render
+fully it will fall back to the companion view.
+
+<div style={{ width: '100%', height: '500px', backgroundColor: '#02020F', padding: 20, borderRadius: 5, margin: '20px 0' }}>
+  <Chat
+    sessions={[
+      {
+        id: '1',
+        title: 'Session 1',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        conversations: [
+          {
+            id: '1',
+            question: 'What is React?',
+            response: 'React is a JavaScript library for building user interfaces.',
+            createdAt: new Date(),
+            updatedAt: new Date()
+          },
+          {
+            id: '2',
+            question: 'What is JSX?',
+            response: 'JSX is a syntax extension for JavaScript.',
+            createdAt: new Date(),
+            updatedAt: new Date()
+          }
+        ]
+      }
+    ]}
+    viewType="console"
+    onDeleteSession={() => alert("delete!")}
+  >
+    <SessionsList>
+      <NewSessionButton />
+      <SessionGroups>
+        {(groups) =>
+          groups.map(({ heading, sessions }) => (
+            <SessionsGroup heading={heading} key={heading}>
+              {sessions.map((s) => (
+                <SessionListItem key={s.id} session={s} />
+              ))}
+            </SessionsGroup>
+          ))
+        }
+      </SessionGroups>
+    </SessionsList>
+    <SessionMessagePanel>
+      <SessionMessagesHeader />
+      <SessionMessages>
+        {(conversations) =>
+          conversations.map((conversation) => (
+            <SessionMessage
+              key={conversation.id}
+              conversation={conversation}
+            />
+          ))
+        }
+      </SessionMessages>
+      <ChatInput />
+    </SessionMessagePanel>
+  </Chat>
+</div>
+
+Below is the code for the above example.
+
+```tsx
+<Chat
+  sessions={[
+    {
+      id: '1',
+      title: 'Session 1',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      conversations: [
+        {
+          id: '1',
+          question: 'What is React?',
+          response: 'React is a JavaScript library for building user interfaces.',
+          createdAt: new Date(),
+          updatedAt: new Date()
+        },
+        {
+          id: '2',
+          question: 'What is JSX?',
+          response: 'JSX is a syntax extension for JavaScript.',
+          createdAt: new Date(),
+          updatedAt: new Date()
+        }
+      ]
+    }
+  ]}
+  viewType="console"
+  onDeleteSession={() => alert("delete!")}
+  >
+  <SessionsList>
+    <NewSessionButton />
+    <SessionGroups>
+      {(groups) =>
+        groups.map(({ heading, sessions }) => (
+          <SessionsGroup heading={heading} key={heading}>
+            {sessions.map((s) => (
+              <SessionListItem key={s.id} session={s} />
+            ))}
+          </SessionsGroup>
+        ))
+      }
+    </SessionGroups>
+  </SessionsList>
+  <SessionMessagePanel>
+    <SessionMessagesHeader />
+    <SessionMessages>
+      {(conversations) =>
+        conversations.map((conversation) => (
+          <SessionMessage
+            key={conversation.id}
+            conversation={conversation}
+          />
+        ))
+      }
+    </SessionMessages>
+    <ChatInput />
+  </SessionMessagePanel>
+  </Chat>
+```
+
+For more information on how to set up a console chat, please refer to the
+[getting started documentation](/docs/getting-started/getting-started). For
+more examples of how to use Reachat, please refer to the
+[storybook demos](https://storybook.reachat.dev).
+</file>
+
+<file path="pages/docs/examples/providers.mdx">
+import {
+  Chat,
+  SessionsList,
+  SessionsGroup,
+  SessionListItem,
+  NewSessionButton,
+  SessionMessages,
+  SessionGroups,
+  ChatInput,
+  SessionMessagePanel,
+  SessionMessagesHeader,
+  SessionMessage,
+} from "reachat";
+
+# Providers
+Out of the box, we provide examples of how to connect to the following providers:
+
+- [OpenAI](https://storybook.reachat.dev/?path=/story/demos-integrations--open-ai)
+- [Vercel AI](https://storybook.reachat.dev/?path=/story/demos-integrations--vercel-ai)
+
+We plan to extend this list and provide a helper in the near future to make integrgation easier.
+</file>
+
+<file path="pages/docs/getting-started/_meta.json">
+{
+  "setup": "Setup",
+  "getting-started": "Getting Started"
+}
+</file>
+
+<file path="pages/docs/getting-started/getting-started.mdx">
+# Getting Started
+
+In this example, we are going to walk through setting up reachat
+in your project and creating your first chatbot. This guide assumes
+you've already followed the steps in Setup to install the package.
+
+By now, you should have the basic building blocks for the chat component with minimal styling,
+and no functionality. Let's add some basic functionality to the chat component. For now, we'll
+just use state variables to simulate creating and deleting sessions as well as starting
+conversations.
+
+### Creating a new session
+
+We'll start by adding the ability to create a new session by adding a `onNewSession` handler:
+
+```tsx copy
+const [sessions, setSessions] = useState<Session[]>([]);
+
+const handleNewSession = () => {
+  const newId = (sessions.length + 1).toString();
+  setSessions([
+    ...sessions,
+    {
+      id: newId,
+      title: `New Session #${newId}`,
+      createdAt: new Date(),
+      updatedAt: new Date(),
+      conversations: [],
+    },
+  ]);
+};
+
+return (
+  <Chat sessions={sessions} onNewSession={handleNewSession}>
+    <SessionsList />
+    <SessionMessagePanel />
+  </Chat>
+);
+```
+
+### Selecting a session
+
+Now we want to be able to select the new session that we created. Again, we'll handle
+this with a state variable - `activeSessionId`.
+
+```tsx copy
+const [activeSessionId, setActiveSessionId] = useState<string>();
+
+...
+
+return (
+  <Chat
+    sessions={sessions}
+    activeSessionId={activeSessionId}
+    onNewSession={handleNewSession}
+    onSelectSession={setActiveSessionId}
+  >
+    <SessionsList />
+    <SessionMessagePanel />
+  </Chat>
+);
+```
+
+### Deleting a session
+
+Let's handle deleting the session that we created by passing an `onDeleteSession` prop
+to the `Chat` component. We'll also check to see if we need to reset the `activeSessionId`
+if the session we are deleting is the one that is currently active.
+
+```tsx copy
+const handleDeleteSession = (id: string) => {
+  setSessions(sessions.filter((session) => session.id !== id));
+  if (id === activeId) {
+    setActiveId(undefined)
+  }
+};
+
+...
+
+return (
+  <Chat
+    sessions={sessions}
+    activeSessionId={activeSessionId}
+    onNewSession={handleNewSession}
+    onSelectSession={setActiveSessionId}
+    onDeleteSession={handleDeleteSession}
+  >
+    <SessionsList />
+    <SessionMessagePanel />
+  </Chat>
+);
+```
+
+### Handling session conversations
+
+Now that we can create, select, and delete sessions, let's add the ability to start a new
+conversation. We'll need to add an `onSendMessage` handler here to handle adding conversations
+to the active session. We'll just use a simple example response for now, but in a real
+application, you would likely be making a request to a backend service here.
+
+Note: you can also optionally add an `onStopMessage` handler to handle
+stopping a message that is currently being sent.
+
+We can also handle loading state here and pass `isLoading` prop to the component.
+
+```tsx copy
+const [loading, setLoading] = useState<boolean>(false);
+
+const handleNewMessage = (message: string) => {
+  setLoading(true);
+  const current = sessions.find((s) => s.id === activeId);
+  if (current) {
+    const newMessage: Conversation = {
+      id: `${current.id}-${current.conversations.length}`,
+      question: message,
+      response: "this is an example response",
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    };
+    const updated = {
+      ...current,
+      conversations: [...current.conversations, newMessage],
+    };
+    setSessions([...sessions.filter((s) => s.id !== activeId), updated]);
+  }
+  setLoading(false);
+};
+
+...
+
+return (
+  <Chat
+    sessions={sessions}
+    activeSessionId={activeSessionId}
+    onNewSession={handleNewSession}
+    onSelectSession={setActiveSessionId}
+    onDeleteSession={handleDeleteSession}
+    onSendMessage={handleNewMessage}
+    isLoading={loading}
+  >
+    <SessionsList />
+    <SessionMessagePanel />
+  </Chat>
+);
+
+```
+
+### Styling
+
+Besides functionality, of course, styling would be one of the first things that
+comes to mind. There is a default theme that you can customize with basic colors by
+updating the `tailwind.config.js` colors palette.
+
+For example, if we wanted to change the default blue to a purple, we could update the
+primary color palette like this:
+
+```js copy
+theme: {
+  extend: {
+    colors: {
+      primary: {
+        DEFAULT: colorPalette.purple[500],
+        active: colorPalette.purple[500],
+        hover: colorPalette.purple[600],
+        inactive: colorPalette.purple[200]
+      },
+      ...
+    }
+  }
+}
+```
+
+To customize chat specific styles, add a `theme.ts` file which extends the `chatTheme`
+object.
+
+```tsx copy
+import { chatTheme as defaultTheme, ChatTheme } from "reachat";
+import { twMerge } from "tailwind-merge";
+
+export const chatTheme: ChatTheme = {
+  ...defaultTheme,
+  sessions: {
+    ...defaultTheme.sessions,
+    console: twMerge(defaultTheme.sessions.console, "min-w-[300px]"),
+    session: {
+      ...defaultTheme.sessions.session,
+      delete:
+        "[&>svg]:w-4 [&>svg]:h-4 opacity-70 hover:opacity-100 transition-opacity",
+    },
+  },
+  messages: {
+    ...defaultTheme.messages,
+    base: "py-4 pr-4",
+    message: {
+      ...defaultTheme.messages.message,
+      question: twMerge(
+        defaultTheme.messages.message.question,
+        "text-purple-300 text-lg",
+      ),
+      response: "border-l border-purple-300 pl-4",
+    },
+  },
+};
+```
+
+Then pass the exported `chatTheme` to your `<Chat />` component.
+
+```tsx copy
+<Chat
+  sessions={sessions}
+  activeSessionId={activeSessionId}
+  onNewSession={handleNewSession}
+  onSelectSession={setActiveSessionId}
+  onDeleteSession={handleDeleteSession}
+  onSendMessage={handleNewMessage}
+  isLoading={loading}
+  theme={chatTheme}
+>
+  <SessionsList />
+  <SessionMessagePanel />
+</Chat>
+```
+
+### ...and that's it!
+
+That's the basics of getting things off the ground. But there's plenty more you can do
+with the Reachat building blocks. It handles the hard bits for you:
+
+- Markdown display with custom plugins
+- File uploads
+- Source display
+- Scroll interactions
+- Mobile/companion mode
+
+so you can focus on building out a chat experience tailored to your users.
+
+### Advanced options
+
+If that's not enough for your needs, the components that are used within the app are
+customizable through Slots. You can learn more about custom components in our
+[storybook demo](https://storybook.reachat.dev/?path=/story/demos-console--custom-components)
+and [docs](/docs/customizations/custom).
+</file>
+
+<file path="pages/docs/getting-started/setup.mdx">
+import { Steps } from "nextra/components";
+
+# Getting Started
+
+## Installing
+
+Install reachat in your project by following the steps below.
+
+<Steps>
+### 1. **Install the package**
+   ```sh copy npm2yarn
+   npm i reachat --save
+   ```
+
+### 2. **Install Reablocks and Tailwind**
+
+Follow the [installation steps](https://reablocks.dev/docs/getting-started/setup#install-steps) for Reablocks and Tailwind if they are not already included in your project. Then, initialize the `<ThemeProvider />` to allow for theming the chat component.
+
+The "Setup Storybook" step is optional.
+
+### 3. **Include Chat components in your project**
+
+```tsx
+import {
+  Chat,
+  ChatInput,
+  Conversation,
+  NewSessionButton,
+  Session,
+  SessionGroups,
+  SessionListItem,
+  SessionMessage,
+  SessionMessages,
+  SessionMessagePanel,
+  SessionMessagesHeader,
+  SessionsGroup,
+  SessionsList,
+} from "reachat";
+
+export default function App() {
+  return (
+    <Chat sessions={[]}>
+      <SessionsList>
+        <NewSessionButton />
+        <SessionGroups>
+          {(groups) =>
+            groups.map(({ heading, sessions }) => (
+              <SessionsGroup heading={heading} key={heading}>
+                {sessions.map((s) => (
+                  <SessionListItem key={s.id} session={s} />
+                ))}
+              </SessionsGroup>
+            ))
+          }
+        </SessionGroups>
+      </SessionsList>
+      <SessionMessagePanel>
+        <SessionMessagesHeader />
+        <SessionMessages>
+          {(conversations) =>
+            conversations.map((conversation) => (
+              <SessionMessage
+                key={conversation.id}
+                conversation={conversation}
+              />
+            ))
+          }
+        </SessionMessages>
+        <ChatInput />
+      </SessionMessagePanel>
+    </Chat>
+  );
+}
+```
+
+### 3. **Connect your provider**
+
+See Demos/Open AI for an example of how to connect your provider.
+
+</Steps>
+
+## Developing
+
+You can also develop Reachat locally by cloning the repository and running the development server.
+
+<Steps>
+### 1. **Clone the repository**
+   ```bash
+   git clone https://github.com/your-repo/reachat.git
+   cd reachat
+   ```
+
+### 2. **Install dependencies**
+
+```sh copy npm2yarn
+npm install
+```
+
+### 3. **Start the development server**
+
+```bash
+npm run start
+```
+
+### 4. **Open your browser**
+
+Navigate to `http://localhost:3000` to see Reachat in action.
+
+</Steps>
+</file>
+
+<file path="pages/docs/_meta.json">
+{
+  "index": {
+    "title": "👋 ⏐ Introduction",
+    "theme": {
+      "timestamp": false,
+      "layout": "full",
+      "pagination": false
+    }
+  },
+  "getting-started": "🚀 ⏐ Getting Started",
+  "examples": "🪄 ⏐ Examples",
+  "customization": "🎨 ⏐ Customization",
+  "api": "🏗️ ⏐ API",
+  "changelog": {
+    "title": "📓 ⏐ Changelog",
+    "theme": {
+      "timestamp": false
+    }
+  }
+}
+</file>
+
+<file path="pages/docs/changelog.mdx">
+import { useData } from 'nextra/data';
+import Mdx from '../../components/ui/mdx';
+
+export const getStaticProps = ({ params }) => {
+  return fetch(`https://raw.githubusercontent.com/reaviz/reachat/master/CHANGELOG.md`)
+    .then(res => res.text())
+    .then(text => ({ props: { ssg: { text } } }))
+}
+
+export const Result = () => {
+  const { text } = useData();
+  return (
+    <Mdx>
+      {text}
+    </Mdx>
+  );
+}
+
+<Result />
+</file>
+
+<file path="pages/docs/index.mdx">
+import img from '../../icons/preview.png';
+
+<div className="my-0 mx-auto text-white text-center flex flex-col">
+  <img
+    className="mx-auto mb-8 mt-8"
+    src={img.src}
+  />
+  <br />
+  <div className="flex justify-center">
+    <a href="https://github.com/reaviz/reachat/actions/workflows/build.yml" target="_blank">
+      <img src="https://github.com/reaviz/reachat/actions/workflows/build.yml/badge.svg" />
+    </a>
+    <span>&nbsp;&nbsp;</span>
+    <a href="https://npm.im/reachat" target="_blank">
+      <img src="https://img.shields.io/npm/v/reachat.svg" />
+    </a>
+    <span>&nbsp;&nbsp;</span>
+    <a href="https://npm.im/reachat" target="_blank">
+      <img src="https://badgen.net/npm/dw/reachat" />
+    </a>
+    <span>&nbsp;&nbsp;</span>
+    <a href="https://github.com/reaviz/reachat/blob/master/LICENSE" target="_blank">
+      <img src="https://badgen.now.sh/badge/license/apache2" />
+    </a>
+    <span>&nbsp;&nbsp;</span>
+    <a href="https://github.com/reaviz/reachat" target="_blank">
+      <img alt="GitHub stars" src="https://img.shields.io/github/stars/reaviz/reachat?style=social" />
+    </a>
+    <span>&nbsp;&nbsp;</span>
+    <a href="https://discord.gg/tt8wGExq35" target="_blank">
+      <img src="https://img.shields.io/discord/773948315037073409?label=discord" />
+    </a>
+  </div>
+
+---
+</div>
+
+### What is reachat?
+Reachat was born out of the recognition that building robust, feature-rich chat interfaces
+is more complex than it appears. Reachat handles the intricacies of message rendering,
+user interactions, and layout management, allowing developers to focus on their unique application
+logic. Despite its comprehensive feature set, reachat remains highly customizable, enabling you to
+tailor every aspect to your specific needs without sacrificing ease of use or performance.
+
+### Why reachat?
+
+- **Highly Customizable**: reachat is built on top of Tailwind CSS allowing you to customize every aspect of the chat UI to your specific needs.
+- **Rich Media Support**: reachat supports markdown rendering, image and video embeds and custom remark plugins.
+- **Flexible and Extensible**: reachat leverages slots to allow developers to swap out components without loosing all the magic of the library.
+- **Multi-Provider Support**: reachat isn't coupled to any specific provider or data model. Its simply a set of building blocks that can be used to build chat UIs for any data source.
+- **Open Source**: reablocks is open-source and free to use and we plan to keep it that way. You can use it in your personal or commercial projects.
+
+### How do I get started?
+To get started with reachat, check out the [Getting Started](/docs/getting-started/setup) page.
+It will walk you through how to install reachat and get up and running.
+</file>
+
+<file path="pages/_app.tsx">
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
+import { Unstyled } from '@storybook/blocks';
+import { ThemeProvider, theme } from 'reablocks';
+
+import { ExternalDocs } from '@storybook/blocks';
+import * as reactAnnotations from '@storybook/react/dist/entry-preview.mjs';
+import * as previewAnnotations from '../../.storybook/preview';
+import { useEffect } from 'react';
+import posthog from 'posthog-js';
+
+export default function App({ Component, pageProps }: AppProps) {
+  useEffect(() => {
+    try {
+      posthog.init('phc_B3nKncJbom5SWf7IpIQtwFbR8JNeHYjjFP5BR947Lot', { api_host: "https://us.i.posthog.com" })
+    } catch {
+      /** noop */
+    }
+  }, []);
+
+  if (Component.name === 'Home') {
+    return (
+      <Unstyled>
+        <Component {...pageProps} />
+      </Unstyled>
+    );
+  }
+
+  return (
+    <ExternalDocs projectAnnotationsList={[reactAnnotations, previewAnnotations]}>
+      <Unstyled>
+        <ThemeProvider theme={theme}>
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </Unstyled>
+    </ExternalDocs>
+  );
+}
+</file>
+
+<file path="pages/_document.tsx">
+import { Html, Head, Main, NextScript } from "next/document";
+
+export default function Document() {
+  return (
+    <Html lang="en">
+      <Head>
+        <meta property="og:image" content="https://reachat.dev/preview.png" />
+        <meta
+          property="og:title"
+          content="reachat - Build Chat Experiences in Hours, Not Weeks."
+        />
+        <meta
+          property="og:description"
+          content="Open-source UI Building Blocks for LLM and ChatUIs for ReactJS"
+        />
+        <meta
+          name="twitter:title"
+          content="reachat - Build Chat Experiences in Hours, Not Weeks."
+        />
+        <meta
+          name="twitter:description"
+          content="Open-source UI Building Blocks for LLM and ChatUIs for ReactJS"
+        />
+      </Head>
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  );
+}
+</file>
+
+<file path="pages/_meta.json">
+{
+  "index": {
+    "display": "hidden",
+    "theme": {
+      "layout": "raw",
+      "sidebar": false,
+      "pagination": false,
+      "footer": false,
+      "navbar": false,
+      "toc": false,
+      "breadcrumb": false
+    }
+  },
+  "docs": {
+    "title": "Docs",
+    "type": "page"
+  },
+  "storybook": {
+    "title": "Storybook",
+    "type": "page",
+    "href": "https://storybook.reachat.dev",
+    "newWindow": true
+  },
+  "support": {
+    "title": "Support",
+    "type": "page",
+    "theme": {
+      "layout": "full"
+    }
+  }
+}
+</file>
+
+<file path="pages/index.tsx">
+import { Nav } from "@/components/layout/nav";
+import { Card } from "@/components/ui/card";
+import { HeroParallax } from "@/components/ui/hero-parallax";
+import { IconCard } from "@/components/ui/icon-card";
+import { SignatureDivider } from "@/components/ui/signature-divider";
+import { TracingBeams } from "@/components/ui/tracing-beams";
+import { AnimateIn } from "@/components/utils/AnimateIn";
+import BatteryIcon from "@/icons/Battery";
+import DribbbleIcon from "@/icons/Dribbble";
+import GithubIcon from "@/icons/Github";
+import KnowledgeIcon from "@/icons/Knowledge";
+import LinkedinIcon from "@/icons/LinkedIn";
+import SnapIcon from "@/icons/Snap";
+import SwordsIcon from "@/icons/Swords";
+import WaveIcon from "@/icons/Wave";
+import WrenchIcon from "@/icons/Wrench";
+import { cn } from "@/utils/cn";
+import { Metadata } from "next";
+import { Inter } from "next/font/google";
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "reablocks - Build Chat Experiences in Hours, Not Weeks.",
+  description: "Open-source UI Building Blocks for LLM / Chat UIs",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
+};
+
+export default function Home() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const isScrolledCheck = window.scrollY > 80;
+      setIsScrolled(isScrolledCheck);
+    };
+
+    document.addEventListener("scroll", handleScroll);
+    return () => {
+      document.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  return (
+    <>
+      <Head>
+        <title>reachat - Build Chat Experiences in Hours, Not Weeks.</title>
+        <meta
+          name="description"
+          content={
+            "Open-source UI Building Blocks for LLM and ChatUIs for ReactJS"
+          }
+        />
+        <link rel="icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+      </Head>
+      <main
+        className={`flex min-h-screen w-full flex-col items-center overflow-y-hidden bg-gradient-to-b from-[#11111F] from-50% via-[#11111F] to-[#121212] ${inter.className} antiasliased overflow-x-hidden text-white`}
+      >
+        <div className="pointer-events-none absolute top-0 h-screen w-full bg-gradient-to-b from-[#00000020] to-transparent" />
+        <header
+          className={cn(
+            `fixed top-0 z-50 flex w-full justify-center border-b border-[#9091A0] border-opacity-15 bg-[#11111F] transition-[backdrop-filter] md:bg-transparent`,
+            isScrolled && "md:backdrop-blur-md",
+          )}
+        >
+          <Nav />
+        </header>
+        <TracingBeams className="">
+          <div className="">
+            <section className="container relative mt-20 flex flex-col px-4 md:mt-40 md:items-center md:px-24">
+              <div className="mb-4 flex flex-col gap-4 md:mb-20 md:items-center md:text-center">
+                <a
+                  href="https://github.com/reaviz/reachat"
+                  target="_blank"
+                  className="self-center"
+                >
+                  <img
+                    alt="GitHub stars"
+                    src="https://img.shields.io/github/stars/reaviz/reachat?style=social"
+                  />
+                </a>
+                <h3 className="text-content text-center text-4xl font-bold !leading-[150%] md:text-[60px] md:!leading-[120%]">
+                  Build Chat Experiences <br />
+                  <span className="md:text-[90px]">
+                    <span className="md:bg-opacity-50 md:bg-gradient-to-b md:from-white md:to-neutral-400 md:bg-clip-text md:text-transparent">
+                      In Hours, Not Weeks
+                    </span>
+                  </span>
+                </h3>
+
+                <div className="bg-gradient-line h-px w-[45%] self-start" />
+
+                <div className="relative">
+                  <AnimateIn className="absolute left-[-25px] z-0 mt-[50px] md:mt-[100px] h-[50%] xl:h-[70%] w-[calc(100%+50px)] rounded-full bg-[#2310FF] bg-opacity-50 blur-3xl backdrop-blur-3xl" />
+                  <Image
+                    src="/console.png"
+                    alt="console"
+                    width={1000}
+                    height={500}
+                    className="relative z-10 w-full"
+                  />
+                </div>
+
+                <Image
+                  src="/popup.png"
+                  alt="console"
+                  width={460}
+                  height={500}
+                  className="absolute bottom-[-75px] right-0 z-20 hidden w-[250px] md:block lg:bottom-[-75px] lg:w-[340px] xl:bottom-[-175px] xl:w-[460px]"
+                />
+                <p className="text-center text-base text-content-secondary md:hidden">
+                  Open-source UI Building Blocks for LLM and ChatUIs for ReactJS
+                </p>
+                <div className="mb-8 flex items-center gap-4 md:mb-24 md:hidden">
+                  <Link className="flex-1" href="/docs">
+                    <button className="w-full min-w-[125px] whitespace-nowrap rounded-md border border-primary bg-[#16161E] px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:brightness-110">
+                      Get Started
+                    </button>
+                  </Link>
+                  <Link className="flex-1" href="https://storybook.reachat.dev">
+                    <button className="w-full min-w-[125px] whitespace-nowrap rounded-md bg-primary px-4 py-2 font-semibold text-content-primary shadow-button transition-colors hover:brightness-110">
+                      Storybook →
+                    </button>
+                  </Link>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <section className="container px-4 md:mt-10 md:px-24 lg:mt-28">
+            <div className="mb-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+              <AnimateIn>
+                <Card className="h-full items-center text-center md:items-start md:text-left">
+                  <IconCard>
+                    <WrenchIcon />
+                  </IconCard>
+                  <span className="text-xl font-semibold">
+                    Highly Customizable
+                  </span>
+                  <span>
+                    Tailor the chat interface to your needs with customizable
+                    components and theming options.
+                  </span>
+                </Card>
+              </AnimateIn>
+              <AnimateIn transition={{ delay: 0.05 }}>
+                <Card className="h-full items-center text-center md:items-start md:text-left">
+                  <IconCard>
+                    <WaveIcon />
+                  </IconCard>
+                  <span className="text-xl font-semibold">
+                    Rich Media Support
+                  </span>
+                  <span>
+                    Seamlessly integrate file uploads, embeds, and markdown
+                    formatting for enhanced communication.
+                  </span>
+                </Card>
+              </AnimateIn>
+              <AnimateIn transition={{ delay: 0.1 }}>
+                <Card className="h-full items-center text-center md:items-start md:text-left">
+                  <IconCard>
+                    <SnapIcon />
+                  </IconCard>
+                  <span className="text-xl font-semibold">Easy to Use</span>
+                  <span>
+                    Intuitive but flexible API for building custom chat
+                    experiences.
+                  </span>
+                </Card>
+              </AnimateIn>
+              <AnimateIn>
+                <Card className="h-full items-center text-center md:items-start md:text-left">
+                  <IconCard>
+                    <BatteryIcon />
+                  </IconCard>
+                  <span className="text-xl font-semibold">
+                    Multi-model Support
+                  </span>
+                  <span>
+                    Seamlessly switch between different AI models or integrate
+                    multiple models within the same interface for versatile
+                    capabilities.
+                  </span>
+                </Card>
+              </AnimateIn>
+              <AnimateIn transition={{ delay: 0.05 }}>
+                <Card className="h-full items-center text-center md:items-start md:text-left">
+                  <IconCard>
+                    <SwordsIcon />
+                  </IconCard>
+                  <span className="text-xl font-semibold">Battle-Tested</span>
+                  <span>
+                    Used in production across dozens of enterprise products.
+                  </span>
+                </Card>
+              </AnimateIn>
+              <AnimateIn transition={{ delay: 0.1 }}>
+                <Card className="h-full items-center text-center md:items-start md:text-left">
+                  <IconCard>
+                    <KnowledgeIcon />
+                  </IconCard>
+                  <span className="text-xl font-semibold">Open Source</span>
+                  <span>
+                    Free to use, and available for both personal and commercial
+                    projects.
+                  </span>
+                </Card>
+              </AnimateIn>
+            </div>
+          </section>
+          <SignatureDivider className="w-full py-12 md:w-3/4" />
+          <section className="container px-4 md:px-24">
+            <span className="mb-2 block text-center text-6xl font-semibold md:text-left lg:hidden">
+              Chat UIs without all the baggage
+            </span>
+            <div className="flex flex-col items-center gap-12 py-4 md:flex-row md:gap-4 md:py-8">
+              <div className="z-10 flex flex-1 flex-col items-center gap-8 text-center md:items-start md:text-left">
+                <span className="hidden text-4xl font-semibold md:text-6xl lg:block">
+                  Chat UIs without all the baggage
+                </span>
+                <span className="text-content-secondary md:text-xl">
+                  Reachat is a powerful, flexible, and user-friendly AI chat
+                  interface library for ReactJS. It allows you to bring
+                  conversational AI capabilities to your applications without
+                  spending weeks building custom components. Its not coupled to
+                  any particular backend or LLM, so you can use it with any
+                  backend or LLM of your choice.
+                </span>
+                <div className="flex items-center gap-2">
+                  <Link href="/docs">
+                    <button className="bg-primary px-8 py-4 transition-all hover:brightness-125">
+                      Get started →
+                    </button>
+                  </Link>
+                </div>
+              </div>
+              <div className="relative flex h-full min-h-[500px] max-w-[90vw] flex-1 items-center justify-center gap-4">
+                <AnimateIn className="relative -bottom-20 left-0 z-10 min-w-[250px]">
+                  <Image
+                    src="/popup.png"
+                    alt="popup"
+                    width={500}
+                    height={500}
+                    objectFit="contain"
+                    className="shadow-card -translate-x-2.5 rounded-xl md:translate-x-0"
+                  />
+                </AnimateIn>
+                <AnimateIn className="max-w-3/4 absolute z-0 h-[400px] w-[300px] rounded-full bg-[#2310FF] bg-opacity-50 blur-3xl backdrop-blur-3xl md:h-[600px] md:w-[500px]" />
+              </div>
+            </div>
+          </section>
+          <SignatureDivider className="w-full py-12 md:w-3/4" />
+          <section className="container px-4 text-center md:px-24 md:text-left">
+            <div className="flex flex-col gap-8 py-4 md:py-24">
+              <div className="flex flex-col">
+                <span className="font-semibold text-primary md:text-xl">
+                  Get Started
+                </span>
+                <span className="text-4xl font-semibold md:text-6xl">
+                  Install and Start Building in 3 Steps
+                </span>
+              </div>
+              <div className="flex flex-col gap-x-4 gap-y-8 md:flex-row">
+                <div className="flex flex-1 flex-col gap-2 md:text-xl">
+                  <p className="bg-gradient-code w-fit rounded-r-[30px] rounded-bl-[30px] px-5 py-2.5 font-semibold md:text-xl">
+                    1. <code>npm i reachat</code>
+                  </p>
+                  <p className="bg-gradient-code w-fit rounded-r-[30px] rounded-bl-[30px] px-5 py-2.5 font-semibold md:text-xl">
+                    2. Include <code>reachat</code> in your project
+                  </p>
+                  <p className="bg-gradient-code w-fit rounded-r-[30px] rounded-bl-[30px] px-5 py-2.5 font-semibold md:text-xl">
+                    3. Connect your backend
+                  </p>
+                </div>
+                <div className="flex flex-1 flex-col gap-2 md:text-xl">
+                  <span className="font-semibold md:text-xl">Learn more</span>
+                  <p className="text-pretty text-content-secondary">
+                    Explore the{" "}
+                    <a
+                      className="text-primary"
+                      href="https://reachat.dev"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      documentation
+                    </a>{" "}
+                    to learn about the API. Dive into the{" "}
+                    <a
+                      className="text-primary"
+                      href="https://storybook.reachat.dev"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Storybook
+                    </a>{" "}
+                    demos to see the components in action. Join the{" "}
+                    <a
+                      className="text-primary"
+                      href="https://discord.gg/tt8wGExq35"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      community
+                    </a>{" "}
+                    to get support and stay up to date on new releases.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+          <footer className="container mt-12 px-4 py-6 text-base text-content-secondary md:mt-4 md:px-24 lg:mt-24">
+            <div className="flex items-center justify-between gap-2">
+              <Link href="#">
+                <Image
+                  draggable={false}
+                  src="/logo.svg"
+                  alt="logo"
+                  width={122}
+                  height={24}
+                />
+              </Link>
+              <span className="hidden md:block">
+                Made with ❤️ by{" "}
+                <Link
+                  className="text-secondary underline"
+                  href="https://goodcode.us"
+                >
+                  GoodCode
+                </Link>
+              </span>
+              <div className="flex gap-4">
+                <Link
+                  aria-label="GoodCode's GitHub profile"
+                  href="https://github.com/reaviz"
+                >
+                  <GithubIcon className="h-5 w-5 transition-colors hover:text-content-primary" />
+                </Link>
+                <Link
+                  aria-label="GoodCode's Linkedin profile"
+                  href="https://linkedin.com/company/goodcodeus/"
+                >
+                  <LinkedinIcon className="h-5 w-5 transition-colors hover:text-content-primary" />
+                </Link>
+                <Link
+                  aria-label="GoodCode's Dribbble profile"
+                  href="https://dribbble.com/goodcode"
+                >
+                  <DribbbleIcon className="h-5 w-5 transition-colors hover:text-content-primary" />
+                </Link>
+              </div>
+            </div>
+            <div className="block self-center pb-4 pt-10 text-center md:hidden">
+              <span>
+                Made with ❤️ by{" "}
+                <Link
+                  className="text-secondary underline"
+                  href="https://goodcode.us?utm=reachat"
+                >
+                  GoodCode
+                </Link>
+              </span>
+            </div>
+          </footer>
+        </TracingBeams>
+      </main>
+    </>
+  );
+}
+</file>
+
+<file path="pages/support.mdx">
+# Support
+
+We encourage users to make PRs and [log tickets](https://github.com/reaviz/reablocks/issues) for issues. We will try to respond to them as quickly as possible
+but if you are in need of extra support, our team at [Good Code](https://goodcode.us?utm=reablocks) is here to help. Reach out
+to us today to discuss our packages and support plans.
+</file>
+
 
 </files>
