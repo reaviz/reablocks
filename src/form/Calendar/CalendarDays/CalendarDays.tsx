@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import { isAfter, isBefore, isToday } from 'date-fns';
+import { endOfDay, isAfter, isBefore, isToday, startOfDay } from 'date-fns';
 import { Button } from '@/elements';
 import {
   daysOfWeek,
@@ -11,7 +11,6 @@ import {
 import { AnimatePresence, motion } from 'motion/react';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
-import { twMerge } from 'tailwind-merge';
 
 export interface CalendarDaysProps {
   /**
@@ -156,8 +155,8 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       // Determine if the day is disabled
       const isDisabled =
         disabled ||
-        (minLimit && isBefore(day.date, minLimit)) ||
-        (maxLimit && isAfter(day.date, maxLimit));
+        (minLimit && isBefore(startOfDay(day.date), startOfDay(minLimit))) ||
+        (maxLimit && isAfter(endOfDay(day.date), endOfDay(maxLimit)));
 
       // Determine if date is in selected (or to be selected) range
       const currentHover = hover || hoveringDate;

@@ -14,7 +14,9 @@ import {
   min,
   max,
   subDays,
-  isWithinInterval
+  isWithinInterval,
+  endOfDay,
+  startOfDay
 } from 'date-fns';
 
 /**
@@ -172,12 +174,19 @@ export function getDayAttributes(
     isRangeEnd = isActive;
   } else if (isSelectionComplete) {
     // if a range has been selected
-    isActive = isInRange(day, current);
+    const activeRange: [Date, Date] = [
+      startOfDay(current[0]),
+      endOfDay(current[1])
+    ];
+    isActive = isInRange(day, activeRange);
     isRangeStart = isSameDay(day, current[0]);
     isRangeEnd = isSameDay(day, current[1]);
   } else {
     // if in the process of selecting a range
-    const activeRange: [Date, Date] = [current[0], hover ?? current[0]];
+    const activeRange: [Date, Date] = [
+      startOfDay(current[0]),
+      endOfDay(hover ?? current[0])
+    ];
     isActive = isInRange(day, activeRange);
     isRangeStart = isSameDay(day, min(activeRange));
     isRangeEnd = isSameDay(day, max(activeRange));
