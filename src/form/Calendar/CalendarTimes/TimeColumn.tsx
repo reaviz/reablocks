@@ -42,7 +42,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
       const itemOffset = selectedItem.offsetTop;
       const containerHeight = container.clientHeight;
       const itemHeight = selectedItem.clientHeight;
-      const centerPosition = itemOffset - containerHeight / 2 + itemHeight / 2;
+      const centerPosition = itemOffset - containerHeight / 2 - itemHeight / 2;
 
       // Smooth scroll to centered position
       container.scrollTo({
