@@ -392,7 +392,7 @@ export const Calendar: FC<CalendarProps> = ({
               isRange ? (rangeEnd ? rangeEnd : value?.[0]) : (value as Date)
             }
             min={min}
-            max={max}
+            max={max === 'now' ? new Date() : max}
             onChange={handleTimeChange}
             theme={theme.time}
             showDayOfWeek={showDayOfWeek}

@@ -9,7 +9,6 @@ import {
   setMinutes,
   setSeconds
 } from 'date-fns';
-import { twMerge } from 'tailwind-merge';
 import { TimeColumn } from './TimeColumn';
 import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { Divider } from '@/layout';
@@ -161,50 +160,40 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
         }}
         className={cn(timeTheme?.wrapper)}
       >
-        <Divider
-          orientation="vertical"
-          className="h-auto mt-2.5 mx-1 bg-surface z-10"
-        />
+        <Divider orientation="vertical" className={timeTheme?.dividerLeft} />
         <div className={timeTheme.base}>
-          <Divider orientation="horizontal" className="w-full" />
+          <Divider orientation="horizontal" className={timeTheme?.dividerTop} />
           <div
-            className={twMerge(
-              'flex flex-row flex-auto gap-0.25 pt-1',
-              showDayOfWeek ? 'h-54' : 'h-46'
-            )}
+            className={cn(timeTheme?.items.wrapper, {
+              'h-54': showDayOfWeek
+            })}
           >
-            <div className="flex-1">
-              <TimeColumn
-                theme={timeTheme}
-                options={HOURS}
-                min={isSameDayWithMin ? getHours(min) : undefined}
-                max={isSameDayWithMax ? getHours(max) : undefined}
-                selectedValue={hours}
-                onSelect={handleHourChange}
-              />
-            </div>
+            <TimeColumn
+              theme={timeTheme}
+              options={HOURS}
+              min={isSameDayWithMin ? getHours(min) : undefined}
+              max={isSameDayWithMax ? getHours(max) : undefined}
+              selectedValue={hours}
+              onSelect={handleHourChange}
+            />
             <Divider orientation="vertical" className="mx-0" />
-            <div className="flex-1">
-              <TimeColumn
-                theme={timeTheme}
-                options={MINUTES}
-                min={isSameDayWithMin ? getMinutes(min) : undefined}
-                max={isSameDayWithMax ? getMinutes(max) : undefined}
-                selectedValue={minutes}
-                onSelect={handleMinuteChange}
-              />
-            </div>
+            <TimeColumn
+              theme={timeTheme}
+              options={MINUTES}
+              min={isSameDayWithMin ? getMinutes(min) : undefined}
+              max={isSameDayWithMax ? getMinutes(max) : undefined}
+              selectedValue={minutes}
+              onSelect={handleMinuteChange}
+            />
             <Divider orientation="vertical" className="mx-0" />
-            <div className="flex-1">
-              <TimeColumn
-                theme={timeTheme}
-                options={SECONDS}
-                min={isSameDayWithMin ? getSeconds(min) : undefined}
-                max={isSameDayWithMax ? getSeconds(max) : undefined}
-                selectedValue={seconds}
-                onSelect={handleSecondChange}
-              />
-            </div>
+            <TimeColumn
+              theme={timeTheme}
+              options={SECONDS}
+              min={isSameDayWithMin ? getSeconds(min) : undefined}
+              max={isSameDayWithMax ? getSeconds(max) : undefined}
+              selectedValue={seconds}
+              onSelect={handleSecondChange}
+            />
           </div>
         </div>
       </motion.div>

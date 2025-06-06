@@ -36,6 +36,8 @@ export interface CalendarTheme {
   time?: {
     base: string;
     wrapper: string;
+    dividerTop: string;
+    dividerLeft: string;
     header: string;
     column: {
       base: string;
@@ -44,9 +46,15 @@ export interface CalendarTheme {
       list: string;
       scrollbar: string;
     };
+    items: {
+      wrapper: string;
+      container: string;
+      list: string;
+    };
     item: {
       base: string;
       selected: string;
+      disabled: string;
     };
   };
 }
@@ -93,6 +101,8 @@ const baseTheme: CalendarTheme = {
   time: {
     base: 'flex flex-col h-full gap-0',
     wrapper: 'mt-4 bg-panel z-10 flex flex-row',
+    dividerTop: 'w-full',
+    dividerLeft: 'h-auto mt-2.5 mx-1 bg-surface z-10',
     header: 'flex gap-4 px-0.5 pb-2.5 mb-2',
     column: {
       base: 'w-6',
@@ -102,10 +112,16 @@ const baseTheme: CalendarTheme = {
       scrollbar:
         'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500'
     },
+    items: {
+      wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
+      container:
+        'h-full overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
+      list: 'p-0 m-0 list-none'
+    },
     item: {
-      base: 'py-0.5 px-0.5 text-center cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-colors',
-      selected:
-        'font-semibold bg-primary-100 text-primary-700 dark:bg-primary-700 dark:text-primary-100'
+      base: 'py-0.5 px-1.5 text-center cursor-pointer rounded transition-colors duration-150',
+      selected: 'font-semibold',
+      disabled: 'cursor-not-allowed'
     }
   }
 };
@@ -165,13 +181,12 @@ export const calendarTheme: CalendarTheme = {
     wrapper: [baseTheme.time.wrapper, 'border-panel-border'].join(' '),
     item: {
       ...baseTheme.time.item,
-      base: [baseTheme.time.item.base, 'px-1.5', 'text-text-secondary'].join(
-        ' '
-      ),
+      base: [baseTheme.time.item.base, 'text-text-secondary'].join(' '),
       selected: [
         baseTheme.time.item.selected,
         'bg-blue-500 text-white dark:bg-blue-600 dark:text-white'
-      ].join(' ')
+      ].join(' '),
+      disabled: [baseTheme.time.item.disabled, 'opacity-50'].join(' ')
     }
   }
 };

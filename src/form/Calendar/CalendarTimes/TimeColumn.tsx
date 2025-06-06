@@ -30,13 +30,13 @@ export const TimeColumn: FC<TimeColumnProps> = ({
   onSelect,
   theme
 }) => {
-  const listRef = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const selectedRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
-    if (listRef.current && selectedRef.current) {
+    if (containerRef.current && selectedRef.current) {
       const selectedItem = selectedRef.current;
-      const container = listRef.current;
+      const container = containerRef.current;
 
       // Calculate scroll position to center the item
       const itemOffset = selectedItem.offsetTop;
@@ -53,31 +53,16 @@ export const TimeColumn: FC<TimeColumnProps> = ({
   }, [selectedValue]);
 
   return (
-    <div
-      ref={listRef}
-      className={cn(
-        'h-full overflow-y-auto [&::-webkit-scrollbar]:hidden',
-        'scrollbar-none touch-pan-y'
-      )}
-      style={{
-        msOverflowStyle: 'none',
-        scrollbarWidth: 'none',
-        WebkitOverflowScrolling: 'touch'
-      }}
-    >
-      <ul className="p-0 m-0 list-none">
+    <div ref={containerRef} className={cn(theme.items.container)}>
+      <ul className={cn(theme.items.list)}>
         {options.map(option => (
           <li
             key={option}
             ref={selectedValue === option ? selectedRef : null}
-            className={cn(
-              theme.item.base,
-              {
-                [theme.item.selected]: selectedValue === option,
-                'opacity-50 cursor-not-allowed': option < min || option > max
-              },
-              'transition-colors duration-150'
-            )}
+            className={cn(theme.item.base, {
+              [theme.item.selected]: selectedValue === option,
+              [theme.item.disabled]: option < min || option > max
+            })}
             onClick={() => {
               if (option < min || option > max) return;
               onSelect(option);
