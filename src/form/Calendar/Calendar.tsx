@@ -92,6 +92,11 @@ export interface CalendarProps {
   showTime?: boolean;
 
   /**
+   * Whether to use 12-hour cycle for the time picker.
+   */
+  is12HourCycle?: boolean;
+
+  /**
    * Whether to animate the calendar.
    */
   animated?: boolean;
@@ -123,6 +128,7 @@ export const Calendar: FC<CalendarProps> = ({
   showDayOfWeek,
   showToday,
   showTime,
+  is12HourCycle = false,
   animated = true,
   onChange,
   onViewChange,
@@ -393,9 +399,10 @@ export const Calendar: FC<CalendarProps> = ({
             }
             min={min}
             max={max === 'now' ? new Date() : max}
-            onChange={handleTimeChange}
             theme={theme.time}
+            is12HourCycle={is12HourCycle}
             showDayOfWeek={showDayOfWeek}
+            onChange={handleTimeChange}
           />
         )}
       </div>

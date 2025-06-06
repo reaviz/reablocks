@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import {
   getHours,
@@ -13,6 +13,8 @@ import { TimeColumn } from './TimeColumn';
 import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { Divider } from '@/layout';
 import { cn } from '@/utils';
+
+export type AmPm = 'AM' | 'PM';
 
 export interface CalendarTimesProps {
   /**
@@ -44,9 +46,15 @@ export interface CalendarTimesProps {
    * Whether day of week labels are shown in the calendar
    */
   showDayOfWeek?: boolean;
+
+  /**
+   * Whether to use 12-hour cycle for the time picker.
+   */
+  is12HourCycle?: boolean;
 }
 
-const HOURS = Array.from({ length: 24 }, (_, i) => i);
+const HOURS_24 = Array.from({ length: 24 }, (_, i) => i);
+const HOURS_12 = [12, ...Array.from({ length: 11 }, (_, i) => i + 1)];
 const MINUTES = Array.from({ length: 60 }, (_, i) => i);
 const SECONDS = Array.from({ length: 60 }, (_, i) => i);
 
@@ -56,7 +64,8 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
   max,
   onChange,
   theme: timeTheme,
-  showDayOfWeek = false
+  showDayOfWeek = false,
+  is12HourCycle = false
 }) => {
   const safeDate = useMemo(() => {
     if (!value || isNaN(value.getTime())) {
@@ -96,23 +105,46 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
     [onChange, safeDate]
   );
 
+  const handleAmPmChange = useCallback(
+    (amPm: AmPm) => {
+      let date = new Date(safeDate);
+      if (!value) {
+        date = setHours(safeDate, amPm === 'AM' ? 0 : 12);
+      } else {
+        const hours = getHours(value);
+        date = setHours(value, amPm === 'AM' ? hours - 12 : hours + 12);
+      }
+      if (!isNaN(date.getTime())) {
+        onChange(date);
+      }
+    },
+    [onChange, safeDate, value]
+  );
+
   const isSameDayWithMax = useMemo(() => isSameDay(value, max), [value, max]);
   const isSameDayWithMin = useMemo(() => isSameDay(value, min), [value, min]);
 
   const hours = useMemo(() => {
     if (!value) return undefined;
-    const dayHours = getHours(safeDate);
+    let dayHours = getHours(safeDate);
     const minHours = isSameDayWithMin ? getHours(min) : 0;
     const maxHours = isSameDayWithMax ? getHours(max) : 24;
     if (dayHours < minHours) {
-      return minHours;
-    }
-    if (dayHours > maxHours) {
-      return maxHours;
+      dayHours = minHours;
+    } else if (dayHours > maxHours) {
+      dayHours = maxHours;
     }
 
-    return dayHours;
-  }, [value, safeDate, isSameDayWithMin, min, isSameDayWithMax, max]);
+    return is12HourCycle ? dayHours % 12 || 12 : dayHours;
+  }, [
+    value,
+    safeDate,
+    isSameDayWithMin,
+    min,
+    isSameDayWithMax,
+    max,
+    is12HourCycle
+  ]);
 
   const minutes = useMemo(() => {
     if (!value) return undefined;
@@ -146,6 +178,11 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
     return daySeconds;
   }, [value, safeDate, isSameDayWithMin, min, isSameDayWithMax, max]);
 
+  const amPm = useMemo(() => {
+    if (!value || !is12HourCycle) return undefined;
+    return getHours(safeDate) < 12 ? 'AM' : 'PM';
+  }, [value, safeDate, is12HourCycle]);
+
   return (
     <AnimatePresence>
       <motion.div
@@ -170,10 +207,11 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
           >
             <TimeColumn
               theme={timeTheme}
-              options={HOURS}
+              options={is12HourCycle ? HOURS_12 : HOURS_24}
               min={isSameDayWithMin ? getHours(min) : undefined}
               max={isSameDayWithMax ? getHours(max) : undefined}
               selectedValue={hours}
+              is12HourCycle={is12HourCycle}
               onSelect={handleHourChange}
             />
             <Divider orientation="vertical" className="mx-0" />
@@ -183,6 +221,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
               min={isSameDayWithMin ? getMinutes(min) : undefined}
               max={isSameDayWithMax ? getMinutes(max) : undefined}
               selectedValue={minutes}
+              is12HourCycle={is12HourCycle}
               onSelect={handleMinuteChange}
             />
             <Divider orientation="vertical" className="mx-0" />
@@ -192,8 +231,22 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
               min={isSameDayWithMin ? getSeconds(min) : undefined}
               max={isSameDayWithMax ? getSeconds(max) : undefined}
               selectedValue={seconds}
+              is12HourCycle={is12HourCycle}
               onSelect={handleSecondChange}
             />
+            {is12HourCycle && (
+              <>
+                <Divider orientation="vertical" className="mx-0" />
+                <TimeColumn
+                  theme={timeTheme}
+                  options={['AM', 'PM']}
+                  min={isSameDayWithMin ? getHours(min) : undefined}
+                  max={isSameDayWithMax ? getHours(max) : undefined}
+                  selectedValue={amPm}
+                  onSelect={handleAmPmChange}
+                />
+              </>
+            )}
           </div>
         </div>
       </motion.div>

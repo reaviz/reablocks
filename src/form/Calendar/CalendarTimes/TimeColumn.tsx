@@ -2,24 +2,43 @@ import React, { FC, useEffect, useRef } from 'react';
 import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { cn } from '@/utils';
 
+import type { AmPm } from './CalendarTimes';
+
 interface TimeColumnProps {
-  /** Array of time options to display in the column */
-  options: number[];
+  /**
+   * Array of time options to display in the column
+   */
+  options: number[] | AmPm[];
 
-  /** Currently selected time value */
-  selectedValue?: number;
+  /**
+   * Currently selected time value
+   */
+  selectedValue?: number | AmPm;
 
-  /** Minimum allowed time value */
+  /**
+   * Minimum allowed time value
+   */
   min?: number;
 
-  /** Maximum allowed time value */
+  /**
+   * Maximum allowed time value
+   */
   max?: number;
 
-  /** Callback fired when a time option is selected */
-  onSelect: (value: number) => void;
-
-  /** Theme configuration for the time column styling */
+  /**
+   * Theme configuration for the time column styling
+   */
   theme: CalendarTheme['time'];
+
+  /**
+   * Whether to use 12-hour cycle for the time picker.
+   */
+  is12HourCycle?: boolean;
+
+  /**
+   * Callback fired when a time option is selected
+   */
+  onSelect: (value: number | AmPm) => void;
 }
 
 export const TimeColumn: FC<TimeColumnProps> = ({
@@ -27,8 +46,9 @@ export const TimeColumn: FC<TimeColumnProps> = ({
   selectedValue,
   min,
   max,
-  onSelect,
-  theme
+  theme,
+  is12HourCycle = false,
+  onSelect
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const selectedRef = useRef<HTMLLIElement>(null);
@@ -38,23 +58,38 @@ export const TimeColumn: FC<TimeColumnProps> = ({
       const selectedItem = selectedRef.current;
       const container = containerRef.current;
 
-      // Calculate scroll position to center the item
-      const itemOffset = selectedItem.offsetTop;
-      const containerHeight = container.clientHeight;
-      const itemHeight = selectedItem.clientHeight;
-      const centerPosition = itemOffset - containerHeight / 2 - itemHeight / 2;
+      if (is12HourCycle) {
+        selectedItem.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      } else {
+        // Calculate scroll position to center the item
+        const itemOffset = selectedItem.offsetTop;
+        const containerHeight = container.clientHeight;
+        const itemHeight = selectedItem.clientHeight;
+        const centerPosition =
+          itemOffset - containerHeight / 2 - itemHeight / 2;
 
-      // Smooth scroll to centered position
-      container.scrollTo({
-        top: centerPosition,
-        behavior: 'smooth'
-      });
+        // Smooth scroll to centered position
+        container.scrollTo({
+          top: centerPosition,
+          behavior: 'smooth'
+        });
+      }
     }
-  }, [selectedValue]);
+  }, [selectedValue, is12HourCycle]);
 
   return (
-    <div ref={containerRef} className={cn(theme.items.container)}>
-      <ul className={cn(theme.items.list)}>
+    <div ref={containerRef} className={theme.items.container}>
+      <ul
+        className={theme.items.list}
+        style={{
+          paddingBottom: is12HourCycle
+            ? containerRef.current?.clientHeight - 24
+            : undefined
+        }}
+      >
         {options.map(option => (
           <li
             key={option}
@@ -71,7 +106,9 @@ export const TimeColumn: FC<TimeColumnProps> = ({
             aria-disabled={option < min || option > max}
             aria-selected={selectedValue === option}
           >
-            {option.toString().padStart(2, '0')}
+            {typeof option === 'number'
+              ? option.toString().padStart(2, '0')
+              : option}
           </li>
         ))}
       </ul>

@@ -42,7 +42,28 @@ export const WithTime = () => {
       />
       <Divider />
       <Stack inline={false} justifyContent="center">
-        {date?.toLocaleDateString() ?? 'No date selected'}
+        {date?.toLocaleString() ?? 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
+export const WithTime12HourCycle = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <Card>
+      <Calendar
+        showDayOfWeek
+        showToday
+        showTime
+        is12HourCycle
+        value={date}
+        onChange={(date: Date) => setDate(date)}
+      />
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {date?.toLocaleString() ?? 'No date selected'}
       </Stack>
     </Card>
   );
@@ -149,7 +170,7 @@ export const MinMaxWithTime = () => {
       />
       <Divider />
       <Stack justifyContent="center">
-        {date?.toLocaleDateString() ?? 'No date selected'}
+        {date?.toLocaleString() ?? 'No date selected'}
       </Stack>
     </Card>
   );
@@ -211,7 +232,7 @@ export const RangeWithTime = () => {
       <Divider />
       <Stack justifyContent="center">
         {range
-          ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
+          ? `${range[0]?.toLocaleString()}-${range[1]?.toLocaleString()}`
           : 'No date selected'}
       </Stack>
     </Card>
