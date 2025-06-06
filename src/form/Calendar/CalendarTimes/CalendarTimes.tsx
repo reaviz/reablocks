@@ -201,7 +201,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
                 options={SECONDS}
                 min={isSameDayWithMin ? getSeconds(min) : undefined}
                 max={isSameDayWithMax ? getSeconds(max) : undefined}
-                selectedValue={value ? getSeconds(value) : undefined}
+                selectedValue={seconds}
                 onSelect={handleSecondChange}
               />
             </div>
