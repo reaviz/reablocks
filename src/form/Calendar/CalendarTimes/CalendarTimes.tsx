@@ -13,6 +13,7 @@ import { TimeColumn } from './TimeColumn';
 import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { Divider } from '@/layout';
 import { cn } from '@/utils';
+import { aM } from 'vitest/dist/reporters-P7C2ytIv';
 
 export type AmPm = 'AM' | 'PM';
 
@@ -107,6 +108,12 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
 
   const handleAmPmChange = useCallback(
     (amPm: AmPm) => {
+      const currentAmPm = getHours(safeDate) >= 12 ? 'PM' : 'AM';
+      // If the current AM/PM is the same as the selected AM/PM, do nothing
+      if (currentAmPm === amPm) {
+        return;
+      }
+
       let date = new Date(safeDate);
       if (!value) {
         date = setHours(safeDate, amPm === 'AM' ? 0 : 12);
