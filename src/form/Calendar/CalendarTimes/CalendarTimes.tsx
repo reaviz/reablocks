@@ -14,7 +14,6 @@ import { TimeColumn } from './TimeColumn';
 import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { Divider } from '@/layout';
 import { cn } from '@/utils';
-import { aM } from 'vitest/dist/reporters-P7C2ytIv';
 
 export type AmPm = 'AM' | 'PM';
 
