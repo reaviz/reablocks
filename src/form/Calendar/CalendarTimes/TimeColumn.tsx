@@ -13,7 +13,7 @@ interface TimeColumnProps {
   /**
    * Currently selected time value
    */
-  selectedValue?: number | AmPm;
+  value?: number | AmPm;
 
   /**
    * Minimum allowed time value
@@ -48,7 +48,7 @@ interface TimeColumnProps {
 
 export const TimeColumn: FC<TimeColumnProps> = ({
   options,
-  selectedValue,
+  value,
   min,
   max,
   theme,
@@ -56,8 +56,8 @@ export const TimeColumn: FC<TimeColumnProps> = ({
   is12HourCycle = false,
   onSelect
 }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const selectedRef = useRef<HTMLLIElement>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const selectedRef = useRef<HTMLLIElement | null>(null);
 
   const isOptionDisabled = useCallback(
     (option: number | AmPm) => {
@@ -103,7 +103,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
         });
       }
     }
-  }, [selectedValue, is12HourCycle]);
+  }, [value, is12HourCycle]);
 
   return (
     <div ref={containerRef} className={theme.items.container}>
@@ -119,9 +119,9 @@ export const TimeColumn: FC<TimeColumnProps> = ({
         {options.map(option => (
           <li
             key={option}
-            ref={selectedValue === option ? selectedRef : null}
+            ref={value === option ? selectedRef : null}
             className={cn(theme.item.base, {
-              [theme.item.selected]: selectedValue === option,
+              [theme.item.selected]: value === option,
               [theme.item.disabled]: isOptionDisabled(option)
             })}
             onClick={() => {
@@ -133,7 +133,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
             }}
             role="option"
             aria-disabled={isOptionDisabled(option)}
-            aria-selected={selectedValue === option}
+            aria-selected={value === option}
           >
             {typeof option === 'number'
               ? option.toString().padStart(2, '0')
