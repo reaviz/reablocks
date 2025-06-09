@@ -121,7 +121,7 @@ const baseTheme: CalendarTheme = {
       divider: 'mx-0'
     },
     item: {
-      base: 'py-0.5 px-1.5 text-center cursor-pointer rounded transition-colors duration-150',
+      base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150',
       selected: 'font-semibold',
       disabled: 'cursor-not-allowed'
     }
