@@ -5,6 +5,7 @@ import {
   getMinutes,
   getSeconds,
   isSameDay,
+  isSameHour,
   setHours,
   setMinutes,
   setSeconds
@@ -81,7 +82,9 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
       let newDate = setHours(safeDate, hour);
       if (is12HourCycle) {
         const isPM = getHours(safeDate) >= 12;
-        if (isPM) {
+        if (hour === 12) {
+          newDate = setHours(newDate, 0);
+        } else if (isPM) {
           newDate = setHours(newDate, getHours(newDate) + 12);
         }
       }
@@ -136,60 +139,31 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
 
   const isSameDayWithMax = useMemo(() => isSameDay(value, max), [value, max]);
   const isSameDayWithMin = useMemo(() => isSameDay(value, min), [value, min]);
+  const isSameHoursWithMin = useMemo(
+    () => isSameHour(value, min),
+    [value, min]
+  );
+  const isSameHoursWithMax = useMemo(
+    () => isSameHour(value, max),
+    [value, max]
+  );
 
   const hours = useMemo(() => {
     if (!value) return undefined;
     let dayHours = getHours(safeDate);
-    const minHours = isSameDayWithMin ? getHours(min) : 0;
-    const maxHours = isSameDayWithMax ? getHours(max) : 24;
-    if (dayHours < minHours) {
-      dayHours = minHours;
-    } else if (dayHours > maxHours) {
-      dayHours = maxHours;
-    }
 
     return is12HourCycle ? dayHours % 12 || 12 : dayHours;
-  }, [
-    value,
-    safeDate,
-    isSameDayWithMin,
-    min,
-    isSameDayWithMax,
-    max,
-    is12HourCycle
-  ]);
+  }, [value, safeDate, is12HourCycle]);
 
-  const minutes = useMemo(() => {
-    if (!value) return undefined;
-    const dayMinutes = getMinutes(safeDate);
-    const minMinutes = isSameDayWithMin ? getMinutes(min) : 0;
-    const maxMinutes = isSameDayWithMax ? getMinutes(max) : 59;
+  const minutes = useMemo(
+    () => (value ? getMinutes(safeDate) : undefined),
+    [value, safeDate]
+  );
 
-    if (dayMinutes < minMinutes) {
-      return minMinutes;
-    }
-    if (dayMinutes > maxMinutes) {
-      return maxMinutes;
-    }
-
-    return dayMinutes;
-  }, [value, safeDate, isSameDayWithMin, min, isSameDayWithMax, max]);
-
-  const seconds = useMemo(() => {
-    if (!value) return undefined;
-    const daySeconds = getSeconds(safeDate);
-    const minSeconds = isSameDayWithMin ? getSeconds(min) : 0;
-    const maxSeconds = isSameDayWithMax ? getSeconds(max) : 59;
-
-    if (daySeconds < minSeconds) {
-      return minSeconds;
-    }
-    if (daySeconds > maxSeconds) {
-      return maxSeconds;
-    }
-
-    return daySeconds;
-  }, [value, safeDate, isSameDayWithMin, min, isSameDayWithMax, max]);
+  const seconds = useMemo(
+    () => (value ? getSeconds(safeDate) : undefined),
+    [value, safeDate]
+  );
 
   const amPm = useMemo(() => {
     if (!value || !is12HourCycle) return undefined;
@@ -235,8 +209,16 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
             <TimeColumn
               theme={timeTheme}
               options={MINUTES}
-              min={isSameDayWithMin ? getMinutes(min) : undefined}
-              max={isSameDayWithMax ? getMinutes(max) : undefined}
+              min={
+                isSameDayWithMin && isSameHoursWithMin
+                  ? getMinutes(min)
+                  : undefined
+              }
+              max={
+                isSameDayWithMax && isSameHoursWithMax
+                  ? getMinutes(max)
+                  : undefined
+              }
               selectedValue={minutes}
               isPM={amPm === 'PM'}
               is12HourCycle={is12HourCycle}
@@ -249,8 +231,16 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
             <TimeColumn
               theme={timeTheme}
               options={SECONDS}
-              min={isSameDayWithMin ? getSeconds(min) : undefined}
-              max={isSameDayWithMax ? getSeconds(max) : undefined}
+              min={
+                isSameDayWithMin && isSameHoursWithMin
+                  ? getSeconds(min)
+                  : undefined
+              }
+              max={
+                isSameDayWithMax && isSameHoursWithMax
+                  ? getSeconds(max)
+                  : undefined
+              }
               selectedValue={seconds}
               isPM={amPm === 'PM'}
               is12HourCycle={is12HourCycle}
