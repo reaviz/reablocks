@@ -176,6 +176,27 @@ export const MinMaxWithTime = () => {
   );
 };
 
+export const MinMaxWith12HourCycle = () => {
+  const [date, setDate] = useState<Date>(new Date());
+
+  return (
+    <Card>
+      <Calendar
+        showTime
+        is12HourCycle
+        value={date}
+        min={FOUR_DAYS_AGO}
+        max={FIVE_DAYS_FROM_NOW}
+        onChange={(date: Date) => setDate(date)}
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {date?.toLocaleString() ?? 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
 export const WithLabels = () => {
   const [date, setDate] = useState<Date>();
 

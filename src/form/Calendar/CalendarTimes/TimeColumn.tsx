@@ -59,9 +59,12 @@ export const TimeColumn: FC<TimeColumnProps> = ({
       const container = containerRef.current;
 
       if (is12HourCycle) {
-        selectedItem.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
+        // Scroll to the selected item after a short delay to ensure the padding is applied
+        setTimeout(() => {
+          selectedItem.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         });
       } else {
         // Calculate scroll position to center the item
@@ -70,8 +73,6 @@ export const TimeColumn: FC<TimeColumnProps> = ({
         const itemHeight = selectedItem.clientHeight;
         const centerPosition =
           itemOffset - containerHeight / 2 - itemHeight / 2;
-
-        // Smooth scroll to centered position
         container.scrollTo({
           top: centerPosition,
           behavior: 'smooth'
@@ -85,9 +86,10 @@ export const TimeColumn: FC<TimeColumnProps> = ({
       <ul
         className={theme.items.list}
         style={{
-          paddingBottom: is12HourCycle
-            ? containerRef.current?.clientHeight - 24
-            : undefined
+          paddingBottom:
+            is12HourCycle && containerRef.current
+              ? containerRef.current?.clientHeight - 24
+              : undefined
         }}
       >
         {options.map(option => (

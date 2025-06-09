@@ -50,6 +50,7 @@ export interface CalendarTheme {
       wrapper: string;
       container: string;
       list: string;
+      divider: string;
     };
     item: {
       base: string;
@@ -116,7 +117,8 @@ const baseTheme: CalendarTheme = {
       wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
       container:
         'h-full overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
-      list: 'p-0 m-0 list-none'
+      list: 'p-0 m-0 list-none',
+      divider: 'mx-0'
     },
     item: {
       base: 'py-0.5 px-1.5 text-center cursor-pointer rounded transition-colors duration-150',

@@ -78,16 +78,23 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
 
   const handleHourChange = useCallback(
     (hour: number) => {
-      const newDate = setHours(safeDate, hour);
+      let newDate = setHours(safeDate, hour);
+      if (is12HourCycle) {
+        const isPM = getHours(safeDate) >= 12;
+        if (isPM) {
+          newDate = setHours(newDate, getHours(newDate) + 12);
+        }
+      }
       if (!isNaN(newDate.getTime())) {
         onChange(newDate);
       }
     },
-    [onChange, safeDate]
+    [is12HourCycle, onChange, safeDate]
   );
 
   const handleMinuteChange = useCallback(
     (minute: number) => {
+      const isPM = getHours(safeDate) >= 12;
       const newDate = setMinutes(safeDate, minute);
       if (!isNaN(newDate.getTime())) {
         onChange(newDate);
@@ -221,7 +228,10 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
               is12HourCycle={is12HourCycle}
               onSelect={handleHourChange}
             />
-            <Divider orientation="vertical" className="mx-0" />
+            <Divider
+              orientation="vertical"
+              className={timeTheme?.items.divider}
+            />
             <TimeColumn
               theme={timeTheme}
               options={MINUTES}
@@ -231,7 +241,10 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
               is12HourCycle={is12HourCycle}
               onSelect={handleMinuteChange}
             />
-            <Divider orientation="vertical" className="mx-0" />
+            <Divider
+              orientation="vertical"
+              className={timeTheme?.items.divider}
+            />
             <TimeColumn
               theme={timeTheme}
               options={SECONDS}
@@ -243,7 +256,10 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
             />
             {is12HourCycle && (
               <>
-                <Divider orientation="vertical" className="mx-0" />
+                <Divider
+                  orientation="vertical"
+                  className={timeTheme?.items.divider}
+                />
                 <TimeColumn
                   theme={timeTheme}
                   options={['AM', 'PM']}
