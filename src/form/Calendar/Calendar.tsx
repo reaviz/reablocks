@@ -127,7 +127,7 @@ export const Calendar: FC<CalendarProps> = ({
   nextArrow = '›',
   showDayOfWeek,
   showToday,
-  showTime,
+  showTime = false,
   is12HourCycle = false,
   animated = true,
   onChange,
