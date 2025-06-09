@@ -94,7 +94,6 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
 
   const handleMinuteChange = useCallback(
     (minute: number) => {
-      const isPM = getHours(safeDate) >= 12;
       const newDate = setMinutes(safeDate, minute);
       if (!isNaN(newDate.getTime())) {
         onChange(newDate);
