@@ -4,6 +4,8 @@ import {
   getHours,
   getMinutes,
   getSeconds,
+  isAfter,
+  isBefore,
   isSameDay,
   isSameHour,
   setHours,
@@ -76,6 +78,18 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
     return value;
   }, [value]);
 
+  const onChangeHandler = useCallback(
+    (newDate: Date) => {
+      if (isAfter(newDate, max)) {
+        newDate = max;
+      } else if (isBefore(newDate, min)) {
+        newDate = min;
+      }
+      onChange(newDate);
+    },
+    [onChange, max, min]
+  );
+
   const handleHourChange = useCallback(
     (hour: number) => {
       let newDate = setHours(safeDate, hour);
@@ -87,31 +101,25 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
           newDate = setHours(newDate, getHours(newDate) + 12);
         }
       }
-      if (!isNaN(newDate.getTime())) {
-        onChange(newDate);
-      }
+      onChangeHandler(newDate);
     },
-    [is12HourCycle, onChange, safeDate]
+    [is12HourCycle, safeDate, onChangeHandler]
   );
 
   const handleMinuteChange = useCallback(
     (minute: number) => {
       const newDate = setMinutes(safeDate, minute);
-      if (!isNaN(newDate.getTime())) {
-        onChange(newDate);
-      }
+      onChangeHandler(newDate);
     },
-    [onChange, safeDate]
+    [onChangeHandler, safeDate]
   );
 
   const handleSecondChange = useCallback(
     (second: number) => {
       const newDate = setSeconds(safeDate, second);
-      if (!isNaN(newDate.getTime())) {
-        onChange(newDate);
-      }
+      onChangeHandler(newDate);
     },
-    [onChange, safeDate]
+    [onChangeHandler, safeDate]
   );
 
   const handleAmPmChange = useCallback(
@@ -129,11 +137,9 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
         const hours = getHours(value);
         date = setHours(value, amPm === 'AM' ? hours - 12 : hours + 12);
       }
-      if (!isNaN(date.getTime())) {
-        onChange(date);
-      }
+      onChangeHandler(date);
     },
-    [onChange, safeDate, value]
+    [onChangeHandler, safeDate, value]
   );
 
   const isSameDayWithMax = useMemo(() => isSameDay(value, max), [value, max]);
