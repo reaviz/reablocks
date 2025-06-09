@@ -224,6 +224,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
               min={isSameDayWithMin ? getHours(min) : undefined}
               max={isSameDayWithMax ? getHours(max) : undefined}
               selectedValue={hours}
+              isPM={amPm === 'PM'}
               is12HourCycle={is12HourCycle}
               onSelect={handleHourChange}
             />
@@ -237,6 +238,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
               min={isSameDayWithMin ? getMinutes(min) : undefined}
               max={isSameDayWithMax ? getMinutes(max) : undefined}
               selectedValue={minutes}
+              isPM={amPm === 'PM'}
               is12HourCycle={is12HourCycle}
               onSelect={handleMinuteChange}
             />
@@ -250,6 +252,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
               min={isSameDayWithMin ? getSeconds(min) : undefined}
               max={isSameDayWithMax ? getSeconds(max) : undefined}
               selectedValue={seconds}
+              isPM={amPm === 'PM'}
               is12HourCycle={is12HourCycle}
               onSelect={handleSecondChange}
             />
@@ -265,6 +268,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
                   min={isSameDayWithMin ? getHours(min) : undefined}
                   max={isSameDayWithMax ? getHours(max) : undefined}
                   selectedValue={amPm}
+                  isPM={amPm === 'PM'}
                   onSelect={handleAmPmChange}
                 />
               </>

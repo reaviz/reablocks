@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef } from 'react';
+import React, { FC, useCallback, useEffect, useRef } from 'react';
 import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { cn } from '@/utils';
 
@@ -36,6 +36,11 @@ interface TimeColumnProps {
   is12HourCycle?: boolean;
 
   /**
+   * Whether the selected value is PM
+   */
+  isPM?: boolean;
+
+  /**
    * Callback fired when a time option is selected
    */
   onSelect: (value: number | AmPm) => void;
@@ -47,11 +52,30 @@ export const TimeColumn: FC<TimeColumnProps> = ({
   min,
   max,
   theme,
+  isPM = false,
   is12HourCycle = false,
   onSelect
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const selectedRef = useRef<HTMLLIElement>(null);
+
+  const isOptionDisabled = useCallback(
+    (option: number | AmPm) => {
+      if (typeof option === 'number') {
+        if (is12HourCycle && isPM) {
+          return option + 12 < min || option + 12 > max;
+        }
+        return option < min || option > max;
+      } else {
+        if ((option === 'AM' && min > 12) || (option === 'PM' && max < 12)) {
+          return true;
+        }
+
+        return false;
+      }
+    },
+    [is12HourCycle, isPM, min, max]
+  );
 
   useEffect(() => {
     if (containerRef.current && selectedRef.current) {
@@ -98,14 +122,14 @@ export const TimeColumn: FC<TimeColumnProps> = ({
             ref={selectedValue === option ? selectedRef : null}
             className={cn(theme.item.base, {
               [theme.item.selected]: selectedValue === option,
-              [theme.item.disabled]: option < min || option > max
+              [theme.item.disabled]: isOptionDisabled(option)
             })}
             onClick={() => {
-              if (option < min || option > max) return;
+              if (isOptionDisabled(option)) return;
               onSelect(option);
             }}
             role="option"
-            aria-disabled={option < min || option > max}
+            aria-disabled={isOptionDisabled(option)}
             aria-selected={selectedValue === option}
           >
             {typeof option === 'number'
