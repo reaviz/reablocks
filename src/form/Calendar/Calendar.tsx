@@ -368,6 +368,7 @@ export const Calendar: FC<CalendarProps> = ({
                   current={isRange ? [rangeStart, rangeEnd] : value}
                   showDayOfWeek={showDayOfWeek}
                   showToday={showToday}
+                  showTime={showTime}
                   xAnimation={xAnimation}
                   animated={animated}
                   onChange={dateChangeHandler}
