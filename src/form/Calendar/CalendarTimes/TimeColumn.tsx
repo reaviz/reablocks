@@ -120,9 +120,9 @@ export const TimeColumn: FC<TimeColumnProps> = ({
           <li
             key={option}
             ref={value === option ? selectedRef : null}
-            className={cn(theme.item.base, {
-              [theme.item.selected]: value === option,
-              [theme.item.disabled]: isOptionDisabled(option)
+            className={cn(theme.items.item.base, {
+              [theme.items.item.selected]: value === option,
+              [theme.items.item.disabled]: isOptionDisabled(option)
             })}
             onClick={() => {
               if (isOptionDisabled(option)) {
