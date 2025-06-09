@@ -89,17 +89,12 @@ export const TimeColumn: FC<TimeColumnProps> = ({
             behavior: 'smooth',
             block: 'start'
           });
-        });
+        }, 100);
       } else {
-        // Calculate scroll position to center the item
-        const itemOffset = selectedItem.offsetTop;
-        const containerHeight = container.clientHeight;
-        const itemHeight = selectedItem.clientHeight;
-        const centerPosition =
-          itemOffset - containerHeight / 2 - itemHeight / 2;
-        container.scrollTo({
-          top: centerPosition,
-          behavior: 'smooth'
+        selectedItem.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+          inline: 'nearest'
         });
       }
     }
