@@ -62,25 +62,30 @@ export const TimeColumn: FC<TimeColumnProps> = ({
   const isOptionDisabled = useCallback(
     (option: number | AmPm) => {
       if (typeof option === 'number') {
-        if (is12HourCycle && isPM) {
-          return option + 12 < min || option + 12 > max;
+        if (options.length === 12 && is12HourCycle) {
+          if (isPM) {
+            const pmOption = option < 12 ? option + 12 : option;
+            return pmOption < min || pmOption > max;
+          } else {
+            return option < min || option > max;
+          }
         }
+
         return option < min || option > max;
       } else {
-        if ((option === 'AM' && min > 12) || (option === 'PM' && max < 12)) {
+        if ((option === 'AM' && min >= 12) || (option === 'PM' && max < 12)) {
           return true;
         }
 
         return false;
       }
     },
-    [is12HourCycle, isPM, min, max]
+    [options.length, is12HourCycle, isPM, min, max]
   );
 
   useEffect(() => {
     if (containerRef.current && selectedRef.current) {
       const selectedItem = selectedRef.current;
-      const container = containerRef.current;
 
       if (is12HourCycle) {
         // Scroll to the selected item after a short delay to ensure the padding is applied
@@ -120,7 +125,10 @@ export const TimeColumn: FC<TimeColumnProps> = ({
               [theme.item.disabled]: isOptionDisabled(option)
             })}
             onClick={() => {
-              if (isOptionDisabled(option)) return;
+              if (isOptionDisabled(option)) {
+                return;
+              }
+
               onSelect(option);
             }}
             role="option"
