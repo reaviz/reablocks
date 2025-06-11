@@ -31,6 +31,7 @@ import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from './CalendarTheme';
 import { Divider } from '@/layout/Divider';
 import { CalendarTimes } from './CalendarTimes';
+import { updateDateTime } from './utils';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -194,43 +195,12 @@ export const Calendar: FC<CalendarProps> = ({
     (newDate: Date) => {
       let finalDate = newDate;
       if (showTime && value) {
-        const hasTime =
-          getHours(newDate) !== 0 ||
-          getMinutes(newDate) !== 0 ||
-          getSeconds(newDate) !== 0;
-
-        if (!hasTime) {
-          if (!isRange) {
-            // For single date, inherit time from previous value
-            const originalTimeSource = Array.isArray(value)
-              ? value[0] ?? new Date()
-              : value ?? new Date();
-            finalDate = setSeconds(
-              setMinutes(
-                setHours(newDate, getHours(originalTimeSource)),
-                getMinutes(originalTimeSource)
-              ),
-              getSeconds(originalTimeSource)
-            );
-          } else {
-            // For range, only inherit time for first date
-            if (!rangeStart) {
-              const originalTimeSource = Array.isArray(value)
-                ? value[0] ?? new Date()
-                : value ?? new Date();
-              finalDate = setSeconds(
-                setMinutes(
-                  setHours(newDate, getHours(originalTimeSource)),
-                  getMinutes(originalTimeSource)
-                ),
-                getSeconds(originalTimeSource)
-              );
-            } else {
-              // Reset time to start of day for second date
-              finalDate = setSeconds(setMinutes(setHours(newDate, 0), 0), 0);
-            }
-          }
-        }
+        finalDate = updateDateTime(
+          value,
+          newDate,
+          isRange,
+          Boolean(rangeStart)
+        );
       }
 
       if (!isRange) {

@@ -16,7 +16,13 @@ import {
   subDays,
   isWithinInterval,
   endOfDay,
-  startOfDay
+  startOfDay,
+  getHours,
+  getMinutes,
+  getSeconds,
+  setMinutes,
+  setHours,
+  setSeconds
 } from 'date-fns';
 
 /**
@@ -223,4 +229,63 @@ export function isPreviousWeekEmpty(
     isAfter(prevWeek, min(range)) || isSameDay(prevWeek, min(range));
 
   return !(prevWeekInRange && (isSameMonth(day, prevWeek) || !hidePrevMonth));
+}
+
+/**
+ * Update the time or date based on the current date and the range start.
+ *
+ * @param currentDate - The current date or range.
+ * @param newDate - The new date to update.
+ * @param isRange - Whether the current date is a range.
+ * @param rangeStart - Whether the current date is the start of the range.
+ * @returns The updated date.
+ */
+export function updateDateTime(
+  currentDate: Date | [Date, Date],
+  newDate: Date,
+  isRange = false,
+  rangeStart = false
+): Date {
+  let finalDate = newDate;
+  if (currentDate) {
+    const hasTime =
+      getHours(newDate) !== 0 ||
+      getMinutes(newDate) !== 0 ||
+      getSeconds(newDate) !== 0;
+
+    if (!hasTime) {
+      if (!isRange) {
+        // For single date, inherit time from previous value
+        const originalTimeSource = Array.isArray(currentDate)
+          ? currentDate[0] ?? new Date()
+          : currentDate ?? new Date();
+        finalDate = setSeconds(
+          setMinutes(
+            setHours(newDate, getHours(originalTimeSource)),
+            getMinutes(originalTimeSource)
+          ),
+          getSeconds(originalTimeSource)
+        );
+      } else {
+        // For range, only inherit time for first date
+        if (!rangeStart) {
+          const originalTimeSource = Array.isArray(currentDate)
+            ? currentDate[0] ?? new Date()
+            : currentDate ?? new Date();
+          finalDate = setSeconds(
+            setMinutes(
+              setHours(newDate, getHours(originalTimeSource)),
+              getMinutes(originalTimeSource)
+            ),
+            getSeconds(originalTimeSource)
+          );
+        } else {
+          // Reset time to start of day for second date
+          finalDate = setSeconds(setMinutes(setHours(newDate, 0), 0), 0);
+        }
+      }
+    }
+  }
+
+  return finalDate;
 }
