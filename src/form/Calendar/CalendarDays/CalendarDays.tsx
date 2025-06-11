@@ -145,6 +145,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       if (showTime && !isRange && current) {
         const currentDate = current as Date;
         let newDate = new Date(dayDate);
+        // Update the time of the new date based on the time of the current date.
         newDate.setHours(currentDate.getHours());
         newDate.setMinutes(currentDate.getMinutes());
         newDate.setSeconds(currentDate.getSeconds());
