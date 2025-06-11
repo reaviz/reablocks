@@ -70,11 +70,14 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
   showDayOfWeek = false,
   is12HourCycle = false
 }) => {
+  // If the value is not a valid date, set it to midnight of the current date.
+  // This allow to use the current date for the time picker.
   const safeDate = useMemo(() => {
     if (!value || isNaN(value.getTime())) {
       const midnight = new Date().setHours(0, 0, 0, 0);
       return midnight;
     }
+
     return value;
   }, [value]);
 
