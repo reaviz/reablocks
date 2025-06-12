@@ -6,7 +6,8 @@ import {
   getDayLabels,
   getWeeks,
   isNextWeekEmpty,
-  isPreviousWeekEmpty
+  isPreviousWeekEmpty,
+  updateDateTime
 } from './utils';
 
 describe('getDayLabels', () => {
@@ -223,5 +224,93 @@ describe('isPreviousWeekEmpty', () => {
     const result = isPreviousWeekEmpty(day, range, hidePrevMonth);
 
     expect(result).toBe(true);
+  });
+});
+
+describe('updateDateTime', () => {
+  test('returns newDate as-is if it already has a time (single date)', () => {
+    const currentDate = new Date(2024, 2, 7, 10, 30, 15);
+    const newDate = new Date(2024, 2, 8, 12, 45, 30);
+    const result = updateDateTime(currentDate, newDate, false, false);
+
+    expect(result).toEqual(newDate);
+  });
+
+  test('inherits time from currentDate if newDate has no time (single date)', () => {
+    const currentDate = new Date(2024, 2, 7, 10, 30, 15);
+    const newDate = new Date(2024, 2, 8, 0, 0, 0);
+    const result = updateDateTime(currentDate, newDate, false, false);
+
+    expect(result.getHours()).toBe(10);
+    expect(result.getMinutes()).toBe(30);
+    expect(result.getSeconds()).toBe(15);
+    expect(result.getFullYear()).toBe(2024);
+    expect(result.getMonth()).toBe(2);
+    expect(result.getDate()).toBe(8);
+  });
+
+  test('returns newDate as-is if it already has a time (range)', () => {
+    const currentDate: [Date, Date] = [
+      new Date(2024, 2, 7, 10, 30, 15),
+      new Date(2024, 2, 8, 11, 0, 0)
+    ];
+    const newDate = new Date(2024, 2, 9, 14, 20, 10);
+    const result = updateDateTime(currentDate, newDate, true, false);
+
+    expect(result).toEqual(newDate);
+  });
+
+  test('inherits time from first date in currentDate if newDate has no time (range, rangeStart=false)', () => {
+    const currentDate: [Date, Date] = [
+      new Date(2024, 2, 7, 10, 30, 15),
+      new Date(2024, 2, 8, 11, 0, 0)
+    ];
+    const newDate = new Date(2024, 2, 9, 0, 0, 0);
+    const result = updateDateTime(currentDate, newDate, true, false);
+
+    expect(result.getHours()).toBe(10);
+    expect(result.getMinutes()).toBe(30);
+    expect(result.getSeconds()).toBe(15);
+    expect(result.getFullYear()).toBe(2024);
+    expect(result.getMonth()).toBe(2);
+    expect(result.getDate()).toBe(9);
+  });
+
+  test('resets time to 00:00:00 if newDate has no time (range, rangeStart=true)', () => {
+    const currentDate: [Date, Date] = [
+      new Date(2024, 2, 7, 10, 30, 15),
+      new Date(2024, 2, 8, 11, 0, 0)
+    ];
+    const newDate = new Date(2024, 2, 9, 0, 0, 0);
+    const result = updateDateTime(currentDate, newDate, true, true);
+
+    expect(result.getHours()).toBe(0);
+    expect(result.getMinutes()).toBe(0);
+    expect(result.getSeconds()).toBe(0);
+    expect(result.getFullYear()).toBe(2024);
+    expect(result.getMonth()).toBe(2);
+    expect(result.getDate()).toBe(9);
+  });
+
+  test('returns newDate as-is if currentDate is undefined', () => {
+    const currentDate = undefined;
+    const newDate = new Date(2024, 2, 9, 0, 0, 0);
+    const result = updateDateTime(currentDate as any, newDate, false, false);
+
+    expect(result).toEqual(newDate);
+  });
+
+  test('handles currentDate as array with undefined first element', () => {
+    const currentDate: [Date | undefined, Date | undefined] = [
+      undefined,
+      undefined
+    ];
+    const newDate = new Date(2024, 2, 9, 0, 0, 0);
+    const result = updateDateTime(currentDate as any, newDate, true, false);
+
+    expect(result instanceof Date).toBe(true);
+    expect(result.getFullYear()).toBe(2024);
+    expect(result.getMonth()).toBe(2);
+    expect(result.getDate()).toBe(9);
   });
 });

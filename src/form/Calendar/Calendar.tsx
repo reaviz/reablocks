@@ -14,16 +14,24 @@ import {
   startOfDecade,
   sub,
   subYears,
-  format
+  format,
+  setSeconds,
+  setMinutes,
+  setHours,
+  getMinutes,
+  getSeconds,
+  getHours
 } from 'date-fns';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
 import { SmallHeading } from '@/typography';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from './CalendarTheme';
 import { Divider } from '@/layout/Divider';
+import { CalendarTimes } from './CalendarTimes';
+import { updateDateTime } from './utils';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -80,6 +88,16 @@ export interface CalendarProps {
   showToday?: boolean;
 
   /**
+   * Whether to show the time picker.
+   */
+  showTime?: boolean;
+
+  /**
+   * Whether to use 12-hour cycle for the time picker.
+   */
+  is12HourCycle?: boolean;
+
+  /**
    * Whether to animate the calendar.
    */
   animated?: boolean;
@@ -110,6 +128,8 @@ export const Calendar: FC<CalendarProps> = ({
   nextArrow = '›',
   showDayOfWeek,
   showToday,
+  showTime = false,
+  is12HourCycle = false,
   animated = true,
   onChange,
   onViewChange,
@@ -172,21 +192,30 @@ export const Calendar: FC<CalendarProps> = ({
   }, [onViewChange, view]);
 
   const dateChangeHandler = useCallback(
-    (date: Date) => {
+    (newDate: Date) => {
+      let finalDate = newDate;
+      if (showTime && value) {
+        finalDate = updateDateTime(
+          value,
+          newDate,
+          isRange,
+          Boolean(rangeStart)
+        );
+      }
+
       if (!isRange) {
-        onChange?.(date);
-        setMonthValue(getMonth(date));
-        setYearValue(getYear(date));
+        onChange?.(finalDate);
       } else if (!rangeStart) {
-        onChange?.([date, undefined]);
+        onChange?.([finalDate, undefined]);
       } else if (!rangeEnd) {
-        const range = [rangeStart, date];
-        onChange?.([minDate(range), maxDate(range)]);
+        const range = [rangeStart, finalDate];
+        const sortedRange: [Date, Date] = [minDate(range), maxDate(range)];
+        onChange?.(sortedRange);
       } else {
-        onChange?.([date, undefined]);
+        onChange?.([finalDate, undefined]);
       }
     },
-    [isRange, onChange, rangeEnd, rangeStart]
+    [isRange, onChange, rangeEnd, rangeStart, showTime, value]
   );
 
   const monthsChangeHandler = useCallback(
@@ -209,6 +238,29 @@ export const Calendar: FC<CalendarProps> = ({
     [min, onViewChange]
   );
 
+  const handleTimeChange = useCallback(
+    (newTimeDate: Date) => {
+      if (!isRange) {
+        onChange?.(newTimeDate);
+      } else {
+        if (rangeEnd) {
+          const newRangeEnd = setSeconds(
+            setMinutes(
+              setHours(rangeEnd, getHours(newTimeDate)),
+              getMinutes(newTimeDate)
+            ),
+            getSeconds(newTimeDate)
+          );
+          onChange?.([rangeStart!, newRangeEnd]);
+        } else {
+          const newRangeStart = newTimeDate;
+          onChange?.([newRangeStart, rangeEnd]);
+        }
+      }
+    },
+    [isRange, onChange, rangeStart, rangeEnd]
+  );
+
   const xAnimation = useMemo(() => {
     switch (scrollDirection) {
       case 'forward':
@@ -222,92 +274,109 @@ export const Calendar: FC<CalendarProps> = ({
 
   return (
     <div className={twMerge(theme.base)}>
-      <header className={twMerge(theme.header.base)}>
-        <Button
-          variant="text"
-          disabled={disabled}
-          onClick={previousClickHandler}
-          className={theme.header.prev}
-          disablePadding
-        >
-          {previousArrow}
-        </Button>
-        <Button
-          disabled={disabled}
-          variant="text"
-          onClick={headerClickHandler}
-          className={theme.header.mid}
-          disablePadding
-          fullWidth
-        >
-          <SmallHeading disableMargins className={theme.title}>
-            {view === 'days' && format(viewValue, 'MMMM')}
-            {view === 'months' && <>{yearValue}</>}
-            {view === 'years' && (
-              <>
-                {decadeStart.getFullYear()}-{decadeEnd.getFullYear()}
-              </>
-            )}
-          </SmallHeading>
-        </Button>
-        <Button
-          variant="text"
-          disabled={disabled}
-          onClick={nextClickHandler}
-          className={theme.header.next}
-          disablePadding
-        >
-          {nextArrow}
-        </Button>
-      </header>
-      <Divider />
-      <AnimatePresence initial={false} mode="wait">
-        <motion.div
-          className={twMerge(theme.content)}
-          key={view}
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0, opacity: 1 }}
-          transition={{
-            x: { type: animated ? 'keyframes' : false },
-            opacity: { duration: 0.2, type: animated ? 'tween' : false },
-            scale: { type: animated ? 'tween' : false }
-          }}
-        >
-          {view === 'days' && (
-            <CalendarDays
-              value={viewValue}
-              min={min}
-              max={max}
+      <div className="relative flex flex-1">
+        <div className="flex-1">
+          <header className={twMerge(theme.header.base)}>
+            <Button
+              variant="text"
               disabled={disabled}
-              isRange={isRange}
-              current={isRange ? [rangeStart, rangeEnd] : value}
-              showDayOfWeek={showDayOfWeek}
-              showToday={showToday}
-              xAnimation={xAnimation}
-              animated={animated}
-              onChange={dateChangeHandler}
-            />
-          )}
-          {view === 'months' && (
-            <CalendarMonths
-              value={monthValue}
-              animated={animated}
-              onChange={monthsChangeHandler}
-            />
-          )}
-          {view === 'years' && (
-            <CalendarYears
-              decadeStart={decadeStart}
-              decadeEnd={decadeEnd}
-              animated={animated}
-              value={yearValue}
-              xAnimation={xAnimation}
-              onChange={yearChangeHandler}
-            />
-          )}
-        </motion.div>
-      </AnimatePresence>
+              onClick={previousClickHandler}
+              className={theme.header.prev}
+              disablePadding
+            >
+              {previousArrow}
+            </Button>
+            <Button
+              disabled={disabled}
+              variant="text"
+              onClick={headerClickHandler}
+              className={theme.header.mid}
+              disablePadding
+              fullWidth
+            >
+              <SmallHeading disableMargins className={theme.title}>
+                {view === 'days' && format(viewValue, 'MMMM')}
+                {view === 'months' && <>{yearValue}</>}
+                {view === 'years' && (
+                  <>
+                    {decadeStart.getFullYear()}-{decadeEnd.getFullYear()}
+                  </>
+                )}
+              </SmallHeading>
+            </Button>
+            <Button
+              variant="text"
+              disabled={disabled}
+              onClick={nextClickHandler}
+              className={theme.header.next}
+              disablePadding
+            >
+              {nextArrow}
+            </Button>
+          </header>
+          <Divider />
+          <AnimatePresence initial={false} mode="wait">
+            <motion.div
+              className={twMerge(theme.content)}
+              key={view}
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 1 }}
+              transition={{
+                x: { type: animated ? 'keyframes' : false },
+                opacity: { duration: 0.2, type: animated ? 'tween' : false },
+                scale: { type: animated ? 'tween' : false }
+              }}
+            >
+              {view === 'days' && (
+                <CalendarDays
+                  value={viewValue}
+                  min={min}
+                  max={max}
+                  disabled={disabled}
+                  isRange={isRange}
+                  current={isRange ? [rangeStart, rangeEnd] : value}
+                  showDayOfWeek={showDayOfWeek}
+                  showToday={showToday}
+                  showTime={showTime}
+                  xAnimation={xAnimation}
+                  animated={animated}
+                  onChange={dateChangeHandler}
+                />
+              )}
+              {view === 'months' && (
+                <CalendarMonths
+                  value={monthValue}
+                  onChange={monthsChangeHandler}
+                />
+              )}
+              {view === 'years' && (
+                <CalendarYears
+                  decadeStart={decadeStart}
+                  decadeEnd={decadeEnd}
+                  animated={animated}
+                  value={yearValue}
+                  xAnimation={xAnimation}
+                  onChange={yearChangeHandler}
+                />
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+        {showTime && (
+          <CalendarTimes
+            value={
+              isRange ? (rangeEnd ? rangeEnd : value?.[0]) : (value as Date)
+            }
+            min={min}
+            max={max === 'now' ? new Date() : max}
+            theme={theme.time}
+            is12HourCycle={is12HourCycle}
+            showDayOfWeek={showDayOfWeek}
+            onChange={handleTimeChange}
+          />
+        )}
+      </div>
     </div>
   );
 };

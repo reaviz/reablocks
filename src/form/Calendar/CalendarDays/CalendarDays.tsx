@@ -1,5 +1,5 @@
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import { isAfter, isBefore, isToday } from 'date-fns';
+import { endOfDay, isAfter, isBefore, isToday, startOfDay } from 'date-fns';
 import { Button } from '@/elements';
 import {
   daysOfWeek,
@@ -11,7 +11,6 @@ import {
 import { AnimatePresence, motion } from 'motion/react';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
-import { twMerge } from 'tailwind-merge';
 
 export interface CalendarDaysProps {
   /**
@@ -63,6 +62,11 @@ export interface CalendarDaysProps {
    * Whether to display day of week labels.
    */
   showDayOfWeek?: boolean;
+
+  /**
+   * Whether to show the time picker.
+   */
+  showTime?: boolean;
 
   /**
    * Whether to highlight the today.
@@ -122,6 +126,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   xAnimation = 0,
   showDayOfWeek,
   showToday,
+  showTime,
   dayOfWeekLabels = daysOfWeek,
   hidePrevMonthDays,
   hideNextMonthDays,
@@ -134,6 +139,28 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   const [hoveringDate, setHoveringDate] = useState<Date | null>(hover);
   const weeks = useMemo(() => getWeeks(value), [value]);
   const maxLimit = useMemo(() => (max === 'now' ? new Date() : max), [max]);
+
+  const dayChangeHandler = useCallback(
+    (dayDate: Date) => {
+      if (showTime && !isRange && current) {
+        const currentDate = current as Date;
+        let newDate = new Date(dayDate);
+        // Update the time of the new date based on the time of the current date.
+        newDate.setHours(currentDate.getHours());
+        newDate.setMinutes(currentDate.getMinutes());
+        newDate.setSeconds(currentDate.getSeconds());
+        if (isAfter(newDate, maxLimit)) {
+          newDate = maxLimit;
+        } else if (isBefore(newDate, minLimit)) {
+          newDate = minLimit;
+        }
+        onChange(newDate);
+      } else {
+        onChange(dayDate);
+      }
+    },
+    [showTime, isRange, current, maxLimit, minLimit, onChange]
+  );
 
   const renderDay = useCallback(
     day => {
@@ -156,8 +183,8 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       // Determine if the day is disabled
       const isDisabled =
         disabled ||
-        (minLimit && isBefore(day.date, minLimit)) ||
-        (maxLimit && isAfter(day.date, maxLimit));
+        (minLimit && isBefore(startOfDay(day.date), startOfDay(minLimit))) ||
+        (maxLimit && isAfter(endOfDay(day.date), endOfDay(maxLimit)));
 
       // Determine if date is in selected (or to be selected) range
       const currentHover = hover || hoveringDate;
@@ -213,7 +240,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
           disableMargins
           disabled={isDisabled}
           title={day.formattedDate}
-          onClick={() => onChange(day.date)}
+          onClick={() => dayChangeHandler(day.date)}
         >
           {day.dayOfMonth}
         </Button>
@@ -226,7 +253,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       current,
       hover,
       isRange,
-      onChange,
+      dayChangeHandler,
       onHover,
       hoveringDate,
       days,

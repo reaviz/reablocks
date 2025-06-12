@@ -33,6 +33,31 @@ export interface CalendarTheme {
     year: string;
     selected: string;
   };
+  time?: {
+    base: string;
+    wrapper: string;
+    dividerTop: string;
+    dividerLeft: string;
+    header: string;
+    column: {
+      base: string;
+      wrapper: string;
+      label: string;
+      list: string;
+      scrollbar: string;
+    };
+    items: {
+      wrapper: string;
+      container: string;
+      list: string;
+      divider: string;
+      item: {
+        base: string;
+        selected: string;
+        disabled: string;
+      };
+    };
+  };
 }
 
 const baseTheme: CalendarTheme = {
@@ -72,6 +97,34 @@ const baseTheme: CalendarTheme = {
     root: 'grid grid-cols-4 gap-2',
     year: 'p-1.5',
     selected: ''
+  },
+
+  time: {
+    base: 'flex flex-col h-full gap-0',
+    wrapper: 'mt-4 bg-panel z-10 flex flex-row',
+    dividerTop: 'w-full',
+    dividerLeft: 'h-auto mt-2.5 mx-1 bg-surface z-10',
+    header: 'flex gap-4 px-0.5 pb-2.5 mb-2',
+    column: {
+      base: 'w-6',
+      wrapper: 'overflow-y-auto h-52',
+      label: 'text-center text-xs text-gray-500',
+      list: 'p-0 m-0 list-none',
+      scrollbar:
+        'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500'
+    },
+    items: {
+      wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
+      container:
+        'h-full overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
+      list: 'p-0 m-0 list-none',
+      divider: 'mx-0',
+      item: {
+        base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150',
+        selected: '',
+        disabled: 'cursor-not-allowed'
+      }
+    }
   }
 };
 
@@ -85,7 +138,7 @@ export const calendarTheme: CalendarTheme = {
     ...baseTheme.days,
     day: [
       baseTheme.days.day,
-      'border-transparent text-text-secondary opacity-90 hover:bg-primary-hover hover:text-black'
+      'border-transparent text-text-secondary opacity-90 hover:bg-primary-hover hover:disabled:bg-transparent! hover:text-black disabled:text-text-secondary/60'
     ].join(' '),
     header: [baseTheme.days.header, 'text-text-secondary'].join(' '),
     outside: [baseTheme.days.outside, 'opacity-40 text-text-secondary'].join(
@@ -124,6 +177,22 @@ export const calendarTheme: CalendarTheme = {
       baseTheme.years.selected,
       'border-transparent text-black light:text-white'
     ].join(' ')
+  },
+  time: {
+    ...baseTheme.time,
+    wrapper: [baseTheme.time.wrapper, 'border-panel-border'].join(' '),
+    items: {
+      ...baseTheme.time.items,
+      item: {
+        ...baseTheme.time.items.item,
+        base: [baseTheme.time.items.item.base, 'text-text-secondary'].join(' '),
+        selected: [
+          baseTheme.time.items.item.selected,
+          'bg-blue-500 text-white dark:bg-blue-600 dark:text-white'
+        ].join(' '),
+        disabled: [baseTheme.time.items.item.disabled, 'opacity-50'].join(' ')
+      }
+    }
   }
 };
 

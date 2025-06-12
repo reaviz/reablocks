@@ -17,7 +17,10 @@ import { useComponentTheme } from '@/utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
 
 export interface CalendarRangeProps
-  extends Omit<CalendarProps, 'value' | 'isRange' | 'onViewChange' | 'theme'> {
+  extends Omit<
+    CalendarProps,
+    'value' | 'isRange' | 'onViewChange' | 'theme' | 'showTime'
+  > {
   /**
    * The selected date(s) for the calendar.
    */

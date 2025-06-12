@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { Card } from '../../layout/Card';
 import { Calendar } from './Calendar';
 import { CalendarRange } from './CalendarRange';
-import { add, addMonths, endOfMonth, startOfMonth, sub } from 'date-fns';
+import { add, addMonths, endOfMonth, max, startOfMonth, sub } from 'date-fns';
 import { Divider } from '../../layout/Divider';
 import { Stack } from '../../layout/Stack';
+
+const FOUR_DAYS_AGO = sub(new Date(), { days: 4 });
+const FIVE_DAYS_FROM_NOW = add(new Date(), { days: 5 });
 
 export default {
   title: 'Components/Form/Calendar',
@@ -20,6 +23,47 @@ export const Simple = () => {
       <Divider />
       <Stack inline={false} justifyContent="center">
         {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
+export const WithTime = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <Card>
+      <Calendar
+        showDayOfWeek
+        showToday
+        showTime
+        value={date}
+        onChange={(date: Date) => setDate(date)}
+      />
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {date?.toLocaleString() ?? 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
+export const WithTime12HourCycle = () => {
+  const [date, setDate] = useState<Date>();
+
+  return (
+    <Card>
+      <Calendar
+        showDayOfWeek
+        showToday
+        showTime
+        is12HourCycle
+        value={date}
+        onChange={(date: Date) => setDate(date)}
+      />
+      <Divider />
+      <Stack inline={false} justifyContent="center">
+        {date?.toLocaleString() ?? 'No date selected'}
       </Stack>
     </Card>
   );
@@ -112,6 +156,47 @@ export const MinMax = () => {
   );
 };
 
+export const MinMaxWithTime = () => {
+  const [date, setDate] = useState<Date>(new Date());
+
+  return (
+    <Card>
+      <Calendar
+        showTime
+        value={date}
+        min={FOUR_DAYS_AGO}
+        max={FIVE_DAYS_FROM_NOW}
+        onChange={(date: Date) => setDate(date)}
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {date?.toLocaleString() ?? 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
+export const MinMaxWith12HourCycle = () => {
+  const [date, setDate] = useState<Date>(new Date());
+
+  return (
+    <Card>
+      <Calendar
+        showTime
+        is12HourCycle
+        value={date}
+        min={FOUR_DAYS_AGO}
+        max={FIVE_DAYS_FROM_NOW}
+        onChange={(date: Date) => setDate(date)}
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {date?.toLocaleString() ?? 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
 export const WithLabels = () => {
   const [date, setDate] = useState<Date>();
 
@@ -146,6 +231,29 @@ export const Range = () => {
       <Stack justifyContent="center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
+export const RangeWithTime = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <Card>
+      <Calendar
+        value={range}
+        onChange={val => setRange(val as [Date, Date | undefined])}
+        isRange
+        showDayOfWeek
+        showToday
+        showTime
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {range
+          ? `${range[0]?.toLocaleString()}-${range[1]?.toLocaleString()}`
           : 'No date selected'}
       </Stack>
     </Card>
