@@ -1,3 +1,6 @@
+# 9.0.7 - 6/12/25
+- [feature] Add time selection to Calendar #293
+
 # 9.0.6 - 4/15/25
 - [fix] Fix shift hotkey text in Kbd #292
 
