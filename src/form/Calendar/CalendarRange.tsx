@@ -15,7 +15,7 @@ import { SmallHeading } from '@/typography';
 import { Divider, Stack } from '@/layout';
 import { useComponentTheme } from '@/utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
-import { CalendarPresets, PresetType } from './CalendarPresets';
+import { CalendarPresets, PresetOption } from './CalendarPresets';
 
 export interface CalendarRangeProps
   extends Omit<
@@ -62,9 +62,9 @@ export interface CalendarRangeProps
   theme?: CalendarRangeTheme;
 
   /**
-   * Preset configuration for the calendar.
+   * Preset options for the calendar.
    */
-  preset?: CalendarPresetType;
+  preset?: PresetOption[];
 }
 
 export const CalendarRange: FC<CalendarRangeProps> = ({
@@ -154,11 +154,6 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     }
   }, [scrollDirection]);
 
-  const presetType = useMemo((): PresetType => {
-    if (!preset) return direction as PresetType;
-    return preset as PresetType;
-  }, [preset, direction]);
-
   const handlePresetChange = useCallback(
     (newValue: [Date, Date]) => {
       setScrollDirection(null);
@@ -174,9 +169,9 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         {preset && (
           <Stack dense direction="row" className={theme.presets.wrapper}>
             <CalendarPresets
+              options={preset}
+              showTime={false}
               className="min-w-[100px] w-auto flex-shrink-0"
-              type={presetType}
-              isRange={true}
               value={
                 value && value.length >= 2
                   ? [value[0] as Date, value[1] as Date]

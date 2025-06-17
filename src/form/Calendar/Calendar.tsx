@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'motion/react';
-import React, { FC, ReactNode, useCallback, useMemo, useState } from 'react';
+import React, { FC, useCallback, useMemo, useState } from 'react';
 import { Button } from '@/elements/Button';
 import {
   add,
@@ -32,7 +32,7 @@ import { CalendarTheme } from './CalendarTheme';
 import { Divider } from '@/layout/Divider';
 import { CalendarTimes } from './CalendarTimes';
 import { updateDateTime } from './utils';
-import { CalendarPresets, PresetType } from './CalendarPresets';
+import { CalendarPresets, PresetOption } from './CalendarPresets';
 import { Stack } from '@/layout';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
@@ -112,7 +112,7 @@ export interface CalendarProps {
   /**
    * Preset configuration for the calendar.
    */
-  preset?: CalendarPresetType;
+  preset?: PresetOption[];
 
   /**
    * A callback function that is called when the selected date(s) change.
@@ -285,11 +285,6 @@ export const Calendar: FC<CalendarProps> = ({
     }
   }, [scrollDirection]);
 
-  const presetType = useMemo((): PresetType => {
-    if (!preset) return 'past';
-    return preset as PresetType;
-  }, [preset]);
-
   const handlePresetChange = useCallback(
     (newValue: Date | [Date, Date]) => {
       const targetDate = Array.isArray(newValue) ? newValue[0] : newValue;
@@ -312,10 +307,8 @@ export const Calendar: FC<CalendarProps> = ({
           <>
             <Stack dense direction="row" className={theme.presets.wrapper}>
               <CalendarPresets
-                type={presetType}
-                isRange={isRange}
-                showTime={showTime}
-                value={value}
+                options={preset}
+                value={value as Date | [Date, Date]}
                 onChange={handlePresetChange}
               />
               <Divider

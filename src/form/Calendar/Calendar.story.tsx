@@ -7,12 +7,17 @@ import {
   addMonths,
   endOfMonth,
   format,
-  max,
   startOfMonth,
-  sub
+  sub,
+  subDays
 } from 'date-fns';
 import { Divider } from '../../layout/Divider';
 import { Stack } from '../../layout/Stack';
+import {
+  getCombinedPresets,
+  getFuturePresets,
+  getPastPresets
+} from './CalendarPresets';
 
 const FOUR_DAYS_AGO = sub(new Date(), { days: 4 });
 const FIVE_DAYS_FROM_NOW = add(new Date(), { days: 5 });
@@ -347,7 +352,61 @@ export const WithDatePresets = () => {
           showDayOfWeek
           showToday
           showTime
-          preset="combined"
+          preset={getCombinedPresets(false, true)}
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {date ? format(date, 'yyyy-MM-dd') : 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
+export const WithCustomDatePresets = () => {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          value={date}
+          onChange={(newDate: Date) => setDate(newDate)}
+          showDayOfWeek
+          showToday
+          preset={[
+            {
+              label: 'Thanksgiving Day',
+              value: () => {
+                const thanksgiving = new Date(new Date().getFullYear(), 10, 1);
+                // Find the first Monday in November (Thanksgiving is always on the 4th Thursday)
+                while (thanksgiving.getDay() !== 1) {
+                  thanksgiving.setDate(thanksgiving.getDate() - 1);
+                }
+
+                return thanksgiving;
+              }
+            },
+            {
+              label: 'Labor Day',
+              value: () => {
+                const laborDay = new Date(new Date().getFullYear(), 8, 1);
+                // First Monday in September
+                while (laborDay.getDay() !== 1) {
+                  laborDay.setDate(laborDay.getDate() - 1);
+                }
+
+                return laborDay;
+              }
+            },
+            {
+              label: 'New Year',
+              value: new Date(new Date().getFullYear(), 0, 1)
+            },
+            {
+              label: 'Christmas',
+              value: new Date(new Date().getFullYear(), 11, 25)
+            }
+          ]}
         />
       </Card>
       <Stack justifyContent="center" className="mt-4">
@@ -368,7 +427,7 @@ export const WithDateFuturePresets = () => {
           onChange={(newDate: Date) => setDate(newDate)}
           showDayOfWeek
           showToday
-          preset="future"
+          preset={getFuturePresets(false, false)}
         />
       </Card>
       <Stack justifyContent="center" className="mt-4">
@@ -390,7 +449,7 @@ export const RangeWithDatePastPresets = () => {
           showDayOfWeek
           showToday
           isRange
-          preset="future"
+          preset={getPastPresets(true, false)}
         />
       </Card>
       <Stack justifyContent="center">
@@ -414,7 +473,7 @@ export const MultiviewWithPastPresets = () => {
           showDayOfWeek
           headerDateFormat="MMMM yyyy"
           direction="past"
-          preset="past"
+          preset={getPastPresets(true, false)}
         />
       </Card>
       <Stack justifyContent="center" className="mt-4">
@@ -438,7 +497,7 @@ export const MultiviewWithFuturePresets = () => {
           showDayOfWeek
           headerDateFormat="MMMM yyyy"
           direction="future"
-          preset="future"
+          preset={getFuturePresets(true, false)}
         />
       </Card>
       <Stack justifyContent="center" className="mt-4">
@@ -461,7 +520,7 @@ export const MultiviewWithCombinedPresets = () => {
           onChange={val => setRange(val as [Date, Date])}
           showDayOfWeek
           headerDateFormat="MMMM yyyy"
-          preset="combined"
+          preset={getCombinedPresets(true, false)}
         />
       </Card>
       <Stack justifyContent="center" className="mt-4">
