@@ -2,7 +2,15 @@ import { useState } from 'react';
 import { Card } from '../../layout/Card';
 import { Calendar } from './Calendar';
 import { CalendarRange } from './CalendarRange';
-import { add, addMonths, endOfMonth, max, startOfMonth, sub } from 'date-fns';
+import {
+  add,
+  addMonths,
+  endOfMonth,
+  format,
+  max,
+  startOfMonth,
+  sub
+} from 'date-fns';
 import { Divider } from '../../layout/Divider';
 import { Stack } from '../../layout/Stack';
 
@@ -324,5 +332,143 @@ export const MultiviewPast = () => {
           : 'No date selected'}
       </Stack>
     </Card>
+  );
+};
+
+export const WithDatePresets = () => {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          value={date}
+          onChange={(newDate: Date) => setDate(newDate)}
+          showDayOfWeek
+          showToday
+          showTime
+          preset="combined"
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {date ? format(date, 'yyyy-MM-dd') : 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
+export const WithDateFuturePresets = () => {
+  const [date, setDate] = useState<Date | undefined>(new Date());
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          value={date}
+          onChange={(newDate: Date) => setDate(newDate)}
+          showDayOfWeek
+          showToday
+          preset="future"
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {date ? format(date, 'yyyy-MM-dd') : 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
+export const RangeWithDatePastPresets = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <>
+      <Card>
+        <Calendar
+          value={range}
+          onChange={(newDate: [Date, Date]) => setRange(newDate)}
+          showDayOfWeek
+          showToday
+          isRange
+          preset="future"
+        />
+      </Card>
+      <Stack justifyContent="center">
+        {range
+          ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
+export const MultiviewWithPastPresets = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <>
+      <Card>
+        <CalendarRange
+          value={range}
+          onChange={val => setRange(val as [Date, Date])}
+          showDayOfWeek
+          headerDateFormat="MMMM yyyy"
+          direction="past"
+          preset="past"
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {range
+          ? `${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
+export const MultiviewWithFuturePresets = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <>
+      <Card>
+        <CalendarRange
+          value={range}
+          onChange={val => setRange(val as [Date, Date])}
+          showDayOfWeek
+          headerDateFormat="MMMM yyyy"
+          direction="future"
+          preset="future"
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {range
+          ? `${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </>
+  );
+};
+
+export const MultiviewWithCombinedPresets = () => {
+  const [range, setRange] = useState<[Date, Date]>();
+
+  return (
+    <>
+      <Card>
+        <CalendarRange
+          value={range}
+          onChange={val => setRange(val as [Date, Date])}
+          showDayOfWeek
+          headerDateFormat="MMMM yyyy"
+          preset="combined"
+        />
+      </Card>
+      <Stack justifyContent="center" className="mt-4">
+        {range
+          ? `${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
+          : 'No date selected'}
+      </Stack>
+    </>
   );
 };

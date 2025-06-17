@@ -58,6 +58,16 @@ export interface CalendarTheme {
       };
     };
   };
+  presets?: {
+    wrapper: string;
+    divider: string;
+    base: string;
+    group: string;
+    item: {
+      base: string;
+      active: string;
+    };
+  };
 }
 
 const baseTheme: CalendarTheme = {
@@ -125,6 +135,16 @@ const baseTheme: CalendarTheme = {
         disabled: 'cursor-not-allowed'
       }
     }
+  },
+  presets: {
+    wrapper: 'bg-panel z-10',
+    divider: 'mx-1 h-[calc(100%-26px)] self-end',
+    base: 'relative h-59 max-w-52 pr-1 overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y space-y-0',
+    group: 'text-sm font-medium my-1 !pr-0 !pl-0',
+    item: {
+      base: 'text-sm p-1.5 my-0.5 duration-0',
+      active: ''
+    }
   }
 };
 
@@ -185,13 +205,33 @@ export const calendarTheme: CalendarTheme = {
       ...baseTheme.time.items,
       item: {
         ...baseTheme.time.items.item,
-        base: [baseTheme.time.items.item.base, 'text-text-secondary'].join(' '),
+        base: [
+          baseTheme.time.items.item.base,
+          'text-text-secondary hover:bg-primary-hover hover:text-black'
+        ].join(' '),
         selected: [
           baseTheme.time.items.item.selected,
           'bg-blue-500 text-white dark:bg-blue-600 dark:text-white'
         ].join(' '),
         disabled: [baseTheme.time.items.item.disabled, 'opacity-50'].join(' ')
       }
+    }
+  },
+  presets: {
+    ...baseTheme.presets,
+    group: [baseTheme.presets.group, '!text-gray-500 dark:text-gray-400'].join(
+      ' '
+    ),
+    item: {
+      ...baseTheme.presets.item,
+      base: [
+        baseTheme.presets.item.base,
+        'hover:text-black dark:hover:bg-primary-hover hover:rounded-sm'
+      ].join(' '),
+      active: [
+        baseTheme.presets.item.active,
+        'bg-primary text-black rounded-sm'
+      ].join(' ')
     }
   }
 };

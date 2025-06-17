@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'motion/react';
-import React, { FC, useCallback, useMemo, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useMemo, useState } from 'react';
 import { Button } from '@/elements/Button';
 import {
   add,
@@ -32,8 +32,15 @@ import { CalendarTheme } from './CalendarTheme';
 import { Divider } from '@/layout/Divider';
 import { CalendarTimes } from './CalendarTimes';
 import { updateDateTime } from './utils';
+import { CalendarPresets, PresetType } from './CalendarPresets';
+import { Stack } from '@/layout';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
+
+export type CalendarPresetType =
+  | 'past' // Shows past date presets (e.g., "Last 7 days", "Last month")
+  | 'future' // Shows future date presets (e.g., "Next 7 days", "Next month")
+  | 'combined'; // Shows both past and future presets
 
 export interface CalendarProps {
   /**
@@ -103,6 +110,11 @@ export interface CalendarProps {
   animated?: boolean;
 
   /**
+   * Preset configuration for the calendar.
+   */
+  preset?: CalendarPresetType;
+
+  /**
    * A callback function that is called when the selected date(s) change.
    */
   onChange?: (value: Date | [Date, Date]) => void;
@@ -131,6 +143,7 @@ export const Calendar: FC<CalendarProps> = ({
   showTime = false,
   is12HourCycle = false,
   animated = true,
+  preset,
   onChange,
   onViewChange,
   theme: customTheme
@@ -272,9 +285,47 @@ export const Calendar: FC<CalendarProps> = ({
     }
   }, [scrollDirection]);
 
+  const presetType = useMemo((): PresetType => {
+    if (!preset) return 'past';
+    return preset as PresetType;
+  }, [preset]);
+
+  const handlePresetChange = useCallback(
+    (newValue: Date | [Date, Date]) => {
+      const targetDate = Array.isArray(newValue) ? newValue[0] : newValue;
+      if (targetDate) {
+        setViewValue(targetDate);
+        setMonthValue(getMonth(targetDate));
+        setYearValue(getYear(targetDate));
+        setView('days');
+        setScrollDirection(null);
+      }
+      onChange?.(newValue);
+    },
+    [onChange]
+  );
+
   return (
     <div className={twMerge(theme.base)}>
-      <div className="relative flex flex-1">
+      <div className="relative flex">
+        {preset && (
+          <>
+            <Stack dense direction="row" className={theme.presets.wrapper}>
+              <CalendarPresets
+                type={presetType}
+                isRange={isRange}
+                showTime={showTime}
+                value={value}
+                onChange={handlePresetChange}
+              />
+              <Divider
+                orientation="vertical"
+                className={theme.presets.divider}
+              />
+            </Stack>
+          </>
+        )}
+
         <div className="flex-1">
           <header className={twMerge(theme.header.base)}>
             <Button
@@ -363,6 +414,7 @@ export const Calendar: FC<CalendarProps> = ({
             </motion.div>
           </AnimatePresence>
         </div>
+
         {showTime && (
           <CalendarTimes
             value={
