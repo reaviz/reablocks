@@ -2,6 +2,7 @@ import { DateFormat } from '../../data/DateFormat';
 import { Stack } from '../../layout/Stack';
 import { useState } from 'react';
 import { DateInput } from './DateInput';
+import { COMBINED_PRESETS, PAST_RANGE_PRESETS } from '../Calendar';
 
 export default {
   title: 'Components/Form/Date Input',
@@ -56,6 +57,46 @@ export const CustomIcon = () => {
   );
 };
 
+export const Preset = () => {
+  const [date, setDate] = useState<Date>(new Date());
+  return (
+    <DateInput value={date} onChange={setDate} preset={COMBINED_PRESETS} />
+  );
+};
+
+export const CustomPreset = () => {
+  const [date, setDate] = useState<Date>(new Date());
+  return (
+    <DateInput
+      value={date}
+      onChange={setDate}
+      preset={[
+        {
+          label: 'Labor Day',
+          value: () => {
+            const laborDay = new Date(new Date().getFullYear(), 8, 1);
+            // First Monday in September
+            while (laborDay.getDay() !== 1) {
+              laborDay.setDate(laborDay.getDate() - 1);
+            }
+
+            return laborDay;
+          }
+        },
+        {
+          label: 'New Year',
+          value: new Date(new Date().getFullYear(), 0, 1)
+        },
+        {
+          label: 'Christmas',
+          value: new Date(new Date().getFullYear(), 11, 25)
+        }
+      ]}
+      openCalendarOptionName="Open Calendar"
+    />
+  );
+};
+
 export const Range = () => {
   const [date, setDate] = useState<[Date, Date]>([new Date(), new Date()]);
 
@@ -70,6 +111,26 @@ export const Range = () => {
         isRange
         value={date}
         onChange={(value: [Date, Date]) => setDate(value)}
+      />
+    </Stack>
+  );
+};
+
+export const RangePreset = () => {
+  const [date, setDate] = useState<[Date, Date]>([new Date(), new Date()]);
+
+  return (
+    <Stack className="w-[300px]" direction="column">
+      <Stack>
+        <DateFormat date={date[0]} format="MM/dd/yyyy" /> -{' '}
+        <DateFormat date={date[1]} format="MM/dd/yyyy" />
+      </Stack>
+      <DateInput
+        fullWidth
+        isRange
+        value={date}
+        onChange={(value: [Date, Date]) => setDate(value)}
+        preset={PAST_RANGE_PRESETS}
       />
     </Stack>
   );

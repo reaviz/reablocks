@@ -14,10 +14,14 @@ import { IconButton } from '@/elements/IconButton';
 import { Menu } from '@/layers/Menu';
 import { Card } from '@/layout/Card';
 import { Placement } from '@/utils/Position';
-import { Calendar } from '@/form/Calendar';
+import { Calendar, PresetOption } from '@/form/Calendar';
 import { Input, InputProps, InputRef } from '@/form/Input';
 
 import CalendarIcon from '@/assets/icons/calendar.svg?react';
+import { List, ListItem } from '@/layout';
+import { cn, useComponentTheme } from '@/utils';
+import { isPresetActive } from '@/form/Calendar/utils';
+import { DateInputTheme } from './DateInputTheme';
 
 export type DateInputProps = Omit<InputProps, 'value' | 'onChange'> & {
   /**
@@ -35,6 +39,21 @@ export type DateInputProps = Omit<InputProps, 'value' | 'onChange'> & {
    * Open calendar on field focus
    */
   openOnFocus?: boolean;
+
+  /**
+   * Preset to show in quick filter.
+   */
+  preset?: PresetOption[];
+
+  /**
+   * Custom theme for the date input.
+   */
+  theme?: DateInputTheme;
+
+  /**
+   * Name of the option to open the calendar.
+   */
+  openCalendarOptionName?: string;
 
   /**
    * Icon to show in open calendar button.
@@ -60,13 +79,18 @@ export const DateInput: FC<DateInputProps> = ({
   isRange,
   icon = <CalendarIcon />,
   openOnFocus = true,
+  preset = [],
+  theme: customTheme,
+  openCalendarOptionName,
   onChange,
   onFocus,
   ...rest
 }) => {
   const [open, setOpen] = useState<boolean>(false);
+  const [isCalendarView, setCalendarView] = useState<boolean>(!preset.length);
   const ref = useRef<InputRef>(null);
   const [inputValue, setInputValue] = useState<string>('');
+  const theme = useComponentTheme('dateInput', customTheme);
 
   const changeHandler = useCallback(
     (value: Date | [Date, Date]) => {
@@ -126,6 +150,11 @@ export const DateInput: FC<DateInputProps> = ({
     [onFocus, openOnFocus]
   );
 
+  const closeHandler = useCallback(() => {
+    setOpen(false);
+    setCalendarView(!preset.length);
+  }, [preset.length]);
+
   useEffect(() => {
     if (value) {
       if (isRange) {
@@ -165,21 +194,54 @@ export const DateInput: FC<DateInputProps> = ({
       />
       <Menu
         open={open}
-        onClose={() => setOpen(false)}
+        onClose={closeHandler}
         reference={ref?.current?.containerRef}
         placement={placement}
+        autoWidth={!isCalendarView}
       >
-        {() => (
-          <Card>
-            <Calendar
-              disabled={disabled}
-              value={value}
-              isRange={isRange}
-              showDayOfWeek
-              onChange={changeHandler}
-            />
-          </Card>
-        )}
+        {() =>
+          isCalendarView ? (
+            <Card>
+              <Calendar
+                disabled={disabled}
+                value={value}
+                isRange={isRange}
+                showDayOfWeek
+                onChange={changeHandler}
+              />
+            </Card>
+          ) : (
+            <List className={theme.preset.list}>
+              {preset.map(preset => {
+                const presetValue =
+                  typeof preset.value === 'function'
+                    ? preset.value()
+                    : preset.value;
+                const active = isPresetActive(presetValue, value);
+
+                return (
+                  <ListItem
+                    key={preset.label}
+                    active={active}
+                    className={cn(theme.preset.option.base, {
+                      [theme.preset.option.active]: active
+                    })}
+                    onClick={() => changeHandler(presetValue)}
+                  >
+                    {preset.label}
+                  </ListItem>
+                );
+              })}
+              <ListItem
+                className={theme.preset.option.base}
+                onClick={() => setCalendarView(true)}
+              >
+                {openCalendarOptionName ??
+                  (isRange ? 'Custom Date' : 'Custom Date')}
+              </ListItem>
+            </List>
+          )
+        }
       </Menu>
     </>
   );

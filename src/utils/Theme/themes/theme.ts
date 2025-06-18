@@ -55,7 +55,10 @@ import {
   legacyTextareaTheme,
   legacyRadioTheme,
   legacyRangeTheme,
-  legacyToggleTheme
+  legacyToggleTheme,
+  DateInputTheme,
+  dateInputTheme,
+  legacyDateInputTheme
 } from '@/form';
 
 import {
@@ -178,6 +181,7 @@ export interface ReablocksTheme {
     verticalSpacer: VerticalSpacerTheme;
     notification: NotificationTheme;
     input: InputTheme;
+    dateInput: DateInputTheme;
     calendar: CalendarTheme;
     calendarRange: CalendarRangeTheme;
     commandPalette: CommandPaletteTheme;
@@ -228,6 +232,7 @@ export const theme: ReablocksTheme = {
     verticalSpacer: verticalSpacerTheme,
     notification: notificationTheme,
     input: inputTheme,
+    dateInput: dateInputTheme,
     calendar: calendarTheme,
     calendarRange: calendarRangeTheme,
     commandPalette: commandPaletteTheme,
@@ -278,6 +283,7 @@ export const legacyThemeVars: ReablocksTheme = {
     verticalSpacer: legacyVerticalSpacerTheme,
     notification: legacyNotificationTheme,
     input: legacyInputTheme,
+    dateInput: legacyDateInputTheme,
     calendar: legacyCalendarTheme,
     calendarRange: legacyCalendarRangeTheme,
     commandPalette: legacyCommandPaletteTheme,
