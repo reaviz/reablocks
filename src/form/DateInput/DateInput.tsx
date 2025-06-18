@@ -173,6 +173,7 @@ export const DateInput: FC<DateInputProps> = ({
       <Input
         ref={ref}
         disabled={disabled}
+        theme={theme.input}
         endAdornment={
           <IconButton
             className="px-0"
@@ -208,6 +209,7 @@ export const DateInput: FC<DateInputProps> = ({
                 isRange={isRange}
                 showDayOfWeek
                 onChange={changeHandler}
+                theme={theme.calendar}
               />
             </Card>
           ) : (
