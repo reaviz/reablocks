@@ -37,11 +37,6 @@ import { Stack } from '@/layout';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
-export type CalendarPresetType =
-  | 'past' // Shows past date presets (e.g., "Last 7 days", "Last month")
-  | 'future' // Shows future date presets (e.g., "Next 7 days", "Next month")
-  | 'combined'; // Shows both past and future presets
-
 export interface CalendarProps {
   /**
    * The selected date(s) for the calendar.

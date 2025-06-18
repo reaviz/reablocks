@@ -9,7 +9,7 @@ import {
 } from 'date-fns';
 import { AnimatePresence, motion } from 'motion/react';
 import { Button } from '@/elements';
-import { CalendarPresetType, CalendarProps } from './Calendar';
+import { CalendarProps } from './Calendar';
 import { CalendarDays } from './CalendarDays';
 import { SmallHeading } from '@/typography';
 import { Divider, Stack } from '@/layout';
