@@ -1,3 +1,6 @@
+# 9.1.0 - 6/18/25
+- [feature] Add ability to use date preset for Calendar and DateInput #294
+
 # 9.0.7 - 6/12/25
 - [feature] Add time selection to Calendar #293
 
