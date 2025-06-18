@@ -239,7 +239,7 @@ export const DateInput: FC<DateInputProps> = ({
                 onClick={() => setCalendarView(true)}
               >
                 {openCalendarOptionName ??
-                  (isRange ? 'Custom Date' : 'Custom Date')}
+                  (isRange ? 'Custom Dates' : 'Custom Date')}
               </ListItem>
             </List>
           )
