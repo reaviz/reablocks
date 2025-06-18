@@ -15,6 +15,7 @@ import { SmallHeading } from '@/typography';
 import { Divider, Stack } from '@/layout';
 import { useComponentTheme } from '@/utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
+import { CalendarPresets, PresetOption } from './CalendarPresets';
 
 export interface CalendarRangeProps
   extends Omit<
@@ -59,6 +60,11 @@ export interface CalendarRangeProps
    * Theme for the CalendarRange.
    */
   theme?: CalendarRangeTheme;
+
+  /**
+   * Preset options for the calendar.
+   */
+  preset?: PresetOption[];
 }
 
 export const CalendarRange: FC<CalendarRangeProps> = ({
@@ -77,6 +83,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
   direction = 'future',
   headerDateFormat = 'MMMM',
   theme: customTheme,
+  preset,
   ...rest
 }) => {
   const theme: CalendarRangeTheme = useComponentTheme(
@@ -147,97 +154,128 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     }
   }, [scrollDirection]);
 
+  const handlePresetChange = useCallback(
+    (newValue: [Date, Date]) => {
+      setScrollDirection(null);
+      setViewValue(newValue[1]);
+      onChange?.(newValue);
+    },
+    [onChange]
+  );
+
   return (
     <div className={theme.base}>
-      <header className={theme.header.base}>
-        <Stack>
-          <Button
-            variant="text"
-            disabled={disabled}
-            onClick={previousYearClickHandler}
-            className={theme.header.prev}
-            disablePadding
-          >
-            {previousYearArrow}
-          </Button>
-          <Button
-            variant="text"
-            disabled={disabled}
-            onClick={previousClickHandler}
-            className={theme.header.prev}
-            disablePadding
-          >
-            {previousArrow}
-          </Button>
-        </Stack>
-        <SmallHeading className={theme.title} disableMargins>
-          {displayMonths.map(i => (
-            <span key={addMonths(viewValue, showPast ? -i : i).toDateString()}>
-              {format(
-                addMonths(viewValue, showPast ? -i : i),
-                headerDateFormat
-              )}
-            </span>
-          ))}
-        </SmallHeading>
-        <Stack>
-          <Button
-            variant="text"
-            disabled={disabled}
-            onClick={nextClickHandler}
-            className={theme.header.next}
-            disablePadding
-          >
-            {nextArrow}
-          </Button>
-          <Button
-            variant="text"
-            disabled={disabled}
-            onClick={nextYearClickHandler}
-            className={theme.header.next}
-            disablePadding
-          >
-            {nextYearArrow}
-          </Button>
-        </Stack>
-      </header>
-      <Divider />
-      <AnimatePresence initial={false} mode="wait">
-        <motion.div
-          initial={{ scale: 0, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0, opacity: 1 }}
-          transition={{
-            x: { type: animated ? 'keyframes' : false },
-            opacity: { duration: 0.2, type: animated ? 'tween' : false },
-            scale: { type: animated ? 'tween' : false }
-          }}
-        >
-          <div className={theme.content}>
-            {displayMonths.map((offset, idx) => (
-              <Fragment key={`calendar-${offset}`}>
-                <CalendarDays
-                  value={addMonths(viewValue, showPast ? -offset : offset)}
-                  min={min}
-                  max={max}
-                  disabled={disabled}
-                  current={[rangeStart, rangeEnd]}
-                  showDayOfWeek={showDayOfWeek}
-                  xAnimation={xAnimation}
-                  animated={animated}
-                  hover={hoveringDate}
-                  onHover={setHoveringDate}
-                  hidePrevMonthDays={idx > 0}
-                  hideNextMonthDays={idx < monthsToDisplay - 1}
-                  onChange={dateChangeHandler}
-                  isRange
-                  {...rest}
-                />
-              </Fragment>
-            ))}
-          </div>
-        </motion.div>
-      </AnimatePresence>
+      <div className="relative flex">
+        {preset && (
+          <Stack dense direction="row" className={theme.presets.wrapper}>
+            <CalendarPresets
+              options={preset}
+              showTime={false}
+              className="min-w-[100px] w-auto flex-shrink-0"
+              value={
+                value && value.length >= 2
+                  ? [value[0] as Date, value[1] as Date]
+                  : undefined
+              }
+              onChange={handlePresetChange}
+            />
+            <Divider orientation="vertical" className={theme.presets.divider} />
+          </Stack>
+        )}
+        <div className="flex-1">
+          <header className={theme.header.base}>
+            <Stack>
+              <Button
+                variant="text"
+                disabled={disabled}
+                onClick={previousYearClickHandler}
+                className={theme.header.prev}
+                disablePadding
+              >
+                {previousYearArrow}
+              </Button>
+              <Button
+                variant="text"
+                disabled={disabled}
+                onClick={previousClickHandler}
+                className={theme.header.prev}
+                disablePadding
+              >
+                {previousArrow}
+              </Button>
+            </Stack>
+            <SmallHeading className={theme.title} disableMargins>
+              {displayMonths.map(i => (
+                <span
+                  key={addMonths(viewValue, showPast ? -i : i).toDateString()}
+                >
+                  {format(
+                    addMonths(viewValue, showPast ? -i : i),
+                    headerDateFormat
+                  )}
+                </span>
+              ))}
+            </SmallHeading>
+            <Stack>
+              <Button
+                variant="text"
+                disabled={disabled}
+                onClick={nextClickHandler}
+                className={theme.header.next}
+                disablePadding
+              >
+                {nextArrow}
+              </Button>
+              <Button
+                variant="text"
+                disabled={disabled}
+                onClick={nextYearClickHandler}
+                className={theme.header.next}
+                disablePadding
+              >
+                {nextYearArrow}
+              </Button>
+            </Stack>
+          </header>
+          <Divider />
+          <AnimatePresence initial={false} mode="wait">
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0, opacity: 1 }}
+              transition={{
+                x: { type: animated ? 'keyframes' : false },
+                opacity: { duration: 0.2, type: animated ? 'tween' : false },
+                scale: { type: animated ? 'tween' : false }
+              }}
+            >
+              <div className={theme.content}>
+                {displayMonths.map((offset, idx) => (
+                  <Fragment key={`calendar-${offset}`}>
+                    <CalendarDays
+                      value={addMonths(viewValue, showPast ? -offset : offset)}
+                      min={min}
+                      max={max}
+                      disabled={disabled}
+                      current={[rangeStart, rangeEnd]}
+                      showDayOfWeek={showDayOfWeek}
+                      xAnimation={xAnimation}
+                      animated={animated}
+                      hover={hoveringDate}
+                      onHover={setHoveringDate}
+                      hidePrevMonthDays={idx > 0}
+                      hideNextMonthDays={idx < monthsToDisplay - 1}
+                      onChange={dateChangeHandler}
+                      isRange
+                      {...rest}
+                    />
+                  </Fragment>
+                ))}
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </div>
     </div>
   );
 };

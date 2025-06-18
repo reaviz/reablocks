@@ -170,9 +170,16 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
         return modifiers
           ? [...(modifiers ?? []), sameWidth, sizeModifier]
           : [sameWidth, sizeModifier];
-      }
+      } else {
+        // Reset width to auto when autoWidth is false
+        const autoWidth = size({
+          apply({ elements }) {
+            elements.floating.style.width = 'auto';
+          }
+        });
 
-      return modifiers;
+        return [...(modifiers ?? []), autoWidth];
+      }
     }, [modifiers, autoWidth, minWidth, maxWidth]);
 
     const theme: MenuTheme = useComponentTheme('menu', customTheme);

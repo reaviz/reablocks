@@ -32,6 +32,8 @@ import { CalendarTheme } from './CalendarTheme';
 import { Divider } from '@/layout/Divider';
 import { CalendarTimes } from './CalendarTimes';
 import { updateDateTime } from './utils';
+import { CalendarPresets, PresetOption } from './CalendarPresets';
+import { Stack } from '@/layout';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -103,6 +105,11 @@ export interface CalendarProps {
   animated?: boolean;
 
   /**
+   * Preset configuration for the calendar.
+   */
+  preset?: PresetOption[];
+
+  /**
    * A callback function that is called when the selected date(s) change.
    */
   onChange?: (value: Date | [Date, Date]) => void;
@@ -131,6 +138,7 @@ export const Calendar: FC<CalendarProps> = ({
   showTime = false,
   is12HourCycle = false,
   animated = true,
+  preset,
   onChange,
   onViewChange,
   theme: customTheme
@@ -272,9 +280,40 @@ export const Calendar: FC<CalendarProps> = ({
     }
   }, [scrollDirection]);
 
+  const handlePresetChange = useCallback(
+    (newValue: Date | [Date, Date]) => {
+      const targetDate = Array.isArray(newValue) ? newValue[0] : newValue;
+      if (targetDate) {
+        setViewValue(targetDate);
+        setMonthValue(getMonth(targetDate));
+        setYearValue(getYear(targetDate));
+        setView('days');
+        setScrollDirection(null);
+      }
+      onChange?.(newValue);
+    },
+    [onChange]
+  );
+
   return (
     <div className={twMerge(theme.base)}>
-      <div className="relative flex flex-1">
+      <div className="relative flex">
+        {preset && (
+          <>
+            <Stack dense direction="row" className={theme.presets.wrapper}>
+              <CalendarPresets
+                options={preset}
+                value={value as Date | [Date, Date]}
+                onChange={handlePresetChange}
+              />
+              <Divider
+                orientation="vertical"
+                className={theme.presets.divider}
+              />
+            </Stack>
+          </>
+        )}
+
         <div className="flex-1">
           <header className={twMerge(theme.header.base)}>
             <Button
@@ -363,6 +402,7 @@ export const Calendar: FC<CalendarProps> = ({
             </motion.div>
           </AnimatePresence>
         </div>
+
         {showTime && (
           <CalendarTimes
             value={

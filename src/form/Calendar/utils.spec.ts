@@ -1,5 +1,6 @@
 import { differenceInDays } from 'date-fns';
 import { describe, test, expect } from 'vitest';
+import { vi } from 'vitest';
 
 import {
   getDayAttributes,
@@ -7,7 +8,9 @@ import {
   getWeeks,
   isNextWeekEmpty,
   isPreviousWeekEmpty,
-  updateDateTime
+  updateDateTime,
+  isPresetActive,
+  getMonthNames
 } from './utils';
 
 describe('getDayLabels', () => {
@@ -312,5 +315,206 @@ describe('updateDateTime', () => {
     expect(result.getFullYear()).toBe(2024);
     expect(result.getMonth()).toBe(2);
     expect(result.getDate()).toBe(9);
+  });
+});
+
+describe('isPresetActive', () => {
+  test('returns true for identical single dates', () => {
+    const date1 = new Date(2024, 5, 10, 12, 0, 0);
+    const date2 = new Date(2024, 5, 10, 12, 0, 0);
+
+    expect(isPresetActive(date1, date2)).toBe(true);
+  });
+
+  test('returns false for different single dates', () => {
+    const date1 = new Date(2024, 5, 10, 12, 0, 0);
+    const date2 = new Date(2024, 5, 11, 12, 0, 0);
+    expect(isPresetActive(date1, date2)).toBe(false);
+  });
+
+  test('returns true for identical date ranges', () => {
+    const range1: [Date, Date] = [
+      new Date(2024, 5, 10, 0, 0, 0),
+      new Date(2024, 5, 15, 23, 59, 59)
+    ];
+    const range2: [Date, Date] = [
+      new Date(2024, 5, 10, 0, 0, 0),
+      new Date(2024, 5, 15, 23, 59, 59)
+    ];
+
+    expect(isPresetActive(range1, range2)).toBe(true);
+  });
+
+  test('returns false for different date ranges', () => {
+    const range1: [Date, Date] = [
+      new Date(2024, 5, 10, 0, 0, 0),
+      new Date(2024, 5, 15, 23, 59, 59)
+    ];
+    const range2: [Date, Date] = [
+      new Date(2024, 5, 11, 0, 0, 0),
+      new Date(2024, 5, 16, 23, 59, 59)
+    ];
+
+    expect(isPresetActive(range1, range2)).toBe(false);
+  });
+
+  test('returns false for mismatched types (single vs range)', () => {
+    const date = new Date(2024, 5, 10, 12, 0, 0);
+    const range: [Date, Date] = [
+      new Date(2024, 5, 10, 0, 0, 0),
+      new Date(2024, 5, 15, 23, 59, 59)
+    ];
+
+    expect(isPresetActive(date, range)).toBe(false);
+    expect(isPresetActive(range, date)).toBe(false);
+  });
+
+  test('returns false if value is undefined', () => {
+    const date = new Date(2024, 5, 10, 12, 0, 0);
+
+    expect(isPresetActive(date, undefined as any)).toBe(false);
+  });
+});
+
+describe('getMonthNames', () => {
+  test('should return month names in default (short) format', () => {
+    const months = getMonthNames('en-US', 'short');
+    expect(months).toHaveLength(12);
+    expect(months[0]).toMatch(/Jan|1/);
+  });
+
+  test('should return month names in long format', () => {
+    const months = getMonthNames('en-US', 'long');
+    expect(months[0]).toMatch(/January/);
+  });
+
+  test('should return month names in numeric format', () => {
+    const months = getMonthNames('en-US', 'numeric');
+    expect(months[0]).toBe('1');
+  });
+
+  test('should return month names in 2-digit format', () => {
+    const months = getMonthNames('en-US', '2-digit');
+    expect(months[0]).toBe('01');
+  });
+
+  test('should return month names in narrow format', () => {
+    const months = getMonthNames('en-US', 'narrow');
+    expect(months[0].length).toBe(1);
+  });
+
+  test('should use browser locale if locale is undefined and window is defined', () => {
+    const originalWindow = globalThis.window;
+    globalThis.window = {
+      navigator: {
+        language: 'en-US',
+        clipboard: {},
+        credentials: {},
+        doNotTrack: '',
+        geolocation: {},
+        hardwareConcurrency: 4,
+        maxTouchPoints: 0,
+        mediaCapabilities: {},
+        mediaDevices: {},
+        mediaSession: {},
+        permissions: {},
+        platform: '',
+        serviceWorker: {},
+        storage: {},
+        userActivation: {},
+        usb: {},
+        wakeLock: {},
+        webdriver: false
+      }
+    } as any;
+    const months = getMonthNames(undefined, 'short');
+    expect(months).toHaveLength(12);
+    globalThis.window = originalWindow;
+  });
+});
+
+describe('getDayLabels (browser context)', () => {
+  test('should use browser locale if locale is undefined and window is defined', () => {
+    const originalWindow = globalThis.window;
+    globalThis.window = {
+      navigator: {
+        language: 'en-US',
+        clipboard: {},
+        credentials: {},
+        doNotTrack: '',
+        geolocation: {},
+        hardwareConcurrency: 4,
+        maxTouchPoints: 0,
+        mediaCapabilities: {},
+        mediaDevices: {},
+        mediaSession: {},
+        permissions: {},
+        platform: '',
+        serviceWorker: {},
+        storage: {},
+        userActivation: {},
+        usb: {},
+        wakeLock: {},
+        webdriver: false
+      }
+    } as any;
+    const labels = getDayLabels();
+    expect(labels).toHaveLength(7);
+    globalThis.window = originalWindow;
+  });
+});
+
+describe('getWeeks edge cases', () => {
+  test('should throw if date is undefined', () => {
+    expect(() => getWeeks(undefined as any)).toThrow('A date is required');
+  });
+
+  test('should warn and use today if date is invalid', () => {
+    const spy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const result = getWeeks(new Date('invalid-date'));
+    expect(result).toBeDefined();
+    expect(spy).toHaveBeenCalledWith(
+      'Invalid date - setting to today',
+      expect.any(Date)
+    );
+    spy.mockRestore();
+  });
+});
+
+describe('isPresetActive (includeTime=true)', () => {
+  test('returns true for identical single dates with same time', () => {
+    const date1 = new Date(2024, 5, 10, 12, 0, 0);
+    const date2 = new Date(2024, 5, 10, 12, 0, 0);
+    expect(isPresetActive(date1, date2, true)).toBe(true);
+  });
+
+  test('returns false for single dates with different times', () => {
+    const date1 = new Date(2024, 5, 10, 12, 0, 0);
+    const date2 = new Date(2024, 5, 10, 13, 0, 0);
+    expect(isPresetActive(date1, date2, true)).toBe(false);
+  });
+
+  test('returns true for identical date ranges with same time', () => {
+    const range1: [Date, Date] = [
+      new Date(2024, 5, 10, 10, 0, 0),
+      new Date(2024, 5, 15, 23, 59, 59)
+    ];
+    const range2: [Date, Date] = [
+      new Date(2024, 5, 10, 10, 0, 0),
+      new Date(2024, 5, 15, 23, 59, 59)
+    ];
+    expect(isPresetActive(range1, range2, true)).toBe(true);
+  });
+
+  test('returns false for date ranges with different times', () => {
+    const range1: [Date, Date] = [
+      new Date(2024, 5, 10, 10, 0, 0),
+      new Date(2024, 5, 15, 23, 59, 59)
+    ];
+    const range2: [Date, Date] = [
+      new Date(2024, 5, 10, 11, 0, 0),
+      new Date(2024, 5, 15, 23, 59, 59)
+    ];
+    expect(isPresetActive(range1, range2, true)).toBe(false);
   });
 });

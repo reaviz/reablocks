@@ -22,7 +22,9 @@ import {
   getSeconds,
   setMinutes,
   setHours,
-  setSeconds
+  setSeconds,
+  differenceInSeconds,
+  differenceInMinutes
 } from 'date-fns';
 
 /**
@@ -289,3 +291,44 @@ export function updateDateTime(
 
   return finalDate;
 }
+
+/**
+ * Check if a preset is active
+ * @param presetValue - The preset value to check
+ * @param value - The value to check against
+ * @returns True if the preset is active, false otherwise
+ */
+export const isPresetActive = (
+  presetValue: Date | [Date, Date],
+  value: Date | [Date, Date],
+  includeTime = false
+): boolean => {
+  if (!value) return false;
+
+  if (Array.isArray(presetValue) && Array.isArray(value)) {
+    if (includeTime) {
+      const startMinutesDiff = Math.abs(
+        differenceInMinutes(presetValue[0], value[0])
+      );
+      const endMinutesDiff = Math.abs(
+        differenceInMinutes(presetValue[1], value[1])
+      );
+
+      return startMinutesDiff === 0 && endMinutesDiff === 0;
+    }
+
+    return (
+      isSameDay(presetValue[0], value[0]) && isSameDay(presetValue[1], value[1])
+    );
+  }
+
+  if (!Array.isArray(presetValue) && !Array.isArray(value)) {
+    if (includeTime) {
+      return Math.abs(differenceInSeconds(presetValue, value)) === 0;
+    }
+
+    return isSameDay(presetValue, value);
+  }
+
+  return false;
+};
