@@ -56,7 +56,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
   is12HourCycle = false,
   onSelect
 }) => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const containerRef = useRef<HTMLUListElement | null>(null);
   const selectedRef = useRef<HTMLLIElement | null>(null);
 
   const isOptionDisabled = useCallback(
@@ -85,29 +85,31 @@ export const TimeColumn: FC<TimeColumnProps> = ({
 
   useEffect(() => {
     if (containerRef.current && selectedRef.current) {
-      const selectedItem = selectedRef.current;
+      const container = containerRef.current;
+      const selected = selectedRef.current;
 
+      const containerHeight = container.clientHeight;
+      const itemOffsetTop = selected.offsetTop;
+      const itemHeight = selected.offsetHeight;
+      let scrollTop = 0;
       if (is12HourCycle) {
-        // Scroll to the selected item after a short delay to ensure the padding is applied
-        setTimeout(() => {
-          selectedItem.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }, 100);
+        scrollTop = itemOffsetTop;
       } else {
-        selectedItem.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-          inline: 'nearest'
-        });
+        // Calculate scrollTop so that the selected item is centered
+        scrollTop = itemOffsetTop - containerHeight / 2 + itemHeight / 2;
       }
+
+      container.scrollTo({
+        top: scrollTop,
+        behavior: 'smooth'
+      });
     }
   }, [value, is12HourCycle]);
 
   return (
-    <div ref={containerRef} className={theme.items.container}>
+    <div className={theme.items.container}>
       <ul
+        ref={containerRef}
         className={theme.items.list}
         style={{
           paddingBottom:

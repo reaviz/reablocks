@@ -125,9 +125,8 @@ const baseTheme: CalendarTheme = {
     },
     items: {
       wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
-      container:
-        'h-full overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
-      list: 'p-0 m-0 list-none',
+      container: 'h-full',
+      list: 'relative h-full p-0 m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
       divider: 'mx-0',
       item: {
         base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150',
