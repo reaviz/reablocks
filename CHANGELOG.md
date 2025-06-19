@@ -1,3 +1,6 @@
+# 9.1.1 - 6/19/25
+- [fix] Fix issue with global scroll when time select #295
+
 # 9.1.0 - 6/18/25
 - [feature] Add ability to use date preset for Calendar and DateInput #294
 
