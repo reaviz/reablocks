@@ -19,7 +19,7 @@ import { Input, Radio } from '../../../src/form';
 import { Avatar, Button, Chip } from '../../../src/elements';
 import { Controller, useForm } from 'react-hook-form';
 
-const LogoIcon = ({ className }) => (
+const LogoIcon = ({ className }: { className?: string }) => (
   <svg
     width="260"
     height="341"

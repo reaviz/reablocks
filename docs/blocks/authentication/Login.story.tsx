@@ -10,7 +10,7 @@ export default {
   title: 'Blocks/Authentication/Login'
 };
 
-const LogoIcon = ({ className }) => (
+const LogoIcon = ({ className }: { className?: string }) => (
   <svg
     width="260"
     height="341"
@@ -475,6 +475,7 @@ export const LoginPassword = () => {
               render={({ field: { value, ...rest } }) => (
                 <Checkbox
                   {...rest}
+                  key={value}
                   className="border-none"
                   size="small"
                   label="Remember me"

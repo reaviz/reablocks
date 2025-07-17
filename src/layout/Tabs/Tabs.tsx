@@ -110,6 +110,7 @@ export const Tabs: FC<TabsProps> = ({
         direction={direction}
         id={id}
         selectedIndex={internalActive}
+        theme={theme}
         onSelect={idx => {
           setInternalActive(idx);
           onSelect?.(idx);

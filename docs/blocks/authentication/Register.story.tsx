@@ -15,7 +15,7 @@ export default {
   title: 'Blocks/Authentication/Register'
 };
 
-const LogoIcon = ({ className }) => (
+const LogoIcon = ({ className }: { className?: string }) => (
   <svg
     width="260"
     height="341"

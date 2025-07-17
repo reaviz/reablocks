@@ -12,7 +12,7 @@ export default {
   title: 'Blocks/Authentication/MFA'
 };
 
-const LogoIcon = ({ className }) => (
+const LogoIcon = ({ className }: { className?: string }) => (
   <svg
     width="260"
     height="341"
@@ -43,7 +43,7 @@ const LogoIcon = ({ className }) => (
   </svg>
 );
 
-const QRLightIcon = ({ className }) => (
+const QRLightIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="200"
@@ -506,7 +506,7 @@ const QRLightIcon = ({ className }) => (
   </svg>
 );
 
-const QRDarkIcon = ({ className }) => (
+const QRDarkIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="200"
@@ -1007,6 +1007,7 @@ export const Mfa = () => {
                   {['1', '6', '', ''].map((value, idx) => (
                     <Input
                       {...rest}
+                      key={value}
                       disabled={isSubmitting}
                       value={value}
                       className="text-center min-w-0"
@@ -1134,6 +1135,7 @@ export const MfaLogin = () => {
                   {['1', '6', '', ''].map((value, idx) => (
                     <Input
                       {...rest}
+                      key={value}
                       disabled={isSubmitting}
                       value={value}
                       className="text-center min-w-0"
@@ -1223,7 +1225,7 @@ export const MfaAuthenticator = () => {
               render={({ field: { value, ...rest } }) => (
                 <div className="grid grid-cols-7 items-center gap-4 mt-2">
                   {['', '', '', '', '', ''].map((value, idx) => (
-                    <>
+                    <React.Fragment key={idx}>
                       {idx === 3 && <Divider variant="secondary" />}
                       <Input
                         {...rest}
@@ -1231,7 +1233,7 @@ export const MfaAuthenticator = () => {
                         value={value}
                         className="text-center min-w-0"
                       />
-                    </>
+                    </React.Fragment>
                   ))}
                 </div>
               )}
