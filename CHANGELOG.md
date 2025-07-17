@@ -1,3 +1,6 @@
+# 9.1.2 - 7/17/25
+- [chore] Update stories to newest style & small fixes #296
+
 # 9.1.1 - 6/19/25
 - [fix] Fix issue with global scroll when time select #295
 
