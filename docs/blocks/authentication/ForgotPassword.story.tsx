@@ -9,7 +9,7 @@ export default {
   title: 'Blocks/Authentication/Forgot Password'
 };
 
-const LogoIcon = ({ className }) => (
+const LogoIcon = ({ className }: { className?: string }) => (
   <svg
     width="260"
     height="341"
