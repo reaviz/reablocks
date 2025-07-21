@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import { Meta, StoryFn } from '@storybook/react';
+import { useCallback, useState } from 'react';
+import type { Meta, StoryObj } from '@storybook/react';
 import { ConfirmDialog, ConfirmDialogProps } from './ConfirmDialog';
 import { Button } from '@/elements/Button';
 
-export default {
+const meta: Meta<typeof ConfirmDialog> = {
   title: 'Components/Layers/Confirm Dialog',
   component: ConfirmDialog,
   argTypes: {
@@ -14,34 +14,58 @@ export default {
     onConfirm: { action: 'confirmed' },
     onCancel: { action: 'cancelled' }
   }
-} as Meta;
-
-const Template: StoryFn<ConfirmDialogProps> = args => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <>
-      <Button onClick={() => setIsOpen(true)}>Open Dialog</Button>
-      <ConfirmDialog
-        {...args}
-        open={isOpen}
-        onConfirm={() => {
-          args?.onConfirm?.();
-          setIsOpen(false);
-        }}
-        onCancel={() => {
-          args?.onCancel?.();
-          setIsOpen(false);
-        }}
-      />
-    </>
-  );
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  header: 'Confirm Action',
-  content: 'Are you sure you want to proceed?',
-  confirmLabel: 'Confirm',
-  cancelLabel: 'Cancel'
+export default meta;
+
+type Story = StoryObj<ConfirmDialogProps>;
+
+export const Default: Story = {
+  render: args => {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const handleConfirm = useCallback(
+      function (): void {
+        if (args.onConfirm) {
+          args.onConfirm();
+        }
+        setIsOpen(false);
+      },
+      [args, setIsOpen]
+    );
+
+    const handleCancel = useCallback(
+      function (): void {
+        if (args.onCancel) {
+          args.onCancel();
+        }
+        setIsOpen(false);
+      },
+      [args, setIsOpen]
+    );
+
+    return (
+      <>
+        <Button
+          onClick={function (): void {
+            setIsOpen(true);
+          }}
+        >
+          Open Dialog
+        </Button>
+        <ConfirmDialog
+          {...args}
+          open={isOpen}
+          onConfirm={handleConfirm}
+          onCancel={handleCancel}
+        />
+      </>
+    );
+  },
+  args: {
+    header: 'Confirm Action',
+    content: 'Are you sure you want to proceed?',
+    confirmLabel: 'Confirm',
+    cancelLabel: 'Cancel'
+  }
 };
