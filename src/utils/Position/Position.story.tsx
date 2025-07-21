@@ -21,8 +21,8 @@ export const Simple = () => {
       <div
         ref={refs.setReference}
         style={{
-          width: 100,
-          height: 100,
+          width: 150,
+          height: 150,
           background: 'black',
           padding: 50
         }}

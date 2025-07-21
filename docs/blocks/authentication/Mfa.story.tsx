@@ -52,7 +52,7 @@ const QRLightIcon = ({ className }: { className?: string }) => (
     fill="none"
     className={className}
   >
-    <g clip-path="url(#clip0_1447_18003)">
+    <g clipPath="url(#clip0_1447_18003)">
       <path d="M200 0H0V200H200V0Z" fill="white" />
       <mask
         id="mask0_1447_18003"
@@ -515,7 +515,7 @@ const QRDarkIcon = ({ className }: { className?: string }) => (
     fill="none"
     className={className}
   >
-    <g clip-path="url(#clip0_1447_17515)">
+    <g clipPath="url(#clip0_1447_17515)">
       <path d="M200 0H0V200H200V0Z" fill="black" />
       <mask
         id="mask0_1447_17515"
@@ -1007,7 +1007,7 @@ export const Mfa = () => {
                   {['1', '6', '', ''].map((value, idx) => (
                     <Input
                       {...rest}
-                      key={value}
+                      key={idx}
                       disabled={isSubmitting}
                       value={value}
                       className="text-center min-w-0"
@@ -1135,7 +1135,7 @@ export const MfaLogin = () => {
                   {['1', '6', '', ''].map((value, idx) => (
                     <Input
                       {...rest}
-                      key={value}
+                      key={idx}
                       disabled={isSubmitting}
                       value={value}
                       className="text-center min-w-0"
