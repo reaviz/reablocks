@@ -4,7 +4,10 @@ import { Avatar } from './Avatar';
 
 export default {
   title: 'Components/Elements/Avatar',
-  component: Avatar
+  component: Avatar,
+  args: {
+    color: 'bg-avatar-colors-background-container-resting'
+  }
 } satisfies Meta<typeof Avatar>;
 
 export const Simple: StoryObj<typeof Avatar> = {
