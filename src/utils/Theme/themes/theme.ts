@@ -17,7 +17,6 @@ import {
   arrowTheme,
   chipTheme,
   ChipTheme,
-  legacyAvatarGroupTheme,
   legacyArrowTheme,
   legacyBadgeTheme,
   legacyChipTheme,
@@ -257,7 +256,6 @@ export const theme: ReablocksTheme = {
 
 export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
   components: {
-    avatarGroup: legacyAvatarGroupTheme,
     arrow: legacyArrowTheme,
     badge: legacyBadgeTheme,
     block: legacyBlockTheme,

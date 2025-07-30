@@ -1,5 +1,6 @@
 export interface AvatarTheme {
   base: string;
+  clickable: string;
   rounded: string;
 }
 
@@ -9,7 +10,8 @@ export const avatarTheme: AvatarTheme = {
     after:absolute after:inset-0 after:border
     bg-avatar-colors-background-container-resting 
     after:border-avatar-colors-stroke-container-resting
-    hover:bg-avatar-colors-background-container-hover hover:after:border-avatar-colors-stroke-container-hover
   `,
+  clickable:
+    'hover:bg-avatar-colors-background-container-hover hover:after:border-avatar-colors-stroke-container-hover',
   rounded: 'rounded-full after:rounded-full'
 };

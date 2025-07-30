@@ -98,7 +98,12 @@ export const Avatar: FC<AvatarProps> & AvatarRef = forwardRef<
     return (
       <div
         {...rest}
-        className={twMerge(theme.base, rounded && theme.rounded, className)}
+        className={twMerge(
+          theme.base,
+          rounded && theme.rounded,
+          rest.onClick && theme.clickable,
+          className
+        )}
         style={{
           width: `${size}px`,
           height: `${size}px`,

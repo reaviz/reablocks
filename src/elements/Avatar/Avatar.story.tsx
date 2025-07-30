@@ -40,6 +40,15 @@ export const LargeRounded: StoryObj<typeof Avatar> = {
   }
 };
 
+export const Clickable: StoryObj<typeof Avatar> = {
+  args: {
+    name: 'Charlie',
+    size: 50,
+    rounded: true,
+    onClick: () => null
+  }
+};
+
 export const MultipleAvatars: StoryObj<typeof Avatar> = {
   render: args => (
     <div style={{ display: 'flex', gap: '1em' }}>
