@@ -49,6 +49,20 @@ export const Text = () => {
   );
 };
 
+export const Ghost = () => {
+  return (
+    <>
+      <ButtonGroup variant="ghost">
+        <Button>1</Button>
+        <Button>2</Button>
+        <Button>3</Button>
+        <Button>4</Button>
+        <Button>5</Button>
+      </ButtonGroup>
+    </>
+  );
+};
+
 export const Single = () => {
   return (
     <>
@@ -63,6 +77,11 @@ export const Single = () => {
       <br />
       <br />
       <ButtonGroup variant="text">
+        <Button>One</Button>
+      </ButtonGroup>
+      <br />
+      <br />
+      <ButtonGroup variant="ghost">
         <Button>One</Button>
       </ButtonGroup>
     </>
@@ -88,43 +107,11 @@ export const Double = () => {
         <Button>One</Button>
         <Button>Two</Button>
       </ButtonGroup>
-    </>
-  );
-};
-
-export const Colors = () => {
-  return (
-    <>
-      <ButtonGroup variant="filled">
-        <Button>Default</Button>
-        <Button color="primary">Primary</Button>
-        <Button color="secondary">Secondary</Button>
-        <Button color="success">Success</Button>
-        <Button color="warning">Warning</Button>
-        <Button color="error">Error</Button>
-        <Button disabled>Disabled</Button>
-      </ButtonGroup>
       <br />
       <br />
-      <ButtonGroup variant="outline">
-        <Button>Default</Button>
-        <Button color="primary">Primary</Button>
-        <Button color="secondary">Secondary</Button>
-        <Button color="success">Success</Button>
-        <Button color="warning">Warning</Button>
-        <Button color="error">Error</Button>
-        <Button disabled>Disabled</Button>
-      </ButtonGroup>
-      <br />
-      <br />
-      <ButtonGroup variant="text">
-        <Button>Default</Button>
-        <Button color="primary">Primary</Button>
-        <Button color="secondary">Secondary</Button>
-        <Button color="success">Success</Button>
-        <Button color="warning">Warning</Button>
-        <Button color="error">Error</Button>
-        <Button disabled>Disabled</Button>
+      <ButtonGroup variant="ghost">
+        <Button>One</Button>
+        <Button>Two</Button>
       </ButtonGroup>
     </>
   );

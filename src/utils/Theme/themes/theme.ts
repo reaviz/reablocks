@@ -21,7 +21,6 @@ import {
   legacyAvatarGroupTheme,
   legacyArrowTheme,
   legacyBadgeTheme,
-  legacyButtonTheme,
   legacyChipTheme,
   legacyLoaderTheme,
   legacyKbdTheme,
@@ -153,6 +152,7 @@ import {
   legacyRedactTheme,
   legacyPagerTheme
 } from '@/data';
+import { DeepPartial } from 'react-hook-form';
 
 export interface ReablocksTheme {
   components: {
@@ -256,13 +256,12 @@ export const theme: ReablocksTheme = {
   }
 };
 
-export const legacyThemeVars: ReablocksTheme = {
+export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
   components: {
     avatar: legacyAvatarTheme,
     avatarGroup: legacyAvatarGroupTheme,
     arrow: legacyArrowTheme,
     badge: legacyBadgeTheme,
-    button: legacyButtonTheme,
     block: legacyBlockTheme,
     chip: legacyChipTheme,
     contextMenu: legacyContextMenuTheme,
