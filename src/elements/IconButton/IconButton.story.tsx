@@ -24,6 +24,23 @@ const BellIcon = () => (
   </svg>
 );
 
+export const Variants = () => (
+  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+    <IconButton size="medium">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="outline">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="text">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="ghost">
+      <BellIcon />
+    </IconButton>
+  </div>
+);
+
 export const Sizes = () => (
   <Stack>
     <IconButton size="small">
@@ -38,53 +55,15 @@ export const Sizes = () => (
   </Stack>
 );
 
-export const ColorsBackground = () => (
+export const ColorsFilled = () => (
   <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-    <IconButton size="medium" variant="filled">
-      <BellIcon />
-    </IconButton>
     <IconButton size="medium" variant="filled" color="primary">
       <BellIcon />
     </IconButton>
     <IconButton size="medium" variant="filled" color="secondary">
       <BellIcon />
     </IconButton>
-    <IconButton size="medium" variant="filled" color="success">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="filled" color="warning">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="filled" color="error">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="filled" disabled>
-      <BellIcon />
-    </IconButton>
-  </div>
-);
-
-export const ColorsIcons = () => (
-  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-    <IconButton size="medium" variant="text">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="text" color="primary">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="text" color="secondary">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="text" color="success">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="text" color="warning">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="text" color="error">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="text" disabled>
+    <IconButton size="medium" variant="filled" color="destructive">
       <BellIcon />
     </IconButton>
   </div>
@@ -92,48 +71,73 @@ export const ColorsIcons = () => (
 
 export const ColorsOutline = () => (
   <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-    <IconButton size="medium" variant="outline">
-      <BellIcon />
-    </IconButton>
     <IconButton size="medium" variant="outline" color="primary">
       <BellIcon />
     </IconButton>
     <IconButton size="medium" variant="outline" color="secondary">
       <BellIcon />
     </IconButton>
-    <IconButton size="medium" variant="outline" color="success">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="outline" color="warning">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="outline" color="error">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="outline" disabled>
+    <IconButton size="medium" variant="outline" color="destructive">
       <BellIcon />
     </IconButton>
   </div>
 );
 
-export const Variants = () => (
+export const ColorsText = () => (
   <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-    <IconButton size="medium">
+    <IconButton size="medium" variant="text" color="primary">
       <BellIcon />
     </IconButton>
-    <IconButton size="medium" variant="outline">
+    <IconButton size="medium" variant="text" color="secondary">
       <BellIcon />
     </IconButton>
-    <IconButton size="medium" variant="text">
+    <IconButton size="medium" variant="text" color="destructive">
       <BellIcon />
     </IconButton>
   </div>
 );
 
-export const Square = () => {
+export const ColorsGhost = () => (
+  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+    <IconButton size="medium" variant="ghost" color="primary">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="ghost" color="secondary">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="ghost" color="destructive">
+      <BellIcon />
+    </IconButton>
+  </div>
+);
+
+export const Disabled = () => (
+  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+    <IconButton disabled size="medium" variant="filled">
+      <BellIcon />
+    </IconButton>
+    <IconButton disabled size="medium" variant="outline">
+      <BellIcon />
+    </IconButton>
+    <IconButton disabled size="medium" variant="text">
+      <BellIcon />
+    </IconButton>
+    <IconButton disabled size="medium" variant="ghost">
+      <BellIcon />
+    </IconButton>
+  </div>
+);
+
+export const Custom = () => {
   const iconTheme: PartialReablocksTheme = {
     components: {
       button: {
+        colors: {
+          primary: {
+            filled:
+              'bg-pink-plasma-circuit-400 hover:bg-pink-plasma-circuit-600'
+          }
+        },
         iconSizes: {
           small: 'p-1',
           medium: 'p-2',
