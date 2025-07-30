@@ -99,7 +99,6 @@ import {
   TabsTheme,
   tabsTheme,
   TreeTheme,
-  legacyBlockTheme,
   legacyListTheme,
   verticalSpacerTheme,
   VerticalSpacerTheme,
@@ -258,7 +257,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
   components: {
     arrow: legacyArrowTheme,
     badge: legacyBadgeTheme,
-    block: legacyBlockTheme,
     chip: legacyChipTheme,
     contextMenu: legacyContextMenuTheme,
     checkbox: legacyCheckboxTheme,
