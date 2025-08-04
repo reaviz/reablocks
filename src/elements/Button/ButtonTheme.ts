@@ -64,12 +64,11 @@ export interface ButtonTheme {
 export const buttonTheme: ButtonTheme = {
   base: `
     inline-flex items-center justify-center px-2.5 py-1 rounded-xs font-sans 
-    cursor-pointer text-text-primary font-semibold whitespace-nowrap 
+    cursor-pointerfont-semibold whitespace-nowrap 
     rounded-md font-semibold cursor-pointer select-none transition-colors [&_svg]:transition-all focus-visible:outline-none
   `,
   disabled: `
     disabled:opacity-40 disabled:cursor-not-allowed 
-    data-[variant=filled]:disabled:bg-gray-600 disabled:text-gray-400 border-gray-500
   `,
   fullWidth: 'flex w-full',
   group:
@@ -99,7 +98,7 @@ export const buttonTheme: ButtonTheme = {
   },
   variants: {
     filled: 'bg-secondary hover:bg-border-secondary-hover',
-    outline: 'border-grey border',
+    outline: 'border',
     text: 'border-0'
   },
   colors: {
