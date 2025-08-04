@@ -24,19 +24,22 @@ export interface ListTheme {
   };
 }
 
-const baseTheme: ListTheme = {
-  base: 'flex flex-col',
-  header: 'pl-2 pr-2',
+export const listTheme = {
+  base: 'flex flex-col gap-1',
+  header:
+    'px-1 py-2 border rounded-md border-select-menu-items-color-item-stroke-header-resting text-select-menu-items-color-item-text-header-resting bg-select-menu-items-color-item-background-header-resting text-xs font-semibold',
   listItem: {
-    base: 'items-center flex p-2.5 relative rounded-none',
-    disabled: 'cursor-not-allowed pointer-events-none',
-    active: '',
+    base: 'flex-1 px-3 py-2.5 whitespace-break-spaces break-words border border-select-menu-items-color-item-stroke-row-resting rounded-md text-sm outline-none',
+    disabled:
+      'cursor-not-allowed opacity-40 hover:border-select-menu-items-color-item-stroke-row-resting hover:bg-select-menu-items-color-item-stroke-row-resting',
+    active:
+      'border-select-menu-items-color-item-stroke-row-selected bg-select-menu-items-color-item-background-row-selected hover:border-select-menu-items-color-item-stroke-row-selected hover:bg-select-menu-items-color-item-background-row-selected',
     clickable:
-      'cursor-pointer transition-color duration-300 ease-linear transition-bg duration-300 ease-linear hover:color-inherit hover:bg-transparent',
+      'cursor-pointer hover:border-select-menu-items-color-item-stroke-row-hover hover:bg-select-menu-items-color-item-background-row-hover focus-visible:border-select-menu-items-color-item-stroke-row-hover focus-visible:bg-select-menu-items-color-item-background-row-hover',
     disablePadding: 'p-0',
-    disableGutters: 'pl-0 pr-0',
+    disableGutters: 'px-0',
     dense: {
-      base: 'p-1',
+      base: 'px-1',
       content: '',
       startAdornment: 'pr-[calc(5/2)]',
       endAdornment: 'pl-[calc(5/2)]'
@@ -48,77 +51,5 @@ const baseTheme: ListTheme = {
       svg: 'fill-current'
     },
     content: 'overflow-wrap break-word word-wrap break-all flex-1'
-  }
-};
-
-export const listTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-text-primary'].join(' '),
-  header: [baseTheme.header, 'text-text-primary'].join(' '),
-  listItem: {
-    ...baseTheme.listItem,
-    base: [
-      baseTheme.listItem.base,
-      'hover:bg-panel-accent hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-secondary [&:has(h3)]:hover:bg-transparent'
-    ].join(' '),
-    active: [
-      baseTheme.listItem.active,
-      'text-primary-active hover:text-mystic'
-    ].join(' '),
-    disabled: [
-      baseTheme.listItem.disabled,
-      'opacity-40 text-text-secondary'
-    ].join(' ')
-  }
-};
-
-export const legacyListTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-[var(--list-item-color)]'].join(' '),
-  header: [
-    baseTheme.header,
-    'pl-[var(--spacing-md)] pr-[var(--spacing-md)]'
-  ].join(' '),
-
-  listItem: {
-    ...baseTheme.listItem,
-    base: [
-      baseTheme.listItem.base,
-      'p-[var(--list-item-spacing)] text-[var(--list-item-color)] rounded-[var(--list-item-border-radius)]'
-    ].join(' '),
-    clickable: [
-      baseTheme.listItem.clickable,
-      'hover:text-[var(--list-item-color-active)] hover:bg-[var(--list-item-background-active)]'
-    ].join(' '),
-    dense: {
-      ...baseTheme.listItem.dense,
-      base: [
-        baseTheme.listItem.dense.base,
-        '[padding:_var(--list-item-dense-spacing)]'
-      ].join(' '),
-      startAdornment: [
-        baseTheme.listItem.dense.startAdornment,
-        '[padding-right:_calc(var(--spacing-md)_/_2)]'
-      ].join(' '),
-      endAdornment: [
-        baseTheme.listItem.dense.endAdornment,
-        '[padding-left:_calc(var(--spacing-md)_/_2)]'
-      ].join(' ')
-    },
-    adornment: {
-      ...baseTheme.listItem.adornment,
-      start: [
-        baseTheme.listItem.adornment.start,
-        '[padding-right:_calc(var(--spacing-sm)_/_2)]'
-      ].join(' '),
-      end: [
-        baseTheme.listItem.adornment.start,
-        '[padding-left:_calc(var(--spacing-sm)_/_2)]'
-      ].join(' '),
-      svg: [
-        baseTheme.listItem.adornment.svg,
-        'fill:[var(--list-item-adornment-fill)]'
-      ].join(' ')
-    }
   }
 };
