@@ -1,7 +1,7 @@
 import React, { FC, Fragment } from 'react';
-import { NotificationComponentProps, Notifications } from './Notifications';
-import { NotificationsContext } from './NotificationsContext';
-import { Button } from '../../elements';
+import { NotificationComponentProps, Notifications } from '@/layers';
+import { NotificationsContext } from '@/layers';
+import { Button } from '@/elements';
 
 export default {
   title: 'Components/Layers/Notification',
@@ -106,21 +106,18 @@ export const Variants = () => (
       }) => (
         <Fragment>
           <Button
-            color="success"
             className="mx-1"
             onClick={() => notifySuccess('Something good happened!')}
           >
             Success
           </Button>
           <Button
-            color="error"
             className="mx-1"
             onClick={() => notifyError('Something bad happened!')}
           >
             Error
           </Button>
           <Button
-            color="warning"
             className="mx-1"
             onClick={() => notifyWarning('Something questionable happened!')}
           >
@@ -257,21 +254,18 @@ export const CustomComponent = () => (
             Custom Default
           </Button>
           <Button
-            color="success"
             className="mx-1"
             onClick={() => notify('Success', { variant: 'success' })}
           >
             Custom Success
           </Button>
           <Button
-            color="warning"
             className="mx-1"
             onClick={() => notify('Warning', { variant: 'warning' })}
           >
             Custom Warning
           </Button>
           <Button
-            color="error"
             className="mx-1"
             onClick={() => notify('Error', { variant: 'error' })}
           >

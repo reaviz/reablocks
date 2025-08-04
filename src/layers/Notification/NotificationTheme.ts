@@ -30,87 +30,53 @@ export interface NotificationTheme {
   };
 }
 
-const baseTheme: NotificationTheme = {
+export const notificationTheme: NotificationTheme = {
   container: '',
   positions:
     'fixed z-9998 h-auto -translate-x-2/4 mb-1 px-24 py-0 left-2/4 bottom-0',
   notification: {
-    base: 'flex relative text-base min-w-[400px] rounded-xs mb-2.5 py-2 px-4',
+    base: `
+          flex relative text-base min-w-[400px] rounded-md mb-2.5 py-2 px-4 border backdrop-blur-xl transition-colors
+          border-notifications-colors-stroke-neutral-resting hover:border-notifications-colors-stroke-neutral-hover
+          bg-notifications-colors-background-neutral-resting hover:bg-notifications-colors-background-neutral-hover
+        `,
     variants: {
       success: {
-        base: 'bg-success-background border border-success',
-        icon: 'text-success h-4 w-4'
+        base: `
+          border-notifications-colors-stroke-success-resting hover:border-notifications-colors-stroke-success-hover
+          bg-notifications-colors-background-success-resting hover:bg-notifications-colors-background-success-hover
+        `,
+        icon: 'text-notifications-colors-assets-success-resting size-4'
       },
       error: {
-        base: 'bg-error-background border border-error',
-        icon: 'text-error h-4 w-4'
+        base: `
+          border-notifications-colors-stroke-error-resting hover:border-notifications-colors-stroke-error-hover
+          bg-notifications-colors-background-error-resting hover:bg-notifications-colors-background-error-hover
+        `,
+        icon: 'text-notifications-colors-assets-destructive-resting size-4'
       },
       warning: {
-        base: 'bg-warning-background border border-warning',
-        icon: 'text-warning h-4 w-4'
+        base: `
+          border-notifications-colors-stroke-warning-resting hover:border-notifications-colors-stroke-warning-hover
+          bg-notifications-colors-background-warning-resting hover:bg-notifications-colors-background-warning-hover
+        `,
+        icon: 'text-notifications-colors-assets-warning-static size-4'
       },
       info: {
-        base: 'bg-info-background border border-info',
-        icon: 'text-info h-4 w-4'
+        base: `
+          border-notifications-colors-stroke-info-resting hover:border-notifications-colors-stroke-info-hover
+          bg-notifications-colors-background-info-resting hover:bg-notifications-colors-background-info-hover
+        `,
+        icon: 'text-notifications-colors-assets-info-resting size-4'
       }
     },
     content: 'inline-flex items-start flex-1 flex-col justify-center',
-    header: 'text-base flex gap-2 items-center',
+    header:
+      'text-base flex gap-2 items-center text-notifications-colors-text-title-resting',
     closeContainer: 'inline-flex items-center',
     action: 'ml-auto mr-2 items-center flex',
     closeButton:
       'cursor-pointer text-sm font-semibold m-0 border-0 text-text-primary hover:text-text-primary/70',
-    body: 'opacity-70 text-sm mt-1'
-  }
-};
-
-export const notificationTheme: NotificationTheme = {
-  ...baseTheme,
-  notification: {
-    ...baseTheme.notification,
-    base: [
-      baseTheme.notification.base,
-      'bg-panel text-text-primary border-panel-accent border'
-    ].join(' ')
-  }
-};
-
-export const legacyNotificationTheme: NotificationTheme = {
-  ...baseTheme,
-  notification: {
-    ...baseTheme.notification,
-    base: [
-      baseTheme.notification.base,
-      'bg-[var(--notification-background)] border-[var(--notification-border)] text-[var(--notification-color)]'
-    ].join(' '),
-    closeButton: [
-      baseTheme.notification.closeButton,
-      'text-[var(--color-on-notification)]'
-    ].join(' '),
-    body: [
-      baseTheme.notification.body,
-      'text-[var(--color-on-notification)]'
-    ].join(' '),
-    variants: {
-      ...baseTheme.notification.variants,
-      success: {
-        base: [
-          baseTheme.notification.variants.success,
-          'text-[var(--notification-color-success)]'
-        ].join(' ')
-      },
-      error: {
-        base: [
-          baseTheme.notification.variants.error,
-          'text-[var(--notification-color-error)]'
-        ].join(' ')
-      },
-      warning: {
-        base: [
-          baseTheme.notification.variants.error,
-          'text-[var(--notification-color-warning)]'
-        ].join(' ')
-      }
-    }
+    body: 'text-xs mt-1 text-notifications-colors-text-normal-resting'
   }
 };
