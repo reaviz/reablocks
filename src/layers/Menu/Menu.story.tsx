@@ -1,10 +1,10 @@
 import React, { Fragment, useRef, useState } from 'react';
-import { Card } from '../../layout/Card';
-import { List, ListItem } from '../../layout/List';
+import { Card } from '@/layout';
+import { List, ListHeader, ListItem } from '@/layout';
 import { Menu } from './Menu';
-import { NestedMenu, NestedMenuRef } from './NestedMenu';
-import { useMenu } from './useMenu';
-import { Button } from '../../elements/Button';
+import { NestedMenu, NestedMenuRef } from '@/layers';
+import { useMenu } from '@/layers';
+import { Button } from '@/elements';
 
 export default {
   title: 'Components/Layers/Menu',
@@ -12,6 +12,33 @@ export default {
   subComponents: {
     NestedMenu
   }
+};
+
+export const Simple = () => {
+  const { toggleOpen, ref, Menu: MenuComponent } = useMenu();
+
+  return (
+    <div className="flex items-center gap-2">
+      <Button ref={ref} onClick={toggleOpen}>
+        Open
+      </Button>
+      <MenuComponent reference={ref}>
+        <Card>
+          <List>
+            <ListHeader>List Header</ListHeader>
+            <ListItem>List Itme</ListItem>
+            <ListItem onClick={() => console.log('click')}>
+              Clickable Item
+            </ListItem>
+            <ListItem active>Selected Item</ListItem>
+            <ListItem onClick={() => console.log('click')} disabled>
+              Disabled Item
+            </ListItem>
+          </List>
+        </Card>
+      </MenuComponent>
+    </div>
+  );
 };
 
 export const Unstyled = () => {
@@ -180,29 +207,6 @@ export const AutoWidthModifiers = () => {
         </Card>
       </MenuComponent>
     </Fragment>
-  );
-};
-
-export const Simple = () => {
-  const [open, setOpen] = useState(false);
-  const buttonRef = useRef(null);
-
-  return (
-    <>
-      <Button type="button" ref={buttonRef} onClick={() => setOpen(!open)}>
-        Open
-      </Button>
-      <Menu open={open} onClose={() => setOpen(false)} reference={buttonRef}>
-        <Card disablePadding>
-          <List>
-            <ListItem start={<Icon />}>Menu Item 1</ListItem>
-            <ListItem start={<Icon />}>Menu Item 2</ListItem>
-            <ListItem start={<Icon />}>Menu Item 3</ListItem>
-            <ListItem start={<Icon />}>Menu Item 4</ListItem>
-          </List>
-        </Card>
-      </Menu>
-    </>
   );
 };
 
