@@ -29,99 +29,40 @@ export interface RadioTheme {
   };
 }
 
-const baseTheme: RadioTheme = {
+export const radioTheme: RadioTheme = {
   base: 'box-border leading-none group',
   radio: {
-    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-[100%] bg-transparent border cursor-pointer',
-    disabled: 'cursor-not-allowed',
-    checked: ''
+    base: `
+          inline-flex justify-center items-center align-middle rounded-full box-content cursor-pointer transition-colors border focus-visible:outline-none
+          bg-selectors-colors-radio-not-selected-background-resting group-hover:bg-selectors-colors-radio-not-selected-background-hover group-focus-within:bg-selectors-colors-radio-not-selected-background-hover
+          border-selectors-colors-radio-not-selected-stroke-resting group-hover:border-selectors-colors-radio-not-selected-stroke-hover group-focus-within:border-selectors-colors-radio-not-selected-stroke-hover
+        `,
+    checked: `
+          bg-selectors-colors-radio-selected-background-resting group-hover:bg-selectors-colors-radio-selected-background-hover group-focus-within:bg-selectors-colors-radio-selected-background-hover
+          border-selectors-colors-radio-selected-stroke-resting group-hover:border-selectors-colors-radio-selected-stroke-hover group-focus-within:border-selectors-colors-radio-selected-stroke-hover
+        `,
+    disabled:
+      'cursor-not-allowed opacity-40 group-hover:bg-inherit group-focus-within:bg-inherit'
   },
   indicator: {
-    base: 'rounded-[100%]',
+    base: 'rounded-full bg-selectors-colors-radio-selected-assets-base',
     disabled: 'cursor-not-allowed',
     sizes: {
-      small: 'w-2 h-2',
-      medium: 'w-2.5 h-2.5',
-      large: 'w-3.5 h-3.5'
+      small: 'size-1.5',
+      medium: 'size-2',
+      large: 'size-2'
     }
   },
   label: {
-    base: 'w-full align-middle ml-2.5',
-    clickable: 'cursor-pointer hover:text-blue-300',
-    disabled: 'cursor-not-allowed',
-    checked: ''
+    base: 'w-full align-middle ml-3 text-selectors-colors-text-label-not-selected',
+    clickable:
+      'cursor-pointer group-hover:text-selectors-colors-text-label-selected group-focus-within:text-selectors-colors-text-label-selected',
+    disabled: 'cursor-not-allowed opacity-40',
+    checked: 'text-selectors-colors-text-label-selected'
   },
   sizes: {
-    small: 'w-3 h-3',
-    medium: 'w-4 h-4',
-    large: 'w-5 h-5'
-  }
-};
-
-export const radioTheme: RadioTheme = {
-  ...baseTheme,
-  label: {
-    ...baseTheme.label,
-    base: [baseTheme.label.base, 'text-text-secondary'].join(' '),
-    checked: [baseTheme.label.checked, 'text-text-primary'].join(' '),
-    disabled: [baseTheme.label.disabled, 'text-secondary-inactive/40!'].join(
-      ' '
-    )
-  },
-  radio: {
-    ...baseTheme.radio,
-    base: [
-      baseTheme.radio.base,
-      'border-surface group-hover:border-primary-hover hover:border-primary-hover'
-    ].join(' '),
-    checked: [
-      baseTheme.radio.checked,
-      'border-primary-active group-hover:border-primary-hover'
-    ].join(' '),
-    disabled: [baseTheme.radio.disabled, 'border-secondary-inactive!'].join(' ')
-  },
-  indicator: {
-    ...baseTheme.indicator,
-    base: [
-      baseTheme.indicator.base,
-      'bg-primary group-hover:bg-primary-hover'
-    ].join(' '),
-    disabled: [baseTheme.indicator.disabled, 'bg-secondary-inactive!'].join(' ')
-  }
-};
-
-export const legacyRadioTheme: RadioTheme = {
-  ...baseTheme,
-  label: {
-    ...baseTheme.label,
-    base: [
-      baseTheme.label.base,
-      'text-[var(--radio-label-color)] ml-[var(--spacing-md)]'
-    ].join(' ')
-  },
-  radio: {
-    ...baseTheme.radio,
-    base: [
-      baseTheme.radio.base,
-      'bg-[var(--radio-background)] [border:_var(--radio-stroke-size)_solid_var(--radio-stroke)]'
-    ].join(' '),
-    checked: [
-      baseTheme.radio.checked,
-      'border-[var(--radio-stroke-active)]'
-    ].join(' ')
-  },
-  indicator: {
-    ...baseTheme.indicator,
-    base: [baseTheme.indicator.base, 'bg-[var(--radio-indicator-active)]'].join(
-      ' '
-    ),
-    sizes: {
-      small:
-        'w-[var(--radio-indicator-size,_6px)] h-[var(--radio-indicator-size,_6px)]',
-      medium:
-        'w-[var(--radio-indicator-size,_8px)] h-[var(--radio-indicator-size,_8px)]',
-      large:
-        'w-[var(--radio-indicator-size,_10px)] h-[var(--radio-indicator-size,_10px)]'
-    }
+    small: 'size-3 p-0.5',
+    medium: 'size-4.5 p-0.5',
+    large: 'size-4.5 p-0.5'
   }
 };
