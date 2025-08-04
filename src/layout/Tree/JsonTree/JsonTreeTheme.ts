@@ -11,15 +11,12 @@ export interface JsonTreeTheme {
 
 export const jsonTreeTheme: JsonTreeTheme = {
   node: {
-    label: 'font-mono text-anakiwa light:text-blue-500',
-    delimiter: 'pr-1',
-    symbol: 'px-1 opacity-50 font-mono',
-    value: '',
+    label:
+      'font-mono text-sm font-normal text-json-tree-color-text-primary-resting',
+    delimiter: 'pr-1 text-sm font-normal',
+    symbol: 'px-1 opacity-50 font-mono text-sm font-normal',
+    value: 'text-json-tree-color-text-secondary-resting text-sm font-normal',
     count: 'opacity-50'
   },
   pager: 'opacity-50 cursor-pointer pl-4'
-};
-
-export const legacyJsonTreeTheme: JsonTreeTheme = {
-  ...jsonTreeTheme
 };
