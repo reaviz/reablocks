@@ -60,7 +60,6 @@ import {
 import {
   ContextMenuTheme,
   legacyContextMenuTheme,
-  legacyDialogTheme,
   legacyDrawerTheme,
   legacyMenuTheme,
   legacyNotificationTheme,
@@ -259,7 +258,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     chip: legacyChipTheme,
     contextMenu: legacyContextMenuTheme,
     dateFormat: legacyDateFormatTheme,
-    dialog: legacyDialogTheme,
     divider: legacyDividerTheme,
     dotsLoader: legacyLoaderTheme,
     drawer: legacyDrawerTheme,
