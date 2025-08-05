@@ -118,8 +118,7 @@ import {
   dateFormatTheme,
   legacyDateFormatTheme,
   legacyEllipsisTheme,
-  legacySortTheme,
-  legacyRedactTheme
+  legacySortTheme
 } from '@/data';
 import { DeepPartial } from 'react-hook-form';
 
@@ -239,7 +238,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     verticalSpacer: legacyVerticalSpacerTheme,
     commandPalette: legacyCommandPaletteTheme,
     typography: legacyTypographyTheme,
-    redact: legacyRedactTheme,
     stepper: legacyStepperTheme
   }
 };
