@@ -617,7 +617,6 @@ export const BillingSubscription = () => (
             </div>
             <Button
               variant="text"
-              color="default"
               className="w-fit px-0"
               startAdornment={
                 <svg

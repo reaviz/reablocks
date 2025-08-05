@@ -27,12 +27,12 @@ import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
 import { SmallHeading } from '@/typography';
 import { twMerge } from 'tailwind-merge';
-import { cn, useComponentTheme } from '@/utils';
-import { CalendarTheme } from './CalendarTheme';
+import { useComponentTheme } from '@/utils';
+import { CalendarTheme } from '@/form';
 import { Divider } from '@/layout/Divider';
 import { CalendarTimes } from './CalendarTimes';
 import { updateDateTime } from './utils';
-import { CalendarPresets, PresetOption } from './CalendarPresets';
+import { CalendarPresets, PresetOption } from '@/form';
 import { Stack } from '@/layout';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
@@ -353,7 +353,7 @@ export const Calendar: FC<CalendarProps> = ({
               {nextArrow}
             </Button>
           </header>
-          <Divider />
+          <Divider className={theme.header.divider} />
           <AnimatePresence initial={false} mode="wait">
             <motion.div
               className={twMerge(theme.content)}
@@ -408,6 +408,7 @@ export const Calendar: FC<CalendarProps> = ({
             value={
               isRange ? (rangeEnd ? rangeEnd : value?.[0]) : (value as Date)
             }
+            disabled={disabled}
             min={min}
             max={max === 'now' ? new Date() : max}
             theme={theme.time}

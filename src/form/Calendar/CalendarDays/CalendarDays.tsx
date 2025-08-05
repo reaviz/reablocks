@@ -212,7 +212,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         isPreviousWeekEmpty(day.date, currentRange, hidePrevMonthDays);
 
       // Determine the color variant of the button
-      const colorVariant = isActive ? 'primary' : 'default';
+      const colorVariant = isActive ? 'primary' : 'secondary';
 
       // Determine the button variant
       const buttonVariant = isActive ? 'filled' : 'text';

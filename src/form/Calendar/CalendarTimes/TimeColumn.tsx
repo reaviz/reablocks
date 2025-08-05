@@ -16,6 +16,11 @@ interface TimeColumnProps {
   value?: number | AmPm;
 
   /**
+   * Whether the column is disabled.
+   */
+  disabled?: boolean;
+
+  /**
    * Minimum allowed time value
    */
   min?: number;
@@ -49,6 +54,7 @@ interface TimeColumnProps {
 export const TimeColumn: FC<TimeColumnProps> = ({
   options,
   value,
+  disabled,
   min,
   max,
   theme,
@@ -124,7 +130,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
             ref={value === option ? selectedRef : null}
             className={cn(theme.items.item.base, {
               [theme.items.item.selected]: value === option,
-              [theme.items.item.disabled]: isOptionDisabled(option)
+              [theme.items.item.disabled]: isOptionDisabled(option) || disabled
             })}
             onClick={() => {
               if (isOptionDisabled(option)) {
@@ -134,7 +140,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
               onSelect(option);
             }}
             role="option"
-            aria-disabled={isOptionDisabled(option)}
+            aria-disabled={isOptionDisabled(option) || disabled}
             aria-selected={value === option}
           >
             {typeof option === 'number'
