@@ -46,7 +46,6 @@ import {
   calendarRangeTheme,
   legacyCalendarTheme,
   legacyCalendarRangeTheme,
-  legacyToggleTheme,
   DateInputTheme,
   dateInputTheme,
   legacyDateInputTheme
@@ -261,7 +260,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     collapse: legacyCollapseTheme,
     typography: legacyTypographyTheme,
     redact: legacyRedactTheme,
-    toggle: legacyToggleTheme,
     tooltip: legacyTooltipTheme,
     tree: legacyTreeTheme,
     popover: legacyPopoverTheme,

@@ -22,66 +22,27 @@ export interface ToggleTheme {
   };
 }
 
-const baseTheme: ToggleTheme = {
-  base: 'flex items-center justify-start cursor-pointer bg-surface box-border border border-panel-accent rounded-full hover:bg-primary-hover transition-[background-color] ease-in-out duration-300',
-  disabled: 'cursor-not-allowed bg-transparent hover:bg-transparent',
-  checked: 'justify-end bg-primary',
+export const toggleTheme: ToggleTheme = {
+  base: 'group flex items-center justify-start cursor-pointer bg-selectors-colors-toggle-off-background-resting box-border border border-selectors-colors-toggle-off-stroke-resting rounded-full hover:bg-selectors-colors-toggle-off-background-hover focus-visible:bg-selectors-colors-toggle-off-background-hover transition-colors ease-in-out duration-300 focus-visible:outline-none',
+  disabled:
+    'cursor-not-allowed opacity-40 focus-visible:bg-selectors-colors-toggle-off-background-resting',
+  checked:
+    'justify-end bg-selectors-colors-toggle-on-background-resting hover:bg-selectors-colors-toggle-on-background-hover focus-visible:bg-selectors-colors-toggle-on-background-hover',
   disabledAndChecked:
-    'bg-secondary-inactive hover:bg-secondary-inactive light:bg-gray-400 light:hover:bg-gray-400',
+    'focus-visible:bg-selectors-colors-toggle-on-background-resting',
   handle: {
-    base: 'rounded-full bg-panel',
+    base: 'rounded-full bg-selectors-colors-toggle-off-assets-resting group-hover:bg-selectors-colors-toggle-off-assets-hover',
     sizes: {
-      small: 'w-3 h-full',
-      medium: 'w-5 h-full',
-      large: 'w-6 h-full'
+      small: 'size-2.5',
+      medium: 'size-3.5',
+      large: 'size-3.5'
     },
-    disabled: 'bg-secondary-inactive light:bg-gray-400',
-    disabledAndChecked: 'bg-black light:bg-white'
+    disabled: '',
+    disabledAndChecked: 'bg-selectors-colors-toggle-on-assets-resting'
   },
   sizes: {
-    small: 'w-8 h-4 p-px',
-    medium: 'w-12 h-6 p-px',
-    large: 'w-16 h-7 p-px'
-  }
-};
-
-export const toggleTheme = baseTheme;
-
-export const legacyToggleTheme: ToggleTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    'bg-[var(--toggle-background)] rounded-[var(--toggle-border-radius)] [border:_var(--toggle-border)]'
-  ].join(' '),
-  disabled: [
-    baseTheme.disabled,
-    'opacity-[var(--toggle-disabled-opacity,0.8)] bg-[var(--toggle-disabled-background)]'
-  ].join(' '),
-  checked: [
-    baseTheme.checked,
-    'bg-[var(--toggle-background-checked)] [border:_var(--toggle-border-checked)]'
-  ].join(' '),
-  sizes: {
-    small:
-      'h-[calc(var(--toggle-height,35px)_/_2)] w-[calc(var(--toggle-width,55px)_/_2)] pt-[calc(var(--toggle-spacing)] pb-[2)]',
-    medium:
-      'h-[calc(var(--toggle-height,35px)_/_1.5)] w-[calc(var(--toggle-width,55px)_/_1.5)] pt-[calc(var(--toggle-spacing)] pb-[1.5)]',
-    large:
-      'h-[var(--toggle-height,35px)] w-[var(--toggle-width,55px)] pt-[var(--toggle-spacing)] pr-[var(--toggle-spacing)] pb-[var(--toggle-spacing)] pl-[var(--toggle-spacing)]'
-  },
-  handle: {
-    ...baseTheme.handle,
-    base: [
-      baseTheme.handle.base,
-      'bg-[var(--toggle-handle-background)] rounded-[var(--toggle-handle-border-radius)]'
-    ].join(' '),
-    sizes: {
-      small:
-        'h-[calc(var(--toggle-handle-size,25px)_/_2)] w-[calc(var(--toggle-handle-size,25px)_/_2)]',
-      medium:
-        'h-[calc(var(--toggle-handle-size,25px)_/_1.5)] w-[calc(var(--toggle-handle-size,25px)_/_1.5)]',
-      large:
-        'h-[var(--toggle-handle-size,25px)] w-[var(--toggle-handle-size,25px)]'
-    }
+    small: 'w-7 h-4 p-0.5',
+    medium: 'w-8 h-5 p-0.5',
+    large: 'w-8 h-5 p-0.5'
   }
 };
