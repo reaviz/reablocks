@@ -92,7 +92,6 @@ import {
   stackTheme,
   StackTheme,
   legacyVerticalSpacerTheme,
-  legacyCollapseTheme,
   legacyDividerTheme,
   JsonTreeTheme,
   jsonTreeTheme,
@@ -245,7 +244,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     verticalSpacer: legacyVerticalSpacerTheme,
     dateInput: legacyDateInputTheme,
     commandPalette: legacyCommandPaletteTheme,
-    collapse: legacyCollapseTheme,
     typography: legacyTypographyTheme,
     redact: legacyRedactTheme,
     stepper: legacyStepperTheme
