@@ -114,7 +114,6 @@ import {
   sortTheme,
   DateFormatTheme,
   dateFormatTheme,
-  legacyDateFormatTheme,
   legacyEllipsisTheme,
   legacySortTheme
 } from '@/data';
@@ -227,7 +226,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     arrow: legacyArrowTheme,
     badge: legacyBadgeTheme,
     chip: legacyChipTheme,
-    dateFormat: legacyDateFormatTheme,
     divider: legacyDividerTheme,
     ellipsis: legacyEllipsisTheme,
     sort: legacySortTheme,
