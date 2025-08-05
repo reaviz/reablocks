@@ -19,51 +19,33 @@ export interface PagerTheme {
   nextPage: string;
 }
 
-const baseTheme: PagerTheme = {
-  base: 'items-center flex user-select-none',
+export const pagerTheme: PagerTheme = {
+  base: 'items-center flex user-select-none gap-5',
   pages: {
-    base: 'inline-flex',
+    base: 'inline-flex gap-1 text-md',
     page: {
-      base: 'py-1',
-      active: 'font-bold'
+      base: `
+        text-sm text-buttons-colors-core-icon-ghost-text-resting py-2 min-w-8 transition-colors border
+        bg-buttons-colors-core-icon-ghost-background-resting hover:bg-buttons-colors-core-icon-ghost-background-hover focus-visible:bg-buttons-colors-core-icon-ghost-background-hover
+        border-buttons-colors-core-icon-ghost-stroke-resting hover:border-buttons-colors-core-icon-ghost-stroke-hover focus-visible:border-buttons-colors-core-icon-ghost-stroke-hover
+      `,
+      active:
+        'text-buttons-colors-core-icon-ghost-text-selected font-bold disabled:cursor-default disabled:opacity-100 disabled:bg-buttons-colors-core-icon-ghost-background-selected disabled:text-buttons-colors-core-icon-ghost-text-selected'
     }
   },
-  ellipsis: 'cursor-pointer',
-  pagerDisplayItems: 'mr-1.5',
-  itemsDisplay: '',
+  ellipsis:
+    'cursor-pointer text-buttons-colors-core-icon-ghost-text-resting min-w-8 flex items-baseline justify-center leading-8',
+  pagerDisplayItems: 'text-sm',
+  itemsDisplay: 'text-buttons-colors-core-icon-ghost-text-selected font-sm',
   showPageRange: '',
   totalCount: '',
-  control: '[&>svg]:w-5 [&>svg]:h-5',
+  control: `
+    min-size-8 p-2 [&>svg]:size-4 text-buttons-colors-core-icon-secondary-assets-resting transition-colors border
+    bg-buttons-colors-core-icon-secondary-background-resting hover:bg-buttons-colors-core-icon-secondary-background-hover focus-visible:bg-buttons-colors-core-icon-secondary-background-hover disabled:bg-buttons-colors-core-icon-secondary-background-resting
+    border-buttons-colors-core-icon-secondary-stroke-resting hover:buttons-colors-core-icon-secondary-stroke-hover focus-visible:buttons-colors-core-icon-secondary-stroke-hover disabled:border-buttons-colors-core-icon-secondary-stroke-resting
+  `,
   firstPage: '',
   prevPage: '',
   lastPage: '',
   nextPage: ''
-};
-
-export const pagerTheme: PagerTheme = {
-  ...(baseTheme as PagerTheme),
-  pages: {
-    ...baseTheme.pages,
-    page: {
-      base: [baseTheme.pages.page.base, 'text-slate-500'].join(' '),
-      active: [baseTheme.pages.page.active, 'text-text-primary!'].join(' ')
-    }
-  },
-  control: [
-    baseTheme.control,
-    'text-slate-200 light:text-slate-400 disabled:light:text-slate-300'
-  ].join(' '),
-  pagerDisplayItems: [baseTheme.pagerDisplayItems, 'text-slate-500'].join(' ')
-};
-
-export const legacyPagerTheme: PagerTheme = {
-  ...(baseTheme as PagerTheme),
-  pages: {
-    ...baseTheme.pages,
-    page: {
-      base: [baseTheme.pages.page.base, 'px-[var(--spacing-sm)]'].join(' '),
-      active: [baseTheme.pages.page.active, 'text-(--input-color)!'].join(' ')
-    }
-  },
-  pagerDisplayItems: ['text-[var(--gray-100)] mr-[var(--spacing-sm)]'].join(' ')
 };

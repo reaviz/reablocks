@@ -135,8 +135,7 @@ import {
   legacyDateFormatTheme,
   legacyEllipsisTheme,
   legacySortTheme,
-  legacyRedactTheme,
-  legacyPagerTheme
+  legacyRedactTheme
 } from '@/data';
 import { DeepPartial } from 'react-hook-form';
 
@@ -269,7 +268,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     tooltip: legacyTooltipTheme,
     tree: legacyTreeTheme,
     popover: legacyPopoverTheme,
-    pager: legacyPagerTheme,
     tabs: legacyTabsTheme,
     breadcrumbs: legacyBreadcrumbTheme,
     stepper: legacyStepperTheme,
