@@ -45,8 +45,7 @@ import {
   CalendarRangeTheme,
   calendarRangeTheme,
   DateInputTheme,
-  dateInputTheme,
-  legacyDateInputTheme
+  dateInputTheme
 } from '@/form';
 
 import {
@@ -242,7 +241,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     sort: legacySortTheme,
     kbd: legacyKbdTheme,
     verticalSpacer: legacyVerticalSpacerTheme,
-    dateInput: legacyDateInputTheme,
     commandPalette: legacyCommandPaletteTheme,
     typography: legacyTypographyTheme,
     redact: legacyRedactTheme,

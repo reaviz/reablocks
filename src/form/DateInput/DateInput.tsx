@@ -21,7 +21,7 @@ import CalendarIcon from '@/assets/icons/calendar.svg?react';
 import { List, ListItem } from '@/layout';
 import { cn, useComponentTheme } from '@/utils';
 import { isPresetActive } from '@/form/Calendar/utils';
-import { DateInputTheme } from './DateInputTheme';
+import { DateInputTheme } from '@/form';
 
 export type DateInputProps = Omit<InputProps, 'value' | 'onChange'> & {
   /**
@@ -176,7 +176,7 @@ export const DateInput: FC<DateInputProps> = ({
         theme={theme.input}
         endAdornment={
           <IconButton
-            className="px-0"
+            className="p-0"
             variant="text"
             onClick={() => setOpen(true)}
           >

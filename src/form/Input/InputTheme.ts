@@ -28,7 +28,8 @@ export const inputTheme: InputTheme = {
     placeholder:text-inputs-colors-normal-text-input-text-resting focus:placeholder:text-inputs-colors-normal-text-input-text-selected
   `,
   inline: 'bg-transparent border-0 outline-hidden',
-  disabled: 'cursor-not-allowed',
+  disabled:
+    'cursor-not-allowed opacity-40 hover:border-inputs-colors-normal-stroke-resting',
   fullWidth: 'w-full',
   error: `
     border-inputs-colors-error-stroke-resting bg-inputs-colors-error-background-resting [&>input]:text-inputs-colors-error-text-input-filled [&>input]:placeholder:text-inputs-colors-error-text-input-text-resting
@@ -37,10 +38,11 @@ export const inputTheme: InputTheme = {
   `,
   sizes: {
     small:
-      '[&>input]:text-xs [&>input]:leading-4 [&_svg]:size-4 px-2 py-[5px] gap-2',
+      '[&>input]:text-sm [&>input]:leading-4 [&_svg]:size-4 px-2 py-[5px] gap-2',
     medium:
-      '[&>input]:text-xs [&>input]:leading-4 [&_svg]:size-4 px-3 py-[7px] gap-2',
-    large: '[&>input]:text-small [&_svg]:size-4.5 px-3 py-[7px] gap-2'
+      '[&>input]:text-md [&>input]:leading-4.5 [&_svg]:size-4.5 px-3 py-[7px] gap-2',
+    large:
+      '[&>input]:text-md [&>input]:leading-6 [&_svg]:size-6 px-3 py-[7px] gap-2'
   },
   adornment: {
     base: `
