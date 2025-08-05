@@ -471,6 +471,7 @@ export const RangeWithDatePastPresets = () => {
           onChange={(newDate: [Date, Date]) => setRange(newDate)}
           showDayOfWeek
           showToday
+          showTime
           isRange
           preset={PAST_RANGE_PRESETS}
         />
