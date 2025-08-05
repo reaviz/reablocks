@@ -20,6 +20,7 @@ export const calendarRangeTheme: CalendarRangeTheme = {
   header: baseTheme.header,
   title: baseTheme.title,
   content: baseTheme.content,
+  contentContainer: baseTheme.contentContainer,
   days: calendarTheme.days,
   time: calendarTheme.time,
   presets: {
