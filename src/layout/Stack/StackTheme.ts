@@ -22,7 +22,7 @@ export interface StackTheme {
   };
 }
 
-const baseTheme: StackTheme = {
+export const stackTheme: StackTheme = {
   base: 'flex items-center gap-2.5',
   dense: 'gap-1',
   inline: 'inline-flex',
@@ -44,15 +44,4 @@ const baseTheme: StackTheme = {
     center: 'justify-center',
     spaceBetween: 'justify-between'
   }
-};
-
-export const stackTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-text-primary'].join(' ')
-};
-
-export const legacyStackTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'gap-[var(--stack-gap)]'].join(' '),
-  dense: [baseTheme.dense, 'gap-[var(--stack-dense-gap)]'].join(' ')
 };
