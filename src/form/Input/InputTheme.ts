@@ -40,7 +40,7 @@ export const inputTheme: InputTheme = {
     small:
       '[&>input]:text-sm [&>input]:leading-4 [&_svg]:size-4 px-2 py-[5px] gap-2',
     medium:
-      '[&>input]:text-md [&>input]:leading-4.5 [&_svg]:size-4.5 px-3 py-[7px] gap-2',
+      '[&>input]:text-sm [&>input]:leading-4.5 [&_svg]:size-4.5 px-3 py-[7px] gap-2',
     large:
       '[&>input]:text-md [&>input]:leading-6 [&_svg]:size-6 px-3 py-[7px] gap-2'
   },
