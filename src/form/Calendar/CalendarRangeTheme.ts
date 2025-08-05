@@ -1,4 +1,4 @@
-import { CalendarTheme, calendarTheme } from './CalendarTheme';
+import { CalendarTheme, calendarTheme } from '@/form';
 
 export interface CalendarRangeTheme
   extends Omit<CalendarTheme, 'months' | 'years'> {}
@@ -21,16 +21,9 @@ export const calendarRangeTheme: CalendarRangeTheme = {
   title: baseTheme.title,
   content: baseTheme.content,
   days: calendarTheme.days,
+  time: calendarTheme.time,
   presets: {
     ...calendarTheme.presets,
     divider: 'mx-1 h-[calc(100%-30px)] self-end'
   }
-};
-
-export const legacyCalendarRangeTheme: CalendarRangeTheme = {
-  base: baseTheme.base,
-  header: baseTheme.header,
-  title: baseTheme.title,
-  content: baseTheme.content,
-  days: calendarTheme.days
 };
