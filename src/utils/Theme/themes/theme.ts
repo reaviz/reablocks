@@ -103,7 +103,6 @@ import {
   jsonTreeTheme,
   breadcrumbsTheme,
   BreadcrumbsTheme,
-  legacyBreadcrumbTheme,
   StepperTheme,
   stepperTheme,
   legacyStepperTheme
@@ -257,7 +256,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     redact: legacyRedactTheme,
     tooltip: legacyTooltipTheme,
     popover: legacyPopoverTheme,
-    breadcrumbs: legacyBreadcrumbTheme,
     stepper: legacyStepperTheme,
     callout: legacyCalloutTheme,
     backdrop: legacyBackdropTheme
