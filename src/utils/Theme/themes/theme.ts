@@ -20,7 +20,6 @@ import {
   legacyArrowTheme,
   legacyBadgeTheme,
   legacyChipTheme,
-  legacyLoaderTheme,
   legacyKbdTheme,
   legacyCommandPaletteTheme
 } from '@/elements';
@@ -235,7 +234,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     contextMenu: legacyContextMenuTheme,
     dateFormat: legacyDateFormatTheme,
     divider: legacyDividerTheme,
-    dotsLoader: legacyLoaderTheme,
     drawer: legacyDrawerTheme,
     ellipsis: legacyEllipsisTheme,
     sort: legacySortTheme,
