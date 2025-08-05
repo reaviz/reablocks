@@ -36,12 +36,12 @@ export interface TabsTheme {
   panel: string;
 }
 
-const baseTheme: TabsTheme = {
+export const tabsTheme: TabsTheme = {
   base: 'flex flex-col',
   list: {
     base: 'flex text-center flex-wrap -mb-px',
     indicator: {
-      base: 'bg-primary absolute bottom-0 left-0 right-0',
+      base: 'bg-tabs-colors-underline-stroke-selected group-hover:bg-tabs-colors-underline-stroke-selected-hover group-focus-within:bg-tabs-colors-underline-stroke-selected-hover absolute bottom-0 left-0 right-0 transition-colors',
       size: {
         small: 'h-0.5',
         medium: 'h-0.5',
@@ -51,28 +51,26 @@ const baseTheme: TabsTheme = {
     divider: 'w-full h-px border-0',
     variant: {
       primary: {
-        divider: 'bg-surface'
+        divider: ''
       },
       secondary: {
-        divider: 'bg-linear-to-r from-transparent to-transparent via-primary'
+        divider: ''
       }
     },
     tab: {
-      base: 'relative',
+      base: 'group relative',
       button:
-        'transition-colors text-text-secondary font-bold hover:text-primary-hover',
-      selected: 'text-text-primary',
-      disabled: 'cursor-not-allowed opacity-40',
+        'transition-colors text-tabs-colors-underline-text-resting border-b border-tabs-colors-underline-background-resting hover:border-tabs-colors-underline-background-hover hover:text-tabs-colors-underline-text-hover focus-visible:text-tabs-colors-underline-text-hover rounded-none',
+      selected:
+        'text-tabs-colors-underline-text-selected group-hover:text-tabs-colors-underline-text-selected-hover',
+      disabled:
+        'cursor-not-allowed opacity-40 hover:text-tabs-colors-underline-text-resting',
       size: {
-        small: 'pb-1 text-sm',
-        medium: 'pb-2 text-lg',
-        large: 'pb-4 text-xl'
+        small: 'pt-0.5 pb-1 px-2 text-xs leading-[18px] font-semibold',
+        medium: 'pt-1 pb-2 px-3 text-sm font-semibold',
+        large: 'pb-1 px-3 text-md font-semibold'
       }
     }
   },
-  panel: 'mt-2'
+  panel: 'mt-4'
 };
-
-export const tabsTheme = baseTheme;
-
-export const legacyTabsTheme: TabsTheme = baseTheme;
