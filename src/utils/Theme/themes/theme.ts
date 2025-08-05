@@ -114,7 +114,6 @@ import {
   sortTheme,
   DateFormatTheme,
   dateFormatTheme,
-  legacyEllipsisTheme,
   legacySortTheme
 } from '@/data';
 import { DeepPartial } from 'react-hook-form';
@@ -227,7 +226,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     badge: legacyBadgeTheme,
     chip: legacyChipTheme,
     divider: legacyDividerTheme,
-    ellipsis: legacyEllipsisTheme,
     sort: legacySortTheme,
     kbd: legacyKbdTheme,
     commandPalette: legacyCommandPaletteTheme,
