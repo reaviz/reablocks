@@ -133,7 +133,7 @@ export const calendarTheme: CalendarTheme = {
     wrapper: 'bg-panel z-10 flex flex-row',
     dividerTop: 'hidden',
     dividerLeft:
-      'h-auto mt-2.5 mx-1 bg-surface z-10 bg-calendar-colors-container-stroke-default',
+      'h-auto mx-1 bg-surface z-10 bg-calendar-colors-container-stroke-default',
     header: 'flex gap-4 px-0.5 pb-2.5 mb-2',
     column: {
       base: 'w-6',
@@ -143,7 +143,7 @@ export const calendarTheme: CalendarTheme = {
       scrollbar: ''
     },
     items: {
-      wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
+      wrapper: 'flex flex-row flex-auto gap-0.25 h-46',
       container: 'h-full',
       list: 'relative h-full p-0 m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
       divider: 'mx-0 bg-calendar-colors-container-stroke-default',
