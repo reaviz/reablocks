@@ -70,7 +70,6 @@ import {
   TooltipTheme,
   CalloutTheme,
   calloutTheme,
-  legacyCalloutTheme,
   BackdropTheme,
   backdropTheme
 } from '@/layers';
@@ -253,7 +252,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     redact: legacyRedactTheme,
     tooltip: legacyTooltipTheme,
     popover: legacyPopoverTheme,
-    stepper: legacyStepperTheme,
-    callout: legacyCalloutTheme
+    stepper: legacyStepperTheme
   }
 };
