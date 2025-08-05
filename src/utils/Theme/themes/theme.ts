@@ -53,7 +53,6 @@ import {
   ContextMenuTheme,
   legacyContextMenuTheme,
   legacyDrawerTheme,
-  legacyTooltipTheme,
   contextMenuTheme,
   dialogTheme,
   drawerTheme,
@@ -249,7 +248,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     collapse: legacyCollapseTheme,
     typography: legacyTypographyTheme,
     redact: legacyRedactTheme,
-    tooltip: legacyTooltipTheme,
     stepper: legacyStepperTheme
   }
 };
