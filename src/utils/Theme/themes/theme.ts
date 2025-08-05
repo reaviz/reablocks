@@ -20,7 +20,6 @@ import {
   legacyArrowTheme,
   legacyBadgeTheme,
   legacyChipTheme,
-  legacyKbdTheme,
   legacyCommandPaletteTheme
 } from '@/elements';
 
@@ -225,7 +224,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     badge: legacyBadgeTheme,
     chip: legacyChipTheme,
     divider: legacyDividerTheme,
-    kbd: legacyKbdTheme,
     commandPalette: legacyCommandPaletteTheme,
     typography: legacyTypographyTheme,
     stepper: legacyStepperTheme
