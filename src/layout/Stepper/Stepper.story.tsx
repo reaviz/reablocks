@@ -1,4 +1,4 @@
-import { Stepper } from './Stepper';
+import { Stepper } from '@/layout';
 import { Step } from './Step';
 
 export default {
@@ -10,12 +10,12 @@ export const Markers = () => (
   <Stepper activeStep={2}>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin{' '}
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             created ticket
           </span>
         </span>
@@ -23,20 +23,23 @@ export const Markers = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             {' '}
             changed statues from{' '}
           </span>
           Backlog
-          <span className="text-gray-400 light:text-gray-600"> to </span>In
-          Progress
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            {' '}
+            to{' '}
+          </span>
+          In Progress
         </span>
-        <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
+        <div className="px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
           website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
@@ -45,17 +48,21 @@ export const Markers = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             {' '}
             changed statues from{' '}
           </span>
           In Progress
-          <span className="text-gray-400 light:text-gray-600"> to </span>Done
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            {' '}
+            to{' '}
+          </span>
+          Done
         </span>
       </div>
     </Step>
@@ -66,12 +73,12 @@ export const Numbered = () => (
   <Stepper variant="numbered" activeStep={2}>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin{' '}
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             created ticket
           </span>
         </span>
@@ -79,20 +86,23 @@ export const Numbered = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             {' '}
             changed statues from{' '}
           </span>
           Backlog
-          <span className="text-gray-400 light:text-gray-600"> to </span>In
-          Progress
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            {' '}
+            to{' '}
+          </span>
+          In Progress
         </span>
-        <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
+        <div className="px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
           website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
@@ -101,17 +111,21 @@ export const Numbered = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             {' '}
             changed statues from{' '}
           </span>
           In Progress
-          <span className="text-gray-400 light:text-gray-600"> to </span>Done
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            {' '}
+            to{' '}
+          </span>
+          Done
         </span>
       </div>
     </Step>
@@ -119,15 +133,15 @@ export const Numbered = () => (
 );
 
 export const Labels = () => (
-  <Stepper>
+  <Stepper activeStep={2}>
     <Step label="v6.8">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin{' '}
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             created ticket
           </span>
         </span>
@@ -135,20 +149,23 @@ export const Labels = () => (
     </Step>
     <Step label="v6.9">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             {' '}
             changed statues from{' '}
           </span>
           Backlog
-          <span className="text-gray-400 light:text-gray-600"> to </span>In
-          Progress
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            {' '}
+            to{' '}
+          </span>
+          In Progress
         </span>
-        <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
+        <div className="px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
           website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
@@ -157,17 +174,21 @@ export const Labels = () => (
     </Step>
     <Step label="v7.0">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             {' '}
             changed statues from{' '}
           </span>
           In Progress
-          <span className="text-gray-400 light:text-gray-600"> to </span>Done
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            {' '}
+            to{' '}
+          </span>
+          Done
         </span>
       </div>
     </Step>
@@ -178,12 +199,12 @@ export const Mixed = () => (
   <Stepper activeStep={3}>
     <Step label="v6.8">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin{' '}
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             created ticket
           </span>
         </span>
@@ -191,20 +212,23 @@ export const Mixed = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             {' '}
             changed statues from{' '}
           </span>
           Backlog
-          <span className="text-gray-400 light:text-gray-600"> to </span>In
-          Progress
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            {' '}
+            to{' '}
+          </span>
+          In Progress
         </span>
-        <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
+        <div className="px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
           website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
@@ -213,17 +237,21 @@ export const Mixed = () => (
     </Step>
     <Step label="v7.0">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             {' '}
             changed statues from{' '}
           </span>
           In Progress
-          <span className="text-gray-400 light:text-gray-600"> to </span>Done
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            {' '}
+            to{' '}
+          </span>
+          Done
         </span>
       </div>
     </Step>
@@ -234,12 +262,12 @@ export const Animated = () => (
   <Stepper animated activeStep={2}>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin{' '}
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             created ticket
           </span>
         </span>
@@ -247,20 +275,23 @@ export const Animated = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             {' '}
             changed statues from{' '}
           </span>
           Backlog
-          <span className="text-gray-400 light:text-gray-600"> to </span>In
-          Progress
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            {' '}
+            to{' '}
+          </span>
+          In Progress
         </span>
-        <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
+        <div className="px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
           website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
@@ -269,17 +300,21 @@ export const Animated = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
+        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
             {' '}
             changed statues from{' '}
           </span>
           In Progress
-          <span className="text-gray-400 light:text-gray-600"> to </span>Done
+          <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            {' '}
+            to{' '}
+          </span>
+          Done
         </span>
       </div>
     </Step>
