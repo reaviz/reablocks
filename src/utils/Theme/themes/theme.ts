@@ -92,8 +92,7 @@ import {
   breadcrumbsTheme,
   BreadcrumbsTheme,
   StepperTheme,
-  stepperTheme,
-  legacyStepperTheme
+  stepperTheme
 } from '@/layout';
 
 import {
@@ -225,7 +224,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     chip: legacyChipTheme,
     divider: legacyDividerTheme,
     commandPalette: legacyCommandPaletteTheme,
-    typography: legacyTypographyTheme,
-    stepper: legacyStepperTheme
+    typography: legacyTypographyTheme
   }
 };

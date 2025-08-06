@@ -53,5 +53,3 @@ export const stepperTheme: StepperTheme = {
     content: 'pb-6'
   }
 };
-
-export const legacyStepperTheme: StepperTheme = stepperTheme;
