@@ -27,9 +27,9 @@ export interface ListTheme {
 export const listTheme = {
   base: 'flex flex-col gap-1',
   header:
-    'px-1 py-2 border rounded-md border-select-menu-items-color-item-stroke-header-resting text-select-menu-items-color-item-text-header-resting bg-select-menu-items-color-item-background-header-resting text-xs font-semibold',
+    'px-1 py-2 border rounded-md border-select-menu-items-color-item-stroke-header-resting text-select-menu-items-color-item-text-header-resting bg-select-menu-items-color-item-background-header-resting text-sm font-semibold',
   listItem: {
-    base: 'flex-1 px-3 py-2.5 whitespace-break-spaces break-words border border-select-menu-items-color-item-stroke-row-resting rounded-md text-sm outline-none',
+    base: 'items-center flex relative rounded-none flex-1 px-3 py-2.5 whitespace-break-spaces break-words border border-select-menu-items-color-item-stroke-row-resting rounded-md text-sm outline-none',
     disabled:
       'cursor-not-allowed opacity-40 hover:border-select-menu-items-color-item-stroke-row-resting hover:bg-select-menu-items-color-item-stroke-row-resting',
     active:
