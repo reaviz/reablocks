@@ -244,7 +244,7 @@ export const WorkspaceHistory = () => (
       <Stepper className="mt-8" animated>
         <Step>
           <Stack direction="row" className="relative -top-1.5">
-            <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
+            <Avatar size={24} src="https://avatars.githubusercontent.com/u/227909?s=96&v=4" />
             <span className="font-medium">
               Austin{' '}
               <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
@@ -255,7 +255,7 @@ export const WorkspaceHistory = () => (
         </Step>
         <Step>
           <Stack direction="row" className="relative -top-1.5">
-            <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
+            <Avatar size={24} src="https://avatars.githubusercontent.com/u/227909?s=96&v=4" />
             <span className="font-medium">
               Kyle{' '}
               <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
@@ -270,7 +270,7 @@ export const WorkspaceHistory = () => (
         </Step>
         <Step>
           <Stack direction="row" className="relative -top-1.5">
-            <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
+            <Avatar size={24} src="https://avatars.githubusercontent.com/u/227909?s=96&v=4" />
             <span className="font-medium">
               Laura{' '}
               <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
@@ -285,7 +285,7 @@ export const WorkspaceHistory = () => (
         </Step>
         <Step>
           <Stack direction="row" className="relative -top-1.5">
-            <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
+            <Avatar size={24}  src="https://avatars.githubusercontent.com/u/227909?s=96&v=4" />
             <span className="font-medium">
               Lisa{' '}
               <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
@@ -300,7 +300,7 @@ export const WorkspaceHistory = () => (
         </Step>
         <Step>
           <Stack direction="row" className="relative -top-1.5">
-            <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
+            <Avatar size={24}  src="https://avatars.githubusercontent.com/u/227909?s=96&v=4" />
             <span className="font-medium">
               Kenneth{' '}
               <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
@@ -315,7 +315,7 @@ export const WorkspaceHistory = () => (
         </Step>
         <Step>
           <Stack direction="row" className="relative -top-1.5">
-            <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
+            <Avatar size={24}  src="https://avatars.githubusercontent.com/u/227909?s=96&v=4" />
             <span className="font-medium">
               Carrington{' '}
               <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
