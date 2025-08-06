@@ -86,7 +86,6 @@ import {
   ListTheme,
   stackTheme,
   StackTheme,
-  legacyDividerTheme,
   JsonTreeTheme,
   jsonTreeTheme,
   breadcrumbsTheme,
@@ -222,7 +221,6 @@ export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
     arrow: legacyArrowTheme,
     badge: legacyBadgeTheme,
     chip: legacyChipTheme,
-    divider: legacyDividerTheme,
     commandPalette: legacyCommandPaletteTheme,
     typography: legacyTypographyTheme
   }
