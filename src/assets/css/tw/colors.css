@@ -558,7 +558,9 @@
   --color-background-basic-white: var(--background-basic-white);
   --color-background-neutral-canvas-base: var(--background-neutral-canvas-base);
   --color-background-neutral-raised-base: var(--background-neutral-raised-base);
-  --background-neutral-inverse-raised-base: var(--neutrals-darth-abyss-a-1000);
+  --color-background-neutral-inverse-raised-base: var(
+    --background-neutral-inverse-raised-base
+  );
   --color-background-neutral-inverse-raised-1: var(
     --background-neutral-inverse-raised-1
   );

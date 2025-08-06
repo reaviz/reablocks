@@ -59,7 +59,7 @@ export const Custom = () => (
           {({ notifyError }) => (
             <Fragment>
               <Button
-                color="error"
+                color="destructive"
                 onClick={() => notifyError('You have 10 alerts!')}
               >
                 Alerts
