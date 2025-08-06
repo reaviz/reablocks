@@ -21,16 +21,16 @@ export const ActivityTimeline = () => (
     animate={{ y: 0, opacity: 1 }}
     className="mt-10 sm:mx-auto sm:w-full md:w-[820px]"
   >
-    <Card className="w-full p-12">
+    <Card className="w-full p-12 bg-background-neutral-canvas-base border border-stroke-neutral-3">
       <Stepper continuous animated>
         <Step>
           <div className="flex flex-col gap-1">
-            <span className="text-sm text-gray-400 light:text-gray-600">
+            <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
               03/01/2024, 8:00 AM
             </span>
             <span className="font-medium">
               Austin{' '}
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 created ticket
               </span>
             </span>
@@ -38,17 +38,17 @@ export const ActivityTimeline = () => (
         </Step>
         <Step>
           <div className="flex flex-col gap-1">
-            <span className="text-sm text-gray-400 light:text-gray-600">
+            <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
               03/02/2024, 10:00 AM
             </span>
             <span className="font-medium">
               Austin
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 {' '}
                 changed statues from{' '}
               </span>
               Backlog
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 {' '}
                 to{' '}
               </span>
@@ -58,18 +58,18 @@ export const ActivityTimeline = () => (
         </Step>
         <Step>
           <div className="flex flex-col gap-2">
-            <span className="text-sm text-gray-400 light:text-gray-600">
+            <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
               03/03/2024, 10:15 AM
             </span>
             <span className="font-medium">
               Austin
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 {' '}
                 left a comment{' '}
               </span>
             </span>
-            <div className="mt-2 px-4 py-2 border border-solid border-blue-700 bg-vulcan light:bg-athens-gray rounded-md">
-              <div className="text-gray-400 light:text-gray-600 font-medium text-sm">
+            <div className="mt-2 px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
+              <div className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-medium text-sm">
                 This looks fine, might've missed it but maybe we can add a link
                 to the website where we also have the video of how to use the
                 plug in? Otherwise this is a nice addition.
@@ -98,17 +98,17 @@ export const ActivityTimeline = () => (
         </Step>
         <Step>
           <div className="flex flex-col gap-1">
-            <span className="text-sm text-gray-400 light:text-gray-600">
+            <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
               03/01/2024, 8:00 AM
             </span>
             <span className="font-medium">
               Austin
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 {' '}
                 changed statues from{' '}
               </span>
               In Progress
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 {' '}
                 to{' '}
               </span>
@@ -118,7 +118,7 @@ export const ActivityTimeline = () => (
         </Step>
       </Stepper>
 
-      <div className="mt-2 px-4 py-2 border border-solid border-surface bg-vulcan light:bg-athens-gray rounded-md">
+      <div className="mt-2 px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
         <Stack>
           <Textarea
             fullWidth
@@ -144,7 +144,7 @@ export const VersionHistory = () => (
     animate={{ y: 0, opacity: 1 }}
     className="mt-10 sm:mx-auto sm:w-full md:w-[560px]"
   >
-    <Card className="w-full p-12">
+    <Card className="w-full p-12 bg-background-neutral-canvas-base border border-stroke-neutral-3">
       <div className="w-full flex-row flex justify-between items-center text-center mb-8">
         <span className="text-xl font-bold">Version History</span>
         <IconButton variant="text">
@@ -154,7 +154,7 @@ export const VersionHistory = () => (
         </IconButton>
       </div>
       <div className="p-[1px] rounded-md [background-image:linear-gradient(-126.85deg,_rgba(30,_30,_46,_0)_63.1678%,_#2F6AFF_88.9438%)]">
-        <div className="bg-panel p-3 rounded-md">
+        <div className="bg-background-neutral-canvas-base p-3 rounded-md">
           <Stepper activeStep={1} animated>
             <Step label="v6.0">
               <Stack direction="column" alignItems="start" dense>
@@ -229,7 +229,7 @@ export const WorkspaceHistory = () => (
     animate={{ y: 0, opacity: 1 }}
     className="mt-10 sm:mx-auto sm:w-full md:w-[650px]"
   >
-    <Card className="w-full p-12">
+    <Card className="w-full p-12 bg-background-neutral-canvas-base border border-stroke-neutral-3">
       <Stack direction="column" alignItems="start">
         <div className="w-full flex-row flex justify-between items-center text-center">
           <span className="text-xl font-bold">Workspace History</span>
@@ -247,7 +247,7 @@ export const WorkspaceHistory = () => (
             <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Austin{' '}
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 created workspace • 5 hour ago
               </span>
             </span>
@@ -258,11 +258,11 @@ export const WorkspaceHistory = () => (
             <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Kyle{' '}
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 renamed workspace to
               </span>{' '}
               Good Code{' '}
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 • 5 hour ago
               </span>
             </span>
@@ -273,11 +273,11 @@ export const WorkspaceHistory = () => (
             <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Laura{' '}
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 added
               </span>{' '}
               MYSQL{' '}
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 database • March 22, 2024
               </span>
             </span>
@@ -288,11 +288,11 @@ export const WorkspaceHistory = () => (
             <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Lisa{' '}
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 changed access permission to
               </span>{' '}
               Private{' '}
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 • February 28, 2024
               </span>
             </span>
@@ -303,11 +303,11 @@ export const WorkspaceHistory = () => (
             <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Kenneth{' '}
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 connected
               </span>{' '}
               GitHub{' '}
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 database • February 15, 2024
               </span>
             </span>
@@ -318,11 +318,11 @@ export const WorkspaceHistory = () => (
             <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Carrington{' '}
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 renamed workspace to
               </span>{' '}
               Good Code Design{' '}
-              <span className="text-gray-400 light:text-gray-600 font-normal">
+              <span className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-normal">
                 February 10, 2024
               </span>
             </span>

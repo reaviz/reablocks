@@ -553,6 +553,420 @@
   --color-pink-mew-mode-950: var(--pink-mew-mode-950);
   --color-pink-mew-mode-1000: var(--pink-mew-mode-1000);
 
+  --color-background-basic-clear: var(--background-basic-clear);
+  --color-background-basic-black: var(--background-basic-black);
+  --color-background-basic-white: var(--background-basic-white);
+  --color-background-neutral-canvas-base: var(--background-neutral-canvas-base);
+  --color-background-neutral-raised-base: var(--background-neutral-raised-base);
+  --background-neutral-inverse-raised-base: var(--neutrals-darth-abyss-a-1000);
+  --color-background-neutral-inverse-raised-1: var(
+    --background-neutral-inverse-raised-1
+  );
+  --color-background-neutral-inverse-raised-2: var(
+    --background-neutral-inverse-raised-2
+  );
+  --color-background-neutral-inverse-raised-3: var(
+    --background-neutral-inverse-raised-3
+  );
+  --color-background-neutral-inverse-raised-4: var(
+    --background-neutral-inverse-raised-4
+  );
+  --color-background-neutral-inverse-raised-5: var(
+    --background-neutral-inverse-raised-5
+  );
+  --color-background-neutral-inverse-raised-6: var(
+    --background-neutral-inverse-raised-6
+  );
+  --color-background-neutral-raised-1: var(--background-neutral-raised-1);
+  --color-background-neutral-raised-2: var(--background-neutral-raised-2);
+  --color-background-neutral-raised-3: var(--background-neutral-raised-3);
+  --color-background-neutral-raised-4: var(--background-neutral-raised-4);
+  --color-background-neutral-raised-5: var(--background-neutral-raised-5);
+  --color-background-neutral-raised-6: var(--background-neutral-raised-6);
+  --color-background-brand-base: var(--background-brand-base);
+  --color-background-brand-1: var(--background-brand-1);
+  --color-background-brand-2: var(--background-brand-2);
+  --color-background-brand-3: var(--background-brand-3);
+  --color-background-brand-4: var(--background-brand-4);
+  --color-background-brand-5: var(--background-brand-5);
+  --color-background-semantic-success-base: var(
+    --background-semantic-success-base
+  );
+  --color-background-semantic-warning-base: var(
+    --background-semantic-warning-base
+  );
+  --color-background-semantic-warning-1: var(--background-semantic-warning-1);
+  --color-background-semantic-warning-2: var(--background-semantic-warning-2);
+  --color-background-semantic-warning-3: var(--background-semantic-warning-3);
+  --color-background-semantic-warning-4: var(--background-semantic-warning-4);
+  --color-background-semantic-warning-5: var(--background-semantic-warning-5);
+  --color-background-semantic-success-1: var(--background-semantic-success-1);
+  --color-background-semantic-success-2: var(--background-semantic-success-2);
+  --color-background-semantic-success-3: var(--background-semantic-success-3);
+  --color-background-semantic-success-4: var(--background-semantic-success-4);
+  --color-background-semantic-success-5: var(--background-semantic-success-5);
+  --color-background-semantic-info-base: var(--background-semantic-info-base);
+  --color-background-semantic-info-1: var(--background-semantic-info-1);
+  --color-background-semantic-info-2: var(--background-semantic-info-2);
+  --color-background-semantic-info-3: var(--background-semantic-info-3);
+  --color-background-semantic-info-4: var(--background-semantic-info-4);
+  --color-background-semantic-info-5: var(--background-semantic-info-5);
+  --color-background-semantic-error-base: var(--background-semantic-error-base);
+  --color-background-semantic-error-1: var(--background-semantic-error-1);
+  --color-background-semantic-error-2: var(--background-semantic-error-2);
+  --color-background-semantic-error-3: var(--background-semantic-error-3);
+  --color-background-semantic-error-4: var(--background-semantic-error-4);
+  --color-background-semantic-error-5: var(--background-semantic-error-5);
+  --color-background-accent-1-base: var(--background-accent-1-base);
+  --color-background-accent-1-1: var(--background-accent-1-1);
+  --color-background-accent-1-2: var(--background-accent-1-2);
+  --color-background-accent-1-3: var(--background-accent-1-3);
+  --color-background-accent-1-4: var(--background-accent-1-4);
+  --color-background-accent-1-5: var(--background-accent-1-5);
+  --color-background-accent-2-base: var(--background-accent-2-base);
+  --color-background-accent-2-1: var(--background-accent-2-1);
+  --color-background-accent-2-2: var(--background-accent-2-2);
+  --color-background-accent-2-3: var(--background-accent-2-3);
+  --color-background-accent-2-4: var(--background-accent-2-4);
+  --color-background-accent-2-5: var(--background-accent-2-5);
+  --color-background-accent-3-base: var(--background-accent-3-base);
+  --color-background-accent-3-1: var(--background-accent-3-1);
+  --color-background-accent-3-2: var(--background-accent-3-2);
+  --color-background-accent-3-3: var(--background-accent-3-3);
+  --color-background-accent-3-4: var(--background-accent-3-4);
+  --color-background-accent-3-5: var(--background-accent-3-5);
+  --color-stroke-basic-clear: var(--stroke-basic-clear);
+  --color-content-text-basic-clear: var(--content-text-basic-clear);
+  --color-gradient-neutral-50: var(--gradient-neutral-50);
+  --color-gradient-neutral-100: var(--gradient-neutral-100);
+  --color-gradient-neutral-200: var(--gradient-neutral-200);
+  --color-gradient-neutral-300: var(--gradient-neutral-300);
+  --color-gradient-neutral-400: var(--gradient-neutral-400);
+  --color-gradient-neutral-500: var(--gradient-neutral-500);
+  --color-gradient-neutral-700: var(--gradient-neutral-700);
+  --color-gradient-neutral-1000: var(--gradient-neutral-1000);
+  --color-gradient-brand-50: var(--gradient-brand-50);
+  --color-gradient-brand-100: var(--gradient-brand-100);
+  --color-gradient-brand-200: var(--gradient-brand-200);
+  --color-gradient-brand-300: var(--gradient-brand-300);
+  --color-gradient-brand-400: var(--gradient-brand-400);
+  --color-gradient-brand-500: var(--gradient-brand-500);
+  --color-gradient-brand-700: var(--gradient-brand-700);
+  --color-gradient-brand-1000: var(--gradient-brand-1000);
+  --color-content-text-basic-black: var(--content-text-basic-black);
+  --color-content-text-basic-white: var(--content-text-basic-white);
+  --color-content-text-neutral-base: var(--content-text-neutral-base);
+  --color-content-text-neutral-1: var(--content-text-neutral-1);
+  --color-content-text-neutral-2: var(--content-text-neutral-2);
+  --color-content-text-neutral-3: var(--content-text-neutral-3);
+  --color-content-text-neutral-4: var(--content-text-neutral-4);
+  --color-content-text-neutral-5: var(--content-text-neutral-5);
+  --color-content-text-on-color-dark-dark: var(
+    --content-text-on-color-dark-dark
+  );
+  --color-content-text-on-color-dark-light: var(
+    --content-text-on-color-dark-light
+  );
+  --color-content-text-on-color-light-dark: var(
+    --content-text-on-color-light-dark
+  );
+  --color-content-text-on-color-light-light: var(
+    --content-text-on-color-light-light
+  );
+  --color-content-text-inverse-base: var(--content-text-inverse-base);
+  --color-content-text-inverse-1: var(--content-text-inverse-1);
+  --color-content-text-inverse-2: var(--content-text-inverse-2);
+  --color-content-text-inverse-3: var(--content-text-inverse-3);
+  --color-content-text-inverse-4: var(--content-text-inverse-4);
+  --color-content-text-inverse-5: var(--content-text-inverse-5);
+  --color-content-text-brand-base: var(--content-text-brand-base);
+  --color-content-text-brand-1: var(--content-text-brand-1);
+  --color-content-text-brand-2: var(--content-text-brand-2);
+  --color-content-text-brand-3: var(--content-text-brand-3);
+  --color-content-text-brand-4: var(--content-text-brand-4);
+  --color-content-text-brand-5: var(--content-text-brand-5);
+  --color-content-text-semantic-success-base: var(
+    --content-text-semantic-success-base
+  );
+  --color-content-text-semantic-success-1: var(
+    --content-text-semantic-success-1
+  );
+  --color-content-text-semantic-success-2: var(
+    --content-text-semantic-success-2
+  );
+  --color-content-text-semantic-success-3: var(
+    --content-text-semantic-success-3
+  );
+  --color-content-text-semantic-success-4: var(
+    --content-text-semantic-success-4
+  );
+  --color-content-text-semantic-success-5: var(
+    --content-text-semantic-success-5
+  );
+  --color-content-text-semantic-warning-base: var(
+    --content-text-semantic-warning-base
+  );
+  --color-content-text-semantic-warning-1: var(
+    --content-text-semantic-warning-1
+  );
+  --color-content-text-semantic-warning-2: var(
+    --content-text-semantic-warning-2
+  );
+  --color-content-text-semantic-warning-3: var(
+    --content-text-semantic-warning-3
+  );
+  --color-content-text-semantic-warning-4: var(
+    --content-text-semantic-warning-4
+  );
+  --color-content-text-semantic-warning-5: var(
+    --content-text-semantic-warning-5
+  );
+  --color-content-text-semantic-error-base: var(
+    --content-text-semantic-error-base
+  );
+  --color-content-text-semantic-error-1: var(--content-text-semantic-error-1);
+  --color-content-text-semantic-error-2: var(--content-text-semantic-error-2);
+  --color-content-text-semantic-error-3: var(--content-text-semantic-error-3);
+  --color-content-text-semantic-error-4: var(--content-text-semantic-error-4);
+  --color-content-text-semantic-error-5: var(--content-text-semantic-error-5);
+  --color-content-text-semantic-info-base: var(
+    --content-text-semantic-info-base
+  );
+  --color-content-text-semantic-info-1: var(--content-text-semantic-info-1);
+  --color-content-text-semantic-info-2: var(--content-text-semantic-info-2);
+  --color-content-text-semantic-info-3: var(--content-text-semantic-info-3);
+  --color-content-text-semantic-info-4: var(--content-text-semantic-info-4);
+  --color-content-text-semantic-info-5: var(--content-text-semantic-info-5);
+  --color-content-text-accent-1-base: var(--content-text-accent-1-base);
+  --color-content-text-accent-1-1: var(--content-text-accent-1-1);
+  --color-content-text-accent-1-2: var(--content-text-accent-1-2);
+  --color-content-text-accent-1-3: var(--content-text-accent-1-3);
+  --color-content-text-accent-1-4: var(--content-text-accent-1-4);
+  --color-content-text-accent-1-5: var(--content-text-accent-1-5);
+  --color-content-text-accent-2-base: var(--content-text-accent-2-base);
+  --color-content-text-accent-2-1: var(--content-text-accent-2-1);
+  --color-content-text-accent-2-2: var(--content-text-accent-2-2);
+  --color-content-text-accent-2-3: var(--content-text-accent-2-3);
+  --color-content-text-accent-2-4: var(--content-text-accent-2-4);
+  --color-content-text-accent-2-5: var(--content-text-accent-2-5);
+  --color-content-text-accent-3-base: var(--content-text-accent-3-base);
+  --color-content-text-accent-3-1: var(--content-text-accent-3-1);
+  --color-content-text-accent-3-2: var(--content-text-accent-3-2);
+  --color-content-text-accent-3-3: var(--content-text-accent-3-3);
+  --color-content-text-accent-3-4: var(--content-text-accent-3-4);
+  --color-content-text-accent-3-5: var(--content-text-accent-3-5);
+  --color-content-assets-basic-clear: var(--content-assets-basic-clear);
+  --color-content-assets-basic-black: var(--content-assets-basic-black);
+  --color-content-assets-basic-white: var(--content-assets-basic-white);
+  --color-content-assets-neutral-base: var(--content-assets-neutral-base);
+  --color-content-assets-neutral-1: var(--content-assets-neutral-1);
+  --color-content-assets-neutral-2: var(--content-assets-neutral-2);
+  --color-content-assets-neutral-3: var(--content-assets-neutral-3);
+  --color-content-assets-neutral-4: var(--content-assets-neutral-4);
+  --color-content-assets-neutral-5: var(--content-assets-neutral-5);
+  --color-content-assets-on-color-dark-dark: var(
+    --content-assets-on-color-dark-dark
+  );
+  --color-content-assets-on-color-dark-light: var(
+    --content-assets-on-color-dark-light
+  );
+  --color-content-assets-on-color-light-dark: var(
+    --content-assets-on-color-light-dark
+  );
+  --color-content-assets-on-color-light-light: var(
+    --content-assets-on-color-light-light
+  );
+  --color-content-assets-inverse-base: var(--content-assets-inverse-base);
+  --color-content-assets-inverse-1: var(--content-assets-inverse-1);
+  --color-content-assets-inverse-2: var(--content-assets-inverse-2);
+  --color-content-assets-inverse-3: var(--content-assets-inverse-3);
+  --color-content-assets-inverse-4: var(--content-assets-inverse-4);
+  --color-content-assets-inverse-5: var(--content-assets-inverse-5);
+  --color-content-assets-brand-base: var(--content-assets-brand-base);
+  --color-content-assets-brand-1: var(--content-assets-brand-1);
+  --color-content-assets-brand-2: var(--content-assets-brand-2);
+  --color-content-assets-brand-3: var(--content-assets-brand-3);
+  --color-content-assets-brand-4: var(--content-assets-brand-4);
+  --color-content-assets-brand-5: var(--content-assets-brand-5);
+  --color-content-assets-semantic-success-base: var(
+    --content-assets-semantic-success-base
+  );
+  --color-content-assets-semantic-success-1: var(
+    --content-assets-semantic-success-1
+  );
+  --color-content-assets-semantic-success-2: var(
+    --content-assets-semantic-success-2
+  );
+  --color-content-assets-semantic-success-3: var(
+    --content-assets-semantic-success-3
+  );
+  --color-content-assets-semantic-success-4: var(
+    --content-assets-semantic-success-4
+  );
+  --color-content-assets-semantic-success-5: var(
+    --content-assets-semantic-success-5
+  );
+  --color-content-assets-semantic-warning-base: var(
+    --content-assets-semantic-warning-base
+  );
+  --color-content-assets-semantic-warning-1: var(
+    --content-assets-semantic-warning-1
+  );
+  --color-content-assets-semantic-warning-2: var(
+    --content-assets-semantic-warning-2
+  );
+  --color-content-assets-semantic-warning-3: var(
+    --content-assets-semantic-warning-3
+  );
+  --color-content-assets-semantic-warning-4: var(
+    --content-assets-semantic-warning-4
+  );
+  --color-content-assets-semantic-warning-5: var(
+    --content-assets-semantic-warning-5
+  );
+  --color-content-assets-semantic-error-base: var(
+    --content-assets-semantic-error-base
+  );
+  --color-content-assets-semantic-error-1: var(
+    --content-assets-semantic-error-1
+  );
+  --color-content-assets-semantic-error-2: var(
+    --content-assets-semantic-error-2
+  );
+  --color-content-assets-semantic-error-3: var(
+    --content-assets-semantic-error-3
+  );
+  --color-content-assets-semantic-error-4: var(
+    --content-assets-semantic-error-4
+  );
+  --color-content-assets-semantic-error-5: var(
+    --content-assets-semantic-error-5
+  );
+  --color-content-assets-semantic-info-base: var(
+    --content-assets-semantic-info-base
+  );
+  --color-content-assets-semantic-info-1: var(--content-assets-semantic-info-1);
+  --color-content-assets-semantic-info-2: var(--content-assets-semantic-info-2);
+  --color-content-assets-semantic-info-3: var(--content-assets-semantic-info-3);
+  --color-content-assets-semantic-info-4: var(--content-assets-semantic-info-4);
+  --color-content-assets-semantic-info-5: var(--content-assets-semantic-info-5);
+  --color-content-assets-accent-1-base: var(--content-assets-accent-1-base);
+  --color-content-assets-accent-1-1: var(--content-assets-accent-1-1);
+  --color-content-assets-accent-1-2: var(--content-assets-accent-1-2);
+  --color-content-assets-accent-1-3: var(--content-assets-accent-1-3);
+  --color-content-assets-accent-1-4: var(--content-assets-accent-1-4);
+  --color-content-assets-accent-1-5: var(--content-assets-accent-1-5);
+  --color-content-assets-accent-2-base: var(--content-assets-accent-2-base);
+  --color-content-assets-accent-2-1: var(--content-assets-accent-2-1);
+  --color-content-assets-accent-2-2: var(--content-assets-accent-2-2);
+  --color-content-assets-accent-2-3: var(--content-assets-accent-2-3);
+  --color-content-assets-accent-2-4: var(--content-assets-accent-2-4);
+  --color-content-assets-accent-2-5: var(--content-assets-accent-2-5);
+  --color-content-assets-accent-3-base: var(--content-assets-accent-3-base);
+  --color-content-assets-accent-3-1: var(--content-assets-accent-3-1);
+  --color-content-assets-accent-3-2: var(--content-assets-accent-3-2);
+  --color-content-assets-accent-3-3: var(--content-assets-accent-3-3);
+  --color-content-assets-accent-3-4: var(--content-assets-accent-3-4);
+  --color-content-assets-accent-3-5: var(--content-assets-accent-3-5);
+  --color-stroke-basic-black: var(--stroke-basic-black);
+  --color-stroke-basic-white: var(--stroke-basic-white);
+  --color-stroke-neutral-base: var(--stroke-neutral-base);
+  --color-stroke-neutral-1: var(--stroke-neutral-1);
+  --color-stroke-neutral-2: var(--stroke-neutral-2);
+  --color-stroke-neutral-3: var(--stroke-neutral-3);
+  --color-stroke-neutral-4: var(--stroke-neutral-4);
+  --color-stroke-neutral-5: var(--stroke-neutral-5);
+  --color-stroke-neutral-6: var(--stroke-neutral-6);
+  --color-stroke-brand-base: var(--stroke-brand-base);
+  --color-stroke-brand-1: var(--stroke-brand-1);
+  --color-stroke-brand-2: var(--stroke-brand-2);
+  --color-stroke-brand-3: var(--stroke-brand-3);
+  --color-stroke-brand-4: var(--stroke-brand-4);
+  --color-stroke-brand-5: var(--stroke-brand-5);
+  --color-stroke-semantic-success-base: var(--stroke-semantic-success-base);
+  --color-stroke-focused-highlight: var(--stroke-focused-highlight);
+  --color-stroke-semantic-success-1: var(--stroke-semantic-success-1);
+  --color-stroke-semantic-success-2: var(--stroke-semantic-success-2);
+  --color-stroke-semantic-success-3: var(--stroke-semantic-success-3);
+  --color-stroke-semantic-success-4: var(--stroke-semantic-success-4);
+  --color-stroke-semantic-success-5: var(--stroke-semantic-success-5);
+  --color-stroke-semantic-warning-base: var(--stroke-semantic-warning-base);
+  --color-stroke-semantic-warning-1: var(--stroke-semantic-warning-1);
+  --color-stroke-semantic-warning-2: var(--stroke-semantic-warning-2);
+  --color-stroke-semantic-warning-3: var(--stroke-semantic-warning-3);
+  --color-stroke-semantic-warning-4: var(--stroke-semantic-warning-4);
+  --color-stroke-semantic-warning-5: var(--stroke-semantic-warning-5);
+  --color-stroke-semantic-error-base: var(--stroke-semantic-error-base);
+  --color-stroke-semantic-error-1: var(--stroke-semantic-error-1);
+  --color-stroke-semantic-error-2: var(--stroke-semantic-error-2);
+  --color-stroke-semantic-error-3: var(--stroke-semantic-error-3);
+  --color-stroke-semantic-error-4: var(--stroke-semantic-error-4);
+  --color-stroke-semantic-error-5: var(--stroke-semantic-error-5);
+  --color-stroke-semantic-info-base: var(--stroke-semantic-info-base);
+  --color-stroke-semantic-info-1: var(--stroke-semantic-info-1);
+  --color-stroke-semantic-info-2: var(--stroke-semantic-info-2);
+  --color-stroke-semantic-info-3: var(--stroke-semantic-info-3);
+  --color-stroke-semantic-info-4: var(--stroke-semantic-info-4);
+  --color-stroke-semantic-info-5: var(--stroke-semantic-info-5);
+  --color-stroke-accent-1-base: var(--stroke-accent-1-base);
+  --color-stroke-accent-1-1: var(--stroke-accent-1-1);
+  --color-stroke-accent-1-2: var(--stroke-accent-1-2);
+  --color-stroke-accent-1-3: var(--stroke-accent-1-3);
+  --color-stroke-accent-1-4: var(--stroke-accent-1-4);
+  --color-stroke-accent-1-5: var(--stroke-accent-1-5);
+  --color-stroke-accent-2-base: var(--stroke-accent-2-base);
+  --color-stroke-accent-2-1: var(--stroke-accent-2-1);
+  --color-stroke-accent-2-2: var(--stroke-accent-2-2);
+  --color-stroke-accent-2-3: var(--stroke-accent-2-3);
+  --color-stroke-accent-2-4: var(--stroke-accent-2-4);
+  --color-stroke-accent-2-5: var(--stroke-accent-2-5);
+  --color-stroke-accent-3-base: var(--stroke-accent-3-base);
+  --color-stroke-accent-3-1: var(--stroke-accent-3-1);
+  --color-stroke-accent-3-2: var(--stroke-accent-3-2);
+  --color-stroke-accent-3-3: var(--stroke-accent-3-3);
+  --color-stroke-accent-3-4: var(--stroke-accent-3-4);
+  --color-stroke-accent-3-5: var(--stroke-accent-3-5);
+  --color-effects-focused-base: var(--effects-focused-base);
+  --color-effects-focused-secondary: var(--effects-focused-secondary);
+  --color-effects-shadows-base-xs: var(--effects-shadows-base-xs);
+  --color-effects-shadows-base-sm: var(--effects-shadows-base-sm);
+  --color-effects-shadows-base-base: var(--effects-shadows-base-base);
+  --color-effects-shadows-base-md: var(--effects-shadows-base-md);
+  --color-effects-shadows-base-lg: var(--effects-shadows-base-lg);
+  --color-effects-shadows-base-xl: var(--effects-shadows-base-xl);
+  --color-effects-shadows-base-2-xl: var(--effects-shadows-base-2-xl);
+  --color-effects-shadows-inverse-xs: var(--effects-shadows-inverse-xs);
+  --color-effects-shadows-inverse-sm: var(--effects-shadows-inverse-sm);
+  --color-effects-shadows-inverse-base: var(--effects-shadows-inverse-base);
+  --color-effects-shadows-inverse-md: var(--effects-shadows-inverse-md);
+  --color-effects-shadows-inverse-lg: var(--effects-shadows-inverse-lg);
+  --color-effects-shadows-inverse-xl: var(--effects-shadows-inverse-xl);
+  --color-effects-shadows-inverse-2-xl: var(--effects-shadows-inverse-2-xl);
+  --color-background-accent-4-base: var(--background-accent-4-base);
+  --color-background-accent-4-1: var(--background-accent-4-1);
+  --color-background-accent-4-2: var(--background-accent-4-2);
+  --color-background-accent-4-3: var(--background-accent-4-3);
+  --color-background-accent-4-4: var(--background-accent-4-4);
+  --color-background-accent-4-5: var(--background-accent-4-5);
+  --color-stroke-accent-4-base: var(--stroke-accent-4-base);
+  --color-stroke-accent-4-1: var(--stroke-accent-4-1);
+  --color-stroke-accent-4-2: var(--stroke-accent-4-2);
+  --color-stroke-accent-4-3: var(--stroke-accent-4-3);
+  --color-stroke-accent-4-4: var(--stroke-accent-4-4);
+  --color-stroke-accent-4-5: var(--stroke-accent-4-5);
+  --color-content-text-accent-4-base: var(--content-text-accent-4-base);
+  --color-content-text-accent-4-1: var(--content-text-accent-4-1);
+  --color-content-text-accent-4-2: var(--content-text-accent-4-2);
+  --color-content-text-accent-4-3: var(--content-text-accent-4-3);
+  --color-content-text-accent-4-4: var(--content-text-accent-4-4);
+  --color-content-text-accent-4-5: var(--content-text-accent-4-5);
+  --color-content-assets-accent-4-base: var(--content-assets-accent-4-base);
+  --color-content-assets-accent-4-1: var(--content-assets-accent-4-1);
+  --color-content-assets-accent-4-2: var(--content-assets-accent-4-2);
+  --color-content-assets-accent-4-3: var(--content-assets-accent-4-3);
+  --color-content-assets-accent-4-4: var(--content-assets-accent-4-4);
+  --color-content-assets-accent-4-5: var(--content-assets-accent-4-5);
+
   /* Component tokens */
   --color-avatar-colors-background-container-resting: var(
     --background-neutral-raised-5
