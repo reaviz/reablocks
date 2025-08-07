@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Chip } from './Chip';
-import { Stack } from '../../layout';
-import { ChipTheme, chipTheme } from './ChipTheme';
+import { Stack } from '@/layout';
+import { ChipTheme, chipTheme } from '@/elements';
 
 export default {
   title: 'Components/Elements/Chip',
@@ -9,14 +9,73 @@ export default {
 };
 
 export const Colors = () => (
-  <div style={{ display: 'flex', gap: 10 }}>
-    <Chip>Default</Chip>
-    <Chip color="primary">Primary</Chip>
-    <Chip color="secondary">Secondary</Chip>
-    <Chip color="error">Error</Chip>
-    <Chip color="success">Success</Chip>
-    <Chip color="warning">Warning</Chip>
-    <Chip color="info">Info</Chip>
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Chip start={<DemoIcon />}>Default</Chip>
+      <Chip color="primary" start={<DemoIcon />}>
+        Primary
+      </Chip>
+      <Chip color="secondary" start={<DemoIcon />}>
+        Secondary
+      </Chip>
+      <Chip color="error" start={<DemoIcon />}>
+        Error
+      </Chip>
+      <Chip color="success" start={<DemoIcon />}>
+        Success
+      </Chip>
+      <Chip color="warning" start={<DemoIcon />}>
+        Warning
+      </Chip>
+      <Chip color="info" start={<DemoIcon />}>
+        Info
+      </Chip>
+    </div>
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Chip variant="outline" start={<DemoIcon />}>
+        Default
+      </Chip>
+      <Chip variant="outline" color="primary" start={<DemoIcon />}>
+        Primary
+      </Chip>
+      <Chip variant="outline" color="secondary" start={<DemoIcon />}>
+        Secondary
+      </Chip>
+      <Chip variant="outline" color="error" start={<DemoIcon />}>
+        Error
+      </Chip>
+      <Chip variant="outline" color="success" start={<DemoIcon />}>
+        Success
+      </Chip>
+      <Chip variant="outline" color="warning" start={<DemoIcon />}>
+        Warning
+      </Chip>
+      <Chip variant="outline" color="info" start={<DemoIcon />}>
+        Info
+      </Chip>
+    </div>
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Chip variant="subtle">Default</Chip>
+      <Chip variant="subtle" color="primary" start={<DemoIcon />}>
+        Primary
+      </Chip>
+      <Chip variant="subtle" color="secondary">
+        {' '}
+        start={<DemoIcon />}Secondary
+      </Chip>
+      <Chip variant="subtle" color="error" start={<DemoIcon />}>
+        Error
+      </Chip>
+      <Chip variant="subtle" color="success" start={<DemoIcon />}>
+        Success
+      </Chip>
+      <Chip variant="subtle" color="warning" start={<DemoIcon />}>
+        Warning
+      </Chip>
+      <Chip variant="subtle" color="info" start={<DemoIcon />}>
+        Info
+      </Chip>
+    </div>
   </div>
 );
 
