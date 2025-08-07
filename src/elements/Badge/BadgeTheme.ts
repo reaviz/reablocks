@@ -18,7 +18,7 @@ export interface BadgeTheme {
   };
 }
 
-const baseTheme: Partial<BadgeTheme> = {
+export const badgeTheme: BadgeTheme = {
   base: 'relative inline-flex align-middle shrink-0 mx-2 my-0',
   disableMargins: 'm-0',
   badge: `flex flex-row flex-wrap justify-center content-center items-center absolute box-border
@@ -33,40 +33,11 @@ const baseTheme: Partial<BadgeTheme> = {
       'bottom-0 left-0 -translate-x-2/4 translate-y-2/4 origin-[0%_100%]',
     'bottom-end':
       'bottom-0 right-0 translate-x-2/4 translate-y-2/4 origin-[100%_100%]'
-  }
-};
-
-export const badgeTheme: BadgeTheme = {
-  base: baseTheme.base,
-  disableMargins: baseTheme.disableMargins,
-  badge: baseTheme.badge,
-  position: baseTheme.position,
-  positions: baseTheme.positions,
+  },
   colors: {
-    default: 'bg-white text-black',
-    primary: 'bg-primary text-text-primary',
-    secondary: 'bg-secondary text-text-primary',
-    error: 'bg-error text-text-primary'
-  }
-};
-
-export const legacyBadgeTheme: BadgeTheme = {
-  base: baseTheme.base,
-  disableMargins: baseTheme.disableMargins,
-  badge: [
-    baseTheme.badge,
-    'p-[var(--spacing-xs)] rounded-[var(--badge-border-radius)] text-[var(--font-size-sm)]'
-  ].join(' '),
-  position: baseTheme.position,
-  positions: baseTheme.positions,
-  colors: {
-    default:
-      'bg-[var(--badge-color-background-default)] text-[var(--badge-color-default)]',
-    primary:
-      'bg-[var(--badge-color-background-primary)] text-[var(--badge-color-primary)]',
-    secondary:
-      'bg-[var(--badge-color-background-secondary)] text-[var(--badge-color-secondary)]',
-    error:
-      'bg-[var(--badge-color-background-error)] text-[var(--badge-color-error)]'
+    default: 'bg-background-neutral-raised-base text-content-text-inverse-base',
+    primary: 'bg-background-brand-base text-content-text-inverse-base',
+    secondary: 'bg-background-neutral-raised-3 text-content-text-inverse-base',
+    error: 'bg-background-semantic-error-base text-content-text-inverse-base'
   }
 };
