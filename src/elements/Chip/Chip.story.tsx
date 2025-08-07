@@ -59,9 +59,8 @@ export const Colors = () => (
       <Chip variant="subtle" color="primary" start={<DemoIcon />}>
         Primary
       </Chip>
-      <Chip variant="subtle" color="secondary">
-        {' '}
-        start={<DemoIcon />}Secondary
+      <Chip variant="subtle" color="secondary" start={<DemoIcon />}>
+        Secondary
       </Chip>
       <Chip variant="subtle" color="error" start={<DemoIcon />}>
         Error
