@@ -3,6 +3,9 @@ import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 
+/**
+ * @deprecated
+ */
 export interface PrimaryHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
@@ -33,6 +36,10 @@ export interface PrimaryHeadingProps
    */
   theme?: TypographyThemeDeprecated;
 }
+
+/**
+ * @deprecated
+ */
 export interface PrimaryHeadingRef {
   /**
    * Reference to the HTML heading element.
@@ -40,6 +47,9 @@ export interface PrimaryHeadingRef {
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 
+/**
+ * @deprecated
+ */
 export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
   forwardRef(
     (

@@ -13,6 +13,9 @@ export type SmallHeadingColors =
   | 'info'
   | string;
 
+/**
+ * @deprecated
+ */
 export interface SmallHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
@@ -36,6 +39,9 @@ export interface SmallHeadingProps
   theme?: TypographyThemeDeprecated;
 }
 
+/**
+ * @deprecated
+ */
 export interface SmallHeadingRef {
   /**
    * Reference to the HTML heading element.
@@ -43,6 +49,9 @@ export interface SmallHeadingRef {
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 
+/**
+ * @deprecated
+ */
 export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
   (
     {

@@ -3,6 +3,9 @@ import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 import { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 
+/**
+ * @deprecated
+ */
 export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
    * Color variation of the text.
@@ -33,6 +36,9 @@ export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
   theme?: TypographyThemeDeprecated;
 }
 
+/**
+ * @deprecated
+ */
 export interface SubRef {
   /**
    * Reference to the HTML heading element.
@@ -40,6 +46,9 @@ export interface SubRef {
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 
+/**
+ * @deprecated
+ */
 export const Sub: FC<SubProps & SubRef> = forwardRef(
   (
     {

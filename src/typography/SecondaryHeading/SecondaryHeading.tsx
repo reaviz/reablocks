@@ -3,6 +3,9 @@ import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 import { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 
+/**
+ * @deprecated
+ */
 export interface SecondaryHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
@@ -34,6 +37,9 @@ export interface SecondaryHeadingProps
   theme?: TypographyThemeDeprecated;
 }
 
+/**
+ * @deprecated
+ */
 export interface SecondaryHeadingRef {
   /**
    * Reference to the HTML heading element.
@@ -41,6 +47,9 @@ export interface SecondaryHeadingRef {
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 
+/**
+ * @deprecated
+ */
 export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
   forwardRef(
     (

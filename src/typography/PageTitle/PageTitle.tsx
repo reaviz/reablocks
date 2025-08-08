@@ -3,6 +3,9 @@ import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 import { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 
+/**
+ * @deprecated
+ */
 export interface PageTitleProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
@@ -34,6 +37,9 @@ export interface PageTitleProps
   theme?: TypographyThemeDeprecated;
 }
 
+/**
+ * @deprecated
+ */
 export interface PageTitleRef {
   /**
    * Reference to the HTML heading element.
@@ -41,6 +47,9 @@ export interface PageTitleRef {
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 
+/**
+ * @deprecated
+ */
 export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
   (
     {
