@@ -1,7 +1,7 @@
 import React, { FC, forwardRef, LegacyRef, ReactElement } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
-import { ChipTheme } from './ChipTheme';
+import { ChipTheme } from '@/elements';
 
 export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -25,7 +25,7 @@ export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Style variant for the chip.
    */
-  variant?: 'filled' | 'outline' | string;
+  variant?: 'filled' | 'outline' | 'subtle' | string;
 
   /**
    * Whether the chip is selected.

@@ -71,66 +71,215 @@ export interface ChipTheme {
   disabled: string;
 }
 
-const baseTheme: Partial<ChipTheme> = {
-  base: `
-  inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5
-  rounded-xs leading-none text-white transition-colors
-  duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium
-  `,
+export const chipTheme: ChipTheme = {
+  base: 'inline-flex whitespace-nowrap border font-medium select-none items-center justify-center rounded-full transition-colors',
   colors: {
     default: {
       selectable: {
-        base: 'hover:cursor-pointer'
+        base: 'hover:cursor-pointer',
+        variants: {
+          filled: {
+            base: 'cursor-pointer',
+            selected: ''
+          },
+          outline: {
+            base: 'cursor-pointer',
+            selected: ''
+          },
+          subtle: {
+            base: 'cursor-pointer',
+            selected: ''
+          }
+        }
+      },
+      variants: {
+        filled: `
+          bg-badges-colors-solid-neutral-background-standard
+          border-badges-colors-solid-neutral-stroke-default
+          text-badges-colors-solid-neutral-text-default
+          [&_svg]:fill-badges-colors-solid-neutral-assets-default
+        `,
+        outline: `
+          bg-badges-colors-outline-neutral-background-standard
+          border-badges-colors-outline-neutral-stroke-default
+          text-badges-colors-outline-neutral-text-default
+          [&_svg]:fill-badges-colors-outline-neutral-assets-default
+        `,
+        subtle: `
+          bg-badges-colors-subtle-neutral-background-standard
+          border-badges-colors-subtle-neutral-stroke-default
+          text-badges-colors-subtle-neutral-text-default
+          [&_svg]:fill-badges-colors-subtle-neutral-assets-default
+        `
       }
     },
     primary: {
       selectable: {
         base: 'hover:cursor-pointer'
+      },
+      variants: {
+        filled: `
+          bg-badges-colors-solid-brand-background-standard
+          border-badges-colors-solid-brand-stroke-default
+          text-badges-colors-solid-brand-text-default
+          [&_svg]:fill-badges-colors-solid-brand-assets-default
+        `,
+        outline: `
+          bg-badges-colors-outline-brand-background-standard
+          border-badges-colors-outline-brand-stroke-default
+          text-badges-colors-outline-brand-text-default
+          [&_svg]:fill-badges-colors-outline-brand-assets-default
+        `,
+        subtle: `
+          bg-badges-colors-subtle-brand-background-standard
+          border-badges-colors-subtle-brand-stroke-default
+          text-badges-colors-subtle-brand-text-default
+          [&_svg]:fill-badges-colors-subtle-brand-assets-default
+        `
       }
     },
     secondary: {
       selectable: {
         base: 'hover:cursor-pointer'
+      },
+      variants: {
+        filled: `
+          bg-badges-colors-solid-accent-background-standard
+          border-badges-colors-solid-accent-stroke-default
+          text-badges-colors-solid-accent-text-default
+          [&_svg]:fill-badges-colors-solid-accent-assets-default
+        `,
+        outline: `
+          bg-badges-colors-outline-accent-background-standard
+          border-badges-colors-outline-accent-stroke-default
+          text-badges-colors-outline-accent-text-default
+          [&_svg]:fill-badges-colors-outline-accent-assets-default
+        `,
+        subtle: `
+          bg-badges-colors-subtle-accent-background-standard
+          border-badges-colors-subtle-accent-stroke-default
+          text-badges-colors-subtle-accent-text-default
+          [&_svg]:fill-badges-colors-subtle-accent-assets-default
+        `
       }
     },
     success: {
       selectable: {
         base: 'hover:cursor-pointer'
+      },
+      variants: {
+        filled: `
+          bg-badges-colors-solid-success-background-standard
+          border-badges-colors-solid-success-stroke-default
+          text-badges-colors-solid-success-text-default
+          [&_svg]:fill-badges-colors-solid-success-assets-default
+        `,
+        outline: `
+          bg-badges-colors-outline-success-background-standard
+          border-badges-colors-outline-success-stroke-default
+          text-badges-colors-outline-success-text-default
+          [&_svg]:fill-badges-colors-outline-success-assets-default
+        `,
+        subtle: `
+          bg-badges-colors-subtle-success-background-standard
+          border-badges-colors-subtle-success-stroke-default
+          text-badges-colors-subtle-success-text-default
+          [&_svg]:fill-badges-colors-subtle-success-assets-default
+        `
       }
     },
     warning: {
       selectable: {
         base: 'hover:cursor-pointer'
+      },
+      variants: {
+        filled: `
+          bg-badges-colors-solid-warning-background-standard
+          border-badges-colors-solid-warning-stroke-default
+          text-badges-colors-solid-warning-text-default
+          [&_svg]:fill-badges-colors-solid-warning-assets-default
+        `,
+        outline: `
+          bg-badges-colors-outline-warning-background-standard
+          border-badges-colors-outline-warning-stroke-default
+          text-badges-colors-outline-warning-text-default
+          [&_svg]:fill-badges-colors-outline-warning-assets-default
+        `,
+        subtle: `
+          bg-badges-colors-subtle-warning-background-standard
+          border-badges-colors-subtle-warning-stroke-default
+          text-badges-colors-subtle-warning-text-default
+          [&_svg]:fill-badges-colors-subtle-warning-assets-default
+        `
       }
     },
     error: {
       selectable: {
         base: 'hover:cursor-pointer'
+      },
+      variants: {
+        filled: `
+          bg-badges-colors-solid-error-background-standard
+          border-badges-colors-solid-error-stroke-default
+          text-badges-colors-solid-error-text-default
+          [&_svg]:fill-badges-colors-solid-error-assets-default
+        `,
+        outline: `
+          bg-badges-colors-outline-error-background-standard
+          border-badges-colors-outline-error-stroke-default
+          text-badges-colors-outline-error-text-default
+          [&_svg]:fill-badges-colors-outline-error-assets-default
+        `,
+        subtle: `
+          bg-badges-colors-subtle-error-background-standard
+          border-badges-colors-subtle-error-stroke-default
+          text-badges-colors-subtle-error-text-default
+          [&_svg]:fill-badges-colors-subtle-error-assets-default
+        `
       }
     },
     info: {
       selectable: {
         base: 'hover:cursor-pointer'
+      },
+      variants: {
+        filled: `
+          bg-badges-colors-solid-info-background-standard
+          border-badges-colors-solid-info-stroke-default
+          text-badges-colors-solid-info-text-default
+          [&_svg]:fill-badges-colors-solid-info-assets-default        
+        `,
+        outline: `
+          bg-badges-colors-outline-info-background-standard
+          border-badges-colors-outline-info-stroke-default
+          text-badges-colors-outline-info-text-default
+          [&_svg]:fill-badges-colors-outline-info-assets-default
+        `,
+        subtle: `
+          bg-badges-colors-subtle-info-background-standard
+          border-badges-colors-subtle-info-stroke-default
+          text-badges-colors-subtle-info-text-default
+          [&_svg]:fill-badges-colors-subtle-info-assets-default
+        `
       }
     }
   },
   adornment: {
     base: 'flex items-center justify-center',
-    start: 'mr-1',
-    end: 'ml-1',
+    start: '',
+    end: '',
     sizes: {
-      small: '[&>svg]:w-3 [&>svg]:h-3',
-      medium: '[&>svg]:w-4 [&>svg]:h-4',
-      large: '[&>svg]:w-5 [&>svg]:h-5'
+      small: '[&>svg]:size-3',
+      medium: '[&>svg]:size-3',
+      large: '[&>svg]:size-4'
     }
   },
   sizes: {
-    small: 'text-[10px] leading-[inherit] px-1 py-0.5',
-    medium: 'text-sm leading-[inherit] px-2 py-0.5',
-    large: 'text-base leading-[inherit] px-3 py-0.5'
+    small: 'text-xs px-1 py gap-0.5',
+    medium: 'text-xs px-1.5 py-[3px] gap-0.5',
+    large: 'text-sm px-2 py-[5px] gap-1'
   },
-  focus:
-    'focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-2',
+  focus: 'focus-visible:outline-none',
   deleteButton: {
     base: 'text-inherit',
     sizes: {
@@ -139,218 +288,10 @@ const baseTheme: Partial<ChipTheme> = {
       large: 'leading-[14px] max-h-3.5'
     }
   },
-  disabled: 'opacity-50 cursor-not-allowed'
-};
-
-export const chipTheme: ChipTheme = {
-  base: baseTheme.base,
-  adornment: baseTheme.adornment,
-  sizes: baseTheme.sizes,
-  focus: baseTheme.focus,
+  disabled: 'cursor-not-allowed',
   variants: {
-    filled: 'border border-transparent box-border',
-    outline: 'bg-transparent border hover:bg-transparent'
-  },
-  colors: {
-    default: {
-      variants: {
-        filled: 'bg-panel border-panel text-text-primary',
-        outline: 'text-text-primary dark:border-gray-100 light:border-gray-900'
-      },
-      selectable: {
-        base: `${baseTheme.colors.default.selectable.base}`,
-        variants: {
-          filled: {
-            base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
-            selected: 'bg-primary text-panel'
-          },
-          outline: {
-            base: 'hover:text-primary-hover hover:border-panel-accent',
-            selected: 'border-panel-accent text-primary'
-          }
-        }
-      }
-    },
-    primary: {
-      variants: {
-        outline: 'text-primary border-panel-accent',
-        filled: 'bg-primary border-primary text-panel'
-      },
-      selectable: {
-        base: `${baseTheme.colors.primary.selectable.base}`,
-        variants: {
-          filled: {
-            base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
-            selected: 'bg-primary-hover'
-          },
-          outline: {
-            base: 'hover:text-primary-hover hover:border-primary',
-            selected: 'border-primary'
-          }
-        }
-      }
-    },
-    secondary: {
-      variants: {
-        filled: 'bg-secondary border-secondary text-text-primary',
-        outline: 'text-secondary border-panel-accent'
-      },
-      selectable: {
-        base: `${baseTheme.colors.secondary.selectable.base}`,
-        variants: {
-          filled: {
-            base: 'hover:bg-secondary-hover hover:border-secondary-hover hover:text-panel',
-            selected: 'bg-secondary-hover text-panel'
-          },
-          outline: {
-            base: 'hover:text-secondary-hover hover:border-secondary',
-            selected: 'border-secondary'
-          }
-        }
-      }
-    },
-    success: {
-      variants: {
-        filled: 'bg-success border-success text-panel',
-        outline: 'text-success border-panel-accent'
-      },
-      selectable: {
-        base: `${baseTheme.colors.success.selectable.base}`,
-        variants: {
-          filled: {
-            base: 'hover:bg-success-hover hover:border-success-hover',
-            selected: 'bg-success-hover'
-          },
-          outline: {
-            base: 'hover:text-success-hover hover:border-success',
-            selected: 'border-success'
-          }
-        }
-      }
-    },
-    warning: {
-      variants: {
-        filled: 'bg-warning border-warning text-panel',
-        outline: 'text-warning border-panel-accent'
-      },
-      selectable: {
-        base: `${baseTheme.colors.warning.selectable.base}`,
-        variants: {
-          filled: {
-            base: 'hover:bg-warning-hover hover:border-warning-hover hover:text-panel',
-            selected: 'bg-warning-hover'
-          },
-          outline: {
-            base: 'hover:text-warning-hover hover:border-warning',
-            selected: 'border-warning'
-          }
-        }
-      }
-    },
-    error: {
-      variants: {
-        filled: 'bg-error border-error text-panel',
-        outline: 'text-error border-panel-accent'
-      },
-      selectable: {
-        base: `${baseTheme.colors.error.selectable.base}`,
-        variants: {
-          filled: {
-            base: 'hover:bg-error-hover hover:border-error-hover hover:text-panel',
-            selected: 'bg-error-hover'
-          },
-          outline: {
-            base: 'hover:text-error-hover hover:border-error',
-            selected: 'border-error'
-          }
-        }
-      }
-    },
-    info: {
-      variants: {
-        filled: 'bg-info border-info text-panel',
-        outline: 'text-info border-panel-accent'
-      },
-      selectable: {
-        base: `${baseTheme.colors.info.selectable.base}`,
-        variants: {
-          filled: {
-            base: 'hover:bg-info-hover hover:border-info-hover hover:text-panel',
-            selected: 'bg-info-hover'
-          },
-          outline: {
-            base: 'hover:text-info-hover hover:border-info',
-            selected: 'border-info'
-          }
-        }
-      }
-    }
-  },
-  deleteButton: baseTheme.deleteButton,
-  disabled: baseTheme.disabled
-};
-
-export const legacyChipTheme: ChipTheme = {
-  base: [
-    baseTheme.base,
-    '[font-family:_var(--chip-font-family)] rounded-[var(--chip-border-radius)]'
-  ].join(' '),
-  adornment: {
-    ...baseTheme.adornment,
-    start: [baseTheme.adornment.start, 'pr-[var(--spacing-xs)]'].join(' '),
-    end: [baseTheme.adornment.end, 'pl-[var(--spacing-xs)]'].join(' ')
-  },
-  sizes: {
-    small: [baseTheme.sizes.small, 'p-[var(--spacing-xs)]'].join(' '),
-    medium: [
-      baseTheme.sizes.medium,
-      'py-[var(--spacing-xs)] px-[var(--spacing-md)]'
-    ].join(' '),
-    large: [baseTheme.sizes.large, 'p-[var(--spacing-md)]'].join(' ')
-  },
-  focus: baseTheme.focus,
-  variants: {
-    filled: '[&>svg]:fill-[var(--chip-color)]',
-    outline:
-      'bg-opacity-0 border hover:bg-transparent border-[var(--chip-background)] text-[var(--chip-color)] [&>svg]:fill-[var(--chip-color)]'
-  },
-  colors: {
-    default: {
-      base: 'bg-[var(--chip-background)] border-[var(--chip-background)] text-[var(--chip-color)] ',
-      variants: baseTheme.colors.default.variants,
-      selectable: baseTheme.colors.default.selectable
-    },
-    primary: {
-      base: 'bg-[color:var(--primary-background)] border-[color:var(--primary-background)]',
-      variants: baseTheme.colors.primary.variants,
-      selectable: baseTheme.colors.primary.selectable
-    },
-    secondary: {
-      base: 'bg-[color:var(--secondary-background)] border-[color:var(--secondary-background)]',
-      variants: baseTheme.colors.secondary.variants,
-      selectable: baseTheme.colors.secondary.selectable
-    },
-    success: {
-      base: 'bg-[color:var(--success-background)] border-[color:var(--success-background)]',
-      variants: baseTheme.colors.success.variants,
-      selectable: baseTheme.colors.success.selectable
-    },
-    warning: {
-      base: 'bg-[color:var(--warning-background)] border-[color:var(--warning-background)]',
-      variants: baseTheme.colors.warning.variants,
-      selectable: baseTheme.colors.warning.selectable
-    },
-    error: {
-      base: 'bg-[color:var(--error-background)] border-[color:var(--error-background)]',
-      variants: baseTheme.colors.error.variants,
-      selectable: baseTheme.colors.error.selectable
-    },
-    info: {
-      base: 'bg-[color:var(--info-background)] border-[color:var(--info-background)]',
-      variants: baseTheme.colors.info.variants,
-      selectable: baseTheme.colors.info.selectable
-    }
-  },
-  deleteButton: baseTheme.deleteButton,
-  disabled: baseTheme.disabled
+    filled: '',
+    outline: '',
+    subtle: ''
+  }
 };

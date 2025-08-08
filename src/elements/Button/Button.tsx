@@ -13,19 +13,12 @@ export interface ButtonProps
   /**
    * Color variation of the button.
    */
-  color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'success'
-    | 'warning'
-    | string;
+  color?: 'primary' | 'secondary' | 'destructive' | string;
 
   /**
    * Style variant of the button.
    */
-  variant?: 'filled' | 'outline' | 'text' | string;
+  variant?: 'filled' | 'outline' | 'text' | 'ghost' | string;
 
   /**
    * The size variation of the button.
@@ -78,7 +71,7 @@ export interface ButtonRef {
 export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
   (
     {
-      color = 'default',
+      color = 'primary',
       variant = 'filled',
       children,
       fullWidth,

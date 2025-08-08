@@ -7,10 +7,10 @@ import EndArrow from './assets/arrow-end.svg?react';
 import NextArrow from './assets/arrow-next.svg?react';
 import PreviousArrow from './assets/arrow-previous.svg?react';
 import StartArrow from './assets/arrow-start.svg?react';
-import { FUZZY_RANGE, getItemsRange, getPageRange } from './utils';
+import { FUZZY_RANGE, getItemsRange, getPageRange } from '@/data';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
-import { PagerTheme } from './PagerTheme';
+import { PagerTheme } from '@/data';
 
 export interface PagerProps {
   /**
@@ -152,7 +152,7 @@ export const Pager: FC<PagerProps> = ({
       {startArrow && (
         <Button
           className={twMerge(theme.control, theme.firstPage)}
-          variant="text"
+          variant="ghost"
           size="small"
           disablePadding
           title="First Page"
@@ -164,7 +164,7 @@ export const Pager: FC<PagerProps> = ({
       )}
       <Button
         className={twMerge(theme.control, theme.prevPage)}
-        variant="text"
+        variant="ghost"
         size="small"
         disablePadding
         title="Previous page"
@@ -182,7 +182,7 @@ export const Pager: FC<PagerProps> = ({
             <Fragment key={i}>
               {i >= startPage && i <= endPage && (
                 <Button
-                  variant="text"
+                  variant="ghost"
                   size="small"
                   disabled={page === i}
                   title={`Page ${(i + 1).toLocaleString()}`}
@@ -206,7 +206,7 @@ export const Pager: FC<PagerProps> = ({
       )}
       <Button
         className={twMerge(theme.control, theme.nextPage)}
-        variant="text"
+        variant="ghost"
         title="Next Page"
         size="small"
         disablePadding
@@ -221,7 +221,7 @@ export const Pager: FC<PagerProps> = ({
           size="small"
           title="Last Page"
           disablePadding
-          variant="text"
+          variant="ghost"
           onClick={() => onPageChange?.(pageCount - 1)}
           disabled={!canNext}
         >
