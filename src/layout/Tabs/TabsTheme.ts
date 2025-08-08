@@ -19,6 +19,9 @@ export interface TabsTheme {
       secondary: {
         divider: string;
       };
+      [key: string]: {
+        divider: string;
+      };
     };
     tab: {
       base: string;
