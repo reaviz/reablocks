@@ -1,7 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
-import { TypographyTheme } from '@/typography/TypographyTheme';
+import { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 
 export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
@@ -30,7 +30,7 @@ export interface SubProps extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
    * Theme for the Typography.
    */
-  theme?: TypographyTheme;
+  theme?: TypographyThemeDeprecated;
 }
 
 export interface SubRef {
@@ -53,7 +53,10 @@ export const Sub: FC<SubProps & SubRef> = forwardRef(
     }: SubProps,
     ref
   ) => {
-    const theme: TypographyTheme = useComponentTheme('typography', customTheme);
+    const theme: TypographyThemeDeprecated = useComponentTheme(
+      'typography_deprecated',
+      customTheme
+    );
 
     return (
       <h6

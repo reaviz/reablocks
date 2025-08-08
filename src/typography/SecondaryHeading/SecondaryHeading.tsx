@@ -1,7 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
-import { TypographyTheme } from '@/typography/TypographyTheme';
+import { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 
 export interface SecondaryHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -31,7 +31,7 @@ export interface SecondaryHeadingProps
   /**
    * Theme for the Typography.
    */
-  theme?: TypographyTheme;
+  theme?: TypographyThemeDeprecated;
 }
 
 export interface SecondaryHeadingRef {
@@ -55,8 +55,8 @@ export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
       }: SecondaryHeadingProps,
       ref
     ) => {
-      const theme: TypographyTheme = useComponentTheme(
-        'typography',
+      const theme: TypographyThemeDeprecated = useComponentTheme(
+        'typography_deprecated',
         customTheme
       );
 

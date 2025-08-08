@@ -1,7 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
-import { TypographyTheme } from '@/typography/TypographyTheme';
+import { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 
 export interface PageTitleProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -31,7 +31,7 @@ export interface PageTitleProps
   /**
    * Theme for the Typography.
    */
-  theme?: TypographyTheme;
+  theme?: TypographyThemeDeprecated;
 }
 
 export interface PageTitleRef {
@@ -54,7 +54,10 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
     }: PageTitleProps,
     ref
   ) => {
-    const theme: TypographyTheme = useComponentTheme('typography', customTheme);
+    const theme: TypographyThemeDeprecated = useComponentTheme(
+      'typography_deprecated',
+      customTheme
+    );
 
     return (
       <h1

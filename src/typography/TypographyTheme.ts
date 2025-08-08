@@ -1,86 +1,124 @@
-export interface TypographyTheme {
-  base?: string;
-  text?: {
-    thin?: string;
-    bold?: string;
-    extraBold?: string;
-    italic?: string;
-  };
-  variant?: {
-    default?: string;
-    mono?: string;
-  };
-  colors?: {
-    primary: string;
-    secondary: string;
-    success: string;
-    warning: string;
-    error: string;
-    info: string;
-    [key: string]: string;
-  };
-  sub: string;
-  smallHeading: string;
-  secondaryHeading: string;
-  primaryHeading: string;
-  pageTitle: string;
-  disableMargins?: string;
+export interface TypographySize {
+  small?: string;
+  medium?: string;
+  large?: string;
+  monospace?: string;
+  [key: string]: string;
 }
 
-const baseTheme: TypographyTheme = {
-  text: {
-    thin: 'font-thin',
-    bold: 'font-semibold',
-    extraBold: 'font-extrabold',
-    italic: 'italic'
+export interface TypographyWeight {
+  regular?: string;
+  medium?: string;
+  bold?: string;
+  [key: string]: string;
+}
+
+export interface TypographyColor {
+  primary?: string;
+  secondary?: string;
+  [key: string]: string;
+}
+
+interface TypographyVariant {
+  base?: string;
+  size?: TypographySize;
+  weight?: TypographyWeight;
+}
+
+export interface TypographyTheme {
+  base: string;
+  color?: TypographyColor;
+  variant: {
+    h1?: TypographyVariant;
+    h2?: TypographyVariant;
+    h3?: TypographyVariant;
+    h4?: TypographyVariant;
+    h5?: TypographyVariant;
+    h6?: TypographyVariant;
+    body?: TypographyVariant;
+    label?: TypographyVariant;
+    button?: TypographyVariant;
+    [key: string]: TypographyVariant;
+  };
+}
+
+export const typographyTheme: TypographyTheme = {
+  base: '',
+  color: {
+    primary: 'text-content-text-neutral-base',
+    secondary: 'text-content-text-neutral-2'
   },
   variant: {
-    default: '',
-    mono: 'font-mono'
+    h1: {
+      base: 'font-sans text-5xl font-normal leading-12',
+      weight: {
+        bold: 'font-bold'
+      }
+    },
+    h2: {
+      base: 'font-sans text-4xl font-normal leading-9',
+      weight: {
+        bold: 'font-bold'
+      }
+    },
+    h3: {
+      base: 'font-sans text-3xl font-normal leading-8',
+      weight: {
+        bold: 'font-bold'
+      }
+    },
+    h4: {
+      base: 'font-sans text-2xl font-normal leading-7',
+      weight: {
+        bold: 'font-bold'
+      }
+    },
+    h5: {
+      base: 'font-sans text-xl font-normal leading-6',
+      weight: {
+        bold: 'font-bold'
+      }
+    },
+    h6: {
+      base: 'font-sans text-lg font-normal leading-6',
+      weight: {
+        bold: 'font-bold'
+      }
+    },
+    body: {
+      base: 'font-serif text-base font-normal leading-4.5',
+      size: {
+        large: 'text-lg leading-6',
+        small: 'text-sm leading-3.5'
+      },
+      weight: {
+        medium: 'font-medium'
+      }
+    },
+    button: {
+      base: 'font-serif text-base font-semibold leading-4.5',
+      size: {
+        large: 'text-lg leading-6',
+        small: 'text-sm leading-3.5'
+      }
+    },
+    label: {
+      base: 'font-serif text-sm font-semibold leading-3',
+      size: {
+        large: 'text-md leading-3.5',
+        small: 'text-xs',
+        monospace: 'font-mono font-medium text-xs'
+      }
+    }
   },
-  colors: {
-    primary: 'text-primary',
-    secondary: 'text-secondary',
-    success: 'text-success',
-    warning: 'text-warning',
-    error: 'text-error',
-    info: 'text-info'
+  size: {
+    small: '',
+    medium: '',
+    large: ''
   },
-  sub: 'text-sm font-semibold mb-0.5',
-  smallHeading: 'text-base font-normal mb-1',
-  secondaryHeading: 'text-3xl font-normal mb-1',
-  primaryHeading: 'text-3xl font-extrabold mb-1',
-  pageTitle: 'text-[40px] font-semibold mb-5',
-  disableMargins: 'm-0'
-};
-
-export const typographyTheme = {
-  ...baseTheme
-};
-
-export const legacyTypographyTheme = {
-  ...baseTheme,
-  colors: {
-    primary: 'text-[var(--primary-color)]',
-    secondary: 'text-[var(--secondary-color)]',
-    success: 'text-[var(--success-color)]',
-    warning: 'text-[var(--warning-color)]',
-    error: 'text-[var(--error-color)]',
-    info: 'text-[var(--info-color)]'
-  },
-  pageTitle:
-    '[font-family:_var(--font-family)] [font-size:_var(--page-title-font-size)] [font-weight:_var(--page-title-font-weight)] color-[var(--page-title-color)] m-[var(--page-title-margin)]',
-  primaryHeading:
-    '[font-family:_var(--font-family)] [font-size:_var(--primary-heading-font-size)] [font-weight:_var(--primary-heading-font-weight)] text-[var(--primary-heading-color)] m-[var(--primary-heading-margin)]',
-  secondaryHeading:
-    '[font-family:_var(--font-family)] [font-size:_var(--secondary-heading-font-size)] [font-weight:_var(--secondary-heading-font-weight)] text-[var(--secondary-heading-color)] m-[var(--secondary-heading-margin)]',
-  smallHeading:
-    '[font-family:_var(--font-family)] [font-size:_var(--small-heading-font-size)] [font-weight:_var(--small-heading-font-weight)] text-[var(--small-heading-color)] m-[var(--small-heading-margin)]',
-  sub: '[font-size:_var(--sub-font-size)] [font-weight:_var(--sub-font-weight)] text-[var(--sub-color)] m-[var(--sub-margin)]',
-  text: {
-    ...baseTheme.text,
-    thin: '[font-weight:_var(--font-weight-thin)]',
-    bold: '[font-weight:_var(--font-weight-bold)]',
-    extraBold: '[font-weight:_var(--font-weight-extraBold)]'
+  weight: {
+    regular: '',
+    medium: '',
+    bold: ''
   }
 };
