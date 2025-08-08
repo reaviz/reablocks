@@ -49,9 +49,9 @@ export const Typography: FC<TypographyProps> = ({
       className={cn(
         theme?.base,
         theme?.variant?.[variant]?.base,
-        theme?.color?.[color],
         theme?.variant?.[variant]?.size?.[size],
-        theme?.variant?.[variant]?.weight?.[weight]
+        theme?.color?.[color],
+        theme?.weight?.[weight]
       )}
     >
       {children}

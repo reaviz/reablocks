@@ -22,12 +22,12 @@ export interface TypographyColor {
 interface TypographyVariant {
   base?: string;
   size?: TypographySize;
-  weight?: TypographyWeight;
 }
 
 export interface TypographyTheme {
   base: string;
   color?: TypographyColor;
+  weight?: TypographyWeight;
   variant: {
     h1?: TypographyVariant;
     h2?: TypographyVariant;
@@ -48,51 +48,34 @@ export const typographyTheme: TypographyTheme = {
     primary: 'text-content-text-neutral-base',
     secondary: 'text-content-text-neutral-2'
   },
+  weight: {
+    medium: 'font-medium',
+    bold: 'font-bold'
+  },
   variant: {
     h1: {
-      base: 'font-sans text-5xl font-normal leading-12',
-      weight: {
-        bold: 'font-bold'
-      }
+      base: 'font-sans text-5xl font-normal leading-12'
     },
     h2: {
-      base: 'font-sans text-4xl font-normal leading-9',
-      weight: {
-        bold: 'font-bold'
-      }
+      base: 'font-sans text-4xl font-normal leading-9'
     },
     h3: {
-      base: 'font-sans text-3xl font-normal leading-8',
-      weight: {
-        bold: 'font-bold'
-      }
+      base: 'font-sans text-3xl font-normal leading-8'
     },
     h4: {
-      base: 'font-sans text-2xl font-normal leading-7',
-      weight: {
-        bold: 'font-bold'
-      }
+      base: 'font-sans text-2xl font-normal leading-7'
     },
     h5: {
-      base: 'font-sans text-xl font-normal leading-6',
-      weight: {
-        bold: 'font-bold'
-      }
+      base: 'font-sans text-xl font-normal leading-6'
     },
     h6: {
-      base: 'font-sans text-lg font-normal leading-6',
-      weight: {
-        bold: 'font-bold'
-      }
+      base: 'font-sans text-lg font-normal leading-6'
     },
     body: {
       base: 'font-serif text-base font-normal leading-4.5',
       size: {
         large: 'text-lg leading-6',
         small: 'text-sm leading-3.5'
-      },
-      weight: {
-        medium: 'font-medium'
       }
     },
     button: {
@@ -110,15 +93,5 @@ export const typographyTheme: TypographyTheme = {
         monospace: 'font-mono font-medium text-xs'
       }
     }
-  },
-  size: {
-    small: '',
-    medium: '',
-    large: ''
-  },
-  weight: {
-    regular: '',
-    medium: '',
-    bold: ''
   }
 };
