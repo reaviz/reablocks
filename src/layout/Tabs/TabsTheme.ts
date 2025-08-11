@@ -1,3 +1,11 @@
+interface TabVariant {
+  divider?: string;
+  button?: string;
+  selected?: string;
+  disabled?: string;
+  indicator?: string;
+}
+
 export interface TabsTheme {
   base: string;
   list: {
@@ -13,15 +21,9 @@ export interface TabsTheme {
     };
     divider: string;
     variant: {
-      primary: {
-        divider: string;
-      };
-      secondary: {
-        divider: string;
-      };
-      [key: string]: {
-        divider: string;
-      };
+      primary: TabVariant;
+      secondary: TabVariant;
+      [key: string]: TabVariant;
     };
     tab: {
       base: string;
@@ -44,7 +46,7 @@ export const tabsTheme: TabsTheme = {
   list: {
     base: 'flex text-center flex-wrap -mb-px',
     indicator: {
-      base: 'bg-tabs-colors-underline-stroke-selected group-hover:bg-tabs-colors-underline-stroke-selected-hover group-focus-within:bg-tabs-colors-underline-stroke-selected-hover absolute bottom-0 left-0 right-0 transition-colors',
+      base: 'transition-colors',
       size: {
         small: 'h-0.5',
         medium: 'h-0.5',
@@ -54,24 +56,80 @@ export const tabsTheme: TabsTheme = {
     divider: 'w-full h-px border-0',
     variant: {
       primary: {
-        divider: ''
+        button: `
+          text-tabs-colors-contained-text-resting
+          hover:text-tabs-colors-contained-text-hover hover:border-tabs-colors-contained-background-hover hover:bg-tabs-colors-contained-background-hover
+          focus-visible:text-tabs-colors-contained-text-hover focus-visible:border-tabs-colors-contained-background-hover focus-visible:bg-tabs-colors-contained-background-hover
+          [&_svg]:text-tabs-colors-contained-assets-resting hover:[&_svg]:text-tabs-colors-contained-assets-hover focus-visible:[&_svg]:text-tabs-colors-contained-assets-hover
+        `,
+        selected: `
+          text-tabs-colors-contained-text-selected bg-tabs-colors-contained-background-selected text-tabs-colors-contained-text-selected
+          hover:text-tabs-colors-contained-text-selected-hover hover:bg-tabs-colors-contained-background-selected-hover 
+          focus-visible:text-tabs-colors-contained-text-selected-hover focus-visible:bg-tabs-colors-contained-background-selected-hover 
+          [&_svg]:text-tabs-colors-contained-assets-selected
+          hover:[&_svg]:text-tabs-colors-contained-assets-selected-hover focus-visible:[&_svg]:text-tabs-colors-contained-assets-selected-hover
+        `,
+        disabled:
+          'disabled:text-tabs-colors-contained-text-resting hover:text-tabs-colors-contained-text-resting disabled:[&_svg]:text-tabs-colors-contained-assets-resting disabled:bg-transparent disabled:hover:bg-transparent'
       },
       secondary: {
-        divider: ''
+        indicator:
+          'bg-tabs-colors-underline-stroke-selected group-hover:bg-tabs-colors-underline-stroke-selected-hover absolute bottom-0 left-0 right-0',
+        button: `
+          text-tabs-colors-underline-text-resting border-tabs-colors-underline-background-resting border-b rounded-none
+          hover:border-tabs-colors-underline-background-hover hover:text-tabs-colors-underline-text-hover
+          focus-visible:text-tabs-colors-underline-text-hover
+          [&_svg]:text-tabs-colors-underline-assets-resting hover:[&_svg]:text-tabs-colors-underline-assets-hover focus-visible:[&_svg]:text-tabs-colors-underline-assets-hover
+        `,
+        selected:
+          'text-tabs-colors-underline-text-selected group-hover:text-tabs-colors-underline-text-selected-hover [&_svg]:text-tabs-colors-underline-assets-selected',
+        disabled:
+          'disabled:text-tabs-colors-underline-text-resting hover:text-tabs-colors-underline-text-resting disabled:[&_svg]:text-tabs-colors-underline-assets-resting'
+      },
+      outlined: {
+        button: `
+          border border-tabs-colors-outline-stroke-resting text-tabs-colors-outline-text-resting
+          hover:text-tabs-colors-outline-text-hover hover:bg-tabs-colors-outline-background-hover hover:border-tabs-colors-outline-stroke-hover
+          focus-visible:text-tabs-colors-outline-text-hover focus-visible:bg-tabs-colors-outline-background-hover focus-visible:border-tabs-colors-outline-stroke-hover
+          [&_svg]:text-tabs-colors-outline-assets-resting hover:[&_svg]:text-tabs-colors-outline-assets-hover focus-visible:[&_svg]:text-tabs-colors-outline-assets-hover
+        `,
+        selected: `
+          text-tabs-colors-outline-text-selected bg-tabs-colors-outline-background-selected border-tabs-colors-outline-stroke-selected
+          hover:text-tabs-colors-outline-text-selected-hover hover:bg-tabs-colors-outline-background-selected-hover hover:border-tabs-colors-outline-stroke-selected-hover
+          focus-visible:text-tabs-colors-outline-text-selected-hover focus-visible:bg-tabs-colors-outline-background-selected-hover focus-visible:border-tabs-colors-outline-stroke-selected-hover
+          [&_svg]:text-tabs-colors-outline-assets-selected hover:[&_svg]:text-tabs-colors-outline-assets-selected-hover focus-visible:[&_svg]:text-tabs-colors-outline-assets-selected-hover
+        `,
+        disabled:
+          'disabled:text-tabs-colors-outline-text-resting hover:text-tabs-colors-outline-text-resting disabled:[&_svg]:text-tabs-colors-outline-assets-resting disabled:bg-transparent disabled:hover:bg-transparent'
+      },
+      text: {
+        button: `
+          text-tabs-colors-text-only-text-resting
+          hover:text-tabs-colors-text-only-text-hover
+          focus-visible:text-tabs-colors-text-only-text-hover
+          [&_svg]:text-tabs-colors-text-only-assets-resting
+          hover:[&_svg]:text-tabs-colors-text-only-assets-hover
+        `,
+        selected: `
+          text-tabs-colors-text-only-text-selected
+          hover:text-tabs-colors-text-only-text-selected-hover
+          focus-visible:text-tabs-colors-text-only-text-selected-hover
+          [&_svg]:text-tabs-colors-text-only-assets-selected
+          hover:[&_svg]:text-tabs-colors-text-only-assets-selected-hover
+        `,
+        disabled:
+          'disabled:text-tabs-colors-text-only-text-resting hover:text-tabs-colors-text-only-text-resting disabled:[&_svg]:text-tabs-colors-text-only-assets-resting'
       }
     },
     tab: {
       base: 'group relative',
-      button:
-        'transition-colors text-tabs-colors-underline-text-resting border-b border-tabs-colors-underline-background-resting hover:border-tabs-colors-underline-background-hover hover:text-tabs-colors-underline-text-hover focus-visible:text-tabs-colors-underline-text-hover rounded-none',
-      selected:
-        'text-tabs-colors-underline-text-selected group-hover:text-tabs-colors-underline-text-selected-hover',
-      disabled:
-        'cursor-not-allowed opacity-40 hover:text-tabs-colors-underline-text-resting',
+      button: 'transition-colors [&_svg]:transition-colors',
+      selected: '',
+      disabled: 'cursor-not-allowed opacity-40',
       size: {
-        small: 'pt-0.5 pb-1 px-2 text-xs leading-[18px] font-semibold',
-        medium: 'pt-1 pb-2 px-3 text-sm font-semibold',
-        large: 'pb-1 px-3 text-md font-semibold'
+        small: 'py-1 px-2 text-xs leading-[18px] font-semibold',
+        medium: 'py-2 px-3 text-sm font-semibold',
+        large: 'py-1 px-3 text-md font-semibold'
       }
     }
   },
