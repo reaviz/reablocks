@@ -37,7 +37,7 @@ export interface TabListProps extends PropsWithChildren {
    * The variant of the tabs.
    * @private
    */
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | string;
 
   /**
    * The size of the tabs.
@@ -81,8 +81,9 @@ export const TabList: FC<TabListProps> = ({
           {...rest}
           id={id}
           selected={index === selectedIndex}
-          onSelect={() => onSelect(index)}
           size={size}
+          variant={variant}
+          onSelect={() => onSelect(index)}
         >
           {children}
         </Tab>

@@ -44,7 +44,7 @@ export interface TabsProps extends PropsWithChildren {
   /**
    * The variant of the tabs.
    */
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | string;
 
   /**
    * The size of the tabs.
