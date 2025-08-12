@@ -7,8 +7,9 @@ export interface NavigationBarProps extends PropsWithChildren {
   classNameTop?: string;
   classNameNavigation?: string;
   classNameBottom?: string;
-  top?: ReactNode;
-  bottom?: ReactNode;
+  direction?: 'horizontal' | 'vertical';
+  start?: ReactNode;
+  end?: ReactNode;
   theme?: NavigationBarTheme;
 }
 
@@ -17,8 +18,9 @@ export const NavigationBar: FC<NavigationBarProps> = ({
   classNameTop,
   classNameNavigation,
   classNameBottom,
-  top,
-  bottom,
+  direction = 'vertical',
+  start,
+  end,
   children,
   theme
 }) => {
@@ -28,12 +30,20 @@ export const NavigationBar: FC<NavigationBarProps> = ({
   );
 
   return (
-    <div className={cn(barTheme.base, className)}>
-      <div className={cn(barTheme.top, classNameTop)}>{top}</div>
-      <div className={cn(barTheme.navigation, classNameNavigation)}>
+    <div
+      className={cn(barTheme.base, className, barTheme.direction?.[direction])}
+    >
+      <div className={cn(barTheme.start, classNameTop)}>{start}</div>
+      <div
+        className={cn(
+          barTheme.navigation,
+          classNameNavigation,
+          barTheme.direction?.[direction]
+        )}
+      >
         {children}
       </div>
-      <div className={cn(barTheme.bottom, classNameBottom)}>{bottom}</div>
+      <div className={cn(barTheme.end, classNameBottom)}>{end}</div>
     </div>
   );
 };

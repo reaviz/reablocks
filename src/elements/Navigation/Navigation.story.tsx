@@ -190,18 +190,18 @@ const SettingsIcon = () => (
 );
 
 export const Text = () => {
-  const [active, setActive] = useState<number>(0);
+  const [active, setActive] = useState<number>(1);
 
   return (
     <NavigationBar
       className="h-[600px]"
-      top={
+      start={
         <div className="flex gap-2 items-center">
           {logo}
           {companyName}
         </div>
       }
-      bottom={
+      end={
         <div className="flex flex-col gap-2">
           <NavigationButton active={active === 6} onClick={() => setActive(6)}>
             <div className="flex items-center gap-2">
@@ -253,13 +253,13 @@ export const Text = () => {
 };
 
 export const Icons = () => {
-  const [active, setActive] = useState<number>(0);
+  const [active, setActive] = useState<number>(1);
 
   return (
     <NavigationBar
       className="h-[600px]"
-      top={<div className="px-4">{logo}</div>}
-      bottom={
+      start={<div className="px-4">{logo}</div>}
+      end={
         <div className="flex flex-col gap-2">
           <NavigationButton active={active === 6} onClick={() => setActive(6)}>
             <HelpIcon />
@@ -289,8 +289,74 @@ export const Icons = () => {
   );
 };
 
+export const Horizontal = () => {
+  const [active, setActive] = useState<number>(1);
+
+  return (
+    <NavigationBar
+      direction="horizontal"
+      className="w-[800px]"
+      start={<div className="px-4">{logo}</div>}
+      end={
+        <div className="flex flex-row gap-2">
+          <NavigationButton
+            variant="underline"
+            active={active === 6}
+            onClick={() => setActive(6)}
+          >
+            <HelpIcon />
+          </NavigationButton>
+          <NavigationButton
+            variant="underline"
+            active={active === 7}
+            onClick={() => setActive(7)}
+          >
+            <SettingsIcon />
+          </NavigationButton>
+        </div>
+      }
+    >
+      <NavigationButton
+        variant="underline"
+        active={active === 1}
+        onClick={() => setActive(1)}
+      >
+        <HomeIcon />
+      </NavigationButton>
+      <NavigationButton
+        variant="underline"
+        active={active === 2}
+        onClick={() => setActive(2)}
+      >
+        <DashboardIcon />
+      </NavigationButton>
+      <NavigationButton
+        variant="underline"
+        active={active === 3}
+        onClick={() => setActive(3)}
+      >
+        <AlertsIcon />
+      </NavigationButton>
+      <NavigationButton
+        variant="underline"
+        active={active === 4}
+        onClick={() => setActive(4)}
+      >
+        <IntelligenceIcon />
+      </NavigationButton>
+      <NavigationButton
+        variant="underline"
+        active={active === 5}
+        onClick={() => setActive(5)}
+      >
+        <ReportsIcon />
+      </NavigationButton>
+    </NavigationBar>
+  );
+};
+
 export const CustomTheme = () => {
-  const [active, setActive] = useState<number>(0);
+  const [active, setActive] = useState<number>(1);
   const barTheme: NavigationBarTheme = useComponentTheme('navigationBar');
   const buttonTheme: NavigationButtonTheme =
     useComponentTheme('navigationButton');
@@ -311,8 +377,8 @@ export const CustomTheme = () => {
     <NavigationBar
       theme={customBarTheme}
       className="h-[600px]"
-      top={<div className="px-4">{logo}</div>}
-      bottom={
+      start={<div className="px-4">{logo}</div>}
+      end={
         <div className="flex flex-col gap-2">
           <NavigationButton
             theme={customButtonTheme}

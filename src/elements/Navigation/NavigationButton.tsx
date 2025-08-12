@@ -5,6 +5,7 @@ import React, { FC, PropsWithChildren } from 'react';
 
 interface NavigationButtonProps extends PropsWithChildren {
   className?: string;
+  variant?: 'button' | 'underline';
   active?: boolean;
   theme?: NavigationButtonTheme;
   onClick?: () => void;
@@ -15,6 +16,7 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
   active,
   children,
   theme,
+  variant = 'button',
   onClick
 }) => {
   const buttonTheme: NavigationButtonTheme = useComponentTheme(
@@ -27,13 +29,13 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
       {active && (
         <motion.div
           layoutId="selected-nav-button"
-          className={buttonTheme.selection}
+          className={buttonTheme.variant?.[variant]?.selection}
         />
       )}
       <button
         className={cn(
-          buttonTheme.content,
-          { [buttonTheme.active]: active },
+          buttonTheme?.variant?.[variant]?.content,
+          { [buttonTheme?.variant?.[variant]?.active]: active },
           className
         )}
         onClick={onClick}
