@@ -1,4 +1,4 @@
-import { NavigationBarTheme, NavigationButtonTheme } from '@/elements';
+import { NavigationTheme } from '@/elements';
 import { NavigationButton } from '@/elements/Navigation/NavigationButton';
 import { mergeDeep, useComponentTheme } from '@/utils';
 import { useState } from 'react';
@@ -357,42 +357,41 @@ export const Horizontal = () => {
 
 export const CustomTheme = () => {
   const [active, setActive] = useState<number>(1);
-  const barTheme: NavigationBarTheme = useComponentTheme('navigationBar');
-  const buttonTheme: NavigationButtonTheme =
-    useComponentTheme('navigationButton');
+  const navigationTheme: NavigationTheme = useComponentTheme('navigation');
 
-  const customBarTheme: NavigationBarTheme = mergeDeep(barTheme, {
-    base: 'flex flex-col p-4 gap-4 rounded-md shadow-[0_4px_20px_0_#e1e2e333_inset] bg-navigation-colors-background-container-base border border-navigation-colors-stroke-container-base'
-  });
-
-  const customButtonTheme: NavigationButtonTheme = mergeDeep(buttonTheme, {
-    variant: {
-      button: {
-        selection: `
+  const customTheme: NavigationTheme = mergeDeep(navigationTheme, {
+    bar: {
+      base: 'flex flex-col p-4 gap-4 rounded-md shadow-[0_4px_20px_0_#e1e2e333_inset] bg-navigation-colors-background-container-base border border-navigation-colors-stroke-container-base'
+    },
+    button: {
+      variant: {
+        button: {
+          selection: `
           absolute z-1 top-0 left-0 w-full h-full rounded-md border
           border-red-infernal-blade-a-700 bg-red-infernal-blade-a-500
           hover:border-red-infernal-blade-a-500 hover:bg-red-infernal-blade-a-500
         `
+        }
       }
     }
   });
 
   return (
     <NavigationBar
-      theme={customBarTheme}
+      theme={customTheme}
       className="h-[600px]"
       start={<div className="px-4">{logo}</div>}
       end={
         <div className="flex flex-col gap-2">
           <NavigationButton
-            theme={customButtonTheme}
+            theme={customTheme}
             active={active === 6}
             onClick={() => setActive(6)}
           >
             <HelpIcon />
           </NavigationButton>
           <NavigationButton
-            theme={customButtonTheme}
+            theme={customTheme}
             active={active === 7}
             onClick={() => setActive(7)}
           >
@@ -402,35 +401,35 @@ export const CustomTheme = () => {
       }
     >
       <NavigationButton
-        theme={customButtonTheme}
+        theme={customTheme}
         active={active === 1}
         onClick={() => setActive(1)}
       >
         <HomeIcon />
       </NavigationButton>
       <NavigationButton
-        theme={customButtonTheme}
+        theme={customTheme}
         active={active === 2}
         onClick={() => setActive(2)}
       >
         <DashboardIcon />
       </NavigationButton>
       <NavigationButton
-        theme={customButtonTheme}
+        theme={customTheme}
         active={active === 3}
         onClick={() => setActive(3)}
       >
         <AlertsIcon />
       </NavigationButton>
       <NavigationButton
-        theme={customButtonTheme}
+        theme={customTheme}
         active={active === 4}
         onClick={() => setActive(4)}
       >
         <IntelligenceIcon />
       </NavigationButton>
       <NavigationButton
-        theme={customButtonTheme}
+        theme={customTheme}
         active={active === 5}
         onClick={() => setActive(5)}
       >

@@ -1,7 +1,7 @@
-import { NavigationButtonTheme } from '@/elements';
 import { cn, useComponentTheme } from '@/utils';
 import { motion } from 'motion/react';
 import React, { FC, PropsWithChildren } from 'react';
+import { NavigationTheme } from './NavigationTheme';
 
 interface NavigationButtonProps extends PropsWithChildren {
   /**
@@ -22,7 +22,7 @@ interface NavigationButtonProps extends PropsWithChildren {
   /**
    * Custom theme for the navigation button.
    */
-  theme?: NavigationButtonTheme;
+  theme?: NavigationTheme;
 
   /**
    * Callback function to handle click events on the button.
@@ -38,23 +38,23 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
   variant = 'button',
   onClick
 }) => {
-  const buttonTheme: NavigationButtonTheme = useComponentTheme(
-    'navigationButton',
+  const navigationTheme: NavigationTheme = useComponentTheme(
+    'navigation',
     theme
   );
 
   return (
-    <div className={buttonTheme.base}>
+    <div className={navigationTheme.button.base}>
       {active && (
         <motion.div
           layoutId="selected-nav-button"
-          className={buttonTheme.variant?.[variant]?.selection}
+          className={navigationTheme.button.variant?.[variant]?.selection}
         />
       )}
       <button
         className={cn(
-          buttonTheme?.variant?.[variant]?.content,
-          { [buttonTheme?.variant?.[variant]?.active]: active },
+          navigationTheme.button?.variant?.[variant]?.content,
+          { [navigationTheme.button?.variant?.[variant]?.active]: active },
           className
         )}
         onClick={onClick}

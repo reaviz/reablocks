@@ -17,10 +17,8 @@ import {
   arrowTheme,
   chipTheme,
   ChipTheme,
-  navigationBarTheme,
-  navigationButtonTheme,
-  NavigationBarTheme,
-  NavigationButtonTheme
+  NavigationTheme,
+  navigationTheme
 } from '@/elements';
 
 import {
@@ -162,8 +160,7 @@ export interface ReablocksTheme {
     stepper: StepperTheme;
     callout: CalloutTheme;
     backdrop: BackdropTheme;
-    navigationBar: NavigationBarTheme;
-    navigationButton: NavigationButtonTheme;
+    navigation: NavigationTheme;
   };
 }
 
@@ -215,8 +212,7 @@ export const theme: ReablocksTheme = {
     stepper: stepperTheme,
     callout: calloutTheme,
     backdrop: backdropTheme,
-    navigationBar: navigationBarTheme,
-    navigationButton: navigationButtonTheme
+    navigation: navigationTheme
   }
 };
 

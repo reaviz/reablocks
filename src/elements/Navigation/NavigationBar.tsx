@@ -1,6 +1,6 @@
 import { cn, useComponentTheme } from '@/utils';
 import React, { FC, PropsWithChildren, ReactNode } from 'react';
-import { NavigationBarTheme } from './NavigationBarTheme';
+import { NavigationTheme } from './NavigationTheme';
 
 export interface NavigationBarProps extends PropsWithChildren {
   /**
@@ -41,7 +41,7 @@ export interface NavigationBarProps extends PropsWithChildren {
   /**
    * Theme overrides for the navigation bar.
    */
-  theme?: NavigationBarTheme;
+  theme?: NavigationTheme;
 }
 
 export const NavigationBar: FC<NavigationBarProps> = ({
@@ -55,27 +55,33 @@ export const NavigationBar: FC<NavigationBarProps> = ({
   children,
   theme
 }) => {
-  const barTheme: NavigationBarTheme = useComponentTheme(
-    'navigationBar',
+  const navigationTheme: NavigationTheme = useComponentTheme(
+    'navigation',
     theme
   );
 
   return (
     <nav
       role="navigation"
-      className={cn(barTheme.base, className, barTheme.direction?.[direction])}
+      className={cn(
+        navigationTheme.bar.base,
+        className,
+        navigationTheme.bar.direction?.[direction]
+      )}
     >
-      <div className={cn(barTheme.start, classNameStart)}>{start}</div>
+      <div className={cn(navigationTheme.bar.start, classNameStart)}>
+        {start}
+      </div>
       <div
         className={cn(
-          barTheme.navigation,
+          navigationTheme.bar.navigation,
           classNameNavigation,
-          barTheme.direction?.[direction]
+          navigationTheme.bar.direction?.[direction]
         )}
       >
         {children}
       </div>
-      <div className={cn(barTheme.end, classNameEnd)}>{end}</div>
+      <div className={cn(navigationTheme.bar.end, classNameEnd)}>{end}</div>
     </nav>
   );
 };
