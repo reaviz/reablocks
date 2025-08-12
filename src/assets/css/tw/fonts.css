@@ -1,7 +1,7 @@
 @theme inline {
   /* Fonts */
-  --font-sans: Inter, sans-serif;
-  --font-mono: Fira Code, monospace;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
 
   /* Font sizes */
   --text-xs: 0.625rem; /* 10px */
