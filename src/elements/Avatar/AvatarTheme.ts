@@ -11,7 +11,9 @@ export const avatarTheme: AvatarTheme = {
     bg-avatar-colors-background-container-resting 
     after:border-avatar-colors-stroke-container-resting
   `,
-  clickable:
-    'hover:bg-avatar-colors-background-container-hover hover:after:border-avatar-colors-stroke-container-hover',
+  clickable: `
+    hover:bg-avatar-colors-background-container-hover hover:after:border-avatar-colors-stroke-container-hover
+    focus-visible:bg-avatar-colors-background-container-hover focus-visible:after:border-avatar-colors-stroke-container-hover
+  `,
   rounded: 'rounded-full after:rounded-full'
 };
