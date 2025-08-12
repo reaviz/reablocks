@@ -16,7 +16,8 @@ const COMPONENTS_MAP: Record<string, string> = {
   h6: 'h6',
   body: 'span',
   label: 'label',
-  button: 'span'
+  button: 'span',
+  monospace: 'span'
 };
 
 export interface TypographyProps

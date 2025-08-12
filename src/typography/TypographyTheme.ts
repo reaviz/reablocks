@@ -2,7 +2,6 @@ export interface TypographySize {
   small?: string;
   medium?: string;
   large?: string;
-  monospace?: string;
   [key: string]: string;
 }
 
@@ -38,6 +37,7 @@ export interface TypographyTheme {
     body?: TypographyVariant;
     label?: TypographyVariant;
     button?: TypographyVariant;
+    monospace?: TypographyVariant;
     [key: string]: TypographyVariant;
   };
 }
@@ -89,9 +89,11 @@ export const typographyTheme: TypographyTheme = {
       base: 'font-serif text-sm font-semibold leading-3',
       size: {
         large: 'text-md leading-3.5',
-        small: 'text-xs',
-        monospace: 'font-mono font-medium text-xs'
+        small: 'text-xs'
       }
+    },
+    monospace: {
+      base: 'font-mono font-medium text-xs leading-3'
     }
   }
 };

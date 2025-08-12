@@ -327,16 +327,16 @@ export const Label = () => (
     <Typography variant="label" size="small">
       Quantum flux stabilizer online protocol
     </Typography>
-    <Divider />
-    <Divider />
-    <Divider />
-    <Typography variant="label" size="monospace">
-      Label Mono
-    </Typography>
+  </div>
+);
+
+export const Monospace = () => (
+  <div className="grid grid-cols-[150px_250px_1fr] gap-6 auto-rows-[20px] justify-center items-center">
+    <Typography variant="monospace">Monospace</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
       Share Tech Mono | Medium | 10 / 12 / 0
     </Typography>
-    <Typography variant="label" size="monospace">
+    <Typography variant="monospace">
       Quantum flux stabilizer online protocol
     </Typography>
   </div>
