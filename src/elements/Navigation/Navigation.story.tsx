@@ -366,11 +366,15 @@ export const CustomTheme = () => {
   });
 
   const customButtonTheme: NavigationButtonTheme = mergeDeep(buttonTheme, {
-    selection: `
-      absolute z-1 top-0 left-0 w-full h-full rounded-md border
-      border-red-infernal-blade-a-700 bg-red-infernal-blade-a-500
-      hover:border-red-infernal-blade-a-500 hover:bg-red-infernal-blade-a-500
-    `
+    variant: {
+      button: {
+        selection: `
+          absolute z-1 top-0 left-0 w-full h-full rounded-md border
+          border-red-infernal-blade-a-700 bg-red-infernal-blade-a-500
+          hover:border-red-infernal-blade-a-500 hover:bg-red-infernal-blade-a-500
+        `
+      }
+    }
   });
 
   return (
