@@ -2,6 +2,7 @@ interface NavigationButtonVariant {
   content: string;
   active: string;
   selection: string;
+  disabled: string;
 }
 
 export interface NavigationTheme {
@@ -44,40 +45,50 @@ export const navigationTheme: NavigationTheme = {
     variant: {
       button: {
         content: `
-        w-full h-full outline-none relative z-10
-        p-4 rounded-md border border-transparent text-navigation-colors-text-resting 
-        hover:text-navigation-colors-text-hover hover:bg-navigation-colors-background-row-items-hover hover:border-navigation-colors-stroke-row-items-hover
-        focus-visible:text-navigation-colors-text-hover focus-visible:bg-navigation-colors-background-row-items-hover focus-visible:border-navigation-colors-stroke-row-items-hover
-        transition-color duration-300 ease-in-out
-      `,
+          w-full h-full outline-none relative z-10
+          p-4 rounded-md border border-transparent text-navigation-colors-text-resting 
+          hover:text-navigation-colors-text-hover hover:bg-navigation-colors-background-row-items-hover hover:border-navigation-colors-stroke-row-items-hover
+          focus-visible:text-navigation-colors-text-hover focus-visible:bg-navigation-colors-background-row-items-hover focus-visible:border-navigation-colors-stroke-row-items-hover
+          transition-colors ease-out duration-300
+        `,
         active: `
-        text-navigation-colors-text-selected 
-        hover:text-navigation-colors-text-selected
-        focus-visible:text-navigation-colors-text-selected
-      `,
+          font-semibold
+          text-navigation-colors-text-selected 
+          hover:text-navigation-colors-text-selected
+          focus-visible:text-navigation-colors-text-selected
+        `,
         selection: `
-        absolute z-1 top-0 left-0 w-full h-full rounded-md border
-        border-navigation-colors-stroke-row-items-selected bg-navigation-colors-background-row-items-selected
-        hover:border-navigation-colors-stroke-row-items-selected hover:bg-navigation-colors-background-row-items-selected
-        focus-visible:border-navigation-colors-stroke-row-items-selected focus-visible:bg-navigation-colors-background-row-items-selected
-      `
+          absolute z-1 top-0 left-0 w-full h-full rounded-md border
+          border-navigation-colors-stroke-row-items-selected bg-navigation-colors-background-row-items-selected
+          hover:border-navigation-colors-stroke-row-items-selected hover:bg-navigation-colors-background-row-items-selected
+          focus-visible:border-navigation-colors-stroke-row-items-selected focus-visible:bg-navigation-colors-background-row-items-selected
+        `,
+        disabled: `
+          opacity-40 cursor-not-allowed font-normal text-navigation-colors-text-resting bg-transparent border-transparent
+          hover:text-navigation-colors-text-resting hover:bg-transparent hover:border-transparent
+        `
       },
       underline: {
         content: `
-        relative z-10 p-4 pb-8 outline-none
-        text-navigation-colors-text-resting 
-        hover:text-navigation-colors-text-hover
-        focus-visible:text-navigation-colors-text-hover
-        transition-color duration-300 ease-in-out
-      `,
+          relative z-10 p-4 pb-8 outline-none
+          text-navigation-colors-text-resting 
+          hover:text-navigation-colors-text-hover
+          focus-visible:text-navigation-colors-text-hover
+          transition-colors ease-out duration-300
+        `,
         active: `
-        text-navigation-colors-text-selected
-        hover:text-navigation-colors-text-selected
-        focus-visible:text-navigation-colors-text-selected
-      `,
+          font-semibold
+          text-navigation-colors-text-selected
+          hover:text-navigation-colors-text-selected
+          focus-visible:text-navigation-colors-text-selected
+        `,
         selection: `
-        absolute z-1 bottom-0 w-full h-0.5 rounded-md bg-navigation-colors-stroke-detail-line-active
-      `
+          absolute z-1 bottom-0 w-full h-0.5 rounded-md bg-navigation-colors-stroke-detail-line-active
+        `,
+        disabled: `
+          opacity-40 cursor-not-allowed font-normal text-navigation-colors-text-resting bg-transparent border-transparent
+          hover:text-navigation-colors-text-resting hover:bg-transparent hover:border-transparent
+        `
       }
     }
   }

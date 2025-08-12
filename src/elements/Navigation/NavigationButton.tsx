@@ -25,6 +25,16 @@ interface NavigationButtonProps extends PropsWithChildren {
   theme?: NavigationTheme;
 
   /**
+   * Disables the button, preventing interaction.
+   */
+  disabled?: boolean;
+
+  /**
+   * Disables the animation on click.
+   */
+  disableAnimation?: boolean;
+
+  /**
    * Callback function to handle click events on the button.
    */
   onClick?: () => void;
@@ -35,6 +45,8 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
   active,
   children,
   theme,
+  disabled,
+  disableAnimation,
   variant = 'button',
   onClick
 }) => {
@@ -47,20 +59,23 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
     <div className={navigationTheme.button.base}>
       {active && (
         <motion.div
-          layoutId="selected-nav-button"
+          layoutId={disableAnimation ? undefined : 'selected-nav-button'}
           className={navigationTheme.button.variant?.[variant]?.selection}
         />
       )}
-      <button
+      <motion.button
+        disabled={disabled}
+        whileTap={{ scale: disabled || disableAnimation || active ? 1 : 0.9 }}
         className={cn(
           navigationTheme.button?.variant?.[variant]?.content,
           { [navigationTheme.button?.variant?.[variant]?.active]: active },
+          { [navigationTheme.button?.variant?.[variant]?.disabled]: disabled },
           className
         )}
         onClick={onClick}
       >
         {children}
-      </button>
+      </motion.button>
     </div>
   );
 };

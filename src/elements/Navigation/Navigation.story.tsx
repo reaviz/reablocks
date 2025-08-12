@@ -242,7 +242,11 @@ export const Text = () => {
           <span>Intelligence</span>
         </div>
       </NavigationButton>
-      <NavigationButton active={active === 5} onClick={() => setActive(5)}>
+      <NavigationButton
+        disabled
+        active={active === 5}
+        onClick={() => setActive(5)}
+      >
         <div className="flex items-center gap-2">
           <ReportsIcon />
           <span>Reports</span>
@@ -282,7 +286,11 @@ export const Icons = () => {
       <NavigationButton active={active === 4} onClick={() => setActive(4)}>
         <IntelligenceIcon />
       </NavigationButton>
-      <NavigationButton active={active === 5} onClick={() => setActive(5)}>
+      <NavigationButton
+        disabled
+        active={active === 5}
+        onClick={() => setActive(5)}
+      >
         <ReportsIcon />
       </NavigationButton>
     </NavigationBar>
@@ -345,7 +353,73 @@ export const Horizontal = () => {
         <IntelligenceIcon />
       </NavigationButton>
       <NavigationButton
+        disabled
         variant="underline"
+        active={active === 5}
+        onClick={() => setActive(5)}
+      >
+        <ReportsIcon />
+      </NavigationButton>
+    </NavigationBar>
+  );
+};
+
+export const AnimationDisabled = () => {
+  const [active, setActive] = useState<number>(1);
+
+  return (
+    <NavigationBar
+      className="h-[600px]"
+      start={<div className="px-4">{logo}</div>}
+      end={
+        <div className="flex flex-col gap-2">
+          <NavigationButton
+            disableAnimation
+            active={active === 6}
+            onClick={() => setActive(6)}
+          >
+            <HelpIcon />
+          </NavigationButton>
+          <NavigationButton
+            disableAnimation
+            active={active === 7}
+            onClick={() => setActive(7)}
+          >
+            <SettingsIcon />
+          </NavigationButton>
+        </div>
+      }
+    >
+      <NavigationButton
+        disableAnimation
+        active={active === 1}
+        onClick={() => setActive(1)}
+      >
+        <HomeIcon />
+      </NavigationButton>
+      <NavigationButton
+        disableAnimation
+        active={active === 2}
+        onClick={() => setActive(2)}
+      >
+        <DashboardIcon />
+      </NavigationButton>
+      <NavigationButton
+        disableAnimation
+        active={active === 3}
+        onClick={() => setActive(3)}
+      >
+        <AlertsIcon />
+      </NavigationButton>
+      <NavigationButton
+        disableAnimation
+        active={active === 4}
+        onClick={() => setActive(4)}
+      >
+        <IntelligenceIcon />
+      </NavigationButton>
+      <NavigationButton
+        disableAnimation
         active={active === 5}
         onClick={() => setActive(5)}
       >
