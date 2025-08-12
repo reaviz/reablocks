@@ -30,7 +30,8 @@ export const NavigationBar: FC<NavigationBarProps> = ({
   );
 
   return (
-    <div
+    <nav
+      role="navigation"
       className={cn(barTheme.base, className, barTheme.direction?.[direction])}
     >
       <div className={cn(barTheme.start, classNameTop)}>{start}</div>
@@ -44,6 +45,6 @@ export const NavigationBar: FC<NavigationBarProps> = ({
         {children}
       </div>
       <div className={cn(barTheme.end, classNameBottom)}>{end}</div>
-    </div>
+    </nav>
   );
 };
