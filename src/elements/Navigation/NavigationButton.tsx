@@ -4,10 +4,29 @@ import { motion } from 'motion/react';
 import React, { FC, PropsWithChildren } from 'react';
 
 interface NavigationButtonProps extends PropsWithChildren {
+  /**
+   * Custom class names for the navigation button.
+   */
   className?: string;
+
+  /**
+   * Variant of the navigation button.
+   */
   variant?: 'button' | 'underline';
+
+  /**
+   * Indicates if the button is active.
+   */
   active?: boolean;
+
+  /**
+   * Custom theme for the navigation button.
+   */
   theme?: NavigationButtonTheme;
+
+  /**
+   * Callback function to handle click events on the button.
+   */
   onClick?: () => void;
 }
 
