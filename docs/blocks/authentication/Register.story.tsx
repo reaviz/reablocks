@@ -46,16 +46,6 @@ const LogoIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const RadioTheme = {
-  ...radioTheme,
-  base: 'box-border leading-3',
-  radio: {
-    ...radioTheme.radio,
-    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-hidden focus-visible:border-primary-hover',
-    checked: 'border-primary'
-  }
-};
-
 export const Register = () => {
   const {
     control,
@@ -77,14 +67,14 @@ export const Register = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Welcome to Reablocks
           </h4>
-          <p className="text-base text-text-secondary font-sans">
+          <p className="text-base text-content-text-neutral-2 font-sans">
             Welcome! Let's get started by creating your account. Please provide
             your email address and choose a secure password to begin accessing
             our platform's features.
           </p>
         </div>
         <form
-          className="text-sm"
+          className="text-sm flex flex-col gap-4"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
           <Block label="Name">
@@ -156,40 +146,32 @@ export const Register = () => {
             />
           </Block>
           <Button
+            size="large"
             type="submit"
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-5 mb-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-5"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}
           </Button>
-          <div className="mt-5 text-sm text-text-secondary flex items-center justify-center gap-2">
+          <div className="text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               terms of service
-            </a>
+            </Button>
             and
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               privacy policy
-            </a>
+            </Button>
           </div>
-          <Divider className="mt-5 mb-5" variant="secondary" />
-          <div className="mt-5 text-text-secondary text-sm flex items-center justify-center gap-2">
+          <Divider disableMargins/>
+          <div className="text-content-text-neutral-2 text-sm flex items-center justify-center gap-2">
             Already have an account?
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button size="large" variant="text">
               Sign in
-            </a>
+            </Button>
           </div>
         </form>
       </Card>
@@ -219,7 +201,7 @@ export const RegisterFull = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Welcome to Reablocks
           </h4>
-          <p className="text-base text-text-secondary font-sans">
+          <p className="text-base text-content-text-neutral-2 font-sans">
             Excited to have you onboard! Start by creating your account to gain
             access to our platform. Simply provide your email, choose a
             password, and include any necessary information about your company
@@ -228,7 +210,7 @@ export const RegisterFull = () => {
           <Divider variant="secondary" className="mt-4" />
         </div>
         <form
-          className="text-sm"
+          className="text-sm flex flex-col gap-4"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
           <div className="grid grid-cols-2 gap-4">
@@ -310,14 +292,12 @@ export const RegisterFull = () => {
               />
             </Block>
           </div>
-          <h6 className="text-lg font-bold mb-4">Select a package</h6>
+          <h6 className="text-lg font-bold">Select a package</h6>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card
-              className={cn(
-                'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
+              className={cn('p-5',
                 {
-                  'border-primary dark:bg-black dark:hover:bg-black light:bg-athens-gray light:hover:border-primary':
-                    selection === 'starter'
+                  'bg-background-neutral-inverse-raised-2': selection === 'starter'
                 }
               )}
               onClick={() => setSelection('starter')}
@@ -327,7 +307,6 @@ export const RegisterFull = () => {
                 <Radio
                   size="small"
                   checked={selection === 'starter'}
-                  theme={RadioTheme}
                 />
               </Stack>
               <Stack direction="column" alignItems="start" dense>
@@ -377,11 +356,9 @@ export const RegisterFull = () => {
               </Stack>
             </Card>
             <Card
-              className={cn(
-                'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
+              className={cn('p-5',
                 {
-                  'border-primary dark:bg-black dark:hover:bg-black light:bg-athens-gray light:hover:border-primary':
-                    selection === 'premium'
+                  'bg-background-neutral-inverse-raised-2': selection === 'premium'
                 }
               )}
               onClick={() => setSelection('premium')}
@@ -391,7 +368,6 @@ export const RegisterFull = () => {
                 <Radio
                   size="small"
                   checked={selection === 'premium'}
-                  theme={RadioTheme}
                 />
               </Stack>
               <Stack direction="column" alignItems="start" dense>
@@ -441,11 +417,9 @@ export const RegisterFull = () => {
               </Stack>
             </Card>
             <Card
-              className={cn(
-                'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
+              className={cn('p-5',
                 {
-                  'border-primary dark:bg-black dark:hover:bg-black light:bg-athens-gray light:hover:border-primary':
-                    selection === 'enterprise'
+                  'bg-background-neutral-inverse-raised-2': selection === 'enterprise'
                 }
               )}
               onClick={() => setSelection('enterprise')}
@@ -455,7 +429,6 @@ export const RegisterFull = () => {
                 <Radio
                   size="small"
                   checked={selection === 'enterprise'}
-                  theme={RadioTheme}
                 />
               </Stack>
               <Stack direction="column" alignItems="start" dense>
@@ -507,21 +480,18 @@ export const RegisterFull = () => {
           </div>
           <Divider variant="secondary" className="mt-4" />
           <div className="flex flex-col items-center justify-between md:flex-row">
-            <div className="text-text-secondary text-sm flex items-center justify-center gap-2">
+            <div className="text-content-text-neutral-2 text-sm flex items-center justify-center gap-2">
               Already have an account?
-              <a
-                href="#"
-                className="text-primary hover:text-primary-hover text-lg"
-              >
+              <Button variant="text" size="large">
                 Sign in
-              </a>
+              </Button>
             </div>
             <div>
               <Button
+                size="large"
                 type="submit"
                 variant="filled"
                 color="primary"
-                className="mt-5 mb-2 px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Creating...' : 'Create Account →'}
@@ -553,14 +523,14 @@ export const RegisterV2 = () => {
           <h4 className="text-2xl font-sans font-bold mb-0 text-center">
             Welcome to Reablocks
           </h4>
-          <p className="text-base text-text-secondary font-sans text-center">
+          <p className="text-base text-content-text-neutral-2 font-sans text-center">
             Welcome! Let's get started by creating your account. Please provide
             your email address and choose a secure password to begin accessing
             our platform's features.
           </p>
         </div>
         <form
-          className="text-sm"
+          className="text-sm flex flex-col gap-4"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
           <div className="grid grid-cols-2 gap-2.5">
@@ -653,40 +623,31 @@ export const RegisterV2 = () => {
             />
           </Block>
           <Button
+            size="large"
             type="submit"
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-5 mb-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Creating...' : 'Create Account →'}
           </Button>
-          <div className="mt-5 text-sm text-text-secondary flex items-center justify-center gap-2">
+          <div className="text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               terms of service
-            </a>
+            </Button>
             and
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               privacy policy
-            </a>
+            </Button>
           </div>
-          <Divider className="mt-5 mb-5" variant="secondary" />
-          <div className="mt-5 text-text-secondary text-sm flex items-center justify-center gap-2">
+          <Divider />
+          <div className="text-content-text-neutral-2 text-sm flex items-center justify-center gap-2">
             Already have an account?
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" size="large">
               Sign in
-            </a>
+            </Button>
           </div>
         </form>
       </Card>
@@ -715,7 +676,7 @@ export const RegisterWithSocial = () => {
             Welcome to Reablocks
           </h4>
           <div className="grid grid-cols-2 w-full gap-4 mt-5">
-            <Button variant="outline" size="large" fullWidth>
+            <Button color="secondary" variant="outline" size="large" fullWidth>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -726,7 +687,7 @@ export const RegisterWithSocial = () => {
                 <path d="M8 1.33325C4.3241 1.33325 1.33334 4.32402 1.33334 7.99992C1.33334 11.6758 4.3241 14.6666 8 14.6666C11.6759 14.6666 14.6667 11.6758 14.6667 7.99992C14.6667 7.68639 14.6385 7.38685 14.5996 7.09953C14.5834 6.97964 14.5242 6.8697 14.4331 6.79009C14.342 6.71049 14.2252 6.66661 14.1042 6.66658H8.16667C8.03406 6.6666 7.9069 6.71928 7.81313 6.81305C7.71937 6.90681 7.66668 7.03398 7.66667 7.16658V9.16658C7.66668 9.29919 7.71937 9.42636 7.81313 9.52012C7.9069 9.61389 8.03406 9.66657 8.16667 9.66658H11.2135C10.604 10.8406 9.41917 11.6666 8 11.6666C5.96885 11.6666 4.33334 10.0311 4.33334 7.99992C4.33334 5.96877 5.96885 4.33325 8 4.33325C8.93117 4.33325 9.77204 4.6829 10.4206 5.25578C10.516 5.33988 10.6398 5.38447 10.767 5.38048C10.8941 5.37649 11.0149 5.32422 11.1048 5.23429L12.5195 3.82023C12.5672 3.77261 12.6048 3.71584 12.63 3.65333C12.6552 3.59083 12.6674 3.52388 12.6661 3.4565C12.6648 3.38913 12.6498 3.32271 12.6222 3.26126C12.5945 3.1998 12.5547 3.14457 12.5052 3.09888C11.3213 2.00641 9.7384 1.33325 8 1.33325ZM8 2.33325C9.29223 2.33325 10.4608 2.78521 11.4115 3.51424L10.6699 4.25513C9.90801 3.70909 9.00943 3.33325 8 3.33325C6.3815 3.33325 4.95467 4.16481 4.11719 5.42114L3.31641 4.80851C4.33547 3.314 6.05004 2.33325 8 2.33325ZM2.83008 5.69588L3.6569 6.32804C3.45539 6.84888 3.33334 7.40918 3.33334 7.99992C3.33334 8.59066 3.45539 9.15096 3.6569 9.67179L2.83008 10.304C2.51623 9.59914 2.33334 8.82279 2.33334 7.99992C2.33334 7.17704 2.51623 6.40069 2.83008 5.69588ZM8.66667 7.66658H13.6413C13.6491 7.77735 13.6667 7.8898 13.6667 7.99992C13.6667 9.4142 13.1331 10.6893 12.28 11.6809L11.4994 11.0045C11.9269 10.5069 12.2894 9.95334 12.4779 9.30656C12.4996 9.23206 12.5037 9.15353 12.4898 9.07718C12.4759 9.00083 12.4444 8.92876 12.3979 8.86667C12.3513 8.80458 12.291 8.75418 12.2216 8.71945C12.1522 8.68472 12.0756 8.66662 11.998 8.66658H8.66667V7.66658ZM4.11719 10.5787C4.95467 11.835 6.3815 12.6666 8 12.6666C9.05208 12.6666 10.0221 12.3145 10.8034 11.7245L11.5592 12.3801C10.5847 13.1726 9.35741 13.6666 8 13.6666C6.05004 13.6666 4.33547 12.6858 3.31641 11.1913L4.11719 10.5787Z" />
               </svg>
             </Button>
-            <Button variant="outline" size="large" fullWidth>
+            <Button color="secondary" variant="outline" size="large" fullWidth>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -739,9 +700,9 @@ export const RegisterWithSocial = () => {
             </Button>
           </div>
           <Stack className="w-full my-7">
-            <Divider variant="secondary" />
+            <Divider />
             or
-            <Divider variant="secondary" />
+            <Divider />
           </Stack>
         </div>
         <form
@@ -834,48 +795,37 @@ export const RegisterWithSocial = () => {
             />
           </Block>
           <div className="text-right">
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text">
               Forgot Password?
-            </a>
+            </Button>
           </div>
           <Button
+            size="large"
             type="submit"
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 mb-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-7"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}
           </Button>
-          <div className="mt-5 text-sm text-text-secondary flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               terms of service
-            </a>
+            </Button>
             and
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               privacy policy
-            </a>
+            </Button>
           </div>
-          <Divider className="mt-5 mb-5" variant="secondary" />
-          <div className="mt-5 text-text-secondary text-sm flex items-center justify-center gap-2">
+          <Divider className="mt-5" />
+          <div className="text-content-text-neutral-2 text-sm flex items-center justify-center gap-2">
             Already have an account?
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" size="large">
               Sign in
-            </a>
+            </Button>
           </div>
         </form>
       </Card>
