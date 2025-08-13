@@ -975,9 +975,9 @@ export const Mfa = () => {
       animate={{ y: 0, opacity: 1 }}
       className="mt-10 sm:mx-auto sm:w-full md:w-[600px]"
     >
-      <Card className="w-full">
+      <Card className="w-full p-7">
         <div className="flex flex-col items-center justify-center pt-2 pb-5 text-center">
-          <div className="p-3 border border-secondary-inactive rounded-sm mb-3">
+          <div className="p-3 border border-stroke-neutral-3 rounded-sm mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -991,7 +991,7 @@ export const Mfa = () => {
           <h1 className="mt-2 mb-0 text-2xl font-sans font-bold">
             One Time Password
           </h1>
-          <div className="text-text-secondary text-base">
+          <div className="text-content-text-neutral-2 text-base">
             Please verify your identity using your registered email or phone
             number and follow the prompts to complete the password reset
             process.
@@ -1018,33 +1018,32 @@ export const Mfa = () => {
             />
           </Block>
           <Button
+            size="large"
             type="submit"
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-7"
             disabled={isSubmitting}
+            startAdornment={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="currentColor"
+              >
+                <path d="M8.00002 2.66669V0.666687L5.33335 3.33335L8.00002 6.00002V4.00002C10.2067 4.00002 12 5.79335 12 8.00002C12 8.67335 11.8334 9.31335 11.5334 9.86669L12.5067 10.84C13.0267 10.02 13.3334 9.04669 13.3334 8.00002C13.3334 5.05335 10.9467 2.66669 8.00002 2.66669ZM8.00002 12C5.79335 12 4.00002 10.2067 4.00002 8.00002C4.00002 7.32669 4.16669 6.68669 4.46669 6.13335L3.49335 5.16002C2.97335 5.98002 2.66669 6.95335 2.66669 8.00002C2.66669 10.9467 5.05335 13.3334 8.00002 13.3334V15.3334L10.6667 12.6667L8.00002 10V12Z" />
+              </svg>
+            }
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-            >
-              <path d="M8.00002 2.66669V0.666687L5.33335 3.33335L8.00002 6.00002V4.00002C10.2067 4.00002 12 5.79335 12 8.00002C12 8.67335 11.8334 9.31335 11.5334 9.86669L12.5067 10.84C13.0267 10.02 13.3334 9.04669 13.3334 8.00002C13.3334 5.05335 10.9467 2.66669 8.00002 2.66669ZM8.00002 12C5.79335 12 4.00002 10.2067 4.00002 8.00002C4.00002 7.32669 4.16669 6.68669 4.46669 6.13335L3.49335 5.16002C2.97335 5.98002 2.66669 6.95335 2.66669 8.00002C2.66669 10.9467 5.05335 13.3334 8.00002 13.3334V15.3334L10.6667 12.6667L8.00002 10V12Z" />
-            </svg>
             {isSubmitting ? 'Verifying...' : 'Verify'}
           </Button>
-          <div className="text-center text-text-secondary text-sm mt-5">
+          <div className="text-center text-content-text-neutral-2 text-sm mt-5">
             Are you facing any problems with receiving the code?
           </div>
-          <div className="mt-2.5 mb-5 text-text-secondary text-sm flex items-center justify-center gap-5">
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg inline-flex items-center gap-2"
-            >
-              Resend Code
+          <div className="mt-2.5 mb-5 text-content-text-neutral-2 text-sm flex items-center justify-center gap-5">
+            <Button size="large" variant="text" endAdornment={
               <svg
                 width="17"
                 height="16"
@@ -1054,17 +1053,16 @@ export const Mfa = () => {
               >
                 <path d="M13.1667 5.33335L10.5 8.00002H12.5C12.5 10.2067 10.7067 12 8.50002 12C7.82669 12 7.18669 11.8334 6.63335 11.5334L5.66002 12.5067C6.48002 13.0267 7.45335 13.3334 8.50002 13.3334C11.4467 13.3334 13.8334 10.9467 13.8334 8.00002H15.8334L13.1667 5.33335ZM4.50002 8.00002C4.50002 5.79335 6.29335 4.00002 8.50002 4.00002C9.17335 4.00002 9.81335 4.16669 10.3667 4.46669L11.34 3.49335C10.52 2.97335 9.54669 2.66669 8.50002 2.66669C5.55335 2.66669 3.16669 5.05335 3.16669 8.00002H1.16669L3.83335 10.6667L6.50002 8.00002H4.50002Z" />
               </svg>
-            </a>
+            }>
+              Resend Code
+            </Button>
           </div>
-          <Divider variant="secondary" className="my-4" />
-          <div className="mt-5 text-text-secondary text-sm flex items-center justify-center gap-5">
-            <span className="text-text-secondary text-sm">
+          <Divider />
+          <div className="mt-5 text-content-text-neutral-2 text-sm flex items-center justify-center gap-5">
+            <span className="text-content-text-neutral-2 text-sm">
               Remember your password?
             </span>
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg inline-flex items-center gap-2"
-            >
+            <Button size="large" variant="text" startAdornment={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
@@ -1073,9 +1071,10 @@ export const Mfa = () => {
                 fill="currentColor"
               >
                 <path d="M13.8334 7.33335H5.72002L9.44669 3.60669L8.50002 2.66669L3.16669 8.00002L8.50002 13.3334L9.44002 12.3934L5.72002 8.66669H13.8334V7.33335Z" />
-              </svg>{' '}
+              </svg>
+            }>
               Go Back
-            </a>
+            </Button>
           </div>
         </form>
       </Card>
@@ -1099,12 +1098,12 @@ export const MfaLogin = () => {
       <Card className="w-full p-[50px]">
         <Stack justifyContent="spaceBetween">
           <LogoIcon className="h-[30px] w-auto" />
-          <a href="#" className="text-lg text-primary font-semibold">
+          <Button size="large" variant="text">
             New to Reablocks?
-          </a>
+          </Button>
         </Stack>
         <div className="flex flex-col items-center justify-center pb-5 mt-[190px] text-center">
-          <div className="p-3 bg-primary rounded-sm mb-3">
+          <div className="p-3 bg-background-brand-base rounded-sm mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -1118,7 +1117,7 @@ export const MfaLogin = () => {
           <h1 className="mt-2 mb-0 text-2xl font-sans font-bold">
             Enter your code
           </h1>
-          <div className="text-text-secondary text-base">
+          <div className="text-content-text-neutral-2 text-base">
             We sent a code to{' '}
             <a href="#" className="text-primary">
               austin@goodcode.us
@@ -1145,15 +1144,11 @@ export const MfaLogin = () => {
               )}
             />
           </Block>
-          <Stack justifyContent="spaceBetween" className="mb-[190px]">
-            <div className="text-center text-text-secondary text-base">
+          <Stack justifyContent="spaceBetween" className="mt-2 mb-[190px]">
+            <div className="text-center text-content-text-neutral-2 text-base">
               Didn't receive a email?
             </div>
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg inline-flex items-center gap-2"
-            >
-              Click to resend
+            <Button variant="text" className="p-0" endAdornment={
               <svg
                 width="17"
                 height="16"
@@ -1163,14 +1158,17 @@ export const MfaLogin = () => {
               >
                 <path d="M13.1667 5.33335L10.5 8.00002H12.5C12.5 10.2067 10.7067 12 8.50002 12C7.82669 12 7.18669 11.8334 6.63335 11.5334L5.66002 12.5067C6.48002 13.0267 7.45335 13.3334 8.50002 13.3334C11.4467 13.3334 13.8334 10.9467 13.8334 8.00002H15.8334L13.1667 5.33335ZM4.50002 8.00002C4.50002 5.79335 6.29335 4.00002 8.50002 4.00002C9.17335 4.00002 9.81335 4.16669 10.3667 4.46669L11.34 3.49335C10.52 2.97335 9.54669 2.66669 8.50002 2.66669C5.55335 2.66669 3.16669 5.05335 3.16669 8.00002H1.16669L3.83335 10.6667L6.50002 8.00002H4.50002Z" />
               </svg>
-            </a>
+            }>
+              Click to resend
+            </Button>
           </Stack>
           <Button
+            size="large"
             type="submit"
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-7"
             disabled={isSubmitting}
           >
             Continue
@@ -1208,7 +1206,7 @@ export const MfaAuthenticator = () => {
           <h1 className="mb-0 text-2xl font-sans font-bold">
             Set up your two-factor authentication.
           </h1>
-          <div className="text-text-secondary">
+          <div className="text-content-text-neutral-2">
             Scan this code with your Google authenticator app to continue this
             process.
           </div>
@@ -1226,7 +1224,7 @@ export const MfaAuthenticator = () => {
                 <div className="grid grid-cols-7 items-center gap-4 mt-2">
                   {['', '', '', '', '', ''].map((value, idx) => (
                     <React.Fragment key={idx}>
-                      {idx === 3 && <Divider variant="secondary" />}
+                      {idx === 3 && <Divider />}
                       <Input
                         {...rest}
                         disabled={isSubmitting}
@@ -1239,21 +1237,22 @@ export const MfaAuthenticator = () => {
               )}
             />
           </Block>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-2 gap-4 mt-7">
             <Button
-              variant="outline"
-              className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! hover:border-secondary-hover focus:border-secondary-hover focus:outline-hidden transition-colors"
+              size="large"
+              variant="filled"
+              color="secondary"
               disabled={isSubmitting}
               fullWidth
             >
               Discard
             </Button>
             <Button
+              size="large"
               type="submit"
               fullWidth
               variant="filled"
               color="primary"
-              className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
               disabled={isSubmitting}
             >
               {isSubmitting ? 'Confirming...' : 'Confirm'}
