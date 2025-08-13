@@ -62,7 +62,7 @@ export const Login = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-text-secondary font-sans">
+          <span className="text-base text-content-text-neutral-2 font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -82,11 +82,12 @@ export const Login = () => {
             />
           </Block>
           <Button
+            size="large"
             type="submit"
             variant="filled"
             color="primary"
             disabled={isSubmitting}
-            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-7"
             startAdornment={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -111,8 +112,9 @@ export const Login = () => {
           >
             {isSubmitting ? 'Logging in...' : 'Login'}
           </Button>
-          <Divider className="my-7" variant="secondary" />
+          <Divider className="my-7" />
           <Button
+            size="large"
             variant="outline"
             startAdornment={
               <svg
@@ -129,21 +131,15 @@ export const Login = () => {
           >
             Sign up with Google
           </Button>
-          <div className="mt-5 text-sm text-text-secondary flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               terms of service
-            </a>
+            </Button>
             and
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               privacy policy
-            </a>
+            </Button>
           </div>
         </form>
       </Card>
@@ -170,7 +166,7 @@ export const LoginBasic = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-text-secondary font-sans">
+          <span className="text-base text-content-text-neutral-2 font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -190,11 +186,12 @@ export const LoginBasic = () => {
             />
           </Block>
           <Button
+            size="large"
             type="submit"
             variant="filled"
             color="primary"
             disabled={isSubmitting}
-            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-7"
             startAdornment={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -219,8 +216,9 @@ export const LoginBasic = () => {
           >
             {isSubmitting ? 'Logging in...' : 'Login'}
           </Button>
-          <Divider className="my-7" variant="secondary" />
+          <Divider className="my-7" />
           <Button
+            size="large"
             variant="outline"
             startAdornment={
               <svg
@@ -237,21 +235,15 @@ export const LoginBasic = () => {
           >
             Sign up
           </Button>
-          <div className="mt-5 text-sm text-text-secondary flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               terms of service
-            </a>
+            </Button>
             and
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               privacy policy
-            </a>
+            </Button>
           </div>
         </form>
       </Card>
@@ -281,7 +273,7 @@ export const LoginFull = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-text-secondary font-sans">
+          <span className="text-base text-content-text-neutral-2 font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
           <form
@@ -307,38 +299,42 @@ export const LoginFull = () => {
             </Block>
             <Stack direction="column">
               <Button
+                size="large"
                 type="submit"
                 variant="filled"
                 color="primary"
-                className="mt-7 rounded-xs px-4 py-2 font-semibold flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+                className="mt-7"
                 disabled={isSubmitting}
                 fullWidth
+                startAdornment={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M7.33333 4.66667L6.4 5.6L8.13333 7.33333H1.33333V8.66667H8.13333L6.4 10.4L7.33333 11.3333L10.6667 8L7.33333 4.66667ZM13.3333 12.6667H8V14H13.3333C14.0667 14 14.6667 13.4 14.6667 12.6667V3.33333C14.6667 2.6 14.0667 2 13.3333 2H8V3.33333H13.3333V12.6667Z"
+                      fill="white"
+                    />
+                  </svg>
+                }
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M7.33333 4.66667L6.4 5.6L8.13333 7.33333H1.33333V8.66667H8.13333L6.4 10.4L7.33333 11.3333L10.6667 8L7.33333 4.66667ZM13.3333 12.6667H8V14H13.3333C14.0667 14 14.6667 13.4 14.6667 12.6667V3.33333C14.6667 2.6 14.0667 2 13.3333 2H8V3.33333H13.3333V12.6667Z"
-                    fill="white"
-                  />
-                </svg>
                 {isSubmitting ? 'Logging in...' : 'Login'}
               </Button>
             </Stack>
             <Stack className="my-7">
-              <Divider variant="secondary" />
-              <span className="whitespace-nowrap text-sm dark:text-waterloo light:text-charade">
+              <Divider/>
+              <span className="whitespace-nowrap text-sm text-content-text-neutral-2">
                 or with
               </span>
-              <Divider variant="secondary" />
+              <Divider />
             </Stack>
             <div className="flex flex-col w-full gap-4">
               <Button
-                className="px-4 py-2 font-semibold dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-hidden transition-colors"
+                size="large"
+                color="secondary"
                 startAdornment={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -355,7 +351,8 @@ export const LoginFull = () => {
                 Sign in with Google
               </Button>
               <Button
-                className="px-4 py-2 font-semibold dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-hidden transition-colors"
+                size="large"
+                color="secondary"
                 startAdornment={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -372,7 +369,8 @@ export const LoginFull = () => {
                 Sign up with Facebook
               </Button>
               <Button
-                className="px-4 py-2 font-semibold dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-hidden transition-colors"
+                size="large"
+                color="secondary"
                 startAdornment={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -389,21 +387,15 @@ export const LoginFull = () => {
                 Sign up with Microsoft
               </Button>
             </div>
-            <div className="mt-5 text-sm text-text-secondary flex items-center justify-center gap-1.5">
+            <div className="mt-5 text-sm text-content-text-neutral-2 flex items-center justify-center gap-1.5">
               By signing in, you agree to our
-              <a
-                href="#"
-                className="text-primary hover:text-primary-hover text-sm"
-              >
+              <Button variant="text" className="p-0">
                 terms of service
-              </a>
+              </Button>
               and
-              <a
-                href="#"
-                className="text-primary hover:text-primary-hover text-sm"
-              >
+              <Button variant="text" className="p-0">
                 privacy policy
-              </a>
+              </Button>
             </div>
           </form>
         </div>
@@ -435,7 +427,7 @@ export const LoginPassword = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-text-secondary font-sans">
+          <span className="text-base text-content-text-neutral-2 font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -484,20 +476,18 @@ export const LoginPassword = () => {
                 />
               )}
             />
-            <a
-              href="#"
-              className="whitespace-nowrap text-primary hover:text-primary-hover"
-            >
+            <Button variant="text">
               Forgot your password?
-            </a>
+            </Button>
           </Stack>
           <Divider className="my-7" variant="secondary" />
           <Button
+            size="large"
             type="submit"
             variant="filled"
             color="primary"
             disabled={isSubmitting}
-            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-7"
             startAdornment={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -522,14 +512,11 @@ export const LoginPassword = () => {
           >
             {isSubmitting ? 'Logging in...' : 'Login'}
           </Button>
-          <div className="mt-5 text-sm text-text-secondary flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
             Don't have an account?
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" size="large">
               Sign up
-            </a>
+            </Button>
           </div>
         </form>
       </Card>
@@ -556,7 +543,7 @@ export const LoginSocial = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-text-secondary font-sans">
+          <span className="text-base text-content-text-neutral-2 font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -576,11 +563,12 @@ export const LoginSocial = () => {
             />
           </Block>
           <Button
+            size="large"
             type="submit"
             variant="filled"
             color="primary"
             disabled={isSubmitting}
-            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-7"
             startAdornment={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -606,14 +594,15 @@ export const LoginSocial = () => {
             {isSubmitting ? 'Logging in...' : 'Login'}
           </Button>
           <Stack className="my-7">
-            <Divider variant="secondary" />
-            <span className="whitespace-nowrap text-sm dark:text-waterloo light:text-charade">
+            <Divider />
+            <span className="whitespace-nowrap text-sm text-content-text-neutral-2">
               or with
             </span>
-            <Divider variant="secondary" />
+            <Divider />
           </Stack>
           <div className="flex flex-col w-full gap-4">
             <Button
+              size="large"
               variant="outline"
               startAdornment={
                 <svg
@@ -631,6 +620,7 @@ export const LoginSocial = () => {
               Sign in with Google
             </Button>
             <Button
+              size="large"
               variant="outline"
               startAdornment={
                 <svg
@@ -648,6 +638,7 @@ export const LoginSocial = () => {
               Sign up with Facebook
             </Button>
             <Button
+              size="large"
               variant="outline"
               startAdornment={
                 <svg
@@ -665,21 +656,15 @@ export const LoginSocial = () => {
               Sign up with Microsoft
             </Button>
           </div>
-          <div className="mt-5 text-sm text-text-secondary flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               terms of service
-            </a>
+            </Button>
             and
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               privacy policy
-            </a>
+            </Button>
           </div>
         </form>
       </Card>
