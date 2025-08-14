@@ -1349,7 +1349,7 @@ export const Overview = () => (
           className="gap-5"
         >
           <Stack direction="column" alignItems="stretch" className="w-full">
-            <Block className="bg-gradient-brand-200 rounded-[20px] p-[30px]">
+            <Block className="bg-background-neutral-raised-6 rounded-[20px] p-[30px]">
               <Stack>
                 <Avatar
                   src="https://avatars.githubusercontent.com/u/227909?s=96&v=4"
@@ -1415,7 +1415,7 @@ export const Overview = () => (
               </Stack>
             </Block>
             <MotionItem>
-              <Block className="bg-gradient-brand-200 rounded-[20px] p-[30px]">
+              <Block className="bg-background-neutral-raised-6 rounded-[20px] p-[30px]">
                 <Stack justifyContent="spaceBetween">
                   <h3 className="text-lg font-bold">Personal Information</h3>
                   <Button
@@ -1526,7 +1526,7 @@ export const Overview = () => (
             </MotionItem>
 
             <MotionItem>
-              <Block className="bg-gradient-brand-200 rounded-[20px] p-[30px]">
+              <Block className="bg-background-neutral-raised-6 rounded-[20px] p-[30px]">
                 <h3 className="text-lg font-bold align-middle">
                   <span>Teams</span>{' '}
                   <div className="ml-2.5 inline-flex justify-center text-sm items-center w-8 h-8 rounded-full bg-background-neutral-raised-5 text-center border border-stroke-neutral-3">
@@ -1584,7 +1584,7 @@ export const Overview = () => (
               </Block>
             </MotionItem>
           </Stack>
-          <Block className="bg-gradient-brand-200 rounded-[20px] p-[30px] min-w-[360px]">
+          <Block className="bg-background-neutral-raised-6 rounded-[20px] p-[30px] min-w-[360px]">
             <h3 className="text-content-text-neutral-base font-bold text-lg">
               Latest Activity
             </h3>
