@@ -334,7 +334,7 @@ export const LoginFull = () => {
             <div className="flex flex-col w-full gap-4">
               <Button
                 size="large"
-                color="secondary"
+                variant="outline"
                 startAdornment={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -352,7 +352,7 @@ export const LoginFull = () => {
               </Button>
               <Button
                 size="large"
-                color="secondary"
+                variant="outline"
                 startAdornment={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -370,7 +370,7 @@ export const LoginFull = () => {
               </Button>
               <Button
                 size="large"
-                color="secondary"
+                variant="outline"
                 startAdornment={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
