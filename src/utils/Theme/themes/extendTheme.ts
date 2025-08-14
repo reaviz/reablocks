@@ -12,7 +12,6 @@ export type PartialReablocksTheme = DeepPartial<ReablocksTheme>;
  */
 export const extendTheme = (
   defaultTheme: ReablocksTheme,
-  theme: PartialReablocksTheme
-) => {
-  return mergeDeep(defaultTheme, theme);
-};
+  theme: PartialReablocksTheme,
+  mergeFunction?: (objValue: any, srcValue: any, key: string) => string
+) => mergeDeep(defaultTheme, theme, mergeFunction);
