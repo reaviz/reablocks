@@ -1,3 +1,10 @@
+export interface ToggleSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
+
 export interface ToggleTheme {
   base: string;
   disabled: string;
@@ -5,21 +12,11 @@ export interface ToggleTheme {
   disabledAndChecked: string;
   handle: {
     base: string;
-    sizes: {
-      small: string;
-      medium: string;
-      large: string;
-      [key: string]: string;
-    };
+    sizes: ToggleSizeTheme;
     disabled: string;
     disabledAndChecked: string;
   };
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  sizes: ToggleSizeTheme;
 }
 
 export const toggleTheme: ToggleTheme = {
