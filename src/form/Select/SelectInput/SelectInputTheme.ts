@@ -1,3 +1,10 @@
+export interface SelectInputSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
+
 export interface SelectInputTheme {
   container: string;
   base: string;
@@ -33,12 +40,7 @@ export interface SelectInputTheme {
     disabled: string;
     removeButton: string;
   };
-  size: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  size: SelectInputSizeTheme;
 }
 
 export const selectInputTheme: SelectInputTheme = {
