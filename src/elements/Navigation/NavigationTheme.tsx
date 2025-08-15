@@ -1,4 +1,4 @@
-interface NavigationButtonVariant {
+export interface NavigationButtonVariantTheme {
   content: string;
   active: string;
   selection: string;
@@ -19,9 +19,9 @@ export interface NavigationTheme {
   button: {
     base: string;
     variant: {
-      ghost: NavigationButtonVariant;
-      underline: NavigationButtonVariant;
-      [key: string]: NavigationButtonVariant;
+      ghost: NavigationButtonVariantTheme;
+      underline: NavigationButtonVariantTheme;
+      [key: string]: NavigationButtonVariantTheme;
     };
   };
 }

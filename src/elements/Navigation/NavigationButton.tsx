@@ -47,7 +47,7 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
   theme,
   disabled,
   disableAnimation,
-  variant = 'button',
+  variant = 'ghost',
   onClick
 }) => {
   const navigationTheme: NavigationTheme = useComponentTheme(
