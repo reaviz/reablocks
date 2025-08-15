@@ -1,4 +1,4 @@
-interface ThemeColor {
+interface ChipColorConfigTheme {
   base?: string;
   variants?: {
     filled?: string;
@@ -24,49 +24,46 @@ interface ThemeColor {
   };
 }
 
+export interface ChipSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
+
+export interface ChipVariantTheme {
+  filled: string;
+  outline: string;
+  subtle: string;
+  [key: string]: string;
+}
+
+export interface ChipColorTheme {
+  default?: ChipColorConfigTheme;
+  primary?: ChipColorConfigTheme;
+  secondary?: ChipColorConfigTheme;
+  success?: ChipColorConfigTheme;
+  warning?: ChipColorConfigTheme;
+  error?: ChipColorConfigTheme;
+  info?: ChipColorConfigTheme;
+  [key: string]: ChipColorConfigTheme;
+}
+
 export interface ChipTheme {
   base: string;
   adornment: {
     base: string;
     start: string;
     end: string;
-    sizes: {
-      small: string;
-      medium: string;
-      large: string;
-      [key: string]: string;
-    };
+    sizes: ChipSizeTheme;
   };
-  variants: {
-    filled: string;
-    outline: string;
-    [key: string]: string;
-  };
-  colors: {
-    default?: ThemeColor;
-    primary?: ThemeColor;
-    secondary?: ThemeColor;
-    success?: ThemeColor;
-    warning?: ThemeColor;
-    error?: ThemeColor;
-    info?: ThemeColor;
-    [key: string]: ThemeColor;
-  };
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  variants: ChipVariantTheme;
+  colors: ChipColorTheme;
+  sizes: ChipSizeTheme;
   focus: string;
   deleteButton: {
     base: string;
-    sizes: {
-      small: string;
-      medium: string;
-      large: string;
-      [key: string]: string;
-    };
+    sizes: ChipSizeTheme;
   };
   disabled: string;
 }
