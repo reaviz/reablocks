@@ -1,26 +1,32 @@
+export interface NotificationVariantTheme {
+  default: {
+    base: string;
+    icon?: string;
+  };
+  success: {
+    base: string;
+    icon?: string;
+  };
+  error: {
+    base: string;
+    icon?: string;
+  };
+  warning: {
+    base: string;
+    icon?: string;
+  };
+  info: {
+    base: string;
+    icon?: string;
+  };
+}
+
 export interface NotificationTheme {
   container: string;
   positions: string;
   notification: {
     base: string;
-    variants: {
-      success: {
-        base: string;
-        icon?: string;
-      };
-      error: {
-        base: string;
-        icon?: string;
-      };
-      warning: {
-        base: string;
-        icon?: string;
-      };
-      info: {
-        base: string;
-        icon?: string;
-      };
-    };
+    variants: NotificationVariantTheme;
     header: string;
     content: string;
     body: string;
@@ -41,6 +47,9 @@ export const notificationTheme: NotificationTheme = {
           bg-notifications-colors-background-neutral-resting hover:bg-notifications-colors-background-neutral-hover
         `,
     variants: {
+      default: {
+        base: ''
+      },
       success: {
         base: `
           border-notifications-colors-stroke-success-resting hover:border-notifications-colors-stroke-success-hover
