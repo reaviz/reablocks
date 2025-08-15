@@ -439,7 +439,7 @@ export const CustomTheme = () => {
     },
     button: {
       variant: {
-        button: {
+        ghost: {
           selection: `
           absolute z-1 top-0 left-0 w-full h-full rounded-md border
           border-red-infernal-blade-a-700 bg-red-infernal-blade-a-500
