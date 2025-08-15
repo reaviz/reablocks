@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren, Children } from 'react';
 import { Tab } from './Tab';
 import { cn, useComponentTheme } from '@/utils';
-import { TabsTheme } from './TabsTheme';
+import { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';
 
 export interface TabListProps extends PropsWithChildren {
   /**
@@ -37,13 +37,13 @@ export interface TabListProps extends PropsWithChildren {
    * The variant of the tabs.
    * @private
    */
-  variant?: 'primary' | 'secondary' | string;
+  variant?: keyof TabVariantTheme;
 
   /**
    * The size of the tabs.
    * @private
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof TabSizeTheme;
 
   /**
    * Theme for the Tabs.

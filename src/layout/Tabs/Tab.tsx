@@ -1,6 +1,6 @@
 import React, { FC, PropsWithChildren, ReactElement } from 'react';
 import { Button } from '@/elements/Button';
-import { TabsTheme } from './TabsTheme';
+import { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';
 import { useComponentTheme, cn } from '@/utils';
 import { motion } from 'motion/react';
 
@@ -47,13 +47,13 @@ export interface TabProps extends PropsWithChildren {
    *
    * @private
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof TabSizeTheme;
 
   /**
    * The variant of the tab.
    * @private
    */
-  variant?: 'primary' | 'secondary' | string;
+  variant?: keyof TabVariantTheme;
 
   /**
    * Element to display before the Button content.
