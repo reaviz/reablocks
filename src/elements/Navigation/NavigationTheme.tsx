@@ -19,7 +19,7 @@ export interface NavigationTheme {
   button: {
     base: string;
     variant: {
-      button: NavigationButtonVariant;
+      ghost: NavigationButtonVariant;
       underline: NavigationButtonVariant;
       [key: string]: NavigationButtonVariant;
     };
@@ -43,7 +43,7 @@ export const navigationTheme: NavigationTheme = {
   button: {
     base: 'group relative',
     variant: {
-      button: {
+      ghost: {
         content: `
           w-full h-full outline-none relative z-10
           p-4 rounded-md border border-transparent text-navigation-colors-text-resting 

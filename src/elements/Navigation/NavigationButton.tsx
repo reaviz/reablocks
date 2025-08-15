@@ -12,7 +12,7 @@ interface NavigationButtonProps extends PropsWithChildren {
   /**
    * Variant of the navigation button.
    */
-  variant?: 'button' | 'underline';
+  variant?: keyof NavigationTheme['button']['variant'];
 
   /**
    * Indicates if the button is active.
