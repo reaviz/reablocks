@@ -1,18 +1,9 @@
-import {
-  CommandPaletteInputTheme,
-  cssVarsCommandPaletteInputTheme,
-  commandPaletteInputTheme
-} from './CommandPaletteInput';
-import {
-  CommandPaletteItemTheme,
-  cssVarsCommandPaletteItemTheme,
-  commandPaletteItemTheme
-} from './CommandPaletteItem';
+import { CommandPaletteInputTheme, commandPaletteInputTheme } from '@/elements';
+import { CommandPaletteItemTheme, commandPaletteItemTheme } from '@/elements';
 import {
   CommandPaletteSectionTheme,
-  cssVarsCommandPaletteSectionTheme,
   commandPaletteSectionTheme
-} from './CommandPaletteSection';
+} from '@/elements';
 
 export interface CommandPaletteTheme {
   base: string;
@@ -23,25 +14,11 @@ export interface CommandPaletteTheme {
   section: CommandPaletteSectionTheme;
 }
 
-const baseTheme: Partial<CommandPaletteTheme> = {
-  base: 'w-full border',
-  inner: 'max-h-[80vh] overflow-y-auto'
-};
-
 export const commandPaletteTheme: CommandPaletteTheme = {
-  base: [baseTheme.base, 'border-panel-accent'].join(' '),
-  inner: [baseTheme.inner, 'bg-panel border-0'].join(' '),
-  emptyContainer: 'bg-panel',
+  base: 'w-full border border-stroke-neutral-1',
+  inner: 'max-h-[80vh] overflow-y-auto border-0',
+  emptyContainer: '',
   input: commandPaletteInputTheme,
   item: commandPaletteItemTheme,
   section: commandPaletteSectionTheme
-};
-
-export const legacyCommandPaletteTheme: CommandPaletteTheme = {
-  base: [baseTheme.base, 'border-panel-accent'].join(' '),
-  inner: baseTheme.inner,
-  emptyContainer: '',
-  input: cssVarsCommandPaletteInputTheme,
-  item: cssVarsCommandPaletteItemTheme,
-  section: cssVarsCommandPaletteSectionTheme
 };

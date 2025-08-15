@@ -6,7 +6,7 @@
     "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run build:docs",
     "build-storybook": "storybook build",
     "build:js": "vite build --mode library",
-    "build:styles": "npx @tailwindcss/cli -i ./src/index.css -o ./dist/index.css",
+    "build:styles": "npx @tailwindcss/cli -i src/assets/css/index.css -o ./dist/index.css",
     "build:docs": "node scripts/docs.js",
     "rewrite:stories": "node scripts/stories.cjs",
     "lint": "eslint --ext js,ts,tsx",

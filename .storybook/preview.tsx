@@ -7,7 +7,7 @@ import { DocsContainer } from '@storybook/addon-docs';
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
 import { theme as reablocksTheme } from '../src/utils/Theme/themes/theme';
 
-import '../src/index.css';
+import '../src/assets/css/index.css';
 
 const withProvider = (Story, context) => (
   <ThemeProvider theme={reablocksTheme}>

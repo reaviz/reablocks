@@ -121,7 +121,7 @@ export const Pricing = () => {
             </Stack>
             <Button
               variant={selected === 'free' ? 'filled' : 'outline'}
-              color={selected === 'free' ? 'primary' : 'default'}
+              color={selected === 'free' ? 'primary' : 'secondary'}
               className={cn(
                 'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
                 {
@@ -207,7 +207,7 @@ export const Pricing = () => {
             </Stack>
             <Button
               variant={selected === 'starter' ? 'filled' : 'outline'}
-              color={selected === 'starter' ? 'primary' : 'default'}
+              color={selected === 'starter' ? 'primary' : 'secondary'}
               className={cn(
                 'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
                 {
@@ -286,7 +286,7 @@ export const Pricing = () => {
             </Stack>
             <Button
               variant={selected === 'custom' ? 'filled' : 'outline'}
-              color={selected === 'custom' ? 'primary' : 'default'}
+              color={selected === 'custom' ? 'primary' : 'secondary'}
               className={cn(
                 'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
                 {

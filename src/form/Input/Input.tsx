@@ -7,7 +7,7 @@ import React, {
   useState
 } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { InputTheme } from './InputTheme';
+import { InputSizeTheme, InputTheme } from './InputTheme';
 import { useComponentTheme } from '@/utils';
 
 export interface InputProps
@@ -35,7 +35,7 @@ export interface InputProps
   /**
    * Size of the input.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof InputSizeTheme;
 
   /**
    * Content to display before the input.

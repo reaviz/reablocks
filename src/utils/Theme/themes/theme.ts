@@ -17,15 +17,8 @@ import {
   arrowTheme,
   chipTheme,
   ChipTheme,
-  legacyAvatarTheme,
-  legacyAvatarGroupTheme,
-  legacyArrowTheme,
-  legacyBadgeTheme,
-  legacyButtonTheme,
-  legacyChipTheme,
-  legacyLoaderTheme,
-  legacyKbdTheme,
-  legacyCommandPaletteTheme
+  NavigationTheme,
+  navigationTheme
 } from '@/elements';
 
 import {
@@ -47,29 +40,12 @@ import {
   calendarTheme,
   CalendarRangeTheme,
   calendarRangeTheme,
-  legacyCheckboxTheme,
-  legacySelectTheme,
-  legacyInputTheme,
-  legacyCalendarTheme,
-  legacyCalendarRangeTheme,
-  legacyTextareaTheme,
-  legacyRadioTheme,
-  legacyRangeTheme,
-  legacyToggleTheme,
   DateInputTheme,
-  dateInputTheme,
-  legacyDateInputTheme
+  dateInputTheme
 } from '@/form';
 
 import {
   ContextMenuTheme,
-  legacyContextMenuTheme,
-  legacyDialogTheme,
-  legacyDrawerTheme,
-  legacyMenuTheme,
-  legacyNotificationTheme,
-  legacyPopoverTheme,
-  legacyTooltipTheme,
   contextMenuTheme,
   dialogTheme,
   drawerTheme,
@@ -85,10 +61,8 @@ import {
   TooltipTheme,
   CalloutTheme,
   calloutTheme,
-  legacyCalloutTheme,
   BackdropTheme,
-  backdropTheme,
-  legacyBackdropTheme
+  backdropTheme
 } from '@/layers';
 
 import {
@@ -102,8 +76,6 @@ import {
   TabsTheme,
   tabsTheme,
   TreeTheme,
-  legacyBlockTheme,
-  legacyListTheme,
   verticalSpacerTheme,
   VerticalSpacerTheme,
   CardTheme,
@@ -112,22 +84,12 @@ import {
   ListTheme,
   stackTheme,
   StackTheme,
-  legacyStackTheme,
-  legacyCardTheme,
-  legacyVerticalSpacerTheme,
-  legacyCollapseTheme,
-  legacyTreeTheme,
-  legacyTabsTheme,
-  legacyDividerTheme,
   JsonTreeTheme,
   jsonTreeTheme,
-  legacyJsonTreeTheme,
   breadcrumbsTheme,
   BreadcrumbsTheme,
-  legacyBreadcrumbTheme,
   StepperTheme,
-  stepperTheme,
-  legacyStepperTheme
+  stepperTheme
 } from '@/layout';
 
 import {
@@ -146,13 +108,9 @@ import {
   SortTheme,
   sortTheme,
   DateFormatTheme,
-  dateFormatTheme,
-  legacyDateFormatTheme,
-  legacyEllipsisTheme,
-  legacySortTheme,
-  legacyRedactTheme,
-  legacyPagerTheme
+  dateFormatTheme
 } from '@/data';
+import { DeepPartial } from 'react-hook-form';
 
 export interface ReablocksTheme {
   components: {
@@ -202,6 +160,7 @@ export interface ReablocksTheme {
     stepper: StepperTheme;
     callout: CalloutTheme;
     backdrop: BackdropTheme;
+    navigation: NavigationTheme;
   };
 }
 
@@ -252,57 +211,13 @@ export const theme: ReablocksTheme = {
     breadcrumbs: breadcrumbsTheme,
     stepper: stepperTheme,
     callout: calloutTheme,
-    backdrop: backdropTheme
+    backdrop: backdropTheme,
+    navigation: navigationTheme
   }
 };
 
-export const legacyThemeVars: ReablocksTheme = {
+export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
   components: {
-    avatar: legacyAvatarTheme,
-    avatarGroup: legacyAvatarGroupTheme,
-    arrow: legacyArrowTheme,
-    badge: legacyBadgeTheme,
-    button: legacyButtonTheme,
-    block: legacyBlockTheme,
-    chip: legacyChipTheme,
-    contextMenu: legacyContextMenuTheme,
-    checkbox: legacyCheckboxTheme,
-    dateFormat: legacyDateFormatTheme,
-    dialog: legacyDialogTheme,
-    divider: legacyDividerTheme,
-    dotsLoader: legacyLoaderTheme,
-    drawer: legacyDrawerTheme,
-    ellipsis: legacyEllipsisTheme,
-    select: legacySelectTheme,
-    list: legacyListTheme,
-    menu: legacyMenuTheme,
-    sort: legacySortTheme,
-    stack: legacyStackTheme,
-    card: legacyCardTheme,
-    kbd: legacyKbdTheme,
-    verticalSpacer: legacyVerticalSpacerTheme,
-    notification: legacyNotificationTheme,
-    input: legacyInputTheme,
-    dateInput: legacyDateInputTheme,
-    calendar: legacyCalendarTheme,
-    calendarRange: legacyCalendarRangeTheme,
-    commandPalette: legacyCommandPaletteTheme,
-    collapse: legacyCollapseTheme,
-    textarea: legacyTextareaTheme,
-    typography: legacyTypographyTheme,
-    radio: legacyRadioTheme,
-    range: legacyRangeTheme,
-    redact: legacyRedactTheme,
-    toggle: legacyToggleTheme,
-    tooltip: legacyTooltipTheme,
-    tree: legacyTreeTheme,
-    popover: legacyPopoverTheme,
-    pager: legacyPagerTheme,
-    tabs: legacyTabsTheme,
-    jsonTree: legacyJsonTreeTheme,
-    breadcrumbs: legacyBreadcrumbTheme,
-    stepper: legacyStepperTheme,
-    callout: legacyCalloutTheme,
-    backdrop: legacyBackdropTheme
+    typography: legacyTypographyTheme
   }
 };

@@ -11,7 +11,7 @@ import React, {
 } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { CheckboxLabel } from './CheckboxLabel';
-import { CheckboxTheme } from './CheckboxTheme';
+import { CheckboxSizeTheme, CheckboxTheme } from './CheckboxTheme';
 
 export interface CheckboxProps {
   /**
@@ -42,7 +42,7 @@ export interface CheckboxProps {
   /**
    * Size of the checkbox.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof CheckboxSizeTheme;
 
   /**
    * Additional class names to apply to the checkbox.
