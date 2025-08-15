@@ -61,7 +61,7 @@ export const ForgotPassword = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Reset your password
           </h4>
-          <span className="text-base text-text-secondary font-sans">
+          <span className="text-base text-content-text-neutral-2 font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -129,16 +129,16 @@ export const ForgotPassword = () => {
               )}
             />
           </Block>
-          <Divider variant="secondary" />
+          <Divider />
           <Button
+            size="large"
             type="submit"
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-7"
             disabled={isSubmitting}
-          >
-            <svg
+            startAdornment={<svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
               height="16"
@@ -149,7 +149,8 @@ export const ForgotPassword = () => {
                 d="M7.33333 4.66667L6.4 5.6L8.13333 7.33333H1.33333V8.66667H8.13333L6.4 10.4L7.33333 11.3333L10.6667 8L7.33333 4.66667ZM13.3333 12.6667H8V14H13.3333C14.0667 14 14.6667 13.4 14.6667 12.6667V3.33333C14.6667 2.6 14.0667 2 13.3333 2H8V3.33333H13.3333V12.6667Z"
                 fill="white"
               />
-            </svg>
+            </svg>}
+          >
             {isSubmitting ? 'Resetting...' : 'Reset Password'}
           </Button>
         </form>
@@ -180,7 +181,7 @@ export const ForgotPasswordFull = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Forgot Password?
           </h4>
-          <span className="text-base text-text-secondary font-sans">
+          <span className="text-base text-content-text-neutral-2 font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
@@ -207,31 +208,34 @@ export const ForgotPasswordFull = () => {
             </Block>
             <Stack direction="column">
               <Button
+                size="large"
                 type="submit"
                 fullWidth
                 variant="filled"
                 color="primary"
-                className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+                className="mt-7"
                 disabled={isSubmitting}
+                startAdornment={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                  >
+                    <path
+                      d="M7.33333 4.66667L6.4 5.6L8.13333 7.33333H1.33333V8.66667H8.13333L6.4 10.4L7.33333 11.3333L10.6667 8L7.33333 4.66667ZM13.3333 12.6667H8V14H13.3333C14.0667 14 14.6667 13.4 14.6667 12.6667V3.33333C14.6667 2.6 14.0667 2 13.3333 2H8V3.33333H13.3333V12.6667Z"
+                      fill="white"
+                    />
+                  </svg>
+                }
               >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M7.33333 4.66667L6.4 5.6L8.13333 7.33333H1.33333V8.66667H8.13333L6.4 10.4L7.33333 11.3333L10.6667 8L7.33333 4.66667ZM13.3333 12.6667H8V14H13.3333C14.0667 14 14.6667 13.4 14.6667 12.6667V3.33333C14.6667 2.6 14.0667 2 13.3333 2H8V3.33333H13.3333V12.6667Z"
-                    fill="white"
-                  />
-                </svg>
                 {isSubmitting ? 'Resetting...' : 'Reset Password'}
               </Button>
-              <Divider variant="secondary" />
-              <a href="#" className="text-primary text-lg font-semibold">
+              <Divider />
+              <Button size="large" variant="text">
                 Return to login
-              </a>
+              </Button>
             </Stack>
           </form>
         </div>
@@ -261,7 +265,7 @@ export const ForgotPasswordMinimal = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Forgot Password?
           </h4>
-          <span className="text-base text-text-secondary font-sans">
+          <span className="text-base text-content-text-neutral-2 font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
@@ -296,34 +300,37 @@ export const ForgotPasswordMinimal = () => {
             />
           </Block>
           <Button
+            size="large"
             type="submit"
             variant="filled"
             color="primary"
-            className="my-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="my-7"
             disabled={isSubmitting}
             fullWidth
+            startAdornment={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M11.3333 4.66675H8.66667V6.00008H11.3333C12.4333 6.00008 13.3333 6.90008 13.3333 8.00008C13.3333 9.10008 12.4333 10.0001 11.3333 10.0001H8.66667V11.3334H11.3333C13.1733 11.3334 14.6667 9.84008 14.6667 8.00008C14.6667 6.16008 13.1733 4.66675 11.3333 4.66675ZM7.33333 10.0001H4.66667C3.56667 10.0001 2.66667 9.10008 2.66667 8.00008C2.66667 6.90008 3.56667 6.00008 4.66667 6.00008H7.33333V4.66675H4.66667C2.82667 4.66675 1.33333 6.16008 1.33333 8.00008C1.33333 9.84008 2.82667 11.3334 4.66667 11.3334H7.33333V10.0001ZM5.33333 7.33341H10.6667V8.66675H5.33333V7.33341Z"
+                  fill="#C9C9D6"
+                />
+              </svg>
+            }
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <path
-                d="M11.3333 4.66675H8.66667V6.00008H11.3333C12.4333 6.00008 13.3333 6.90008 13.3333 8.00008C13.3333 9.10008 12.4333 10.0001 11.3333 10.0001H8.66667V11.3334H11.3333C13.1733 11.3334 14.6667 9.84008 14.6667 8.00008C14.6667 6.16008 13.1733 4.66675 11.3333 4.66675ZM7.33333 10.0001H4.66667C3.56667 10.0001 2.66667 9.10008 2.66667 8.00008C2.66667 6.90008 3.56667 6.00008 4.66667 6.00008H7.33333V4.66675H4.66667C2.82667 4.66675 1.33333 6.16008 1.33333 8.00008C1.33333 9.84008 2.82667 11.3334 4.66667 11.3334H7.33333V10.0001ZM5.33333 7.33341H10.6667V8.66675H5.33333V7.33341Z"
-                fill="#C9C9D6"
-              />
-            </svg>
             {isSubmitting ? 'Sending...' : 'Get Link'}
           </Button>
           <Stack className="w-full" justifyContent="center">
-            <span className="text-sm text-text-secondary">
+            <span className="text-sm text-content-text-neutral-2">
               Remember password?
             </span>
-            <a href="#" className="text-primary text-lg font-semibold">
+            <Button size="large" variant="text">
               Log in
-            </a>
+            </Button>
           </Stack>
         </form>
       </Card>
@@ -350,12 +357,12 @@ export const ResetPassword = () => {
       >
         <Stack justifyContent="spaceBetween">
           <LogoIcon className="h-11 w-auto" />
-          <a href="#" className="text-lg text-primary font-semibold">
+          <Button variant="text" size="large">
             Create an account
-          </a>
+          </Button>
         </Stack>
         <div className="w-full flex flex-col grow items-center justify-center text-center pt-2 mb-14">
-          <div className="p-3 border border-secondary-inactive rounded-sm mb-3">
+          <div className="p-3 border border-stroke-neutral-3 rounded-sm mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -367,7 +374,7 @@ export const ResetPassword = () => {
             </svg>
           </div>
           <h4 className="text-2xl font-sans font-bold mb-0">Reset Password?</h4>
-          <span className="text-base text-text-secondary font-sans">
+          <span className="text-base text-content-text-neutral-2 font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
@@ -404,52 +411,57 @@ export const ResetPassword = () => {
               />
             </Block>
             <Button
+              size="large"
               type="submit"
               variant="filled"
               color="primary"
-              className="my-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+              className="my-7"
               disabled={isSubmitting}
               fullWidth
+              startAdornment={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path d="M8 2.66675V0.666748L5.33333 3.33341L8 6.00008V4.00008C10.2067 4.00008 12 5.79342 12 8.00008C12 8.67342 11.8333 9.31342 11.5333 9.86675L12.5067 10.8401C13.0267 10.0201 13.3333 9.04675 13.3333 8.00008C13.3333 5.05341 10.9467 2.66675 8 2.66675ZM8 12.0001C5.79333 12.0001 4 10.2067 4 8.00008C4 7.32675 4.16667 6.68675 4.46667 6.13341L3.49333 5.16008C2.97333 5.98008 2.66667 6.95341 2.66667 8.00008C2.66667 10.9467 5.05333 13.3334 8 13.3334V15.3334L10.6667 12.6667L8 10.0001V12.0001Z" />
+                </svg>
+              }
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-              >
-                <path d="M8 2.66675V0.666748L5.33333 3.33341L8 6.00008V4.00008C10.2067 4.00008 12 5.79342 12 8.00008C12 8.67342 11.8333 9.31342 11.5333 9.86675L12.5067 10.8401C13.0267 10.0201 13.3333 9.04675 13.3333 8.00008C13.3333 5.05341 10.9467 2.66675 8 2.66675ZM8 12.0001C5.79333 12.0001 4 10.2067 4 8.00008C4 7.32675 4.16667 6.68675 4.46667 6.13341L3.49333 5.16008C2.97333 5.98008 2.66667 6.95341 2.66667 8.00008C2.66667 10.9467 5.05333 13.3334 8 13.3334V15.3334L10.6667 12.6667L8 10.0001V12.0001Z" />
-              </svg>
               {isSubmitting ? 'Resetting...' : 'Reset Password'}
             </Button>
             <Stack
-              className="w-full text-primary"
+              className="w-full text-content-text-neutral-base"
               justifyContent="center"
               dense
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-              >
-                <path d="M13.3333 7.33342H5.22L8.94667 3.60675L8 2.66675L2.66667 8.00008L8 13.3334L8.94 12.3934L5.22 8.66675H13.3333V7.33342Z" />
-              </svg>
-              <a
-                href="#"
-                className="inline-flex items-center text-lg font-semibold"
+              <Button
+                size="large"
+                variant="text"
+                startAdornment={
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="currentColor"
+                  >
+                    <path d="M13.3333 7.33342H5.22L8.94667 3.60675L8 2.66675L2.66667 8.00008L8 13.3334L8.94 12.3934L5.22 8.66675H13.3333V7.33342Z" />
+                  </svg>
+                }
               >
                 Back to log in
-              </a>
+              </Button>
             </Stack>
           </form>
         </div>
         <Stack justifyContent="center">
-          <div className="h-[4px] w-[60px] bg-primary rounded-sm" />
-          <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded-sm" />
-          <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded-sm" />
-          <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded-sm" />
+          <div className="h-[4px] w-[60px] bg-background-brand-base rounded-sm" />
+          <div className="h-[4px] w-[60px] dark:bg-background-neutral-raised-4 rounded-sm"/>
+          <div className="h-[4px] w-[60px] dark:bg-background-neutral-raised-4 rounded-sm"/>
+          <div className="h-[4px] w-[60px] dark:bg-background-neutral-raised-4 rounded-sm"/>
         </Stack>
       </Card>
     </motion.div>
@@ -471,7 +483,7 @@ export const ResetPasswordMinimal = () => {
     >
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center text-center pt-2 mb-10">
-          <div className="p-3 border border-secondary-inactive rounded-sm mb-3">
+          <div className="p-3 border border-stroke-neutral-3 rounded-sm mb-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -483,7 +495,7 @@ export const ResetPasswordMinimal = () => {
             </svg>
           </div>
           <h4 className="text-2xl font-sans font-bold mb-0">Reset Password?</h4>
-          <span className="text-base text-text-secondary font-sans">
+          <span className="text-base text-content-text-neutral-2 font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
@@ -518,32 +530,12 @@ export const ResetPasswordMinimal = () => {
             />
           </Block>
           <Button
+            size="large"
             type="submit"
             variant="filled"
             color="primary"
-            className="my-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
-            disabled={isSubmitting}
-            fullWidth
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-            >
-              <path d="M8 2.66675V0.666748L5.33333 3.33341L8 6.00008V4.00008C10.2067 4.00008 12 5.79342 12 8.00008C12 8.67342 11.8333 9.31342 11.5333 9.86675L12.5067 10.8401C13.0267 10.0201 13.3333 9.04675 13.3333 8.00008C13.3333 5.05341 10.9467 2.66675 8 2.66675ZM8 12.0001C5.79333 12.0001 4 10.2067 4 8.00008C4 7.32675 4.16667 6.68675 4.46667 6.13341L3.49333 5.16008C2.97333 5.98008 2.66667 6.95341 2.66667 8.00008C2.66667 10.9467 5.05333 13.3334 8 13.3334V15.3334L10.6667 12.6667L8 10.0001V12.0001Z" />
-            </svg>
-            {isSubmitting ? 'Sending...' : 'Reset Password'}
-          </Button>
-          <Stack className="w-full" justifyContent="center">
-            <span className="text-sm text-text-secondary">
-              Remember your password?
-            </span>
-            <a
-              href="#"
-              className="inline-flex items-center gap-1 text-primary text-lg font-semibold"
-            >
+            className="my-7"
+            startAdornment={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -551,10 +543,35 @@ export const ResetPasswordMinimal = () => {
                 viewBox="0 0 16 16"
                 fill="currentColor"
               >
-                <path d="M13.3333 7.33342H5.22L8.94667 3.60675L8 2.66675L2.66667 8.00008L8 13.3334L8.94 12.3934L5.22 8.66675H13.3333V7.33342Z" />
-              </svg>{' '}
+                <path d="M8 2.66675V0.666748L5.33333 3.33341L8 6.00008V4.00008C10.2067 4.00008 12 5.79342 12 8.00008C12 8.67342 11.8333 9.31342 11.5333 9.86675L12.5067 10.8401C13.0267 10.0201 13.3333 9.04675 13.3333 8.00008C13.3333 5.05341 10.9467 2.66675 8 2.66675ZM8 12.0001C5.79333 12.0001 4 10.2067 4 8.00008C4 7.32675 4.16667 6.68675 4.46667 6.13341L3.49333 5.16008C2.97333 5.98008 2.66667 6.95341 2.66667 8.00008C2.66667 10.9467 5.05333 13.3334 8 13.3334V15.3334L10.6667 12.6667L8 10.0001V12.0001Z" />
+              </svg>
+            }
+            disabled={isSubmitting}
+            fullWidth
+          >
+            {isSubmitting ? 'Sending...' : 'Reset Password'}
+          </Button>
+          <Stack className="w-full" justifyContent="center">
+            <span className="text-sm text-content-text-neutral-2">
+              Remember your password?
+            </span>
+            <Button
+              size="large"
+              variant="text"
+              startAdornment={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path d="M13.3333 7.33342H5.22L8.94667 3.60675L8 2.66675L2.66667 8.00008L8 13.3334L8.94 12.3934L5.22 8.66675H13.3333V7.33342Z" />
+                </svg>
+              }
+            >
               Go back
-            </a>
+            </Button>
           </Stack>
         </form>
       </Card>
