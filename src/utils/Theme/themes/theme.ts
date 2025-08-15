@@ -93,9 +93,10 @@ import {
 } from '@/layout';
 
 import {
-  legacyTypographyTheme,
   typographyTheme,
-  TypographyTheme
+  TypographyTheme,
+  typographyThemeDeprecated,
+  TypographyThemeDeprecated
 } from '@/typography';
 
 import {
@@ -110,7 +111,6 @@ import {
   DateFormatTheme,
   dateFormatTheme
 } from '@/data';
-import { DeepPartial } from 'react-hook-form';
 
 export interface ReablocksTheme {
   components: {
@@ -145,6 +145,7 @@ export interface ReablocksTheme {
     commandPalette: CommandPaletteTheme;
     collapse: CollapseTheme;
     textarea: TextareaTheme;
+    typography_deprecated: TypographyThemeDeprecated;
     typography: TypographyTheme;
     radio: RadioTheme;
     range: RangeTheme;
@@ -197,6 +198,7 @@ export const theme: ReablocksTheme = {
     commandPalette: commandPaletteTheme,
     collapse: collapseTheme,
     textarea: textareaTheme,
+    typography_deprecated: typographyThemeDeprecated,
     typography: typographyTheme,
     radio: radioTheme,
     range: rangeTheme,
@@ -213,11 +215,5 @@ export const theme: ReablocksTheme = {
     callout: calloutTheme,
     backdrop: backdropTheme,
     navigation: navigationTheme
-  }
-};
-
-export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
-  components: {
-    typography: legacyTypographyTheme
   }
 };
