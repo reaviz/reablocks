@@ -1,3 +1,4 @@
+import { cn } from '@/utils';
 import { Button } from './Button';
 import {
   extendTheme,
@@ -259,7 +260,14 @@ export const CustomTheme = () => {
   };
 
   return (
-    <ThemeProvider theme={extendTheme(theme, customTheme)}>
+    <ThemeProvider
+      theme={extendTheme(theme, customTheme, (source, target) => {
+        if (typeof source === 'string' && typeof target === 'string') {
+          return cn(source, target);
+        }
+        return undefined;
+      })}
+    >
       <div style={{ display: 'flex', gap: 10 }}>
         <Button variant="filled">Filled</Button>
         <Button variant="outline">Outline</Button>
