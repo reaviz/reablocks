@@ -1,13 +1,18 @@
+export interface DividerOrientationTheme {
+  vertical?: string;
+  horizontal?: string;
+}
+
+export interface DividerVariantTheme {
+  primary?: string;
+  secondary?: string;
+  [key: string]: string;
+}
+
 export interface DividerTheme {
   base?: string;
-  orientation?: {
-    vertical?: string;
-    horizontal?: string;
-  };
-  variant?: {
-    primary?: string;
-    secondary?: string;
-  };
+  orientation?: DividerOrientationTheme;
+  variant?: DividerVariantTheme;
   disableMargins?: string;
 }
 
