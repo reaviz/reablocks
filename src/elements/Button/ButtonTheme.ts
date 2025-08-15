@@ -30,22 +30,12 @@ export interface ButtonTheme {
     base: string;
     start: string;
     end: string;
-    sizes: {
-      small: string;
-      medium: string;
-      large: string;
-      [key: string]: string;
-    };
+    sizes: ButtonSizeTheme;
   };
   variants: ButtonVariantTheme;
   colors: ButtonColorTheme;
   sizes: ButtonSizeTheme;
-  iconSizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  iconSizes: ButtonSizeTheme;
 }
 
 export const buttonTheme: ButtonTheme = {
