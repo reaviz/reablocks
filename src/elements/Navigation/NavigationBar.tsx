@@ -1,6 +1,9 @@
 import { cn, useComponentTheme } from '@/utils';
 import React, { FC, PropsWithChildren, ReactNode } from 'react';
-import { NavigationTheme } from './NavigationTheme';
+import {
+  NavigationBarDirectionTheme,
+  NavigationTheme
+} from './NavigationTheme';
 
 export interface NavigationBarProps extends PropsWithChildren {
   /**
@@ -26,7 +29,7 @@ export interface NavigationBarProps extends PropsWithChildren {
   /**
    * Direction of the navigation bar layout.
    */
-  direction?: 'horizontal' | 'vertical';
+  direction?: keyof NavigationBarDirectionTheme;
 
   /**
    * Content to be displayed at the start of the navigation bar.

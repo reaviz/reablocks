@@ -1,7 +1,10 @@
 import { cn, useComponentTheme } from '@/utils';
 import { motion } from 'motion/react';
 import React, { FC, PropsWithChildren } from 'react';
-import { NavigationTheme } from './NavigationTheme';
+import {
+  NavigationButtonVariantTheme,
+  NavigationTheme
+} from './NavigationTheme';
 
 interface NavigationButtonProps extends PropsWithChildren {
   /**
@@ -12,7 +15,7 @@ interface NavigationButtonProps extends PropsWithChildren {
   /**
    * Variant of the navigation button.
    */
-  variant?: keyof NavigationTheme['button']['variant'];
+  variant?: keyof NavigationButtonVariantTheme;
 
   /**
    * Indicates if the button is active.

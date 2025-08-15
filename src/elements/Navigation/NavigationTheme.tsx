@@ -1,28 +1,32 @@
-export interface NavigationButtonVariantTheme {
+export interface NavigationButtonVariantConfigTheme {
   content: string;
   active: string;
   selection: string;
   disabled: string;
 }
 
+export interface NavigationBarDirectionTheme {
+  horizontal: string;
+  vertical: string;
+}
+
+export interface NavigationButtonVariantTheme {
+  ghost: NavigationButtonVariantConfigTheme;
+  underline: NavigationButtonVariantConfigTheme;
+  [key: string]: NavigationButtonVariantConfigTheme;
+}
+
 export interface NavigationTheme {
   bar: {
     base: string;
-    direction: {
-      horizontal: string;
-      vertical: string;
-    };
+    direction: NavigationBarDirectionTheme;
     start: string;
     navigation: string;
     end: string;
   };
   button: {
     base: string;
-    variant: {
-      ghost: NavigationButtonVariantTheme;
-      underline: NavigationButtonVariantTheme;
-      [key: string]: NavigationButtonVariantTheme;
-    };
+    variant: NavigationButtonVariantTheme;
   };
 }
 
