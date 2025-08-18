@@ -1,9 +1,22 @@
-interface TabVariant {
+interface TabVariantConfigTheme {
   divider?: string;
   button?: string;
   selected?: string;
   disabled?: string;
   indicator?: string;
+}
+
+export interface TabVariantTheme {
+  primary: TabVariantConfigTheme;
+  secondary: TabVariantConfigTheme;
+  [key: string]: TabVariantConfigTheme;
+}
+
+export interface TabSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
 }
 
 export interface TabsTheme {
@@ -12,30 +25,16 @@ export interface TabsTheme {
     base: string;
     indicator: {
       base: string;
-      size: {
-        small: string;
-        medium: string;
-        large: string;
-        [key: string]: string;
-      };
+      size: TabSizeTheme;
     };
     divider: string;
-    variant: {
-      primary: TabVariant;
-      secondary: TabVariant;
-      [key: string]: TabVariant;
-    };
+    variant: TabVariantTheme;
     tab: {
       base: string;
       button: string;
       selected: string;
       disabled: string;
-      size: {
-        small: string;
-        medium: string;
-        large: string;
-        [key: string]: string;
-      };
+      size: TabSizeTheme;
     };
   };
   panel: string;

@@ -1,3 +1,25 @@
+export interface ButtonVariantTheme {
+  filled: string;
+  outline: string;
+  text: string;
+  ghost: string;
+  [key: string]: string;
+}
+
+export interface ButtonSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
+
+export interface ButtonColorTheme {
+  primary: ButtonVariantTheme;
+  secondary: ButtonVariantTheme;
+  destructive: ButtonVariantTheme;
+  [key: string]: ButtonVariantTheme;
+}
+
 export interface ButtonTheme {
   base: string;
   disabled: string;
@@ -8,57 +30,12 @@ export interface ButtonTheme {
     base: string;
     start: string;
     end: string;
-    sizes: {
-      small: string;
-      medium: string;
-      large: string;
-      [key: string]: string;
-    };
+    sizes: ButtonSizeTheme;
   };
-  variants: {
-    filled: string;
-    outline: string;
-    text: string;
-    [key: string]: string;
-  };
-  colors: {
-    primary: {
-      filled: string;
-      outline: string;
-      text: string;
-      [key: string]: string;
-    };
-    secondary: {
-      filled: string;
-      outline: string;
-      text: string;
-      [key: string]: string;
-    };
-    destructive: {
-      filled: string;
-      outline: string;
-      text: string;
-      [key: string]: string;
-    };
-    [key: string]: {
-      filled: string;
-      outline: string;
-      text: string;
-      [key: string]: string;
-    };
-  };
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
-  iconSizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  variants: ButtonVariantTheme;
+  colors: ButtonColorTheme;
+  sizes: ButtonSizeTheme;
+  iconSizes: ButtonSizeTheme;
 }
 
 export const buttonTheme: ButtonTheme = {
@@ -99,7 +76,8 @@ export const buttonTheme: ButtonTheme = {
   variants: {
     filled: 'bg-secondary hover:bg-border-secondary-hover',
     outline: 'border',
-    text: 'border-0'
+    text: 'border-0',
+    ghost: ''
   },
   colors: {
     primary: {

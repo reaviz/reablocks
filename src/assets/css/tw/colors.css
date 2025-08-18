@@ -26,7 +26,7 @@
   --color-white: var(--neutrals-pure-white-dnt-1000);
   --color-black: var(--neutrals-pure-black-dnt-1000);
 
-  /* Color tokens */
+  /* Color tokens Level 1 */
   --color-neutrals-clear-dnt-clear: var(--neutrals-clear-dnt-clear);
   --color-neutrals-pure-black-dnt-50: var(--neutrals-pure-black-dnt-50);
   --color-neutrals-pure-black-dnt-100: var(--neutrals-pure-black-dnt-100);
@@ -553,6 +553,7 @@
   --color-pink-mew-mode-950: var(--pink-mew-mode-950);
   --color-pink-mew-mode-1000: var(--pink-mew-mode-1000);
 
+  /* Color tokens Level 3 */
   --color-background-basic-clear: var(--background-basic-clear);
   --color-background-basic-black: var(--background-basic-black);
   --color-background-basic-white: var(--background-basic-white);
@@ -969,7 +970,7 @@
   --color-content-assets-accent-4-4: var(--content-assets-accent-4-4);
   --color-content-assets-accent-4-5: var(--content-assets-accent-4-5);
 
-  /* Component tokens */
+  /* Component tokens Level 4 */
   --color-avatar-colors-background-container-resting: var(
     --background-neutral-raised-5
   );

@@ -1,21 +1,25 @@
+export interface BadgeColorTheme {
+  default: string;
+  primary: string;
+  secondary: string;
+  error: string;
+  [key: string]: string;
+}
+
+export interface BadgePlacementTheme {
+  'top-start': string;
+  'top-end': string;
+  'bottom-start': string;
+  'bottom-end': string;
+}
+
 export interface BadgeTheme {
   base: string;
   disableMargins: string;
   badge: string;
   position: string;
-  colors: {
-    default: string;
-    primary: string;
-    secondary: string;
-    error: string;
-    [key: string]: string;
-  };
-  positions: {
-    'top-start': string;
-    'top-end': string;
-    'bottom-start': string;
-    'bottom-end': string;
-  };
+  colors: BadgeColorTheme;
+  positions: BadgePlacementTheme;
 }
 
 export const badgeTheme: BadgeTheme = {

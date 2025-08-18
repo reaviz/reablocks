@@ -1,3 +1,9 @@
+export interface RadioSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
 export interface RadioTheme {
   base: string;
   radio: {
@@ -8,12 +14,7 @@ export interface RadioTheme {
   indicator: {
     base: string;
     disabled: string;
-    sizes: {
-      small: string;
-      medium: string;
-      large: string;
-      [key: string]: string;
-    };
+    sizes: RadioSizeTheme;
   };
   label: {
     base: string;
@@ -21,12 +22,7 @@ export interface RadioTheme {
     checked: string;
     disabled: string;
   };
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  sizes: RadioSizeTheme;
 }
 
 export const radioTheme: RadioTheme = {

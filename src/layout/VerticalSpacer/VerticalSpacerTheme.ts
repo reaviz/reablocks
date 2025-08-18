@@ -1,14 +1,16 @@
+export interface VerticalSpacerSizeTheme {
+  xs: string;
+  sm: string;
+  md: string;
+  lg: string;
+  xl: string;
+  xxl: string;
+  [key: string]: string;
+}
+
 export interface VerticalSpacerTheme {
   base: string;
-  size: {
-    xs: string;
-    sm: string;
-    md: string;
-    lg: string;
-    xl: string;
-    xxl: string;
-    [key: string]: string;
-  };
+  size: VerticalSpacerSizeTheme;
 }
 
 export const verticalSpacerTheme = {
