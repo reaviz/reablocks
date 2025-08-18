@@ -56,7 +56,6 @@ export const navigationTheme: NavigationTheme = {
           transition-colors ease-out duration-300
         `,
         active: `
-          font-semibold
           text-navigation-colors-text-selected 
           hover:text-navigation-colors-text-selected
           focus-visible:text-navigation-colors-text-selected
