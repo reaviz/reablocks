@@ -38,6 +38,11 @@ interface NavigationButtonProps extends PropsWithChildren {
   disableAnimation?: boolean;
 
   /**
+   * Unique identifier for the animation layout.
+   */
+  animationLayoutId?: string;
+
+  /**
    * Callback function to handle click events on the button.
    */
   onClick?: () => void;
@@ -51,6 +56,7 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
   disabled,
   disableAnimation,
   variant = 'ghost',
+  animationLayoutId,
   onClick
 }) => {
   const navigationTheme: NavigationTheme = useComponentTheme(
@@ -62,7 +68,11 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
     <div className={navigationTheme.button.base}>
       {active && (
         <motion.div
-          layoutId={disableAnimation ? undefined : 'selected-nav-button'}
+          layoutId={
+            disableAnimation
+              ? undefined
+              : animationLayoutId ?? 'selected-nav-button'
+          }
           className={navigationTheme.button.variant?.[variant]?.selection}
         />
       )}
