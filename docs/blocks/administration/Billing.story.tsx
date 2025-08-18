@@ -140,7 +140,7 @@ export const BillingFull = () => (
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 font-semibold">
                 <div className="border-background-neutral-raised-4 border px-4 py-2">5</div>
-                <span className="d text-sm">of 25 seats used</span>
+                <span className="text-sm">of 25 seats used</span>
               </div>
               <Button
                 className="h-fit px-4 py-2 font-semibold"

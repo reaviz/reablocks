@@ -312,6 +312,7 @@ export const RegisterFull = () => {
               <Stack direction="column" alignItems="start" dense>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -320,12 +321,13 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Community support
                   </span>
                 </Stack>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -334,12 +336,13 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Integration support
                   </span>
                 </Stack>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -348,7 +351,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Figmas support
                   </span>
                 </Stack>
@@ -373,6 +376,7 @@ export const RegisterFull = () => {
               <Stack direction="column" alignItems="start" dense>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -381,12 +385,13 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Community support
                   </span>
                 </Stack>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -395,12 +400,13 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Integration support
                   </span>
                 </Stack>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -409,7 +415,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Figmas support
                   </span>
                 </Stack>
@@ -434,6 +440,7 @@ export const RegisterFull = () => {
               <Stack direction="column" alignItems="start" dense>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -442,12 +449,13 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Community support
                   </span>
                 </Stack>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -456,12 +464,13 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Integration support
                   </span>
                 </Stack>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -470,7 +479,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Figmas support
                   </span>
                 </Stack>
