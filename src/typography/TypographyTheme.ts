@@ -6,9 +6,15 @@ export interface TypographySize {
 }
 
 export interface TypographyWeight {
+  thin?: string;
+  extralight?: string;
+  light?: string;
   regular?: string;
   medium?: string;
+  semibold?: string;
   bold?: string;
+  extrabold?: string;
+  black?: string;
   [key: string]: string;
 }
 
@@ -49,8 +55,15 @@ export const typographyTheme: TypographyTheme = {
     secondary: 'text-content-text-neutral-2'
   },
   weight: {
+    thin: 'font-thin',
+    extralight: 'font-extralight',
+    light: 'font-light',
+    regular: 'font-normal',
     medium: 'font-medium',
-    bold: 'font-bold'
+    semibold: 'font-semibold',
+    bold: 'font-bold',
+    extrabold: 'font-extrabold',
+    black: 'font-black'
   },
   variant: {
     h1: {
