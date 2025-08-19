@@ -1,12 +1,19 @@
-import { useState } from 'react';
+import { cn, DeepPartial, mergeDeep } from '@/utils';
 import { Chip } from './Chip';
 import { Stack } from '@/layout';
 import { ChipTheme, chipTheme } from '@/elements';
 
 export default {
-  title: 'Components/Elements/Chip',
+  title: 'Components/Elements/Chip/Badge type',
   component: Chip
 };
+
+export const Variants = () => (
+  <div style={{ display: 'flex', gap: 10 }}>
+    <Chip variant="filled">Filled</Chip>
+    <Chip variant="outline">Outline</Chip>
+  </div>
+);
 
 export const Colors = () => (
   <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -106,45 +113,6 @@ export const StartEndAdornment = () => (
   </Chip>
 );
 
-export const Variants = () => (
-  <div style={{ display: 'flex', gap: 10 }}>
-    <Chip variant="filled">Filled</Chip>
-    <Chip variant="outline">Outline</Chip>
-  </div>
-);
-
-export const Selectable = () => {
-  const [IsFilledSelected, setIsFilledSelected] = useState(false);
-  const [isOutlineSelected, setIsOutlineSelected] = useState(false);
-
-  return (
-    <Stack>
-      <Chip
-        onClick={() => setIsFilledSelected(!IsFilledSelected)}
-        selected={IsFilledSelected}
-      >
-        Selectable
-      </Chip>
-      <Chip
-        variant="outline"
-        onClick={() => setIsOutlineSelected(!isOutlineSelected)}
-        selected={isOutlineSelected}
-      >
-        Selectable
-      </Chip>
-    </Stack>
-  );
-};
-
-export const Disabled = () => (
-  <Stack>
-    <Chip disabled>Selectable</Chip>
-    <Chip variant="outline" disabled>
-      Selectable
-    </Chip>
-  </Stack>
-);
-
 const DemoIcon = () => (
   <svg
     width="16"
@@ -163,48 +131,72 @@ const DemoIcon = () => (
 );
 
 export const CustomTheme = () => {
-  const customTheme: ChipTheme = {
-    ...chipTheme,
-    base: `${chipTheme.base} rounded-full`,
-    colors: {
-      ...chipTheme?.colors,
-      secondary: {
-        ...chipTheme.colors.secondary,
-        variants: {
-          ...chipTheme.colors.secondary.variants,
-          filled: `${chipTheme?.colors?.secondary?.variants?.filled} dark:bg-gray-100 light:bg-gray-900 text-panel`
-        }
-      },
-      info: {
-        ...chipTheme.colors.info,
-        variants: {
-          ...chipTheme.colors.info.variants,
-          filled: `${chipTheme?.colors?.info?.variants?.filled} text-text-primary bg-info/10 border-info`
-        }
-      },
-      error: {
-        ...chipTheme.colors.error,
-        variants: {
-          ...chipTheme.colors.error.variants,
-          filled: `${chipTheme?.colors?.error?.variants?.filled} text-text-primary bg-error/10 border-error`
-        }
-      },
-      warning: {
-        ...chipTheme.colors.warning,
-        variants: {
-          ...chipTheme.colors.warning.variants,
-          filled: `${chipTheme?.colors?.warning?.variants?.filled} text-text-primary bg-warning/10 border-warning`
-        }
-      },
-      success: {
-        ...chipTheme.colors.success,
-        variants: {
-          ...chipTheme.colors.success.variants,
-          filled: `${chipTheme?.colors?.success?.variants?.filled} text-text-primary bg-success/10 border-success`
+  const customTheme = mergeDeep<ChipTheme, DeepPartial<ChipTheme>>(
+    chipTheme,
+    {
+      type: {
+        badge: {
+          colors: {
+            default: {
+              variants: {
+                filled: {
+                  base: 'bg-neutrals-kyber-crystal-a-800'
+                }
+              }
+            },
+            primary: {
+              variants: {
+                filled: {
+                  base: 'bg-blue-hyperstream-800'
+                }
+              }
+            },
+            secondary: {
+              variants: {
+                filled: {
+                  base: 'bg-teal-sunspark-oasis-a-800'
+                }
+              }
+            },
+            success: {
+              variants: {
+                filled: {
+                  base: 'bg-green-emerald-saber-a-800'
+                }
+              }
+            },
+            error: {
+              variants: {
+                filled: {
+                  base: 'bg-pink-mew-mode-800'
+                }
+              }
+            },
+            warning: {
+              variants: {
+                filled: {
+                  base: 'bg-orange-sunstreak-a-800'
+                }
+              }
+            },
+            info: {
+              variants: {
+                filled: {
+                  base: 'bg-purple-nexus-a-800'
+                }
+              }
+            }
+          }
         }
       }
+    },
+    (source, target) => {
+      if (typeof source === 'string' && typeof target === 'string') {
+        return cn(source, target);
+      }
+      return undefined;
     }
-  };
+  );
 
   return (
     <Stack>

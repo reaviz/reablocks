@@ -3,9 +3,12 @@ import { twMerge } from 'tailwind-merge';
 import { Button } from '@/elements/Button';
 import { Chip, ChipProps, ChipRef } from './Chip';
 import { CloseIcon } from '@/form';
-import { ChipTheme } from './ChipTheme';
+import { ChipTheme } from '@/elements';
 import { useComponentTheme } from '@/utils';
 
+/**
+ * @deprecated
+ */
 export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
   /**
    * Customize delete icon.
@@ -23,6 +26,9 @@ export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
   theme?: ChipTheme;
 }
 
+/**
+ * @deprecated
+ */
 export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
   (
     {
@@ -52,8 +58,8 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
             variant="text"
             size={size}
             className={twMerge(
-              theme.deleteButton.base,
-              theme.deleteButton[size]
+              theme.type.tag.closeButton.base,
+              theme.type.tag.closeButton.sizes[size]
             )}
             onClick={event => {
               if (!disabled) {

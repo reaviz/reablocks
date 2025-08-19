@@ -1,3 +1,4 @@
+import { cloneDeep } from '@/utils';
 import mergeWith from 'lodash.mergewith';
 
 /**
@@ -12,5 +13,5 @@ export function mergeDeep<T extends object, S extends object>(
   source: S,
   mergeFunction?: (objValue: any, srcValue: any, key: string) => string
 ): T & S {
-  return mergeWith(target, source, mergeFunction);
+  return mergeWith(cloneDeep(target), source, mergeFunction);
 }

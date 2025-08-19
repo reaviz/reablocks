@@ -1,15 +1,29 @@
-import React, { FC, forwardRef, LegacyRef, ReactElement } from 'react';
+import React, {
+  FC,
+  forwardRef,
+  LegacyRef,
+  ReactElement,
+  ReactNode
+} from 'react';
 import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
+import CloseIcon from '@/assets/icons/close.svg?react';
 import {
   ChipColorTheme,
   ChipSizeTheme,
   ChipTheme,
-  ChipVariantTheme
+  ChipTypeTheme,
+  ChipVariantTheme,
+  TagTypeThemeConfig
 } from '@/elements';
+import { HTMLMotionProps, motion } from 'motion/react';
 
-export interface ChipProps
-  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {
+export interface ChipProps extends Omit<HTMLMotionProps<'div'>, 'color'> {
+  /**
+   * Type of the chip, e.g., badge or tag.
+   */
+  type?: keyof ChipTypeTheme;
+
   /**
    * Color variant for the chip.
    */
@@ -41,6 +55,11 @@ export interface ChipProps
   disableMargins?: boolean;
 
   /**
+   * If true, the animation of the chip will be disabled.
+   */
+  disableAnimation?: boolean;
+
+  /**
    * Content to display before the chip label.
    */
   start?: ReactElement | string;
@@ -49,6 +68,16 @@ export interface ChipProps
    * Content to display before the chip label.
    */
   end?: ReactElement | string;
+
+  /**
+   * Close icon for the chip, typically used in closable chips.
+   */
+  closeIcon?: ReactElement;
+
+  /**
+   * Close handler for the chip, typically used in closable chips.
+   */
+  onClose?: () => void;
 
   /**
    * Theme for the Chip.
@@ -67,6 +96,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
   (
     {
       children,
+      type = 'badge',
       color = 'default',
       variant = 'filled',
       size = 'medium',
@@ -74,39 +104,43 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       disabled,
       className,
       disableMargins,
+      disableAnimation,
       start,
       end,
+      closeIcon = <CloseIcon />,
+      onClose,
       onClick,
       theme: customTheme,
       ...rest
     },
     ref
   ) => {
-    const theme = useComponentTheme('chip', customTheme);
+    const theme = useComponentTheme('chip', customTheme).type[type];
+    const isClickable = type === 'tag' && onClick && !disabled;
 
     return (
-      <div
+      <motion.div
+        whileTap={{
+          scale: !isClickable || disableAnimation || onClose ? 1 : 0.9
+        }}
         {...rest}
         ref={ref}
         tabIndex={onClick ? 0 : -1}
         onClick={!disabled ? onClick : undefined}
-        className={twMerge(
+        className={cn(
           theme.base,
           theme.variants[variant],
           theme.colors[color]?.base,
-          theme.colors[color]?.variants?.[variant],
+          theme.colors[color]?.variants?.[variant]?.base,
           theme.sizes[size],
-          theme.focus,
-          !!onClick && !disabled && theme.colors[color]?.selectable?.base,
-          !!onClick &&
-            !disabled &&
-            theme.colors[color]?.selectable?.variants?.[variant]?.base,
-          selected &&
-            theme.colors[color]?.selectable?.variants?.[variant]?.selected,
+          {
+            [theme.colors[color]?.variants?.[variant]?.selected]: selected,
+            [theme.colors[color]?.variants?.[variant]?.selectable]: isClickable,
+            'cursor-pointer': isClickable
+          },
           disableMargins && 'm-0',
-          'transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill]',
-          className,
-          disabled && theme.disabled
+          disabled && type === 'tag' && (theme as TagTypeThemeConfig).disabled,
+          className
         )}
         aria-disabled={disabled}
       >
@@ -115,25 +149,42 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
             className={twMerge(
               theme.adornment.base,
               theme.adornment.start,
-              theme.adornment.sizes[size]
+              theme.adornment.sizes[size],
+              theme.colors[color]?.variants?.[variant]?.start
             )}
           >
             {start}
           </div>
         )}
-        <div className={'flex items-center'}>{children}</div>
+        <div className={theme.label}>{children as ReactNode}</div>
         {end && (
           <div
             className={twMerge(
               theme.adornment.base,
               theme.adornment.end,
-              theme.adornment.sizes[size]
+              theme.adornment.sizes[size],
+              theme.colors[color]?.variants?.[variant]?.end
             )}
           >
             {end}
           </div>
         )}
-      </div>
+        {onClose && (
+          <motion.button
+            whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
+            className={cn(
+              (theme as TagTypeThemeConfig).closeButton.base,
+              (theme as TagTypeThemeConfig).closeButton.sizes[size]
+            )}
+            onClick={e => {
+              e.stopPropagation();
+              onClose();
+            }}
+          >
+            {closeIcon}
+          </motion.button>
+        )}
+      </motion.div>
     );
   }
 );
