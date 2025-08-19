@@ -1,12 +1,14 @@
+export interface DotsLoaderSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
+
 export interface DotsLoaderTheme {
   base: string;
   dot: string;
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  sizes: DotsLoaderSizeTheme;
 }
 
 export const dotsLoaderTheme: DotsLoaderTheme = {

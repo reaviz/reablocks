@@ -9,7 +9,7 @@ import React, {
 import { motion } from 'motion/react';
 import { RadioGroupContext } from './RadioGroupContext';
 import { cn, useComponentTheme } from '@/utils';
-import { RadioTheme } from './RadioTheme';
+import { RadioSizeTheme, RadioTheme } from './RadioTheme';
 
 export interface RadioProps {
   /**
@@ -37,7 +37,7 @@ export interface RadioProps {
   /**
    * Size of the radio.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof RadioSizeTheme;
 
   /**
    * Event handler for when the radio is changed.
