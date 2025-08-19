@@ -1,7 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
-import { TypographyTheme } from '@/typography/TypographyTheme';
+import { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 
 export type SmallHeadingColors =
   | 'default'
@@ -13,6 +13,9 @@ export type SmallHeadingColors =
   | 'info'
   | string;
 
+/**
+ * @deprecated
+ */
 export interface SmallHeadingProps
   extends React.HTMLAttributes<HTMLHeadingElement> {
   /**
@@ -33,9 +36,12 @@ export interface SmallHeadingProps
   /**
    * Theme for the Typography.
    */
-  theme?: TypographyTheme;
+  theme?: TypographyThemeDeprecated;
 }
 
+/**
+ * @deprecated
+ */
 export interface SmallHeadingRef {
   /**
    * Reference to the HTML heading element.
@@ -43,6 +49,9 @@ export interface SmallHeadingRef {
   ref?: LegacyRef<HTMLHeadingElement>;
 }
 
+/**
+ * @deprecated
+ */
 export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
   (
     {
@@ -56,7 +65,10 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
     }: SmallHeadingProps,
     ref
   ) => {
-    const theme: TypographyTheme = useComponentTheme('typography', customTheme);
+    const theme: TypographyThemeDeprecated = useComponentTheme(
+      'typography_deprecated',
+      customTheme
+    );
 
     return (
       <h5
