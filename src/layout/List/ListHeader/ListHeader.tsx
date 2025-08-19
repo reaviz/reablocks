@@ -1,5 +1,5 @@
 import React, { FC, InputHTMLAttributes } from 'react';
-import { Sub } from '@/typography';
+import { Typography } from '@/typography';
 import { ListTheme } from '@/layout/List/ListTheme';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
@@ -19,8 +19,13 @@ export const ListHeader: FC<ListHeaderProps> = ({
 }) => {
   const theme: ListTheme = useComponentTheme('list', customTheme);
   return (
-    <Sub {...(rest as any)} className={twMerge(className, theme.header)}>
+    <Typography
+      variant="button"
+      size="small"
+      {...(rest as any)}
+      className={twMerge(className, theme.header)}
+    >
       {children}
-    </Sub>
+    </Typography>
   );
 };

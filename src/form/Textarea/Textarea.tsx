@@ -9,7 +9,7 @@ import TextareaAutosize, {
   TextareaAutosizeProps
 } from 'react-textarea-autosize';
 import { twMerge } from 'tailwind-merge';
-import { TextareaTheme } from './TextareaTheme';
+import { TextareaSizeTheme, TextareaTheme } from './TextareaTheme';
 import { useComponentTheme } from '@/utils';
 
 export interface TextareaProps extends TextareaAutosizeProps {
@@ -31,7 +31,7 @@ export interface TextareaProps extends TextareaAutosizeProps {
   /**
    * Size of the field.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof TextareaSizeTheme;
 
   /**
    * Theme for the Textarea.

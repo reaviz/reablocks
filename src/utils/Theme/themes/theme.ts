@@ -16,7 +16,9 @@ import {
   ArrowTheme,
   arrowTheme,
   chipTheme,
-  ChipTheme
+  ChipTheme,
+  NavigationTheme,
+  navigationTheme
 } from '@/elements';
 
 import {
@@ -91,9 +93,10 @@ import {
 } from '@/layout';
 
 import {
-  legacyTypographyTheme,
   typographyTheme,
-  TypographyTheme
+  TypographyTheme,
+  typographyThemeDeprecated,
+  TypographyThemeDeprecated
 } from '@/typography';
 
 import {
@@ -108,7 +111,6 @@ import {
   DateFormatTheme,
   dateFormatTheme
 } from '@/data';
-import { DeepPartial } from 'react-hook-form';
 
 export interface ReablocksTheme {
   components: {
@@ -143,6 +145,7 @@ export interface ReablocksTheme {
     commandPalette: CommandPaletteTheme;
     collapse: CollapseTheme;
     textarea: TextareaTheme;
+    typography_deprecated: TypographyThemeDeprecated;
     typography: TypographyTheme;
     radio: RadioTheme;
     range: RangeTheme;
@@ -158,6 +161,7 @@ export interface ReablocksTheme {
     stepper: StepperTheme;
     callout: CalloutTheme;
     backdrop: BackdropTheme;
+    navigation: NavigationTheme;
   };
 }
 
@@ -194,6 +198,7 @@ export const theme: ReablocksTheme = {
     commandPalette: commandPaletteTheme,
     collapse: collapseTheme,
     textarea: textareaTheme,
+    typography_deprecated: typographyThemeDeprecated,
     typography: typographyTheme,
     radio: radioTheme,
     range: rangeTheme,
@@ -208,12 +213,7 @@ export const theme: ReablocksTheme = {
     breadcrumbs: breadcrumbsTheme,
     stepper: stepperTheme,
     callout: calloutTheme,
-    backdrop: backdropTheme
-  }
-};
-
-export const legacyThemeVars: DeepPartial<ReablocksTheme> = {
-  components: {
-    typography: legacyTypographyTheme
+    backdrop: backdropTheme,
+    navigation: navigationTheme
   }
 };

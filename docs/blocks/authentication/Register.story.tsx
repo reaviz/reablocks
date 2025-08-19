@@ -46,16 +46,6 @@ const LogoIcon = ({ className }: { className?: string }) => (
   </svg>
 );
 
-const RadioTheme = {
-  ...radioTheme,
-  base: 'box-border leading-3',
-  radio: {
-    ...radioTheme.radio,
-    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-hidden focus-visible:border-primary-hover',
-    checked: 'border-primary'
-  }
-};
-
 export const Register = () => {
   const {
     control,
@@ -77,14 +67,14 @@ export const Register = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Welcome to Reablocks
           </h4>
-          <p className="text-base text-text-secondary font-sans">
+          <p className="text-base text-content-text-neutral-2 font-sans">
             Welcome! Let's get started by creating your account. Please provide
             your email address and choose a secure password to begin accessing
             our platform's features.
           </p>
         </div>
         <form
-          className="text-sm"
+          className="text-sm flex flex-col gap-4"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
           <Block label="Name">
@@ -156,40 +146,32 @@ export const Register = () => {
             />
           </Block>
           <Button
+            size="large"
             type="submit"
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-5 mb-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-5"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}
           </Button>
-          <div className="mt-5 text-sm text-text-secondary flex items-center justify-center gap-2">
+          <div className="text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               terms of service
-            </a>
+            </Button>
             and
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               privacy policy
-            </a>
+            </Button>
           </div>
-          <Divider className="mt-5 mb-5" variant="secondary" />
-          <div className="mt-5 text-text-secondary text-sm flex items-center justify-center gap-2">
+          <Divider disableMargins/>
+          <div className="text-content-text-neutral-2 text-sm flex items-center justify-center gap-2">
             Already have an account?
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button size="large" variant="text">
               Sign in
-            </a>
+            </Button>
           </div>
         </form>
       </Card>
@@ -219,7 +201,7 @@ export const RegisterFull = () => {
           <h4 className="text-2xl font-sans font-bold mb-0">
             Welcome to Reablocks
           </h4>
-          <p className="text-base text-text-secondary font-sans">
+          <p className="text-base text-content-text-neutral-2 font-sans">
             Excited to have you onboard! Start by creating your account to gain
             access to our platform. Simply provide your email, choose a
             password, and include any necessary information about your company
@@ -228,7 +210,7 @@ export const RegisterFull = () => {
           <Divider variant="secondary" className="mt-4" />
         </div>
         <form
-          className="text-sm"
+          className="text-sm flex flex-col gap-4"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
           <div className="grid grid-cols-2 gap-4">
@@ -310,14 +292,12 @@ export const RegisterFull = () => {
               />
             </Block>
           </div>
-          <h6 className="text-lg font-bold mb-4">Select a package</h6>
+          <h6 className="text-lg font-bold">Select a package</h6>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card
-              className={cn(
-                'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
+              className={cn('p-5',
                 {
-                  'border-primary dark:bg-black dark:hover:bg-black light:bg-athens-gray light:hover:border-primary':
-                    selection === 'starter'
+                  'bg-background-neutral-inverse-raised-2': selection === 'starter'
                 }
               )}
               onClick={() => setSelection('starter')}
@@ -327,12 +307,12 @@ export const RegisterFull = () => {
                 <Radio
                   size="small"
                   checked={selection === 'starter'}
-                  theme={RadioTheme}
                 />
               </Stack>
               <Stack direction="column" alignItems="start" dense>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -341,12 +321,13 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Community support
                   </span>
                 </Stack>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -355,12 +336,13 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Integration support
                   </span>
                 </Stack>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -369,7 +351,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Figmas support
                   </span>
                 </Stack>
@@ -377,11 +359,9 @@ export const RegisterFull = () => {
               </Stack>
             </Card>
             <Card
-              className={cn(
-                'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
+              className={cn('p-5',
                 {
-                  'border-primary dark:bg-black dark:hover:bg-black light:bg-athens-gray light:hover:border-primary':
-                    selection === 'premium'
+                  'bg-background-neutral-inverse-raised-2': selection === 'premium'
                 }
               )}
               onClick={() => setSelection('premium')}
@@ -391,12 +371,12 @@ export const RegisterFull = () => {
                 <Radio
                   size="small"
                   checked={selection === 'premium'}
-                  theme={RadioTheme}
                 />
               </Stack>
               <Stack direction="column" alignItems="start" dense>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -405,12 +385,13 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Community support
                   </span>
                 </Stack>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -419,12 +400,13 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Integration support
                   </span>
                 </Stack>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -433,7 +415,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Figmas support
                   </span>
                 </Stack>
@@ -441,11 +423,9 @@ export const RegisterFull = () => {
               </Stack>
             </Card>
             <Card
-              className={cn(
-                'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
+              className={cn('p-5',
                 {
-                  'border-primary dark:bg-black dark:hover:bg-black light:bg-athens-gray light:hover:border-primary':
-                    selection === 'enterprise'
+                  'bg-background-neutral-inverse-raised-2': selection === 'enterprise'
                 }
               )}
               onClick={() => setSelection('enterprise')}
@@ -455,12 +435,12 @@ export const RegisterFull = () => {
                 <Radio
                   size="small"
                   checked={selection === 'enterprise'}
-                  theme={RadioTheme}
                 />
               </Stack>
               <Stack direction="column" alignItems="start" dense>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -469,12 +449,13 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Community support
                   </span>
                 </Stack>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -483,12 +464,13 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Integration support
                   </span>
                 </Stack>
                 <Stack dense>
                   <svg
+                    className="text-content-text-neutral-2"
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
                     height="17"
@@ -497,7 +479,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-content-text-neutral-2">
                     Figmas support
                   </span>
                 </Stack>
@@ -507,21 +489,18 @@ export const RegisterFull = () => {
           </div>
           <Divider variant="secondary" className="mt-4" />
           <div className="flex flex-col items-center justify-between md:flex-row">
-            <div className="text-text-secondary text-sm flex items-center justify-center gap-2">
+            <div className="text-content-text-neutral-2 text-sm flex items-center justify-center gap-2">
               Already have an account?
-              <a
-                href="#"
-                className="text-primary hover:text-primary-hover text-lg"
-              >
+              <Button variant="text" size="large">
                 Sign in
-              </a>
+              </Button>
             </div>
             <div>
               <Button
+                size="large"
                 type="submit"
                 variant="filled"
                 color="primary"
-                className="mt-5 mb-2 px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Creating...' : 'Create Account →'}
@@ -553,14 +532,14 @@ export const RegisterV2 = () => {
           <h4 className="text-2xl font-sans font-bold mb-0 text-center">
             Welcome to Reablocks
           </h4>
-          <p className="text-base text-text-secondary font-sans text-center">
+          <p className="text-base text-content-text-neutral-2 font-sans text-center">
             Welcome! Let's get started by creating your account. Please provide
             your email address and choose a secure password to begin accessing
             our platform's features.
           </p>
         </div>
         <form
-          className="text-sm"
+          className="text-sm flex flex-col gap-4"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
           <div className="grid grid-cols-2 gap-2.5">
@@ -653,40 +632,31 @@ export const RegisterV2 = () => {
             />
           </Block>
           <Button
+            size="large"
             type="submit"
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-5 mb-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Creating...' : 'Create Account →'}
           </Button>
-          <div className="mt-5 text-sm text-text-secondary flex items-center justify-center gap-2">
+          <div className="text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               terms of service
-            </a>
+            </Button>
             and
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               privacy policy
-            </a>
+            </Button>
           </div>
-          <Divider className="mt-5 mb-5" variant="secondary" />
-          <div className="mt-5 text-text-secondary text-sm flex items-center justify-center gap-2">
+          <Divider />
+          <div className="text-content-text-neutral-2 text-sm flex items-center justify-center gap-2">
             Already have an account?
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" size="large">
               Sign in
-            </a>
+            </Button>
           </div>
         </form>
       </Card>
@@ -739,9 +709,9 @@ export const RegisterWithSocial = () => {
             </Button>
           </div>
           <Stack className="w-full my-7">
-            <Divider variant="secondary" />
+            <Divider />
             or
-            <Divider variant="secondary" />
+            <Divider />
           </Stack>
         </div>
         <form
@@ -834,48 +804,37 @@ export const RegisterWithSocial = () => {
             />
           </Block>
           <div className="text-right">
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text">
               Forgot Password?
-            </a>
+            </Button>
           </div>
           <Button
+            size="large"
             type="submit"
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 mb-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-7"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}
           </Button>
-          <div className="mt-5 text-sm text-text-secondary flex items-center justify-center gap-2">
+          <div className="mt-5 text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               terms of service
-            </a>
+            </Button>
             and
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" className="p-0">
               privacy policy
-            </a>
+            </Button>
           </div>
-          <Divider className="mt-5 mb-5" variant="secondary" />
-          <div className="mt-5 text-text-secondary text-sm flex items-center justify-center gap-2">
+          <Divider className="mt-5" />
+          <div className="text-content-text-neutral-2 text-sm flex items-center justify-center gap-2">
             Already have an account?
-            <a
-              href="#"
-              className="text-primary hover:text-primary-hover text-lg"
-            >
+            <Button variant="text" size="large">
               Sign in
-            </a>
+            </Button>
           </div>
         </form>
       </Card>

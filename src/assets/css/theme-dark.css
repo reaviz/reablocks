@@ -1,6 +1,7 @@
 :root,
 :host {
-  &.theme-dark {
+  &.theme-dark,
+  &.dark {
     --reablocks-theme: dark;
 
     --background-basic-clear: var(--neutrals-clear-dnt-clear);

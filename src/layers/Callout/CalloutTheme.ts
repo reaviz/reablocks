@@ -1,25 +1,20 @@
+export interface CalloutVariantTheme {
+  default: string;
+  success: string;
+  error: string;
+  warning: string;
+  info: string;
+  [key: string]: string;
+}
+
 export interface CalloutTheme {
   base: {
     common: string;
-    variant: {
-      default: string;
-      success: string;
-      error: string;
-      warning: string;
-      info: string;
-      [key: string]: string;
-    };
+    variant: CalloutVariantTheme;
   };
   icon: {
     common: string;
-    variant: {
-      default: string;
-      success: string;
-      error: string;
-      warning: string;
-      info: string;
-      [key: string]: string;
-    };
+    variant: CalloutVariantTheme;
   };
   text: string;
 }

@@ -1,3 +1,10 @@
+export interface CheckboxSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
+
 export interface CheckboxTheme {
   base: string;
   label: {
@@ -5,12 +12,7 @@ export interface CheckboxTheme {
     clickable: string;
     disabled: string;
     checked: string;
-    sizes: {
-      small: string;
-      medium: string;
-      large: string;
-      [key: string]: string;
-    };
+    sizes: CheckboxSizeTheme;
   };
   border: {
     base: string;
@@ -27,12 +29,7 @@ export interface CheckboxTheme {
     disabled: string;
     checked: string;
   };
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  sizes: CheckboxSizeTheme;
   boxVariants: {
     hover: {
       strokeWidth: number;

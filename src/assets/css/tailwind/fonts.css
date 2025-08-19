@@ -1,0 +1,19 @@
+@theme inline {
+  /* Fonts */
+  --font-sans: 'Proxima Nova', sans-serif;
+  --font-serif: 'Inter', sans-serif;
+  --font-mono: 'Share Tech Mono', monospace;
+
+  /* Font sizes */
+  --text-xs: 0.625rem; /* 10px */
+  --text-sm: 0.75rem; /* 12px */
+  --text-base: 0.875rem; /* 14px */
+  --text-lg: 1rem; /* 16px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.75rem; /* 28px */
+  --text-4xl: 2rem; /* 32px */
+  --text-5xl: 2.5rem; /* 40px */
+
+  /* Line height */
+}

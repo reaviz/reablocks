@@ -1,14 +1,11 @@
+import { SelectInputSizeTheme } from '@/form/Select/SelectInput/SelectInputTheme';
+
 export interface SelectMenuTheme {
   base: string;
   groupItem: {
     base: string;
     title: string;
-    size: {
-      small: string;
-      medium: string;
-      large: string;
-      [key: string]: string;
-    };
+    size: SelectInputSizeTheme;
   };
   option: {
     base: string;
@@ -19,12 +16,7 @@ export interface SelectMenuTheme {
     checkIcon: string;
     content: string;
   };
-  size: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  size: SelectInputSizeTheme;
 }
 
 export const selectMenuTheme: SelectMenuTheme = {

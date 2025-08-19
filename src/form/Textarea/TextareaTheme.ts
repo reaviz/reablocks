@@ -1,15 +1,17 @@
+export interface TextareaSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
+
 export interface TextareaTheme {
   base: string;
   input: string;
   fullWidth: string;
   error: string;
   disabled: string;
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  sizes: TextareaSizeTheme;
 }
 
 export const textareaTheme: TextareaTheme = {

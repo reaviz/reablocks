@@ -83,7 +83,7 @@ export const ActivityTimeline = () => (
                 <Textarea
                   fullWidth
                   placeholder="Leave a reply..."
-                  containerClassName="border-transparent bg-vulcan light:bg-athens-gray"
+                  containerClassName="border-transparent placeholder:text-content-text-neutral-3 bg-background-neutral-raised-5 px-3"
                   className="text-sm! px-0"
                   endAdornment={null}
                 />
@@ -123,7 +123,7 @@ export const ActivityTimeline = () => (
           <Textarea
             fullWidth
             placeholder="Leave a comment..."
-            containerClassName="border-transparent bg-vulcan light:bg-athens-gray"
+            containerClassName="border-transparent placeholder:text-content-text-neutral-3 bg-background-neutral-raised-5 px-3"
             className="text-sm! px-0"
             endAdornment={null}
           />
@@ -161,7 +161,7 @@ export const VersionHistory = () => (
                 <span className="font-medium text-base">
                   New custom statuses for projects
                 </span>
-                <span className="font-normal text-sm text-waterloo light:text-gray-600">
+                <span className="font-normal text-sm text-content-text-neutral-2">
                   Austin McDaniel • 1 hour ago
                 </span>
               </Stack>
@@ -171,7 +171,7 @@ export const VersionHistory = () => (
                 <span className="font-medium text-base">
                   Timeline UI overhaul
                 </span>
-                <span className="font-normal text-sm text-waterloo light:text-gray-600">
+                <span className="font-normal text-sm text-content-text-neutral-2">
                   Austin McDaniel • March 22, 2024
                 </span>
               </Stack>
@@ -181,7 +181,7 @@ export const VersionHistory = () => (
                 <span className="font-medium text-base">
                   Google calendar integration
                 </span>
-                <span className="font-normal text-sm text-waterloo light:text-gray-600">
+                <span className="font-normal text-sm text-content-text-neutral-2">
                   Austin McDaniel • March 21, 2024
                 </span>
               </Stack>
@@ -191,7 +191,7 @@ export const VersionHistory = () => (
                 <span className="font-medium text-base">
                   Branch-specific workflow automations
                 </span>
-                <span className="font-normal text-sm text-waterloo light:text-gray-600">
+                <span className="font-normal text-sm text-content-text-neutral-2">
                   Austin McDaniel • February 28, 2024
                 </span>
               </Stack>
@@ -201,7 +201,7 @@ export const VersionHistory = () => (
                 <span className="font-medium text-base">
                   Project time frames
                 </span>
-                <span className="font-normal text-sm text-waterloo light:text-gray-600">
+                <span className="font-normal text-sm text-content-text-neutral-2">
                   Austin McDaniel • February 15, 2024
                 </span>
               </Stack>
@@ -211,7 +211,7 @@ export const VersionHistory = () => (
                 <span className="font-medium text-base">
                   GitHub Issues Sync
                 </span>
-                <span className="font-normal text-sm text-waterloo light:text-gray-600">
+                <span className="font-normal text-sm text-content-text-neutral-2">
                   Austin McDaniel • February 10, 2024
                 </span>
               </Stack>
@@ -239,7 +239,7 @@ export const WorkspaceHistory = () => (
             </svg>
           </IconButton>
         </div>
-        <span className="text-waterloo">Workspace History</span>
+        <span className="text-content-text-neutral-2">Workspace History</span>
       </Stack>
       <Stepper className="mt-8" animated>
         <Step>

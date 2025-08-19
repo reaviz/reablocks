@@ -1,3 +1,10 @@
+export interface InputSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
+
 export interface InputTheme {
   base: string;
   input: string;
@@ -6,12 +13,7 @@ export interface InputTheme {
   focused: string;
   fullWidth: string;
   error: string;
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  sizes: InputSizeTheme;
   adornment: {
     base: string;
     start: string;

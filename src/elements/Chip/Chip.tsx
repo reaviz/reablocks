@@ -1,31 +1,29 @@
 import React, { FC, forwardRef, LegacyRef, ReactElement } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
-import { ChipTheme } from '@/elements';
+import {
+  ChipColorTheme,
+  ChipSizeTheme,
+  ChipTheme,
+  ChipVariantTheme
+} from '@/elements';
 
-export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ChipProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'color'> {
   /**
    * Color variant for the chip.
    */
-  color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'success'
-    | 'warning'
-    | 'info'
-    | string;
+  color?: keyof ChipColorTheme;
 
   /**
    * Size variant for the chip.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof ChipSizeTheme;
 
   /**
    * Style variant for the chip.
    */
-  variant?: 'filled' | 'outline' | 'subtle' | string;
+  variant?: keyof ChipVariantTheme;
 
   /**
    * Whether the chip is selected.
