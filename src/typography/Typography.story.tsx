@@ -9,13 +9,11 @@ export default {
 
 export const Heading = () => (
   <div className="grid grid-cols-[50px_250px_1fr] gap-4 auto-rows-[40px] justify-center items-center">
-    <Typography variant="h1" size="medium" weight="regular">
-      H1
-    </Typography>
+    <Typography variant="h1">H1</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
       Proxima Nova | Regular | 40 / 48 / 0
     </Typography>
-    <Typography variant="h1" size="medium" weight="regular">
+    <Typography variant="h1">
       Quantum flux stabilizer online protocol
     </Typography>
     <Typography variant="h1" size="medium" weight="medium">
@@ -39,13 +37,11 @@ export const Heading = () => (
     <Divider />
     <Divider />
     <Divider />
-    <Typography variant="h2" size="medium" weight="regular">
-      H2
-    </Typography>
+    <Typography variant="h2">H2</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
       Proxima Nova | Regular | 32 / 36 / 0
     </Typography>
-    <Typography variant="h2" size="medium" weight="regular">
+    <Typography variant="h2">
       Quantum flux stabilizer online protocol
     </Typography>
     <Typography variant="h2" size="medium" weight="medium">
@@ -69,13 +65,11 @@ export const Heading = () => (
     <Divider />
     <Divider />
     <Divider />
-    <Typography variant="h3" size="medium" weight="regular">
-      H3
-    </Typography>
+    <Typography variant="h3">H3</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
       Proxima Nova | Regular | 28 / 32 / 0
     </Typography>
-    <Typography variant="h3" size="medium" weight="regular">
+    <Typography variant="h3">
       Quantum flux stabilizer online protocol
     </Typography>
     <Typography variant="h3" size="medium" weight="medium">
@@ -99,13 +93,11 @@ export const Heading = () => (
     <Divider />
     <Divider />
     <Divider />
-    <Typography variant="h4" size="medium" weight="regular">
-      H4
-    </Typography>
+    <Typography variant="h4">H4</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
       Proxima Nova | Regular | 24 / 28 / 0
     </Typography>
-    <Typography variant="h4" size="medium" weight="regular">
+    <Typography variant="h4">
       Quantum flux stabilizer online protocol
     </Typography>
     <Typography variant="h4" size="medium" weight="medium">
@@ -129,13 +121,11 @@ export const Heading = () => (
     <Divider />
     <Divider />
     <Divider />
-    <Typography variant="h5" size="medium" weight="regular">
-      H5
-    </Typography>
+    <Typography variant="h5">H5</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
       Proxima Nova | Regular | 20 / 24 / 0
     </Typography>
-    <Typography variant="h5" size="medium" weight="regular">
+    <Typography variant="h5">
       Quantum flux stabilizer online protocol
     </Typography>
     <Typography variant="h5" size="medium" weight="medium">
@@ -159,13 +149,11 @@ export const Heading = () => (
     <Divider />
     <Divider />
     <Divider />
-    <Typography variant="h6" size="medium" weight="regular">
-      H6
-    </Typography>
+    <Typography variant="h6">H6</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
       Proxima Nova | Regular | 16 / 24 / 0
     </Typography>
-    <Typography variant="h6" size="medium" weight="regular">
+    <Typography variant="h6">
       Quantum flux stabilizer online protocol
     </Typography>
     <Typography variant="h6" size="medium" weight="medium">
@@ -212,13 +200,11 @@ export const Body = () => (
     <Divider />
     <Divider />
     <Divider />
-    <Typography variant="body" size="medium" weight="regular">
-      Body Medium
-    </Typography>
+    <Typography variant="body">Body Medium</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
       Inter | Regular | 14 / 18 / 0
     </Typography>
-    <Typography variant="body" size="medium" weight="regular">
+    <Typography variant="body">
       Quantum flux stabilizer online protocol
     </Typography>
     <Typography variant="body" size="medium" weight="medium">
