@@ -7,7 +7,7 @@ import {
 } from '../../../src/layout';
 import { Button } from '../../../src/elements/Button';
 import { Input } from '../../../src/form/Input';
-import { PageTitle } from '../../../src/typography';
+import { PageTitle, Typography } from '../../../src/typography';
 import { Chip } from '../../../src/elements/Chip';
 
 export default {
@@ -957,9 +957,9 @@ export const DoesNotExist = () => (
         >
           404
         </Chip>
-        <PageTitle className="font-bold my-3 text-content-text-neutral-2">
+        <Typography variant="h1" weight="bold" color="secondary" className="my-3">
           This page does not exist
-        </PageTitle>
+        </Typography>
         <span className="text-content-text-neutral-2">
           Sorry, we couldn't find the page you're looking for.
         </span>

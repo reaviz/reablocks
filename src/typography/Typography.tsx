@@ -38,6 +38,7 @@ export const Typography: FC<TypographyProps> = ({
   size = 'medium',
   weight = 'regular',
   theme: customTheme,
+  className,
   ...rest
 }) => {
   const theme: TypographyTheme = useComponentTheme('typography', customTheme);
@@ -52,7 +53,8 @@ export const Typography: FC<TypographyProps> = ({
         theme?.variant?.[variant]?.base,
         theme?.variant?.[variant]?.size?.[size],
         theme?.color?.[color],
-        theme?.weight?.[weight]
+        theme?.weight?.[weight],
+        className
       )}
     >
       {children}
