@@ -9,6 +9,8 @@ interface TabVariantConfigTheme {
 export interface TabVariantTheme {
   primary: TabVariantConfigTheme;
   secondary: TabVariantConfigTheme;
+  outlined?: TabVariantConfigTheme;
+  text?: TabVariantConfigTheme;
   [key: string]: TabVariantConfigTheme;
 }
 

@@ -58,8 +58,8 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
             variant="text"
             size={size}
             className={twMerge(
-              theme.type.tag.closeButton.base,
-              theme.type.tag.closeButton.sizes[size]
+              theme.types.tag.closeButton.base,
+              theme.types.tag.closeButton.sizes[size]
             )}
             onClick={event => {
               if (!disabled) {

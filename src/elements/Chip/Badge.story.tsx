@@ -1,4 +1,4 @@
-import { cn, DeepPartial, mergeDeep } from '@/utils';
+import { cn, extendComponentTheme } from '@/utils';
 import { Chip } from './Chip';
 import { Stack } from '@/layout';
 import { ChipTheme, chipTheme } from '@/elements';
@@ -131,10 +131,10 @@ const DemoIcon = () => (
 );
 
 export const CustomTheme = () => {
-  const customTheme = mergeDeep<ChipTheme, DeepPartial<ChipTheme>>(
+  const customTheme = extendComponentTheme<ChipTheme>(
     chipTheme,
     {
-      type: {
+      types: {
         badge: {
           colors: {
             default: {

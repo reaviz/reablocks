@@ -115,7 +115,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
     },
     ref
   ) => {
-    const theme = useComponentTheme('chip', customTheme).type[type];
+    const theme = useComponentTheme('chip', customTheme).types[type];
     const isClickable = type === 'tag' && onClick && !disabled;
 
     return (

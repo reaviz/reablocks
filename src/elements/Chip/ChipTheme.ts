@@ -89,11 +89,11 @@ export interface ChipTypeTheme {
 }
 
 export interface ChipTheme {
-  type: ChipTypeTheme;
+  types: ChipTypeTheme;
 }
 
 export const chipTheme: ChipTheme = {
-  type: {
+  types: {
     badge: {
       base: 'inline-flex whitespace-nowrap border font-medium select-none items-center justify-center rounded-full transition-colors',
       label: '',
