@@ -55,7 +55,7 @@ export interface ChipProps extends Omit<HTMLMotionProps<'div'>, 'color'> {
   disableMargins?: boolean;
 
   /**
-   * If true, the animation of the chip will be disabled.
+   * If false, the animation of the chip will be disabled.
    */
   animated?: boolean;
 

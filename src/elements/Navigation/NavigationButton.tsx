@@ -33,7 +33,7 @@ interface NavigationButtonProps extends PropsWithChildren {
   disabled?: boolean;
 
   /**
-   * Disables the animation on click.
+   * If false, the animation of the button will be disabled.
    */
   animated?: boolean;
 

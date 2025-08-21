@@ -47,8 +47,14 @@ export interface ButtonProps
 
   /**
    * If true, the animation of the button will be disabled.
+   * @deprecated
    */
   disableAnimation?: boolean;
+
+  /**
+   * If false, the animation of the button will be disabled.
+   */
+  animated?: boolean;
 
   /**
    * Element to display before the Button content.
@@ -82,6 +88,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
       fullWidth,
       size = 'medium',
       disableAnimation,
+      animated = true,
       className,
       disableMargins,
       disablePadding,
@@ -107,7 +114,9 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         type={type}
         disabled={disabled}
         ref={ref}
-        whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
+        whileTap={{
+          scale: disabled || disableAnimation || !animated ? 1 : 0.9
+        }}
         data-variant={groupVariant || variant}
         className={twMerge(
           theme.base,
