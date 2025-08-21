@@ -1,7 +1,7 @@
 @theme inline {
   /* Fonts */
   --font-sans: 'Proxima Nova', sans-serif;
-  --font-serif: 'Inter', sans-serif;
+  --font-serif: 'Inter', serif;
   --font-mono: 'Share Tech Mono', monospace;
 
   /* Font sizes */
