@@ -93,6 +93,6 @@ export const checkboxTheme: CheckboxTheme = {
   sizes: {
     small: '[&>svg]:size-3',
     medium: '[&>svg]:size-4',
-    large: '[&>svg]:size-4'
+    large: '[&>svg]:size-5'
   }
 } as CheckboxTheme;
