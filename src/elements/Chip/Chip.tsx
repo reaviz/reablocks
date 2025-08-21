@@ -57,7 +57,7 @@ export interface ChipProps extends Omit<HTMLMotionProps<'div'>, 'color'> {
   /**
    * If true, the animation of the chip will be disabled.
    */
-  disableAnimation?: boolean;
+  animated?: boolean;
 
   /**
    * Content to display before the chip label.
@@ -104,7 +104,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       disabled,
       className,
       disableMargins,
-      disableAnimation,
+      animated = true,
       start,
       end,
       closeIcon = <CloseIcon />,
@@ -121,7 +121,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
     return (
       <motion.div
         whileTap={{
-          scale: !isClickable || disableAnimation || onClose ? 1 : 0.9
+          scale: !isClickable || !animated || onClose ? 1 : 0.9
         }}
         {...rest}
         ref={ref}
@@ -171,7 +171,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
         )}
         {onClose && (
           <motion.button
-            whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
+            whileTap={{ scale: disabled || !animated ? 1 : 0.9 }}
             className={cn(
               (theme as TagTypeThemeConfig).closeButton.base,
               (theme as TagTypeThemeConfig).closeButton.sizes[size]
