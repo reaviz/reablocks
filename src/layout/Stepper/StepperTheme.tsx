@@ -36,7 +36,7 @@ export const stepperTheme: StepperTheme = {
       base: 'rounded-full w-2.5 h-2.5 bg-content-assets-neutral-3',
       container: {
         common:
-          'text-badges-colors-outline-brand-text-default w-max relative bg-transparent -translate-x-[calc(50%+0.5px)]',
+          'text-content-text-on-color-light-dark w-max relative bg-transparent -translate-x-[calc(50%+0.5px)]',
         dot: '-top-3',
         circle: '-top-8.5'
       },

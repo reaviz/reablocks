@@ -15,8 +15,8 @@ export const dotsLoaderTheme: DotsLoaderTheme = {
   base: 'flex',
   dot: 'rounded-[50%] bg-background-brand-base',
   sizes: {
-    small: 'w-1 h-1 m-1',
-    medium: 'w-1.5 h-1.5 m-1.5',
-    large: 'w-2 h-2 m-2'
+    small: 'size-1 m-1',
+    medium: 'size-1.5 m-1.5',
+    large: 'size-2 m-2'
   }
 };

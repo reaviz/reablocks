@@ -132,7 +132,7 @@ export const calendarTheme: CalendarTheme = {
   },
   time: {
     base: 'pr-1 flex flex-col h-full gap-0 text-sm text-buttons-colors-core-icon-ghost-assets-resting',
-    wrapper: 'bg-panel z-10 flex flex-row',
+    wrapper: 'z-10 flex flex-row',
     dividerTop: 'hidden',
     dividerLeft:
       'h-auto mx-1 z-10 bg-calendar-colors-container-stroke-default mt-1',

@@ -13,7 +13,7 @@ export const Simple = () => {
 
 export const Disabled = () => (
   <div
-    className="bg-panel p-20"
+    className="p-20"
     style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}
   >
     <Toggle disabled checked />

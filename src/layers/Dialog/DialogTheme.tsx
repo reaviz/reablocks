@@ -14,7 +14,7 @@ export const dialogTheme: DialogTheme = {
   base: 'justify-center items-center flex pointer-events-none top-0 left-0 size-full fixed',
   inner: `
       flex flex-col box-border outline-0 pointer-events-auto overflow-auto max-w-[80vw] max-h-[80vh] rounded-xl border backdrop-blur-lg
-      border-calendar-colors-container-stroke-default bg-calendar-colors-container-background-default
+      border-stroke-brand-base bg-background-neutral-canvas-base
     `,
   content: 'p-4 flex-auto overflow-auto text-content-text-on-color-light-dark',
   footer: 'flex flex-row-reverse gap-2 p-4',
