@@ -24,7 +24,7 @@ export const selectMenuTheme: SelectMenuTheme = {
   groupItem: {
     base: 'p-0',
     title:
-      'px-1 py-2 border rounded-md border-select-menu-items-color-item-stroke-header-resting text-select-menu-items-color-item-text-header-resting bg-select-menu-items-color-item-background-header-resting text-xs font-semibold',
+      'px-1 py-2 border rounded-md border-select-menu-items-color-item-stroke-header-resting text-select-menu-items-color-item-text-header-resting bg-select-menu-items-color-item-background-header-resting text-xxs font-semibold',
     size: { small: '', medium: '', large: '' }
   },
   option: {
@@ -40,8 +40,8 @@ export const selectMenuTheme: SelectMenuTheme = {
     content: 'flex flex-row justify-between'
   },
   size: {
-    small: 'text-sm px-2 py-2',
-    medium: 'text-sm px-3 py-2',
-    large: 'text-md px-3 py-2'
+    small: 'text-xs px-2 py-2',
+    medium: 'text-xs px-3 py-2',
+    large: 'text-sm px-3 py-2'
   }
 };

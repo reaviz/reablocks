@@ -1,6 +1,6 @@
 import React, { FC, useMemo, useState } from 'react';
 import coverup from 'coverup';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { RedactTheme } from './RedactTheme';
 import { useComponentTheme } from '@/utils';
 

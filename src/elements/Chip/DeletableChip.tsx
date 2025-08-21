@@ -1,5 +1,5 @@
 import React, { FC, forwardRef, ReactElement } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { Button } from '@/elements/Button';
 import { Chip, ChipProps, ChipRef } from './Chip';
 import { CloseIcon } from '@/form';

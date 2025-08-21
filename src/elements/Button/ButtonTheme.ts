@@ -63,8 +63,8 @@ export const buttonTheme: ButtonTheme = {
     }
   },
   sizes: {
-    small: 'text-xs leading-4 px-2 py-[5px]',
-    medium: 'text-sm leading-4 px-3 py-[7px]',
+    small: 'text-xs leading-4 px-2 py-1.5',
+    medium: 'text-sm leading-4 px-3 py-2',
     large: 'text-base leading-4.5 px-4 py-2.5'
   },
   iconSizes: {

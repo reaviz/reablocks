@@ -3,7 +3,7 @@ import { Chip, ChipProps } from '@/elements/Chip';
 import { getHotkeyText } from './utils';
 import { useComponentTheme } from '@/utils';
 import { KbdTheme } from './KbdTheme';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 
 export interface KbdProps extends Omit<ChipProps, 'children' | 'theme'> {
   /**

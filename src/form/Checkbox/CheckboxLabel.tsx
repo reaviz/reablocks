@@ -1,5 +1,5 @@
 import React, { FC, ReactNode } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { CheckboxSizeTheme, CheckboxTheme } from './CheckboxTheme';
 
 interface CheckboxLabelProps {

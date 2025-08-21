@@ -67,46 +67,46 @@ export const typographyTheme: TypographyTheme = {
   },
   variant: {
     h1: {
-      base: 'font-sans text-5xl font-normal leading-12'
+      base: 'font-sans text-8xl font-normal'
     },
     h2: {
-      base: 'font-sans text-4xl font-normal leading-9'
+      base: 'font-sans text-6xl font-normal'
     },
     h3: {
-      base: 'font-sans text-3xl font-normal leading-8'
+      base: 'font-sans text-4xl font-normal'
     },
     h4: {
-      base: 'font-sans text-2xl font-normal leading-7'
+      base: 'font-sans text-2xl font-normal'
     },
     h5: {
-      base: 'font-sans text-xl font-normal leading-6'
+      base: 'font-sans text-lg font-normal'
     },
     h6: {
-      base: 'font-sans text-lg font-normal leading-6'
+      base: 'font-sans text-base font-normal'
     },
     body: {
-      base: 'font-serif text-base font-normal leading-4.5',
+      base: 'font-serif text-sm font-normal',
       size: {
-        large: 'text-lg leading-6',
-        small: 'text-sm leading-3.5'
+        large: 'text-base leading-6',
+        small: 'text-xs leading-3.5'
       }
     },
     button: {
-      base: 'font-serif text-base font-semibold leading-4.5',
+      base: 'font-serif text-sm font-semibold',
       size: {
-        large: 'text-lg leading-6',
-        small: 'text-sm leading-3.5'
-      }
-    },
-    label: {
-      base: 'font-serif text-sm font-semibold leading-3',
-      size: {
-        large: 'text-md leading-3.5',
+        large: 'text-base',
         small: 'text-xs'
       }
     },
+    label: {
+      base: 'font-serif text-xs font-semibold',
+      size: {
+        large: 'text-sm',
+        small: 'text-xxs'
+      }
+    },
     monospace: {
-      base: 'font-mono font-medium text-xs leading-3'
+      base: 'font-mono font-medium text-xxs'
     }
   }
 };

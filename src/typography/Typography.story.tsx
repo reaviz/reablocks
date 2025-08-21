@@ -223,7 +223,7 @@ export const Body = () => (
       Body Small
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Inter | Regular | 14 / 18 / 0
+      Inter | Regular | 12 / 14 / 0
     </Typography>
     <Typography variant="body" size="small" weight="regular">
       Quantum flux stabilizer online protocol
@@ -232,7 +232,7 @@ export const Body = () => (
       Body Small
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Inter | Medium | 14 / 18 / 0
+      Inter | Medium | 12 / 14 / 0
     </Typography>
     <Typography variant="body" size="small" weight="medium">
       Quantum flux stabilizer online protocol

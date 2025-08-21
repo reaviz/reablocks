@@ -26,7 +26,7 @@ import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
 import { Typography } from '@/typography';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
 import { CalendarTheme } from '@/form';
 import { Divider } from '@/layout/Divider';

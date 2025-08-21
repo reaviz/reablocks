@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
 import { DrawerTheme } from './DrawerTheme';
 

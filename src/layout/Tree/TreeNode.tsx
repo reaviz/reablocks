@@ -11,7 +11,7 @@ import React, {
 import { Button } from '@/elements/Button';
 import { Collapse } from '@/layout/Collapse';
 import { TreeContext } from './TreeContext';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { TreeTheme } from './TreeTheme';
 import { useComponentTheme } from '@/utils';
 

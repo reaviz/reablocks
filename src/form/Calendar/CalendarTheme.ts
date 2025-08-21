@@ -76,22 +76,22 @@ export const calendarTheme: CalendarTheme = {
   base: 'relative overflow-hidden border rounded-sm border-calendar-colors-container-stroke-default [&>hr]:bg-calendar-colors-container-stroke-default',
   header: {
     base: 'flex gap-2 text-center justify-between py-3 px-2 items-center',
-    prev: 'text-xl leading-4 min-w-8 text-center text-buttons-colors-core-icon-ghost-assets-resting hover:text-buttons-colors-core-icon-ghost-assets-hover focus-visible:text-buttons-colors-core-icon-ghost-assets-hover',
+    prev: 'text-lg leading-4 min-w-8 text-center text-buttons-colors-core-icon-ghost-assets-resting hover:text-buttons-colors-core-icon-ghost-assets-hover focus-visible:text-buttons-colors-core-icon-ghost-assets-hover',
     mid: 'group',
-    next: 'text-xl leading-4 min-w-8 text-center text-buttons-colors-core-icon-ghost-assets-resting hover:text-buttons-colors-core-icon-ghost-assets-hover focus-visible:text-buttons-colors-core-icon-ghost-assets-hover',
+    next: 'text-lg leading-4 min-w-8 text-center text-buttons-colors-core-icon-ghost-assets-resting hover:text-buttons-colors-core-icon-ghost-assets-hover focus-visible:text-buttons-colors-core-icon-ghost-assets-hover',
     divider: 'm-0 bg-calendar-colors-container-stroke-default'
   },
   title:
-    'font-semibold text-lg leading-8 text-calendar-colors-date-text-today group-hover:text-buttons-colors-core-icon-ghost-text-hover group-focus-visible:text-buttons-colors-core-icon-ghost-text-hover',
+    'font-semibold text-base leading-8 text-calendar-colors-date-text-today group-hover:text-buttons-colors-core-icon-ghost-text-hover group-focus-visible:text-buttons-colors-core-icon-ghost-text-hover',
   content: 'flex pt-2',
   contentContainer: 'relative flex h-full max-h-80',
   days: {
     header:
       'pt-0 text-center grid grid-cols-7 gap-2 font-semibold pb-1 px-3 text-calendar-colors-label-text-default',
-    dayOfWeek: 'flex items-center justify-center text-sm min-w-8 py-2',
+    dayOfWeek: 'flex items-center justify-center text-xs min-w-8 py-2',
     week: 'grid grid-cols-7 gap-2 py-1 px-3 last:pb-3',
     day: `
-      font-normal text-sm flex p-2 rounded-sm size-8 border 
+      font-normal text-xs flex p-2 rounded-sm size-8 border 
       border-calendar-colors-date-stroke-resting focus-visible:border-calendar-colors-date-stroke-hover
       text-calendar-colors-date-text-resting focus-visible:text-calendar-colors-date-text-hover
       bg-calendar-colors-date-background-resting focus-visible:bg-calendar-colors-date-background-hover 
@@ -111,7 +111,7 @@ export const calendarTheme: CalendarTheme = {
   months: {
     root: 'grid grid-cols-4 gap-2 p-3',
     month: `
-          font-normal text-sm flex p-2 rounded-sm border 
+          font-normal text-xs flex p-2 rounded-sm border 
           border-calendar-colors-date-stroke-resting hover:border-calendar-colors-date-stroke-hove focus-visible:border-calendar-colors-date-stroke-hover
           text-calendar-colors-date-text-resting hover:text-calendar-colors-date-text-hove focus-visible:text-calendar-colors-date-text-hover
           bg-calendar-colors-date-background-resting hover:bg-calendar-colors-date-background-hover focus-visible:bg-calendar-colors-date-background-hover 
@@ -122,7 +122,7 @@ export const calendarTheme: CalendarTheme = {
   years: {
     root: 'grid grid-cols-4 gap-2 p-3',
     year: `
-      font-normal text-sm flex p-2 rounded-sm border 
+      font-normal text-xs flex p-2 rounded-sm border 
       border-calendar-colors-date-stroke-resting hover:border-calendar-colors-date-stroke-hove focus-visible:border-calendar-colors-date-stroke-hover
       text-calendar-colors-date-text-resting hover:text-calendar-colors-date-text-hove focus-visible:text-calendar-colors-date-text-hover
       bg-calendar-colors-date-background-resting hover:bg-calendar-colors-date-background-hover focus-visible:bg-calendar-colors-date-background-hover 
@@ -131,7 +131,7 @@ export const calendarTheme: CalendarTheme = {
       'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected'
   },
   time: {
-    base: 'pr-1 flex flex-col h-full gap-0 text-sm text-buttons-colors-core-icon-ghost-assets-resting',
+    base: 'pr-1 flex flex-col h-full gap-0 text-xs text-buttons-colors-core-icon-ghost-assets-resting',
     wrapper: 'z-10 flex flex-row',
     dividerTop: 'hidden',
     dividerLeft:
@@ -140,7 +140,7 @@ export const calendarTheme: CalendarTheme = {
     column: {
       base: 'w-6',
       wrapper: 'overflow-y-auto h-52',
-      label: 'text-center text-sm text-gray-500',
+      label: 'text-center text-xs text-gray-500',
       list: 'p-0 m-0 list-none',
       scrollbar: ''
     },
@@ -162,9 +162,9 @@ export const calendarTheme: CalendarTheme = {
     wrapper: 'z-10 pl-2 py-1 items-start',
     divider: 'mx-1 self-end bg-calendar-colors-container-stroke-default',
     base: 'relative max-w-52 pr-1 overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y space-y-0 h-full',
-    group: 'text-sm font-medium my-1 !pr-0 !pl-0',
+    group: 'text-xs font-medium my-1 !pr-0 !pl-0',
     item: {
-      base: 'text-sm p-1.5 my-0.5 duration-0 text-select-menu-items-color-item-text-row-resting ',
+      base: 'text-xs p-1.5 my-0.5 duration-0 text-select-menu-items-color-item-text-row-resting ',
       active: 'text-select-menu-items-color-item-text-row-selected'
     }
   }

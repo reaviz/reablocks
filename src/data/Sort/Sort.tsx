@@ -2,7 +2,7 @@ import React, { FC, PropsWithChildren, useCallback } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { DownArrowIcon } from './DownArrowIcon';
 import { getNextDirection, SortDirection } from './utils';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { SortTheme } from './SortTheme';
 import { useComponentTheme } from '@/utils';
 

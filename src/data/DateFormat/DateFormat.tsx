@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import { formatRelative, getInterval } from './relative';
 import { safeFormat } from './formatting';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { DateFormatTheme } from './DateFormatTheme';
 import { useComponentTheme } from '@/utils';
 

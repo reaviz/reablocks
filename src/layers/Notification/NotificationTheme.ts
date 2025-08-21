@@ -42,7 +42,7 @@ export const notificationTheme: NotificationTheme = {
     'fixed z-9998 h-auto -translate-x-2/4 mb-1 px-24 py-0 left-2/4 bottom-0',
   notification: {
     base: `
-          flex relative text-base min-w-[400px] rounded-md mb-2.5 py-2 px-4 border backdrop-blur-xl transition-colors
+          flex relative text-sm min-w-[400px] rounded-md mb-2.5 py-2 px-4 border backdrop-blur-xl transition-colors
           border-notifications-colors-stroke-neutral-resting hover:border-notifications-colors-stroke-neutral-hover
           bg-notifications-colors-background-neutral-resting hover:bg-notifications-colors-background-neutral-hover
         `,
@@ -81,11 +81,11 @@ export const notificationTheme: NotificationTheme = {
     },
     content: 'inline-flex items-start flex-1 flex-col justify-center',
     header:
-      'text-base flex gap-2 items-center text-notifications-colors-text-title-resting',
+      'text-sm flex gap-2 items-center text-notifications-colors-text-title-resting',
     closeContainer: 'inline-flex items-center',
     action: 'ml-auto mr-2 items-center flex',
     closeButton:
-      'cursor-pointer text-sm font-semibold m-0 border-0 text-text-primary hover:text-text-primary/70',
-    body: 'text-xs mt-1 text-notifications-colors-text-normal-resting'
+      'cursor-pointer text-xs font-semibold m-0 border-0 text-text-primary hover:text-text-primary/70',
+    body: 'text-xxs mt-1 text-notifications-colors-text-normal-resting'
   }
 };

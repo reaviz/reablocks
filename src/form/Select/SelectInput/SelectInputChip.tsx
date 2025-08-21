@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { SelectOptionProps } from '@/form/Select/SelectOption';
 import ellipsize from 'ellipsize';
 import { CloseIcon } from '@/form/Select/icons';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
 import { SelectTheme } from '@/form/Select/SelectTheme';
 

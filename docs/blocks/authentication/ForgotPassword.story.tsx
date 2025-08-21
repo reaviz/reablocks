@@ -58,17 +58,17 @@ export const ForgotPassword = () => {
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-14">
           <LogoIcon className="h-11 w-auto mb-2" />
-          <h4 className="text-2xl font-sans font-bold mb-0">
+          <h4 className="text-xl font-sans font-bold mb-0">
             Reset your password
           </h4>
-          <span className="text-base text-content-text-neutral-2 font-sans">
+          <span className="text-sm text-content-text-neutral-2 font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
           <Block
             className="mb-7"
-            labelClassName="text-sm font-medium mb-1"
+            labelClassName="text-xs font-medium mb-1"
             label="Email"
           >
             <Controller
@@ -178,10 +178,10 @@ export const ForgotPasswordFull = () => {
       >
         <LogoIcon className="h-11 w-auto mb-2" />
         <div className="w-full grow flex flex-col justify-center">
-          <h4 className="text-2xl font-sans font-bold mb-0">
+          <h4 className="text-xl font-sans font-bold mb-0">
             Forgot Password?
           </h4>
-          <span className="text-base text-content-text-neutral-2 font-sans">
+          <span className="text-sm text-content-text-neutral-2 font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
           </span>
@@ -262,7 +262,7 @@ export const ForgotPasswordMinimal = () => {
     >
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center text-center pt-2 mb-14">
-          <h4 className="text-2xl font-sans font-bold mb-0">
+          <h4 className="text-xl font-sans font-bold mb-0">
             Forgot Password?
           </h4>
           <span className="text-base text-content-text-neutral-2 font-sans">
@@ -373,7 +373,7 @@ export const ResetPassword = () => {
               <path d="M7.33333 11.9999H8.66667V10.6666H7.33333V11.9999ZM8 1.33325C4.32 1.33325 1.33333 4.31992 1.33333 7.99992C1.33333 11.6799 4.32 14.6666 8 14.6666C11.68 14.6666 14.6667 11.6799 14.6667 7.99992C14.6667 4.31992 11.68 1.33325 8 1.33325ZM8 13.3333C5.06 13.3333 2.66667 10.9399 2.66667 7.99992C2.66667 5.05992 5.06 2.66659 8 2.66659C10.94 2.66659 13.3333 5.05992 13.3333 7.99992C13.3333 10.9399 10.94 13.3333 8 13.3333ZM8 3.99992C6.52667 3.99992 5.33333 5.19325 5.33333 6.66658H6.66667C6.66667 5.93325 7.26667 5.33325 8 5.33325C8.73333 5.33325 9.33333 5.93325 9.33333 6.66658C9.33333 7.99992 7.33333 7.83325 7.33333 9.99992H8.66667C8.66667 8.49992 10.6667 8.33325 10.6667 6.66658C10.6667 5.19325 9.47333 3.99992 8 3.99992Z" />
             </svg>
           </div>
-          <h4 className="text-2xl font-sans font-bold mb-0">Reset Password?</h4>
+          <h4 className="text-xl font-sans font-bold mb-0">Reset Password?</h4>
           <span className="text-base text-content-text-neutral-2 font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.
@@ -494,7 +494,7 @@ export const ResetPasswordMinimal = () => {
               <path d="M7.33333 11.9999H8.66667V10.6666H7.33333V11.9999ZM8 1.33325C4.32 1.33325 1.33333 4.31992 1.33333 7.99992C1.33333 11.6799 4.32 14.6666 8 14.6666C11.68 14.6666 14.6667 11.6799 14.6667 7.99992C14.6667 4.31992 11.68 1.33325 8 1.33325ZM8 13.3333C5.06 13.3333 2.66667 10.9399 2.66667 7.99992C2.66667 5.05992 5.06 2.66659 8 2.66659C10.94 2.66659 13.3333 5.05992 13.3333 7.99992C13.3333 10.9399 10.94 13.3333 8 13.3333ZM8 3.99992C6.52667 3.99992 5.33333 5.19325 5.33333 6.66658H6.66667C6.66667 5.93325 7.26667 5.33325 8 5.33325C8.73333 5.33325 9.33333 5.93325 9.33333 6.66658C9.33333 7.99992 7.33333 7.83325 7.33333 9.99992H8.66667C8.66667 8.49992 10.6667 8.33325 10.6667 6.66658C10.6667 5.19325 9.47333 3.99992 8 3.99992Z" />
             </svg>
           </div>
-          <h4 className="text-2xl font-sans font-bold mb-0">Reset Password?</h4>
+          <h4 className="text-xl font-sans font-bold mb-0">Reset Password?</h4>
           <span className="text-base text-content-text-neutral-2 font-sans">
             Forgot your password? No worries! Simply enter your email address
             below, and we'll send you instructions on how to reset it.

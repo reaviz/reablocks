@@ -8,7 +8,7 @@ import React, {
 } from 'react';
 import { motion, useMotionValue } from 'motion/react';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { cn, useComponentTheme } from '@/utils';
 import { RangeTheme } from './RangeTheme';
 

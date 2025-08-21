@@ -9,7 +9,7 @@ import PreviousArrow from './assets/arrow-previous.svg?react';
 import StartArrow from './assets/arrow-start.svg?react';
 import { FUZZY_RANGE, getItemsRange, getPageRange } from '@/data';
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { PagerTheme } from '@/data';
 
 export interface PagerProps {

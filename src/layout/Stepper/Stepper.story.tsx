@@ -10,7 +10,7 @@ export const Markers = () => (
   <Stepper activeStep={2}>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -23,7 +23,7 @@ export const Markers = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -48,7 +48,7 @@ export const Markers = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -73,7 +73,7 @@ export const Numbered = () => (
   <Stepper variant="numbered" activeStep={2}>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -86,7 +86,7 @@ export const Numbered = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -111,7 +111,7 @@ export const Numbered = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -136,7 +136,7 @@ export const Labels = () => (
   <Stepper activeStep={2}>
     <Step label="v6.8">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -149,7 +149,7 @@ export const Labels = () => (
     </Step>
     <Step label="v6.9">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -174,7 +174,7 @@ export const Labels = () => (
     </Step>
     <Step label="v7.0">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -199,7 +199,7 @@ export const Mixed = () => (
   <Stepper activeStep={3}>
     <Step label="v6.8">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -212,7 +212,7 @@ export const Mixed = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -237,7 +237,7 @@ export const Mixed = () => (
     </Step>
     <Step label="v7.0">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -262,7 +262,7 @@ export const Animated = () => (
   <Stepper animated activeStep={2}>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -275,7 +275,7 @@ export const Animated = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>
@@ -300,7 +300,7 @@ export const Animated = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+        <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
           03/01/2024, 8:00 AM
         </span>
         <span>

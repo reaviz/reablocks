@@ -327,9 +327,9 @@ export const chipTheme: ChipTheme = {
         }
       },
       sizes: {
-        small: 'text-xs px-1 py gap-0.5',
+        small: 'text-xxs px-1 py gap-0.5',
         medium: 'text-xs px-1.5 py-[3px] gap-0.5',
-        large: 'text-sm px-2 py-[5px] gap-1'
+        large: 'text-base px-2 py-[5px] gap-1'
       },
       variants: {
         filled: '',
@@ -487,9 +487,9 @@ export const chipTheme: ChipTheme = {
         }
       },
       sizes: {
-        small: 'text-xs leading-2.5 p-1 gap-1',
-        medium: 'text-sm leading-3 p-2 py-1.5 gap-1',
-        large: 'text-md leading-3.5 py-2 px-3 gap-1'
+        small: 'text-xxs leading-2.5 p-1 gap-1',
+        medium: 'text-xs leading-3 p-2 py-1.5 gap-1',
+        large: 'text-sm leading-3.5 py-2 px-3 gap-1'
       },
       closeButton: {
         base: 'transition-colors ml-1 text-tags-colors-neutral-assets-close-base hover:text-tags-colors-neutral-text-label-base',

@@ -32,8 +32,8 @@ export const textareaTheme: TextareaTheme = {
   `,
   disabled: 'cursor-not-allowed opacity-40',
   sizes: {
-    small: '[&>textarea]:text-xs px-2 py-[3px]',
-    medium: '[&>textarea]:text-xs px-3 py-[7px]',
-    large: '[&>textarea]:text-small px-3 py-[7px]'
+    small: 'text-xs px-2 py-[3px]',
+    medium: 'text-sm px-3 py-[7px]',
+    large: 'text-base px-3 py-[7px]'
   }
 } as TextareaTheme;

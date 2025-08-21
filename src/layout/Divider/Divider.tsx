@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import {
   DividerOrientationTheme,
   DividerTheme,

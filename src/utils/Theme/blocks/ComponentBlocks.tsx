@@ -44,7 +44,7 @@ export const ComponentBlocks = ({
                     size="small"
                     color="secondary"
                     variant="outline"
-                    className="absolute right-0 bottom-0 text-xs"
+                    className="absolute right-0 bottom-0 text-xxs"
                     onClick={async () => {
                       try {
                         await navigator.clipboard.writeText(

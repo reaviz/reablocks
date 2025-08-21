@@ -3,7 +3,7 @@ import { TreeNode } from '@/layout/Tree/TreeNode';
 import { JsonTreeData } from './utils';
 import { useComponentTheme } from '@/utils/Theme/hooks';
 import { JsonTreeTheme } from './JsonTreeTheme';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { Ellipsis } from '@/data/Ellipsis';
 import { useInfinityList } from '@/data/InfinityList';
 

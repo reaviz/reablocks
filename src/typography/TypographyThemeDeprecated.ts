@@ -47,9 +47,9 @@ export const typographyThemeDeprecated = {
     info: 'text-info'
   },
   sub: 'text-sm font-semibold mb-0.5',
-  smallHeading: 'text-base font-normal mb-1',
-  secondaryHeading: 'text-3xl font-normal mb-1',
-  primaryHeading: 'text-3xl font-extrabold mb-1',
+  smallHeading: 'text-sm font-normal mb-1',
+  secondaryHeading: 'text-2xl font-normal mb-1',
+  primaryHeading: 'text-2xl font-extrabold mb-1',
   pageTitle: 'text-[40px] font-semibold mb-5',
   disableMargins: 'm-0'
 };

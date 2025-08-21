@@ -26,7 +26,7 @@ export const CustomHeader = () => {
   return (
     <div style={{ textAlign: 'center', margin: '50px' }}>
       <Button onClick={toggleOpen}>Open</Button>
-      <Dialog header={<h3 className="text-2xl">What's up</h3>}>Hello</Dialog>
+      <Dialog header={<h3 className="text-xl">What's up</h3>}>Hello</Dialog>
     </div>
   );
 };

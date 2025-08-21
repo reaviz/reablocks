@@ -1,5 +1,5 @@
 import React, { forwardRef, LegacyRef, FC, PropsWithChildren } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { CardTheme } from './CardTheme';
 import { useComponentTheme } from '@/utils';
 

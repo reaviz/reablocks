@@ -2,7 +2,7 @@ import React, { FC, InputHTMLAttributes } from 'react';
 import { Typography } from '@/typography';
 import { ListTheme } from '@/layout/List/ListTheme';
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 
 export type ListHeaderProps = InputHTMLAttributes<HTMLDivElement> & {
   /**

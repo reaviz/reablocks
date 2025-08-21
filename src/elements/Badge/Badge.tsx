@@ -2,7 +2,7 @@ import React, { FC, forwardRef, LegacyRef } from 'react';
 import { motion } from 'motion/react';
 import { BadgeColorTheme, BadgePlacementTheme, BadgeTheme } from './BadgeTheme';
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 
 export interface BadgeProps
   extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'content' | 'color'> {

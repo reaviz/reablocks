@@ -22,10 +22,10 @@ export interface PagerTheme {
 export const pagerTheme: PagerTheme = {
   base: 'items-center flex user-select-none gap-5',
   pages: {
-    base: 'inline-flex gap-1 text-md',
+    base: 'inline-flex gap-1 text-sm',
     page: {
       base: `
-        text-sm text-buttons-colors-core-icon-ghost-text-resting py-2 min-w-8 transition-colors border
+        text-xs text-buttons-colors-core-icon-ghost-text-resting py-2 min-w-8 transition-colors border
         bg-buttons-colors-core-icon-ghost-background-resting hover:bg-buttons-colors-core-icon-ghost-background-hover focus-visible:bg-buttons-colors-core-icon-ghost-background-hover
         border-buttons-colors-core-icon-ghost-stroke-resting hover:border-buttons-colors-core-icon-ghost-stroke-hover focus-visible:border-buttons-colors-core-icon-ghost-stroke-hover
       `,
@@ -35,7 +35,7 @@ export const pagerTheme: PagerTheme = {
   },
   ellipsis:
     'cursor-pointer text-buttons-colors-core-icon-ghost-text-resting min-w-8 flex items-baseline justify-center leading-8',
-  pagerDisplayItems: 'text-sm',
+  pagerDisplayItems: 'text-xs',
   itemsDisplay: 'text-buttons-colors-core-icon-ghost-text-selected font-sm',
   showPageRange: '',
   totalCount: '',

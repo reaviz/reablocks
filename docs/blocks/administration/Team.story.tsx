@@ -79,8 +79,8 @@ export const TeamGeneral = () => {
       <Card className="transition-colors p-12">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col">
-            <h2 className="font-bold text-2xl">General</h2>
-            <p className="text-content-text-neutral-2 text-base">
+            <h2 className="font-bold text-xl">General</h2>
+            <p className="text-content-text-neutral-2 text-sm">
               Effectively manage your team's workflow with our intuitive
               application. Streamline task delegation, monitor progress, and
               foster seamless collaboration among team members. Stay informed,
@@ -102,7 +102,7 @@ export const TeamGeneral = () => {
               <div className="flex w-full justify-between items-center mb-4">
                 <div className="flex flex-col">
                   <span className="font-bold">Users</span>
-                  <span className="text-base text-content-text-neutral-2">
+                  <span className="text-sm text-content-text-neutral-2">
                     Manage user accounts, permissions, and access levels within
                     the app to ensure smooth operation and security.
                   </span>
@@ -137,7 +137,7 @@ export const TeamGeneral = () => {
                       .map((user, index) => (
                         <>
                           <tr
-                            className="border-b border-stroke-neutral-3 dark:hover:bg-[#11111e] light:hover:bg-[#e5e6ef] transition-colors text-base text-content-text-neutral-2"
+                            className="border-b border-stroke-neutral-3 dark:hover:bg-[#11111e] light:hover:bg-[#e5e6ef] transition-colors text-sm text-content-text-neutral-2"
                             key={index}
                           >
                             <td className="py-6 pl-4">
@@ -251,7 +251,7 @@ export const TeamMinimal = () => {
           <div className="flex w-full justify-between items-center">
             <div className="flex flex-col">
               <span className="font-bold">On teams</span>
-              <span className="text-base text-content-text-neutral-2">
+              <span className="text-sm text-content-text-neutral-2">
                 You're currently on these teams.
               </span>
             </div>
@@ -290,13 +290,13 @@ export const TeamMinimal = () => {
           </Card>
           <div className="flex flex-col mt-4">
             <span className="font-bold">Your team</span>
-            <span className="text-base text-content-text-neutral-2">
+            <span className="text-sm text-content-text-neutral-2">
               Manage your existing team and change roles/permissions.
             </span>
           </div>
           <div className="rounded-xl overflow-auto max-h-[300px]">
             <table className="w-full">
-              <thead className="sticky z-1 top-0 left-0 text-left text-content-text-neutral-2 text-base dark:bg-[#11111e] light:bg-[#e5e6ef]">
+              <thead className="sticky z-1 top-0 left-0 text-left text-content-text-neutral-2 text-sm dark:bg-[#11111e] light:bg-[#e5e6ef]">
                 <tr>
                   <th className="py-6 pl-4">Name</th>
                   <th className="py-6 pl-4">Email</th>
@@ -313,7 +313,7 @@ export const TeamMinimal = () => {
                   .map((user, index) => (
                     <>
                       <tr
-                        className="border-b border-stroke-neutral-3 dark:hover:bg-[#11111e] light:hover:bg-[#e5e6ef] transition-colors text-base text-content-text-neutral-2"
+                        className="border-b border-stroke-neutral-3 dark:hover:bg-[#11111e] light:hover:bg-[#e5e6ef] transition-colors text-sm text-content-text-neutral-2"
                         key={index}
                       >
                         <td className="py-6 pl-4">
@@ -376,8 +376,8 @@ export const TeamRoles = () => {
         <div className="flex flex-col gap-4">
           <div className="flex justify-between items-center">
             <div className="flex flex-col">
-              <h2 className="font-bold text-2xl">Team Members</h2>
-              <span className="text-content-text-neutral-2 text-base">
+              <h2 className="font-bold text-xl">Team Members</h2>
+              <span className="text-content-text-neutral-2 text-sm">
                 Manage user accounts, permissions, and access levels within the
                 app to ensure smooth operation and security.
               </span>
@@ -403,14 +403,14 @@ export const TeamRoles = () => {
           <div className="w-full flex gap-12  ">
             <div className="flex flex-col w-1/4">
               <span className="font-bold">Admins (3)</span>
-              <p className="text-content-text-neutral-2 text-base">
+              <p className="text-content-text-neutral-2 text-sm">
                 Manage user accounts, permissions, and access levels within the
                 app to ensure smooth operation and security.
               </p>
             </div>
             <div className="flex-1 rounded-xl overflow-auto">
               <table className="w-full">
-                <thead className="text-left z-1 text-content-text-neutral-2 text-base dark:bg-[#11111e] light:bg-[#e5e6ef]">
+                <thead className="text-left z-1 text-content-text-neutral-2 text-sm dark:bg-[#11111e] light:bg-[#e5e6ef]">
                   <tr>
                     <th className="py-6 pl-4">
                       <Checkbox
@@ -444,7 +444,7 @@ export const TeamRoles = () => {
                     .map((user, index) => (
                       <>
                         <tr
-                          className="border-b border-stroke-neutral-3 dark:hover:bg-[#11111e] light:hover:bg-[#e5e6ef] transition-colors text-base text-content-text-neutral-2"
+                          className="border-b border-stroke-neutral-3 dark:hover:bg-[#11111e] light:hover:bg-[#e5e6ef] transition-colors text-sm text-content-text-neutral-2"
                           key={index}
                         >
                           <td className="py-6 pl-4">
@@ -536,14 +536,14 @@ export const TeamRoles = () => {
           <div className="w-full flex gap-12">
             <div className="flex flex-col w-1/4">
               <span className="font-bold">Users (12)</span>
-              <p className="text-content-text-neutral-2 text-base">
+              <p className="text-content-text-neutral-2 text-sm">
                 Manage user accounts, permissions, and access levels within the
                 app to ensure smooth operation and security.
               </p>
             </div>
             <div className="flex-1 rounded-xl overflow-auto h-[500px]">
               <table className="w-full">
-                <thead className="sticky z-1 top-0 left-0 text-left text-content-text-neutral-2 text-base dark:bg-[#11111e] light:bg-[#e5e6ef]">
+                <thead className="sticky z-1 top-0 left-0 text-left text-content-text-neutral-2 text-sm dark:bg-[#11111e] light:bg-[#e5e6ef]">
                   <tr>
                     <th className="py-6 pl-4">
                       <Checkbox
@@ -577,7 +577,7 @@ export const TeamRoles = () => {
                     .map((user, index) => (
                       <>
                         <tr
-                          className="border-b border-stroke-neutral-3 dark:hover:bg-[#11111e] light:hover:bg-[#e5e6ef] transition-colors text-base text-content-text-neutral-2"
+                          className="border-b border-stroke-neutral-3 dark:hover:bg-[#11111e] light:hover:bg-[#e5e6ef] transition-colors text-sm text-content-text-neutral-2"
                           key={index}
                         >
                           <td className="py-6 pl-4">

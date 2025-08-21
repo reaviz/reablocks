@@ -5,7 +5,7 @@ import React, {
   ReactElement,
   ReactNode
 } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { cn, useComponentTheme } from '@/utils';
 import CloseIcon from '@/assets/icons/close.svg?react';
 import {

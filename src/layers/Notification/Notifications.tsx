@@ -8,7 +8,7 @@ import React, {
   JSXElementConstructor
 } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 
 import { Notification } from './Notification';
 import {

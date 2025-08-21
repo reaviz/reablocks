@@ -61,9 +61,9 @@ export const checkboxTheme: CheckboxTheme = {
           group-hover:text-selectors-colors-text-label-selected group-focus-within:text-selectors-colors-text-label-selected
         `,
     sizes: {
-      small: 'text-sm',
-      medium: 'text-base',
-      large: 'text-lg'
+      small: 'text-xs',
+      medium: 'text-sm',
+      large: 'text-base'
     }
   },
   check: {

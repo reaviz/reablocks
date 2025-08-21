@@ -25,10 +25,10 @@ export const Support = () => {
     >
       <Card className="p-7 w-full">
         <div className="flex flex-col items-center justify-center pt-2 pb-5 text-center">
-          <h1 className="mt-2 mb-0 text-2xl font-sans font-bold">
+          <h1 className="mt-2 mb-0 text-xl font-sans font-bold">
             Report an issue
           </h1>
-          <div className="text-content-text-neutral-2 text-base">
+          <div className="text-content-text-neutral-2 text-sm">
             Found a bug? Please let us know so we can fix it.
           </div>
         </div>

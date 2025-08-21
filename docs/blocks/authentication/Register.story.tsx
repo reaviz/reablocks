@@ -64,17 +64,17 @@ export const Register = () => {
           <div>
             <LogoIcon className="h-11 mb-2 w-auto" />
           </div>
-          <h4 className="text-2xl font-sans font-bold mb-0">
+          <h4 className="text-xl font-sans font-bold mb-0">
             Welcome to Reablocks
           </h4>
-          <p className="text-base text-content-text-neutral-2 font-sans">
+          <p className="text-sm text-content-text-neutral-2 font-sans">
             Welcome! Let's get started by creating your account. Please provide
             your email address and choose a secure password to begin accessing
             our platform's features.
           </p>
         </div>
         <form
-          className="text-sm flex flex-col gap-4"
+          className="text-xs flex flex-col gap-4"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
           <Block label="Name">
@@ -156,7 +156,7 @@ export const Register = () => {
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}
           </Button>
-          <div className="text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
+          <div className="text-xs text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
             <Button variant="text" className="p-0">
               terms of service
@@ -167,7 +167,7 @@ export const Register = () => {
             </Button>
           </div>
           <Divider disableMargins/>
-          <div className="text-content-text-neutral-2 text-sm flex items-center justify-center gap-2">
+          <div className="text-content-text-neutral-2 text-xs flex items-center justify-center gap-2">
             Already have an account?
             <Button size="large" variant="text">
               Sign in
@@ -198,10 +198,10 @@ export const RegisterFull = () => {
           <div>
             <LogoIcon className="h-11 mb-2 w-auto" />
           </div>
-          <h4 className="text-2xl font-sans font-bold mb-0">
+          <h4 className="text-xl font-sans font-bold mb-0">
             Welcome to Reablocks
           </h4>
-          <p className="text-base text-content-text-neutral-2 font-sans">
+          <p className="text-sm text-content-text-neutral-2 font-sans">
             Excited to have you onboard! Start by creating your account to gain
             access to our platform. Simply provide your email, choose a
             password, and include any necessary information about your company
@@ -210,7 +210,7 @@ export const RegisterFull = () => {
           <Divider variant="secondary" className="mt-4" />
         </div>
         <form
-          className="text-sm flex flex-col gap-4"
+          className="text-xs flex flex-col gap-4"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
           <div className="grid grid-cols-2 gap-4">
@@ -292,7 +292,7 @@ export const RegisterFull = () => {
               />
             </Block>
           </div>
-          <h6 className="text-lg font-bold">Select a package</h6>
+          <h6 className="text-base font-bold">Select a package</h6>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card
               className={cn('p-5',
@@ -303,7 +303,7 @@ export const RegisterFull = () => {
               onClick={() => setSelection('starter')}
             >
               <Stack justifyContent="spaceBetween">
-                <h6 className="text-lg font-bold">Starter</h6>
+                <h6 className="text-base font-bold">Starter</h6>
                 <Radio
                   size="small"
                   checked={selection === 'starter'}
@@ -355,7 +355,7 @@ export const RegisterFull = () => {
                     Figmas support
                   </span>
                 </Stack>
-                <h6 className="text-lg font-bold mt-2.5">Free</h6>
+                <h6 className="text-base font-bold mt-2.5">Free</h6>
               </Stack>
             </Card>
             <Card
@@ -367,7 +367,7 @@ export const RegisterFull = () => {
               onClick={() => setSelection('premium')}
             >
               <Stack justifyContent="spaceBetween">
-                <h6 className="text-lg font-bold">Premium</h6>
+                <h6 className="text-base font-bold">Premium</h6>
                 <Radio
                   size="small"
                   checked={selection === 'premium'}
@@ -419,7 +419,7 @@ export const RegisterFull = () => {
                     Figmas support
                   </span>
                 </Stack>
-                <h6 className="text-lg font-bold mt-2.5">$1000/Month</h6>
+                <h6 className="text-base font-bold mt-2.5">$1000/Month</h6>
               </Stack>
             </Card>
             <Card
@@ -431,7 +431,7 @@ export const RegisterFull = () => {
               onClick={() => setSelection('enterprise')}
             >
               <Stack justifyContent="spaceBetween">
-                <h6 className="text-lg font-bold">Enterprise</h6>
+                <h6 className="text-base font-bold">Enterprise</h6>
                 <Radio
                   size="small"
                   checked={selection === 'enterprise'}
@@ -483,13 +483,13 @@ export const RegisterFull = () => {
                     Figmas support
                   </span>
                 </Stack>
-                <h6 className="text-lg font-bold mt-2.5">Email for Price</h6>
+                <h6 className="text-base font-bold mt-2.5">Email for Price</h6>
               </Stack>
             </Card>
           </div>
           <Divider variant="secondary" className="mt-4" />
           <div className="flex flex-col items-center justify-between md:flex-row">
-            <div className="text-content-text-neutral-2 text-sm flex items-center justify-center gap-2">
+            <div className="text-content-text-neutral-2 text-xs flex items-center justify-center gap-2">
               Already have an account?
               <Button variant="text" size="large">
                 Sign in
@@ -529,17 +529,17 @@ export const RegisterV2 = () => {
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-5">
           <LogoIcon className="h-11 w-auto mb-2" />
-          <h4 className="text-2xl font-sans font-bold mb-0 text-center">
+          <h4 className="text-xl font-sans font-bold mb-0 text-center">
             Welcome to Reablocks
           </h4>
-          <p className="text-base text-content-text-neutral-2 font-sans text-center">
+          <p className="text-sm text-content-text-neutral-2 font-sans text-center">
             Welcome! Let's get started by creating your account. Please provide
             your email address and choose a secure password to begin accessing
             our platform's features.
           </p>
         </div>
         <form
-          className="text-sm flex flex-col gap-4"
+          className="text-xs flex flex-col gap-4"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
           <div className="grid grid-cols-2 gap-2.5">
@@ -641,7 +641,7 @@ export const RegisterV2 = () => {
           >
             {isSubmitting ? 'Creating...' : 'Create Account →'}
           </Button>
-          <div className="text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
+          <div className="text-xs text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
             <Button variant="text" className="p-0">
               terms of service
@@ -652,7 +652,7 @@ export const RegisterV2 = () => {
             </Button>
           </div>
           <Divider />
-          <div className="text-content-text-neutral-2 text-sm flex items-center justify-center gap-2">
+          <div className="text-content-text-neutral-2 text-xs flex items-center justify-center gap-2">
             Already have an account?
             <Button variant="text" size="large">
               Sign in
@@ -681,7 +681,7 @@ export const RegisterWithSocial = () => {
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center pt-2">
           <LogoIcon className="h-11 w-auto mb-2" />
-          <h4 className="text-2xl font-sans font-bold mb-0 text-center">
+          <h4 className="text-xl font-sans font-bold mb-0 text-center">
             Welcome to Reablocks
           </h4>
           <div className="grid grid-cols-2 w-full gap-4 mt-5">
@@ -715,7 +715,7 @@ export const RegisterWithSocial = () => {
           </Stack>
         </div>
         <form
-          className="text-sm"
+          className="text-xs"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
           <Block className="mb-7">
@@ -819,7 +819,7 @@ export const RegisterWithSocial = () => {
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}
           </Button>
-          <div className="mt-5 text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
+          <div className="mt-5 text-xs text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
             <Button variant="text" className="p-0">
               terms of service
@@ -830,7 +830,7 @@ export const RegisterWithSocial = () => {
             </Button>
           </div>
           <Divider className="mt-5" />
-          <div className="text-content-text-neutral-2 text-sm flex items-center justify-center gap-2">
+          <div className="text-content-text-neutral-2 text-xs flex items-center justify-center gap-2">
             Already have an account?
             <Button variant="text" size="large">
               Sign in

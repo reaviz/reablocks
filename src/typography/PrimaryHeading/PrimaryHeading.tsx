@@ -1,5 +1,5 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
 import { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 

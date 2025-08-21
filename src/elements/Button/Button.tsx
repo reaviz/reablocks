@@ -2,7 +2,7 @@ import React, { FC, forwardRef, LegacyRef, useContext } from 'react';
 import { motion } from 'motion/react';
 import { ButtonGroupContext } from './ButtonGroupContext';
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import {
   ButtonColorTheme,
   ButtonSizeTheme,

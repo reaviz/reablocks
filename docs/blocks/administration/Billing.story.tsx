@@ -31,8 +31,8 @@ export const BillingFull = () => (
     <Card className="p-12 transition-colors">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col">
-          <h2 className="text-2xl font-bold">Billing</h2>
-          <p className="text-content-text-neutral-2 text-base">
+          <h2 className="text-xl font-bold">Billing</h2>
+          <p className="text-content-text-neutral-2 text-sm">
             Easily manage your account, view invoices, and track payments
             conveniently in one place. Explore flexible subscription options and
             manage your billing preferences effortlessly.
@@ -66,7 +66,7 @@ export const BillingFull = () => (
                 </Stack>
                 <div className="flex items-center gap-2">
                   <span className="font-bold">$1000</span>
-                  <span className="text-content-text-neutral-2 text-sm">
+                  <span className="text-content-text-neutral-2 text-xs">
                     /Year
                   </span>
                 </div>
@@ -177,8 +177,8 @@ export const PayAndBilling = () => (
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
           <div className="flex flex-col">
-            <h2 className="text-2xl font-bold">Pay & Billing</h2>
-            <p className="text-content-text-neutral-2 text-base">
+            <h2 className="text-xl font-bold">Pay & Billing</h2>
+            <p className="text-content-text-neutral-2 text-sm">
               Manage your plan and payments
             </p>
           </div>
@@ -234,7 +234,7 @@ export const PayAndBilling = () => (
               <span className="text-content-text-neutral-2 text-sm">
                 Monthly plan
               </span>
-              <div className="flex items-center gap-2 text-3xl font-bold">
+              <div className="flex items-center gap-2 text-2xl font-bold">
                 $1000{' '}
                 <span className="text-content-text-neutral-2 text-sm">
                   /Month
@@ -270,7 +270,7 @@ export const PayAndBilling = () => (
               <span className="text-content-text-neutral-2 text-sm">
                 Renews on
               </span>
-              <span className="text-3xl font-bold ">Mar 15, 2024</span>
+              <span className="text-2xl font-bold ">Mar 15, 2024</span>
             </div>
           </Card>
         </div>
@@ -307,7 +307,7 @@ export const PayAndBilling = () => (
                 </svg>
               </Tooltip>
             </div>
-            <span className="text-xl font-bold">100 of 500</span>
+            <span className="text-lg font-bold">100 of 500</span>
             <div className="bg-background-neutral-raised-5 relative h-3 w-full rounded-full border border-background-brand-2">
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
@@ -349,7 +349,7 @@ export const PayAndBilling = () => (
                 </svg>
               </Tooltip>
             </div>
-            <span className="text-xl font-bold">33 of 50</span>
+            <span className="text-lg font-bold">33 of 50</span>
             <div className="bg-background-neutral-raised-5 relative h-3 w-full rounded-full border border-background-brand-2">
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
@@ -391,7 +391,7 @@ export const PayAndBilling = () => (
                 </svg>
               </Tooltip>
             </div>
-            <span className="text-xl font-bold">47 of 125</span>
+            <span className="text-lg font-bold">47 of 125</span>
             <div className="bg-background-neutral-raised-5 relative h-3 w-full rounded-full border border-background-brand-2">
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
@@ -422,7 +422,7 @@ export const BillingSubscription = () => (
     <Card className="p-12 transition-colors">
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-2xl font-bold">Billing</h2>
+          <h2 className="text-xl font-bold">Billing</h2>
           <Stack>
             <Button
               className="w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
@@ -463,7 +463,7 @@ export const BillingSubscription = () => (
         </div>
         <Divider />
         <div className="flex flex-col">
-          <span className="text-xl font-bold">Current Subscription</span>
+          <span className="text-lg font-bold">Current Subscription</span>
           <span className="text-content-text-neutral-2">
             Your account is billed monthly and the next payment is due{' '}
             <span className="text-content-text-neutral-base font-semibold">
@@ -473,18 +473,18 @@ export const BillingSubscription = () => (
         </div>
         <div className="border-stroke-neutral-3 flex overflow-hidden rounded-xl border">
           <div className="flex flex-1 flex-col">
-            <div className="bg-background-neutral-raised-5 text-content-text-neutral-2 px-6 py-4 text-base">
+            <div className="bg-background-neutral-raised-5 text-content-text-neutral-2 px-6 py-4 text-sm">
               Selected plan
             </div>
-            <div className="text-content-text-neutral-2 flex-1 px-6 py-4 text-base">
+            <div className="text-content-text-neutral-2 flex-1 px-6 py-4 text-sm">
               Team
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="bg-background-neutral-raised-5 text-content-text-neutral-2 px-6 py-4 text-base">
+            <div className="bg-background-neutral-raised-5 text-content-text-neutral-2 px-6 py-4 text-sm">
               Price
             </div>
-            <div className="text-content-text-neutral-2 flex flex-1 items-center gap-2 px-6 py-4 text-base">
+            <div className="text-content-text-neutral-2 flex flex-1 items-center gap-2 px-6 py-4 text-sm">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
@@ -499,10 +499,10 @@ export const BillingSubscription = () => (
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="bg-background-neutral-raised-5 text-content-text-neutral-2 px-6 py-4 text-base">
+            <div className="bg-background-neutral-raised-5 text-content-text-neutral-2 px-6 py-4 text-sm">
               Seats
             </div>
-            <div className="text-content-text-neutral-2 flex flex-1 items-center gap-2 px-6 py-4 text-base">
+            <div className="text-content-text-neutral-2 flex flex-1 items-center gap-2 px-6 py-4 text-sm">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -517,10 +517,10 @@ export const BillingSubscription = () => (
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="bg-background-neutral-raised-5 text-content-text-neutral-2 px-6 py-4 text-base">
+            <div className="bg-background-neutral-raised-5 text-content-text-neutral-2 px-6 py-4 text-sm">
               Yearly Cost
             </div>
-            <div className="text-content-text-neutral-2 flex flex-1 items-center gap-2 px-6 py-4 text-base">
+            <div className="text-content-text-neutral-2 flex flex-1 items-center gap-2 px-6 py-4 text-sm">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
@@ -535,12 +535,12 @@ export const BillingSubscription = () => (
             </div>
           </div>
         </div>
-        <span className="mb-8 mt-4 text-xl font-bold">Seats usage</span>
+        <span className="mb-8 mt-4 text-lg font-bold">Seats usage</span>
         <div className="flex w-full gap-4">
           <div className="flex flex-1 flex-col gap-3">
             <div className="flex items-center justify-between">
               <span className="text-sm">Editors</span>
-              <span className="text-base">11/30 used</span>
+              <span className="text-sm">11/30 used</span>
             </div>
             <div className="bg-background-neutral-raised-5 relative h-3 w-full rounded-full border border-background-brand-2">
               <motion.div
@@ -578,7 +578,7 @@ export const BillingSubscription = () => (
           <div className="flex flex-1 flex-col gap-3">
             <div className="flex items-center justify-between">
               <span className="text-sm">Contributors</span>
-              <span className="text-base">18/20 used</span>
+              <span className="text-sm">18/20 used</span>
             </div>
             <div className="bg-background-neutral-raised-5 relative h-3 w-full rounded-full border border-orange-molten-fang-a-950/40">
               <motion.div
@@ -615,7 +615,7 @@ export const BillingSubscription = () => (
           <div className="flex flex-1 flex-col gap-3">
             <div className="flex items-center justify-between">
               <span className="text-sm">Viewers</span>
-              <span className="text-base">11/15 used</span>
+              <span className="text-sm">11/15 used</span>
             </div>
             <div className="bg-background-neutral-raised-5 relative h-3 w-full rounded-full border border-orange-molten-fang-a-950/40">
               <motion.div
@@ -677,7 +677,7 @@ export const BillingInformation = () => (
             </svg>
             <span className="font-bold">Teams Plan</span>
           </div>
-          <span className="text-content-text-neutral-2 text-base">
+          <span className="text-content-text-neutral-2 text-sm">
             Organization plan - collaborate on projects with your team
           </span>
         </div>
@@ -700,14 +700,14 @@ export const BillingInformation = () => (
       </div>
       <div className="flex flex-col">
         <span className="font-bold">$62/mo</span>
-        <span className="text-content-text-neutral-2 text-base">
+        <span className="text-content-text-neutral-2 text-sm">
           65 Seats
         </span>
       </div>
     </div>
     <Card className="p-12 transition-colors">
       <div className="flex flex-col gap-2">
-        <h2 className="text-2xl font-bold">Billing Information</h2>
+        <h2 className="text-xl font-bold">Billing Information</h2>
         <Divider className="mb-4" />
         <div className="flex w-full gap-4">
           <Card contentClassName="flex flex-col gap-4 p-7" className="flex-1">
@@ -762,7 +762,7 @@ export const BillingInformation = () => (
         <div className="flex w-full">
           <div className="flex flex-1 flex-col">
             <div className="border-stroke-neutral-3 border-b px-4 py-2">
-              <span className="text-content-text-neutral-2 text-base">
+              <span className="text-content-text-neutral-2 text-sm">
                 Invoice Date
               </span>
             </div>
@@ -793,7 +793,7 @@ export const BillingInformation = () => (
           </div>
           <div className="flex flex-1 flex-col">
             <div className="border-stroke-neutral-3 border-b px-4 py-2">
-              <span className="text-content-text-neutral-2 text-base">
+              <span className="text-content-text-neutral-2 text-sm">
                 Status
               </span>
             </div>
@@ -830,7 +830,7 @@ export const BillingInformation = () => (
           </div>
           <div className="flex flex-1 flex-col">
             <div className="border-stroke-neutral-3 border-b px-4 py-2">
-              <span className="text-content-text-neutral-2 text-base">
+              <span className="text-content-text-neutral-2 text-sm">
                 Card Used
               </span>
             </div>
@@ -850,7 +850,7 @@ export const BillingInformation = () => (
                 >
                   <path d="M2.83333 3.33325C1.82674 3.33325 1 4.15999 1 5.16659V11.4999C1 12.5065 1.82674 13.3333 2.83333 13.3333H13.1667C14.1733 13.3333 15 12.5065 15 11.4999V5.16659C15 4.15999 14.1733 3.33325 13.1667 3.33325H2.83333ZM2.83333 4.33325H13.1667C13.6327 4.33325 14 4.70051 14 5.16659V11.4999C14 11.966 13.6327 12.3333 13.1667 12.3333H2.83333C2.36726 12.3333 2 11.966 2 11.4999V5.16659C2 4.70051 2.36726 4.33325 2.83333 4.33325ZM3.5 5.66659C3.43374 5.66565 3.36796 5.67789 3.30648 5.7026C3.24499 5.7273 3.18903 5.76398 3.14185 5.81051C3.09466 5.85703 3.0572 5.91246 3.03162 5.97359C3.00605 6.03472 2.99288 6.10032 2.99288 6.16659C2.99288 6.23285 3.00605 6.29845 3.03162 6.35958C3.0572 6.42071 3.09466 6.47614 3.14185 6.52267C3.18903 6.56919 3.24499 6.60587 3.30648 6.63057C3.36796 6.65528 3.43374 6.66752 3.5 6.66659H8.16667C8.23292 6.66752 8.2987 6.65528 8.36019 6.63057C8.42167 6.60587 8.47763 6.56919 8.52482 6.52267C8.572 6.47614 8.60947 6.42071 8.63505 6.35958C8.66062 6.29845 8.67379 6.23285 8.67379 6.16659C8.67379 6.10032 8.66062 6.03472 8.63505 5.97359C8.60947 5.91246 8.572 5.85703 8.52482 5.81051C8.47763 5.76398 8.42167 5.7273 8.36019 5.7026C8.2987 5.67789 8.23292 5.66565 8.16667 5.66659H3.5ZM3.5 7.66659C3.43374 7.66565 3.36796 7.67789 3.30648 7.7026C3.24499 7.7273 3.18903 7.76398 3.14185 7.81051C3.09466 7.85703 3.0572 7.91246 3.03162 7.97359C3.00605 8.03472 2.99288 8.10032 2.99288 8.16659C2.99288 8.23285 3.00605 8.29845 3.03162 8.35958C3.0572 8.42071 3.09466 8.47614 3.14185 8.52267C3.18903 8.56919 3.24499 8.60587 3.30648 8.63057C3.36796 8.65528 3.43374 8.66752 3.5 8.66659H6.5C6.56626 8.66752 6.63204 8.65528 6.69352 8.63057C6.75501 8.60587 6.81097 8.56919 6.85815 8.52267C6.90534 8.47614 6.9428 8.42071 6.96838 8.35958C6.99395 8.29845 7.00712 8.23285 7.00712 8.16659C7.00712 8.10032 6.99395 8.03472 6.96838 7.97359C6.9428 7.91246 6.90534 7.85703 6.85815 7.81051C6.81097 7.76398 6.75501 7.7273 6.69352 7.7026C6.63204 7.67789 6.56626 7.66565 6.5 7.66659H3.5ZM8.91667 8.66659C8.59346 8.66659 8.3847 8.85699 8.2474 9.02531C8.11009 9.19363 8.01427 9.3813 7.93229 9.5826C7.76834 9.9852 7.66667 10.4303 7.66667 10.8333C7.66573 10.8995 7.67797 10.9653 7.70268 11.0268C7.72738 11.0883 7.76406 11.1442 7.81059 11.1914C7.85711 11.2386 7.91255 11.2761 7.97367 11.3016C8.0348 11.3272 8.1004 11.3404 8.16667 11.3404C8.23293 11.3404 8.29853 11.3272 8.35966 11.3016C8.42079 11.2761 8.47622 11.2386 8.52275 11.1914C8.56927 11.1442 8.60595 11.0883 8.63066 11.0268C8.65536 10.9653 8.6676 10.8995 8.66667 10.8333C8.66667 10.6269 8.7447 10.2386 8.85807 9.96021C8.86723 9.93771 8.87521 9.93241 8.88477 9.91138C8.92186 9.99989 8.95499 10.0643 8.99349 10.1705C9.06713 10.3736 9.13851 10.5876 9.23177 10.7857C9.2784 10.8848 9.32742 10.9812 9.41471 11.0846C9.50201 11.1879 9.66667 11.3333 9.91667 11.3333C10.3917 11.3333 10.6552 11 10.8053 10.8079C10.8072 10.8055 10.8074 10.805 10.8092 10.8027C10.8501 10.8397 10.8607 10.8556 10.916 10.8977C11.2139 11.1247 11.7132 11.3333 12.5 11.3333C12.5663 11.3342 12.632 11.3219 12.6935 11.2972C12.755 11.2725 12.811 11.2359 12.8582 11.1893C12.9053 11.1428 12.9428 11.0874 12.9684 11.0262C12.994 10.9651 13.0071 10.8995 13.0071 10.8333C13.0071 10.767 12.994 10.7014 12.9684 10.6403C12.9428 10.5791 12.9053 10.5237 12.8582 10.4772C12.811 10.4307 12.755 10.394 12.6935 10.3693C12.632 10.3446 12.5663 10.3323 12.5 10.3333C11.8701 10.3333 11.6611 10.2085 11.5215 10.1021C11.4517 10.0489 11.3992 9.98942 11.3008 9.90031C11.2024 9.8112 11 9.66659 10.75 9.66659C10.4313 9.66659 10.3016 9.84287 10.2161 9.93937C10.1466 10.0179 10.1012 10.0832 10.0547 10.1451C10.0152 10.0421 9.97967 9.95644 9.93359 9.82935C9.85619 9.61582 9.77434 9.3904 9.65365 9.17896C9.5933 9.07323 9.52403 8.96816 9.41341 8.86776C9.30279 8.76736 9.12547 8.66659 8.91667 8.66659Z" />
                 </svg>
-                <span className="text-content-text-neutral-2 text-base">
+                <span className="text-content-text-neutral-2 text-sm">
                   Visa ending in 0315
                 </span>
               </div>
@@ -872,7 +872,7 @@ export const BillingInformation = () => (
                   >
                     <path d="M2.83333 3.33325C1.82674 3.33325 1 4.15999 1 5.16659V11.4999C1 12.5065 1.82674 13.3333 2.83333 13.3333H13.1667C14.1733 13.3333 15 12.5065 15 11.4999V5.16659C15 4.15999 14.1733 3.33325 13.1667 3.33325H2.83333ZM2.83333 4.33325H13.1667C13.6327 4.33325 14 4.70051 14 5.16659V11.4999C14 11.966 13.6327 12.3333 13.1667 12.3333H2.83333C2.36726 12.3333 2 11.966 2 11.4999V5.16659C2 4.70051 2.36726 4.33325 2.83333 4.33325ZM3.5 5.66659C3.43374 5.66565 3.36796 5.67789 3.30648 5.7026C3.24499 5.7273 3.18903 5.76398 3.14185 5.81051C3.09466 5.85703 3.0572 5.91246 3.03162 5.97359C3.00605 6.03472 2.99288 6.10032 2.99288 6.16659C2.99288 6.23285 3.00605 6.29845 3.03162 6.35958C3.0572 6.42071 3.09466 6.47614 3.14185 6.52267C3.18903 6.56919 3.24499 6.60587 3.30648 6.63057C3.36796 6.65528 3.43374 6.66752 3.5 6.66659H8.16667C8.23292 6.66752 8.2987 6.65528 8.36019 6.63057C8.42167 6.60587 8.47763 6.56919 8.52482 6.52267C8.572 6.47614 8.60947 6.42071 8.63505 6.35958C8.66062 6.29845 8.67379 6.23285 8.67379 6.16659C8.67379 6.10032 8.66062 6.03472 8.63505 5.97359C8.60947 5.91246 8.572 5.85703 8.52482 5.81051C8.47763 5.76398 8.42167 5.7273 8.36019 5.7026C8.2987 5.67789 8.23292 5.66565 8.16667 5.66659H3.5ZM3.5 7.66659C3.43374 7.66565 3.36796 7.67789 3.30648 7.7026C3.24499 7.7273 3.18903 7.76398 3.14185 7.81051C3.09466 7.85703 3.0572 7.91246 3.03162 7.97359C3.00605 8.03472 2.99288 8.10032 2.99288 8.16659C2.99288 8.23285 3.00605 8.29845 3.03162 8.35958C3.0572 8.42071 3.09466 8.47614 3.14185 8.52267C3.18903 8.56919 3.24499 8.60587 3.30648 8.63057C3.36796 8.65528 3.43374 8.66752 3.5 8.66659H6.5C6.56626 8.66752 6.63204 8.65528 6.69352 8.63057C6.75501 8.60587 6.81097 8.56919 6.85815 8.52267C6.90534 8.47614 6.9428 8.42071 6.96838 8.35958C6.99395 8.29845 7.00712 8.23285 7.00712 8.16659C7.00712 8.10032 6.99395 8.03472 6.96838 7.97359C6.9428 7.91246 6.90534 7.85703 6.85815 7.81051C6.81097 7.76398 6.75501 7.7273 6.69352 7.7026C6.63204 7.67789 6.56626 7.66565 6.5 7.66659H3.5ZM8.91667 8.66659C8.59346 8.66659 8.3847 8.85699 8.2474 9.02531C8.11009 9.19363 8.01427 9.3813 7.93229 9.5826C7.76834 9.9852 7.66667 10.4303 7.66667 10.8333C7.66573 10.8995 7.67797 10.9653 7.70268 11.0268C7.72738 11.0883 7.76406 11.1442 7.81059 11.1914C7.85711 11.2386 7.91255 11.2761 7.97367 11.3016C8.0348 11.3272 8.1004 11.3404 8.16667 11.3404C8.23293 11.3404 8.29853 11.3272 8.35966 11.3016C8.42079 11.2761 8.47622 11.2386 8.52275 11.1914C8.56927 11.1442 8.60595 11.0883 8.63066 11.0268C8.65536 10.9653 8.6676 10.8995 8.66667 10.8333C8.66667 10.6269 8.7447 10.2386 8.85807 9.96021C8.86723 9.93771 8.87521 9.93241 8.88477 9.91138C8.92186 9.99989 8.95499 10.0643 8.99349 10.1705C9.06713 10.3736 9.13851 10.5876 9.23177 10.7857C9.2784 10.8848 9.32742 10.9812 9.41471 11.0846C9.50201 11.1879 9.66667 11.3333 9.91667 11.3333C10.3917 11.3333 10.6552 11 10.8053 10.8079C10.8072 10.8055 10.8074 10.805 10.8092 10.8027C10.8501 10.8397 10.8607 10.8556 10.916 10.8977C11.2139 11.1247 11.7132 11.3333 12.5 11.3333C12.5663 11.3342 12.632 11.3219 12.6935 11.2972C12.755 11.2725 12.811 11.2359 12.8582 11.1893C12.9053 11.1428 12.9428 11.0874 12.9684 11.0262C12.994 10.9651 13.0071 10.8995 13.0071 10.8333C13.0071 10.767 12.994 10.7014 12.9684 10.6403C12.9428 10.5791 12.9053 10.5237 12.8582 10.4772C12.811 10.4307 12.755 10.394 12.6935 10.3693C12.632 10.3446 12.5663 10.3323 12.5 10.3333C11.8701 10.3333 11.6611 10.2085 11.5215 10.1021C11.4517 10.0489 11.3992 9.98942 11.3008 9.90031C11.2024 9.8112 11 9.66659 10.75 9.66659C10.4313 9.66659 10.3016 9.84287 10.2161 9.93937C10.1466 10.0179 10.1012 10.0832 10.0547 10.1451C10.0152 10.0421 9.97967 9.95644 9.93359 9.82935C9.85619 9.61582 9.77434 9.3904 9.65365 9.17896C9.5933 9.07323 9.52403 8.96816 9.41341 8.86776C9.30279 8.76736 9.12547 8.66659 8.91667 8.66659Z" />
                   </svg>
-                  <span className="text-content-text-neutral-2 text-base">
+                  <span className="text-content-text-neutral-2 text-sm">
                     Visa ending in 0315
                   </span>
                 </div>
@@ -906,7 +906,7 @@ export const BillingInformation = () => (
                   >
                     <path d="M2.83333 3.33325C1.82674 3.33325 1 4.15999 1 5.16659V11.4999C1 12.5065 1.82674 13.3333 2.83333 13.3333H13.1667C14.1733 13.3333 15 12.5065 15 11.4999V5.16659C15 4.15999 14.1733 3.33325 13.1667 3.33325H2.83333ZM2.83333 4.33325H13.1667C13.6327 4.33325 14 4.70051 14 5.16659V11.4999C14 11.966 13.6327 12.3333 13.1667 12.3333H2.83333C2.36726 12.3333 2 11.966 2 11.4999V5.16659C2 4.70051 2.36726 4.33325 2.83333 4.33325ZM3.5 5.66659C3.43374 5.66565 3.36796 5.67789 3.30648 5.7026C3.24499 5.7273 3.18903 5.76398 3.14185 5.81051C3.09466 5.85703 3.0572 5.91246 3.03162 5.97359C3.00605 6.03472 2.99288 6.10032 2.99288 6.16659C2.99288 6.23285 3.00605 6.29845 3.03162 6.35958C3.0572 6.42071 3.09466 6.47614 3.14185 6.52267C3.18903 6.56919 3.24499 6.60587 3.30648 6.63057C3.36796 6.65528 3.43374 6.66752 3.5 6.66659H8.16667C8.23292 6.66752 8.2987 6.65528 8.36019 6.63057C8.42167 6.60587 8.47763 6.56919 8.52482 6.52267C8.572 6.47614 8.60947 6.42071 8.63505 6.35958C8.66062 6.29845 8.67379 6.23285 8.67379 6.16659C8.67379 6.10032 8.66062 6.03472 8.63505 5.97359C8.60947 5.91246 8.572 5.85703 8.52482 5.81051C8.47763 5.76398 8.42167 5.7273 8.36019 5.7026C8.2987 5.67789 8.23292 5.66565 8.16667 5.66659H3.5ZM3.5 7.66659C3.43374 7.66565 3.36796 7.67789 3.30648 7.7026C3.24499 7.7273 3.18903 7.76398 3.14185 7.81051C3.09466 7.85703 3.0572 7.91246 3.03162 7.97359C3.00605 8.03472 2.99288 8.10032 2.99288 8.16659C2.99288 8.23285 3.00605 8.29845 3.03162 8.35958C3.0572 8.42071 3.09466 8.47614 3.14185 8.52267C3.18903 8.56919 3.24499 8.60587 3.30648 8.63057C3.36796 8.65528 3.43374 8.66752 3.5 8.66659H6.5C6.56626 8.66752 6.63204 8.65528 6.69352 8.63057C6.75501 8.60587 6.81097 8.56919 6.85815 8.52267C6.90534 8.47614 6.9428 8.42071 6.96838 8.35958C6.99395 8.29845 7.00712 8.23285 7.00712 8.16659C7.00712 8.10032 6.99395 8.03472 6.96838 7.97359C6.9428 7.91246 6.90534 7.85703 6.85815 7.81051C6.81097 7.76398 6.75501 7.7273 6.69352 7.7026C6.63204 7.67789 6.56626 7.66565 6.5 7.66659H3.5ZM8.91667 8.66659C8.59346 8.66659 8.3847 8.85699 8.2474 9.02531C8.11009 9.19363 8.01427 9.3813 7.93229 9.5826C7.76834 9.9852 7.66667 10.4303 7.66667 10.8333C7.66573 10.8995 7.67797 10.9653 7.70268 11.0268C7.72738 11.0883 7.76406 11.1442 7.81059 11.1914C7.85711 11.2386 7.91255 11.2761 7.97367 11.3016C8.0348 11.3272 8.1004 11.3404 8.16667 11.3404C8.23293 11.3404 8.29853 11.3272 8.35966 11.3016C8.42079 11.2761 8.47622 11.2386 8.52275 11.1914C8.56927 11.1442 8.60595 11.0883 8.63066 11.0268C8.65536 10.9653 8.6676 10.8995 8.66667 10.8333C8.66667 10.6269 8.7447 10.2386 8.85807 9.96021C8.86723 9.93771 8.87521 9.93241 8.88477 9.91138C8.92186 9.99989 8.95499 10.0643 8.99349 10.1705C9.06713 10.3736 9.13851 10.5876 9.23177 10.7857C9.2784 10.8848 9.32742 10.9812 9.41471 11.0846C9.50201 11.1879 9.66667 11.3333 9.91667 11.3333C10.3917 11.3333 10.6552 11 10.8053 10.8079C10.8072 10.8055 10.8074 10.805 10.8092 10.8027C10.8501 10.8397 10.8607 10.8556 10.916 10.8977C11.2139 11.1247 11.7132 11.3333 12.5 11.3333C12.5663 11.3342 12.632 11.3219 12.6935 11.2972C12.755 11.2725 12.811 11.2359 12.8582 11.1893C12.9053 11.1428 12.9428 11.0874 12.9684 11.0262C12.994 10.9651 13.0071 10.8995 13.0071 10.8333C13.0071 10.767 12.994 10.7014 12.9684 10.6403C12.9428 10.5791 12.9053 10.5237 12.8582 10.4772C12.811 10.4307 12.755 10.394 12.6935 10.3693C12.632 10.3446 12.5663 10.3323 12.5 10.3333C11.8701 10.3333 11.6611 10.2085 11.5215 10.1021C11.4517 10.0489 11.3992 9.98942 11.3008 9.90031C11.2024 9.8112 11 9.66659 10.75 9.66659C10.4313 9.66659 10.3016 9.84287 10.2161 9.93937C10.1466 10.0179 10.1012 10.0832 10.0547 10.1451C10.0152 10.0421 9.97967 9.95644 9.93359 9.82935C9.85619 9.61582 9.77434 9.3904 9.65365 9.17896C9.5933 9.07323 9.52403 8.96816 9.41341 8.86776C9.30279 8.76736 9.12547 8.66659 8.91667 8.66659Z" />
                   </svg>
-                  <span className="text-content-text-neutral-2 text-base">
+                  <span className="text-content-text-neutral-2 text-sm">
                     Visa ending in 0315
                   </span>
                 </div>

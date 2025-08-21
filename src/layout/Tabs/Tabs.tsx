@@ -8,7 +8,7 @@ import React, {
   useState
 } from 'react';
 import { useId } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { AnimatePresence } from 'motion/react';
 import { useComponentTheme } from '@/utils/Theme/hooks';
 import { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';

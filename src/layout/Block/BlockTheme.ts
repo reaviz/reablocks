@@ -18,7 +18,7 @@ export const blockTheme: BlockTheme = {
   base: '',
   disableMargin: 'm-0',
   label:
-    'text-sm leading-none font-semibold text-inputs-colors-normal-text-label-resting',
+    'text-xs leading-none font-semibold text-inputs-colors-normal-text-label-resting',
   centerAlign: 'items-center',
   endAlign: 'items-end',
   horizontal: {

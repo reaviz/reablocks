@@ -128,9 +128,9 @@ export const tabsTheme: TabsTheme = {
       selected: '',
       disabled: 'cursor-not-allowed opacity-40',
       size: {
-        small: 'py-1 px-2 text-xs leading-[18px] font-semibold',
-        medium: 'py-2 px-3 text-sm font-semibold',
-        large: 'py-1 px-3 text-md font-semibold'
+        small: 'py-1 px-2 text-xxs leading-[18px] font-semibold',
+        medium: 'py-2 px-3 text-xs font-semibold',
+        large: 'py-1 px-3 text-sm font-semibold'
       }
     }
   },

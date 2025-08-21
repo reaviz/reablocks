@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState
 } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { InputSizeTheme, InputTheme } from './InputTheme';
 import { useComponentTheme } from '@/utils';
 

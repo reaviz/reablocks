@@ -1002,11 +1002,11 @@ export const Profile = () => {
         <Stack>
           <LogoIcon className="h-11 w-auto mb-2 mr-2" />
           <div>
-            <h2 className="text-xl font-sans font-bold">Reablocks</h2>
+            <h2 className="text-lg font-sans font-bold">Reablocks</h2>
             <p className="opacity-60">github.com/reaviz</p>
           </div>
         </Stack>
-        <h1 className="mt-5 text-2xl font-sans font-bold">Profile Settings</h1>
+        <h1 className="mt-5 text-xl font-sans font-bold">Profile Settings</h1>
         <p className="opacity-60">
           Customize and edit essential profile details.
         </p>
@@ -1014,7 +1014,7 @@ export const Profile = () => {
         <div className="grid grid-cols-2 gap-4">
           <Stack direction="column" alignItems="start" dense>
             <h3 className="text-1xl font-sans font-bold">Public Profile</h3>
-            <p className="opacity-60 text-sm">
+            <p className="opacity-60 text-xs">
               This will be displayed on your profile.
             </p>
           </Stack>
@@ -1144,7 +1144,7 @@ export const Account = () => (
             <Stack direction="column" alignItems="start" className="w-3/5">
               <Stack direction="column" alignItems="start" dense>
                 <Stack>
-                  <h2 className="text-2xl font-sans font-bold ttext-content-text-neutral-base">
+                  <h2 className="text-xl font-sans font-bold ttext-content-text-neutral-base">
                     Austin McDaniel
                   </h2>
                   <Chip
@@ -1155,7 +1155,7 @@ export const Account = () => (
                     Admin
                   </Chip>
                 </Stack>
-                <p className="text-base text-content-text-neutral-2">
+                <p className="text-sm text-content-text-neutral-2">
                   CEO / Cyber Security Wizard
                 </p>
               </Stack>
@@ -1290,7 +1290,7 @@ export const Account = () => (
                 <Stack justifyContent="spaceBetween">
                   <div className="inline-flex">
                     <SymbolIcon />
-                    <span className="px-2.5 text-base text-content-text-neutral-base">
+                    <span className="px-2.5 text-sm text-content-text-neutral-base">
                       GoodCode
                     </span>
                   </div>
@@ -1299,7 +1299,7 @@ export const Account = () => (
                 <Stack justifyContent="spaceBetween" className="mt-3">
                   <div className="inline-flex">
                     <SymbolIcon />
-                    <span className="px-2.5 text-base text-content-text-neutral-base">
+                    <span className="px-2.5 text-sm text-content-text-neutral-base">
                       GoodCode
                     </span>
                   </div>
@@ -1358,7 +1358,7 @@ export const Overview = () => (
                 />
                 <Stack direction="column" alignItems="start">
                   <Stack>
-                    <h2 className="text-2xl font-sans font-bold text-content-text-neutral-base">
+                    <h2 className="text-xl font-sans font-bold text-content-text-neutral-base">
                       Austin McDaniel
                     </h2>
                     <Chip
@@ -1417,11 +1417,11 @@ export const Overview = () => (
             <MotionItem>
               <Block className="bg-background-neutral-raised-6 rounded-[20px] p-[30px]">
                 <Stack justifyContent="spaceBetween">
-                  <h3 className="text-lg font-bold">Personal Information</h3>
+                  <h3 className="text-base font-bold">Personal Information</h3>
                   <Button
                     variant="text"
                     color="primary"
-                    className="text-lg"
+                    className="text-base"
                     startAdornment={<EditIcon />}
                   >
                     Edit
@@ -1527,7 +1527,7 @@ export const Overview = () => (
 
             <MotionItem>
               <Block className="bg-background-neutral-raised-6 rounded-[20px] p-[30px]">
-                <h3 className="text-lg font-bold align-middle">
+                <h3 className="text-base font-bold align-middle">
                   <span>Teams</span>{' '}
                   <div className="ml-2.5 inline-flex justify-center text-sm items-center w-8 h-8 rounded-full bg-background-neutral-raised-5 text-center border border-stroke-neutral-3">
                     3
@@ -1585,7 +1585,7 @@ export const Overview = () => (
             </MotionItem>
           </Stack>
           <Block className="bg-background-neutral-raised-6 rounded-[20px] p-[30px] min-w-[360px]">
-            <h3 className="text-content-text-neutral-base font-bold text-lg">
+            <h3 className="text-content-text-neutral-base font-bold text-base">
               Latest Activity
             </h3>
 
@@ -1713,7 +1713,7 @@ export const Settings = () => {
             <UserIcon className=""/>
           </Block>
           <Stack alignItems="start" direction="column" className="gap-0" dense>
-            <h4 className="text-xl font-bold text-content-text-neutral-base">
+            <h4 className="text-lg font-bold text-content-text-neutral-base">
               Profile Settings
             </h4>
             <div className="text-content-text-neutral-2">
@@ -1752,7 +1752,7 @@ export const Settings = () => {
                           className="gap-0"
                           dense
                         >
-                          <h6 className="text-lg text-content-text-neutral-base font-bold">
+                          <h6 className="text-base text-content-text-neutral-base font-bold">
                             Upload Image
                           </h6>
                           <div className="text-content-text-neutral-2">

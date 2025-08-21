@@ -344,8 +344,8 @@ export const CustomSize = () => {
     components: {
       button: {
         sizes: {
-          xsmall: 'text-xs px-1 py-0.5',
-          xlarge: 'text-2xl px-6 py-3'
+          xsmall: 'text-xxs px-1 py-0.5',
+          xlarge: 'text-xl px-6 py-3'
         }
       }
     }

@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, useCallback, useEffect, useRef } from 'react';
 import { NotificationOptions } from './NotificationsContext';
 import { motion } from 'motion/react';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { NotificationTheme } from './NotificationTheme';
 import { useComponentTheme } from '@/utils';
 

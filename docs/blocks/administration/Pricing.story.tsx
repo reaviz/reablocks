@@ -53,7 +53,7 @@ export const Pricing = () => {
         >
           <Stack direction="column" alignItems="start" className="h-full">
             <Stack justifyContent="spaceBetween" className="w-full">
-              <h6 className="text-lg font-semibold">Free</h6>
+              <h6 className="text-base font-semibold">Free</h6>
               <Chip
                 size="large"
                 variant="outline"
@@ -66,7 +66,7 @@ export const Pricing = () => {
               For small teams
             </span>
             <Stack>
-              <h1 className="text-3xl font-semibold">$0</h1>
+              <h1 className="text-2xl font-semibold">$0</h1>
               <span className="font-bold text-content-text-neutral-2">
                 /Month
               </span>
@@ -125,7 +125,7 @@ export const Pricing = () => {
         >
           <Stack direction="column" alignItems="start" className="h-full">
             <Stack justifyContent="spaceBetween" className="w-full">
-              <h6 className="text-lg font-semibold">Starter</h6>
+              <h6 className="text-base font-semibold">Starter</h6>
               <Chip
                 size="large"
                 color="success"
@@ -138,7 +138,7 @@ export const Pricing = () => {
               For a broad set of teams
             </span>
             <Stack>
-              <h1 className="text-3xl font-semibold">$1,000</h1>
+              <h1 className="text-2xl font-semibold">$1,000</h1>
               <span className="font-bold text-content-text-neutral-2">
                 /Month
               </span>
@@ -202,11 +202,11 @@ export const Pricing = () => {
           contentClassName="w-full h-full"
         >
           <Stack direction="column" alignItems="start" className="h-full">
-            <h6 className="text-lg font-semibold">Enterprise</h6>
+            <h6 className="text-base font-semibold">Enterprise</h6>
             <span className="text-content-text-neutral-2">
               For all custom needs
             </span>
-            <h1 className="text-3xl font-semibold">Custom</h1>
+            <h1 className="text-2xl font-semibold">Custom</h1>
             <Divider className="mt-0" />
             <Stack direction="column" alignItems="start" className="grow">
               <List>
@@ -315,18 +315,18 @@ export const PricingFull = () => {
         </ButtonGroup>
       </Stack>
       <h4 className="text-[24px] font-bold">Plans</h4>
-      <span className="text-content-text-neutral-2 text-base">
+      <span className="text-content-text-neutral-2 text-sm">
         Change your current workspace plan
       </span>
       <MotionGroup className="flex flex-col gap-2.5 mt-7">
         <div className="grid grid-cols-[400px_1fr_1fr_1fr] gap-2.5">
           <MotionItem className="self-end font-bold">Core Features</MotionItem>
           <MotionItem className="flex flex-col">
-            <h6 className="text-lg font-bold">Founders Package</h6>
-            <h2 className="text-2xl font-bold">
+            <h6 className="text-base font-bold">Founders Package</h6>
+            <h2 className="text-xl font-bold">
               {cycle === 'Monthly' ? '$1,000' : '$10,000'}
             </h2>
-            <span className="text-content-text-neutral-2 text-sm">
+            <span className="text-content-text-neutral-2 text-xs">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
             <VerticalSpacer space="md" />
@@ -345,11 +345,11 @@ export const PricingFull = () => {
             <Divider />
           </MotionItem>
           <MotionItem className="flex flex-col">
-            <h6 className="text-lg font-bold">Startup Package</h6>
-            <h2 className="text-2xl font-bold">
+            <h6 className="text-base font-bold">Startup Package</h6>
+            <h2 className="text-xl font-bold">
               {cycle === 'Monthly' ? '$5,000' : '$50,000'}
             </h2>
-            <span className="text-content-text-neutral-2 text-sm">
+            <span className="text-content-text-neutral-2 text-xs">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
             <VerticalSpacer space="md" />
@@ -374,9 +374,9 @@ export const PricingFull = () => {
             <Divider />
           </MotionItem>
           <MotionItem className="flex flex-col">
-            <h6 className="text-lg font-bold">Seed Package</h6>
-            <h2 className="text-2xl font-bold">Let's talk</h2>
-            <span className="text-content-text-neutral-2 text-sm">
+            <h6 className="text-base font-bold">Seed Package</h6>
+            <h2 className="text-xl font-bold">Let's talk</h2>
+            <span className="text-content-text-neutral-2 text-xs">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
             <VerticalSpacer space="md" />
@@ -451,7 +451,7 @@ export const PricingFull = () => {
         <MotionItem>
           <Divider />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base text-content-text-neutral-2">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-sm text-content-text-neutral-2">
           <div className="justify-self-start">
             Brand Style Guide
           </div>
@@ -501,7 +501,7 @@ export const PricingFull = () => {
         <MotionItem>
           <Divider />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base text-content-text-neutral-2">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-sm text-content-text-neutral-2">
           <div className="justify-self-start">
             Prototype of Web Application
           </div>
@@ -525,7 +525,7 @@ export const PricingFull = () => {
         <MotionItem>
           <Divider />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base text-content-text-neutral-2">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-sm text-content-text-neutral-2">
           <div className="justify-self-start">
             Development of Web Application
           </div>
@@ -570,8 +570,8 @@ export const PricingMinimal = () => {
         header={
           <Stack className="w-full" justifyContent="spaceBetween">
             <div>
-              <h2 className="text-2xl font-bold">Change your plan</h2>
-              <span className="text-sm text-content-text-neutral-2">
+              <h2 className="text-xl font-bold">Change your plan</h2>
+              <span className="text-xs text-content-text-neutral-2">
                 Switch to annual to save 16%
               </span>
             </div>
@@ -596,7 +596,7 @@ export const PricingMinimal = () => {
               checked={isAnnual}
               onChange={setIsAnnual}
             />
-            <span className="text-sm text-content-text-neutral-2">
+            <span className="text-xs text-content-text-neutral-2">
               Annual pricing
             </span>
             <Chip
@@ -615,7 +615,7 @@ export const PricingMinimal = () => {
                 })}
               >
                 <Stack>
-                  <h6 className="grow text-lg font-bold whitespace-nowrap">
+                  <h6 className="grow text-base font-bold whitespace-nowrap">
                     FREE account
                   </h6>
                   <Radio
@@ -626,7 +626,7 @@ export const PricingMinimal = () => {
                 </Stack>
                 <Stack>
                   <h2 className="text-[32px] font-bold">$0</h2>
-                  <h6 className="text-content-text-neutral-2 text-lg font-bold">
+                  <h6 className="text-content-text-neutral-2 text-base font-bold">
                     {isAnnual ? '/Year' : '/Month'}
                   </h6>
                 </Stack>
@@ -661,7 +661,7 @@ export const PricingMinimal = () => {
                 })}
               >
                 <Stack>
-                  <h6 className="grow text-lg font-bold whitespace-nowrap">
+                  <h6 className="grow text-base font-bold whitespace-nowrap">
                     PRO account
                   </h6>
                   <Radio
@@ -674,7 +674,7 @@ export const PricingMinimal = () => {
                   <h2 className="text-[32px] font-bold">
                     {isAnnual ? '$222' : '$25'}
                   </h2>
-                  <h6 className="text-content-text-neutral-2 text-lg font-bold">
+                  <h6 className="text-content-text-neutral-2 text-base font-bold">
                     {isAnnual ? '/Year' : '/Month'}
                   </h6>
                 </Stack>

@@ -25,7 +25,7 @@ export const ActivityTimeline = () => (
       <Stepper continuous animated>
         <Step>
           <div className="flex flex-col gap-1">
-            <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
               03/01/2024, 8:00 AM
             </span>
             <span className="font-medium">
@@ -38,7 +38,7 @@ export const ActivityTimeline = () => (
         </Step>
         <Step>
           <div className="flex flex-col gap-1">
-            <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
               03/02/2024, 10:00 AM
             </span>
             <span className="font-medium">
@@ -58,7 +58,7 @@ export const ActivityTimeline = () => (
         </Step>
         <Step>
           <div className="flex flex-col gap-2">
-            <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
               03/03/2024, 10:15 AM
             </span>
             <span className="font-medium">
@@ -69,7 +69,7 @@ export const ActivityTimeline = () => (
               </span>
             </span>
             <div className="mt-2 px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
-              <div className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-medium text-sm">
+              <div className="text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600 font-medium text-xs">
                 This looks fine, might've missed it but maybe we can add a link
                 to the website where we also have the video of how to use the
                 plug in? Otherwise this is a nice addition.
@@ -84,7 +84,7 @@ export const ActivityTimeline = () => (
                   fullWidth
                   placeholder="Leave a reply..."
                   containerClassName="border-transparent placeholder:text-content-text-neutral-3 bg-background-neutral-raised-5 px-3"
-                  className="text-sm! px-0"
+                  className="text-xs! px-0"
                   endAdornment={null}
                 />
                 <IconButton className="text-secondary-inactive" variant="text">
@@ -98,7 +98,7 @@ export const ActivityTimeline = () => (
         </Step>
         <Step>
           <div className="flex flex-col gap-1">
-            <span className="text-sm text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
+            <span className="text-xs text-neutrals-pure-white-dnt-400 light:text-neutrals-pure-black-dnt-600">
               03/01/2024, 8:00 AM
             </span>
             <span className="font-medium">
@@ -124,7 +124,7 @@ export const ActivityTimeline = () => (
             fullWidth
             placeholder="Leave a comment..."
             containerClassName="border-transparent placeholder:text-content-text-neutral-3 bg-background-neutral-raised-5 px-3"
-            className="text-sm! px-0"
+            className="text-xs! px-0"
             endAdornment={null}
           />
           <IconButton className="text-secondary-inactive" variant="text">
@@ -146,7 +146,7 @@ export const VersionHistory = () => (
   >
     <Card className="w-full p-12 bg-background-neutral-canvas-base border border-stroke-neutral-3">
       <div className="w-full flex-row flex justify-between items-center text-center mb-8">
-        <span className="text-xl font-bold">Version History</span>
+        <span className="text-lg font-bold">Version History</span>
         <IconButton variant="text">
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path id="Vector" d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="currentColor"/>
@@ -158,60 +158,60 @@ export const VersionHistory = () => (
           <Stepper activeStep={1} animated>
             <Step label="v6.0">
               <Stack direction="column" alignItems="start" dense>
-                <span className="font-medium text-base">
+                <span className="font-medium text-sm">
                   New custom statuses for projects
                 </span>
-                <span className="font-normal text-sm text-content-text-neutral-2">
+                <span className="font-normal text-xs text-content-text-neutral-2">
                   Austin McDaniel • 1 hour ago
                 </span>
               </Stack>
             </Step>
             <Step label="v5.0">
               <Stack direction="column" alignItems="start" dense>
-                <span className="font-medium text-base">
+                <span className="font-medium text-sm">
                   Timeline UI overhaul
                 </span>
-                <span className="font-normal text-sm text-content-text-neutral-2">
+                <span className="font-normal text-xs text-content-text-neutral-2">
                   Austin McDaniel • March 22, 2024
                 </span>
               </Stack>
             </Step>
             <Step label="v4.0">
               <Stack direction="column" alignItems="start" dense>
-                <span className="font-medium text-base">
+                <span className="font-medium text-sm">
                   Google calendar integration
                 </span>
-                <span className="font-normal text-sm text-content-text-neutral-2">
+                <span className="font-normal text-xs text-content-text-neutral-2">
                   Austin McDaniel • March 21, 2024
                 </span>
               </Stack>
             </Step>
             <Step>
               <Stack direction="column" alignItems="start" dense>
-                <span className="font-medium text-base">
+                <span className="font-medium text-sm">
                   Branch-specific workflow automations
                 </span>
-                <span className="font-normal text-sm text-content-text-neutral-2">
+                <span className="font-normal text-xs text-content-text-neutral-2">
                   Austin McDaniel • February 28, 2024
                 </span>
               </Stack>
             </Step>
             <Step>
               <Stack direction="column" alignItems="start" dense>
-                <span className="font-medium text-base">
+                <span className="font-medium text-sm">
                   Project time frames
                 </span>
-                <span className="font-normal text-sm text-content-text-neutral-2">
+                <span className="font-normal text-xs text-content-text-neutral-2">
                   Austin McDaniel • February 15, 2024
                 </span>
               </Stack>
             </Step>
             <Step label="v3.0">
               <Stack direction="column" alignItems="start" dense>
-                <span className="font-medium text-base">
+                <span className="font-medium text-sm">
                   GitHub Issues Sync
                 </span>
-                <span className="font-normal text-sm text-content-text-neutral-2">
+                <span className="font-normal text-xs text-content-text-neutral-2">
                   Austin McDaniel • February 10, 2024
                 </span>
               </Stack>
@@ -232,7 +232,7 @@ export const WorkspaceHistory = () => (
     <Card className="w-full p-12 bg-background-neutral-canvas-base border border-stroke-neutral-3">
       <Stack direction="column" alignItems="start">
         <div className="w-full flex-row flex justify-between items-center text-center">
-          <span className="text-xl font-bold">Workspace History</span>
+          <span className="text-lg font-bold">Workspace History</span>
           <IconButton variant="text">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path id="Vector" d="M14 1.41L12.59 0L7 5.59L1.41 0L0 1.41L5.59 7L0 12.59L1.41 14L7 8.41L12.59 14L14 12.59L8.41 7L14 1.41Z" fill="currentColor"/>

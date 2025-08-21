@@ -46,7 +46,7 @@ export const radioTheme: RadioTheme = {
     sizes: {
       small: 'size-1.5',
       medium: 'size-2',
-      large: 'size-2'
+      large: 'size-2.5'
     }
   },
   label: {
@@ -57,8 +57,8 @@ export const radioTheme: RadioTheme = {
     checked: 'text-selectors-colors-text-label-selected'
   },
   sizes: {
-    small: 'size-3 p-0.5',
-    medium: 'size-4.5 p-0.5',
-    large: 'size-4.5 p-0.5'
+    small: 'size-2.5 p-0.5',
+    medium: 'size-3 p-0.5',
+    large: 'size-3.5 p-0.5'
   }
 };

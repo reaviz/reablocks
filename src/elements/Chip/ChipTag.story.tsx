@@ -211,7 +211,13 @@ export const Disabled = () => (
       >
         Secondary
       </Chip>
-      <Chip type="tag" variant="outline" color="success" disabled>
+      <Chip
+        start={<DemoIcon />}
+        type="tag"
+        variant="outline"
+        color="success"
+        disabled
+      >
         Success
       </Chip>
       <Chip

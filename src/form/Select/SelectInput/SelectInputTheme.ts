@@ -83,7 +83,7 @@ export const selectInputTheme: SelectInputTheme = {
     inputContainer: 'flex-wrap'
   },
   chip: {
-    base: 'cursor-pointer flex text-sm leading-none box-border mr-1 px-1 py-1 rounded-sm border-solid border-transparent',
+    base: 'cursor-pointer flex text-xs leading-none box-border mr-1 px-1 py-1 rounded-sm border-solid border-transparent',
     hover: '',
     focused: 'focused:border-transparent focused:outline-none',
     disabled: 'disabled:cursor-not-allowed',
@@ -92,9 +92,9 @@ export const selectInputTheme: SelectInputTheme = {
   },
   size: {
     small:
-      '[&_input]:text-sm [&_input]:leading-4 [&_svg]:size-4 px-2 py-[5px] gap-2',
+      '[&_input]:text-xs [&_input]:leading-4 [&_svg]:size-4 px-2 py-[5px] gap-2',
     medium:
       '[&_input]:text-sm [&_input]:leading-4 [&_svg]:size-4 px-3 py-[7px] gap-2',
-    large: '[&_input]:text-md [&_svg]:size-4.5 px-3 py-[7px] gap-2'
+    large: '[&_input]:text-base [&_svg]:size-4.5 px-3 py-[7px] gap-2'
   }
 };

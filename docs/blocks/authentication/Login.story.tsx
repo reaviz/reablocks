@@ -59,10 +59,10 @@ export const Login = () => {
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-14">
           <LogoIcon className="h-11 w-auto mb-2" />
-          <h4 className="text-2xl font-sans font-bold mb-0">
+          <h4 className="text-xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-content-text-neutral-2 font-sans">
+          <span className="text-sm text-content-text-neutral-2 font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -131,7 +131,7 @@ export const Login = () => {
           >
             Sign up with Google
           </Button>
-          <div className="mt-5 text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
+          <div className="mt-5 text-xs text-content-text-neutral-2 flex items-center justify-center gap-2">
             By signing in, you agree to our
             <Button variant="text" className="p-0">
               terms of service
@@ -163,10 +163,10 @@ export const LoginBasic = () => {
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-14">
           <LogoIcon className="h-11 w-auto mb-2" />
-          <h4 className="text-2xl font-sans font-bold mb-0">
+          <h4 className="text-xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-content-text-neutral-2 font-sans">
+          <span className="text-sm text-content-text-neutral-2 font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -270,10 +270,10 @@ export const LoginFull = () => {
       >
         <div className="w-full grow flex flex-col justify-center">
           <LogoIcon className="h-11 mb-2 self-start w-auto" />
-          <h4 className="text-2xl font-sans font-bold mb-0">
+          <h4 className="text-xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-content-text-neutral-2 font-sans">
+          <span className="text-sm text-content-text-neutral-2 font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
           <form
@@ -424,10 +424,10 @@ export const LoginPassword = () => {
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-14">
           <LogoIcon className="h-11 w-auto mb-2" />
-          <h4 className="text-2xl font-sans font-bold mb-0">
+          <h4 className="text-xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-content-text-neutral-2 font-sans">
+          <span className="text-sm text-content-text-neutral-2 font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
@@ -540,10 +540,10 @@ export const LoginSocial = () => {
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-14">
           <LogoIcon className="h-11 w-auto mb-2" />
-          <h4 className="text-2xl font-sans font-bold mb-0">
+          <h4 className="text-xl font-sans font-bold mb-0">
             Log In or create account
           </h4>
-          <span className="text-base text-content-text-neutral-2 font-sans">
+          <span className="text-sm text-content-text-neutral-2 font-sans">
             Welcome to Reablocks, powered by Good Code
           </span>
         </div>
