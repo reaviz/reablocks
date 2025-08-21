@@ -32,7 +32,7 @@ export const toggleTheme: ToggleTheme = {
     sizes: {
       small: 'size-2.5',
       medium: 'size-3.5',
-      large: 'size-3.5'
+      large: 'size-4.5'
     },
     disabled: '',
     disabledAndChecked: 'bg-selectors-colors-toggle-on-assets-resting'
@@ -40,6 +40,6 @@ export const toggleTheme: ToggleTheme = {
   sizes: {
     small: 'w-7 h-4 p-0.5',
     medium: 'w-8 h-5 p-0.5',
-    large: 'w-8 h-5 p-0.5'
+    large: 'w-10 h-6 p-0.5'
   }
 };
