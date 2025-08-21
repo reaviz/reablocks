@@ -79,7 +79,7 @@ export const selectInputTheme: SelectInputTheme = {
     input: 'max-w-full'
   },
   multiple: {
-    prefix: 'flex flex-wrap',
+    prefix: 'contents',
     inputContainer: 'flex-wrap'
   },
   chip: {
