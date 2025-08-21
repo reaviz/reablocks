@@ -436,7 +436,7 @@ export const AnimationDisabled = () => {
         <div className="flex flex-col gap-2">
           <NavigationButton
             animationLayoutId={id}
-            animated
+            animated={false}
             active={active === 6}
             onClick={() => setActive(6)}
           >
@@ -444,7 +444,7 @@ export const AnimationDisabled = () => {
           </NavigationButton>
           <NavigationButton
             animationLayoutId={id}
-            animated
+            animated={false}
             active={active === 7}
             onClick={() => setActive(7)}
           >
@@ -455,7 +455,7 @@ export const AnimationDisabled = () => {
     >
       <NavigationButton
         animationLayoutId={id}
-        animated
+        animated={false}
         active={active === 1}
         onClick={() => setActive(1)}
       >
@@ -463,7 +463,7 @@ export const AnimationDisabled = () => {
       </NavigationButton>
       <NavigationButton
         animationLayoutId={id}
-        animated
+        animated={false}
         active={active === 2}
         onClick={() => setActive(2)}
       >
@@ -471,7 +471,7 @@ export const AnimationDisabled = () => {
       </NavigationButton>
       <NavigationButton
         animationLayoutId={id}
-        animated
+        animated={false}
         active={active === 3}
         onClick={() => setActive(3)}
       >
@@ -487,7 +487,7 @@ export const AnimationDisabled = () => {
       </NavigationButton>
       <NavigationButton
         animationLayoutId={id}
-        animated
+        animated={false}
         active={active === 5}
         onClick={() => setActive(5)}
       >
