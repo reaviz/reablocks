@@ -1,4 +1,9 @@
-import { legacyInputTheme, inputTheme } from '@/form/Input/InputTheme';
+export interface TextareaSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
 
 export interface TextareaTheme {
   base: string;
@@ -6,54 +11,29 @@ export interface TextareaTheme {
   fullWidth: string;
   error: string;
   disabled: string;
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  sizes: TextareaSizeTheme;
 }
 
-const baseTheme: Partial<TextareaTheme> = {
-  input: 'resize-none read-only:cursor-not-allowed'
-};
-
 export const textareaTheme: TextareaTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    inputTheme.base,
-    'disabled-within:hover:after:content-none'
-  ].join(' '),
-  input: [baseTheme.input, inputTheme.input].join(' '),
-  disabled: [baseTheme.disabled, inputTheme.disabled].join(' '),
-  fullWidth: inputTheme.fullWidth,
-  error: inputTheme.error,
-  sizes: inputTheme.sizes
-} as TextareaTheme;
-
-export const legacyTextareaTheme: TextareaTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    legacyInputTheme.base,
-    'bg-[var(--textarea-background)] rounded-[var(--textarea-border-radius)] [border:_var(--textarea-border)] focus:border-[var(--textarea-border-focus)]'
-  ].join(' '),
-  input: [
-    baseTheme.input,
-    legacyInputTheme.input,
-    '[font-family:_var(--font-family)] text-[var(--textarea-color)] placeholder-[var(--textarea-color-placeholder)]'
-  ].join(' '),
-  disabled: [
-    baseTheme.disabled,
-    legacyInputTheme.disabled,
-    'text-[var(--disabled-color)]'
-  ].join(' '),
-  fullWidth: legacyInputTheme.fullWidth,
-  error: legacyInputTheme.error,
+  base: `
+    flex items-center transition-colors rounded-md border
+    border-inputs-colors-normal-stroke-resting bg-inputs-colors-normal-background-resting
+    hover:border-inputs-colors-normal-stroke-hover hover:bg-inputs-colors-normal-background-hover
+    focus-within:border-inputs-colors-normal-stroke-selected focus-within:bg-inputs-colors-normal-background-selected
+    disabled-within:hover:border-inputs-colors-normal-stroke-resting disabled-within:hover:bg-inputs-colors-normal-background-resting
+  `,
+  input: 'border-0 resize-none read-only:cursor-not-allowed outline-hidden',
+  fullWidth: 'w-full',
+  error: `
+    border-inputs-colors-error-stroke-resting bg-inputs-colors-error-background-resting
+    hover:border-inputs-colors-error-stroke-hover hover:bg-inputs-colors-error-background-hover
+    focus-within:border-inputs-colors-error-stroke-selected focus-within:bg-inputs-colors-error-background-selected
+    disabled-within:hover:border-inputs-colors-error-stroke-resting disabled-within:hover:bg-inputs-colors-error-background-resting
+  `,
+  disabled: 'cursor-not-allowed opacity-40',
   sizes: {
-    small: '[padding:_var(--textarea-spacing-sm)]',
-    medium: '[padding: var(--textarea-spacing-md)]',
-    large: 'padding: var(--textarea-spacing-lg)'
+    small: 'text-xs px-2 py-[3px]',
+    medium: 'text-sm px-3 py-[7px]',
+    large: 'text-base px-3 py-[7px]'
   }
 } as TextareaTheme;

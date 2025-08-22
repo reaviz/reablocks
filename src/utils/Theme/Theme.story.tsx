@@ -15,7 +15,7 @@ import { extractTheme } from './themes/extractTheme';
 export default {
   title: 'Components/Theme',
   decorators: [
-    Story => {
+    (Story, context) => {
       const { tokens } = useTheme();
 
       const {
@@ -38,6 +38,7 @@ export default {
             fontFamily={fontFamily}
             fontSize={fontSize}
             fontWeight={fontWeight}
+            theme={context?.globals?.theme}
           />
         </div>
       );
@@ -45,8 +46,8 @@ export default {
   ]
 };
 
-export const Colors = (_: unknown, { colors }) => {
-  return <ColorBlocks colors={colors} />;
+export const Colors = (_: unknown, { colors, theme }) => {
+  return <ColorBlocks colors={colors} theme={theme} />;
 };
 
 export const Typography = (

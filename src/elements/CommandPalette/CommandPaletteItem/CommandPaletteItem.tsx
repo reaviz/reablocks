@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react';
 import { ListItem, ListItemProps } from '@/layout';
 import { MotionItem } from '@/layout';
 import { Kbd } from '@/elements/Kbd';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
 import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 

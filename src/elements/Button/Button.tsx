@@ -2,35 +2,33 @@ import React, { FC, forwardRef, LegacyRef, useContext } from 'react';
 import { motion } from 'motion/react';
 import { ButtonGroupContext } from './ButtonGroupContext';
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
-import { ButtonTheme } from './ButtonTheme';
+import { twMerge } from '@/utils';
+import {
+  ButtonColorTheme,
+  ButtonSizeTheme,
+  ButtonTheme,
+  ButtonVariantTheme
+} from './ButtonTheme';
 
 export interface ButtonProps
   extends Omit<
     React.ButtonHTMLAttributes<HTMLButtonElement>,
-    'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag'
+    'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag' | 'color'
   > {
   /**
    * Color variation of the button.
    */
-  color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'success'
-    | 'warning'
-    | string;
+  color?: keyof ButtonColorTheme;
 
   /**
    * Style variant of the button.
    */
-  variant?: 'filled' | 'outline' | 'text' | string;
+  variant?: keyof ButtonVariantTheme;
 
   /**
    * The size variation of the button.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof ButtonSizeTheme;
 
   /**
    * If true, the button will take up the full width of its container.
@@ -49,8 +47,14 @@ export interface ButtonProps
 
   /**
    * If true, the animation of the button will be disabled.
+   * @deprecated
    */
   disableAnimation?: boolean;
+
+  /**
+   * If false, the animation of the button will be disabled.
+   */
+  animated?: boolean;
 
   /**
    * Element to display before the Button content.
@@ -78,12 +82,13 @@ export interface ButtonRef {
 export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
   (
     {
-      color = 'default',
+      color = 'primary',
       variant = 'filled',
       children,
       fullWidth,
       size = 'medium',
       disableAnimation,
+      animated = true,
       className,
       disableMargins,
       disablePadding,
@@ -109,7 +114,9 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         type={type}
         disabled={disabled}
         ref={ref}
-        whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
+        whileTap={{
+          scale: disabled || disableAnimation || !animated ? 1 : 0.9
+        }}
         data-variant={groupVariant || variant}
         className={twMerge(
           theme.base,

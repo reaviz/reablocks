@@ -1,6 +1,6 @@
 import React, { FC, forwardRef, HTMLAttributes, LegacyRef } from 'react';
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { StackTheme } from './StackTheme';
 
 export interface StackProps extends HTMLAttributes<HTMLDivElement> {

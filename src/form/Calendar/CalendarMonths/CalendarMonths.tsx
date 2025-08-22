@@ -34,7 +34,7 @@ export const CalendarMonths: FC<CalendarMonthsProps> = ({
         <Button
           key={month}
           className={cn(months.month, { [months.selected]: value === i })}
-          color={value === i ? 'primary' : 'default'}
+          color={value === i ? 'primary' : 'secondary'}
           variant={value === i ? 'filled' : 'text'}
           disableMargins
           title={month}

@@ -1,13 +1,5 @@
-import {
-  cssVarsSelectInputTheme,
-  selectInputTheme,
-  SelectInputTheme
-} from './SelectInput';
-import {
-  cssVarsSelectMenuTheme,
-  selectMenuTheme,
-  SelectMenuTheme
-} from './SelectMenu';
+import { selectInputTheme, SelectInputTheme } from '@/form';
+import { selectMenuTheme, SelectMenuTheme } from '@/form';
 
 export interface SelectTheme {
   selectInput: SelectInputTheme;
@@ -17,9 +9,4 @@ export interface SelectTheme {
 export const selectTheme: SelectTheme = {
   selectInput: selectInputTheme,
   selectMenu: selectMenuTheme
-};
-
-export const legacySelectTheme: SelectTheme = {
-  selectInput: cssVarsSelectInputTheme,
-  selectMenu: cssVarsSelectMenuTheme
 };

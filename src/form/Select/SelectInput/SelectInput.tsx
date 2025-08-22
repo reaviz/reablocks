@@ -1,3 +1,4 @@
+import { SelectInputSizeTheme } from './SelectInputTheme';
 import React, {
   FC,
   ReactElement,
@@ -133,7 +134,7 @@ export interface SelectInputProps {
   /**
    * The size of the select input.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof SelectInputSizeTheme;
 
   /**
    * The theme of the select input.
