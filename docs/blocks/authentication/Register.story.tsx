@@ -7,7 +7,7 @@ import { Button } from '../../../src/elements/Button';
 import { Card } from '../../../src/layout/Card';
 import { Divider, Stack } from '../../../src/layout';
 import { Input } from '../../../src/form/Input';
-import { Radio, radioTheme } from '../../../src/form/Radio';
+import { Radio } from '../../../src/form/Radio';
 import { cn } from '../../../src/utils';
 import { Select, SelectOption } from '../../../src/form';
 

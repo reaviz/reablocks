@@ -10,11 +10,7 @@ import {
   TabPanel,
   Tabs
 } from '../../../src/layout';
-import {
-  Chip,
-  ChipTheme,
-  chipTheme as defaultChipTheme
-} from '../../../src/elements/Chip';
+import { Chip } from '../../../src/elements/Chip';
 import { Button } from '../../../src/elements/Button';
 import { Tooltip } from '../../../src/layers';
 

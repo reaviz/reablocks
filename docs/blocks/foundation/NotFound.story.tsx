@@ -7,7 +7,7 @@ import {
 } from '../../../src/layout';
 import { Button } from '../../../src/elements/Button';
 import { Input } from '../../../src/form/Input';
-import { PageTitle, Typography } from '../../../src/typography';
+import { Typography } from '../../../src/typography';
 import { Chip } from '../../../src/elements/Chip';
 
 export default {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Card, Divider } from '../../../src/layout';
+import { Card } from '../../../src/layout';
 import { Button } from '../../../src/elements/Button';
 import { Input } from '../../../src/form/Input';
 
