@@ -26,6 +26,21 @@ export const Simple = () => (
   </div>
 );
 
+export const NoAnimation = () => (
+  <div
+    style={{
+      textAlign: 'center',
+      width: '100%',
+      margin: '50px',
+      color: 'green'
+    }}
+  >
+    <Tooltip content="Hi there" animated={false}>
+      Hover me
+    </Tooltip>
+  </div>
+);
+
 export const CustomTheme = () => {
   const customTheme = extendComponentTheme<TooltipTheme>(tooltipTheme, {
     base: 'rounded bg-green-800 text-white font-bold p-3 text-base'

@@ -84,6 +84,11 @@ export interface TooltipProps {
   disabled?: boolean;
 
   /**
+   * Whether the tooltip is animated.
+   */
+  animated?: boolean;
+
+  /**
    * Whether the tooltip should move with the cursor or not.
    */
   followCursor?: boolean;
@@ -124,6 +129,7 @@ export const Tooltip: FC<TooltipProps> = ({
   leaveDelay = 200,
   placement = 'top',
   trigger = 'hover',
+  animated = true,
   visible = false,
   followCursor = false,
   closeOnClick = false,
@@ -195,21 +201,21 @@ export const Tooltip: FC<TooltipProps> = ({
         return (
           <motion.div
             className={twMerge(theme.base, className)}
-            initial={{
-              opacity: 0,
-              scale: 0.3,
-              transition: {
-                when: 'beforeChildren'
-              }
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              transition: {
-                when: 'beforeChildren'
-              }
-            }}
-            exit={{ opacity: 0, scale: 0.3 }}
+            {...(animated
+              ? {
+                  initial: {
+                    opacity: 0,
+                    scale: 0.3,
+                    transition: { when: 'beforeChildren' }
+                  },
+                  animate: {
+                    opacity: 1,
+                    scale: 1,
+                    transition: { when: 'beforeChildren' }
+                  },
+                  exit: { opacity: 0, scale: 0.3 }
+                }
+              : {})}
             onClick={() => {
               if (closeOnClick) {
                 deactivateAllTooltips(isPopover);

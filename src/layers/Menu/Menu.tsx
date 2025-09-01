@@ -61,6 +61,11 @@ export interface MenuProps {
   open?: boolean;
 
   /**
+   * Whether to animate the menu.
+   */
+  animated?: boolean;
+
+  /**
    * Max height of the menu.
    */
   maxHeight?: string;
@@ -130,6 +135,7 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
       closeOnBodyClick = true,
       maxHeight = 'max-height: calc(100vh - 48px)',
       autofocus = true,
+      animated = true,
       modifiers,
       autoWidth,
       minWidth,
@@ -189,6 +195,7 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
         content={() => (
           <motion.div
             ref={ref}
+            transition={{ duration: animated ? 0.3 : 0 }}
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}

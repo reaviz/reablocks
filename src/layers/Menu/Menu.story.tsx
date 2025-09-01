@@ -9,9 +9,7 @@ import { Button } from '../../elements/Button';
 export default {
   title: 'Components/Layers/Menu',
   component: Menu,
-  subComponents: {
-    NestedMenu
-  }
+  subComponents: { NestedMenu }
 };
 
 export const Unstyled = () => {
@@ -24,6 +22,29 @@ export const Unstyled = () => {
       </Button>
       <MenuComponent style={{ background: 'var(--slate-50+0)' }}>
         <p>Unstyled Menu</p>
+        <ul>
+          <li>Austin</li>
+          <li>Mark</li>
+          <li>Jack</li>
+        </ul>
+      </MenuComponent>
+    </Fragment>
+  );
+};
+
+export const NoAnimation = () => {
+  const { toggleOpen, ref, Menu: MenuComponent } = useMenu();
+
+  return (
+    <Fragment>
+      <Button type="button" ref={ref} onClick={toggleOpen}>
+        Open
+      </Button>
+      <MenuComponent
+        style={{ background: 'var(--slate-50+0)' }}
+        animated={false}
+      >
+        <p>No Animate Menu</p>
         <ul>
           <li>Austin</li>
           <li>Mark</li>
@@ -153,10 +174,7 @@ export const AutoWidthModifiers = () => {
           {
             name: 'offset',
             fn({ x, y }) {
-              return {
-                x: x - 100,
-                y: y + 25
-              };
+              return { x: x - 100, y: y + 25 };
             }
           }
         ]}

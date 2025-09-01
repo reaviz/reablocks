@@ -24,3 +24,21 @@ export const Simple = () => {
     </div>
   );
 };
+
+export const NoAnimation = () => {
+  const [expanded, setExpanded] = useState<boolean>(false);
+
+  return (
+    <div style={{ height: 300, textAlign: 'center' }}>
+      <Button type="button" onClick={() => setExpanded(!expanded)}>
+        Expand Contents
+      </Button>
+      <Collapse expanded={expanded} animated={false}>
+        <h1>Hello</h1>
+        <p>The quick fox jumped over the fence</p>
+        <p>The quick fox jumped over the fence</p>
+        <p>The quick fox jumped over the fence</p>
+      </Collapse>
+    </div>
+  );
+};
