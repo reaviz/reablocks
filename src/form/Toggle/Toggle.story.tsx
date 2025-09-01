@@ -21,6 +21,11 @@ export const Disabled = () => (
   </div>
 );
 
+export const NoAnimation = () => {
+  const [state, setState] = useState(true);
+  return <Toggle checked={state} onChange={setState} animated={false} />;
+};
+
 export const Sizes = () => {
   const [stateSmall, setStateSmall] = useState(true);
   const [stateMedium, setStateMedium] = useState(true);

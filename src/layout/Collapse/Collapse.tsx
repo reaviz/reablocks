@@ -29,6 +29,11 @@ export interface CollapseProps
   expanded?: boolean;
 
   /**
+   * Whether the collapse is animated or not.
+   */
+  animated?: boolean;
+
+  /**
    * Children to render.
    */
   children?: React.ReactNode | (() => React.ReactNode);
@@ -43,6 +48,7 @@ export const Collapse: FC<CollapseProps> = ({
   children,
   expanded,
   className,
+  animated = true,
   theme: customTheme,
   ...rest
 }) => {
@@ -59,7 +65,7 @@ export const Collapse: FC<CollapseProps> = ({
           animate="open"
           exit="collapsed"
           variants={VARIANTS}
-          transition={TRANSITION}
+          transition={animated ? TRANSITION : { duration: 0 }}
         >
           {typeof children === 'function' ? children() : children}
         </motion.section>

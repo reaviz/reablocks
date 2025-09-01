@@ -15,6 +15,11 @@ export interface ToggleProps {
   disabled?: boolean;
 
   /**
+   * Whether to animate the toggle.
+   */
+  animated?: boolean;
+
+  /**
    * Additional class names to apply to the toggle.
    */
   className?: string;
@@ -59,6 +64,7 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
       onBlur,
       className,
       size = 'medium',
+      animated = true,
       theme: customTheme,
       ...rest
     },
@@ -103,7 +109,8 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
           transition={{
             type: 'spring',
             stiffness: 700,
-            damping: 30
+            damping: 30,
+            duration: animated ? 0.3 : 0
           }}
         />
       </div>
