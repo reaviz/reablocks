@@ -18,16 +18,16 @@ export interface DrawerTheme {
   };
 }
 
-const baseTheme: DrawerTheme = {
+export const drawerTheme: DrawerTheme = {
   base: 'fixed overflow-y-auto overflow-x-hidden',
   header: {
-    base: 'flex items-center justify-between px-8 py-5 text-3xl font-bold',
+    base: 'flex items-center justify-between px-8 py-5 text-2xl font-bold',
     text: 'flex-1 m-0'
   },
   content: 'px-8 py-5',
   disablePadding: 'p-0',
   closeButton: {
-    base: 'opacity-80 h-auto w-auto min-w-[auto] min-h-[auto] cursor-pointer text-base p-0 border-0 focus:outline-hidden',
+    base: 'opacity-80 h-auto w-auto min-w-[auto] min-h-[auto] cursor-pointer text-sm p-0 border-0 focus:outline-hidden',
     headerless: 'absolute right-5 top-5'
   },
   positions: {
@@ -35,22 +35,5 @@ const baseTheme: DrawerTheme = {
     end: 'h-full inset-y-0 right-0',
     bottom: 'w-full inset-x-0 bottom-0',
     start: 'h-full inset-y-0 left-0'
-  }
-};
-
-export const drawerTheme: DrawerTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-panel text-text-primary'].join(' ')
-};
-
-export const legacyDrawerTheme: DrawerTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    'bg-[var(--drawer-background)] text-[var(--drawer-color)]'
-  ].join(' '),
-  closeButton: {
-    ...baseTheme.closeButton,
-    base: [baseTheme.closeButton.base, 'text-[var(--drawer-color)]'].join(' ')
   }
 };

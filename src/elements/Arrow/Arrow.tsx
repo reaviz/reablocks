@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { ArrowTheme } from './ArrowTheme';
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 
 export interface ArrowProps {
   /**

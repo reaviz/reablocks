@@ -3,16 +3,7 @@ export interface MenuTheme {
   inner: string;
 }
 
-const baseTheme: MenuTheme = {
-  base: 'relative min-w-[112px] max-w-[500px] p-px',
-  inner: 'focus:outline-hidden'
-};
-
 export const menuTheme: MenuTheme = {
-  ...baseTheme,
-  inner: [baseTheme.inner, 'text-text-primary bg-panel'].join(' ')
-};
-
-export const legacyMenuTheme: MenuTheme = {
-  ...baseTheme
+  base: 'relative min-w-[112px] max-w-[500px] border border-select-menu-items-color-item-stroke-container-resting rounded-md mt-2 bg-select-menu-items-color-item-background-container-base backdrop-blur-md',
+  inner: 'focus:outline-hidden'
 };

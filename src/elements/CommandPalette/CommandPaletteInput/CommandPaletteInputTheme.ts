@@ -4,29 +4,9 @@ export interface CommandPaletteInputTheme {
   icon: string;
 }
 
-const baseTheme: CommandPaletteInputTheme = {
-  base: 'flex w-full items-center border-b-2',
+export const commandPaletteInputTheme: CommandPaletteInputTheme = {
+  base: 'flex w-full items-center border-b-2 border-bottom border-stroke-neutral-1',
   input:
     'flex-1 border-0 box-border p-2.5 focus-within:outline-hidden focus-visible:outline-hidden',
   icon: 'w-4 h-4 ml-2.5'
-};
-
-export const commandPaletteInputTheme: CommandPaletteInputTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-panel border-bottom border-panel-accent'].join(
-    ' '
-  ),
-  input: [
-    baseTheme.input,
-    'bg-panel text-text-primary placeholder:placeholder-accent'
-  ].join(' ')
-};
-
-export const cssVarsCommandPaletteInputTheme: CommandPaletteInputTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'border-[var(--body-background)]'].join(' '),
-  input: [
-    baseTheme.input,
-    'text-[var(--input-color)] placeholder:text-[var(--input-color-placeholder)] [padding:_var(--spacing-md)] [font-family:_var(--font-family)]'
-  ].join(' ')
 };

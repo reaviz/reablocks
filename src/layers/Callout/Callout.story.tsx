@@ -1,6 +1,6 @@
+import { Typography } from '@/typography';
 import React from 'react';
 import { Stack } from '@/layout';
-import { Text } from '@/typography';
 
 import {
   Callout,
@@ -47,13 +47,10 @@ export const CustomText = () => (
     <InfoCallout
       variant="info"
       text={
-        <Text>
-          You will need{' '}
-          <Text fontStyle="bold" color="warning">
-            admin
-          </Text>{' '}
+        <Typography>
+          You will need <Typography variant="button">admin</Typography>{' '}
           privileges to install and access this application.
-        </Text>
+        </Typography>
       }
     />
   </div>

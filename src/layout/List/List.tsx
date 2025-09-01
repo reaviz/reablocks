@@ -1,5 +1,5 @@
 import React, { FC, forwardRef, InputHTMLAttributes, LegacyRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
 import { ListTheme } from './ListTheme';
 

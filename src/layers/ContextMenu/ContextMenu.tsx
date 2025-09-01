@@ -4,7 +4,7 @@ import { ConnectedOverlay, ConnectedOverlayProps } from '@/utils';
 import { useId } from '@/utils';
 import FocusTrap from 'focus-trap-react';
 import creteGlobalStateHook from 'create-global-state-hook';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { ContextMenuTheme } from './ContextMenuTheme';
 import { useComponentTheme } from '@/utils';
 

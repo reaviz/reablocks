@@ -2,7 +2,7 @@ import React, { Children, forwardRef, Ref } from 'react';
 import { useInfinityList } from '@/data';
 import { AvatarGroupTheme } from './AvatarGroupTheme';
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 
 export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   /**

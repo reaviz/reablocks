@@ -1,7 +1,7 @@
 import React, { FC, LegacyRef, forwardRef, useMemo } from 'react';
 import getInitials from 'name-initials';
 import { generateColor } from '@marko19907/string-to-color';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
 import { AvatarTheme } from './AvatarTheme';
 
@@ -98,7 +98,12 @@ export const Avatar: FC<AvatarProps> & AvatarRef = forwardRef<
     return (
       <div
         {...rest}
-        className={twMerge(theme.base, rounded && theme.rounded, className)}
+        className={twMerge(
+          theme.base,
+          rounded && theme.rounded,
+          rest.onClick && theme.clickable,
+          className
+        )}
         style={{
           width: `${size}px`,
           height: `${size}px`,

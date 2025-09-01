@@ -21,6 +21,7 @@ export const ThemeContext = createContext<ThemeContextProps>(null);
 
 interface ThemeProviderProps extends PropsWithChildren {
   theme: ReablocksTheme;
+  twMergeConfig?: any;
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
