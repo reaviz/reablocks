@@ -1,3 +1,6 @@
+# 9.1.4 - 9/1/25
+- [feature] Add ability to disable animation for Menu, Collapse, Toggle, Tooltip #304
+
 # 9.1.3 - 7/21/25
 - [chore] Fix stories & use newest style #297
 
