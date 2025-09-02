@@ -1,5 +1,5 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
-import { motion } from 'motion/react';
+import { motion, MotionNodeAnimationOptions } from 'motion/react';
 import { ToggleTheme } from './ToggleTheme';
 import { cn, useComponentTheme } from '@/utils';
 
@@ -18,6 +18,11 @@ export interface ToggleProps {
    * Whether to animate the toggle.
    */
   animated?: boolean;
+
+  /**
+   * Animation configuration for the toggle.
+   */
+  animation?: MotionNodeAnimationOptions;
 
   /**
    * Additional class names to apply to the toggle.
@@ -65,6 +70,7 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
       className,
       size = 'medium',
       animated = true,
+      animation,
       theme: customTheme,
       ...rest
     },
@@ -112,6 +118,7 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
             damping: 30,
             duration: animated ? 0.3 : 0
           }}
+          {...animation}
         />
       </div>
     );

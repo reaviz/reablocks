@@ -1,6 +1,7 @@
 import { MotionGroup, MotionItem, StepperTheme } from '@/layout';
 import { cn, useComponentTheme } from '@/utils';
 import React, { Children, FC, Fragment, PropsWithChildren } from 'react';
+import { MotionNodeAnimationOptions } from 'motion';
 
 import { Step, StepProps } from './Step';
 
@@ -31,9 +32,15 @@ export interface StepperProps extends PropsWithChildren {
   continuous?: boolean;
 
   /**
+   * @deprecated Use animation configuration instead.
    * Animate items appearance
    */
   animated?: boolean;
+
+  /**
+   * Animation configuration for the Stepper.
+   */
+  animation?: MotionNodeAnimationOptions;
 }
 
 export const Stepper: FC<StepperProps> = ({
@@ -43,6 +50,7 @@ export const Stepper: FC<StepperProps> = ({
   variant = 'default',
   continuous,
   animated,
+  animation,
   theme: customTheme
 }) => {
   const theme: StepperTheme = useComponentTheme('stepper', customTheme);
@@ -58,6 +66,7 @@ export const Stepper: FC<StepperProps> = ({
       className={cn(theme.base, className)}
       initial={animated ? 'initial' : null}
       animate={animated ? 'animate' : null}
+      {...animation}
     >
       {childrenStepProps.map((props: StepProps, index) => (
         <Fragment key={index}>

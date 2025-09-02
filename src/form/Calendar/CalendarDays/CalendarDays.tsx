@@ -8,7 +8,11 @@ import {
   isNextWeekEmpty,
   isPreviousWeekEmpty
 } from '@/form/Calendar/utils';
-import { AnimatePresence, motion } from 'motion/react';
+import {
+  AnimatePresence,
+  motion,
+  MotionNodeAnimationOptions
+} from 'motion/react';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 
@@ -89,14 +93,21 @@ export interface CalendarDaysProps {
   range?: [Date, Date] | [Date, undefined] | [undefined, undefined];
 
   /**
+   * @deprecated Use animation configuration instead.
    * X-axis block animation
    */
   xAnimation?: string | number;
 
   /**
+   * @deprecated Use animation configuration instead.
    * Whether to animate the calendar.
    */
   animated?: boolean;
+
+  /**
+   * Animation configuration for the calendar days.
+   */
+  animation?: MotionNodeAnimationOptions;
 
   /**
    * A callback function that is called when a day is selected.
@@ -124,6 +135,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   max,
   animated,
   xAnimation = 0,
+  animation,
   showDayOfWeek,
   showToday,
   showTime,
@@ -273,6 +285,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
           x: { type: animated ? 'keyframes' : false },
           opacity: { duration: 0.2, type: animated ? 'tween' : false }
         }}
+        {...animation}
       >
         {showDayOfWeek && (
           <div className={days.header}>

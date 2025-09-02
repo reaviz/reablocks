@@ -1,5 +1,9 @@
 import React, { FC, useMemo } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
+import {
+  AnimatePresence,
+  motion,
+  MotionNodeAnimationOptions
+} from 'motion/react';
 import { Button } from '@/elements';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
@@ -22,14 +26,21 @@ export interface CalendarYearsProps {
   value: number;
 
   /**
+   * @deprecated Use animation configuration instead.
    * X-axis block animation
    */
   xAnimation?: string | number;
 
   /**
+   * @deprecated Use animation configuration instead.
    * Whether to animate the calendar.
    */
   animated?: boolean;
+
+  /**
+   * Animation configuration for the calendar years.
+   */
+  animation?: MotionNodeAnimationOptions;
 
   /**
    * A callback function that is called when a year is selected.
@@ -48,6 +59,7 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
   value,
   animated,
   xAnimation = 0,
+  animation,
   onChange,
   theme: customTheme
 }) => {
@@ -76,6 +88,7 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
           x: { type: animated ? 'keyframes' : false },
           opacity: { duration: 0.2, type: animated ? 'tween' : false }
         }}
+        {...animation}
       >
         {yearDates.map(year => (
           <Button
