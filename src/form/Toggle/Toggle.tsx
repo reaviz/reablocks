@@ -112,13 +112,16 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
             [theme.handle.disabledAndChecked]: disabled && checked
           })}
           layout
-          transition={{
-            type: 'spring',
-            stiffness: 700,
-            damping: 30,
-            duration: animated ? 0.3 : 0
-          }}
-          {...animation}
+          {...(animation
+            ? animation
+            : {
+                transition: {
+                  type: 'spring',
+                  stiffness: 700,
+                  damping: 30,
+                  duration: animated ? 0.3 : 0
+                }
+              })}
         />
       </div>
     );

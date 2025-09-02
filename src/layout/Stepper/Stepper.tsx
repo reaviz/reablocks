@@ -64,9 +64,12 @@ export const Stepper: FC<StepperProps> = ({
   return (
     <MotionGroup
       className={cn(theme.base, className)}
-      initial={animated ? 'initial' : null}
-      animate={animated ? 'animate' : null}
-      {...animation}
+      {...(animation
+        ? animation
+        : {
+            initial: animated ? 'initial' : null,
+            animate: animated ? 'animate' : null
+          })}
     >
       {childrenStepProps.map((props: StepProps, index) => (
         <Fragment key={index}>

@@ -208,31 +208,35 @@ export const Tooltip: FC<TooltipProps> = ({
         return (
           <motion.div
             className={twMerge(theme.base, className)}
-            initial={{
-              opacity: 0,
-              scale: 0.3,
-              transition: {
-                when: 'beforeChildren',
-                duration: animated ? 0.3 : 0
-              }
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              transition: {
-                when: 'beforeChildren',
-                duration: animated ? 0.3 : 0
-              }
-            }}
-            exit={{
-              opacity: 0,
-              scale: 0.3,
-              transition: {
-                when: 'beforeChildren',
-                duration: animated ? 0.3 : 0
-              }
-            }}
-            {...animation}
+            {...(animation
+              ? animation
+              : {
+                  transition: { duration: animated ? 0.3 : 0 },
+                  initial: {
+                    opacity: 0,
+                    scale: 0.3,
+                    transition: {
+                      when: 'beforeChildren',
+                      duration: animated ? 0.3 : 0
+                    }
+                  },
+                  animate: {
+                    opacity: 1,
+                    scale: 1,
+                    transition: {
+                      when: 'beforeChildren',
+                      duration: animated ? 0.3 : 0
+                    }
+                  },
+                  exit: {
+                    opacity: 0,
+                    scale: 0.3,
+                    transition: {
+                      when: 'beforeChildren',
+                      duration: animated ? 0.3 : 0
+                    }
+                  }
+                })}
             onClick={() => {
               if (closeOnClick) {
                 deactivateAllTooltips(isPopover);

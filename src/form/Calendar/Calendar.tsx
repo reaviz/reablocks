@@ -375,15 +375,21 @@ export const Calendar: FC<CalendarProps> = ({
             <motion.div
               className={twMerge(theme.content)}
               key={view}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 1 }}
-              transition={{
-                x: { type: animated ? 'keyframes' : false },
-                opacity: { duration: 0.2, type: animated ? 'tween' : false },
-                scale: { type: animated ? 'tween' : false }
-              }}
-              {...animationChangeView}
+              {...(animationChangeView
+                ? animationChangeView
+                : {
+                    initial: { scale: 0, opacity: 0 },
+                    animate: { scale: 1, opacity: 1 },
+                    exit: { scale: 0, opacity: 1 },
+                    transition: {
+                      x: { type: animated ? 'keyframes' : false },
+                      opacity: {
+                        duration: 0.2,
+                        type: animated ? 'tween' : false
+                      },
+                      scale: { type: animated ? 'tween' : false }
+                    }
+                  })}
             >
               {view === 'days' && (
                 <CalendarDays

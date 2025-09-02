@@ -209,11 +209,14 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
         content={() => (
           <motion.div
             ref={ref}
-            transition={{ duration: animated ? 0.3 : 0 }}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            {...animation}
+            {...(animation
+              ? animation
+              : {
+                  transition: { duration: animated ? 0.3 : 0 },
+                  initial: { opacity: 0, y: -10 },
+                  animate: { opacity: 1, y: 0 },
+                  exit: { opacity: 0, y: -10 }
+                })}
             className={twMerge(theme.base, className)}
             style={style}
             onMouseEnter={onMouseEnter}

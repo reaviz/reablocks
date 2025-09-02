@@ -279,13 +279,16 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
     <AnimatePresence mode="popLayout">
       <motion.div
         key={value.toString()}
-        initial={{ opacity: 0, x: xAnimation }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{
-          x: { type: animated ? 'keyframes' : false },
-          opacity: { duration: 0.2, type: animated ? 'tween' : false }
-        }}
-        {...animation}
+        {...(animation
+          ? animation
+          : {
+              initial: { opacity: 0, x: xAnimation },
+              animate: { opacity: 1, x: 0 },
+              transition: {
+                x: { type: animated ? 'keyframes' : false },
+                opacity: { duration: 0.2, type: animated ? 'tween' : false }
+              }
+            })}
       >
         {showDayOfWeek && (
           <div className={days.header}>

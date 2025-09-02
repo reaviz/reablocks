@@ -82,13 +82,16 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
       <motion.div
         className={years.root}
         key={`${decadeStart.toString()}-${decadeEnd.toString()}`}
-        initial={{ opacity: 0, x: xAnimation }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{
-          x: { type: animated ? 'keyframes' : false },
-          opacity: { duration: 0.2, type: animated ? 'tween' : false }
-        }}
-        {...animation}
+        {...(animation
+          ? animation
+          : {
+              initial: { opacity: 0, x: xAnimation },
+              animate: { opacity: 1, x: 0 },
+              transition: {
+                x: { type: animated ? 'keyframes' : false },
+                opacity: { duration: 0.2, type: animated ? 'tween' : false }
+              }
+            })}
       >
         {yearDates.map(year => (
           <Button

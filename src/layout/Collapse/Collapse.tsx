@@ -66,12 +66,15 @@ export const Collapse: FC<CollapseProps> = ({
           {...(rest as any)}
           className={twMerge(theme.base, className)}
           key="content"
-          initial="collapsed"
-          animate="open"
-          exit="collapsed"
-          variants={VARIANTS}
-          transition={animated ? TRANSITION : { duration: 0 }}
-          {...animation}
+          {...(animation
+            ? animation
+            : {
+                initial: 'collapsed',
+                animate: 'open',
+                exit: 'collapsed',
+                variants: VARIANTS,
+                transition: animated ? TRANSITION : { duration: 0 }
+              })}
         >
           {typeof children === 'function' ? children() : children}
         </motion.section>
