@@ -10,6 +10,7 @@ import { OverlayEvent } from '@/utils/Overlay';
 import { Placement } from '@/utils/Position';
 import { Menu } from './Menu';
 import classNames from 'classnames';
+import { MotionNodeAnimationOptions } from 'motion';
 
 export interface NestedMenuRef {
   /**
@@ -90,6 +91,11 @@ export interface NestedMenuProps {
   autofocus?: boolean;
 
   /**
+   * Animation configuration for the menu.
+   */
+  animation?: MotionNodeAnimationOptions;
+
+  /**
    * Nested Menu was closed.
    */
   onClose?: (event: OverlayEvent) => void;
@@ -112,6 +118,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
       activeClassName,
       closeOnBodyClick = true,
       closeOnEscape = true,
+      animation,
       onClose
     },
     ref
@@ -203,6 +210,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
           open={active}
           placement={placement}
           maxHeight={maxHeight}
+          animation={animation}
           ref={menuRef}
           onMouseEnter={onMouseEnterMenu}
           onMouseLeave={onMouseLeaveMenu}

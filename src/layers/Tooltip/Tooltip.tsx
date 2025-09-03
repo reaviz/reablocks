@@ -1,7 +1,7 @@
 import React, { FC, useState, useRef, useEffect, ReactNode } from 'react';
 import { ConnectedOverlay, TriggerTypes } from '@/utils/Overlay';
 import { Modifiers, Placement, ReferenceObject } from '@/utils/Position';
-import { motion } from 'motion/react';
+import { motion, MotionNodeAnimationOptions } from 'motion/react';
 import { twMerge } from 'tailwind-merge';
 import { useTooltipState } from './useTooltipState';
 import { TooltipTheme } from './TooltipTheme';
@@ -84,9 +84,15 @@ export interface TooltipProps {
   disabled?: boolean;
 
   /**
+   * @deprecated Use animation configuration instead.
    * Whether the tooltip is animated.
    */
   animated?: boolean;
+
+  /**
+   * Animation configuration for the tooltip.
+   */
+  animation?: MotionNodeAnimationOptions;
 
   /**
    * Whether the tooltip should move with the cursor or not.
@@ -130,6 +136,7 @@ export const Tooltip: FC<TooltipProps> = ({
   placement = 'top',
   trigger = 'hover',
   animated = true,
+  animation,
   visible = false,
   followCursor = false,
   closeOnClick = false,
@@ -201,21 +208,35 @@ export const Tooltip: FC<TooltipProps> = ({
         return (
           <motion.div
             className={twMerge(theme.base, className)}
-            {...(animated
-              ? {
+            {...(animation
+              ? animation
+              : {
+                  transition: { duration: animated ? 0.3 : 0 },
                   initial: {
                     opacity: 0,
                     scale: 0.3,
-                    transition: { when: 'beforeChildren' }
+                    transition: {
+                      when: 'beforeChildren',
+                      duration: animated ? 0.3 : 0
+                    }
                   },
                   animate: {
                     opacity: 1,
                     scale: 1,
-                    transition: { when: 'beforeChildren' }
+                    transition: {
+                      when: 'beforeChildren',
+                      duration: animated ? 0.3 : 0
+                    }
                   },
-                  exit: { opacity: 0, scale: 0.3 }
-                }
-              : {})}
+                  exit: {
+                    opacity: 0,
+                    scale: 0.3,
+                    transition: {
+                      when: 'beforeChildren',
+                      duration: animated ? 0.3 : 0
+                    }
+                  }
+                })}
             onClick={() => {
               if (closeOnClick) {
                 deactivateAllTooltips(isPopover);

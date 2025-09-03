@@ -4,7 +4,7 @@ import { MiddlewareState, size } from '@floating-ui/react';
 import { ConnectedOverlay, OverlayEvent } from '@/utils/Overlay';
 import { Modifiers, Placement } from '@/utils/Position';
 import { useId } from '@/utils';
-import { motion } from 'motion/react';
+import { motion, MotionNodeAnimationOptions } from 'motion/react';
 import { twMerge } from 'tailwind-merge';
 import { MenuTheme } from './MenuTheme';
 import { useComponentTheme } from '@/utils';
@@ -61,9 +61,15 @@ export interface MenuProps {
   open?: boolean;
 
   /**
+   * @deprecated Use animation configuration instead.
    * Whether to animate the menu.
    */
   animated?: boolean;
+
+  /**
+   * Animation configuration for the collapse.
+   */
+  animation?: MotionNodeAnimationOptions;
 
   /**
    * Max height of the menu.
@@ -136,6 +142,7 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
       maxHeight = 'max-height: calc(100vh - 48px)',
       autofocus = true,
       animated = true,
+      animation,
       modifiers,
       autoWidth,
       minWidth,
@@ -202,10 +209,14 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
         content={() => (
           <motion.div
             ref={ref}
-            transition={{ duration: animated ? 0.3 : 0 }}
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
+            {...(animation
+              ? animation
+              : {
+                  transition: { duration: animated ? 0.3 : 0 },
+                  initial: { opacity: 0, y: -10 },
+                  animate: { opacity: 1, y: 0 },
+                  exit: { opacity: 0, y: -10 }
+                })}
             className={twMerge(theme.base, className)}
             style={style}
             onMouseEnter={onMouseEnter}

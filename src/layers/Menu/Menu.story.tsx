@@ -42,7 +42,7 @@ export const NoAnimation = () => {
       </Button>
       <MenuComponent
         style={{ background: 'var(--slate-50+0)' }}
-        animated={false}
+        animation={{ transition: { duration: 0 } }}
       >
         <p>No Animate Menu</p>
         <ul>
@@ -211,6 +211,71 @@ export const Simple = () => {
         Open
       </Button>
       <Menu open={open} onClose={() => setOpen(false)} reference={buttonRef}>
+        <Card disablePadding>
+          <List>
+            <ListItem start={<Icon />}>Menu Item 1</ListItem>
+            <ListItem start={<Icon />}>Menu Item 2</ListItem>
+            <ListItem start={<Icon />}>Menu Item 3</ListItem>
+            <ListItem start={<Icon />}>Menu Item 4</ListItem>
+          </List>
+        </Card>
+      </Menu>
+    </>
+  );
+};
+
+export const CustomAnimation = () => {
+  const [open, setOpen] = useState(false);
+  const buttonRef = useRef(null);
+
+  return (
+    <>
+      <Button type="button" ref={buttonRef} onClick={() => setOpen(!open)}>
+        Open Menu
+      </Button>
+      <Menu
+        open={open}
+        onClose={() => setOpen(false)}
+        reference={buttonRef}
+        animation={{
+          initial: 'collapsed',
+          animate: 'open',
+          exit: 'collapsed',
+          variants: {
+            open: {
+              opacity: 1,
+              x: 0,
+              y: 0,
+              rotateZ: 0,
+              scale: 1,
+              transformOrigin: 'center',
+              backgroundColor: 'rgba(255, 255, 255, 0.98)',
+              backdropFilter: 'blur(12px)',
+              boxShadow:
+                '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)'
+            },
+            collapsed: {
+              opacity: 0,
+              x: 15,
+              y: 15,
+              rotateZ: 5,
+              scale: 0.85,
+              transformOrigin: 'center',
+              backgroundColor: 'rgba(255, 255, 255, 0.7)',
+              backdropFilter: 'blur(4px)',
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
+            }
+          },
+          transition: {
+            duration: 0.5,
+            ease: [0.34, 1.56, 0.64, 1],
+            rotateZ: { type: 'spring', stiffness: 200, damping: 20 },
+            scale: { type: 'spring', stiffness: 300, damping: 25 },
+            backgroundColor: { duration: 0.3 },
+            backdropFilter: { duration: 0.4 }
+          }
+        }}
+      >
         <Card disablePadding>
           <List>
             <ListItem start={<Icon />}>Menu Item 1</ListItem>

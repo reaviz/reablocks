@@ -1,4 +1,8 @@
-import { AnimatePresence, motion } from 'motion/react';
+import {
+  AnimatePresence,
+  motion,
+  MotionNodeAnimationOptions
+} from 'motion/react';
 import React, { FC, useCallback, useMemo, useState } from 'react';
 import { Button } from '@/elements/Button';
 import {
@@ -100,9 +104,20 @@ export interface CalendarProps {
   is12HourCycle?: boolean;
 
   /**
+   * @deprecated Use animation configuration instead.
    * Whether to animate the calendar.
    */
   animated?: boolean;
+
+  /**
+   * Animation configuration for the calendar days.
+   */
+  animation?: MotionNodeAnimationOptions;
+
+  /**
+   * Animation configuration for the calendar changing view.
+   */
+  animationViewChange?: MotionNodeAnimationOptions;
 
   /**
    * Preset configuration for the calendar.
@@ -138,6 +153,8 @@ export const Calendar: FC<CalendarProps> = ({
   showTime = false,
   is12HourCycle = false,
   animated = true,
+  animation,
+  animationViewChange,
   preset,
   onChange,
   onViewChange,
@@ -146,7 +163,7 @@ export const Calendar: FC<CalendarProps> = ({
   const theme: CalendarTheme = useComponentTheme('calendar', customTheme);
 
   const date = useMemo(
-    () => (Array.isArray(value) ? value[0] : value ?? new Date()),
+    () => (Array.isArray(value) ? value[0] : (value ?? new Date())),
     [value]
   );
   const rangeStart = useMemo(
@@ -358,14 +375,21 @@ export const Calendar: FC<CalendarProps> = ({
             <motion.div
               className={twMerge(theme.content)}
               key={view}
-              initial={{ scale: 0, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0, opacity: 1 }}
-              transition={{
-                x: { type: animated ? 'keyframes' : false },
-                opacity: { duration: 0.2, type: animated ? 'tween' : false },
-                scale: { type: animated ? 'tween' : false }
-              }}
+              {...(animationViewChange
+                ? animationViewChange
+                : {
+                    initial: { scale: 0, opacity: 0 },
+                    animate: { scale: 1, opacity: 1 },
+                    exit: { scale: 0, opacity: 1 },
+                    transition: {
+                      x: { type: animated ? 'keyframes' : false },
+                      opacity: {
+                        duration: 0.2,
+                        type: animated ? 'tween' : false
+                      },
+                      scale: { type: animated ? 'tween' : false }
+                    }
+                  })}
             >
               {view === 'days' && (
                 <CalendarDays
@@ -380,6 +404,7 @@ export const Calendar: FC<CalendarProps> = ({
                   showTime={showTime}
                   xAnimation={xAnimation}
                   animated={animated}
+                  animation={animation}
                   onChange={dateChangeHandler}
                 />
               )}
@@ -394,6 +419,7 @@ export const Calendar: FC<CalendarProps> = ({
                   decadeStart={decadeStart}
                   decadeEnd={decadeEnd}
                   animated={animated}
+                  animation={animation}
                   value={yearValue}
                   xAnimation={xAnimation}
                   onChange={yearChangeHandler}

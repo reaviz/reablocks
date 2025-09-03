@@ -1,18 +1,16 @@
 import React, { FC } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
+import {
+  motion,
+  AnimatePresence,
+  MotionNodeAnimationOptions
+} from 'motion/react';
 import { CollapseTheme } from './CollapseTheme';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
 
 const VARIANTS = {
-  open: {
-    opacity: 1,
-    height: 'auto'
-  },
-  collapsed: {
-    opacity: 0,
-    height: 0
-  }
+  open: { opacity: 1, height: 'auto' },
+  collapsed: { opacity: 0, height: 0 }
 };
 
 const TRANSITION = {
@@ -29,9 +27,15 @@ export interface CollapseProps
   expanded?: boolean;
 
   /**
+   * @deprecated Use animation configuration instead.
    * Whether the collapse is animated or not.
    */
   animated?: boolean;
+
+  /**
+   * Animation configuration for the collapse.
+   */
+  animation?: MotionNodeAnimationOptions;
 
   /**
    * Children to render.
@@ -49,6 +53,7 @@ export const Collapse: FC<CollapseProps> = ({
   expanded,
   className,
   animated = true,
+  animation,
   theme: customTheme,
   ...rest
 }) => {
@@ -61,11 +66,15 @@ export const Collapse: FC<CollapseProps> = ({
           {...(rest as any)}
           className={twMerge(theme.base, className)}
           key="content"
-          initial="collapsed"
-          animate="open"
-          exit="collapsed"
-          variants={VARIANTS}
-          transition={animated ? TRANSITION : { duration: 0 }}
+          {...(animation
+            ? animation
+            : {
+                initial: 'collapsed',
+                animate: 'open',
+                exit: 'collapsed',
+                variants: VARIANTS,
+                transition: animated ? TRANSITION : { duration: 0 }
+              })}
         >
           {typeof children === 'function' ? children() : children}
         </motion.section>

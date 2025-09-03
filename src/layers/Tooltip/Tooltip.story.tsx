@@ -4,10 +4,7 @@ import { Button } from '../../elements';
 import { extendComponentTheme } from '../../utils';
 import { tooltipTheme, TooltipTheme } from './TooltipTheme';
 
-export default {
-  title: 'Components/Layers/Tooltip',
-  component: Tooltip
-};
+export default { title: 'Components/Layers/Tooltip', component: Tooltip };
 
 export const Simple = () => (
   <div
@@ -35,11 +32,67 @@ export const NoAnimation = () => (
       color: 'green'
     }}
   >
-    <Tooltip content="Hi there" animated={false}>
+    <Tooltip
+      content="Hi there"
+      animation={{ initial: null, animate: null, exit: null }}
+    >
       Hover me
     </Tooltip>
   </div>
 );
+
+export const CustomAnimation = () => {
+  const beautifulAnimation = {
+    initial: {
+      opacity: 0,
+      scale: 0.8,
+      y: -30,
+      rotateX: -15,
+      filter: 'blur(8px)'
+    },
+    animate: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      rotateX: 0,
+      filter: 'blur(0px)',
+      transition: {
+        type: 'spring' as const,
+        stiffness: 200,
+        damping: 20,
+        duration: 0.5
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.8,
+      y: -30,
+      rotateX: -15,
+      filter: 'blur(8px)',
+      transition: {
+        duration: 0.3
+      }
+    }
+  };
+
+  return (
+    <div
+      style={{
+        textAlign: 'center',
+        width: '100%',
+        margin: '50px',
+        color: 'green'
+      }}
+    >
+      <Tooltip
+        content="Beautiful animated tooltip!"
+        animation={beautifulAnimation}
+      >
+        <span>Hover for beautiful animation</span>
+      </Tooltip>
+    </div>
+  );
+};
 
 export const CustomTheme = () => {
   const customTheme = extendComponentTheme<TooltipTheme>(tooltipTheme, {

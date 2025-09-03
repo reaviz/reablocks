@@ -135,6 +135,82 @@ export const NoAnimation = () => {
   );
 };
 
+export const CustomAnimation = () => {
+  const [date, setDate] = useState<Date>();
+
+  const calendarAnimation = {
+    initial: {
+      opacity: 0,
+      scale: 0.9,
+      y: 20,
+      filter: 'blur(5px)'
+    },
+    animate: {
+      opacity: 1,
+      scale: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: {
+        type: 'spring' as const,
+        stiffness: 200,
+        damping: 25,
+        duration: 0.5
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.9,
+      y: -20,
+      filter: 'blur(5px)',
+      transition: {
+        duration: 0.3
+      }
+    }
+  };
+
+  const viewChangeAnimation = {
+    initial: {
+      opacity: 0,
+      scale: 0.7,
+      rotateY: -90
+    },
+    animate: {
+      opacity: 1,
+      scale: 1,
+      rotateY: 0,
+      transition: {
+        type: 'spring' as const,
+        stiffness: 250,
+        damping: 25,
+        duration: 0.5
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.7,
+      rotateY: 90,
+      transition: {
+        duration: 0.3
+      }
+    }
+  };
+
+  return (
+    <Card>
+      <Calendar
+        value={date}
+        animation={calendarAnimation}
+        animationViewChange={viewChangeAnimation}
+        onChange={(date: Date) => setDate(date)}
+      />
+      <Divider />
+      <Stack justifyContent="center">
+        {date?.toLocaleDateString() ?? 'No date selected'}
+      </Stack>
+    </Card>
+  );
+};
+
 export const DefaultValue = () => {
   const [date, setDate] = useState<Date>(addMonths(new Date(), 1));
 
