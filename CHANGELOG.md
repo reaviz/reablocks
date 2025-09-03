@@ -1,3 +1,6 @@
+# 9.2.0 - 9/3/25
+- [feature] Add ability to define custom animation #305
+
 # 9.1.4 - 9/1/25
 - [feature] Add ability to disable animation for Menu, Collapse, Toggle, Tooltip #304
 
