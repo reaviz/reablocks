@@ -200,7 +200,7 @@ export const CustomAnimation = () => {
       <Calendar
         value={date}
         animation={calendarAnimation}
-        animationChangeView={viewChangeAnimation}
+        animationViewChange={viewChangeAnimation}
         onChange={(date: Date) => setDate(date)}
       />
       <Divider />

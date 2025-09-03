@@ -117,7 +117,7 @@ export interface CalendarProps {
   /**
    * Animation configuration for the calendar changing view.
    */
-  animationChangeView?: MotionNodeAnimationOptions;
+  animationViewChange?: MotionNodeAnimationOptions;
 
   /**
    * Preset configuration for the calendar.
@@ -154,7 +154,7 @@ export const Calendar: FC<CalendarProps> = ({
   is12HourCycle = false,
   animated = true,
   animation,
-  animationChangeView,
+  animationViewChange,
   preset,
   onChange,
   onViewChange,
@@ -375,8 +375,8 @@ export const Calendar: FC<CalendarProps> = ({
             <motion.div
               className={twMerge(theme.content)}
               key={view}
-              {...(animationChangeView
-                ? animationChangeView
+              {...(animationViewChange
+                ? animationViewChange
                 : {
                     initial: { scale: 0, opacity: 0 },
                     animate: { scale: 1, opacity: 1 },
