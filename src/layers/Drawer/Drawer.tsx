@@ -2,7 +2,14 @@ import React, { FC, ReactElement, useState } from 'react';
 import FocusTrap from 'focus-trap-react';
 import { useId, CloneElement } from '@/utils';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
-import { motion, MotionProps } from 'motion/react';
+import {
+  motion,
+  MotionNodeAnimationOptions,
+  MotionProps,
+  TargetAndTransition,
+  Transition,
+  VariantLabels
+} from 'motion/react';
 import { variants } from './variants';
 import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
 import { twMerge } from 'tailwind-merge';
@@ -66,6 +73,31 @@ export interface DrawerProps
    * Theme for the Drawer.
    */
   theme?: DrawerTheme;
+
+  /**
+   * @deprecated Use animation configuration instead.
+   */
+  initial?: TargetAndTransition | VariantLabels | boolean;
+
+  /**
+   * @deprecated Use animation configuration instead.
+   */
+  animate?: TargetAndTransition | VariantLabels | boolean;
+
+  /**
+   * @deprecated Use animation configuration instead.
+   */
+  exit?: TargetAndTransition | VariantLabels;
+
+  /**
+   * @deprecated Use animation configuration instead.
+   */
+  transition?: Transition;
+
+  /**
+   * Animation configuration for the drawer.
+   */
+  animation?: MotionNodeAnimationOptions;
 }
 
 export const Drawer: FC<Partial<DrawerProps>> = ({
@@ -85,6 +117,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
   showCloseButton = true,
   onClose,
   theme: customTheme,
+  animation,
   ...rest
 }) => {
   const id = useId();
@@ -132,7 +165,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                 disablePadding && theme.disablePadding,
                 className
               )}
-              {...rest}
+              {...(animation ? animation : rest)}
               onAnimationComplete={() => {
                 // Force a resize event to recalculate the children
                 // This is required for child components that are animated

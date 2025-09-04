@@ -2,7 +2,14 @@ import React, { FC, ReactElement } from 'react';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
 import { useId, CloneElement, cn } from '@/utils';
 import FocusTrap from 'focus-trap-react';
-import { motion, MotionProps } from 'motion/react';
+import {
+  motion,
+  MotionNodeAnimationOptions,
+  MotionProps,
+  TargetAndTransition,
+  Transition,
+  VariantLabels
+} from 'motion/react';
 import { DialogHeader, DialogHeaderProps } from './DialogHeader';
 import { useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
@@ -64,6 +71,31 @@ export interface DialogProps
    * Theme for the Dialog.
    */
   theme?: DialogTheme;
+
+  /**
+   * @deprecated Use animation configuration instead.
+   */
+  initial?: TargetAndTransition | VariantLabels | boolean;
+
+  /**
+   * @deprecated Use animation configuration instead.
+   */
+  animate?: TargetAndTransition | VariantLabels | boolean;
+
+  /**
+   * @deprecated Use animation configuration instead.
+   */
+  exit?: TargetAndTransition | VariantLabels;
+
+  /**
+   * @deprecated Use animation configuration instead.
+   */
+  transition?: Transition;
+
+  /**
+   * Animation configuration for the dialog.
+   */
+  animation?: MotionNodeAnimationOptions;
 }
 
 export const Dialog: FC<DialogProps> = ({
@@ -82,6 +114,7 @@ export const Dialog: FC<DialogProps> = ({
   showCloseButton = true,
   closeOnBackdropClick = true,
   closeOnEscape = true,
+  animation,
   theme: customTheme,
   ...rest
 }) => {
@@ -112,7 +145,7 @@ export const Dialog: FC<DialogProps> = ({
               transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
               style={{ zIndex: overlayIndex }}
               className={cn(theme.base, className)}
-              {...rest}
+              {...(animation ? animation : rest)}
             >
               <div
                 className={cn(theme.inner, innerClassName)}
