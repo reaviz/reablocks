@@ -1,3 +1,6 @@
+# 9.2.1 - 9/4/25
+- [chore] Align approach to configure animation for Dialog and Drawer #306
+
 # 9.2.0 - 9/3/25
 - [feature] Add ability to define custom animation #305
 
