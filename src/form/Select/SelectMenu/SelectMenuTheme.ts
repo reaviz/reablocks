@@ -28,12 +28,13 @@ export const selectMenuTheme: SelectMenuTheme = {
     size: { small: '', medium: '', large: '' }
   },
   option: {
-    base: 'flex-1 whitespace-break-spaces break-words border border-select-menu-items-color-item-stroke-row-resting rounded-md',
+    base: 'flex-1 whitespace-break-spaces break-words border border-select-menu-items-color-item-stroke-row-resting rounded-md text-select-menu-items-color-item-text-row-resting',
     hover:
-      'hover:border-select-menu-items-color-item-stroke-row-hover hover:bg-select-menu-items-color-item-background-row-hover',
+      'hover:border-select-menu-items-color-item-stroke-row-hover hover:bg-select-menu-items-color-item-background-row-hover hover:text-select-menu-items-color-item-text-row-selected',
     selected:
       'border-select-menu-items-color-item-stroke-row-selected bg-select-menu-items-color-item-background-row-selected hover:border-select-menu-items-color-item-stroke-row-selected hover:bg-select-menu-items-color-item-background-row-selected',
-    active: '',
+    active:
+      'border-select-menu-items-color-item-stroke-row-hover bg-select-menu-items-color-item-background-row-hover',
     disabled:
       'hover:border-select-menu-items-color-item-stroke-row-resting hover:bg-select-menu-items-color-item-stroke-row-resting',
     checkIcon: 'ml-1',

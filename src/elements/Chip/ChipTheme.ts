@@ -492,7 +492,7 @@ export const chipTheme: ChipTheme = {
         large: 'text-sm leading-3.5 py-2 px-3 gap-1'
       },
       closeButton: {
-        base: 'transition-colors ml-1 text-tags-colors-neutral-assets-close-base hover:text-tags-colors-neutral-text-label-base',
+        base: 'transition-colors ml-1 outline-none text-tags-colors-neutral-assets-close-base hover:text-tags-colors-neutral-text-label-base',
         sizes: {
           small: 'size-2 [*>svg]:size-2',
           medium: 'size-3 [*>svg]:size-3',
