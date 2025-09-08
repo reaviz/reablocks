@@ -95,7 +95,7 @@ export interface ChipTheme {
 export const chipTheme: ChipTheme = {
   types: {
     badge: {
-      base: 'inline-flex whitespace-nowrap border font-medium select-none items-center justify-center rounded-full transition-colors',
+      base: 'inline-flex whitespace-nowrap border font-medium select-none items-center justify-center rounded-(--badges-details-corner-radius-corner-radius) transition-colors',
       label: '',
       colors: {
         default: {
@@ -321,15 +321,18 @@ export const chipTheme: ChipTheme = {
         start: '',
         end: '',
         sizes: {
-          small: '[&>svg]:size-3',
-          medium: '[&>svg]:size-3',
-          large: '[&>svg]:size-4'
+          small: '[&>svg]:size-(--badges-details-asset-size-sm)',
+          medium: '[&>svg]:size-(--badges-details-asset-size-md)',
+          large: '[&>svg]:size-(--badges-details-asset-size-lg)'
         }
       },
       sizes: {
-        small: 'text-xxs px-1 py gap-0.5',
-        medium: 'text-xs px-1.5 py-[3px] gap-0.5',
-        large: 'text-base px-2 py-[5px] gap-1'
+        small:
+          'h-(--badges-details-height-sm) text-xs gap-(--badges-details-space-between-sm) px-(--badges-details-horizontal-padding-sm)',
+        medium:
+          'h-(--badges-details-height-md) text-xs gap-(--badges-details-space-between-md) px-(--badges-details-horizontal-padding-md)',
+        large:
+          'h-(--badges-details-height-lg) text-md gap-(--badges-details-space-between-lg) px-(--badges-details-horizontal-padding-lg)'
       },
       variants: {
         filled: '',
@@ -338,7 +341,7 @@ export const chipTheme: ChipTheme = {
       }
     },
     tag: {
-      base: 'inline-flex whitespace-nowrap border font-medium select-none items-center justify-center rounded-sm transition-colors outline-none',
+      base: 'inline-flex whitespace-nowrap border font-medium select-none items-center justify-center rounded-(--tags-details-corner-radius-base) transition-colors outline-none',
       label: '',
       colors: {
         default: {
@@ -481,22 +484,25 @@ export const chipTheme: ChipTheme = {
         start: '',
         end: '',
         sizes: {
-          small: '[&>svg]:size-2',
-          medium: '[&>svg]:size-3',
-          large: '[&>svg]:size-4'
+          small: '[&>svg]:size-(--tags-details-asset-size-icon)',
+          medium: '[&>svg]:size-(--tags-details-asset-size-icon)',
+          large: '[&>svg]:size-(--tags-details-asset-size-icon)'
         }
       },
       sizes: {
-        small: 'text-xxs leading-2.5 p-1 gap-1',
-        medium: 'text-xs leading-3 p-2 py-1.5 gap-1',
-        large: 'text-sm leading-3.5 py-2 px-3 gap-1'
+        small:
+          'h-(--tags-details-height-base) text-xxs gap-(--tags-details-space-between-base) px-(--tags-details-horizontal-padding-base)',
+        medium:
+          'h-(--tags-details-height-base) text-xs gap-(--tags-details-space-between-base) px-(--tags-details-horizontal-padding-base)',
+        large:
+          'h-(--tags-details-height-base) text-sm gap-(--tags-details-space-between-base) px-(--tags-details-horizontal-padding-base)'
       },
       closeButton: {
         base: 'transition-colors ml-1 outline-none text-tags-colors-neutral-assets-close-base hover:text-tags-colors-neutral-text-label-base',
         sizes: {
-          small: 'size-2 [*>svg]:size-2',
-          medium: 'size-3 [*>svg]:size-3',
-          large: 'size-3 [*>svg]:size-3'
+          small: 'size-2 [*>svg]:size-(--tags-details-asset-size-close)',
+          medium: 'size-3 [*>svg]:size-(--tags-details-asset-size-close)',
+          large: 'size-3 [*>svg]:size-(--tags-details-asset-size-close)'
         }
       },
       disabled: 'cursor-not-allowed opacity-50',

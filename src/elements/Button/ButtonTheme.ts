@@ -71,9 +71,12 @@ export const buttonTheme: ButtonTheme = {
     }
   },
   sizes: {
-    small: 'h-(--buttons-details-height-core-icon-sm) text-xs',
-    medium: 'h-(--buttons-details-height-core-icon-md) text-sm',
-    large: 'h-(--buttons-details-height-core-icon-lg) text-base'
+    small:
+      'h-(--buttons-details-height-core-icon-sm) text-xs px-(--buttons-details-horizontal-padding-sm)',
+    medium:
+      'h-(--buttons-details-height-core-icon-md) text-sm px-(--buttons-details-horizontal-padding-md)',
+    large:
+      'h-(--buttons-details-height-core-icon-lg) text-base px-(--buttons-details-horizontal-padding-lg)'
   },
   iconSizes: {
     xsmall:

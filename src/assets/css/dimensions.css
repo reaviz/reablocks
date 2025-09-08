@@ -89,6 +89,8 @@
   --avatar-details-asset-size-lg: var(--sizing-asset-lg);
   --avatar-details-asset-size-md: var(--sizing-asset-sm);
   --avatar-details-asset-size-sm: var(--sizing-asset-sm);
+
+  /* Badge */
   --badges-details-height-sm: var(--sizing-size-tokens-3xs);
   --badges-details-height-md: var(--sizing-size-tokens-2xs);
   --badges-details-height-lg: var(--sizing-size-tokens-xs);
@@ -103,11 +105,13 @@
   --badges-details-asset-size-base: var(--sizing-asset-xs);
   --badges-details-asset-size-lg: var(--sizing-asset-sm);
 
+  /* Breadcrumbs */
   --breadcrumbs-details-space-between-sm: var(--spacing-space-between-2xs);
   --breadcrumbs-details-space-between-lg: var(--spacing-space-between-xs);
   --breadcrumbs-details-asset-size-sm: var(--sizing-asset-xs);
   --breadcrumbs-details-asset-size-lg: var(--sizing-asset-sm);
 
+  /* Buttons */
   --buttons-details-height-core-icon-lg: var(--sizing-size-tokens-base);
   --buttons-details-height-core-icon-md: var(--sizing-size-tokens-sm);
   --buttons-details-height-core-icon-sm: var(--sizing-size-tokens-xs);
@@ -360,6 +364,7 @@
   --table-details-asset-size-lead-trail-icon-lg: var(--sizing-asset-md-base);
   --table-details-asset-size-lead-trail-icon-sm: var(--sizing-asset-sm);
   --table-details-asset-size-lead-trail-icon-xl: var(--sizing-asset-lg);
+
   --tags-details-height-base: var(--sizing-size-tokens-xs);
   --tags-details-horizontal-padding-base: var(--spacing-padding-xs);
   --tags-details-space-between-base: var(--spacing-space-between-sm);
@@ -369,6 +374,7 @@
   --tags-details-corner-radius-base: var(--corner-radius-sm);
   --tags-details-asset-size-icon: var(--sizing-asset-md-base);
   --tags-details-asset-size-close: var(--sizing-asset-sm);
+
   --inputs-details-height-text-area-base: var(--sizing-size-tokens-3xl);
   --buttons-details-space-between-vertical-sm: var(
     --spacing-space-between-zero
