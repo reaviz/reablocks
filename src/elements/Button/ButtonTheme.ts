@@ -28,8 +28,8 @@ export interface ButtonTheme {
   groupText: string;
   adornment: {
     base: string;
-    start: string;
-    end: string;
+    start: ButtonSizeTheme;
+    end: ButtonSizeTheme;
     sizes: ButtonSizeTheme;
   };
   variants: ButtonVariantTheme;
@@ -40,9 +40,9 @@ export interface ButtonTheme {
 
 export const buttonTheme: ButtonTheme = {
   base: `
-    inline-flex items-center justify-center px-2.5 py-1 rounded-xs font-sans 
-    cursor-pointerfont-semibold whitespace-nowrap 
-    rounded-md font-semibold cursor-pointer select-none transition-colors [&_svg]:transition-all focus-visible:outline-none
+    inline-flex items-center justify-center font-sans 
+    cursor-pointer font-semibold whitespace-nowrap 
+    rounded-(--buttons-details-corner-radius-base) font-semibold cursor-pointer select-none transition-colors [&_svg]:transition-all focus-visible:outline-none
   `,
   disabled: `
     disabled:opacity-40 disabled:cursor-not-allowed 
@@ -54,24 +54,36 @@ export const buttonTheme: ButtonTheme = {
     'border border-y-transparent border-l-transparent last:border-r-transparent hover:bg-initial',
   adornment: {
     base: 'flex',
-    start: 'pr-2',
-    end: 'pl-2',
+    start: {
+      small: 'pr-(--buttons-details-space-between-horizontal-sm)',
+      medium: 'pr-(--buttons-details-space-between-horizontal-md)',
+      large: 'pr-(--buttons-details-space-between-horizontal-lg)'
+    },
+    end: {
+      small: 'pl-(--buttons-details-space-between-horizontal-sm)',
+      medium: 'pl-(--buttons-details-space-between-horizontal-md)',
+      large: 'pl-(--buttons-details-space-between-horizontal-lg)'
+    },
     sizes: {
-      small: '[&>svg]:size-4',
-      medium: '[&>svg]:size-4',
-      large: '[&>svg]:size-4.5'
+      small: '[&>svg]:size-(--buttons-details-asset-size-sm)',
+      medium: '[&>svg]:size-(--buttons-details-asset-size-md)',
+      large: '[&>svg]:size-(--buttons-details-asset-size-lg)'
     }
   },
   sizes: {
-    small: 'text-xs leading-4 px-2 py-1.5',
-    medium: 'text-sm leading-4 px-3 py-2',
-    large: 'text-base leading-4.5 px-4 py-2.5'
+    small: 'h-(--buttons-details-height-core-icon-sm) text-xs',
+    medium: 'h-(--buttons-details-height-core-icon-md) text-sm',
+    large: 'h-(--buttons-details-height-core-icon-lg) text-base'
   },
   iconSizes: {
-    xsmall: '[&>svg]:size-4 p-1',
-    small: '[&>svg]:size-4 p-[5px]',
-    medium: '[&>svg]:size-4 p-[7px]',
-    large: '[&>svg]:size-4.5 p-2.5'
+    xsmall:
+      'size-(--buttons-details-height-core-icon-xs) [&>svg]:size-(--buttons-details-asset-size-xs) p-0',
+    small:
+      'size-(--buttons-details-height-core-icon-sm) [&>svg]:size-(--buttons-details-asset-size-sm) p-0',
+    medium:
+      'size-(--buttons-details-height-core-icon-md) [&>svg]:size-(--buttons-details-asset-size-md) p-0',
+    large:
+      'size-(--buttons-details-height-core-icon-lg) [&>svg]:size-(--buttons-details-asset-size-lg) p-0'
   },
   variants: {
     filled: 'bg-secondary hover:bg-border-secondary-hover',

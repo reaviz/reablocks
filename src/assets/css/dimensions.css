@@ -131,6 +131,7 @@
   --buttons-details-asset-size-md: var(--sizing-asset-sm);
   --buttons-details-asset-size-sm: var(--sizing-asset-sm);
   --buttons-details-asset-size-xs: var(--sizing-asset-sm);
+
   --calendar-details-height-default: var(--sizing-size-tokens-sm);
   --calendar-details-corner-radius-default: var(--corner-radius-sm);
   --calendar-details-horizontal-padding-header: var(--spacing-padding-xs);

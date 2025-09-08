@@ -183,13 +183,13 @@ export const Disabled = () => (
 
 export const Sizes = () => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-    <Button color="primary" size="small">
+    <Button color="primary" size="small" startAdornment={<BellIcon />}>
       Small
     </Button>
-    <Button color="primary" size="medium">
+    <Button color="primary" size="medium" startAdornment={<BellIcon />}>
       Medium
     </Button>
-    <Button color="primary" size="large">
+    <Button color="primary" size="large" startAdornment={<BellIcon />}>
       Large
     </Button>
   </div>
