@@ -74,6 +74,7 @@
   --icons-size-base: 18px;
   --icons-size-lg: 24px;
   --icons-size-xl: 40px;
+
   --avatar-details-size-container-xl: var(--sizing-size-tokens-3xl);
   --avatar-details-size-container-lg: var(--sizing-size-tokens-lg);
   --avatar-details-size-container-md: var(--sizing-size-tokens-sm);
@@ -101,10 +102,12 @@
   --badges-details-asset-size-sm: var(--sizing-asset-xs);
   --badges-details-asset-size-base: var(--sizing-asset-xs);
   --badges-details-asset-size-lg: var(--sizing-asset-sm);
+
   --breadcrumbs-details-space-between-sm: var(--spacing-space-between-2xs);
   --breadcrumbs-details-space-between-lg: var(--spacing-space-between-xs);
   --breadcrumbs-details-asset-size-sm: var(--sizing-asset-xs);
   --breadcrumbs-details-asset-size-lg: var(--sizing-asset-sm);
+
   --buttons-details-height-core-icon-lg: var(--sizing-size-tokens-base);
   --buttons-details-height-core-icon-md: var(--sizing-size-tokens-sm);
   --buttons-details-height-core-icon-sm: var(--sizing-size-tokens-xs);

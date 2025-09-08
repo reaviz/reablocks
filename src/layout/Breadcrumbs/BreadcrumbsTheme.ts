@@ -8,8 +8,8 @@ export interface BreadcrumbsTheme {
 
 export const breadcrumbsTheme: BreadcrumbsTheme = {
   base: 'text-breadcrumbs-colors-primary-text-resting',
-  separator: '[&>svg]:size-3.5',
-  list: 'flex gap-2 items-center',
+  separator: '[&>svg]:size-(--breadcrumbs-details-asset-size-sm)',
+  list: 'flex gap-(--breadcrumbs-details-space-between-lg) items-center',
   link: 'hover:text-breadcrumbs-colors-primary-text-hover transition-colors',
   activePage:
     'text-breadcrumbs-colors-primary-text-selected pointer-events-none'
