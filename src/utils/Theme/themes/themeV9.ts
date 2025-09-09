@@ -80,8 +80,16 @@ export const themeV9: ReablocksTheme = {
         'border border-y-transparent border-l-transparent last:border-r-transparent hover:bg-initial',
       adornment: {
         base: 'flex',
-        start: 'pr-1',
-        end: 'pl-1',
+        start: {
+          small: 'pr-1',
+          medium: 'pr-1',
+          large: 'pr-1'
+        },
+        end: {
+          small: 'pr-1',
+          medium: 'pr-1',
+          large: 'pr-1'
+        },
         sizes: {
           small: '[&>svg]:w-3 [&>svg]:h-3',
           medium: '[&>svg]:w-4 [&>svg]:h-4',
