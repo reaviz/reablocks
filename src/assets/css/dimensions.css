@@ -181,6 +181,10 @@
   --inputs-details-asset-size-lg: var(--sizing-asset-md-base);
   --inputs-details-asset-size-md: var(--sizing-asset-sm);
   --inputs-details-asset-size-sm: var(--sizing-asset-sm);
+  --inputs-details-height-text-area-base: var(--sizing-size-tokens-3xl);
+  --inputs-details-space-between-vertical-lg: var(--spacing-space-between-xs);
+  --inputs-details-space-between-vertical-md: var(--spacing-space-between-xs);
+  --inputs-details-space-between-vertical-sm: var(--spacing-space-between-2xs);
 
   /* Indicators */
   --indicators-details-height-lg: var(--sizing-size-tokens-3xs);
@@ -247,6 +251,12 @@
   );
   --navigation-details-corner-radius-row-item: var(--corner-radius-primary);
   --navigation-details-asset-size-base: var(--sizing-asset-md-base);
+  --navigation-details-space-between-content-left-nav: var(
+    --spacing-space-between-sm
+  );
+  --navigation-details-space-between-content-text-stack: var(
+    --spacing-space-between-zero
+  );
 
   /* Notifications */
   --notifications-details-horizontal-padding-standard-compact: var(
@@ -290,6 +300,7 @@
   --notifications-details-asset-size-compact: var(--sizing-asset-sm);
   --notifications-details-asset-size-base: var(--sizing-asset-md-base);
 
+  /* Selectors */
   --selectors-details-height-lg: var(--sizing-size-tokens-3xs);
   --selectors-details-height-sm: var(--sizing-size-tokens-4xs);
   --selectors-details-height-range-bar: var(--sizing-dividers-details-tertiary);
@@ -300,6 +311,31 @@
   --selectors-details-width-toggle-sm: var(--sizing-size-tokens-xs);
   --selectors-details-vertical-padding-lg: var(--spacing-padding-4xs);
   --selectors-details-vertical-padding-sm: var(--spacing-padding-zero);
+  --selectors-details-vertical-padding-zero: var(--spacing-padding-zero);
+  --selectors-details-space-between-horizontal-lg: var(
+    --spacing-space-between-sm
+  );
+  --selectors-details-space-between-horizontal-sm: var(
+    --spacing-space-between-sm
+  );
+  --selectors-details-corner-radius-radio-lg: var(--corner-radius-pill);
+  --selectors-details-corner-radius-checkbox-lg: var(--corner-radius-primary);
+  --selectors-details-corner-radius-checkbox-sm: var(--corner-radius-sm);
+  --selectors-details-corner-radius-radio-sm: var(--corner-radius-pill);
+  --selectors-details-corner-radius-toggle-lg: var(--corner-radius-pill);
+  --selectors-details-corner-radius-toggle-sm: var(--corner-radius-pill);
+  --selectors-details-asset-size-radio-checkbox-lg: 16px;
+  --selectors-details-asset-size-radio-checkbox-sm: 12px;
+  --selectors-details-space-between-vertical-lg: var(
+    --spacing-space-between-3xs
+  );
+  --selectors-details-space-between-vertical-sm: var(
+    --spacing-space-between-3xs
+  );
+  --selectors-details-asset-size-toggle-lg: 16px;
+  --selectors-details-asset-size-toggle-sm: 12px;
+  --selectors-details-corner-radius-range-lg: var(--corner-radius-sm);
+
   --select-menu-items-details-height-base: var(--sizing-size-tokens-base);
   --select-menu-items-details-horizontal-padding-container: var(
     --spacing-padding-2xs
@@ -334,21 +370,7 @@
   --select-menu-items-details-asset-size-lead-trail-icon: var(
     --sizing-asset-md-base
   );
-  --selectors-details-vertical-padding-zero: var(--spacing-padding-zero);
-  --selectors-details-space-between-horizontal-lg: var(
-    --spacing-space-between-sm
-  );
-  --selectors-details-space-between-horizontal-sm: var(
-    --spacing-space-between-sm
-  );
-  --selectors-details-corner-radius-radio-lg: var(--corner-radius-pill);
-  --selectors-details-corner-radius-checkbox-lg: var(--corner-radius-primary);
-  --selectors-details-corner-radius-checkbox-sm: var(--corner-radius-sm);
-  --selectors-details-corner-radius-radio-sm: var(--corner-radius-pill);
-  --selectors-details-corner-radius-toggle-lg: var(--corner-radius-pill);
-  --selectors-details-corner-radius-toggle-sm: var(--corner-radius-pill);
-  --selectors-details-asset-size-radio-checkbox-lg: 16px;
-  --selectors-details-asset-size-radio-checkbox-sm: 12px;
+
   --tabs-details-height-lg: var(--sizing-size-tokens-sm);
   --tabs-details-height-sm: var(--sizing-size-tokens-2xs);
   --tabs-details-horizontal-padding-lg: var(--spacing-padding-sm);
@@ -363,6 +385,7 @@
   --tabs-details-asset-size-sm: var(--sizing-asset-xs);
   --tabs-details-stroke-width-underline-lg: 2px;
   --tabs-details-stroke-width-underline-sm: 1px;
+
   --table-details-height-cell-regular: var(--sizing-size-tokens-lg);
   --table-details-height-cell-condensed: var(--sizing-size-tokens-base);
   --table-details-height-header-lg: var(--sizing-size-tokens-sm);
@@ -384,44 +407,6 @@
   --table-details-asset-size-lead-trail-icon-lg: var(--sizing-asset-md-base);
   --table-details-asset-size-lead-trail-icon-sm: var(--sizing-asset-sm);
   --table-details-asset-size-lead-trail-icon-xl: var(--sizing-asset-lg);
-
-  --tags-details-height-base: var(--sizing-size-tokens-xs);
-  --tags-details-horizontal-padding-base: var(--spacing-padding-xs);
-  --tags-details-space-between-base: var(--spacing-space-between-sm);
-  --tags-details-space-between-content: var(--spacing-space-between-2xs);
-  --tags-details-space-between-label: var(--spacing-space-between-3xs);
-  --tags-details-space-between-detail: var(--spacing-space-between-zero);
-  --tags-details-corner-radius-base: var(--corner-radius-sm);
-  --tags-details-asset-size-icon: var(--sizing-asset-md-base);
-  --tags-details-asset-size-close: var(--sizing-asset-sm);
-
-  --inputs-details-height-text-area-base: var(--sizing-size-tokens-3xl);
-  --inputs-details-space-between-vertical-lg: var(--spacing-space-between-xs);
-  --inputs-details-space-between-vertical-md: var(--spacing-space-between-xs);
-  --inputs-details-space-between-vertical-sm: var(--spacing-space-between-2xs);
-  --selectors-details-space-between-vertical-lg: var(
-    --spacing-space-between-3xs
-  );
-  --selectors-details-space-between-vertical-sm: var(
-    --spacing-space-between-3xs
-  );
-  --selectors-details-asset-size-toggle-lg: 16px;
-  --selectors-details-asset-size-toggle-sm: 12px;
-  --tabs-details-corner-radius-underline-detail-line: var(
-    --corner-radius-primary
-  );
-  --tabs-details-corner-radius-outline-lg: var(--corner-radius-primary);
-  --tabs-details-corner-radius-outline-sm: var(--corner-radius-primary);
-  --tooltip-details-height-lg: var(--sizing-size-tokens-3xs);
-  --tooltip-details-height-sm: var(--sizing-size-tokens-4xs);
-  --tooltip-details-horizontal-padding-sm: var(--spacing-padding-2xs);
-  --tooltip-details-horizontal-padding-lg: var(--spacing-padding-xs);
-  --tooltip-details-corner-radius-corner-radius: var(--corner-radius-sm);
-  --json-tree-details-horizontal-spacing-default: var(
-    --spacing-space-between-2xs
-  );
-  --json-tree-details-vertical-spacing-default: var(--spacing-space-between-xs);
-  --selectors-details-corner-radius-range-lg: var(--corner-radius-sm);
   --table-details-asset-size-sort-arrows-lg: var(--sizing-asset-sm);
   --table-details-asset-size-sort-arrows-sm: var(--sizing-asset-xs);
   --table-details-padding-header-cell-lg: var(--spacing-padding-base);
@@ -437,11 +422,32 @@
     --corner-radius-primary
   );
   --table-details-padding-dividing-line-lg: var(--spacing-padding-xs);
+
+  --tags-details-height-base: var(--sizing-size-tokens-xs);
+  --tags-details-horizontal-padding-base: var(--spacing-padding-xs);
+  --tags-details-space-between-base: var(--spacing-space-between-sm);
+  --tags-details-space-between-content: var(--spacing-space-between-2xs);
+  --tags-details-space-between-label: var(--spacing-space-between-3xs);
+  --tags-details-space-between-detail: var(--spacing-space-between-zero);
+  --tags-details-corner-radius-base: var(--corner-radius-sm);
+  --tags-details-asset-size-icon: var(--sizing-asset-md-base);
+  --tags-details-asset-size-close: var(--sizing-asset-sm);
   --tags-details-min-width-base: var(--sizing-size-tokens-base);
-  --navigation-details-space-between-content-left-nav: var(
-    --spacing-space-between-sm
+
+  --tabs-details-corner-radius-underline-detail-line: var(
+    --corner-radius-primary
   );
-  --navigation-details-space-between-content-text-stack: var(
-    --spacing-space-between-zero
+  --tabs-details-corner-radius-outline-lg: var(--corner-radius-primary);
+  --tabs-details-corner-radius-outline-sm: var(--corner-radius-primary);
+
+  --tooltip-details-height-lg: var(--sizing-size-tokens-3xs);
+  --tooltip-details-height-sm: var(--sizing-size-tokens-4xs);
+  --tooltip-details-horizontal-padding-sm: var(--spacing-padding-2xs);
+  --tooltip-details-horizontal-padding-lg: var(--spacing-padding-xs);
+  --tooltip-details-corner-radius-corner-radius: var(--corner-radius-sm);
+
+  --json-tree-details-horizontal-spacing-default: var(
+    --spacing-space-between-2xs
   );
+  --json-tree-details-vertical-spacing-default: var(--spacing-space-between-xs);
 }
