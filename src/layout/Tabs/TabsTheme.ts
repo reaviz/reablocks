@@ -49,9 +49,9 @@ export const tabsTheme: TabsTheme = {
     indicator: {
       base: 'transition-colors',
       size: {
-        small: 'h-0.5',
-        medium: 'h-0.5',
-        large: 'h-1'
+        small: 'h-(--tabs-details-stroke-width-underline-sm)',
+        medium: 'h-(--tabs-details-stroke-width-underline-sm)',
+        large: 'h-(--tabs-details-stroke-width-underline-lg)'
       }
     },
     divider: 'w-full h-px border-0',
@@ -128,9 +128,12 @@ export const tabsTheme: TabsTheme = {
       selected: '',
       disabled: 'cursor-not-allowed opacity-40',
       size: {
-        small: 'py-1 px-2 text-xxs leading-[18px] font-semibold',
-        medium: 'py-2 px-3 text-xs font-semibold',
-        large: 'py-1 px-3 text-sm font-semibold'
+        small:
+          'h-(--tabs-details-height-sm) px-(--tabs-details-horizontal-padding-sm) text-xxs font-semibold',
+        medium:
+          'h-(--tabs-details-height-lg) px-(--tabs-details-horizontal-padding-sm) text-xs font-semibold',
+        large:
+          'h-(--tabs-details-height-lg) px-(--tabs-details-horizontal-padding-lg) text-sm font-semibold'
       }
     }
   },

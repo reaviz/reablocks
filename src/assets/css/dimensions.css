@@ -336,6 +336,7 @@
   --selectors-details-asset-size-toggle-sm: 10px;
   --selectors-details-corner-radius-range-lg: var(--corner-radius-sm);
 
+  /* Select Menu */
   --select-menu-items-details-height-base: var(--sizing-size-tokens-base);
   --select-menu-items-details-horizontal-padding-container: var(
     --spacing-padding-2xs
