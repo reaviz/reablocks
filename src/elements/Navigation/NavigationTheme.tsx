@@ -33,15 +33,16 @@ export interface NavigationTheme {
 export const navigationTheme: NavigationTheme = {
   bar: {
     base: `
-    flex h-full w-full p-4 border-r gap-4
+    flex h-full w-full p-(--navigation-details-vertical-padding-base) border-r gap-(--navigation-details-space-between-sections-left-nav)
     bg-navigation-colors-background-container-base border-navigation-colors-stroke-container-base
   `,
     direction: {
       vertical: 'flex-col ',
-      horizontal: 'flex-row border-none pb-0'
+      horizontal: 'flex-row border-none p-0'
     },
-    start: 'pt-4',
-    navigation: 'flex-1 flex flex-col gap-2',
+    start: 'py-4',
+    navigation:
+      'flex-1 flex flex-col gap-(--navigation-details-space-between-items-left-nav)',
     end: ''
   },
   button: {
@@ -50,7 +51,7 @@ export const navigationTheme: NavigationTheme = {
       ghost: {
         content: `
           w-full h-full outline-none relative z-10
-          p-4 rounded-md border border-transparent text-navigation-colors-text-resting 
+          p-(--navigation-details-horizontal-padding-nav-item-main-row) rounded-(--navigation-details-corner-radius-row-item) border border-transparent text-navigation-colors-text-resting 
           hover:text-navigation-colors-text-hover hover:bg-navigation-colors-background-row-items-hover hover:border-navigation-colors-stroke-row-items-hover
           focus-visible:text-navigation-colors-text-hover focus-visible:bg-navigation-colors-background-row-items-hover focus-visible:border-navigation-colors-stroke-row-items-hover
           transition-colors ease-out duration-300
@@ -61,7 +62,7 @@ export const navigationTheme: NavigationTheme = {
           focus-visible:text-navigation-colors-text-selected
         `,
         selection: `
-          absolute z-1 top-0 left-0 w-full h-full rounded-md border
+          absolute z-1 top-0 left-0 w-full h-full rounded-(--navigation-details-corner-radius-row-item) border
           border-navigation-colors-stroke-row-items-selected bg-navigation-colors-background-row-items-selected
           hover:border-navigation-colors-stroke-row-items-selected hover:bg-navigation-colors-background-row-items-selected
           focus-visible:border-navigation-colors-stroke-row-items-selected focus-visible:bg-navigation-colors-background-row-items-selected
@@ -73,7 +74,8 @@ export const navigationTheme: NavigationTheme = {
       },
       underline: {
         content: `
-          relative z-10 p-4 pb-8 outline-none
+          h-(--navigation-details-height-width-items-side-nav)
+          relative z-10 p-(--navigation-details-horizontal-padding-nav-item-main-row) outline-none
           text-navigation-colors-text-resting 
           hover:text-navigation-colors-text-hover
           focus-visible:text-navigation-colors-text-hover
@@ -86,7 +88,7 @@ export const navigationTheme: NavigationTheme = {
           focus-visible:text-navigation-colors-text-selected
         `,
         selection: `
-          absolute z-1 bottom-0 w-full h-0.5 rounded-md bg-navigation-colors-stroke-detail-line-active
+          absolute z-1 bottom-0 w-full h-0.5 rounded-(--navigation-details-corner-radius-row-item) bg-navigation-colors-stroke-detail-line-active
         `,
         disabled: `
           opacity-40 cursor-not-allowed font-normal text-navigation-colors-text-resting bg-transparent border-transparent

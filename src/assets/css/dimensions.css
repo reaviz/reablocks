@@ -182,6 +182,7 @@
   --inputs-details-asset-size-md: var(--sizing-asset-sm);
   --inputs-details-asset-size-sm: var(--sizing-asset-sm);
 
+  /* Indicators */
   --indicators-details-height-lg: var(--sizing-size-tokens-3xs);
   --indicators-details-height-sm: var(--sizing-size-tokens-4xs);
   --indicators-details-horizontal-padding-sm: var(--spacing-padding-2xs);
@@ -189,6 +190,8 @@
   --indicators-details-corner-radius-corner-radius: var(
     --corner-radius-primary
   );
+
+  /* Navigation */
   --navigation-details-height-width-container-top-nav: var(
     --sizing-size-tokens-3xl
   );
