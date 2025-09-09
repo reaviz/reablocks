@@ -247,6 +247,8 @@
   );
   --navigation-details-corner-radius-row-item: var(--corner-radius-primary);
   --navigation-details-asset-size-base: var(--sizing-asset-md-base);
+
+  /* Notifications */
   --notifications-details-horizontal-padding-standard-compact: var(
     --spacing-padding-lg
   );
@@ -287,6 +289,7 @@
   --notifications-details-corner-radius-sharp: var(--corner-radius-sharp);
   --notifications-details-asset-size-compact: var(--sizing-asset-sm);
   --notifications-details-asset-size-base: var(--sizing-asset-md-base);
+
   --selectors-details-height-lg: var(--sizing-size-tokens-3xs);
   --selectors-details-height-sm: var(--sizing-size-tokens-4xs);
   --selectors-details-height-range-bar: var(--sizing-dividers-details-tertiary);
