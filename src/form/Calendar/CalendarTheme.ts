@@ -73,9 +73,9 @@ export interface CalendarTheme {
 }
 
 export const calendarTheme: CalendarTheme = {
-  base: 'relative overflow-hidden border rounded-sm border-calendar-colors-container-stroke-default [&>hr]:bg-calendar-colors-container-stroke-default',
+  base: 'relative overflow-hidden border rounded-(--calendar-details-corner-radius-default) border-calendar-colors-container-stroke-default [&>hr]:bg-calendar-colors-container-stroke-default',
   header: {
-    base: 'flex gap-2 text-center justify-between py-3 px-2 items-center',
+    base: 'flex gap-(--calendar-details-space-between-default) text-center justify-between py-(--calendar-details-vertical-padding-default) px-(--calendar-details-horizontal-padding-header) items-center',
     prev: 'text-lg leading-4 min-w-8 text-center text-buttons-colors-core-icon-ghost-assets-resting hover:text-buttons-colors-core-icon-ghost-assets-hover focus-visible:text-buttons-colors-core-icon-ghost-assets-hover',
     mid: 'group',
     next: 'text-lg leading-4 min-w-8 text-center text-buttons-colors-core-icon-ghost-assets-resting hover:text-buttons-colors-core-icon-ghost-assets-hover focus-visible:text-buttons-colors-core-icon-ghost-assets-hover',
@@ -87,11 +87,11 @@ export const calendarTheme: CalendarTheme = {
   contentContainer: 'relative flex h-full max-h-80',
   days: {
     header:
-      'pt-0 text-center grid grid-cols-7 gap-2 font-semibold pb-1 px-3 text-calendar-colors-label-text-default',
+      'pt-0 text-center grid grid-cols-7 gap-(--calendar-details-space-between-default) font-semibold text-calendar-colors-label-text-default px-(--calendar-details-horizontal-padding-content) pb-1',
     dayOfWeek: 'flex items-center justify-center text-xs min-w-8 py-2',
-    week: 'grid grid-cols-7 gap-2 py-1 px-3 last:pb-3',
+    week: 'grid grid-cols-7 gap-(--calendar-details-space-between-default) py-1 px-(--calendar-details-horizontal-padding-content) last:pb-(--calendar-details-horizontal-padding-content)',
     day: `
-      font-normal text-xs flex p-2 rounded-sm size-8 border 
+      font-normal text-xs flex p-2 rounded-(--calendar-details-corner-radius-default) size-8 border 
       border-calendar-colors-date-stroke-resting focus-visible:border-calendar-colors-date-stroke-hover
       text-calendar-colors-date-text-resting focus-visible:text-calendar-colors-date-text-hover
       bg-calendar-colors-date-background-resting focus-visible:bg-calendar-colors-date-background-hover 
@@ -109,9 +109,9 @@ export const calendarTheme: CalendarTheme = {
     today: 'border-calendar-colors-date-stroke-today'
   },
   months: {
-    root: 'grid grid-cols-4 gap-2 p-3',
+    root: 'grid grid-cols-4 gap-(--calendar-details-space-between-default)',
     month: `
-          font-normal text-xs flex p-2 rounded-sm border 
+          font-normal text-xs flex p-2 rounded-(--calendar-details-corner-radius-default) border 
           border-calendar-colors-date-stroke-resting hover:border-calendar-colors-date-stroke-hove focus-visible:border-calendar-colors-date-stroke-hover
           text-calendar-colors-date-text-resting hover:text-calendar-colors-date-text-hove focus-visible:text-calendar-colors-date-text-hover
           bg-calendar-colors-date-background-resting hover:bg-calendar-colors-date-background-hover focus-visible:bg-calendar-colors-date-background-hover 
@@ -120,9 +120,9 @@ export const calendarTheme: CalendarTheme = {
       'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected'
   },
   years: {
-    root: 'grid grid-cols-4 gap-2 p-3',
+    root: 'grid grid-cols-4 gap-(--calendar-details-space-between-default)',
     year: `
-      font-normal text-xs flex p-2 rounded-sm border 
+      font-normal text-xs flex p-2 rounded-(--calendar-details-corner-radius-default) border 
       border-calendar-colors-date-stroke-resting hover:border-calendar-colors-date-stroke-hove focus-visible:border-calendar-colors-date-stroke-hover
       text-calendar-colors-date-text-resting hover:text-calendar-colors-date-text-hove focus-visible:text-calendar-colors-date-text-hover
       bg-calendar-colors-date-background-resting hover:bg-calendar-colors-date-background-hover focus-visible:bg-calendar-colors-date-background-hover 
@@ -136,7 +136,8 @@ export const calendarTheme: CalendarTheme = {
     dividerTop: 'hidden',
     dividerLeft:
       'h-auto mx-1 z-10 bg-calendar-colors-container-stroke-default mt-1',
-    header: 'flex gap-4 px-0.5 pb-2.5 mb-2',
+    header:
+      'flex gap-(--calendar-details-space-between-default) px-0.5 pb-2.5 mb-2',
     column: {
       base: 'w-6',
       wrapper: 'overflow-y-auto h-52',
