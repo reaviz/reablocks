@@ -157,15 +157,16 @@
   --calendar-details-space-between-content: var(--spacing-space-between-2xs);
   --calendar-details-horizontal-padding-content: var(--spacing-padding-sm);
 
+  /* Inputs */
   --inputs-details-height-input-lg: var(--sizing-size-tokens-base);
   --inputs-details-height-input-md: var(--sizing-size-tokens-sm);
   --inputs-details-height-input-sm: var(--sizing-size-tokens-xs);
   --inputs-details-horizontal-padding-left-lg: var(--spacing-padding-sm);
   --inputs-details-horizontal-padding-left-md: var(--spacing-padding-sm);
   --inputs-details-horizontal-padding-left-sm: var(--spacing-padding-xs);
-  --inputs-details-horizontal-padding-right-lg: var(--spacing-padding-3xs);
-  --inputs-details-horizontal-padding-right-md: var(--spacing-padding-4xs);
-  --inputs-details-horizontal-padding-right-sm: var(--spacing-padding-zero);
+  --inputs-details-horizontal-padding-right-lg: var(--spacing-padding-sm);
+  --inputs-details-horizontal-padding-right-md: var(--spacing-padding-sm);
+  --inputs-details-horizontal-padding-right-sm: var(--spacing-padding-xs);
   --inputs-details-horizontal-padding-inside-lg: var(--spacing-padding-xs);
   --inputs-details-horizontal-padding-inside-md: var(--spacing-padding-xs);
   --inputs-details-horizontal-padding-inside-sm: var(--spacing-padding-xs);
@@ -180,6 +181,7 @@
   --inputs-details-asset-size-lg: var(--sizing-asset-md-base);
   --inputs-details-asset-size-md: var(--sizing-asset-sm);
   --inputs-details-asset-size-sm: var(--sizing-asset-sm);
+
   --indicators-details-height-lg: var(--sizing-size-tokens-3xs);
   --indicators-details-height-sm: var(--sizing-size-tokens-4xs);
   --indicators-details-horizontal-padding-sm: var(--spacing-padding-2xs);

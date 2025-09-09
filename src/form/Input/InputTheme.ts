@@ -22,7 +22,7 @@ export interface InputTheme {
 }
 
 export const inputTheme: InputTheme = {
-  base: 'group flex relative flex-row items-center flex-nowrap transition-colors rounded-md border border-inputs-colors-normal-stroke-resting hover:border-inputs-colors-normal-stroke-hover',
+  base: 'group flex relative flex-row items-center flex-nowrap transition-colors rounded-(--inputs-details-corner-radius-primary) border border-inputs-colors-normal-stroke-resting hover:border-inputs-colors-normal-stroke-hover',
   focused:
     'border-inputs-colors-normal-stroke-selected bg-inputs-colors-normal-background-selected [&_svg]:fill-inputs-colors-normal-assets-input-selected!',
   input: `
@@ -39,12 +39,24 @@ export const inputTheme: InputTheme = {
     focus-within:border-inputs-colors-error-stroke-selected focus-within:bg-inputs-colors-error-background-selected
   `,
   sizes: {
-    small:
-      '[&>input]:text-xs [&>input]:leading-4 [&_svg]:size-4 px-2 py-[5px] gap-2',
-    medium:
-      '[&>input]:text-sm [&>input]:leading-4.5 [&_svg]:size-4.5 px-3 py-[7px] gap-2',
-    large:
-      '[&>input]:text-base [&>input]:leading-6 [&_svg]:size-6 px-3 py-[7px] gap-2'
+    small: `
+      h-(--inputs-details-height-input-sm)
+      pl-(--inputs-details-horizontal-padding-left-sm) pr-(--inputs-details-horizontal-padding-right-sm)
+      gap-(--inputs-details-space-between-horizontal-sm)
+      [&>input]:text-xs [&>input]:leading-4 [&_svg]:size-(--inputs-details-asset-size-sm)
+    `,
+    medium: `
+      h-(--inputs-details-height-input-md)
+      pl-(--inputs-details-horizontal-padding-left-md) pr-(--inputs-details-horizontal-padding-right-md)
+      gap-(--inputs-details-space-between-horizontal-md)
+      [&>input]:text-sm [&>input]:leading-4.5 [&_svg]:size-(--inputs-details-asset-size-md)
+    `,
+    large: `
+      h-(--inputs-details-height-input-lg)
+      pl-(--inputs-details-horizontal-padding-left-lg) pr-(--inputs-details-horizontal-padding-right-lg)
+      gap-(--inputs-details-space-between-horizontal-lg)
+      [&>input]:text-base [&>input]:leading-6 [&_svg]:size-(--inputs-details-asset-size-lg)
+    `
   },
   adornment: {
     base: `
