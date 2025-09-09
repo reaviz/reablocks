@@ -1,4 +1,8 @@
-import { AnimatePresence, motion } from 'motion/react';
+import {
+  AnimatePresence,
+  motion,
+  MotionNodeAnimationOptions
+} from 'motion/react';
 import React, { FC, useCallback, useMemo, useState } from 'react';
 import { Button } from '@/elements/Button';
 import {
@@ -100,9 +104,20 @@ export interface CalendarProps {
   is12HourCycle?: boolean;
 
   /**
+   * @deprecated Use animation configuration instead.
    * Whether to animate the calendar.
    */
   animated?: boolean;
+
+  /**
+   * Animation configuration for the calendar days.
+   */
+  animation?: MotionNodeAnimationOptions;
+
+  /**
+   * Animation configuration for the calendar changing view.
+   */
+  animationViewChange?: MotionNodeAnimationOptions;
 
   /**
    * Preset configuration for the calendar.
@@ -138,6 +153,8 @@ export const Calendar: FC<CalendarProps> = ({
   showTime = false,
   is12HourCycle = false,
   animated = true,
+  animation,
+  animationViewChange,
   preset,
   onChange,
   onViewChange,
@@ -297,46 +314,7 @@ export const Calendar: FC<CalendarProps> = ({
 
   return (
     <div className={twMerge(theme.base)}>
-      <header className={twMerge(theme.header.base)}>
-        <Button
-          variant="text"
-          disabled={disabled}
-          onClick={previousClickHandler}
-          className={theme.header.prev}
-          disablePadding
-        >
-          {previousArrow}
-        </Button>
-        <Button
-          disabled={disabled}
-          variant="text"
-          onClick={headerClickHandler}
-          className={theme.header.mid}
-          disablePadding
-          fullWidth
-        >
-          <Typography variant="h6" className={theme.title}>
-            {view === 'days' && format(viewValue, 'MMMM')}
-            {view === 'months' && <>{yearValue}</>}
-            {view === 'years' && (
-              <>
-                {decadeStart.getFullYear()}-{decadeEnd.getFullYear()}
-              </>
-            )}
-          </Typography>
-        </Button>
-        <Button
-          variant="text"
-          disabled={disabled}
-          onClick={nextClickHandler}
-          className={theme.header.next}
-          disablePadding
-        >
-          {nextArrow}
-        </Button>
-      </header>
-      <Divider className={theme.header.divider} />
-      <div className={theme.contentContainer}>
+      <div className="relative flex">
         {preset && (
           <>
             <Stack dense direction="row" className={theme.presets.wrapper}>
@@ -352,53 +330,105 @@ export const Calendar: FC<CalendarProps> = ({
             </Stack>
           </>
         )}
-        <AnimatePresence initial={false} mode="wait">
-          <motion.div
-            className={twMerge(theme.content)}
-            key={view}
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0, opacity: 1 }}
-            transition={{
-              x: { type: animated ? 'keyframes' : false },
-              opacity: { duration: 0.2, type: animated ? 'tween' : false },
-              scale: { type: animated ? 'tween' : false }
-            }}
-          >
-            {view === 'days' && (
-              <CalendarDays
-                value={viewValue}
-                min={min}
-                max={max}
-                disabled={disabled}
-                isRange={isRange}
-                current={isRange ? [rangeStart, rangeEnd] : value}
-                showDayOfWeek={showDayOfWeek}
-                showToday={showToday}
-                showTime={showTime}
-                xAnimation={xAnimation}
-                animated={animated}
-                onChange={dateChangeHandler}
-              />
-            )}
-            {view === 'months' && (
-              <CalendarMonths
-                value={monthValue}
-                onChange={monthsChangeHandler}
-              />
-            )}
-            {view === 'years' && (
-              <CalendarYears
-                decadeStart={decadeStart}
-                decadeEnd={decadeEnd}
-                animated={animated}
-                value={yearValue}
-                xAnimation={xAnimation}
-                onChange={yearChangeHandler}
-              />
-            )}
-          </motion.div>
-        </AnimatePresence>
+
+        <div className="flex-1">
+          <header className={twMerge(theme.header.base)}>
+            <Button
+              variant="text"
+              disabled={disabled}
+              onClick={previousClickHandler}
+              className={theme.header.prev}
+              disablePadding
+            >
+              {previousArrow}
+            </Button>
+            <Button
+              disabled={disabled}
+              variant="text"
+              onClick={headerClickHandler}
+              className={theme.header.mid}
+              disablePadding
+              fullWidth
+            >
+              <Typography variant="h6" className={theme.title}>
+                {view === 'days' && format(viewValue, 'MMMM')}
+                {view === 'months' && <>{yearValue}</>}
+                {view === 'years' && (
+                  <>
+                    {decadeStart.getFullYear()}-{decadeEnd.getFullYear()}
+                  </>
+                )}
+              </Typography>
+            </Button>
+            <Button
+              variant="text"
+              disabled={disabled}
+              onClick={nextClickHandler}
+              className={theme.header.next}
+              disablePadding
+            >
+              {nextArrow}
+            </Button>
+          </header>
+          <Divider />
+          <AnimatePresence initial={false} mode="wait">
+            <motion.div
+              className={twMerge(theme.content)}
+              key={view}
+              {...(animationViewChange
+                ? animationViewChange
+                : {
+                    initial: { scale: 0, opacity: 0 },
+                    animate: { scale: 1, opacity: 1 },
+                    exit: { scale: 0, opacity: 1 },
+                    transition: {
+                      x: { type: animated ? 'keyframes' : false },
+                      opacity: {
+                        duration: 0.2,
+                        type: animated ? 'tween' : false
+                      },
+                      scale: { type: animated ? 'tween' : false }
+                    }
+                  })}
+            >
+              {view === 'days' && (
+                <CalendarDays
+                  value={viewValue}
+                  min={min}
+                  max={max}
+                  disabled={disabled}
+                  isRange={isRange}
+                  current={isRange ? [rangeStart, rangeEnd] : value}
+                  showDayOfWeek={showDayOfWeek}
+                  showToday={showToday}
+                  showTime={showTime}
+                  xAnimation={xAnimation}
+                  animated={animated}
+                  animation={animation}
+                  onChange={dateChangeHandler}
+                />
+              )}
+              {view === 'months' && (
+                <CalendarMonths
+                  value={monthValue}
+                  onChange={monthsChangeHandler}
+                />
+              )}
+              {view === 'years' && (
+                <CalendarYears
+                  decadeStart={decadeStart}
+                  decadeEnd={decadeEnd}
+                  animated={animated}
+                  animation={animation}
+                  value={yearValue}
+                  xAnimation={xAnimation}
+                  onChange={yearChangeHandler}
+                />
+              )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
         {showTime && (
           <CalendarTimes
             value={

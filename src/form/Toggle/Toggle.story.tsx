@@ -1,10 +1,7 @@
 import { Toggle } from './Toggle';
 import React, { useState } from 'react';
 
-export default {
-  title: 'Components/Form/Toggle',
-  component: Toggle
-};
+export default { title: 'Components/Form/Toggle', component: Toggle };
 
 export const Simple = () => {
   const [state, setState] = useState(true);
@@ -20,6 +17,54 @@ export const Disabled = () => (
     <Toggle disabled checked={false} />
   </div>
 );
+
+export const NoAnimation = () => {
+  const [state, setState] = useState(true);
+  return (
+    <Toggle
+      checked={state}
+      onChange={setState}
+      animation={{ transition: { duration: 0 } }}
+    />
+  );
+};
+
+export const CustomAnimation = () => {
+  const [state, setState] = useState(true);
+
+  const simpleToggleAnimation = {
+    initial: { scale: 0.7, opacity: 0.5 },
+    animate: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        type: 'spring' as const,
+        stiffness: 300,
+        damping: 20,
+        duration: 0.4
+      }
+    },
+    whileHover: { scale: 1.1, transition: { duration: 0.2 } },
+    whileTap: { scale: 0.9, transition: { duration: 0.1 } }
+  };
+
+  return (
+    <div
+      style={{
+        padding: '20px',
+        display: 'flex',
+        gap: '20px',
+        alignItems: 'center'
+      }}
+    >
+      <Toggle
+        checked={state}
+        onChange={setState}
+        animation={simpleToggleAnimation}
+      />
+    </div>
+  );
+};
 
 export const Sizes = () => {
   const [stateSmall, setStateSmall] = useState(true);

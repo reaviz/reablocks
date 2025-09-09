@@ -1,3 +1,12 @@
+# 9.2.1 - 9/4/25
+- [chore] Align approach to configure animation for Dialog and Drawer #306
+
+# 9.2.0 - 9/3/25
+- [feature] Add ability to define custom animation #305
+
+# 9.1.4 - 9/1/25
+- [feature] Add ability to disable animation for Menu, Collapse, Toggle, Tooltip #304
+
 # 9.1.3 - 7/21/25
 - [chore] Fix stories & use newest style #297
 

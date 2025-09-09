@@ -127,10 +127,12 @@ export const CustomAnimation = () => {
         open={open}
         onClose={() => setOpen(false)}
         header="Custom Animation Dialog"
-        initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
-        animate={{ opacity: 1, scale: 1, rotate: 0 }}
-        exit={{ opacity: 0, scale: 0.5, rotate: 10 }}
-        transition={{ duration: 0.4, type: 'spring', stiffness: 150 }}
+        animation={{
+          initial: { opacity: 0, scale: 0.5, rotate: -10 },
+          animate: { opacity: 1, scale: 1, rotate: 0 },
+          exit: { opacity: 0, scale: 0.5, rotate: 10 },
+          transition: { duration: 0.4, type: 'spring', stiffness: 150 }
+        }}
       >
         <div className="p-4">
           <p>This dialog uses custom animation properties.</p>
