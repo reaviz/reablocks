@@ -318,22 +318,22 @@
   --selectors-details-space-between-horizontal-sm: var(
     --spacing-space-between-sm
   );
-  --selectors-details-corner-radius-radio-lg: var(--corner-radius-pill);
   --selectors-details-corner-radius-checkbox-lg: var(--corner-radius-primary);
   --selectors-details-corner-radius-checkbox-sm: var(--corner-radius-sm);
+  --selectors-details-corner-radius-radio-lg: var(--corner-radius-pill);
   --selectors-details-corner-radius-radio-sm: var(--corner-radius-pill);
   --selectors-details-corner-radius-toggle-lg: var(--corner-radius-pill);
   --selectors-details-corner-radius-toggle-sm: var(--corner-radius-pill);
-  --selectors-details-asset-size-radio-checkbox-lg: 16px;
-  --selectors-details-asset-size-radio-checkbox-sm: 12px;
+  --selectors-details-asset-size-radio-checkbox-lg: 8px;
+  --selectors-details-asset-size-radio-checkbox-sm: 6px;
   --selectors-details-space-between-vertical-lg: var(
     --spacing-space-between-3xs
   );
   --selectors-details-space-between-vertical-sm: var(
     --spacing-space-between-3xs
   );
-  --selectors-details-asset-size-toggle-lg: 16px;
-  --selectors-details-asset-size-toggle-sm: 12px;
+  --selectors-details-asset-size-toggle-lg: 14px;
+  --selectors-details-asset-size-toggle-sm: 10px;
   --selectors-details-corner-radius-range-lg: var(--corner-radius-sm);
 
   --select-menu-items-details-height-base: var(--sizing-size-tokens-base);

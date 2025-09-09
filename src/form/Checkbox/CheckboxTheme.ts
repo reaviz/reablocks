@@ -78,7 +78,7 @@ export const checkboxTheme: CheckboxTheme = {
   },
   checkbox: {
     base: `
-          flex items-center justify-center cursor-pointer rounded border transition-colors focus-visible:outline-none
+          flex items-center justify-center cursor-pointer border transition-colors focus-visible:outline-none
           bg-selectors-colors-checkbox-not-selected-background-resting group-hover:bg-selectors-colors-checkbox-not-selected-background-hover group-focus-within:bg-selectors-colors-checkbox-not-selected-background-hover
           border-selectors-colors-checkbox-not-selected-stroke-resting group-hover:border-selectors-colors-checkbox-not-selected-stroke-hover group-focus-within:border-selectors-colors-checkbox-not-selected-stroke-hover
           [&>svg>path:first-child]:stroke-transparent [&>svg]:fill-transparent [&>svg]:outline-none
@@ -91,8 +91,11 @@ export const checkboxTheme: CheckboxTheme = {
       'disabled cursor-not-allowed opacity-40 group-hover:bg-selectors-colors-checkbox-selected-resting'
   },
   sizes: {
-    small: '[&>svg]:size-3',
-    medium: '[&>svg]:size-4',
-    large: '[&>svg]:size-5'
+    small:
+      '[&>svg]:size-(--selectors-details-width-radio-checkbox-sm) rounded-(--selectors-details-corner-radius-checkbox-sm)',
+    medium:
+      '[&>svg]:size-(--selectors-details-width-radio-checkbox-sm) rounded-(--selectors-details-corner-radius-checkbox-sm)',
+    large:
+      '[&>svg]:size-(--selectors-details-width-radio-checkbox-lg) rounded-(--selectors-details-corner-radius-checkbox-lg)'
   }
 } as CheckboxTheme;

@@ -44,9 +44,9 @@ export const radioTheme: RadioTheme = {
     base: 'rounded-full bg-selectors-colors-radio-selected-assets-base',
     disabled: 'cursor-not-allowed',
     sizes: {
-      small: 'size-1.5',
-      medium: 'size-2',
-      large: 'size-2.5'
+      small: 'size-(--selectors-details-asset-size-radio-checkbox-sm)',
+      medium: 'size-(--selectors-details-asset-size-radio-checkbox-sm)',
+      large: 'size-(--selectors-details-asset-size-radio-checkbox-lg)'
     }
   },
   label: {
@@ -57,8 +57,8 @@ export const radioTheme: RadioTheme = {
     checked: 'text-selectors-colors-text-label-selected'
   },
   sizes: {
-    small: 'size-2.5 p-0.5',
-    medium: 'size-3 p-0.5',
-    large: 'size-3.5 p-0.5'
+    small: 'size-(--selectors-details-width-radio-checkbox-sm) p-0.5',
+    medium: 'size-(--selectors-details-width-radio-checkbox-sm) p-0.5',
+    large: 'size-(--selectors-details-width-radio-checkbox-lg) p-0.5'
   }
 };

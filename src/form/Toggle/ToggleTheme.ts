@@ -30,16 +30,19 @@ export const toggleTheme: ToggleTheme = {
   handle: {
     base: 'rounded-full bg-selectors-colors-toggle-off-assets-resting group-hover:bg-selectors-colors-toggle-off-assets-hover',
     sizes: {
-      small: 'size-2.5',
-      medium: 'size-3.5',
-      large: 'size-4.5'
+      small: 'size-(--selectors-details-asset-size-toggle-sm)',
+      medium: 'size-(--selectors-details-asset-size-toggle-sm)',
+      large: 'size-(--selectors-details-asset-size-toggle-lg)'
     },
     disabled: '',
     disabledAndChecked: 'bg-selectors-colors-toggle-on-assets-resting'
   },
   sizes: {
-    small: 'w-7 h-4 p-0.5',
-    medium: 'w-8 h-5 p-0.5',
-    large: 'w-10 h-6 p-0.5'
+    small:
+      'w-(--selectors-details-width-toggle-sm) h-(--selectors-details-height-sm) p-0.5',
+    medium:
+      'w-(--selectors-details-width-toggle-sm) h-(--selectors-details-height-sm) p-0.5',
+    large:
+      'w-(--selectors-details-width-toggle-lg) h-(--selectors-details-height-lg) p-0.5'
   }
 };
