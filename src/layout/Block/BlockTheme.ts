@@ -17,8 +17,7 @@ export interface BlockTheme {
 export const blockTheme: BlockTheme = {
   base: '',
   disableMargin: 'm-0',
-  label:
-    'text-xs leading-none font-semibold text-inputs-colors-normal-text-label-resting',
+  label: 'text-xs leading-none font-semibold text-content-text-neutral-3',
   centerAlign: 'items-center',
   endAlign: 'items-end',
   horizontal: {
