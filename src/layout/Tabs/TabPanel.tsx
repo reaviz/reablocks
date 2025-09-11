@@ -1,5 +1,5 @@
 import React, { FC, PropsWithChildren } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { TabsTheme } from './TabsTheme';
 import { useComponentTheme } from '@/utils';
 

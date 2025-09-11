@@ -1,18 +1,8 @@
-import { isObject } from './isObject';
+import clone from 'lodash.clonedeep';
 
 /**
  * Deep clone an object.
  */
 export function cloneDeep<T>(source: T): T {
-  if (!isObject(source)) {
-    return source;
-  }
-
-  const output: Record<string, unknown> = {};
-
-  for (const key in source) {
-    output[key] = cloneDeep(source[key]);
-  }
-
-  return output as T;
+  return clone<T>(source);
 }

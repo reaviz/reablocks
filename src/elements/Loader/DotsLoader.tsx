@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { motion } from 'motion/react';
-import { DotsLoaderTheme } from './DotsLoaderTheme';
+import { DotsLoaderSizeTheme, DotsLoaderTheme } from './DotsLoaderTheme';
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 
 export interface DotsLoaderProps {
   /**
@@ -18,7 +18,7 @@ export interface DotsLoaderProps {
   /**
    * The size of the loader.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof DotsLoaderSizeTheme;
 
   /**
    * Theme for the DotsLoader.

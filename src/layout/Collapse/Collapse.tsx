@@ -6,7 +6,7 @@ import {
 } from 'motion/react';
 import { CollapseTheme } from './CollapseTheme';
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 
 const VARIANTS = {
   open: { opacity: 1, height: 'auto' },

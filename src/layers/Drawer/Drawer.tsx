@@ -12,7 +12,7 @@ import {
 } from 'motion/react';
 import { variants } from './variants';
 import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { DrawerTheme } from './DrawerTheme';
 import { useComponentTheme } from '@/utils';
 

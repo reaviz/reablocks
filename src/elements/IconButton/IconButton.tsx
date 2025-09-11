@@ -1,6 +1,6 @@
 import React, { FC, forwardRef, Ref } from 'react';
 import { Button, ButtonProps, ButtonRef } from '@/elements/Button';
-import { twMerge } from 'tailwind-merge';
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
 
 export interface IconButtonProps

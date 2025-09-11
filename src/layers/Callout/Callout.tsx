@@ -1,7 +1,7 @@
 import React, { FC, ReactNode } from 'react';
 import { Stack } from '@/layout';
 import { cn, useComponentTheme } from '@/utils';
-import { CalloutTheme } from './CalloutTheme';
+import { CalloutTheme, CalloutVariantTheme } from './CalloutTheme';
 
 export interface CalloutProps {
   /**
@@ -17,7 +17,7 @@ export interface CalloutProps {
   /**
    * The variant of the callout.
    */
-  variant?: 'default' | 'success' | 'error' | 'warning' | 'info';
+  variant?: keyof CalloutVariantTheme;
 
   /**
    * The theme of the callout.

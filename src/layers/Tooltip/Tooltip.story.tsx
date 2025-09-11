@@ -96,7 +96,7 @@ export const CustomAnimation = () => {
 
 export const CustomTheme = () => {
   const customTheme = extendComponentTheme<TooltipTheme>(tooltipTheme, {
-    base: 'rounded-sm bg-green-800 text-white font-bold p-3 text-base'
+    base: 'rounded-sm bg-green-800 text-white font-bold p-3 text-sm'
   });
 
   return (

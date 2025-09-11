@@ -7,7 +7,6 @@ import {
 import { Button } from '@/elements';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
-import { twMerge } from 'tailwind-merge';
 
 export interface CalendarYearsProps {
   /**
@@ -97,7 +96,7 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
           <Button
             key={year}
             className={cn(years.year, { [years.selected]: value === year })}
-            color={value === year ? 'primary' : 'default'}
+            color={value === year ? 'primary' : 'secondary'}
             variant={value === year ? 'filled' : 'text'}
             disableMargins
             title={year}
