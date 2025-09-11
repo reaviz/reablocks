@@ -46,7 +46,6 @@ const expectContigousDays = month => {
   let i = 0;
 
   month.map(weeks =>
-    // eslint-disable-next-line array-callback-return
     weeks.map(day => {
       expect(differenceInDays(day.date, firstDayOfCalendar)).toEqual(i);
       i++;
@@ -78,7 +77,7 @@ describe('days in each week', () => {
   const numDays = ([name, date]: any) => {
     test(name, () => {
       const month = getWeeks(date);
-      // eslint-disable-next-line array-callback-return
+
       month.map(week => {
         expect(week).toHaveLength(7);
       });

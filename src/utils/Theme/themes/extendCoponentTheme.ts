@@ -11,6 +11,4 @@ type DeepPartial<T> = {
 export const extendComponentTheme = <T extends Object>(
   defaultTheme: T,
   theme: DeepPartial<T>
-) => {
-  return mergeDeep(defaultTheme, theme);
-};
+) => mergeDeep(defaultTheme, theme);
