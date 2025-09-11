@@ -3,7 +3,6 @@ import React, {
   forwardRef,
   useImperativeHandle,
   RefObject,
-  useEffect,
   useState,
   useCallback,
   LegacyRef
@@ -153,9 +152,8 @@ export const ConnectedOverlayContent: FC<
       <OverlayPortal
         id={id}
         ref={refs.setFloating}
-        style={{ ...floatingStyles, 'z-index': overlayIndex }}
+        style={{ ...floatingStyles, zIndex: overlayIndex }}
         className={portalClassName}
-        elementType={elementType}
         appendToBody={appendToBody}
         onMount={event => setOverlayIndex(event.overlayIndex)}
         onUnmount={() => setOverlayIndex(null)}

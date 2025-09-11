@@ -88,9 +88,6 @@ const Tooltip = ({ children, content }) => {
     <ConnectedOverlay
       trigger="hover"
       placement="top"
-      style={{
-        pointerEvents: 'none'
-      }}
       open={open}
       content={() => (
         <motion.div
