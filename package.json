@@ -159,8 +159,9 @@
       "pre-commit": "lint-staged"
     }
   },
-  "packageManager": "npm@10.4.0",
+  "packageManager": "npm@10.8.2",
   "engines": {
-      "node": ">=22"
+    "node": ">=22",
+    "npm": ">=10.8.2"
   }
 }
