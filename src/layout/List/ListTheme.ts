@@ -25,7 +25,7 @@ export interface ListTheme {
 }
 
 export const listTheme = {
-  base: 'flex flex-col gap-1',
+  base: 'flex flex-col gap-1 p-(--select-menu-items-details-horizontal-padding-container)',
   header:
     'px-1 py-2 border rounded-md border-select-menu-items-color-item-stroke-header-resting text-select-menu-items-color-item-text-header-resting bg-select-menu-items-color-item-background-header-resting text-xs font-semibold',
   listItem: {

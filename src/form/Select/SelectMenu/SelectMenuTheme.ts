@@ -20,7 +20,7 @@ export interface SelectMenuTheme {
 }
 
 export const selectMenuTheme: SelectMenuTheme = {
-  base: 'p-1.5 border border-select-menu-items-color-item-stroke-container-resting rounded-md mt-2 bg-select-menu-items-color-item-background-container-base backdrop-blur-md min-w-[112px] max-h-[300px] overflow-y-auto text-left box-border [&>div]:gap-0.5',
+  base: 'border border-select-menu-items-color-item-stroke-container-resting rounded-md mt-2 bg-select-menu-items-color-item-background-container-base backdrop-blur-md min-w-[112px] max-h-[300px] overflow-y-auto text-left box-border [&>div]:gap-0.5',
   groupItem: {
     base: 'p-0',
     title:
