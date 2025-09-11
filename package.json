@@ -25,9 +25,9 @@
   "source": "src/index.ts",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
-      "require": "./dist/index.umd.cjs",
-      "types": "./dist/index.d.ts"
+      "require": "./dist/index.umd.cjs"
     },
     "./index.css": "./dist/index.css",
     "./stories/*": "./dist/stories/*",
@@ -131,11 +131,11 @@
     "tw-colors": "^4.0.0-beta.1",
     "typescript": "^4.9.5",
     "typescript-rewrite-paths": "^1.3.1",
-    "vite": "^5.2.2",
+    "vite": "^6.3.6",
     "vite-plugin-checker": "^0.6.4",
     "vite-plugin-css-injected-by-js": "^3.5.0",
     "vite-plugin-dts": "^3.7.3",
-    "vite-plugin-static-copy": "^1.0.4",
+    "vite-plugin-static-copy": "^3.1.2",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.2",
     "vitest": "^1.4.0"
@@ -159,5 +159,8 @@
       "pre-commit": "lint-staged"
     }
   },
-  "packageManager": "pnpm@9.3.0+sha512.ee7b93e0c2bd11409c6424f92b866f31d3ea1bef5fbe47d3c7500cdc3c9668833d2e55681ad66df5b640c61fa9dc25d546efa54d76d7f8bf54b13614ac293631"
+  "packageManager": "npm@10.4.0",
+  "engines": {
+      "node": ">=22"
+  }
 }
