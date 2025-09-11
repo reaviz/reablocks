@@ -1,43 +1,41 @@
+import { Button } from '@/elements/Button';
+import { CalendarPresets, CalendarTheme, PresetOption } from '@/form';
+import { Stack } from '@/layout';
+import { Divider } from '@/layout/Divider';
+import { Typography } from '@/typography';
+import { twMerge, useComponentTheme } from '@/utils';
+import {
+  add,
+  addYears,
+  endOfDecade,
+  format,
+  getHours,
+  getMinutes,
+  getMonth,
+  getSeconds,
+  getYear,
+  max as maxDate,
+  min as minDate,
+  setHours,
+  setMinutes,
+  setMonth,
+  setSeconds,
+  setYear,
+  startOfDecade,
+  sub,
+  subYears
+} from 'date-fns';
 import {
   AnimatePresence,
   motion,
   MotionNodeAnimationOptions
 } from 'motion/react';
 import React, { FC, useCallback, useMemo, useState } from 'react';
-import { Button } from '@/elements/Button';
-import {
-  add,
-  addYears,
-  endOfDecade,
-  getMonth,
-  getYear,
-  min as minDate,
-  max as maxDate,
-  setMonth,
-  setYear,
-  startOfDecade,
-  sub,
-  subYears,
-  format,
-  setSeconds,
-  setMinutes,
-  setHours,
-  getMinutes,
-  getSeconds,
-  getHours
-} from 'date-fns';
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
-import { CalendarYears } from './CalendarYears';
-import { Typography } from '@/typography';
-import { twMerge } from '@/utils';
-import { useComponentTheme } from '@/utils';
-import { CalendarTheme } from '@/form';
-import { Divider } from '@/layout/Divider';
 import { CalendarTimes } from './CalendarTimes';
+import { CalendarYears } from './CalendarYears';
 import { updateDateTime } from './utils';
-import { CalendarPresets, PresetOption } from '@/form';
-import { Stack } from '@/layout';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -163,7 +161,7 @@ export const Calendar: FC<CalendarProps> = ({
   const theme: CalendarTheme = useComponentTheme('calendar', customTheme);
 
   const date = useMemo(
-    () => (Array.isArray(value) ? value[0] : value ?? new Date()),
+    () => (Array.isArray(value) ? value[0] : (value ?? new Date())),
     [value]
   );
   const rangeStart = useMemo(
@@ -278,8 +276,7 @@ export const Calendar: FC<CalendarProps> = ({
           );
           onChange?.([rangeStart!, newRangeEnd]);
         } else {
-          const newRangeStart = newTimeDate;
-          onChange?.([newRangeStart, rangeEnd]);
+          onChange?.([newTimeDate, rangeEnd]);
         }
       }
     },

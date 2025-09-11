@@ -73,7 +73,7 @@ export interface CalendarTheme {
 }
 
 export const calendarTheme: CalendarTheme = {
-  base: 'relative overflow-hidden border rounded-(--calendar-details-corner-radius-default) border-calendar-colors-container-stroke-default [&>hr]:bg-calendar-colors-container-stroke-default',
+  base: 'bg-calendar-colors-container-background-default relative overflow-hidden border rounded-(--calendar-details-corner-radius-default) border-calendar-colors-container-stroke-default [&>hr]:bg-calendar-colors-container-stroke-default',
   header: {
     base: 'flex gap-(--calendar-details-space-between-default) text-center justify-between py-(--calendar-details-vertical-padding-default) px-(--calendar-details-horizontal-padding-header) items-center',
     prev: 'text-lg leading-4 min-w-8 text-center text-buttons-colors-core-icon-ghost-assets-resting hover:text-buttons-colors-core-icon-ghost-assets-hover focus-visible:text-buttons-colors-core-icon-ghost-assets-hover',
@@ -151,7 +151,7 @@ export const calendarTheme: CalendarTheme = {
       list: 'relative h-full m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
       divider: 'mx-0 bg-calendar-colors-container-stroke-default',
       item: {
-        base: 'py-1 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 hover:text-buttons-colors-core-icon-ghost-assets-hover hover:bg-calendar-colors-date-background-hover',
+        base: 'bg-calendar-colors-date-background-resting py-1 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 hover:text-buttons-colors-core-icon-ghost-assets-hover hover:bg-calendar-colors-date-background-hover',
         selected:
           'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected',
         disabled:
