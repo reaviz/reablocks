@@ -50,7 +50,7 @@ export function getGroups(options: SelectOptionProps[]): GroupOptions {
 
   for (const group of groups) {
     group.offset = index;
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+
     for (const _item of group.items) {
       index++;
     }
