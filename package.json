@@ -1,6 +1,6 @@
 {
   "name": "reablocks",
-  "version": "9.2.1",
+  "version": "10.0.0-alpha.1",
   "description": "Component library for React",
   "scripts": {
     "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run build:docs",
