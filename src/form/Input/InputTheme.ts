@@ -22,7 +22,7 @@ export interface InputTheme {
 }
 
 export const inputTheme: InputTheme = {
-  base: 'group flex relative flex-row items-center flex-nowrap transition-colors rounded-(--inputs-details-corner-radius-primary) border border-inputs-colors-normal-stroke-resting hover:border-inputs-colors-normal-stroke-hover',
+  base: 'group flex relative flex-row items-center flex-nowrap transition-colors rounded-(--inputs-details-corner-radius-primary) bg-inputs-colors-normal-background-resting border border-inputs-colors-normal-stroke-resting hover:border-inputs-colors-normal-stroke-hover',
   focused:
     'border-inputs-colors-normal-stroke-selected bg-inputs-colors-normal-background-selected [&_svg]:fill-inputs-colors-normal-assets-input-selected!',
   input: `
