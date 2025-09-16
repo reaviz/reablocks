@@ -80,13 +80,13 @@ export const buttonTheme: ButtonTheme = {
   },
   iconSizes: {
     xsmall:
-      'size-(--buttons-details-height-core-icon-xs) [&>svg]:size-(--buttons-details-asset-size-xs) p-0',
+      'size-(--buttons-details-height-core-icon-xs) [&>svg]:size-(--buttons-details-asset-size-xs) px-0 py-0',
     small:
-      'size-(--buttons-details-height-core-icon-sm) [&>svg]:size-(--buttons-details-asset-size-sm) p-0',
+      'size-(--buttons-details-height-core-icon-sm) [&>svg]:size-(--buttons-details-asset-size-sm) px-0 py-0',
     medium:
-      'size-(--buttons-details-height-core-icon-md) [&>svg]:size-(--buttons-details-asset-size-md) p-0',
+      'size-(--buttons-details-height-core-icon-md) [&>svg]:size-(--buttons-details-asset-size-md) px-0 py-0',
     large:
-      'size-(--buttons-details-height-core-icon-lg) [&>svg]:size-(--buttons-details-asset-size-lg) p-0'
+      'size-(--buttons-details-height-core-icon-lg) [&>svg]:size-(--buttons-details-asset-size-lg) px-0 py-0'
   },
   variants: {
     filled: 'bg-secondary hover:bg-border-secondary-hover',
