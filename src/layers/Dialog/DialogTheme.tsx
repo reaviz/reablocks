@@ -13,7 +13,7 @@ export interface DialogTheme {
 export const dialogTheme: DialogTheme = {
   base: 'justify-center items-center flex pointer-events-none top-0 left-0 size-full fixed',
   inner: `
-      flex flex-col box-border outline-0 pointer-events-auto overflow-auto max-w-[80vw] max-h-[80vh] rounded-xl border backdrop-blur-lg
+      flex flex-col box-border outline-0 pointer-events-auto overflow-auto max-w-[80vw] max-h-[80vh] rounded-(--notifications-details-corner-radius-primary) border backdrop-blur-lg
       border-stroke-brand-base bg-background-neutral-canvas-base
     `,
   content: 'p-4 flex-auto overflow-auto text-content-text-on-color-light-dark',
