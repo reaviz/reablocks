@@ -417,8 +417,6 @@ export const themeV9: ReablocksTheme = {
             medium: 'text-sm leading-[inherit] px-2 py-0.5',
             large: 'text-base leading-[inherit] px-3 py-0.5'
           },
-          focus:
-            'focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-2',
           variants: {
             filled: 'border border-transparent box-border',
             outline: 'bg-transparent border hover:bg-transparent'
@@ -426,138 +424,108 @@ export const themeV9: ReablocksTheme = {
           colors: {
             default: {
               variants: {
-                filled: { base: 'bg-panel border-panel text-text-primary' },
+                filled: {
+                  base: 'bg-panel border-panel text-text-primary',
+                  selectable:
+                    'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+                  selected: 'bg-primary text-panel'
+                },
                 outline: {
-                  base: 'text-text-primary dark:border-gray-100 light:border-gray-900'
-                }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
-                    selected: 'bg-primary text-panel'
-                  },
-                  outline: {
-                    base: 'hover:text-primary-hover hover:border-panel-accent',
-                    selected: 'border-panel-accent text-primary'
-                  }
+                  base: 'text-text-primary dark:border-gray-100 light:border-gray-900',
+                  selected: 'border-panel-accent text-primary',
+                  selectable:
+                    'hover:text-primary-hover hover:border-panel-accent'
                 }
               }
             },
             primary: {
               variants: {
-                outline: { base: 'text-primary border-panel-accent' },
-                filled: { base: 'bg-primary border-primary text-panel' }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
-                    selected: 'bg-primary-hover'
-                  },
-                  outline: {
-                    base: 'hover:text-primary-hover hover:border-primary',
-                    selected: 'border-primary'
-                  }
+                filled: {
+                  base: 'bg-primary border-primary text-panel',
+                  selectable:
+                    'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+                  selected: 'bg-primary-hover'
+                },
+                outline: {
+                  base: 'text-primary border-panel-accent',
+                  selectable: 'hover:text-primary-hover hover:border-primary',
+                  selected: 'border-primary'
                 }
               }
             },
             secondary: {
               variants: {
                 filled: {
-                  base: 'bg-secondary border-secondary text-text-primary'
+                  base: 'bg-secondary border-secondary text-text-primary',
+                  selectable:
+                    'hover:bg-secondary-hover hover:border-secondary-hover hover:text-panel',
+                  selected: 'bg-secondary-hover text-panel'
                 },
-                outline: { base: 'text-secondary border-panel-accent' }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-secondary-hover hover:border-secondary-hover hover:text-panel',
-                    selected: 'bg-secondary-hover text-panel'
-                  },
-                  outline: {
-                    base: 'hover:text-secondary-hover hover:border-secondary',
-                    selected: 'border-secondary'
-                  }
+                outline: {
+                  base: 'text-secondary border-panel-accent',
+                  selectable:
+                    'hover:text-secondary-hover hover:border-secondary',
+                  selected: 'border-secondary'
                 }
               }
             },
             success: {
               variants: {
-                filled: { base: 'bg-success border-success text-panel' },
-                outline: { base: 'text-success border-panel-accent' }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-success-hover hover:border-success-hover',
-                    selected: 'bg-success-hover'
-                  },
-                  outline: {
-                    base: 'hover:text-success-hover hover:border-success',
-                    selected: 'border-success'
-                  }
+                filled: {
+                  base: 'bg-success border-success text-panel',
+                  selected: 'bg-success-hover',
+                  selectable:
+                    'hover:bg-success-hover hover:border-success-hover'
+                },
+                outline: {
+                  base: 'text-success border-panel-accent',
+                  selected: 'border-success',
+                  selectable: 'hover:text-success-hover hover:border-success'
                 }
               }
             },
             warning: {
               variants: {
-                filled: { base: 'bg-warning border-warning text-panel' },
-                outline: { base: 'text-warning border-panel-accent' }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-warning-hover hover:border-warning-hover hover:text-panel',
-                    selected: 'bg-warning-hover'
-                  },
-                  outline: {
-                    base: 'hover:text-warning-hover hover:border-warning',
-                    selected: 'border-warning'
-                  }
+                filled: {
+                  base: 'bg-warning border-warning text-panel',
+                  selectable:
+                    'hover:bg-warning-hover hover:border-warning-hover hover:text-panel',
+                  selected: 'bg-warning-hover'
+                },
+                outline: {
+                  base: 'text-warning border-panel-accent',
+                  selectable: 'hover:text-warning-hover hover:border-warning',
+                  selected: 'border-warning'
                 }
               }
             },
             error: {
               variants: {
-                filled: { base: 'bg-error border-error text-panel' },
-                outline: { base: 'text-error border-panel-accent' }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-error-hover hover:border-error-hover hover:text-panel',
-                    selected: 'bg-error-hover'
-                  },
-                  outline: {
-                    base: 'hover:text-error-hover hover:border-error',
-                    selected: 'border-error'
-                  }
+                filled: {
+                  base: 'bg-error border-error text-panel',
+                  selectable:
+                    'hover:bg-error-hover hover:border-error-hover hover:text-panel',
+                  selected: 'bg-error-hover'
+                },
+                outline: {
+                  base: 'text-error border-panel-accent',
+                  selectable: 'hover:text-error-hover hover:border-error',
+                  selected: 'border-error'
                 }
               }
             },
             info: {
               variants: {
-                filled: { base: 'bg-info border-info text-panel' },
-                outline: { base: 'text-info border-panel-accent' }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-info-hover hover:border-info-hover hover:text-panel',
-                    selected: 'bg-info-hover'
-                  },
-                  outline: {
-                    base: 'hover:text-info-hover hover:border-info',
-                    selected: 'border-info'
-                  }
+                filled: {
+                  base: 'bg-info border-info text-panel',
+                  selectable:
+                    'hover:bg-info-hover hover:border-info-hover hover:text-panel',
+                  selected: 'bg-info-hover'
+                },
+                outline: {
+                  base: 'text-info border-panel-accent',
+                  selectable: 'hover:text-info-hover hover:border-info',
+                  selected: 'border-info'
                 }
               }
             }
@@ -580,8 +548,6 @@ export const themeV9: ReablocksTheme = {
             medium: 'text-sm leading-[inherit] px-2 py-0.5',
             large: 'text-base leading-[inherit] px-3 py-0.5'
           },
-          focus:
-            'focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-2',
           variants: {
             filled: 'border border-transparent box-border',
             outline: 'bg-transparent border hover:bg-transparent'
@@ -589,138 +555,108 @@ export const themeV9: ReablocksTheme = {
           colors: {
             default: {
               variants: {
-                filled: { base: 'bg-panel border-panel text-text-primary' },
+                filled: {
+                  base: 'bg-panel border-panel text-text-primary',
+                  selectable:
+                    'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+                  selected: 'bg-primary text-panel'
+                },
                 outline: {
-                  base: 'text-text-primary dark:border-gray-100 light:border-gray-900'
-                }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
-                    selected: 'bg-primary text-panel'
-                  },
-                  outline: {
-                    base: 'hover:text-primary-hover hover:border-panel-accent',
-                    selected: 'border-panel-accent text-primary'
-                  }
+                  base: 'text-text-primary dark:border-gray-100 light:border-gray-900',
+                  selectable:
+                    'hover:text-primary-hover hover:border-panel-accent',
+                  selected: 'border-panel-accent text-primary'
                 }
               }
             },
             primary: {
               variants: {
-                outline: { base: 'text-primary border-panel-accent' },
-                filled: { base: 'bg-primary border-primary text-panel' }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
-                    selected: 'bg-primary-hover'
-                  },
-                  outline: {
-                    base: 'hover:text-primary-hover hover:border-primary',
-                    selected: 'border-primary'
-                  }
+                outline: {
+                  base: 'text-primary border-panel-accent',
+                  selectable:
+                    'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+                  selected: 'bg-primary-hover'
+                },
+                filled: {
+                  base: 'bg-primary border-primary text-panel',
+                  selectable: 'hover:text-primary-hover hover:border-primary',
+                  selected: 'border-primary'
                 }
               }
             },
             secondary: {
               variants: {
                 filled: {
-                  base: 'bg-secondary border-secondary text-text-primary'
+                  base: 'bg-secondary border-secondary text-text-primary',
+                  selectable:
+                    'hover:bg-secondary-hover hover:border-secondary-hover hover:text-panel',
+                  selected: 'bg-secondary-hover text-panel'
                 },
-                outline: { base: 'text-secondary border-panel-accent' }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-secondary-hover hover:border-secondary-hover hover:text-panel',
-                    selected: 'bg-secondary-hover text-panel'
-                  },
-                  outline: {
-                    base: 'hover:text-secondary-hover hover:border-secondary',
-                    selected: 'border-secondary'
-                  }
+                outline: {
+                  base: 'text-secondary border-panel-accent',
+                  selectable:
+                    'hover:text-secondary-hover hover:border-secondary',
+                  selected: 'border-secondary'
                 }
               }
             },
             success: {
               variants: {
-                filled: { base: 'bg-success border-success text-panel' },
-                outline: { base: 'text-success border-panel-accent' }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-success-hover hover:border-success-hover',
-                    selected: 'bg-success-hover'
-                  },
-                  outline: {
-                    base: 'hover:text-success-hover hover:border-success',
-                    selected: 'border-success'
-                  }
+                filled: {
+                  base: 'bg-success border-success text-panel',
+                  selectable:
+                    'hover:bg-success-hover hover:border-success-hover',
+                  selected: 'bg-success-hover'
+                },
+                outline: {
+                  base: 'text-success border-panel-accent',
+                  selectable: 'hover:text-success-hover hover:border-success',
+                  selected: 'border-success'
                 }
               }
             },
             warning: {
               variants: {
-                filled: { base: 'bg-warning border-warning text-panel' },
-                outline: { base: 'text-warning border-panel-accent' }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-warning-hover hover:border-warning-hover hover:text-panel',
-                    selected: 'bg-warning-hover'
-                  },
-                  outline: {
-                    base: 'hover:text-warning-hover hover:border-warning',
-                    selected: 'border-warning'
-                  }
+                filled: {
+                  base: 'bg-warning border-warning text-panel',
+                  selectable:
+                    'hover:bg-warning-hover hover:border-warning-hover hover:text-panel',
+                  selected: 'bg-warning-hover'
+                },
+                outline: {
+                  base: 'text-warning border-panel-accent',
+                  selectable: 'hover:text-warning-hover hover:border-warning',
+                  selected: 'border-warning'
                 }
               }
             },
             error: {
               variants: {
-                filled: { base: 'bg-error border-error text-panel' },
-                outline: { base: 'text-error border-panel-accent' }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-error-hover hover:border-error-hover hover:text-panel',
-                    selected: 'bg-error-hover'
-                  },
-                  outline: {
-                    base: 'hover:text-error-hover hover:border-error',
-                    selected: 'border-error'
-                  }
+                filled: {
+                  base: 'bg-error border-error text-panel',
+                  selectable:
+                    'hover:bg-error-hover hover:border-error-hover hover:text-panel',
+                  selected: 'border-error'
+                },
+                outline: {
+                  base: 'text-error border-panel-accent',
+                  selectable: 'hover:text-error-hover hover:border-error',
+                  selected: 'border-error'
                 }
               }
             },
             info: {
               variants: {
-                filled: { base: 'bg-info border-info text-panel' },
-                outline: { base: 'text-info border-panel-accent' }
-              },
-              selectable: {
-                base: 'hover:cursor-pointer',
-                variants: {
-                  filled: {
-                    base: 'hover:bg-info-hover hover:border-info-hover hover:text-panel',
-                    selected: 'bg-info-hover'
-                  },
-                  outline: {
-                    base: 'hover:text-info-hover hover:border-info',
-                    selected: 'border-info'
-                  }
+                filled: {
+                  base: 'bg-info border-info text-panel',
+                  selectable:
+                    'hover:bg-info-hover hover:border-info-hover hover:text-panel',
+                  selected: 'bg-info-hover'
+                },
+                outline: {
+                  base: 'text-info border-panel-accent',
+                  selected: 'hover:text-info-hover hover:border-info',
+                  selectable: 'border-info'
                 }
               }
             }
