@@ -29,7 +29,7 @@ export function CloneElement<T = any>({
         if (typeof prop === 'function' && typeof childProp === 'function') {
           acc[key] = (...args) => {
             prop(...args);
-            childProp(...args);
+            return childProp(...args);
           };
         } else if (key === 'className') {
           acc[key] = classNames(prop, childProp);

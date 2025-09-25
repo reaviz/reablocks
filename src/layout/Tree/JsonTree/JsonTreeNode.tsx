@@ -185,7 +185,6 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
               data={item}
               depth={depth + 1}
               expandDepth={expandDepth}
-              type={item.type}
               ellipsisText={ellipsisText}
               ellipsisTextLength={ellipsisTextLength}
               showCount={showCount}

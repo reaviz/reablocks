@@ -1,3 +1,6 @@
+# 9.2.1 - 9/11/25
+- [fix] Add return to clone element to add ability use values from overridden fn #308
+
 # 9.2.1 - 9/4/25
 - [chore] Align approach to configure animation for Dialog and Drawer #306
 

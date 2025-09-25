@@ -111,7 +111,6 @@ export const OverlayPortal: FC<OverlayPortalProps & OverlayPortalRef> =
           className={className}
           ref={portalRef}
           style={style}
-          appendToBody={appendToBody}
           onMount={() => {
             portals.push(portalId);
 

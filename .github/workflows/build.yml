@@ -14,16 +14,16 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Use Node.js 18.x
-        uses: actions/setup-node@v1
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
         with:
-          node-version: 18.x
+          node-version-file: 'package.json'
 
       - name: Install deps and build (with cache)
         uses: bahmutov/npm-install@v1
-        with:
-          # Note: this is for npm dep mismatch
-          install-command: npm i --force
+
+      - name: Lint
+        run: npm run lint
 
       - name: Build Prod
         run: npm run build

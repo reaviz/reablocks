@@ -2,7 +2,7 @@ import React from 'react';
 import theme from './theme';
 import { Preview } from '@storybook/react';
 import { withThemeByClassName } from '@storybook/addon-themes';
-import { DocsContainer } from '@storybook/addon-docs';
+import { DocsContainer } from '@storybook/addon-docs/blocks';
 
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
 import { theme as reablocksTheme } from '../src/utils/Theme/themes/theme';
