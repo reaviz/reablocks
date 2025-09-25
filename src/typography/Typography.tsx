@@ -5,7 +5,12 @@ import {
   TypographyWeight
 } from '@/typography/TypographyTheme';
 import { cn, useComponentTheme } from '@/utils';
-import React, { FC, HTMLAttributes, PropsWithChildren } from 'react';
+import React, {
+  FC,
+  FunctionComponent,
+  HTMLAttributes,
+  PropsWithChildren
+} from 'react';
 
 const COMPONENTS_MAP: Record<string, string> = {
   h1: 'h1',
@@ -43,7 +48,9 @@ export const Typography: FC<TypographyProps> = ({
 }) => {
   const theme: TypographyTheme = useComponentTheme('typography', customTheme);
 
-  const Component = COMPONENTS_MAP[variant];
+  const Component = COMPONENTS_MAP[variant] as unknown as FunctionComponent<
+    HTMLAttributes<HTMLElement>
+  >;
 
   return (
     <Component
