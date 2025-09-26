@@ -1,5 +1,5 @@
-import type { CalendarTheme } from '@/form';
-import { calendarTheme } from '@/form';
+import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
+import { calendarTheme } from '@/form/Calendar/CalendarTheme';
 
 export type CalendarRangeTheme = Omit<CalendarTheme, 'months' | 'years'>;
 
