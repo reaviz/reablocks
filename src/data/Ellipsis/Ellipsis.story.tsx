@@ -1,9 +1,10 @@
 import React from 'react';
+
 import { Ellipsis } from './Ellipsis';
 
 export default {
   title: 'Components/Data/Ellipsis',
-  component: Ellipsis
+  component: Ellipsis,
 };
 
 const words = `Integer a aliquet ligula. Fusce vel eros libero. Sed dictum tincidunt hendrerit. Integer id neque faucibus, imperdiet purus dapibus, rutrum tellus. Nullam facilisis odio sit amet metus efficitur, varius pellentesque lectus placerat. Integer non magna in justo cursus vestibulum sit amet ut odio. Pellentesque consectetur volutpat lectus ut gravida. In in urna eu felis malesuada pretium.`;

@@ -1,12 +1,13 @@
 import { motion } from 'motion/react';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Block, Card, Divider, Stack } from '../../../src/layout';
-import { Input } from '../../../src/form';
+
 import { Button } from '../../../src/elements/Button';
+import { Input } from '../../../src/form';
+import { Block, Card, Divider, Stack } from '../../../src/layout';
 
 export default {
-  title: 'Blocks/Authentication/Forgot Password'
+  title: 'Blocks/Authentication/Forgot Password',
 };
 
 const LogoIcon = ({ className }: { className?: string }) => (
@@ -46,7 +47,7 @@ export const ForgotPassword = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -138,18 +139,20 @@ export const ForgotPassword = () => {
             color="primary"
             className="mt-7"
             disabled={isSubmitting}
-            startAdornment={<svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <path
-                d="M7.33333 4.66667L6.4 5.6L8.13333 7.33333H1.33333V8.66667H8.13333L6.4 10.4L7.33333 11.3333L10.6667 8L7.33333 4.66667ZM13.3333 12.6667H8V14H13.3333C14.0667 14 14.6667 13.4 14.6667 12.6667V3.33333C14.6667 2.6 14.0667 2 13.3333 2H8V3.33333H13.3333V12.6667Z"
-                fill="white"
-              />
-            </svg>}
+            startAdornment={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M7.33333 4.66667L6.4 5.6L8.13333 7.33333H1.33333V8.66667H8.13333L6.4 10.4L7.33333 11.3333L10.6667 8L7.33333 4.66667ZM13.3333 12.6667H8V14H13.3333C14.0667 14 14.6667 13.4 14.6667 12.6667V3.33333C14.6667 2.6 14.0667 2 13.3333 2H8V3.33333H13.3333V12.6667Z"
+                  fill="white"
+                />
+              </svg>
+            }
           >
             {isSubmitting ? 'Resetting...' : 'Reset Password'}
           </Button>
@@ -163,7 +166,7 @@ export const ForgotPasswordFull = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -178,12 +181,10 @@ export const ForgotPasswordFull = () => {
       >
         <LogoIcon className="h-11 w-auto mb-2" />
         <div className="w-full grow flex flex-col justify-center">
-          <h4 className="text-xl font-sans font-bold mb-0">
-            Forgot Password?
-          </h4>
+          <h4 className="text-xl font-sans font-bold mb-0">Forgot Password?</h4>
           <span className="text-sm text-content-text-neutral-2 font-sans">
             Forgot your password? No worries! Simply enter your email address
-            below, and we'll send you instructions on how to reset it.
+            below, and we&apos;ll send you instructions on how to reset it.
           </span>
           <form
             className="my-7"
@@ -251,7 +252,7 @@ export const ForgotPasswordMinimal = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -262,12 +263,10 @@ export const ForgotPasswordMinimal = () => {
     >
       <Card className="w-full p-12">
         <div className="flex flex-col items-center justify-center text-center pt-2 mb-14">
-          <h4 className="text-xl font-sans font-bold mb-0">
-            Forgot Password?
-          </h4>
+          <h4 className="text-xl font-sans font-bold mb-0">Forgot Password?</h4>
           <span className="text-base text-content-text-neutral-2 font-sans">
             Forgot your password? No worries! Simply enter your email address
-            below, and we'll send you instructions on how to reset it.
+            below, and we&apos;ll send you instructions on how to reset it.
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
@@ -342,7 +341,7 @@ export const ResetPassword = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -376,7 +375,7 @@ export const ResetPassword = () => {
           <h4 className="text-xl font-sans font-bold mb-0">Reset Password?</h4>
           <span className="text-base text-content-text-neutral-2 font-sans">
             Forgot your password? No worries! Simply enter your email address
-            below, and we'll send you instructions on how to reset it.
+            below, and we&apos;ll send you instructions on how to reset it.
           </span>
           <form
             onSubmit={handleSubmit(values => console.log('values', values))}
@@ -459,9 +458,9 @@ export const ResetPassword = () => {
         </div>
         <Stack justifyContent="center">
           <div className="h-[4px] w-[60px] bg-background-brand-base rounded-sm" />
-          <div className="h-[4px] w-[60px] dark:bg-background-neutral-raised-4 rounded-sm"/>
-          <div className="h-[4px] w-[60px] dark:bg-background-neutral-raised-4 rounded-sm"/>
-          <div className="h-[4px] w-[60px] dark:bg-background-neutral-raised-4 rounded-sm"/>
+          <div className="h-[4px] w-[60px] dark:bg-background-neutral-raised-4 rounded-sm" />
+          <div className="h-[4px] w-[60px] dark:bg-background-neutral-raised-4 rounded-sm" />
+          <div className="h-[4px] w-[60px] dark:bg-background-neutral-raised-4 rounded-sm" />
         </Stack>
       </Card>
     </motion.div>
@@ -472,7 +471,7 @@ export const ResetPasswordMinimal = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -497,7 +496,7 @@ export const ResetPasswordMinimal = () => {
           <h4 className="text-xl font-sans font-bold mb-0">Reset Password?</h4>
           <span className="text-base text-content-text-neutral-2 font-sans">
             Forgot your password? No worries! Simply enter your email address
-            below, and we'll send you instructions on how to reset it.
+            below, and we&apos;ll send you instructions on how to reset it.
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>

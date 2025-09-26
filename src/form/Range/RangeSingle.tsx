@@ -1,16 +1,19 @@
+import { motion, useMotionValue } from 'motion/react';
+import type { FC } from 'react';
 import React, {
   useCallback,
   useEffect,
+  useMemo,
   useRef,
   useState,
-  FC,
-  useMemo
 } from 'react';
-import { motion, useMotionValue } from 'motion/react';
-import { RangeProps, RangeTooltip } from './RangeTooltip';
+
 import { twMerge } from '@/utils';
 import { cn, useComponentTheme } from '@/utils';
-import { RangeTheme } from './RangeTheme';
+
+import type { RangeTheme } from './RangeTheme';
+import type { RangeProps } from './RangeTooltip';
+import { RangeTooltip } from './RangeTooltip';
 
 export interface RangeSingleProps extends RangeProps<number> {
   /**
@@ -32,7 +35,7 @@ export const RangeSingle: FC<RangeSingleProps> = ({
   valueFormat = value => value.toLocaleString(),
   step = 1,
   showHighlight = false,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const [currentValue, setCurrentValue] = useState<number>(value);
 
@@ -44,7 +47,7 @@ export const RangeSingle: FC<RangeSingleProps> = ({
 
   const fractionDigits = useMemo(
     () => step.toString()?.[1]?.length || 0,
-    [step]
+    [step],
   );
 
   const getValue = (xPosition: number): number => {
@@ -63,7 +66,7 @@ export const RangeSingle: FC<RangeSingleProps> = ({
 
   const getPosition = useCallback(
     (value: number): number => ((value - min) / (max - min)) * rangeWidth,
-    [min, max, rangeWidth]
+    [min, max, rangeWidth],
   );
 
   const updateCurrentValue = useCallback(
@@ -74,7 +77,7 @@ export const RangeSingle: FC<RangeSingleProps> = ({
       valueX.set(getPosition(newValue));
       onChange?.(newValue);
     },
-    [min, max, valueX, getPosition, onChange]
+    [min, max, valueX, getPosition, onChange],
   );
 
   useEffect(() => {
@@ -112,13 +115,13 @@ export const RangeSingle: FC<RangeSingleProps> = ({
         }}
         dragConstraints={{
           left: 0,
-          right: rangeWidth
+          right: rangeWidth,
         }}
       >
         <div
           className={twMerge(
             theme.inputWrapper.base,
-            disabled && theme.inputWrapper.disabled
+            disabled && theme.inputWrapper.disabled,
           )}
         >
           <input
@@ -145,10 +148,10 @@ export const RangeSingle: FC<RangeSingleProps> = ({
       {showHighlight && (
         <div
           className={cn(theme.rangeHighlight.base, {
-            [theme.rangeHighlight.disabled]: disabled
+            [theme.rangeHighlight.disabled]: disabled,
           })}
           style={{
-            width: `${maxPercentage}%`
+            width: `${maxPercentage}%`,
           }}
         />
       )}

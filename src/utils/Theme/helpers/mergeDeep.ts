@@ -10,7 +10,7 @@ import mergeWith from 'lodash.mergewith';
 export function mergeDeep<T extends object, S extends object>(
   target: T,
   source: S,
-  mergeFunction?: (objValue: any, srcValue: any, key: string) => string
+  mergeFunction?: (objValue: any, srcValue: any, key: string) => string,
 ): T & S {
   return mergeWith({}, target, source, mergeFunction);
 }

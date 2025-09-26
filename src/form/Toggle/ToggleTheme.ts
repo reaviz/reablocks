@@ -32,10 +32,10 @@ export const toggleTheme: ToggleTheme = {
     sizes: {
       small: 'size-(--selectors-details-asset-size-toggle-sm)',
       medium: 'size-(--selectors-details-asset-size-toggle-sm)',
-      large: 'size-(--selectors-details-asset-size-toggle-lg)'
+      large: 'size-(--selectors-details-asset-size-toggle-lg)',
     },
     disabled: '',
-    disabledAndChecked: 'bg-selectors-colors-toggle-on-assets-resting'
+    disabledAndChecked: 'bg-selectors-colors-toggle-on-assets-resting',
   },
   sizes: {
     small:
@@ -43,6 +43,6 @@ export const toggleTheme: ToggleTheme = {
     medium:
       'w-(--selectors-details-width-toggle-sm) h-(--selectors-details-height-sm) p-0.5',
     large:
-      'w-(--selectors-details-width-toggle-lg) h-(--selectors-details-height-lg) p-0.5'
-  }
+      'w-(--selectors-details-width-toggle-lg) h-(--selectors-details-height-lg) p-0.5',
+  },
 };

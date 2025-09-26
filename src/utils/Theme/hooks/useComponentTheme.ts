@@ -1,5 +1,6 @@
+import type { ReablocksTheme } from '@/utils/Theme/themes/theme';
+
 import { useTheme } from './useTheme';
-import { ReablocksTheme } from '@/utils/Theme/themes/theme';
 
 /**
  * Hook to get the theme for a specific component.
@@ -7,9 +8,9 @@ import { ReablocksTheme } from '@/utils/Theme/themes/theme';
  * @param customTheme
  * @returns theme object
  */
-export const useComponentTheme = <T extends any>(
+export const useComponentTheme = <T extends object>(
   component: keyof ReablocksTheme['components'],
-  customTheme?: T
+  customTheme?: T,
 ): T => {
   const context = useTheme();
 

@@ -1,12 +1,11 @@
+import type { ReactNode, RefObject } from 'react';
 import {
   Children,
   cloneElement,
   isValidElement,
-  ReactNode,
-  RefObject,
+  useEffect,
   useRef,
   useState,
-  useEffect
 } from 'react';
 
 export const DATA_ATTRIBUTE_INDEX = 'keyboard_index';
@@ -24,7 +23,7 @@ export interface HotkeyIem {
 export const useFlattenedTree = (
   children: ReactNode,
   selectedIndex: number,
-  onSelectedIndexChange: (index: number) => void
+  onSelectedIndexChange: (index: number) => void,
 ) => {
   const itemsRef = useRef<HTMLElement[]>([]);
   const hotkeyRef = useRef<HotkeyIem[]>([]);
@@ -35,22 +34,22 @@ export const useFlattenedTree = (
 
     Children.forEach(nodes, (child: ReactNode, index) => {
       if (isValidElement(child)) {
-        // @ts-ignore
+        // @ts-expect-error unexpected displayName
         if (child.type.displayName === 'CommandPaletteSection') {
           result.push(
             cloneElement(child, {
               children: flattenChildren(child.props.children),
-              index
-            })
+              index,
+            }),
           );
-          // @ts-ignore
+          // @ts-expect-error unexpected displayName
         } else if (child.type.displayName === 'CommandPaletteItem') {
           const index = itemsRef.current.length;
 
           if (child.props.hotkey) {
             hotkeyRef.current.push({
               hotkey: child.props.hotkey,
-              index
+              index,
             });
           }
 
@@ -59,7 +58,7 @@ export const useFlattenedTree = (
             ref: (ref: HTMLElement | null) => (itemsRef.current[index] = ref),
             active: index === selectedIndex,
             onClick: () => onSelectedIndexChange?.(index),
-            [DATA_ATTRIBUTE_INDEX]: index
+            [DATA_ATTRIBUTE_INDEX]: index,
           });
 
           // NOTE: This is a temp hack
@@ -84,6 +83,6 @@ export const useFlattenedTree = (
   return {
     flattenedTree,
     hotkeys: hotkeyRef.current,
-    itemsRef
+    itemsRef,
   };
 };

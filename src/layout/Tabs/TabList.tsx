@@ -1,7 +1,10 @@
-import React, { FC, PropsWithChildren, Children } from 'react';
-import { Tab } from './Tab';
+import type { FC, PropsWithChildren } from 'react';
+import React, { Children } from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
-import { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';
+
+import { Tab } from './Tab';
+import type { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';
 
 export interface TabListProps extends PropsWithChildren {
   /**
@@ -60,7 +63,7 @@ export const TabList: FC<TabListProps> = ({
   onSelect,
   variant = 'primary',
   size = 'medium',
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const theme: TabsTheme = useComponentTheme('tabs', customTheme);
 
@@ -72,7 +75,7 @@ export const TabList: FC<TabListProps> = ({
     <nav
       role="tablist"
       className={cn(theme.list.base, className, {
-        'justify-end': direction === 'rtl'
+        'justify-end': direction === 'rtl',
       })}
     >
       {childs.map(({ children, ...rest }, index) => (

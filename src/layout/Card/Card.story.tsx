@@ -1,9 +1,10 @@
 import React from 'react';
+
 import { Card } from './Card';
 
 export default {
   title: 'Components/Layout/Card',
-  component: Card
+  component: Card,
 };
 
 export const Basic = () => <Card>Basic card</Card>;

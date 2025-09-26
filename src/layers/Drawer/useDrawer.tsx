@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Drawer, DrawerProps } from './Drawer';
+
+import type { DrawerProps } from './Drawer';
+import { Drawer } from './Drawer';
 
 type DrawerOptions =
   | {
@@ -29,13 +31,13 @@ export const useDrawer = (prop?: DrawerOptions) => {
     (props: Partial<DrawerProps>) => (
       <Drawer {...props} open={internalOpen} onClose={onCloseInternal} />
     ),
-    [internalOpen, onCloseInternal]
+    [internalOpen, onCloseInternal],
   );
 
   return {
     isOpen: internalOpen,
     setOpen: setInternalOpen,
     toggleOpen: onToggleOpen,
-    Drawer: Component
+    Drawer: Component,
   };
 };

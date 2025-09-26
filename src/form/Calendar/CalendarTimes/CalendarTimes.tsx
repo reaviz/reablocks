@@ -1,5 +1,3 @@
-import React, { FC, useCallback, useMemo } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
 import {
   getHours,
   getMinutes,
@@ -10,12 +8,17 @@ import {
   isSameHour,
   setHours,
   setMinutes,
-  setSeconds
+  setSeconds,
 } from 'date-fns';
-import { TimeColumn } from './TimeColumn';
+import { AnimatePresence, motion } from 'motion/react';
+import type { FC } from 'react';
+import React, { useCallback, useMemo } from 'react';
+
 import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { Divider } from '@/layout';
 import { cn } from '@/utils';
+
+import { TimeColumn } from './TimeColumn';
 
 export type AmPm = 'AM' | 'PM';
 
@@ -74,7 +77,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
   onChange,
   theme: timeTheme,
   showDayOfWeek = false,
-  is12HourCycle = false
+  is12HourCycle = false,
 }) => {
   // If the value is not a valid date, set it to midnight of the current date.
   // This allow to use the current date for the time picker.
@@ -96,7 +99,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
       }
       onChange(newDate);
     },
-    [onChange, max, min]
+    [onChange, max, min],
   );
 
   const handleHourChange = useCallback(
@@ -112,7 +115,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
       }
       onChangeHandler(newDate);
     },
-    [is12HourCycle, safeDate, onChangeHandler]
+    [is12HourCycle, safeDate, onChangeHandler],
   );
 
   const handleMinuteChange = useCallback(
@@ -120,7 +123,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
       const newDate = setMinutes(safeDate, minute);
       onChangeHandler(newDate);
     },
-    [onChangeHandler, safeDate]
+    [onChangeHandler, safeDate],
   );
 
   const handleSecondChange = useCallback(
@@ -128,7 +131,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
       const newDate = setSeconds(safeDate, second);
       onChangeHandler(newDate);
     },
-    [onChangeHandler, safeDate]
+    [onChangeHandler, safeDate],
   );
 
   const handleAmPmChange = useCallback(
@@ -148,35 +151,35 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
       }
       onChangeHandler(date);
     },
-    [onChangeHandler, safeDate, value]
+    [onChangeHandler, safeDate, value],
   );
 
   const isSameDayWithMax = useMemo(() => isSameDay(value, max), [value, max]);
   const isSameDayWithMin = useMemo(() => isSameDay(value, min), [value, min]);
   const isSameHoursWithMin = useMemo(
     () => isSameHour(value, min),
-    [value, min]
+    [value, min],
   );
   const isSameHoursWithMax = useMemo(
     () => isSameHour(value, max),
-    [value, max]
+    [value, max],
   );
 
   const hours = useMemo(() => {
     if (!value) return undefined;
-    let dayHours = getHours(safeDate);
+    const dayHours = getHours(safeDate);
 
     return is12HourCycle ? dayHours % 12 || 12 : dayHours;
   }, [value, safeDate, is12HourCycle]);
 
   const minutes = useMemo(
     () => (value ? getMinutes(safeDate) : undefined),
-    [value, safeDate]
+    [value, safeDate],
   );
 
   const seconds = useMemo(
     () => (value ? getSeconds(safeDate) : undefined),
-    [value, safeDate]
+    [value, safeDate],
   );
 
   const amPm = useMemo(() => {
@@ -194,7 +197,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
           type: 'spring',
           stiffness: 500,
           damping: 40,
-          duration: 0.2
+          duration: 0.2,
         }}
         className={cn(timeTheme?.wrapper)}
       >
@@ -203,7 +206,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
           <Divider orientation="horizontal" className={timeTheme?.dividerTop} />
           <div
             className={cn(timeTheme?.items.wrapper, {
-              'h-54': showDayOfWeek
+              'h-54': showDayOfWeek,
             })}
           >
             <TimeColumn

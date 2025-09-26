@@ -1,4 +1,5 @@
-import React, { FC, Suspense } from 'react';
+import type { FC } from 'react';
+import React, { Suspense } from 'react';
 
 export interface IconBlockProps {
   name: string;
@@ -11,7 +12,7 @@ export const IconBlock: FC<IconBlockProps> = ({
   name,
   src,
   className,
-  component: Component
+  component: Component,
 }) => (
   <div
     className={className}
@@ -27,7 +28,7 @@ export const IconBlock: FC<IconBlockProps> = ({
       textAlign: 'center',
       fontSize: '12px',
       borderRadius: 'var(--border-radius-md)',
-      height: 75
+      height: 75,
     }}
   >
     <Suspense fallback={null}>
@@ -57,7 +58,7 @@ export const IconBlocks: FC<IconBlocksProps> = ({ icons, className }) => (
       display: 'grid',
       gridGap: 'var(--spacing-lg)',
       gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))',
-      justifyItems: 'stretch'
+      justifyItems: 'stretch',
     }}
     className={className}
   >

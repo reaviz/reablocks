@@ -1,4 +1,4 @@
-import React, { useCallback, forwardRef, FC, LegacyRef } from 'react';
+import React, { forwardRef, useCallback } from 'react';
 
 export type TriggerTypes = 'hover' | 'click' | 'contextmenu' | 'focus' | 'key';
 
@@ -49,11 +49,7 @@ export interface OverlayTriggerProps {
   onClose?: (event: OverlayTriggerEvent) => void;
 }
 
-export const OverlayTrigger: FC<
-  OverlayTriggerProps & {
-    ref: LegacyRef<HTMLSpanElement>;
-  }
-> = forwardRef(
+export const OverlayTrigger = forwardRef<HTMLSpanElement, OverlayTriggerProps>(
   (
     {
       children,
@@ -61,9 +57,9 @@ export const OverlayTrigger: FC<
       elementType = 'span',
       trigger = ['click'],
       onOpen = () => undefined,
-      onClose = () => undefined
+      onClose = () => undefined,
     },
-    ref
+    ref,
   ) => {
     const hasTrigger = useCallback(
       (type: TriggerTypes) => {
@@ -73,7 +69,7 @@ export const OverlayTrigger: FC<
           return type === trigger;
         }
       },
-      [trigger]
+      [trigger],
     );
 
     const onFocus = useCallback(
@@ -82,7 +78,7 @@ export const OverlayTrigger: FC<
           onOpen({ type: 'focus', nativeEvent: event });
         }
       },
-      [onOpen, hasTrigger]
+      [onOpen, hasTrigger],
     );
 
     const onBlur = useCallback(
@@ -91,7 +87,7 @@ export const OverlayTrigger: FC<
           onClose({ type: 'focus', nativeEvent: event });
         }
       },
-      [onClose, hasTrigger]
+      [onClose, hasTrigger],
     );
 
     const onMouseEnter = useCallback(
@@ -100,7 +96,7 @@ export const OverlayTrigger: FC<
           onOpen({ type: 'hover', nativeEvent: event });
         }
       },
-      [onOpen, hasTrigger]
+      [onOpen, hasTrigger],
     );
 
     const onMouseLeave = useCallback(
@@ -109,7 +105,7 @@ export const OverlayTrigger: FC<
           onClose({ type: 'hover', nativeEvent: event });
         }
       },
-      [onClose, hasTrigger]
+      [onClose, hasTrigger],
     );
 
     const onClick = useCallback(
@@ -123,7 +119,7 @@ export const OverlayTrigger: FC<
           onClose({ type: 'hover', nativeEvent: event });
         }
       },
-      [onOpen, onClose, hasTrigger]
+      [onOpen, onClose, hasTrigger],
     );
 
     const onContextMenu = useCallback(
@@ -133,7 +129,7 @@ export const OverlayTrigger: FC<
           onOpen({ type: 'contextmenu', nativeEvent: event });
         }
       },
-      [hasTrigger, onOpen]
+      [hasTrigger, onOpen],
     );
 
     const tabIndex = hasTrigger('focus') ? -1 : undefined;
@@ -154,5 +150,5 @@ export const OverlayTrigger: FC<
         {children}
       </Component>
     );
-  }
+  },
 );

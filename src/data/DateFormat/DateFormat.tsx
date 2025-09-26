@@ -1,16 +1,18 @@
+import type { FC } from 'react';
 import React, {
-  FC,
-  useState,
   useCallback,
   useEffect,
+  useMemo,
   useRef,
-  useMemo
+  useState,
 } from 'react';
-import { formatRelative, getInterval } from './relative';
-import { safeFormat } from './formatting';
+
 import { twMerge } from '@/utils';
-import { DateFormatTheme } from './DateFormatTheme';
 import { useComponentTheme } from '@/utils';
+
+import type { DateFormatTheme } from './DateFormatTheme';
+import { safeFormat } from './formatting';
+import { formatRelative, getInterval } from './relative';
 
 export interface DateFormatProps {
   /**
@@ -74,12 +76,12 @@ export const DateFormat: FC<DateFormatProps> = ({
   addSuffix = true,
   fromNow,
   date,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const [cache, setCache] = useState<string | null>(
     typeof window !== 'undefined'
-      ? window.localStorage.getItem(`DATES_${cacheKey}`) ?? null
-      : null
+      ? (window.localStorage.getItem(`DATES_${cacheKey}`) ?? null)
+      : null,
   );
 
   useEffect(() => {
@@ -97,7 +99,7 @@ export const DateFormat: FC<DateFormatProps> = ({
   const timeout = useRef<any | null>(null);
   const { dateObj, formatted, relative } = useMemo(
     () => safeFormat(date, { format, includeSeconds, addSuffix }),
-    [addSuffix, date, format, includeSeconds]
+    [addSuffix, date, format, includeSeconds],
   );
   const [curRelative, setCurRelative] = useState<string>(relative);
 
@@ -115,7 +117,7 @@ export const DateFormat: FC<DateFormatProps> = ({
         }
       }
     },
-    [allowToggle, cacheKey, isRelative, setCache]
+    [allowToggle, cacheKey, isRelative, setCache],
   );
 
   const updateTime = useCallback(() => {
@@ -126,7 +128,7 @@ export const DateFormat: FC<DateFormatProps> = ({
       if (interval > 0) {
         timeout.current = setTimeout(() => {
           setCurRelative(
-            formatRelative(dateObj, { includeSeconds, addSuffix })
+            formatRelative(dateObj, { includeSeconds, addSuffix }),
           );
 
           updateTime();
@@ -155,7 +157,7 @@ export const DateFormat: FC<DateFormatProps> = ({
       className={twMerge(
         theme.base,
         allowToggle && theme.interactive,
-        className
+        className,
       )}
       onClick={onToggle}
     >

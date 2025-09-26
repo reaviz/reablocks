@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { RadioGroup } from './RadioGroup';
+
 import { Radio } from './Radio';
+import { RadioGroup } from './RadioGroup';
 
 export default {
   title: 'Components/Form/Radio/Group',
-  component: RadioGroup
+  component: RadioGroup,
 };
 
 export const Simple = () => {
@@ -26,7 +27,7 @@ export const Simple = () => {
             value="blue"
             onChange={() =>
               console.log(
-                'Optionally do something else as well onBlueSelected '
+                'Optionally do something else as well onBlueSelected ',
               )
             }
             label="Blue"
@@ -35,7 +36,7 @@ export const Simple = () => {
             value="green"
             onChange={() =>
               console.log(
-                'Optionally do something else as well onGreenSelected '
+                'Optionally do something else as well onGreenSelected ',
               )
             }
             label="Green"

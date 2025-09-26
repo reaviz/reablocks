@@ -1,25 +1,27 @@
-import React, { FC, ReactNode } from 'react';
-import { HTMLMotionProps, motion } from 'motion/react';
+import type { HTMLMotionProps } from 'motion/react';
+import { motion } from 'motion/react';
+import type { FC, ReactNode } from 'react';
+import React from 'react';
 
 export const verticalVariant = {
   initial: {
     y: -20,
     opacity: 0,
     transition: {
-      when: 'beforeChildren'
-    }
+      when: 'beforeChildren',
+    },
   },
   animate: {
     y: 0,
     opacity: 1,
     transition: {
-      when: 'beforeChildren'
-    }
+      when: 'beforeChildren',
+    },
   },
   exit: {
     y: -20,
-    opacity: 0
-  }
+    opacity: 0,
+  },
 };
 
 const horizontalVariants = {
@@ -28,8 +30,8 @@ const horizontalVariants = {
     opacity: 0,
     transition: {
       when: 'beforeChildren',
-      x: { stiffness: 10 }
-    }
+      x: { stiffness: 10 },
+    },
   },
   animate: {
     x: '0%',
@@ -37,16 +39,16 @@ const horizontalVariants = {
     transition: {
       x: { stiffness: 10, velocity: -100 },
       when: 'beforeChildren',
-      opacity: { duration: 1 }
-    }
+      opacity: { duration: 1 },
+    },
   },
   exit: {
     x: '-100%',
     opacity: 0,
     transition: {
-      x: { stiffness: 10 }
-    }
-  }
+      x: { stiffness: 10 },
+    },
+  },
 };
 
 export interface MotionItemProps extends HTMLMotionProps<'div'> {

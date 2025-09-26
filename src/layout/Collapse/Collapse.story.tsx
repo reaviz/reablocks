@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Collapse } from './Collapse';
+
 import { Button } from '../../elements';
+import { Collapse } from './Collapse';
 
 export default {
   title: 'Components/Layout/Collapse',
-  component: Collapse
+  component: Collapse,
 };
 
 export const Simple = () => {
@@ -62,25 +63,25 @@ export const CustomAnimation = () => {
               opacity: 1,
               height: 'auto',
               scale: 1,
-              filter: 'blur(0px)'
+              filter: 'blur(0px)',
             },
             collapsed: {
               opacity: 0,
               height: 0,
               scale: 0.95,
-              filter: 'blur(4px)'
-            }
+              filter: 'blur(4px)',
+            },
           },
           transition: {
             duration: 0.7,
             ease: [0.4, 0, 0.2, 1],
             scale: {
-              duration: 0.5
+              duration: 0.5,
             },
             filter: {
-              duration: 0.3
-            }
-          }
+              duration: 0.3,
+            },
+          },
         }}
       >
         <h1>Hello</h1>

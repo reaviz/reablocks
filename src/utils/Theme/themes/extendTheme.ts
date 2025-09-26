@@ -1,5 +1,6 @@
-import { ReablocksTheme } from './theme';
 import { mergeDeep } from '@/utils/Theme/helpers';
+
+import type { ReablocksTheme } from './theme';
 
 export type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;
@@ -13,5 +14,5 @@ export type PartialReablocksTheme = DeepPartial<ReablocksTheme>;
 export const extendTheme = (
   defaultTheme: ReablocksTheme,
   theme: PartialReablocksTheme,
-  mergeFunction?: (objValue: any, srcValue: any, key: string) => string
+  mergeFunction?: (objValue: any, srcValue: any, key: string) => string,
 ) => mergeDeep(defaultTheme, theme, mergeFunction);

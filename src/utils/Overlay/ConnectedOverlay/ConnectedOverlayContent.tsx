@@ -1,15 +1,15 @@
+import type { RefObject } from 'react';
 import React, {
-  FC,
   forwardRef,
-  useImperativeHandle,
-  RefObject,
-  useState,
   useCallback,
-  LegacyRef
+  useImperativeHandle,
+  useState,
 } from 'react';
+
 import { useExitListener } from '@/utils/ExitListener';
-import { Modifiers, Placement, usePosition } from '@/utils/Position';
 import { OverlayPortal, portals } from '@/utils/Overlay/OverlayPortal';
+import type { Modifiers, Placement } from '@/utils/Position';
+import { usePosition } from '@/utils/Position';
 import { useId } from '@/utils/useId';
 
 export interface ConnectedOverlayContentRef {
@@ -73,11 +73,10 @@ export interface ConnectedOverlayContentProps {
   onClose?: (event?: any) => void;
 }
 
-export const ConnectedOverlayContent: FC<
-  ConnectedOverlayContentProps & {
-    ref?: LegacyRef<ConnectedOverlayContentRef>;
-  }
-> = forwardRef(
+export const ConnectedOverlayContent = forwardRef<
+  ConnectedOverlayContentRef,
+  ConnectedOverlayContentProps
+>(
   (
     {
       triggerRef,
@@ -90,9 +89,9 @@ export const ConnectedOverlayContent: FC<
       followCursor,
       modifiers,
       placement = 'bottom',
-      onClose
+      onClose,
     },
-    ref
+    ref,
   ) => {
     const id = useId();
     const [overlayIndex, setOverlayIndex] = useState<number | null>(null);
@@ -100,13 +99,13 @@ export const ConnectedOverlayContent: FC<
       reference: triggerRef.current ?? triggerRef,
       followCursor,
       modifiers,
-      placement
+      placement,
     });
 
     useImperativeHandle(ref, () => ({
       updatePosition: () => {
         update();
-      }
+      },
     }));
 
     const onClickOutside = useCallback(
@@ -132,7 +131,7 @@ export const ConnectedOverlayContent: FC<
         }
       },
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      [closeOnBodyClick, onClose]
+      [closeOnBodyClick, onClose],
     );
 
     const onEscape = useCallback(() => {
@@ -145,7 +144,7 @@ export const ConnectedOverlayContent: FC<
       open: true,
       ref: refs.floating,
       onClickOutside,
-      onEscape
+      onEscape,
     });
 
     return (
@@ -161,5 +160,5 @@ export const ConnectedOverlayContent: FC<
         {children}
       </OverlayPortal>
     );
-  }
+  },
 );

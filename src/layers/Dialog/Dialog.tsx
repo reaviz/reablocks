@@ -1,18 +1,23 @@
-import React, { FC, ReactElement } from 'react';
-import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
-import { useId, CloneElement, cn } from '@/utils';
 import FocusTrap from 'focus-trap-react';
-import {
-  motion,
+import type {
   MotionNodeAnimationOptions,
   MotionProps,
   TargetAndTransition,
   Transition,
-  VariantLabels
+  VariantLabels,
 } from 'motion/react';
-import { DialogHeader, DialogHeaderProps } from './DialogHeader';
+import { motion } from 'motion/react';
+import type { FC, ReactElement } from 'react';
+import React from 'react';
+
+import { CloneElement, cn, useId } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { DialogTheme } from './DialogTheme';
+import type { GlobalOverlayProps } from '@/utils/Overlay';
+import { GlobalOverlay } from '@/utils/Overlay';
+
+import type { DialogHeaderProps } from './DialogHeader';
+import { DialogHeader } from './DialogHeader';
+import type { DialogTheme } from './DialogTheme';
 
 export interface DialogProps
   extends Omit<GlobalOverlayProps, 'children'>,
@@ -134,7 +139,7 @@ export const Dialog: FC<DialogProps> = ({
           focusTrapOptions={{
             clickOutsideDeactivates: true,
             escapeDeactivates: true,
-            fallbackFocus: `#${id}-content`
+            fallbackFocus: `#${id}-content`,
           }}
         >
           <div id={id} tabIndex={-1}>
@@ -165,7 +170,7 @@ export const Dialog: FC<DialogProps> = ({
                   id={`${id}-content`}
                   className={cn(theme.content, contentClassName, {
                     'p-[20px]': !header,
-                    'pt-0 pb-0 pl-0 pr-0': disablePadding
+                    'pt-0 pb-0 pl-0 pr-0': disablePadding,
                   })}
                 >
                   {typeof children === 'function' ? children() : children}

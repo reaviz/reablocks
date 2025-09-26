@@ -1,7 +1,10 @@
-import React, { FC, PropsWithChildren } from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import React from 'react';
+
 import { twMerge } from '@/utils';
-import { TabsTheme } from './TabsTheme';
 import { useComponentTheme } from '@/utils';
+
+import type { TabsTheme } from './TabsTheme';
 
 export interface TabPanelProps extends PropsWithChildren {
   /**
@@ -18,7 +21,7 @@ export interface TabPanelProps extends PropsWithChildren {
 export const TabPanel: FC<TabPanelProps> = ({
   children,
   className,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const theme: TabsTheme = useComponentTheme('tabs', customTheme);
   return (

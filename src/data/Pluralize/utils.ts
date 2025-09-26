@@ -32,7 +32,7 @@ export const pluralize = ({
   zero,
   singular,
   plural,
-  showCount
+  showCount,
 }: PluralizeInputs) => {
   if (count === 0 && zero) {
     return zero;

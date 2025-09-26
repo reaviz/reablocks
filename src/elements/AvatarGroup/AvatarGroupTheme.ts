@@ -7,5 +7,5 @@ export interface AvatarGroupTheme {
 export const avatarGroupTheme: AvatarGroupTheme = {
   base: 'flex items-center text-avatar-colors-text-resting',
   avatar: '-ml-2.5',
-  overflow: 'ml-[5px]'
+  overflow: 'ml-[5px]',
 };

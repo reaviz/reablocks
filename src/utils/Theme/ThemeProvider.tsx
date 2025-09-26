@@ -1,14 +1,11 @@
 'use client';
 
-import React, {
-  createContext,
-  FC,
-  PropsWithChildren,
-  useEffect,
-  useState
-} from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
+
 import { getThemeVariables, mergeDeep, observeThemeSwitcher } from './helpers';
-import { ReablocksTheme, theme as defaultTheme } from './themes/theme';
+import type { ReablocksTheme } from './themes/theme';
+import { theme as defaultTheme } from './themes/theme';
 
 export interface ThemeContextProps {
   theme: ReablocksTheme;
@@ -35,7 +32,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
     setTokens(getThemeVariables());
 
     const themeObserver = observeThemeSwitcher(() =>
-      setTokens(getThemeVariables())
+      setTokens(getThemeVariables()),
     );
 
     return () => themeObserver.disconnect();
@@ -51,7 +48,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
         theme: activeTheme,
         updateTheme,
         tokens,
-        updateTokens: setTokens
+        updateTokens: setTokens,
       }}
     >
       {children}

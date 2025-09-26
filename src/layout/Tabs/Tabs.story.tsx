@@ -1,8 +1,9 @@
 import React from 'react';
-import { Tabs } from './Tabs';
-import { TabList } from './TabList';
+
 import { Tab } from './Tab';
+import { TabList } from './TabList';
 import { TabPanel } from './TabPanel';
+import { Tabs } from './Tabs';
 
 export default {
   title: 'Components/Layout/Tabs',
@@ -10,8 +11,8 @@ export default {
   subComponents: {
     TabList,
     Tab,
-    TabPanel
-  }
+    TabPanel,
+  },
 };
 
 const Icon = () => (

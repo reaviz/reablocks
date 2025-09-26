@@ -27,7 +27,7 @@ export const useInfinityList = ({
   items,
   threshold = 3,
   size = 10,
-  nextSize
+  nextSize,
 }: InfinityListInputs) => {
   const [index, setIndex] = useState<number>(0);
   const data = useMemo(() => [...items].slice(0, index), [index, items]);
@@ -43,7 +43,7 @@ export const useInfinityList = ({
         setIndex(newIndex);
       }
     },
-    [hasMore, index, size, items, remaining, nextSize]
+    [hasMore, index, size, items, remaining, nextSize],
   );
 
   useEffect(() => {
@@ -58,6 +58,6 @@ export const useInfinityList = ({
     data,
     hasMore,
     remaining,
-    showNext
+    showNext,
   };
 };

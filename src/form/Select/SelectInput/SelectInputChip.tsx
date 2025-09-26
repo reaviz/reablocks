@@ -1,10 +1,12 @@
-import React, { FC } from 'react';
-import { SelectOptionProps } from '@/form/Select/SelectOption';
 import ellipsize from 'ellipsize';
+import type { FC } from 'react';
+import React from 'react';
+
 import { CloseIcon } from '@/form/Select/icons';
+import type { SelectOptionProps } from '@/form/Select/SelectOption';
+import type { SelectTheme } from '@/form/Select/SelectTheme';
 import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { SelectTheme } from '@/form/Select/SelectTheme';
 
 export interface SelectInputChipProps {
   /**
@@ -47,7 +49,7 @@ export interface SelectInputChipProps {
    */
   onTagKeyDown?: (
     event: React.KeyboardEvent<HTMLSpanElement>,
-    option: SelectOptionProps
+    option: SelectOptionProps,
   ) => void;
 
   /**
@@ -65,7 +67,7 @@ export const SelectInputChip: FC<SelectInputChipProps> = ({
   closeIcon = <CloseIcon />,
   onTagKeyDown,
   onSelectedChange,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const origLabel = option.inputLabel || option.children;
   const label =
@@ -73,7 +75,7 @@ export const SelectInputChip: FC<SelectInputChipProps> = ({
 
   const { selectInput: theme }: SelectTheme = useComponentTheme(
     'select',
-    customTheme
+    customTheme,
   );
 
   return (
@@ -84,7 +86,7 @@ export const SelectInputChip: FC<SelectInputChipProps> = ({
         theme.chip.focused,
         theme.chip.disabled,
         className,
-        'select-input-chip'
+        'select-input-chip',
       )}
       title={origLabel as string}
       tabIndex={-1}

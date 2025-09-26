@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
+
 import { Sort } from './Sort';
-import { SortDirection } from './utils';
+import type { SortDirection } from './utils';
 
 export default {
   title: 'Components/Data/Sort',
-  component: Sort
+  component: Sort,
 };
 
-const NeutralIcon = ({ className }) => (
+const NeutralIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="50"
@@ -25,7 +26,7 @@ const NeutralIcon = ({ className }) => (
   </svg>
 );
 
-const CustomIcon = ({ className }) => (
+const CustomIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="50"

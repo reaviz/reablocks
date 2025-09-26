@@ -11,5 +11,5 @@ export const arrowTheme: ArrowTheme = {
   up: 'rotate-180',
   down: '',
   left: 'rotate-90',
-  right: '-rotate-90'
+  right: '-rotate-90',
 };

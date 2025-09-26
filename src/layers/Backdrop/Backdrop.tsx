@@ -1,8 +1,10 @@
-import React, { FC, MouseEvent } from 'react';
 import { motion } from 'motion/react';
+import type { FC, MouseEvent } from 'react';
+import React from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
 
-import { BackdropTheme } from './BackdropTheme';
+import type { BackdropTheme } from './BackdropTheme';
 
 export interface BackdropProps {
   /**
@@ -36,7 +38,7 @@ export const Backdrop: FC<BackdropProps> = ({
   portalIndex = 0,
   className,
   theme: customTheme,
-  onClick
+  onClick,
 }) => {
   const theme = useComponentTheme<BackdropTheme>('backdrop', customTheme);
 

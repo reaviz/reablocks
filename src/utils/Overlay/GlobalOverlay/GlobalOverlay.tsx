@@ -1,13 +1,15 @@
-import React, { FC, Fragment, useCallback, useEffect, useRef } from 'react';
 import {
+  clearAllBodyScrollLocks,
   disableBodyScroll,
-  clearAllBodyScrollLocks
 } from 'body-scroll-lock-upgrade';
-import { OverlayContext } from '@/utils/Overlay/OverlayContext';
 import { AnimatePresence } from 'motion/react';
-import { OverlayPortal } from '@/utils/Overlay/OverlayPortal';
-import { useExitListener } from '@/utils/ExitListener';
+import type { FC } from 'react';
+import React, { Fragment, useCallback, useEffect, useRef } from 'react';
+
 import { Backdrop } from '@/layers/Backdrop';
+import { useExitListener } from '@/utils/ExitListener';
+import { OverlayContext } from '@/utils/Overlay/OverlayContext';
+import { OverlayPortal } from '@/utils/Overlay/OverlayPortal';
 
 export interface GlobalOverlayProps {
   /**
@@ -53,7 +55,7 @@ export const GlobalOverlay: FC<GlobalOverlayProps> = ({
   closeOnBackdropClick = true,
   backdropClassName,
   children,
-  onClose
+  onClose,
 }) => {
   const overlayRef = useRef<any | null>(null);
 
@@ -66,7 +68,7 @@ export const GlobalOverlay: FC<GlobalOverlayProps> = ({
   useExitListener({
     ref: overlayRef,
     open,
-    onEscape: () => closeOnEscape && onClose?.()
+    onEscape: () => closeOnEscape && onClose?.(),
   });
 
   useEffect(() => {
@@ -85,7 +87,7 @@ export const GlobalOverlay: FC<GlobalOverlayProps> = ({
             }
           }
           return false;
-        }
+        },
       });
     } else {
       clearAllBodyScrollLocks();
@@ -111,6 +113,7 @@ export const GlobalOverlay: FC<GlobalOverlayProps> = ({
                     className={backdropClassName}
                   />
                 )}
+                {/* eslint-disable-next-line react/no-unknown-property */}
                 <div body-scroll-lock-ignore="true">
                   {children({ overlayIndex, portalIndex })}
                 </div>

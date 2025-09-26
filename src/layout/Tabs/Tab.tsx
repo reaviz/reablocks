@@ -1,8 +1,11 @@
-import React, { FC, PropsWithChildren, ReactElement } from 'react';
-import { Button } from '@/elements/Button';
-import { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';
-import { useComponentTheme, cn } from '@/utils';
 import { motion } from 'motion/react';
+import type { FC, PropsWithChildren, ReactElement } from 'react';
+import React from 'react';
+
+import { Button } from '@/elements/Button';
+import { cn, useComponentTheme } from '@/utils';
+
+import type { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';
 
 export interface TabProps extends PropsWithChildren {
   /**
@@ -83,7 +86,7 @@ export const Tab: FC<TabProps> = ({
   start,
   end,
   onSelect,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const tabTheme: TabsTheme = useComponentTheme('tabs', customTheme);
 
@@ -100,9 +103,9 @@ export const Tab: FC<TabProps> = ({
             [tabTheme.list.tab.disabled]: disabled,
             [tabTheme.list.tab.selected]: selected,
             [tabTheme.list.variant?.[variant]?.selected]: selected,
-            [tabTheme.list.variant?.[variant]?.disabled]: disabled
+            [tabTheme.list.variant?.[variant]?.disabled]: disabled,
           },
-          tabTheme.list.tab.size?.[size]
+          tabTheme.list.tab.size?.[size],
         )}
         disabled={disabled}
         role="tab"
@@ -122,7 +125,7 @@ export const Tab: FC<TabProps> = ({
           className={cn(
             tabTheme.list.indicator?.base,
             tabTheme.list.indicator?.size?.[size],
-            tabTheme.list.variant?.[variant]?.indicator
+            tabTheme.list.variant?.[variant]?.indicator,
           )}
           layoutId={`${id}-tabs-underline`}
         />

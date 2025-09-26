@@ -1,14 +1,16 @@
+import type { RefObject } from 'react';
 import React, {
   forwardRef,
-  RefObject,
   useImperativeHandle,
   useLayoutEffect,
   useRef,
-  useState
+  useState,
 } from 'react';
+
 import { twMerge } from '@/utils';
-import { InputSizeTheme, InputTheme } from './InputTheme';
 import { useComponentTheme } from '@/utils';
+
+import type { InputSizeTheme, InputTheme } from './InputTheme';
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
@@ -122,7 +124,7 @@ export const Input = forwardRef<InputRef, InputProps>(
       theme: customTheme,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const inputRef = useRef<HTMLInputElement | null>(null);
@@ -133,7 +135,7 @@ export const Input = forwardRef<InputRef, InputProps>(
       containerRef,
       blur: () => inputRef.current?.blur(),
       focus: () => inputRef.current?.focus(),
-      select: () => inputRef.current?.select()
+      select: () => inputRef.current?.select(),
     }));
 
     useLayoutEffect(() => {
@@ -154,7 +156,7 @@ export const Input = forwardRef<InputRef, InputProps>(
           error && theme.error,
           theme.sizes[size],
           disabled && theme.disabled,
-          containerClassname
+          containerClassname,
         )}
         ref={containerRef}
       >
@@ -192,5 +194,5 @@ export const Input = forwardRef<InputRef, InputProps>(
         )}
       </div>
     );
-  }
+  },
 );

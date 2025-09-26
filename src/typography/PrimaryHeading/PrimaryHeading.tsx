@@ -1,7 +1,9 @@
-import React, { FC, forwardRef, LegacyRef } from 'react';
+import type { FC, LegacyRef } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 
 /**
  * @deprecated
@@ -62,11 +64,11 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
         theme: customTheme,
         ...rest
       }: PrimaryHeadingProps,
-      ref
+      ref,
     ) => {
       const theme: TypographyThemeDeprecated = useComponentTheme(
         'typography_deprecated',
-        customTheme
+        customTheme,
       );
 
       return (
@@ -77,12 +79,12 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
             theme.variant[variant],
             theme.primaryHeading,
             disableMargins && theme.disableMargins,
-            className
+            className,
           )}
           {...rest}
         >
           {children}
         </h2>
       );
-    }
+    },
   );

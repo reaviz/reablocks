@@ -1,7 +1,10 @@
-import React, { FC } from 'react';
-import { ArrowTheme } from './ArrowTheme';
+import type { FC } from 'react';
+import React from 'react';
+
 import { useComponentTheme } from '@/utils';
 import { twMerge } from '@/utils';
+
+import type { ArrowTheme } from './ArrowTheme';
 
 export interface ArrowProps {
   /**
@@ -23,7 +26,7 @@ export interface ArrowProps {
 export const Arrow: FC<ArrowProps> = ({
   direction = 'down',
   className,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const theme: ArrowTheme = useComponentTheme('arrow', customTheme);
 

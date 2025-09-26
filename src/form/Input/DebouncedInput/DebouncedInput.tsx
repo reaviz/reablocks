@@ -1,5 +1,8 @@
-import React, { FC, forwardRef, Ref, useEffect, useRef, useState } from 'react';
-import { Input, InputProps, InputRef } from '@/form/Input/Input';
+import type { Ref } from 'react';
+import React, { forwardRef, useEffect, useRef, useState } from 'react';
+
+import type { InputProps, InputRef } from '@/form/Input/Input';
+import { Input } from '@/form/Input/Input';
 
 export interface DebouncedInputProps extends InputProps {
   /**
@@ -11,7 +14,7 @@ export interface DebouncedInputProps extends InputProps {
 export const DebouncedInput = forwardRef<InputRef, DebouncedInputProps>(
   (
     { debounce = 100, value, onChange, onValueChange, ...rest },
-    ref: Ref<InputRef>
+    ref: Ref<InputRef>,
   ) => {
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const [internalValue, setInternalValue] = useState<
@@ -50,5 +53,5 @@ export const DebouncedInput = forwardRef<InputRef, DebouncedInputProps>(
         }}
       />
     );
-  }
+  },
 );

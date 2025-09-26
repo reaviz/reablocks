@@ -1,15 +1,11 @@
-import {
-  RefObject,
-  useCallback,
-  useEffect,
-  useLayoutEffect,
-  useState
-} from 'react';
-import { ConnectedOverlayContentRef } from '@/utils/Overlay';
+import type { RefObject } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useState } from 'react';
+
+import type { ConnectedOverlayContentRef } from '@/utils/Overlay';
 
 export const useWidth = (
   ref: RefObject<HTMLDivElement>,
-  overlayRef: RefObject<ConnectedOverlayContentRef>
+  overlayRef: RefObject<ConnectedOverlayContentRef>,
 ) => {
   const [menuWidth, setMenuWidth] = useState<number>(0);
 

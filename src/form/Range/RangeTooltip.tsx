@@ -1,7 +1,10 @@
-import React, { FC } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { RangeTheme } from './RangeTheme';
+import type { FC } from 'react';
+import React from 'react';
+
 import { useComponentTheme } from '@/utils';
+
+import type { RangeTheme } from './RangeTheme';
 
 export interface RangeProps<Value> {
   /**
@@ -82,11 +85,11 @@ export const RangeTooltip: FC<RangeTooltipProps> = ({ children, visible }) => {
           initial={{
             opacity: 0,
             scale: 0.3,
-            translateX: '-50%'
+            translateX: '-50%',
           }}
           animate={{
             opacity: 1,
-            scale: 1
+            scale: 1,
           }}
           exit={{ opacity: 0, scale: 0.3 }}
         >

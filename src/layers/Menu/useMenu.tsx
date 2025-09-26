@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import { Menu, MenuProps } from './Menu';
+
+import type { MenuProps } from './Menu';
+import { Menu } from './Menu';
 
 type MenuOptions =
   | {
@@ -35,7 +37,7 @@ export const useMenu = (prop?: MenuOptions) => {
         onClose={onCloseInternal}
       />
     ),
-    [internalOpen, onCloseInternal]
+    [internalOpen, onCloseInternal],
   );
 
   return {
@@ -43,6 +45,6 @@ export const useMenu = (prop?: MenuOptions) => {
     setOpen: setInternalOpen,
     toggleOpen: onToggleOpen,
     Menu: Component,
-    ref
+    ref,
   };
 };

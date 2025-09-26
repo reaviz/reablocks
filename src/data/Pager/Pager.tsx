@@ -1,16 +1,19 @@
-import React, { FC, Fragment, ReactNode, useCallback } from 'react';
+import type { FC, ReactNode } from 'react';
+import React, { Fragment, useCallback } from 'react';
+
+import type { PagerTheme } from '@/data';
+import { FUZZY_RANGE, getItemsRange, getPageRange } from '@/data';
+import { Pluralize } from '@/data/Pluralize';
 import { Button } from '@/elements';
 import { Stack } from '@/layout';
 import { Typography } from '@/typography';
-import { Pluralize } from '@/data/Pluralize';
+import { useComponentTheme } from '@/utils';
+import { twMerge } from '@/utils';
+
 import EndArrow from './assets/arrow-end.svg?react';
 import NextArrow from './assets/arrow-next.svg?react';
 import PreviousArrow from './assets/arrow-previous.svg?react';
 import StartArrow from './assets/arrow-start.svg?react';
-import { FUZZY_RANGE, getItemsRange, getPageRange } from '@/data';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from '@/utils';
-import { PagerTheme } from '@/data';
 
 export interface PagerProps {
   /**
@@ -98,7 +101,7 @@ export const Pager: FC<PagerProps> = ({
   nextArrow = <NextArrow />,
   onPageChange,
   displayMode = 'pages',
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const pageCount = Math.ceil(total / size);
   const canPrevious = page !== 0;
@@ -198,7 +201,7 @@ export const Pager: FC<PagerProps> = ({
                     theme.pages.page.base,
                     page === i &&
                       (activePageClassName || theme.pages.page.active),
-                    pageClassName
+                    pageClassName,
                   )}
                   onClick={() => onPageChange?.(i)}
                 >

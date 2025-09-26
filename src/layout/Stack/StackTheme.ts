@@ -30,18 +30,18 @@ export const stackTheme: StackTheme = {
     row: 'flex-row',
     column: 'flex-col',
     rowReverse: 'flex-row-reverse',
-    columnReverse: 'flex-col-reverse'
+    columnReverse: 'flex-col-reverse',
   },
   alignItems: {
     start: 'items-start',
     end: 'items-end',
     center: 'items-center',
-    stretch: 'items-stretch'
+    stretch: 'items-stretch',
   },
   justifyContent: {
     start: 'justify-start',
     end: 'justify-end',
     center: 'justify-center',
-    spaceBetween: 'justify-between'
-  }
+    spaceBetween: 'justify-between',
+  },
 };

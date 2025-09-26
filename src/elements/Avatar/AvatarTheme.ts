@@ -16,5 +16,5 @@ export const avatarTheme: AvatarTheme = {
     focus-visible:bg-avatar-colors-background-container-hover focus-visible:after:border-avatar-colors-stroke-container-hover
     cursor-pointer
   `,
-  rounded: 'rounded-full after:rounded-full'
+  rounded: 'rounded-full after:rounded-full',
 };

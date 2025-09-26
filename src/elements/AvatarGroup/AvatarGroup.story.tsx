@@ -1,10 +1,11 @@
 import React from 'react';
+
 import { Avatar } from '../Avatar';
 import { AvatarGroup } from './AvatarGroup';
 
 export default {
   title: 'Components/Elements/Avatar Group',
-  component: AvatarGroup
+  component: AvatarGroup,
 };
 
 export const Basic = () => (

@@ -1,8 +1,11 @@
-import React, { FC } from 'react';
 import { motion } from 'motion/react';
-import { DotsLoaderSizeTheme, DotsLoaderTheme } from './DotsLoaderTheme';
+import type { FC } from 'react';
+import React from 'react';
+
 import { useComponentTheme } from '@/utils';
 import { twMerge } from '@/utils';
+
+import type { DotsLoaderSizeTheme, DotsLoaderTheme } from './DotsLoaderTheme';
 
 export interface DotsLoaderProps {
   /**
@@ -30,7 +33,7 @@ export const DotsLoader: FC<DotsLoaderProps> = ({
   className,
   size = 'medium',
   speed = 0.2,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const theme: DotsLoaderTheme = useComponentTheme('dotsLoader', customTheme);
 
@@ -42,7 +45,7 @@ export const DotsLoader: FC<DotsLoaderProps> = ({
           className={twMerge(theme.dot, theme.sizes[size])}
           animate={{
             opacity: [0, 1, 0],
-            scale: [1, 2, 2, 1, 1]
+            scale: [1, 2, 2, 1, 1],
           }}
           transition={{
             duration: speed * 4,
@@ -50,7 +53,7 @@ export const DotsLoader: FC<DotsLoaderProps> = ({
             times: [0, 0.2, 0.5, 0.8, 1],
             repeat: Infinity,
             repeatDelay: speed,
-            delay: speed * i
+            delay: speed * i,
           }}
         />
       ))}

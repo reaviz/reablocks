@@ -3,13 +3,13 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
+  Breadcrumbs,
   BreadcrumbSeparator,
-  Breadcrumbs
 } from './';
 
 export default {
   title: 'Components/Layout/Breadcrumbs',
-  component: Breadcrumbs
+  component: Breadcrumbs,
 };
 
 export const Basic = () => (

@@ -1,21 +1,22 @@
-import { Meta } from '@storybook/react';
-import React, { useRef, useState } from 'react';
+import type { Meta } from '@storybook/react';
+import React, { useState } from 'react';
+
 import { usePosition } from './usePosition';
 
 const meta: Meta = {
-  title: 'Components/Utils/Position'
+  title: 'Components/Utils/Position',
 };
 
 export const Simple = () => {
   const { refs, floatingStyles } = usePosition({
-    placement: 'bottom'
+    placement: 'bottom',
   });
 
   return (
     <div
       style={{
         padding: 50,
-        border: 'solid 1px red'
+        border: 'solid 1px red',
       }}
     >
       <div
@@ -24,7 +25,7 @@ export const Simple = () => {
           width: 150,
           height: 150,
           background: 'black',
-          padding: 50
+          padding: 50,
         }}
       >
         Hello!
@@ -42,14 +43,14 @@ export const TopPosition = () => {
   const { floatingStyles } = usePosition({
     reference: reference,
     floating,
-    placement: 'top'
+    placement: 'top',
   });
 
   return (
     <div
       style={{
         padding: 50,
-        border: 'solid 1px red'
+        border: 'solid 1px red',
       }}
     >
       <div
@@ -58,7 +59,7 @@ export const TopPosition = () => {
           width: 100,
           height: 100,
           background: 'black',
-          padding: 50
+          padding: 50,
         }}
       >
         Hello!

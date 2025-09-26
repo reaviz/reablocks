@@ -1,8 +1,15 @@
-import React, { FC, forwardRef, LegacyRef } from 'react';
 import { motion } from 'motion/react';
-import { BadgeColorTheme, BadgePlacementTheme, BadgeTheme } from './BadgeTheme';
+import type { FC, LegacyRef } from 'react';
+import React, { forwardRef } from 'react';
+
 import { useComponentTheme } from '@/utils';
 import { twMerge } from '@/utils';
+
+import type {
+  BadgeColorTheme,
+  BadgePlacementTheme,
+  BadgeTheme,
+} from './BadgeTheme';
 
 export interface BadgeProps
   extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'content' | 'color'> {
@@ -57,7 +64,7 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
       theme: customTheme,
       ...rest
     }: BadgeProps,
-    ref
+    ref,
   ) => {
     const theme: BadgeTheme = useComponentTheme('badge', customTheme);
 
@@ -80,7 +87,7 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
                 theme.position,
                 theme.colors[color],
                 theme.positions[placement],
-                className
+                className,
               )}
             >
               {content}
@@ -89,5 +96,5 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
         )}
       </span>
     );
-  }
+  },
 );

@@ -1,7 +1,10 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
+
 import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { DrawerTheme } from './DrawerTheme';
+
+import type { DrawerTheme } from './DrawerTheme';
 
 export interface DrawerHeaderProps {
   /**
@@ -35,7 +38,7 @@ export const DrawerHeader: FC<DrawerHeaderProps> = ({
   className,
   showCloseButton,
   onClose,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const theme: DrawerTheme = useComponentTheme('drawer', customTheme);
 

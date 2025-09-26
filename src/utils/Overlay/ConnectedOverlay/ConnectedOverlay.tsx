@@ -1,21 +1,20 @@
-import React, {
-  FC,
-  useRef,
-  useEffect,
-  Fragment,
-  forwardRef,
-  LegacyRef,
-  useImperativeHandle,
-  useMemo
-} from 'react';
-import { TriggerTypes, OverlayTrigger } from '@/utils/Overlay/OverlayTrigger';
-import { Modifiers, Placement, ReferenceProp } from '@/utils/Position';
 import { AnimatePresence } from 'motion/react';
+import React, {
+  forwardRef,
+  Fragment,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef,
+} from 'react';
+
 import { OverlayContext } from '@/utils/Overlay/OverlayContext';
-import {
-  ConnectedOverlayContent,
-  ConnectedOverlayContentRef
-} from './ConnectedOverlayContent';
+import type { TriggerTypes } from '@/utils/Overlay/OverlayTrigger';
+import { OverlayTrigger } from '@/utils/Overlay/OverlayTrigger';
+import type { Modifiers, Placement, ReferenceProp } from '@/utils/Position';
+
+import type { ConnectedOverlayContentRef } from './ConnectedOverlayContent';
+import { ConnectedOverlayContent } from './ConnectedOverlayContent';
 
 export interface OverlayEvent {
   /**
@@ -116,11 +115,10 @@ export interface ConnectedOverlayProps {
   onClose?: (event?: any) => void;
 }
 
-export const ConnectedOverlay: FC<
-  ConnectedOverlayProps & {
-    ref?: LegacyRef<ConnectedOverlayContentRef>;
-  }
-> = forwardRef(
+export const ConnectedOverlay = forwardRef<
+  ConnectedOverlayContentRef,
+  ConnectedOverlayProps
+>(
   (
     {
       reference,
@@ -134,7 +132,7 @@ export const ConnectedOverlay: FC<
       onClose,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const mounted = useRef<boolean>(false);
     const overlayTriggerRef = useRef<any | null>(null);
@@ -144,7 +142,7 @@ export const ConnectedOverlay: FC<
     useImperativeHandle(ref, () => ({
       updatePosition: () => {
         contentRef.current?.updatePosition();
-      }
+      },
     }));
 
     useEffect(() => {
@@ -165,9 +163,9 @@ export const ConnectedOverlay: FC<
 
     const providerValue = useMemo(
       () => ({
-        close: () => onClose?.()
+        close: () => onClose?.(),
       }),
-      [onClose]
+      [onClose],
     );
 
     return (
@@ -204,5 +202,5 @@ export const ConnectedOverlay: FC<
         </AnimatePresence>
       </OverlayContext.Provider>
     );
-  }
+  },
 );

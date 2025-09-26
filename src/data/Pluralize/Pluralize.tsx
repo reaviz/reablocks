@@ -1,5 +1,8 @@
-import React, { FC, useMemo } from 'react';
-import { pluralize, PluralizeInputs } from './utils';
+import type { FC } from 'react';
+import React, { useMemo } from 'react';
+
+import type { PluralizeInputs } from './utils';
+import { pluralize } from './utils';
 
 export interface PluralizeProps extends PluralizeInputs {
   /**
@@ -14,11 +17,11 @@ export const Pluralize: FC<PluralizeProps> = ({
   className,
   showCount = true,
   plural,
-  zero
+  zero,
 }) => {
   const text = useMemo(
     () => pluralize({ count, singular, showCount, plural, zero }),
-    [count, singular, showCount, plural, zero]
+    [count, singular, showCount, plural, zero],
   );
 
   return <span className={className}>{text}</span>;

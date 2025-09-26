@@ -1,15 +1,15 @@
-import React from 'react';
 import { motion } from 'motion/react';
+import React from 'react';
+import { Controller, useForm } from 'react-hook-form';
 
-import { Block } from '../../../src/layout/Block';
 import { Button } from '../../../src/elements/Button';
-import { Card } from '../../../src/layout/Card';
-import { Divider, Stack } from '../../../src/layout';
 import { Input } from '../../../src/form/Input';
-import { useForm, Controller } from 'react-hook-form';
+import { Divider, Stack } from '../../../src/layout';
+import { Block } from '../../../src/layout/Block';
+import { Card } from '../../../src/layout/Card';
 
 export default {
-  title: 'Blocks/Authentication/MFA'
+  title: 'Blocks/Authentication/MFA',
 };
 
 const LogoIcon = ({ className }: { className?: string }) => (
@@ -966,7 +966,7 @@ export const Mfa = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -1043,17 +1043,21 @@ export const Mfa = () => {
             Are you facing any problems with receiving the code?
           </div>
           <div className="mt-2.5 mb-5 text-content-text-neutral-2 text-xs flex items-center justify-center gap-5">
-            <Button size="large" variant="text" endAdornment={
-              <svg
-                width="17"
-                height="16"
-                viewBox="0 0 17 16"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M13.1667 5.33335L10.5 8.00002H12.5C12.5 10.2067 10.7067 12 8.50002 12C7.82669 12 7.18669 11.8334 6.63335 11.5334L5.66002 12.5067C6.48002 13.0267 7.45335 13.3334 8.50002 13.3334C11.4467 13.3334 13.8334 10.9467 13.8334 8.00002H15.8334L13.1667 5.33335ZM4.50002 8.00002C4.50002 5.79335 6.29335 4.00002 8.50002 4.00002C9.17335 4.00002 9.81335 4.16669 10.3667 4.46669L11.34 3.49335C10.52 2.97335 9.54669 2.66669 8.50002 2.66669C5.55335 2.66669 3.16669 5.05335 3.16669 8.00002H1.16669L3.83335 10.6667L6.50002 8.00002H4.50002Z" />
-              </svg>
-            }>
+            <Button
+              size="large"
+              variant="text"
+              endAdornment={
+                <svg
+                  width="17"
+                  height="16"
+                  viewBox="0 0 17 16"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M13.1667 5.33335L10.5 8.00002H12.5C12.5 10.2067 10.7067 12 8.50002 12C7.82669 12 7.18669 11.8334 6.63335 11.5334L5.66002 12.5067C6.48002 13.0267 7.45335 13.3334 8.50002 13.3334C11.4467 13.3334 13.8334 10.9467 13.8334 8.00002H15.8334L13.1667 5.33335ZM4.50002 8.00002C4.50002 5.79335 6.29335 4.00002 8.50002 4.00002C9.17335 4.00002 9.81335 4.16669 10.3667 4.46669L11.34 3.49335C10.52 2.97335 9.54669 2.66669 8.50002 2.66669C5.55335 2.66669 3.16669 5.05335 3.16669 8.00002H1.16669L3.83335 10.6667L6.50002 8.00002H4.50002Z" />
+                </svg>
+              }
+            >
               Resend Code
             </Button>
           </div>
@@ -1062,17 +1066,21 @@ export const Mfa = () => {
             <span className="text-content-text-neutral-2 text-xs">
               Remember your password?
             </span>
-            <Button size="large" variant="text" startAdornment={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="17"
-                height="16"
-                viewBox="0 0 17 16"
-                fill="currentColor"
-              >
-                <path d="M13.8334 7.33335H5.72002L9.44669 3.60669L8.50002 2.66669L3.16669 8.00002L8.50002 13.3334L9.44002 12.3934L5.72002 8.66669H13.8334V7.33335Z" />
-              </svg>
-            }>
+            <Button
+              size="large"
+              variant="text"
+              startAdornment={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17"
+                  height="16"
+                  viewBox="0 0 17 16"
+                  fill="currentColor"
+                >
+                  <path d="M13.8334 7.33335H5.72002L9.44669 3.60669L8.50002 2.66669L3.16669 8.00002L8.50002 13.3334L9.44002 12.3934L5.72002 8.66669H13.8334V7.33335Z" />
+                </svg>
+              }
+            >
               Go Back
             </Button>
           </div>
@@ -1086,7 +1094,7 @@ export const MfaLogin = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -1146,19 +1154,23 @@ export const MfaLogin = () => {
           </Block>
           <Stack justifyContent="spaceBetween" className="mt-2 mb-[190px]">
             <div className="text-center text-content-text-neutral-2 text-sm">
-              Didn't receive a email?
+              Didn&apos;t receive a email?
             </div>
-            <Button variant="text" className="p-0" endAdornment={
-              <svg
-                width="17"
-                height="16"
-                viewBox="0 0 17 16"
-                fill="currentColor"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M13.1667 5.33335L10.5 8.00002H12.5C12.5 10.2067 10.7067 12 8.50002 12C7.82669 12 7.18669 11.8334 6.63335 11.5334L5.66002 12.5067C6.48002 13.0267 7.45335 13.3334 8.50002 13.3334C11.4467 13.3334 13.8334 10.9467 13.8334 8.00002H15.8334L13.1667 5.33335ZM4.50002 8.00002C4.50002 5.79335 6.29335 4.00002 8.50002 4.00002C9.17335 4.00002 9.81335 4.16669 10.3667 4.46669L11.34 3.49335C10.52 2.97335 9.54669 2.66669 8.50002 2.66669C5.55335 2.66669 3.16669 5.05335 3.16669 8.00002H1.16669L3.83335 10.6667L6.50002 8.00002H4.50002Z" />
-              </svg>
-            }>
+            <Button
+              variant="text"
+              className="p-0"
+              endAdornment={
+                <svg
+                  width="17"
+                  height="16"
+                  viewBox="0 0 17 16"
+                  fill="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M13.1667 5.33335L10.5 8.00002H12.5C12.5 10.2067 10.7067 12 8.50002 12C7.82669 12 7.18669 11.8334 6.63335 11.5334L5.66002 12.5067C6.48002 13.0267 7.45335 13.3334 8.50002 13.3334C11.4467 13.3334 13.8334 10.9467 13.8334 8.00002H15.8334L13.1667 5.33335ZM4.50002 8.00002C4.50002 5.79335 6.29335 4.00002 8.50002 4.00002C9.17335 4.00002 9.81335 4.16669 10.3667 4.46669L11.34 3.49335C10.52 2.97335 9.54669 2.66669 8.50002 2.66669C5.55335 2.66669 3.16669 5.05335 3.16669 8.00002H1.16669L3.83335 10.6667L6.50002 8.00002H4.50002Z" />
+                </svg>
+              }
+            >
               Click to resend
             </Button>
           </Stack>
@@ -1192,7 +1204,7 @@ export const MfaAuthenticator = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (

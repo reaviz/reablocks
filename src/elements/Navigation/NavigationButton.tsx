@@ -1,9 +1,12 @@
-import { cn, useComponentTheme } from '@/utils';
 import { motion } from 'motion/react';
-import React, { FC, PropsWithChildren } from 'react';
-import {
+import type { FC, PropsWithChildren } from 'react';
+import React from 'react';
+
+import { cn, useComponentTheme } from '@/utils';
+
+import type {
   NavigationButtonVariantTheme,
-  NavigationTheme
+  NavigationTheme,
 } from './NavigationTheme';
 
 interface NavigationButtonProps extends PropsWithChildren {
@@ -57,11 +60,11 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
   animated = true,
   variant = 'ghost',
   animationLayoutId,
-  onClick
+  onClick,
 }) => {
   const navigationTheme: NavigationTheme = useComponentTheme(
     'navigation',
-    theme
+    theme,
   );
 
   return (
@@ -69,7 +72,7 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
       {active && (
         <motion.div
           layoutId={
-            !animated ? undefined : animationLayoutId ?? 'selected-nav-button'
+            !animated ? undefined : (animationLayoutId ?? 'selected-nav-button')
           }
           className={navigationTheme.button.variant?.[variant]?.selection}
         />
@@ -81,7 +84,7 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
           navigationTheme.button?.variant?.[variant]?.content,
           { [navigationTheme.button?.variant?.[variant]?.active]: active },
           { [navigationTheme.button?.variant?.[variant]?.disabled]: disabled },
-          className
+          className,
         )}
         onClick={onClick}
       >

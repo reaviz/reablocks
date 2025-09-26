@@ -1,9 +1,10 @@
 import React, { Fragment, useState } from 'react';
+
 import { Radio } from './Radio';
 
 export default {
   title: 'Components/Form/Radio',
-  component: Radio
+  component: Radio,
 };
 
 export const Simple = () => {

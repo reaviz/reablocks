@@ -1,7 +1,10 @@
-import React, { forwardRef, LegacyRef, FC, PropsWithChildren } from 'react';
+import type { FC, LegacyRef, PropsWithChildren } from 'react';
+import React, { forwardRef } from 'react';
+
 import { twMerge } from '@/utils';
-import { CardTheme } from './CardTheme';
 import { useComponentTheme } from '@/utils';
+
+import type { CardTheme } from './CardTheme';
 
 export interface CardProps extends React.DOMAttributes<any> {
   /**
@@ -55,7 +58,7 @@ export const Card: FC<CardRefProps> = forwardRef(
       theme: customTheme,
       ...rest
     }: CardProps,
-    ref
+    ref,
   ) => {
     const theme: CardTheme = useComponentTheme('card', customTheme);
 
@@ -66,7 +69,7 @@ export const Card: FC<CardRefProps> = forwardRef(
         className={twMerge(
           theme.base,
           disablePadding && theme.disablePadding,
-          className
+          className,
         )}
       >
         {header && (
@@ -83,5 +86,5 @@ export const Card: FC<CardRefProps> = forwardRef(
         </div>
       </section>
     );
-  }
+  },
 );

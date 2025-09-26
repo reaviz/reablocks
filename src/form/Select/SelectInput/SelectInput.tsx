@@ -1,24 +1,27 @@
-import { SelectInputSizeTheme } from './SelectInputTheme';
+import type { FC, ReactElement, Ref, RefObject } from 'react';
 import React, {
-  FC,
-  ReactElement,
-  Ref,
-  RefObject,
   useCallback,
   useImperativeHandle,
   useMemo,
-  useRef
+  useRef,
 } from 'react';
-import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
-import { InlineInput } from '@/form/Input';
-import { DownArrowIcon } from '@/form/Select/icons/DownArrowIcon';
-import { CloseIcon } from '@/form/Select/icons/CloseIcon';
+
 import { DotsLoader } from '@/elements/Loader/DotsLoader';
+import { InlineInput } from '@/form/Input';
+import { CloseIcon } from '@/form/Select/icons/CloseIcon';
+import { DownArrowIcon } from '@/form/Select/icons/DownArrowIcon';
 import { RefreshIcon } from '@/form/Select/icons/RefreshIcon';
-import { SelectInputChip, SelectInputChipProps } from './SelectInputChip';
+import type {
+  SelectOptionProps,
+  SelectValue,
+} from '@/form/Select/SelectOption';
+import type { SelectTheme } from '@/form/Select/SelectTheme';
 import { cn, useComponentTheme } from '@/utils';
-import { SelectTheme } from '@/form/Select/SelectTheme';
 import { CloneElement } from '@/utils';
+
+import type { SelectInputChipProps } from './SelectInputChip';
+import { SelectInputChip } from './SelectInputChip';
+import type { SelectInputSizeTheme } from './SelectInputTheme';
 
 export interface SelectInputProps {
   /**
@@ -190,7 +193,9 @@ export interface SelectInputProps {
    * The function to handle focus.
    */
   onFocus?: (
-    event: React.FocusEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement>
+    event:
+      | React.FocusEvent<HTMLInputElement>
+      | React.MouseEvent<HTMLDivElement>,
   ) => void;
 
   /**
@@ -277,11 +282,11 @@ export const SelectInput: FC<SelectInputProps> = ({
   onPaste,
   onClear,
   chip = <SelectInputChip />,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const { selectInput: theme }: SelectTheme = useComponentTheme(
     'select',
-    customTheme
+    customTheme,
   );
   const containerRef = useRef<HTMLDivElement | null>(null);
   const inputRef = useRef<any | null>(null);
@@ -296,7 +301,7 @@ export const SelectInput: FC<SelectInputProps> = ({
   useImperativeHandle(reference, () => ({
     containerRef,
     inputRef,
-    focus: () => focusInput()
+    focus: () => focusInput(),
   }));
 
   const inputTextValue = useMemo(() => {
@@ -322,7 +327,7 @@ export const SelectInput: FC<SelectInputProps> = ({
       onSelectedChange(null);
       onClear?.();
     },
-    [onSelectedChange, closeOnSelect, onClear]
+    [onSelectedChange, closeOnSelect, onClear],
   );
 
   const focusInput = useCallback(() => {
@@ -343,7 +348,7 @@ export const SelectInput: FC<SelectInputProps> = ({
     (
       event:
         | React.FocusEvent<HTMLInputElement>
-        | React.MouseEvent<HTMLDivElement>
+        | React.MouseEvent<HTMLDivElement>,
     ) => {
       // On initial focus, move focus to the last character of the value
       if (!multiple && filterable && selectedOption) {
@@ -358,7 +363,7 @@ export const SelectInput: FC<SelectInputProps> = ({
 
       onFocus?.(event);
     },
-    [filterable, focusInput, multiple, onFocus, selectedOption]
+    [filterable, focusInput, multiple, onFocus, selectedOption],
   );
 
   const onContainerClick = useCallback(
@@ -367,7 +372,7 @@ export const SelectInput: FC<SelectInputProps> = ({
         focusInput();
       }
     },
-    [disabled, focusInput]
+    [disabled, focusInput],
   );
 
   const removeLastValue = useCallback(() => {
@@ -399,7 +404,7 @@ export const SelectInput: FC<SelectInputProps> = ({
 
       onKeyDown?.(event);
     },
-    [clearable, hasValue, inputText, multiple, onKeyDown, removeLastValue]
+    [clearable, hasValue, inputText, multiple, onKeyDown, removeLastValue],
   );
 
   const onInputKeyUp = useCallback(
@@ -415,7 +420,7 @@ export const SelectInput: FC<SelectInputProps> = ({
         onKeyUp?.(event);
       }
     },
-    [filterable, onKeyUp]
+    [filterable, onKeyUp],
   );
 
   const onChange = useCallback(
@@ -424,20 +429,20 @@ export const SelectInput: FC<SelectInputProps> = ({
         onInputChange(event);
       }
     },
-    [filterable, onInputChange]
+    [filterable, onInputChange],
   );
 
   const onTagKeyDown = useCallback(
     (
       event: React.KeyboardEvent<HTMLSpanElement>,
-      option: SelectOptionProps
+      option: SelectOptionProps,
     ) => {
       const key = event.key;
       if (key === 'Backspace' && !disabled && clearable) {
         onSelectedChange(option);
       }
     },
-    [clearable, disabled, onSelectedChange]
+    [clearable, disabled, onSelectedChange],
   );
 
   const renderPrefix = useCallback(() => {
@@ -447,7 +452,7 @@ export const SelectInput: FC<SelectInputProps> = ({
         return (
           <div
             className={cn(theme.prefix, 'select-input-value', {
-              [theme.multiple?.prefix]: multiple
+              [theme.multiple?.prefix]: multiple,
             })}
           >
             {multipleOptions.map(option => (
@@ -473,7 +478,7 @@ export const SelectInput: FC<SelectInputProps> = ({
             className={cn(
               theme.prefix,
               theme.single?.prefix,
-              'select-input-value'
+              'select-input-value',
             )}
           >
             {singleOption?.inputLabel}
@@ -495,7 +500,7 @@ export const SelectInput: FC<SelectInputProps> = ({
     selectedOption,
     theme.multiple,
     theme.prefix,
-    theme.single
+    theme.single,
   ]);
 
   return (
@@ -508,17 +513,17 @@ export const SelectInput: FC<SelectInputProps> = ({
           {
             [theme.disabled]: disabled,
             [theme.unfilterable]: !filterable,
-            [theme.error]: error
+            [theme.error]: error,
           },
           ...(menuOpen ? [activeClassName, theme.open] : []),
-          className
+          className,
         )}
         onClick={onContainerClick}
       >
         <div
           className={cn(theme.inputContainer, {
             [theme.multiple?.inputContainer]: multiple,
-            [theme.single?.inputContainer]: !multiple
+            [theme.single?.inputContainer]: !multiple,
           })}
           onClick={onInputFocus}
         >
@@ -534,7 +539,7 @@ export const SelectInput: FC<SelectInputProps> = ({
             inputClassName={cn(
               theme.input,
               theme.placeholder,
-              'select-input-input'
+              'select-input-input',
             )}
             value={inputTextValue}
             autoCorrect="off"
@@ -557,7 +562,7 @@ export const SelectInput: FC<SelectInputProps> = ({
               className={cn(
                 theme.suffix?.button,
                 theme.suffix?.refresh,
-                'select-input-refresh'
+                'select-input-refresh',
               )}
               onClick={onRefresh}
             >
@@ -573,7 +578,7 @@ export const SelectInput: FC<SelectInputProps> = ({
               className={cn(
                 theme.suffix?.button,
                 theme.suffix?.close,
-                'select-input-clear'
+                'select-input-clear',
               )}
               onClick={onClearValues}
             >
@@ -588,7 +593,7 @@ export const SelectInput: FC<SelectInputProps> = ({
               className={cn(
                 theme.suffix?.button,
                 theme.suffix?.expand,
-                'select-input-toggle'
+                'select-input-toggle',
               )}
               onClick={onExpandClick}
               tabIndex={-1}

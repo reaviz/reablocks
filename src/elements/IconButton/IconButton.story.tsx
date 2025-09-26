@@ -1,15 +1,13 @@
-import { IconButton } from './IconButton';
 import { Stack } from '../../layout';
-import {
-  extendTheme,
-  PartialReablocksTheme
-} from '../../utils/Theme/themes/extendTheme';
 import { ThemeProvider } from '../../utils/Theme/ThemeProvider';
+import type { PartialReablocksTheme } from '../../utils/Theme/themes/extendTheme';
+import { extendTheme } from '../../utils/Theme/themes/extendTheme';
 import { theme } from '../../utils/Theme/themes/theme';
+import { IconButton } from './IconButton';
 
 export default {
   title: 'Components/Elements/IconButton',
-  component: IconButton
+  component: IconButton,
 };
 
 const BellIcon = () => (
@@ -135,16 +133,16 @@ export const Custom = () => {
         colors: {
           primary: {
             filled:
-              'bg-pink-plasma-circuit-400 hover:bg-pink-plasma-circuit-600'
-          }
+              'bg-pink-plasma-circuit-400 hover:bg-pink-plasma-circuit-600',
+          },
         },
         iconSizes: {
           small: 'p-1',
           medium: 'p-2',
-          large: 'p-2.5'
-        }
-      }
-    }
+          large: 'p-2.5',
+        },
+      },
+    },
   };
   return (
     <ThemeProvider theme={extendTheme(theme, iconTheme)}>

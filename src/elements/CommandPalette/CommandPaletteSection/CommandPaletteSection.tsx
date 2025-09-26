@@ -1,9 +1,11 @@
-import React, { PropsWithChildren, forwardRef } from 'react';
+import type { PropsWithChildren } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 import { List, ListHeader } from '@/layout';
 import { MotionGroup, MotionItem } from '@/layout';
 import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 
 export interface CommandPaletteSectionProps extends PropsWithChildren {
   /**
@@ -33,7 +35,7 @@ export const CommandPaletteSection = forwardRef<
 >(({ children, className, title, index, theme: customTheme, ...rest }, ref) => {
   const { section: sectionTheme }: CommandPaletteTheme = useComponentTheme(
     'commandPalette',
-    customTheme
+    customTheme,
   );
 
   return (
@@ -44,7 +46,7 @@ export const CommandPaletteSection = forwardRef<
         className={twMerge(
           sectionTheme.base,
           index === 0 && sectionTheme.first,
-          className
+          className,
         )}
       >
         {title && <ListHeader>{title}</ListHeader>}

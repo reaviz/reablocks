@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
+
 import { Button } from '@/elements';
+import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { monthNames } from '@/form/Calendar/utils';
 import { cn, useComponentTheme } from '@/utils';
-import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 
 export interface CalendarMonthsProps {
   /**
@@ -24,7 +26,7 @@ export interface CalendarMonthsProps {
 export const CalendarMonths: FC<CalendarMonthsProps> = ({
   value,
   onChange,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const { months }: CalendarTheme = useComponentTheme('calendar', customTheme);
 

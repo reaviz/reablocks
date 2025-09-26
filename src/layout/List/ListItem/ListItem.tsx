@@ -1,5 +1,7 @@
-import React, { FC, InputHTMLAttributes, LegacyRef, forwardRef } from 'react';
-import { ListTheme } from '@/layout/List/ListTheme';
+import type { FC, InputHTMLAttributes, LegacyRef } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { ListTheme } from '@/layout/List/ListTheme';
 import { cn, useComponentTheme } from '@/utils';
 
 export interface ListItemProps extends InputHTMLAttributes<HTMLDivElement> {
@@ -76,7 +78,7 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
       theme: customTheme,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const theme: ListTheme = useComponentTheme('list', customTheme);
 
@@ -95,7 +97,7 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
           onClick && !disabled && theme.listItem.clickable,
           disablePadding && theme.listItem.disablePadding,
           disableGutters && theme.listItem.disableGutters,
-          className
+          className,
         )}
       >
         {start && (
@@ -103,7 +105,7 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
             className={cn(
               theme.listItem.adornment.base,
               theme.listItem.adornment.start,
-              { [theme.listItem.dense.startAdornment]: dense }
+              { [theme.listItem.dense.startAdornment]: dense },
             )}
           >
             {start}
@@ -113,9 +115,9 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
           className={cn(
             theme.listItem.content,
             {
-              [theme.listItem.dense.content]: dense
+              [theme.listItem.dense.content]: dense,
             },
-            contentClassName
+            contentClassName,
           )}
         >
           {children}
@@ -125,7 +127,7 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
             className={cn(
               theme.listItem.adornment.base,
               theme.listItem.adornment.end,
-              { [theme.listItem.dense.endAdornment]: dense }
+              { [theme.listItem.dense.endAdornment]: dense },
             )}
           >
             {end}
@@ -133,5 +135,5 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
         )}
       </div>
     );
-  }
+  },
 );

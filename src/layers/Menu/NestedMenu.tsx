@@ -1,16 +1,18 @@
+import classNames from 'classnames';
+import type { MotionNodeAnimationOptions } from 'motion';
 import React, {
   forwardRef,
   Fragment,
   useCallback,
   useImperativeHandle,
   useRef,
-  useState
+  useState,
 } from 'react';
-import { OverlayEvent } from '@/utils/Overlay';
-import { Placement } from '@/utils/Position';
+
+import type { OverlayEvent } from '@/utils/Overlay';
+import type { Placement } from '@/utils/Position';
+
 import { Menu } from './Menu';
-import classNames from 'classnames';
-import { MotionNodeAnimationOptions } from 'motion';
 
 export interface NestedMenuRef {
   /**
@@ -119,9 +121,9 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
       closeOnBodyClick = true,
       closeOnEscape = true,
       animation,
-      onClose
+      onClose,
     },
-    ref
+    ref,
   ) => {
     const [active, setActive] = useState<boolean>(false);
     const itemRef = useRef<HTMLDivElement | null>(null);
@@ -168,7 +170,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
           }
         }, leaveDelay);
       },
-      [leaveDelay]
+      [leaveDelay],
     );
 
     const onNestedMenuClose = useCallback(
@@ -176,7 +178,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
         setActive(false);
         onClose?.(event);
       },
-      [onClose]
+      [onClose],
     );
 
     /**
@@ -185,7 +187,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
     useImperativeHandle(ref, () => ({
       close: () => {
         setActive(false);
-      }
+      },
     }));
 
     return (
@@ -220,5 +222,5 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
         </Menu>
       </Fragment>
     );
-  }
+  },
 );

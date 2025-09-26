@@ -24,6 +24,6 @@ export const dialogTheme: DialogTheme = {
     closeButton: `
       p-0 m-0 ml-[15px] size-auto inline-flex bg-none border-none cursor-pointer items-center text-[16px] focus:outline-hidden
       text-color-content-assets-neutral-base
-    `
-  }
+    `,
+  },
 };

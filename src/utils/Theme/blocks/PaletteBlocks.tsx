@@ -1,4 +1,6 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
+
 import { ColorBlock } from './ColorBlocks';
 
 export interface PaletteBlocksProps {
@@ -10,7 +12,7 @@ export const PaletteBlocks: FC<PaletteBlocksProps> = ({ palettes }) => (
     style={{
       padding: '4px 8px',
       color: 'var(--body-color)',
-      width: '100%'
+      width: '100%',
     }}
   >
     {Object.keys(palettes).map(key => (
@@ -22,7 +24,7 @@ export const PaletteBlocks: FC<PaletteBlocksProps> = ({ palettes }) => (
             display: 'grid',
             gap: 12,
             gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
-            borderRadius: '4px'
+            borderRadius: '4px',
           }}
         >
           {Object.keys(palettes[key]).map(item => (

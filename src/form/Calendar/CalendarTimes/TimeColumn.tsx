@@ -1,4 +1,6 @@
-import React, { FC, useCallback, useEffect, useRef } from 'react';
+import type { FC } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
+
 import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { cn } from '@/utils';
 
@@ -60,7 +62,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
   theme,
   isPM = false,
   is12HourCycle = false,
-  onSelect
+  onSelect,
 }) => {
   const containerRef = useRef<HTMLUListElement | null>(null);
   const selectedRef = useRef<HTMLLIElement | null>(null);
@@ -86,7 +88,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
         return false;
       }
     },
-    [options.length, is12HourCycle, isPM, min, max]
+    [options.length, is12HourCycle, isPM, min, max],
   );
 
   useEffect(() => {
@@ -107,7 +109,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
 
       container.scrollTo({
         top: scrollTop,
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   }, [value, is12HourCycle]);
@@ -121,7 +123,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
           paddingBottom:
             is12HourCycle && containerRef.current
               ? containerRef.current?.clientHeight - 24
-              : undefined
+              : undefined,
         }}
       >
         {options.map(option => (
@@ -130,7 +132,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
             ref={value === option ? selectedRef : null}
             className={cn(theme.items.item.base, {
               [theme.items.item.selected]: value === option,
-              [theme.items.item.disabled]: isOptionDisabled(option) || disabled
+              [theme.items.item.disabled]: isOptionDisabled(option) || disabled,
             })}
             onClick={() => {
               if (isOptionDisabled(option)) {

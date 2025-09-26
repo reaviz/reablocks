@@ -31,8 +31,8 @@ export const calloutTheme: CalloutTheme = {
         'bg-notifications-colors-background-error-resting border-notifications-colors-stroke-error-resting',
       warning:
         'bg-notifications-colors-background-warning-resting border-notifications-colors-stroke-warning-resting',
-      info: 'bg-notifications-colors-background-info-resting border-notifications-colors-stroke-info-resting'
-    }
+      info: 'bg-notifications-colors-background-info-resting border-notifications-colors-stroke-info-resting',
+    },
   },
   icon: {
     common: '',
@@ -41,8 +41,8 @@ export const calloutTheme: CalloutTheme = {
       success: 'text-notifications-colors-assets-success-resting',
       error: 'text-notifications-colors-assets-destructive-resting',
       warning: 'text-notifications-colors-assets-warning-static',
-      info: 'text-notifications-colors-assets-info-resting'
-    }
+      info: 'text-notifications-colors-assets-info-resting',
+    },
   },
-  text: 'text-notifications-colors-text-title-resting'
+  text: 'text-notifications-colors-text-title-resting',
 };

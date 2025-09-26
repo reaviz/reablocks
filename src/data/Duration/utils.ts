@@ -9,13 +9,13 @@ const timeScale = new humanFormat.Scale({
   min: 60 * 1000,
   hr: 3600 * 1000,
   day: 86400 * 1000,
-  month: 2592000 * 1000
+  month: 2592000 * 1000,
 });
 
 export function formatDuration(
   time: DurationFormatTypes,
   emptyValue = 'N/A',
-  zeroValue = '0 ms'
+  zeroValue = '0 ms',
 ) {
   let newTime = time;
 

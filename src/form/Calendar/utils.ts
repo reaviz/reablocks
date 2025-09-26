@@ -1,30 +1,30 @@
 import {
   addDays,
+  differenceInMinutes,
+  differenceInSeconds,
+  endOfDay,
   format,
+  getDate,
   getDay,
   getDaysInMonth,
-  getDate,
-  getISODay,
-  isAfter,
-  isBefore,
-  isValid,
-  isSameDay,
-  isSameMonth,
-  startOfMonth,
-  min,
-  max,
-  subDays,
-  isWithinInterval,
-  endOfDay,
-  startOfDay,
   getHours,
+  getISODay,
   getMinutes,
   getSeconds,
-  setMinutes,
+  isAfter,
+  isBefore,
+  isSameDay,
+  isSameMonth,
+  isValid,
+  isWithinInterval,
+  max,
+  min,
   setHours,
+  setMinutes,
   setSeconds,
-  differenceInSeconds,
-  differenceInMinutes
+  startOfDay,
+  startOfMonth,
+  subDays,
 } from 'date-fns';
 
 /**
@@ -34,7 +34,7 @@ import {
  */
 export function getMonthNames(
   locale?: string,
-  format: 'long' | 'numeric' | '2-digit' | 'short' | 'narrow' = 'short'
+  format: 'long' | 'numeric' | '2-digit' | 'short' | 'narrow' = 'short',
 ) {
   if (!locale && typeof window !== 'undefined') {
     locale = navigator.language;
@@ -42,7 +42,7 @@ export function getMonthNames(
 
   const formatter = new Intl.DateTimeFormat(locale, {
     month: format,
-    timeZone: 'UTC'
+    timeZone: 'UTC',
   });
 
   const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(month => {
@@ -62,7 +62,7 @@ export function getDayLabels(locale?: string) {
     }
 
     return new Intl.DateTimeFormat(locale, {
-      weekday: 'short'
+      weekday: 'short',
     }).format(new Date(1970, 0, 4 + i)); // 1970/01/04 is a Sunday
   });
 }
@@ -85,7 +85,7 @@ export interface DayOptions {
 
 export function getWeeks(
   date: Date,
-  options: DayOptions = { format: 'MM/dd/yyyy' }
+  options: DayOptions = { format: 'MM/dd/yyyy' },
 ): Day[][] {
   if (!date) {
     throw new Error('A date is required');
@@ -99,10 +99,7 @@ export function getWeeks(
   let offset = getDay(day);
   const numOfWeeks = Math.ceil((daysInMonth + offset) / 7);
 
-  // @ts-ignore
-  const weeks: Day[][] = Array.apply(null, {
-    length: numOfWeeks
-  }).map(() => []);
+  const weeks: Day[][] = Array.from({ length: numOfWeeks }, () => []);
 
   const current = new Date();
 
@@ -116,7 +113,7 @@ export function getWeeks(
       isPreviousMonth: true,
       isNextMonth: false,
       isToday: false,
-      formattedDate: format(offsetDay, options.format)
+      formattedDate: format(offsetDay, options.format),
     });
   }
 
@@ -129,7 +126,7 @@ export function getWeeks(
         isToday: isSameDay(day, current),
         isNextMonth: !isSameMonth(day, date),
         isWeekendDay: getISODay(day) > 5,
-        formattedDate: format(day, options.format)
+        formattedDate: format(day, options.format),
       });
       day = addDays(day, 1);
     }
@@ -156,7 +153,7 @@ export function getDayAttributes(
     | [undefined, undefined]
     | undefined,
   hover: Date,
-  isRange: boolean
+  isRange: boolean,
 ) {
   let isActive = false;
   let isRangeStart = false;
@@ -184,7 +181,7 @@ export function getDayAttributes(
     // if a range has been selected
     const activeRange: [Date, Date] = [
       startOfDay(current[0]),
-      endOfDay(current[1])
+      endOfDay(current[1]),
     ];
     isActive = isInRange(day, activeRange);
     isRangeStart = isSameDay(day, current[0]);
@@ -193,7 +190,7 @@ export function getDayAttributes(
     // if in the process of selecting a range
     const activeRange: [Date, Date] = [
       startOfDay(current[0]),
-      endOfDay(hover ?? current[0])
+      endOfDay(hover ?? current[0]),
     ];
     isActive = isInRange(day, activeRange);
     isRangeStart = isSameDay(day, min(activeRange));
@@ -209,7 +206,7 @@ export function getDayAttributes(
 export function isNextWeekEmpty(
   day: Date,
   range: [Date, Date],
-  hideNextMonth: boolean
+  hideNextMonth: boolean,
 ) {
   const nextWeek = addDays(day, 7);
   const nextWeekInRange =
@@ -224,7 +221,7 @@ export function isNextWeekEmpty(
 export function isPreviousWeekEmpty(
   day: Date,
   range: [Date, Date],
-  hidePrevMonth: boolean
+  hidePrevMonth: boolean,
 ) {
   const prevWeek = addDays(day, -7);
   const prevWeekInRange =
@@ -246,7 +243,7 @@ export function updateDateTime(
   currentDate: Date | [Date, Date],
   newDate: Date,
   isRange = false,
-  rangeStart = false
+  rangeStart = false,
 ): Date {
   let finalDate = newDate;
   if (currentDate) {
@@ -259,27 +256,27 @@ export function updateDateTime(
       if (!isRange) {
         // For single date, inherit time from previous value
         const originalTimeSource = Array.isArray(currentDate)
-          ? currentDate[0] ?? new Date()
-          : currentDate ?? new Date();
+          ? (currentDate[0] ?? new Date())
+          : (currentDate ?? new Date());
         finalDate = setSeconds(
           setMinutes(
             setHours(newDate, getHours(originalTimeSource)),
-            getMinutes(originalTimeSource)
+            getMinutes(originalTimeSource),
           ),
-          getSeconds(originalTimeSource)
+          getSeconds(originalTimeSource),
         );
       } else {
         // For range, only inherit time for first date
         if (!rangeStart) {
           const originalTimeSource = Array.isArray(currentDate)
-            ? currentDate[0] ?? new Date()
-            : currentDate ?? new Date();
+            ? (currentDate[0] ?? new Date())
+            : (currentDate ?? new Date());
           finalDate = setSeconds(
             setMinutes(
               setHours(newDate, getHours(originalTimeSource)),
-              getMinutes(originalTimeSource)
+              getMinutes(originalTimeSource),
             ),
-            getSeconds(originalTimeSource)
+            getSeconds(originalTimeSource),
           );
         } else {
           // Reset time to start of day for second date
@@ -301,17 +298,17 @@ export function updateDateTime(
 export const isPresetActive = (
   presetValue: Date | [Date, Date],
   value: Date | [Date, Date],
-  includeTime = false
+  includeTime = false,
 ): boolean => {
   if (!value) return false;
 
   if (Array.isArray(presetValue) && Array.isArray(value)) {
     if (includeTime) {
       const startMinutesDiff = Math.abs(
-        differenceInMinutes(presetValue[0], value[0])
+        differenceInMinutes(presetValue[0], value[0]),
       );
       const endMinutesDiff = Math.abs(
-        differenceInMinutes(presetValue[1], value[1])
+        differenceInMinutes(presetValue[1], value[1]),
       );
 
       return startMinutesDiff === 0 && endMinutesDiff === 0;

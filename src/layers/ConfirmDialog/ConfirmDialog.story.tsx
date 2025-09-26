@@ -1,7 +1,10 @@
-import { useCallback, useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import { ConfirmDialog, ConfirmDialogProps } from './ConfirmDialog';
+import { useCallback, useState } from 'react';
+
 import { Button } from '@/elements/Button';
+
+import type { ConfirmDialogProps } from './ConfirmDialog';
+import { ConfirmDialog } from './ConfirmDialog';
 
 const meta: Meta<typeof ConfirmDialog> = {
   title: 'Components/Layers/Confirm Dialog',
@@ -12,8 +15,8 @@ const meta: Meta<typeof ConfirmDialog> = {
     confirmLabel: { control: 'text' },
     cancelLabel: { control: 'text' },
     onConfirm: { action: 'confirmed' },
-    onCancel: { action: 'cancelled' }
-  }
+    onCancel: { action: 'cancelled' },
+  },
 };
 
 export default meta;
@@ -22,8 +25,10 @@ type Story = StoryObj<ConfirmDialogProps>;
 
 export const Default: Story = {
   render: args => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const handleConfirm = useCallback(
       function (): void {
         if (args.onConfirm) {
@@ -31,9 +36,10 @@ export const Default: Story = {
         }
         setIsOpen(false);
       },
-      [args, setIsOpen]
+      [args, setIsOpen],
     );
 
+    // eslint-disable-next-line react-hooks/rules-of-hooks
     const handleCancel = useCallback(
       function (): void {
         if (args.onCancel) {
@@ -41,7 +47,7 @@ export const Default: Story = {
         }
         setIsOpen(false);
       },
-      [args, setIsOpen]
+      [args, setIsOpen],
     );
 
     return (
@@ -66,6 +72,6 @@ export const Default: Story = {
     header: 'Confirm Action',
     content: 'Are you sure you want to proceed?',
     confirmLabel: 'Confirm',
-    cancelLabel: 'Cancel'
-  }
+    cancelLabel: 'Cancel',
+  },
 };

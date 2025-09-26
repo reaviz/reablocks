@@ -38,12 +38,12 @@ export const navigationTheme: NavigationTheme = {
   `,
     direction: {
       vertical: 'flex-col ',
-      horizontal: 'flex-row border-none p-0'
+      horizontal: 'flex-row border-none p-0',
     },
     start: 'py-4',
     navigation:
       'flex-1 flex flex-col gap-(--navigation-details-space-between-items-left-nav)',
-    end: ''
+    end: '',
   },
   button: {
     base: 'group relative',
@@ -70,7 +70,7 @@ export const navigationTheme: NavigationTheme = {
         disabled: `
           opacity-40 cursor-not-allowed font-normal text-navigation-colors-text-resting bg-transparent border-transparent
           hover:text-navigation-colors-text-resting hover:bg-transparent hover:border-transparent
-        `
+        `,
       },
       underline: {
         content: `
@@ -93,8 +93,8 @@ export const navigationTheme: NavigationTheme = {
         disabled: `
           opacity-40 cursor-not-allowed font-normal text-navigation-colors-text-resting bg-transparent border-transparent
           hover:text-navigation-colors-text-resting hover:bg-transparent hover:border-transparent
-        `
-      }
-    }
-  }
+        `,
+      },
+    },
+  },
 };

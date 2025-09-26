@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+
 import { DebouncedInput } from './DebouncedInput';
 
 export default {
   title: 'Components/Form/Debounced Input',
-  component: DebouncedInput
+  component: DebouncedInput,
 };
 
 export const Basic = () => {

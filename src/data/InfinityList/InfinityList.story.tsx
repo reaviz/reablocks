@@ -3,7 +3,7 @@ import { useInfinityList } from './useInfinityList';
 
 export default {
   title: 'Components/Data/InfinityList',
-  component: InfinityList
+  component: InfinityList,
 };
 
 const items = [...Array(50).keys()];

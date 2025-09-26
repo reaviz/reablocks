@@ -1,5 +1,7 @@
-import { calendarTheme, CalendarTheme } from '@/form/Calendar';
-import { inputTheme, InputTheme } from '@/form/Input';
+import type { CalendarTheme } from '@/form/Calendar';
+import { calendarTheme } from '@/form/Calendar';
+import type { InputTheme } from '@/form/Input';
+import { inputTheme } from '@/form/Input';
 
 export interface DateInputTheme {
   input: InputTheme;
@@ -20,7 +22,7 @@ export const dateInputTheme: DateInputTheme = {
     list: 'w-full',
     option: {
       base: '',
-      active: ''
-    }
-  }
+      active: '',
+    },
+  },
 };

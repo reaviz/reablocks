@@ -1,7 +1,10 @@
+import { describe, expect, it } from 'vitest';
+
 import { cn } from '@/utils/Theme/helpers';
-import { ReablocksTheme } from '@/utils/Theme/themes/theme';
-import { extendTheme, PartialReablocksTheme } from './extendTheme';
-import { describe, it, expect } from 'vitest';
+import type { ReablocksTheme } from '@/utils/Theme/themes/theme';
+
+import type { PartialReablocksTheme } from './extendTheme';
+import { extendTheme } from './extendTheme';
 
 describe('extendTheme', () => {
   const defaultTheme: PartialReablocksTheme = {
@@ -9,10 +12,10 @@ describe('extendTheme', () => {
       button: {
         sizes: {
           small: 'text-xs px-2 py-[5px]',
-          medium: 'text-sm px-3 py-[7px]'
-        }
-      }
-    }
+          medium: 'text-sm px-3 py-[7px]',
+        },
+      },
+    },
   };
 
   it('should return the default theme when no overrides are provided', () => {
@@ -26,10 +29,10 @@ describe('extendTheme', () => {
       components: {
         button: {
           sizes: {
-            small: 'text-lg'
-          }
-        }
-      }
+            small: 'text-lg',
+          },
+        },
+      },
     };
 
     const result = extendTheme(defaultTheme as ReablocksTheme, theme);
@@ -43,10 +46,10 @@ describe('extendTheme', () => {
       components: {
         button: {
           sizes: {
-            small: 'text-lg'
-          }
-        }
-      }
+            small: 'text-lg',
+          },
+        },
+      },
     };
 
     const result = extendTheme(
@@ -57,7 +60,7 @@ describe('extendTheme', () => {
           return cn(source, target);
         }
         return undefined;
-      }
+      },
     );
 
     expect(result.components.button.sizes.small).toBe('px-2 py-[5px] text-lg');

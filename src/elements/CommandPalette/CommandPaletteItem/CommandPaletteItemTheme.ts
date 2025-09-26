@@ -7,5 +7,5 @@ export interface CommandPaletteItemTheme {
 export const commandPaletteItemTheme: CommandPaletteItemTheme = {
   base: 'transition-colors ease-in-out duration-200',
   active: 'bg-background-brand-base',
-  clickable: 'cursor-pointer hover:bg-background-brand-base/70'
+  clickable: 'cursor-pointer hover:bg-background-brand-base/70',
 };

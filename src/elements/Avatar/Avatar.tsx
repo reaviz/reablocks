@@ -1,9 +1,12 @@
-import React, { FC, LegacyRef, forwardRef, useMemo } from 'react';
-import getInitials from 'name-initials';
 import { generateColor } from '@marko19907/string-to-color';
+import getInitials from 'name-initials';
+import type { FC, LegacyRef } from 'react';
+import React, { forwardRef, useMemo } from 'react';
+
 import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { AvatarTheme } from './AvatarTheme';
+
+import type { AvatarTheme } from './AvatarTheme';
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -75,7 +78,7 @@ export const Avatar: FC<AvatarProps> & AvatarRef = forwardRef<
       theme: customTheme,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const fontSize = size * 0.4;
 
@@ -102,7 +105,7 @@ export const Avatar: FC<AvatarProps> & AvatarRef = forwardRef<
           theme.base,
           rounded && theme.rounded,
           rest.onClick && theme.clickable,
-          className
+          className,
         )}
         style={{
           width: `${size}px`,
@@ -113,13 +116,13 @@ export const Avatar: FC<AvatarProps> & AvatarRef = forwardRef<
           ...(variant === 'outline' && {
             backgroundColor: 'transparent',
             border: `solid 1px ${backgroundColor}`,
-            color: backgroundColor
-          })
+            color: backgroundColor,
+          }),
         }}
         ref={ref}
       >
         {!src && name && <span>{initials}</span>}
       </div>
     );
-  }
+  },
 );

@@ -17,6 +17,6 @@ export const dotsLoaderTheme: DotsLoaderTheme = {
   sizes: {
     small: 'size-1 m-1',
     medium: 'size-1.5 m-1.5',
-    large: 'size-2 m-2'
-  }
+    large: 'size-2 m-2',
+  },
 };

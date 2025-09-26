@@ -1,17 +1,20 @@
+import { motion, useMotionValue } from 'motion/react';
+import type { FC } from 'react';
 import React, {
   useCallback,
   useEffect,
+  useLayoutEffect,
+  useMemo,
   useRef,
   useState,
-  FC,
-  useMemo,
-  useLayoutEffect
 } from 'react';
-import { motion, useMotionValue } from 'motion/react';
-import { RangeProps, RangeTooltip } from './RangeTooltip';
+
 import { twMerge } from '@/utils';
 import { cn, useComponentTheme } from '@/utils';
-import { RangeTheme } from './RangeTheme';
+
+import type { RangeTheme } from './RangeTheme';
+import type { RangeProps } from './RangeTooltip';
+import { RangeTooltip } from './RangeTooltip';
 
 export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   disabled,
@@ -25,7 +28,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   valueFormat = value => value.toLocaleString(),
   onChange,
   theme: customTheme,
-  step = 1
+  step = 1,
 }) => {
   const minValueBetween = step;
   const [minValue, maxValue] = value;
@@ -34,7 +37,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
     maxValue < initialMinValue + minValueBetween
       ? initialMinValue + minValueBetween
       : maxValue,
-    max
+    max,
   );
 
   const [currentMin, setCurrentMin] = useState(initialMinValue);
@@ -49,7 +52,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
 
   const fractionDigits = useMemo(
     () => step.toString()?.[1]?.length || 0,
-    [step]
+    [step],
   );
 
   const getValue = (xPosition: number): number => {
@@ -70,7 +73,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
 
   const getPosition = useCallback(
     (value: number): number => ((value - min) / (max - min)) * rangeWidth,
-    [min, max, rangeWidth]
+    [min, max, rangeWidth],
   );
 
   const minSpaceBetween = getPosition(min + minValueBetween);
@@ -81,10 +84,12 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
       if (newMin <= currentMax - minValueBetween) {
         setCurrentMin(newMin);
         minX.set(getPosition(newMin));
-        notifyChange && onChange?.([newMin, currentMax]);
+        if (notifyChange) {
+          onChange?.([newMin, currentMax]);
+        }
       }
     },
-    [currentMax, min, minX, getPosition, onChange, minValueBetween]
+    [currentMax, min, minX, getPosition, onChange, minValueBetween],
   );
 
   const updateCurrentMax = useCallback(
@@ -93,10 +98,12 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
       if (newMax >= currentMin + minValueBetween) {
         setCurrentMax(newMax);
         maxX.set(getPosition(newMax));
-        notifyChange && onChange?.([currentMin, newMax]);
+        if (notifyChange) {
+          onChange?.([currentMin, newMax]);
+        }
       }
     },
-    [currentMin, max, maxX, getPosition, onChange, minValueBetween]
+    [currentMin, max, maxX, getPosition, onChange, minValueBetween],
   );
 
   useLayoutEffect(() => {
@@ -161,14 +168,14 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
         }}
         dragConstraints={{
           left: 0,
-          right: maxX.get() - minSpaceBetween
+          right: maxX.get() - minSpaceBetween,
         }}
         dragElastic={false}
       >
         <div
           className={twMerge(
             theme.inputWrapper.base,
-            disabled && theme.inputWrapper.disabled
+            disabled && theme.inputWrapper.disabled,
           )}
         >
           <input
@@ -206,14 +213,14 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
         }}
         dragConstraints={{
           left: minX.get() + minSpaceBetween,
-          right: rangeWidth
+          right: rangeWidth,
         }}
         dragElastic={false}
       >
         <div
           className={twMerge(
             theme.inputWrapper.base,
-            disabled && theme.inputWrapper.disabled
+            disabled && theme.inputWrapper.disabled,
           )}
         >
           <input
@@ -238,11 +245,11 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
       </motion.div>
       <div
         className={cn(theme.rangeHighlight.base, {
-          [theme.rangeHighlight.disabled]: disabled
+          [theme.rangeHighlight.disabled]: disabled,
         })}
         style={{
           width: `${maxPercentage - minPercentage}%`,
-          marginLeft: `${minPercentage}%`
+          marginLeft: `${minPercentage}%`,
         }}
       />
     </div>

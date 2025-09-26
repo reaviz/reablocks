@@ -1,9 +1,10 @@
 import React from 'react';
+
 import { Arrow } from './Arrow';
 
 export default {
   title: 'Components/Elements/Arrow',
-  components: Arrow
+  components: Arrow,
 };
 
 export const Directions = () => (

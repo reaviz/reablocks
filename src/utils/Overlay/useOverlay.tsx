@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { OverlayContext } from './OverlayContext';
 
 /**
@@ -9,7 +10,7 @@ export const useOverlay = () => {
 
   if (context === undefined) {
     throw new Error(
-      '`useOverlay` hook can only be used inside a overlay component.'
+      '`useOverlay` hook can only be used inside a overlay component.',
     );
   }
 

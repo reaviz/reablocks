@@ -1,16 +1,16 @@
 import { differenceInDays } from 'date-fns';
-import { describe, test, expect } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { vi } from 'vitest';
 
 import {
   getDayAttributes,
   getDayLabels,
+  getMonthNames,
   getWeeks,
   isNextWeekEmpty,
+  isPresetActive,
   isPreviousWeekEmpty,
   updateDateTime,
-  isPresetActive,
-  getMonthNames
 } from './utils';
 
 describe('getDayLabels', () => {
@@ -30,7 +30,7 @@ describe('getDayLabels', () => {
       'mer.',
       'jeu.',
       'ven.',
-      'sam.'
+      'sam.',
     ]);
   });
 
@@ -49,7 +49,7 @@ const expectContigousDays = month => {
     weeks.map(day => {
       expect(differenceInDays(day.date, firstDayOfCalendar)).toEqual(i);
       i++;
-    })
+    }),
   );
 };
 
@@ -87,7 +87,7 @@ describe('days in each week', () => {
   [
     ['given a month that spans 4 weeks', new Date(2015, 1, 1)],
     ['given a month that spans 5 weeks', new Date(2018, 9, 1)],
-    ['given a month that spans 6 weeks', new Date(2018, 8, 1)]
+    ['given a month that spans 6 weeks', new Date(2018, 8, 1)],
   ].forEach(numDays);
 });
 
@@ -254,7 +254,7 @@ describe('updateDateTime', () => {
   test('returns newDate as-is if it already has a time (range)', () => {
     const currentDate: [Date, Date] = [
       new Date(2024, 2, 7, 10, 30, 15),
-      new Date(2024, 2, 8, 11, 0, 0)
+      new Date(2024, 2, 8, 11, 0, 0),
     ];
     const newDate = new Date(2024, 2, 9, 14, 20, 10);
     const result = updateDateTime(currentDate, newDate, true, false);
@@ -265,7 +265,7 @@ describe('updateDateTime', () => {
   test('inherits time from first date in currentDate if newDate has no time (range, rangeStart=false)', () => {
     const currentDate: [Date, Date] = [
       new Date(2024, 2, 7, 10, 30, 15),
-      new Date(2024, 2, 8, 11, 0, 0)
+      new Date(2024, 2, 8, 11, 0, 0),
     ];
     const newDate = new Date(2024, 2, 9, 0, 0, 0);
     const result = updateDateTime(currentDate, newDate, true, false);
@@ -281,7 +281,7 @@ describe('updateDateTime', () => {
   test('resets time to 00:00:00 if newDate has no time (range, rangeStart=true)', () => {
     const currentDate: [Date, Date] = [
       new Date(2024, 2, 7, 10, 30, 15),
-      new Date(2024, 2, 8, 11, 0, 0)
+      new Date(2024, 2, 8, 11, 0, 0),
     ];
     const newDate = new Date(2024, 2, 9, 0, 0, 0);
     const result = updateDateTime(currentDate, newDate, true, true);
@@ -305,7 +305,7 @@ describe('updateDateTime', () => {
   test('handles currentDate as array with undefined first element', () => {
     const currentDate: [Date | undefined, Date | undefined] = [
       undefined,
-      undefined
+      undefined,
     ];
     const newDate = new Date(2024, 2, 9, 0, 0, 0);
     const result = updateDateTime(currentDate as any, newDate, true, false);
@@ -334,11 +334,11 @@ describe('isPresetActive', () => {
   test('returns true for identical date ranges', () => {
     const range1: [Date, Date] = [
       new Date(2024, 5, 10, 0, 0, 0),
-      new Date(2024, 5, 15, 23, 59, 59)
+      new Date(2024, 5, 15, 23, 59, 59),
     ];
     const range2: [Date, Date] = [
       new Date(2024, 5, 10, 0, 0, 0),
-      new Date(2024, 5, 15, 23, 59, 59)
+      new Date(2024, 5, 15, 23, 59, 59),
     ];
 
     expect(isPresetActive(range1, range2)).toBe(true);
@@ -347,11 +347,11 @@ describe('isPresetActive', () => {
   test('returns false for different date ranges', () => {
     const range1: [Date, Date] = [
       new Date(2024, 5, 10, 0, 0, 0),
-      new Date(2024, 5, 15, 23, 59, 59)
+      new Date(2024, 5, 15, 23, 59, 59),
     ];
     const range2: [Date, Date] = [
       new Date(2024, 5, 11, 0, 0, 0),
-      new Date(2024, 5, 16, 23, 59, 59)
+      new Date(2024, 5, 16, 23, 59, 59),
     ];
 
     expect(isPresetActive(range1, range2)).toBe(false);
@@ -361,7 +361,7 @@ describe('isPresetActive', () => {
     const date = new Date(2024, 5, 10, 12, 0, 0);
     const range: [Date, Date] = [
       new Date(2024, 5, 10, 0, 0, 0),
-      new Date(2024, 5, 15, 23, 59, 59)
+      new Date(2024, 5, 15, 23, 59, 59),
     ];
 
     expect(isPresetActive(date, range)).toBe(false);
@@ -423,8 +423,8 @@ describe('getMonthNames', () => {
         userActivation: {},
         usb: {},
         wakeLock: {},
-        webdriver: false
-      }
+        webdriver: false,
+      },
     } as any;
     const months = getMonthNames(undefined, 'short');
     expect(months).toHaveLength(12);
@@ -454,8 +454,8 @@ describe('getDayLabels (browser context)', () => {
         userActivation: {},
         usb: {},
         wakeLock: {},
-        webdriver: false
-      }
+        webdriver: false,
+      },
     } as any;
     const labels = getDayLabels();
     expect(labels).toHaveLength(7);
@@ -474,7 +474,7 @@ describe('getWeeks edge cases', () => {
     expect(result).toBeDefined();
     expect(spy).toHaveBeenCalledWith(
       'Invalid date - setting to today',
-      expect.any(Date)
+      expect.any(Date),
     );
     spy.mockRestore();
   });
@@ -496,11 +496,11 @@ describe('isPresetActive (includeTime=true)', () => {
   test('returns true for identical date ranges with same time', () => {
     const range1: [Date, Date] = [
       new Date(2024, 5, 10, 10, 0, 0),
-      new Date(2024, 5, 15, 23, 59, 59)
+      new Date(2024, 5, 15, 23, 59, 59),
     ];
     const range2: [Date, Date] = [
       new Date(2024, 5, 10, 10, 0, 0),
-      new Date(2024, 5, 15, 23, 59, 59)
+      new Date(2024, 5, 15, 23, 59, 59),
     ];
     expect(isPresetActive(range1, range2, true)).toBe(true);
   });
@@ -508,11 +508,11 @@ describe('isPresetActive (includeTime=true)', () => {
   test('returns false for date ranges with different times', () => {
     const range1: [Date, Date] = [
       new Date(2024, 5, 10, 10, 0, 0),
-      new Date(2024, 5, 15, 23, 59, 59)
+      new Date(2024, 5, 15, 23, 59, 59),
     ];
     const range2: [Date, Date] = [
       new Date(2024, 5, 10, 11, 0, 0),
-      new Date(2024, 5, 15, 23, 59, 59)
+      new Date(2024, 5, 15, 23, 59, 59),
     ];
     expect(isPresetActive(range1, range2, true)).toBe(false);
   });

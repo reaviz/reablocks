@@ -1,9 +1,13 @@
-import React, { FC } from 'react';
-import { Chip, ChipProps } from '@/elements/Chip';
-import { getHotkeyText } from './utils';
+import type { FC } from 'react';
+import React from 'react';
+
+import type { ChipProps } from '@/elements/Chip';
+import { Chip } from '@/elements/Chip';
 import { useComponentTheme } from '@/utils';
-import { KbdTheme } from './KbdTheme';
 import { twMerge } from '@/utils';
+
+import type { KbdTheme } from './KbdTheme';
+import { getHotkeyText } from './utils';
 
 export interface KbdProps extends Omit<ChipProps, 'children' | 'theme'> {
   /**

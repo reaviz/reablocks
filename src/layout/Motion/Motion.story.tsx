@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+
 import { MotionGroup } from './MotionGroup';
 import { MotionItem } from './MotionItem';
 
@@ -6,8 +7,8 @@ export default {
   title: 'Components/Layout/Motion',
   component: MotionGroup,
   subcomponents: {
-    MotionItem
-  }
+    MotionItem,
+  },
 };
 
 export const Simple = () => (

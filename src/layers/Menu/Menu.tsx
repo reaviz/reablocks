@@ -1,13 +1,19 @@
-import React, { FC, forwardRef, LegacyRef, useMemo } from 'react';
+import type { MiddlewareState } from '@floating-ui/react';
+import { size } from '@floating-ui/react';
 import FocusTrap from 'focus-trap-react';
-import { MiddlewareState, size } from '@floating-ui/react';
-import { ConnectedOverlay, OverlayEvent } from '@/utils/Overlay';
-import { Modifiers, Placement } from '@/utils/Position';
+import type { MotionNodeAnimationOptions } from 'motion/react';
+import { motion } from 'motion/react';
+import type { FC, LegacyRef } from 'react';
+import React, { forwardRef, useMemo } from 'react';
+
 import { useId } from '@/utils';
-import { motion, MotionNodeAnimationOptions } from 'motion/react';
 import { twMerge } from '@/utils';
-import { MenuTheme } from './MenuTheme';
 import { useComponentTheme } from '@/utils';
+import type { OverlayEvent } from '@/utils/Overlay';
+import { ConnectedOverlay } from '@/utils/Overlay';
+import type { Modifiers, Placement } from '@/utils/Position';
+
+import type { MenuTheme } from './MenuTheme';
 
 export interface MenuProps {
   /**
@@ -150,9 +156,9 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
       onClose,
       onMouseEnter,
       onMouseLeave,
-      theme: customTheme
+      theme: customTheme,
     },
-    ref
+    ref,
   ) => {
     const id = useId();
 
@@ -171,13 +177,13 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
             }
 
             return { data: { menuWidth } };
-          }
+          },
         };
 
         const sizeModifier = size({
           apply({ middlewareData, elements }) {
             elements.floating.style.width = `${middlewareData?.sameWidth?.menuWidth ?? 0}px`;
-          }
+          },
         });
 
         return modifiers
@@ -188,7 +194,7 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
         const autoWidth = size({
           apply({ elements }) {
             elements.floating.style.width = 'auto';
-          }
+          },
         });
 
         return [...(modifiers ?? []), autoWidth];
@@ -215,7 +221,7 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
                   transition: { duration: animated ? 0.3 : 0 },
                   initial: { opacity: 0, y: -10 },
                   animate: { opacity: 1, y: 0 },
-                  exit: { opacity: 0, y: -10 }
+                  exit: { opacity: 0, y: -10 },
                 })}
             className={twMerge(theme.base, className)}
             style={style}
@@ -227,7 +233,7 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
                 focusTrapOptions={{
                   escapeDeactivates: true,
                   clickOutsideDeactivates: true,
-                  fallbackFocus: `#${id}`
+                  fallbackFocus: `#${id}`,
                 }}
               >
                 <div
@@ -249,5 +255,5 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
         onClose={onClose}
       />
     );
-  }
+  },
 );

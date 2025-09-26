@@ -14,6 +14,6 @@ export const sortTheme: SortTheme = {
   hasValue: 'cursor-not-allowed',
   icon: {
     base: 'w-4 h-4 align-middle mx-1.5 fill-current',
-    ascending: 'rotate-180'
-  }
+    ascending: 'rotate-180',
+  },
 };

@@ -1,11 +1,7 @@
-import React, {
-  forwardRef,
-  Ref,
-  InputHTMLAttributes,
-  FC,
-  LegacyRef
-} from 'react';
-import { InputTheme } from '@/form/Input/InputTheme';
+import type { FC, InputHTMLAttributes, LegacyRef, Ref } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { InputTheme } from '@/form/Input/InputTheme';
 import { cn, useComponentTheme } from '@/utils';
 
 export interface InlineInputProps
@@ -51,7 +47,7 @@ export const InlineInput: FC<InlineInputProps & InlineInputRef> = forwardRef<
       theme: customTheme,
       ...props
     },
-    ref: Ref<HTMLInputElement>
+    ref: Ref<HTMLInputElement>,
   ) => {
     const theme: InputTheme = useComponentTheme('input', customTheme);
 
@@ -76,10 +72,10 @@ export const InlineInput: FC<InlineInputProps & InlineInputRef> = forwardRef<
           className={cn(
             'border-none bg-transparent focus:outline-hidden',
             theme.inline,
-            inputClassName
+            inputClassName,
           )}
         />
       </div>
     );
-  }
+  },
 );

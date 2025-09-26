@@ -1,9 +1,10 @@
-import { Block } from './Block';
 import React from 'react';
+
+import { Block } from './Block';
 
 export default {
   title: 'Components/Layout/Block',
-  component: Block
+  component: Block,
 };
 
 export const Labelless = () => (

@@ -34,6 +34,6 @@ export const textareaTheme: TextareaTheme = {
   sizes: {
     small: 'text-xs px-2 py-[3px]',
     medium: 'text-sm px-3 py-[7px]',
-    large: 'text-base px-3 py-[7px]'
-  }
+    large: 'text-base px-3 py-[7px]',
+  },
 } as TextareaTheme;

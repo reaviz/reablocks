@@ -7,8 +7,8 @@ export default {
   component: List,
   subcomponents: {
     ListItem,
-    ListHeader
-  }
+    ListHeader,
+  },
 };
 
 export const Simple = () => (

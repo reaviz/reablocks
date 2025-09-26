@@ -1,18 +1,13 @@
-import React, {
-  FC,
-  KeyboardEvent,
-  FocusEvent,
-  ReactNode,
-  useEffect,
-  useLayoutEffect,
-  useRef
-} from 'react';
-import { SearchIcon } from './SearchIcon';
-import { HotkeyIem } from '@/elements/CommandPalette/useFlattenedTree';
-import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
-import { useComponentTheme } from '@/utils';
 import type { HandlerInterface, Key } from 'ctrl-keys';
 import { keys } from 'ctrl-keys';
+import type { FC, FocusEvent, KeyboardEvent, ReactNode } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
+
+import type { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
+import type { HotkeyIem } from '@/elements/CommandPalette/useFlattenedTree';
+import { useComponentTheme } from '@/utils';
+
+import { SearchIcon } from './SearchIcon';
 
 export interface CommandPaletteInputProps {
   /**
@@ -76,7 +71,7 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
   onBlur,
   onChange,
   onKeyPress,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const handlerRef = useRef<HandlerInterface>(keys());
@@ -112,7 +107,7 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
 
   const { input: inputTheme }: CommandPaletteTheme = useComponentTheme(
     'commandPalette',
-    customTheme
+    customTheme,
   );
 
   return (

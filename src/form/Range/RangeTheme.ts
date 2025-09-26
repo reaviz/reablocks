@@ -26,15 +26,15 @@ export const rangeTheme: RangeTheme = {
       `,
   inputWrapper: {
     base: 'cursor-pointer inline-block relative size-full',
-    disabled: 'cursor-not-allowed'
+    disabled: 'cursor-not-allowed',
   },
   rangeHighlight: {
     base: 'pointer-events-none h-1 bg-selectors-colors-range-bar-background-active-section rounded-sm',
-    disabled: 'cursor-not-allowed'
+    disabled: 'cursor-not-allowed',
   },
   disabled:
     'cursor-not-allowed opacity-40 disabled:bg-selectors-colors-range-bar-background-base!',
   input: 'absolute left-[-9999px]', // The hidden input used for keyboard controls
   tooltip:
-    'absolute top-[-45px] whitespace-nowrap text-center text-xs font-semibold left-2/4 rounded-sm p-2 bg-tooltip-colors-neutral-background-default text-tooltip-colors-neutral-text-default'
+    'absolute top-[-45px] whitespace-nowrap text-center text-xs font-semibold left-2/4 rounded-sm p-2 bg-tooltip-colors-neutral-background-default text-tooltip-colors-neutral-text-default',
 };

@@ -1,10 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Select } from './Select';
-import { SelectOption } from './SelectOption';
-import { SelectMenu } from './SelectMenu';
-import { SelectInput, SelectInputChip } from './SelectInput';
 
 import CheckIcon from '@/assets/icons/check_circle.svg?react';
+
+import { Select } from './Select';
+import { SelectInput, SelectInputChip } from './SelectInput';
+import { SelectMenu } from './SelectMenu';
+import { SelectOption } from './SelectOption';
 
 export default {
   title: 'Components/Form/Select/Multi',
@@ -13,8 +14,8 @@ export default {
     SelectOption,
     SelectMenu,
     SelectInput,
-    SelectInputChip
-  }
+    SelectInputChip,
+  },
 };
 
 const options = [
@@ -22,7 +23,7 @@ const options = [
   { value: 'twitter', label: 'Twitter' },
   { value: 'github', label: 'GitHub' },
   { value: 'google', label: 'Google' },
-  { value: 'azure', label: 'Azure' }
+  { value: 'azure', label: 'Azure' },
 ];
 
 export const Basic = () => {
@@ -368,7 +369,7 @@ export const Async = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [refreshable, setRefreshable] = useState<boolean>(false);
   const [opts, setOpts] = useState<{ value: string; label: string }[] | null>(
-    null
+    null,
   );
 
   useEffect(() => {

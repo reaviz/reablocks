@@ -1,4 +1,4 @@
-import { ReactNode, createContext } from 'react';
+import { createContext } from 'react';
 
 export interface RadioGroupContextProps {
   /**
@@ -14,5 +14,5 @@ export interface RadioGroupContextProps {
 
 export const RadioGroupContext = createContext<RadioGroupContextProps>({
   onChange: null,
-  selectedValue: null
+  selectedValue: null,
 });

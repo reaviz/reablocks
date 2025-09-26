@@ -42,14 +42,14 @@ export const listTheme = {
       base: 'px-1',
       content: '',
       startAdornment: 'pr-[calc(5/2)]',
-      endAdornment: 'pl-[calc(5/2)]'
+      endAdornment: 'pl-[calc(5/2)]',
     },
     adornment: {
       base: 'items-center flex',
       start: 'pr-1',
       end: 'pl-1',
-      svg: 'fill-current'
+      svg: 'fill-current',
     },
-    content: 'overflow-wrap break-word word-wrap break-all flex-1'
-  }
+    content: 'overflow-wrap break-word word-wrap break-all flex-1',
+  },
 };

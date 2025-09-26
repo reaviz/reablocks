@@ -1,9 +1,3 @@
-import { Button } from '@/elements/Button';
-import { CalendarPresets, CalendarTheme, PresetOption } from '@/form';
-import { Stack } from '@/layout';
-import { Divider } from '@/layout/Divider';
-import { Typography } from '@/typography';
-import { twMerge, useComponentTheme } from '@/utils';
 import {
   add,
   addYears,
@@ -23,14 +17,21 @@ import {
   setYear,
   startOfDecade,
   sub,
-  subYears
+  subYears,
 } from 'date-fns';
-import {
-  AnimatePresence,
-  motion,
-  MotionNodeAnimationOptions
-} from 'motion/react';
-import React, { FC, useCallback, useMemo, useState } from 'react';
+import type { MotionNodeAnimationOptions } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
+import type { FC } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+
+import { Button } from '@/elements/Button';
+import type { CalendarTheme, PresetOption } from '@/form';
+import { CalendarPresets } from '@/form';
+import { Stack } from '@/layout';
+import { Divider } from '@/layout/Divider';
+import { Typography } from '@/typography';
+import { twMerge, useComponentTheme } from '@/utils';
+
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarTimes } from './CalendarTimes';
@@ -156,21 +157,21 @@ export const Calendar: FC<CalendarProps> = ({
   preset,
   onChange,
   onViewChange,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const theme: CalendarTheme = useComponentTheme('calendar', customTheme);
 
   const date = useMemo(
     () => (Array.isArray(value) ? value[0] : (value ?? new Date())),
-    [value]
+    [value],
   );
   const rangeStart = useMemo(
     () => (isRange && Array.isArray(value) ? value?.[0] : undefined),
-    [isRange, value]
+    [isRange, value],
   );
   const rangeEnd = useMemo(
     () => (isRange && Array.isArray(value) ? value?.[1] : undefined),
-    [isRange, value]
+    [isRange, value],
   );
 
   const [viewValue, setViewValue] = useState<Date>(date);
@@ -222,7 +223,7 @@ export const Calendar: FC<CalendarProps> = ({
           value,
           newDate,
           isRange,
-          Boolean(rangeStart)
+          Boolean(rangeStart),
         );
       }
 
@@ -238,7 +239,7 @@ export const Calendar: FC<CalendarProps> = ({
         onChange?.([finalDate, undefined]);
       }
     },
-    [isRange, onChange, rangeEnd, rangeStart, showTime, value]
+    [isRange, onChange, rangeEnd, rangeStart, showTime, value],
   );
 
   const monthsChangeHandler = useCallback(
@@ -248,7 +249,7 @@ export const Calendar: FC<CalendarProps> = ({
       setView('days');
       onViewChange?.('days');
     },
-    [min, yearValue, onViewChange]
+    [min, yearValue, onViewChange],
   );
 
   const yearChangeHandler = useCallback(
@@ -258,7 +259,7 @@ export const Calendar: FC<CalendarProps> = ({
       setView('months');
       onViewChange?.('months');
     },
-    [min, onViewChange]
+    [min, onViewChange],
   );
 
   const handleTimeChange = useCallback(
@@ -270,9 +271,9 @@ export const Calendar: FC<CalendarProps> = ({
           const newRangeEnd = setSeconds(
             setMinutes(
               setHours(rangeEnd, getHours(newTimeDate)),
-              getMinutes(newTimeDate)
+              getMinutes(newTimeDate),
             ),
-            getSeconds(newTimeDate)
+            getSeconds(newTimeDate),
           );
           onChange?.([rangeStart!, newRangeEnd]);
         } else {
@@ -280,7 +281,7 @@ export const Calendar: FC<CalendarProps> = ({
         }
       }
     },
-    [isRange, onChange, rangeStart, rangeEnd]
+    [isRange, onChange, rangeStart, rangeEnd],
   );
 
   const xAnimation = useMemo(() => {
@@ -306,7 +307,7 @@ export const Calendar: FC<CalendarProps> = ({
       }
       onChange?.(newValue);
     },
-    [onChange]
+    [onChange],
   );
 
   return (
@@ -382,10 +383,10 @@ export const Calendar: FC<CalendarProps> = ({
                       x: { type: animated ? 'keyframes' : false },
                       opacity: {
                         duration: 0.2,
-                        type: animated ? 'tween' : false
+                        type: animated ? 'tween' : false,
                       },
-                      scale: { type: animated ? 'tween' : false }
-                    }
+                      scale: { type: animated ? 'tween' : false },
+                    },
                   })}
             >
               {view === 'days' && (

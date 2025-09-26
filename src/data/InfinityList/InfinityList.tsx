@@ -1,5 +1,8 @@
-import React, { FC, Children, Fragment } from 'react';
-import { useInfinityList, InfinityListInputs } from './useInfinityList';
+import type { FC } from 'react';
+import React, { Children, Fragment } from 'react';
+
+import type { InfinityListInputs } from './useInfinityList';
+import { useInfinityList } from './useInfinityList';
 
 export interface InfinityListProps extends Omit<InfinityListInputs, 'items'> {
   /**
@@ -18,14 +21,14 @@ export const InfinityList: FC<InfinityListProps> = ({
   size = 10,
   threshold = 3,
   nextSize,
-  buttonClassName
+  buttonClassName,
 }) => {
   const arr = Children.toArray(children);
   const { data, hasMore, remaining, showNext } = useInfinityList({
     items: arr,
     size,
     threshold,
-    nextSize
+    nextSize,
   });
 
   return (

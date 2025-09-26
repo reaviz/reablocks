@@ -1,10 +1,12 @@
 import React, { forwardRef } from 'react';
-import { ListItem, ListItemProps } from '@/layout';
-import { MotionItem } from '@/layout';
+
+import type { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 import { Kbd } from '@/elements/Kbd';
+import type { ListItemProps } from '@/layout';
+import { ListItem } from '@/layout';
+import { MotionItem } from '@/layout';
 import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 
 export interface CommandPaletteItemProps extends Omit<ListItemProps, 'theme'> {
   hotkey?: string;
@@ -30,11 +32,11 @@ export const CommandPaletteItem = forwardRef<
       theme: customTheme,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const { item: itemTheme }: CommandPaletteTheme = useComponentTheme(
       'commandPalette',
-      customTheme
+      customTheme,
     );
 
     return (
@@ -45,7 +47,7 @@ export const CommandPaletteItem = forwardRef<
           className={twMerge(
             itemTheme.base,
             active && itemTheme.active,
-            onClick && itemTheme.clickable
+            onClick && itemTheme.clickable,
           )}
           end={
             <>
@@ -58,7 +60,7 @@ export const CommandPaletteItem = forwardRef<
         </ListItem>
       </MotionItem>
     );
-  }
+  },
 );
 
 CommandPaletteItem.displayName = 'CommandPaletteItem';

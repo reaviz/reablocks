@@ -1,11 +1,14 @@
-import React, { FC, useCallback, useMemo } from 'react';
-import { TreeNode } from '@/layout/Tree/TreeNode';
-import { JsonTreeData } from './utils';
-import { useComponentTheme } from '@/utils/Theme/hooks';
-import { JsonTreeTheme } from './JsonTreeTheme';
-import { twMerge } from '@/utils';
+import type { FC } from 'react';
+import React, { useCallback, useMemo } from 'react';
+
 import { Ellipsis } from '@/data/Ellipsis';
 import { useInfinityList } from '@/data/InfinityList';
+import { TreeNode } from '@/layout/Tree/TreeNode';
+import { twMerge } from '@/utils';
+import { useComponentTheme } from '@/utils/Theme/hooks';
+
+import type { JsonTreeTheme } from './JsonTreeTheme';
+import type { JsonTreeData } from './utils';
 
 export interface JsonTreeNodeProps {
   /**
@@ -75,7 +78,7 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
   showAllLimit,
   ellipsisText,
   ellipsisTextLength,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const theme = useComponentTheme('jsonTree', customTheme);
   const type = data.type;
@@ -83,12 +86,12 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
   const {
     data: listData,
     hasMore,
-    showNext
+    showNext,
   } = useInfinityList({
     items: isList ? data.data : [],
     size: showAll ? Infinity : showAllLimit,
     threshold: 3,
-    nextSize: Infinity
+    nextSize: Infinity,
   });
 
   const renderExpandableNode = useCallback(() => {
@@ -149,7 +152,7 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
 
   const isNestedData = useMemo(
     () => data.type === 'array' || data.type === 'object',
-    [data.type]
+    [data.type],
   );
   const isNestedDataEmpty = useMemo(() => {
     if (isNestedData) {

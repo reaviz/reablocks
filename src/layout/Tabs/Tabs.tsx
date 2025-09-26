@@ -1,19 +1,14 @@
-import React, {
-  Children,
-  FC,
-  Fragment,
-  PropsWithChildren,
-  useEffect,
-  useMemo,
-  useState
-} from 'react';
+import { AnimatePresence } from 'motion/react';
+import type { FC, PropsWithChildren } from 'react';
+import React, { Children, Fragment, useEffect, useMemo, useState } from 'react';
+
 import { useId } from '@/utils';
 import { twMerge } from '@/utils';
-import { AnimatePresence } from 'motion/react';
 import { useComponentTheme } from '@/utils/Theme/hooks';
-import { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';
-import { TabPanel } from './TabPanel';
+
 import { TabList } from './TabList';
+import { TabPanel } from './TabPanel';
+import type { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';
 
 export interface TabsProps extends PropsWithChildren {
   /**
@@ -72,12 +67,12 @@ export const Tabs: FC<TabsProps> = ({
   defaultIndex = 0,
   selectedIndex,
   onSelect,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const id = useId();
   const theme: TabsTheme = useComponentTheme('tabs', customTheme);
   const [internalActive, setInternalActive] = useState<number>(
-    selectedIndex || defaultIndex
+    selectedIndex || defaultIndex,
   );
 
   useEffect(() => {

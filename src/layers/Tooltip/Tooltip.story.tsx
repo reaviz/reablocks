@@ -1,8 +1,10 @@
 import React from 'react';
-import { Tooltip } from './Tooltip';
+
 import { Button } from '../../elements';
 import { extendComponentTheme } from '../../utils';
-import { tooltipTheme, TooltipTheme } from './TooltipTheme';
+import { Tooltip } from './Tooltip';
+import type { TooltipTheme } from './TooltipTheme';
+import { tooltipTheme } from './TooltipTheme';
 
 export default { title: 'Components/Layers/Tooltip', component: Tooltip };
 
@@ -12,7 +14,7 @@ export const Simple = () => (
       textAlign: 'center',
       width: '100%',
       margin: '50px',
-      color: 'green'
+      color: 'green',
     }}
   >
     <Tooltip content="Hi there">Hover me</Tooltip>
@@ -29,7 +31,7 @@ export const NoAnimation = () => (
       textAlign: 'center',
       width: '100%',
       margin: '50px',
-      color: 'green'
+      color: 'green',
     }}
   >
     <Tooltip
@@ -48,7 +50,7 @@ export const CustomAnimation = () => {
       scale: 0.8,
       y: -30,
       rotateX: -15,
-      filter: 'blur(8px)'
+      filter: 'blur(8px)',
     },
     animate: {
       opacity: 1,
@@ -60,8 +62,8 @@ export const CustomAnimation = () => {
         type: 'spring' as const,
         stiffness: 200,
         damping: 20,
-        duration: 0.5
-      }
+        duration: 0.5,
+      },
     },
     exit: {
       opacity: 0,
@@ -70,9 +72,9 @@ export const CustomAnimation = () => {
       rotateX: -15,
       filter: 'blur(8px)',
       transition: {
-        duration: 0.3
-      }
-    }
+        duration: 0.3,
+      },
+    },
   };
 
   return (
@@ -81,7 +83,7 @@ export const CustomAnimation = () => {
         textAlign: 'center',
         width: '100%',
         margin: '50px',
-        color: 'green'
+        color: 'green',
       }}
     >
       <Tooltip
@@ -96,7 +98,7 @@ export const CustomAnimation = () => {
 
 export const CustomTheme = () => {
   const customTheme = extendComponentTheme<TooltipTheme>(tooltipTheme, {
-    base: 'rounded-sm bg-green-800 text-white font-bold p-3 text-sm'
+    base: 'rounded-sm bg-green-800 text-white font-bold p-3 text-sm',
   });
 
   return (
@@ -105,7 +107,7 @@ export const CustomTheme = () => {
         textAlign: 'center',
         width: '100%',
         margin: '50px',
-        color: 'green'
+        color: 'green',
       }}
     >
       <Tooltip theme={customTheme} content="Hi there">
@@ -127,7 +129,7 @@ export const FollowCursor = () => (
       textAlign: 'center',
       width: '100%',
       margin: '50px',
-      color: 'green'
+      color: 'green',
     }}
   >
     <Tooltip visible content="I'm following, wait me" followCursor />
@@ -141,7 +143,7 @@ export const FollowScroll = () => (
       width: '100%',
       height: '200vh',
       margin: '50px',
-      color: 'green'
+      color: 'green',
     }}
   >
     <div className="mb-[200px]"></div>

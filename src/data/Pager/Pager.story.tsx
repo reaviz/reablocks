@@ -1,10 +1,11 @@
 import { useState } from 'react';
+
 import { Pager } from '@/data';
 import { pagerTheme } from '@/data';
 
 export default {
   title: 'Components/Data/Pager',
-  component: Pager
+  component: Pager,
 };
 
 export const ShowPages = () => {

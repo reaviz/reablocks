@@ -11,5 +11,5 @@ export const cardTheme: CardTheme = {
   disablePadding: 'p-0',
   header: 'flex items-center',
   headerText: 'text-xs font-medium mt-0 mb-1',
-  content: 'flex-1'
+  content: 'flex-1',
 };

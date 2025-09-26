@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from 'react';
-import { useDrawer } from './useDrawer';
-import { Drawer } from './Drawer';
+
 import { Button } from '../../elements';
+import { Drawer } from './Drawer';
+import { useDrawer } from './useDrawer';
 
 export default {
   title: 'Components/Layers/Drawer',
-  component: Drawer
+  component: Drawer,
 };
 
 export const Simple = () => {
@@ -90,7 +91,7 @@ export const CustomAnimation = () => {
           initial: { x: '120%', opacity: 0 },
           animate: { x: 0, opacity: 1 },
           exit: { x: '120%', opacity: 0 },
-          transition: { duration: 0.5, ease: [0.12, 0.78, 0.32, 0.98] }
+          transition: { duration: 0.5, ease: [0.12, 0.78, 0.32, 0.98] },
         }}
         open={isOpen}
         onClose={() => setIsOpen(false)}

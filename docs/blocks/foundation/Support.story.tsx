@@ -1,20 +1,20 @@
-import React from 'react';
 import { motion } from 'motion/react';
+import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import { Block, Card } from '../../../src/layout';
-import { Input, Textarea } from '../../../src/form';
 import { Button } from '../../../src/elements/Button';
+import { Input, Textarea } from '../../../src/form';
+import { Block, Card } from '../../../src/layout';
 
 export default {
-  title: 'Blocks/Foundation/Support'
+  title: 'Blocks/Foundation/Support',
 };
 
 export const Support = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -32,7 +32,10 @@ export const Support = () => {
             Found a bug? Please let us know so we can fix it.
           </div>
         </div>
-        <form className="flex flex-col gap-4" onSubmit={handleSubmit(values => console.log('values', values))}>
+        <form
+          className="flex flex-col gap-4"
+          onSubmit={handleSubmit(values => console.log('values', values))}
+        >
           <Block label="Title">
             <Controller
               name="title"

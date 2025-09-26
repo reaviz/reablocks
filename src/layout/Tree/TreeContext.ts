@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useContext } from 'react';
+import { createContext } from 'react';
 
 export interface TreeContextProps {
   /**
@@ -14,5 +14,5 @@ export interface TreeContextProps {
 
 export const TreeContext = createContext<TreeContextProps>({
   collapsedIcon: null,
-  expandedIcon: null
+  expandedIcon: null,
 });

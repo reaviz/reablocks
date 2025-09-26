@@ -1,7 +1,10 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
+
 import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { DialogTheme } from './DialogTheme';
+
+import type { DialogTheme } from './DialogTheme';
 
 export interface DialogHeaderProps {
   /**
@@ -41,7 +44,7 @@ export const DialogHeader: FC<DialogHeaderProps> = ({
   showCloseButton,
   disablePadding,
   onClose,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const theme = useComponentTheme('dialog', customTheme);
 
@@ -50,7 +53,7 @@ export const DialogHeader: FC<DialogHeaderProps> = ({
       className={twMerge(
         theme.header.base,
         className,
-        disablePadding && 'pt-0 pb-0 pl-0 pr-0'
+        disablePadding && 'pt-0 pb-0 pl-0 pr-0',
       )}
     >
       <div>

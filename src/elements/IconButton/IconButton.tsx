@@ -1,10 +1,15 @@
-import React, { FC, forwardRef, Ref } from 'react';
-import { Button, ButtonProps, ButtonRef } from '@/elements/Button';
+import type { FC, Ref } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { ButtonProps, ButtonRef } from '@/elements/Button';
+import { Button } from '@/elements/Button';
 import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
 
-export interface IconButtonProps
-  extends Omit<ButtonProps, 'fullWidth' | 'startAdornment' | 'endAdornment'> {}
+export type IconButtonProps = Omit<
+  ButtonProps,
+  'fullWidth' | 'startAdornment' | 'endAdornment'
+>;
 
 export const IconButton: FC<IconButtonProps & ButtonRef> = forwardRef(
   (
@@ -15,7 +20,7 @@ export const IconButton: FC<IconButtonProps & ButtonRef> = forwardRef(
       theme: customTheme,
       ...rest
     }: IconButtonProps,
-    ref: Ref<HTMLButtonElement>
+    ref: Ref<HTMLButtonElement>,
   ) => {
     const theme = useComponentTheme('button', customTheme);
 
@@ -29,5 +34,5 @@ export const IconButton: FC<IconButtonProps & ButtonRef> = forwardRef(
         {children}
       </Button>
     );
-  }
+  },
 );

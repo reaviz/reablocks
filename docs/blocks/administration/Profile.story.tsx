@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import type { FC } from 'react';
+import React, { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 
+import { Avatar, Button, Chip } from '../../../src/elements';
+import { Input, Radio } from '../../../src/form';
 import {
   Block,
   Card,
@@ -13,13 +17,15 @@ import {
   Tab,
   TabList,
   TabPanel,
-  Tabs
+  Tabs,
 } from '../../../src/layout';
-import { Input, Radio } from '../../../src/form';
-import { Avatar, Button, Chip } from '../../../src/elements';
-import { Controller, useForm } from 'react-hook-form';
 
-const LogoIcon = ({ className }: { className?: string }) => (
+interface IconProps {
+  className?: string;
+  size?: number;
+}
+
+const LogoIcon: FC<IconProps> = ({ className }) => (
   <svg
     width="260"
     height="341"
@@ -51,10 +57,10 @@ const LogoIcon = ({ className }: { className?: string }) => (
 );
 
 export default {
-  title: 'Blocks/Administration/Profile'
+  title: 'Blocks/Administration/Profile',
 };
 
-const LocationIcon = ({ className }) => (
+const LocationIcon: FC<IconProps> = ({ className }) => (
   <svg
     width="16"
     height="16"
@@ -78,7 +84,7 @@ const LocationIcon = ({ className }) => (
   </svg>
 );
 
-const EmailIcon = ({ className }) => (
+const EmailIcon: FC<IconProps> = ({ className }) => (
   <svg
     width="16"
     height="16"
@@ -97,7 +103,7 @@ const EmailIcon = ({ className }) => (
   </svg>
 );
 
-const SymbolIcon = () => (
+const SymbolIcon: FC<IconProps> = () => (
   <svg
     width="18"
     height="24"
@@ -108,15 +114,15 @@ const SymbolIcon = () => (
     <g id="symbol">
       <path
         id="Path-88"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M17.6183 0L0.600098 11.9049L17.6183 24V13.0064L13.7985 10.545L11.6487 12L15.2263 14.3273V19.3114L4.80132 11.9049L17.6183 2.94899V0Z"
         fill="url(#paint0_linear_3138_3970)"
       />
       <path
         id="Path-89"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M17.6183 3.87677L6.22632 11.9114L14.4144 17.7229V14.7166L10.28 12.0323L17.6183 6.85727V3.87677Z"
         fill="url(#paint1_linear_3138_3970)"
       />
@@ -130,10 +136,10 @@ const SymbolIcon = () => (
         y2="20.1628"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#105EFF" />
-        <stop offset="0.413357" stop-color="#009BFF" />
-        <stop offset="0.735652" stop-color="#105EFF" />
-        <stop offset="1" stop-color="#090E43" />
+        <stop stopColor="#105EFF" />
+        <stop offset="0.413357" stopColor="#009BFF" />
+        <stop offset="0.735652" stopColor="#105EFF" />
+        <stop offset="1" stopColor="#090E43" />
       </linearGradient>
       <linearGradient
         id="paint1_linear_3138_3970"
@@ -143,16 +149,16 @@ const SymbolIcon = () => (
         y2="4.21494"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#105EFF" />
-        <stop offset="0.413357" stop-color="#009BFF" />
-        <stop offset="0.735652" stop-color="#105EFF" />
-        <stop offset="1" stop-color="#090E43" />
+        <stop stopColor="#105EFF" />
+        <stop offset="0.413357" stopColor="#009BFF" />
+        <stop offset="0.735652" stopColor="#105EFF" />
+        <stop offset="1" stopColor="#090E43" />
       </linearGradient>
     </defs>
   </svg>
 );
 
-const PhoneIcon = ({ className }) => (
+const PhoneIcon: FC<IconProps> = ({ className }) => (
   <svg
     width="16"
     height="16"
@@ -171,7 +177,7 @@ const PhoneIcon = ({ className }) => (
   </svg>
 );
 
-const UserIcon = ({ size = 16, className }) => (
+const UserIcon: FC<IconProps> = ({ size = 16, className }) => (
   <svg
     width={size}
     height={size}
@@ -190,7 +196,7 @@ const UserIcon = ({ size = 16, className }) => (
   </svg>
 );
 
-const DotIcon = ({ size = 6, className }) => (
+const DotIcon: FC<IconProps> = ({ size = 6, className }) => (
   <svg
     width={size}
     height={size}
@@ -203,7 +209,7 @@ const DotIcon = ({ size = 6, className }) => (
   </svg>
 );
 
-const ChevronRightIcon = () => (
+const ChevronRightIcon: FC<IconProps> = () => (
   <svg
     width="16"
     height="16"
@@ -221,7 +227,7 @@ const ChevronRightIcon = () => (
   </svg>
 );
 
-const BillingIcon = ({ className }) => (
+const BillingIcon: FC<IconProps> = ({ className }) => (
   <svg
     width="16"
     height="16"
@@ -240,7 +246,7 @@ const BillingIcon = ({ className }) => (
   </svg>
 );
 
-const ListIcon = ({ className }) => (
+const ListIcon: FC<IconProps> = ({ className }) => (
   <svg
     width="16"
     height="16"
@@ -259,7 +265,7 @@ const ListIcon = ({ className }) => (
   </svg>
 );
 
-const TeamManageIcon = ({ className }) => (
+const TeamManageIcon: FC<IconProps> = ({ className }) => (
   <svg
     width="16"
     height="16"
@@ -278,7 +284,7 @@ const TeamManageIcon = ({ className }) => (
   </svg>
 );
 
-const FilterIcon = () => (
+const FilterIcon: FC<IconProps> = () => (
   <svg
     width="16"
     height="16"
@@ -296,7 +302,7 @@ const FilterIcon = () => (
   </svg>
 );
 
-const EditIcon = () => (
+const EditIcon: FC<IconProps> = () => (
   <svg
     width="16"
     height="16"
@@ -314,7 +320,7 @@ const EditIcon = () => (
   </svg>
 );
 
-const LoginIcon = ({ className }) => (
+const LoginIcon: FC<IconProps> = ({ className }) => (
   <svg
     width="16"
     height="16"
@@ -333,7 +339,7 @@ const LoginIcon = ({ className }) => (
   </svg>
 );
 
-const AdminIcon = ({ className }) => (
+const AdminIcon: FC<IconProps> = ({ className }) => (
   <svg
     width="16"
     height="16"
@@ -352,7 +358,7 @@ const AdminIcon = ({ className }) => (
   </svg>
 );
 
-const PendingIcon = ({ className }) => (
+const PendingIcon: FC<IconProps> = ({ className }) => (
   <svg
     width="16"
     height="16"
@@ -384,7 +390,7 @@ const PendingIcon = ({ className }) => (
   </svg>
 );
 
-const CloudburstLogo = () => (
+const CloudburstLogo: FC<IconProps> = () => (
   <svg
     width="30"
     height="22"
@@ -396,281 +402,281 @@ const CloudburstLogo = () => (
       <g id="Globe-2">
         <path
           id="Path-401-Copy"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M10.5438 7.05883L12.2172 6.15072L12.1419 4.46658L10.5438 3.66516L8.88401 4.50729L8.82355 6.08058L10.5438 7.05883Z"
           fill="#008DEA"
         />
         <path
           id="Path-402"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M8.29033 3.92351L10.0474 3.05282L10.0928 1.73395L8.66417 1.28564L7.06082 2.02401L6.74741 3.29727L8.29033 3.92351Z"
           fill="#0071BC"
         />
         <path
           id="Path-403"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M8.08589 0.329102H8.66609L8.48264 1.01754L6.98554 1.69419L5.88196 1.53948L6.20677 0.998475C6.4609 0.877343 6.75992 0.754706 7.1038 0.630565C7.44769 0.506424 7.77505 0.405936 8.08589 0.329102Z"
           fill="#008DEA"
         />
         <path
           id="Path-404-Copy"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M9.09503 12.0676L10.5604 11.267L12.0815 12.1919V13.8439L10.4824 14.6606L9.09503 13.8439V12.0676Z"
           fill="#0071BC"
         />
         <path
           id="Path-404-Copy-2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M6.92303 7.9951L8.38837 7.19446L9.90946 8.11934V9.77141L8.31042 10.5881L6.92303 9.77141V7.9951Z"
           fill="#00EEFF"
         />
         <path
           id="Path-409"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M4.72815 6.50349L6.03256 7.24639L7.85679 6.11087L7.95041 4.48523L6.43868 3.80981L4.90829 4.8055L4.72815 6.50349Z"
           fill="#00EEFF"
         />
         <path
           id="Path-410"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M4.57573 4.34689L3.67996 3.97724L4.08733 2.83376L5.36874 1.9541L6.45005 2.11083L6.17249 3.36245L4.57573 4.34689Z"
           fill="#0071BC"
         />
         <path
           id="Path-411"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M3.77625 2.56422H4.06944L5.30517 1.69431L5.54095 1.33984C5.28216 1.48025 4.98804 1.66245 4.6586 1.88643C4.32916 2.11041 4.03504 2.33634 3.77625 2.56422Z"
           fill="#008DEA"
         />
         <path
           id="Path-417"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M10.7828 2.96957L12.5271 3.68571L13.9266 3.07503L13.6644 1.90835L12.177 1.35803L10.7532 1.84454L10.7828 2.96957Z"
           fill="#008DEA"
         />
         <path
           id="Path-417-Copy"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M13.2555 5.93686L14.761 6.65146L16.0181 6.08164L15.8212 4.69926L14.4464 3.93652L13.1674 4.52623L13.2555 5.93686Z"
           fill="#00EEFF"
         />
         <path
           id="Path-418"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M9.129 0.927801L10.5035 1.35805L11.9199 0.927801L11.8607 0.241492L10.6708 0L9.27615 0.286028L9.129 0.927801Z"
           fill="#00EEFF"
         />
         <path
           id="Path-419"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M16.7979 4.90853L17.744 4.46326L19.0207 5.48517L19.0552 5.65941C18.4077 5.93199 17.7688 6.2644 17.1386 6.65665C17.0913 6.61952 17.0561 6.59102 17.033 6.57116L16.7979 4.90853Z"
           fill="#008DEA"
         />
         <path
           id="Path-424"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M19.3429 5.47884L19.5693 5.34874L19.8433 5.19128C19.8826 5.25486 19.9127 5.30481 19.9335 5.34114L19.3429 5.47884Z"
           fill="#008DEA"
         />
         <path
           id="Path-425"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M19.5948 4.74838L19.1068 5.02422L17.8937 4.06868L17.4431 2.86904L17.94 2.7998C18.2986 3.15827 18.595 3.46653 18.8291 3.72459C19.0632 3.98265 19.3184 4.32391 19.5948 4.74838Z"
           fill="#0071BC"
         />
         <path
           id="Path-426"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M17.2258 3.83647L16.382 4.21196L14.7227 3.19728L14.4164 2.06789L15.4907 1.86304L16.8504 2.71624L17.2258 3.83647Z"
           fill="#00EEFF"
         />
         <path
           id="Path-427"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M17.5189 2.4374H17.0777L15.7833 1.61082L15.5787 1.1637C15.961 1.36607 16.2865 1.55461 16.5555 1.72932C16.8244 1.90403 17.1455 2.14006 17.5189 2.4374Z"
           fill="#008DEA"
         />
         <path
           id="Path-428"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M14.8918 0.844369L15.2 1.44546L14.0794 1.59513L12.6029 0.982467L12.4975 0.340576L13.2489 0.300659C13.6156 0.39758 13.8925 0.476808 14.0794 0.538344C14.2664 0.59988 14.5372 0.701888 14.8918 0.844369Z"
           fill="#0071BC"
         />
         <path
           id="Path-429"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M10.767 20.7244L12.3606 20.2781L14.0754 20.8212V21.3029L12.2458 21.448L10.724 21.3029L10.767 20.7244Z"
           fill="#00EEFF"
         />
         <path
           id="Path-429-Copy"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M14.6113 20.8211L16.2972 20.334L17.9098 20.8211V21.3028L16.1825 21.4478L14.6113 21.3028V20.8211Z"
           fill="#0071BC"
         />
         <path
           id="Path-429-Copy-3"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M18.4615 20.8211L20.1474 20.334L21.76 20.8211V21.3028L20.0327 21.4478L18.4615 21.3028V20.8211Z"
           fill="#008DEA"
         />
         <path
           id="Path-430"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M10.485 18.3134L12.2248 18.9463V19.8287L10.485 20.3947L8.98901 19.7666L8.89462 18.7701L10.485 18.3134Z"
           fill="#0071BC"
         />
         <path
           id="Path-430-Copy-3"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M14.4217 18.4492L16.1614 18.9464V19.8288L14.4217 20.3948L12.8313 19.7667V18.9059L14.4217 18.4492Z"
           fill="#008DEA"
         />
         <path
           id="Path-430-Copy-4"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M18.2681 18.5908L19.9623 19.1343V19.9644L18.2226 20.4698L16.7679 19.8975V19.0415L18.2681 18.5908Z"
           fill="#00EEFF"
         />
         <path
           id="Path-430-Copy-5"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M21.6981 18.7977L23.0042 19.2811V20.1095L21.9199 20.4861L20.4331 19.9645V19.1344L21.6981 18.7977Z"
           fill="#008DEA"
         />
         <path
           id="Path-432-Copy"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M6.27047 14.5248L7.73755 13.7195V11.9927L6.09151 10.9954L4.75113 11.8327L4.81874 13.551L6.27047 14.5248Z"
           fill="#008DEA"
         />
         <path
           id="Path-433"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M4.0479 11.0418L5.52212 10.0841V7.87842L4.32094 7.15955L2.85424 8.30632L2.78061 10.0841L4.0479 11.0418Z"
           fill="#008DEA"
         />
         <path
           id="Path-434"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M2.68255 7.65217L3.96509 6.59086L4.23484 4.99943L3.20806 4.61096L2.16833 5.52818L1.89075 7.02625L2.68255 7.65217Z"
           fill="#00EEFF"
         />
         <path
           id="Path-435"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M1.67719 4.98166L2.01499 5.16034L3.10879 4.15341L3.55213 3.03918H3.25856C2.87814 3.42131 2.58467 3.74264 2.37816 4.00318C2.17165 4.26372 1.93799 4.58988 1.67719 4.98166Z"
           fill="#00EEFF"
         />
         <path
           id="Path-436"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M5.34305 18.1818L6.508 17.7352L8.21075 18.6236L8.37795 19.7638L7.09511 20.0071L5.69021 19.2351L5.34305 18.1818Z"
           fill="#00EEFF"
         />
         <path
           id="Path-437"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M7.41187 20.3948L8.64276 20.1602L10.0948 20.6831L10.1382 21.2872L9.09694 21.3989L7.65978 20.9839L7.41187 20.3948Z"
           fill="#008DEA"
         />
         <path
           id="Path-438"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M7.06297 20.888L6.86047 20.3121L5.48553 19.5513L4.58661 19.5955C4.9437 19.8458 5.32989 20.0815 5.74517 20.3026C6.16045 20.5237 6.59972 20.7188 7.06297 20.888Z"
           fill="#0071BC"
         />
         <path
           id="Path-439"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M5.05883 19.0962L4.69147 18.035L3.33609 17.0629L2.69135 17.271L3.05333 18.1667L4.21841 19.1685L5.05883 19.0962Z"
           fill="#008DEA"
         />
         <path
           id="Path-440"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M2.28944 16.6829L1.26027 15.7096L0.965332 14.3668L1.48085 13.8907L2.56391 14.9431L2.83577 16.5041L2.28944 16.6829Z"
           fill="#00EEFF"
         />
         <path
           id="Path-441"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M4.90265 17.639L6.05704 17.1731L5.82486 15.4198L4.25611 14.3145L3.08911 14.9927L3.38864 16.5631L4.90265 17.639Z"
           fill="#008DEA"
         />
         <path
           id="Path-442"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M0.206473 15.9349L0.75002 16.8535L1.23371 16.3944L1.13576 14.6535L0.497135 13.9037L0.0267944 14.5856C0.0460177 14.8219 0.0674618 15.037 0.0911268 15.2309C0.114792 15.4249 0.153241 15.6595 0.206473 15.9349Z"
           fill="#00EEFF"
         />
         <path
           id="Path-443"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M0.630249 13.2995L0.696488 11.7168L1.53629 10.7665L2.2862 11.3855L2.21282 13.1791L1.28519 14.036L0.630249 13.2995Z"
           fill="#0071BC"
         />
         <path
           id="Path-444"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M0.391907 10.9304L0.589927 11.2387L1.48796 10.2043L1.80056 8.72187L1.40827 8.48816C1.16951 8.91371 0.969613 9.32342 0.808594 9.71729C0.647574 10.1112 0.508679 10.5155 0.391907 10.9304Z"
           fill="#008DEA"
         />
         <path
           id="Path-445"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M0.245682 11.5427L0.359595 11.7152L0.275288 13.321L0 13.7075C0.0111489 13.3083 0.0331665 12.9524 0.0660527 12.6396C0.0989389 12.3268 0.158815 11.9612 0.245682 11.5427Z"
           fill="#0071BC"
         />
         <path
           id="Path-446"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M2.76991 14.3748L3.86024 13.7095L3.77593 11.6979L2.49375 10.6826L1.56076 11.5908L1.69162 13.3798L2.76991 14.3748Z"
           fill="#00EEFF"
         />
         <path
           id="Path-447"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M2.50447 17.68L2.26608 17.0547L1.61353 16.4456C1.8001 16.7389 1.94859 16.9605 2.059 17.1104C2.1694 17.2604 2.3179 17.4502 2.50447 17.68Z"
           fill="#008DEA"
         />
@@ -678,260 +684,260 @@ const CloudburstLogo = () => (
       <g id="Globe-1">
         <path
           id="Path-399"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M25.2019 17.012L26.4451 16.1956L27.3086 16.6952L27.1273 17.8605L26.0298 18.6562L25.0482 18.2875L25.2019 17.012Z"
           fill="#008DEA"
         />
         <path
           id="Path-400"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M26.2455 18.9222L27.2763 18.1885L27.8046 18.3741L27.4939 19.1311L26.6457 19.8088L25.9629 19.7545L26.2455 18.9222Z"
           fill="#0071BC"
         />
         <path
           id="Path-401"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M21.8477 10.8133L23.2048 10.0795L23.1437 8.71853L21.8477 8.07092L20.5017 8.75144L20.4527 10.0228L21.8477 10.8133Z"
           fill="#008DEA"
         />
         <path
           id="Path-402_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M20.1734 8.35995L21.4857 7.70968L21.5195 6.7247L20.4526 6.38989L19.2552 6.94133L19.0211 7.89225L20.1734 8.35995Z"
           fill="#00EEFF"
         />
         <path
           id="Path-403_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M20.0207 5.67566H20.454L20.317 6.18981L19.1989 6.69515L18.3747 6.57961L18.6173 6.17557C18.8071 6.08511 19.0304 5.99352 19.2872 5.9008C19.544 5.80809 19.7885 5.73304 20.0207 5.67566Z"
           fill="#0071BC"
         />
         <path
           id="Path-404-Copy-3"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M20.6335 14.6224L21.7658 13.9819L22.9412 14.7218V16.0435L21.7056 16.6969L20.6335 16.0435V14.6224Z"
           fill="#00EEFF"
         />
         <path
           id="Path-406-Copy"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M23.4163 19.2661L24.8082 18.6199L25.7835 18.9573L25.4856 19.7432L24.4227 20.2896L23.4163 20.0444V19.2661Z"
           fill="#00EEFF"
         />
         <path
           id="Path-407"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M24.5817 20.6274L25.5978 20.1095H26.2306L26.1011 20.3721C25.8662 20.5135 25.61 20.6491 25.3324 20.779C25.0548 20.9088 24.7982 21.0118 24.5626 21.0877L24.3377 21.0664L24.5817 20.6274Z"
           fill="#008DEA"
         />
         <path
           id="Path-408-Copy"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M20.0905 13.5747L21.3122 12.8863V11.4091L20.1208 10.724L18.8688 11.4874L18.8789 12.8863L20.0905 13.5747Z"
           fill="#0071BC"
         />
         <path
           id="Path-409_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M17.5131 10.2869L18.4872 10.8417L19.8496 9.99366L19.9196 8.77957L18.7905 8.27515L17.6476 9.01876L17.5131 10.2869Z"
           fill="#008DEA"
         />
         <path
           id="Path-410_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M17.3992 8.6763L16.7302 8.40024L17.0345 7.54624L17.9915 6.88928L18.799 7.00633L18.5917 7.94108L17.3992 8.6763Z"
           fill="#00EEFF"
         />
         <path
           id="Path-411_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M16.8022 7.34483H17.0211L17.944 6.69515L18.1201 6.43042C17.9268 6.53528 17.7072 6.67135 17.4611 6.83863C17.2151 7.00591 16.9954 7.17464 16.8022 7.34483Z"
           fill="#0071BC"
         />
         <path
           id="Path-412"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M23.7603 10.1004L23.6876 8.71722L24.8329 8.1886L26.0946 8.9924L26.2671 10.3128L25.1245 10.9542L23.7603 10.1004Z"
           fill="#00EEFF"
         />
         <path
           id="Path-413"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M25.3419 11.3794L26.4288 10.7393L27.4892 11.5621L27.5674 12.9784L26.5649 13.7472L25.3419 12.928V11.3794Z"
           fill="#008DEA"
         />
         <path
           id="Path-414"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M26.9032 14.2434L27.8664 13.4937L28.629 14.1529L28.5281 15.4684L27.639 16.2504L26.7891 15.6934L26.9032 14.2434Z"
           fill="#0071BC"
         />
         <path
           id="Path-415"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M27.6781 16.6451L28.5712 15.8054L29.0715 16.1955L28.7948 17.2682L28.0367 18.0483L27.4637 17.8284L27.6781 16.6451Z"
           fill="#0071BC"
         />
         <path
           id="Path-416"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M27.8046 18.9986L28.1144 18.2845L28.8197 17.5704H28.8811C28.6885 17.8885 28.509 18.1538 28.3427 18.3663C28.1764 18.5788 27.997 18.7896 27.8046 18.9986Z"
           fill="#008DEA"
         />
         <path
           id="Path-417_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M22.0349 7.64764L23.3376 8.18248L24.3828 7.72641L24.187 6.85509L23.0761 6.44409L22.0128 6.80744L22.0349 7.64764Z"
           fill="#0071BC"
         />
         <path
           id="Path-418_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M20.7997 6.12272L21.8262 6.44405L22.884 6.12272L22.8398 5.61016L21.9512 5.42981L20.9096 5.64343L20.7997 6.12272Z"
           fill="#008DEA"
         />
         <path
           id="Path-419_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M26.5272 9.09573L27.2338 8.76318L28.1873 9.52638L28.4267 10.7392L27.7661 11.173L26.7027 10.3374L26.5272 9.09573Z"
           fill="#0071BC"
         />
         <path
           id="Path-420"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M27.9306 11.6235L27.9841 12.9926L28.7373 13.6771L29.2665 13.08V11.873L28.5986 11.1396L27.9306 11.6235Z"
           fill="#00EEFF"
         />
         <path
           id="Path-421"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M28.9572 14.1319L29.4782 13.4937L29.8139 13.9566L29.7881 15.0527L29.2426 15.8055L28.8345 15.446L28.9572 14.1319Z"
           fill="#008DEA"
         />
         <path
           id="Path-422"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M29.0753 17.2243L29.0237 17.1556L29.2757 16.1556L29.7375 15.5203C29.6364 15.8838 29.5362 16.1891 29.437 16.4361C29.3377 16.6832 29.2172 16.9459 29.0753 17.2243Z"
           fill="#0071BC"
         />
         <path
           id="Path-423"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M30 13.4702L29.9133 13.5332L29.5661 13.0514L29.5402 11.8311L29.7662 11.5392C29.8347 11.7951 29.8907 12.1026 29.9344 12.4617C29.9781 12.8207 30 13.1569 30 13.4702Z"
           fill="#0071BC"
         />
         <path
           id="Path-424_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M29.655 11.1395L29.3651 11.4528L28.7654 10.7687L28.5292 9.62296L28.903 9.4082C29.0155 9.58498 29.1517 9.85404 29.3117 10.2154C29.4716 10.5767 29.5861 10.8848 29.655 11.1395Z"
           fill="#008DEA"
         />
         <path
           id="Path-425_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M28.616 8.97601L28.2515 9.18202L27.3455 8.46839L27.009 7.57246L27.3801 7.52075C27.648 7.78847 27.8693 8.01869 28.0441 8.21141C28.219 8.40414 28.4096 8.65901 28.616 8.97601Z"
           fill="#0071BC"
         />
         <path
           id="Path-426_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M26.8468 8.29512L26.2166 8.57555L24.9773 7.81775L24.7486 6.97428L25.5509 6.82129L26.5664 7.45849L26.8468 8.29512Z"
           fill="#008DEA"
         />
         <path
           id="Path-427_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M27.0656 7.2502H26.7361L25.7694 6.63288L25.6166 6.29895C25.9021 6.45009 26.1453 6.5909 26.3461 6.72138C26.5469 6.85186 26.7868 7.02813 27.0656 7.2502Z"
           fill="#0071BC"
         />
         <path
           id="Path-428_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M25.1037 6.06048L25.3338 6.50939L24.4969 6.62118L23.3942 6.16362L23.3155 5.68423L23.8767 5.65442C24.1506 5.7268 24.3573 5.78597 24.4969 5.83193C24.6365 5.87789 24.8388 5.95407 25.1037 6.06048Z"
           fill="#00EEFF"
         />
         <path
           id="Path-429_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M21.9909 20.8998L23.0909 20.4861L24.1094 20.6918L23.8703 21.1418L23.0261 21.4479L21.9909 21.3396V20.8998Z"
           fill="#0071BC"
         />
         <path
           id="Path-433_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M17.0323 13.5747L18.0543 12.905V11.3625L17.2216 10.8597L16.2049 11.6617L16.1538 12.905L17.0323 13.5747Z"
           fill="#00EEFF"
         />
         <path
           id="Path-434_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M15.9853 11.1447L16.9432 10.3521L17.1446 9.16354L16.3778 8.87341L15.6013 9.55843L15.394 10.6772L15.9853 11.1447Z"
           fill="#0071BC"
         />
         <path
           id="Path-435_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M15.2345 9.1503L15.4868 9.28374L16.3037 8.53173L16.6348 7.69958H16.4155C16.1314 7.98497 15.9122 8.22495 15.758 8.41953C15.6038 8.61411 15.4293 8.8577 15.2345 9.1503Z"
           fill="#0071BC"
         />
         <path
           id="Path-442_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M14.1361 15.0473L14.542 15.7333L14.9033 15.3904L14.8301 14.0903L14.3532 13.5303L14.0019 14.0395C14.0162 14.216 14.0323 14.3767 14.0499 14.5215C14.0676 14.6663 14.0963 14.8416 14.1361 15.0473Z"
           fill="#0071BC"
         />
         <path
           id="Path-443_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M14.4526 13.0791L14.502 11.8971L15.1292 11.1874L15.6893 11.6497L15.6345 12.9892L14.9417 13.6292L14.4526 13.0791Z"
           fill="#008DEA"
         />
         <path
           id="Path-444_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M14.2746 11.3098L14.4225 11.5401L15.0932 10.7675L15.3266 9.66039L15.0337 9.48584C14.8553 9.80366 14.706 10.1096 14.5858 10.4038C14.4655 10.698 14.3618 11 14.2746 11.3098Z"
           fill="#008DEA"
         />
         <path
           id="Path-445_2"
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M14.1654 11.7671L14.2505 11.8959L14.1875 13.0952L13.9819 13.3838C13.9902 13.0857 14.0067 12.8199 14.0312 12.5863C14.0558 12.3527 14.1005 12.0796 14.1654 11.7671Z"
           fill="#0071BC"
         />
@@ -940,7 +946,7 @@ const CloudburstLogo = () => (
   </svg>
 );
 
-const CyberSainikLogo = () => (
+const CyberSainikLogo: FC<IconProps> = () => (
   <svg
     width="28"
     height="31"
@@ -1064,7 +1070,12 @@ export const Profile = () => {
                 />
               </svg>
               Drag and drop or{' '}
-              <Button variant="text" size="small" color="primary" disablePadding>
+              <Button
+                variant="text"
+                size="small"
+                color="primary"
+                disablePadding
+              >
                 Click to upload
               </Button>
             </div>
@@ -1111,13 +1122,17 @@ export const Profile = () => {
               value="goodcodeus"
               startAdornment="linkedin.com/in/"
             />
-            <Input fullWidth value="goodcodeus" startAdornment="dribbble.com/" />
+            <Input
+              fullWidth
+              value="goodcodeus"
+              startAdornment="dribbble.com/"
+            />
           </Stack>
         </div>
       </Card>
     </motion.div>
   );
-}
+};
 
 export const Account = () => (
   <motion.div
@@ -1133,7 +1148,7 @@ export const Account = () => (
           <Tab>Billing</Tab>
         </TabList>
       </Tabs>
-      <Divider disableMargins/>
+      <Divider disableMargins />
       <TabPanel>
         <MotionGroup>
           <Stack
@@ -1147,11 +1162,7 @@ export const Account = () => (
                   <h2 className="text-xl font-sans font-bold ttext-content-text-neutral-base">
                     Austin McDaniel
                   </h2>
-                  <Chip
-                    size="large"
-                    variant="outline"
-                    color="warning"
-                  >
+                  <Chip size="large" variant="outline" color="warning">
                     Admin
                   </Chip>
                 </Stack>
@@ -1180,7 +1191,7 @@ export const Account = () => (
                         variant="outline"
                         color="primary"
                         size="large"
-                        start={<EmailIcon className=""/>}
+                        start={<EmailIcon className="" />}
                       >
                         <span className="pl-1">Email</span>
                       </Chip>
@@ -1269,10 +1280,10 @@ export const Account = () => (
                         In Progress
                       </span>
                       <Card className="px-4 py-2">
-                        This looks fine, might've missed it but maybe we can
-                        add a link to the website where we also have the video
-                        of how to use the plug in? Otherwise this is a nice
-                        addition.
+                        This looks fine, might&apos;ve missed it but maybe we
+                        can add a link to the website where we also have the
+                        video of how to use the plug in? Otherwise this is a
+                        nice addition.
                       </Card>
                     </div>
                   </Step>
@@ -1361,11 +1372,7 @@ export const Overview = () => (
                     <h2 className="text-xl font-sans font-bold text-content-text-neutral-base">
                       Austin McDaniel
                     </h2>
-                    <Chip
-                      variant="outline"
-                      color="warning"
-                      size="large"
-                    >
+                    <Chip variant="outline" color="warning" size="large">
                       Admin
                     </Chip>
                   </Stack>
@@ -1388,27 +1395,21 @@ export const Overview = () => (
                 <Button
                   variant="filled"
                   color="secondary"
-                  startAdornment={
-                    <ListIcon className="" />
-                  }
+                  startAdornment={<ListIcon className="" />}
                 >
                   Notes
                 </Button>
                 <Button
                   variant="filled"
                   color="secondary"
-                  startAdornment={
-                    <TeamManageIcon className="" />
-                  }
+                  startAdornment={<TeamManageIcon className="" />}
                 >
                   Teams
                 </Button>
                 <Button
                   variant="filled"
                   color="secondary"
-                  startAdornment={
-                    <FilterIcon />
-                  }
+                  startAdornment={<FilterIcon />}
                 >
                   History
                 </Button>
@@ -1692,13 +1693,13 @@ export const Settings = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm({
     defaultValues: {
       fullName: 'Austin McDaniel',
       title: 'CEO / Cyber Security Wizard',
-      website: 'goodcode.us'
-    }
+      website: 'goodcode.us',
+    },
   });
 
   return (
@@ -1710,7 +1711,7 @@ export const Settings = () => {
       <Card className="p-8 transition-colors w-full min-w-[960px] max-w-[1200px] ">
         <Stack alignItems="start">
           <Block className="border border-stroke-neutral-3 p-3 rounded-xs">
-            <UserIcon className=""/>
+            <UserIcon className="" />
           </Block>
           <Stack alignItems="start" direction="column" className="gap-0" dense>
             <h4 className="text-lg font-bold text-content-text-neutral-base">
@@ -1722,7 +1723,12 @@ export const Settings = () => {
           </Stack>
         </Stack>
 
-        <Tabs size="large" variant="secondary" selectedIndex={0} className="mt-8">
+        <Tabs
+          size="large"
+          variant="secondary"
+          selectedIndex={0}
+          className="mt-8"
+        >
           <TabList>
             <Tab>Profile Settings</Tab>
             <Tab>Users</Tab>
@@ -1738,7 +1744,7 @@ export const Settings = () => {
                 <Block className="min-w-[350px] max-w-[350px] mt-12">
                   <form
                     onSubmit={handleSubmit(values =>
-                      console.log('values', values)
+                      console.log('values', values),
                     )}
                   >
                     <Block>

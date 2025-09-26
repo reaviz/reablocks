@@ -56,7 +56,7 @@ export const inputTheme: InputTheme = {
       pl-(--inputs-details-horizontal-padding-left-lg) pr-(--inputs-details-horizontal-padding-right-lg)
       gap-(--inputs-details-space-between-horizontal-lg)
       [&>input]:text-base [&>input]:leading-6 [&_svg]:size-(--inputs-details-asset-size-lg)
-    `
+    `,
   },
   adornment: {
     base: `
@@ -64,6 +64,6 @@ export const inputTheme: InputTheme = {
       [&>svg]:fill-inputs-colors-normal-assets-input-resting group-hover:[&>svg]:fill-inputs-colors-normal-assets-input-hover
     `,
     start: '',
-    end: ''
-  }
+    end: '',
+  },
 };

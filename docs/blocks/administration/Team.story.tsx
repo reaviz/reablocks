@@ -1,19 +1,19 @@
-import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import React, { useState } from 'react';
 
 import { Pager } from '../../../src/data/Pager';
-import { Card } from '../../../src/layout/Card';
-import { Tabs, Tab, TabList, TabPanel } from '../../../src/layout/Tabs';
 import { Avatar } from '../../../src/elements/Avatar';
 import { Button } from '../../../src/elements/Button';
 import { IconButton } from '../../../src/elements/IconButton';
 import { Checkbox } from '../../../src/form/Checkbox';
-import { Stack } from '../../../src/layout/Stack';
-import { Divider } from '../../../src/layout';
 import { Input } from '../../../src/form/Input';
+import { Divider } from '../../../src/layout';
+import { Card } from '../../../src/layout/Card';
+import { Stack } from '../../../src/layout/Stack';
+import { Tab, TabList, TabPanel, Tabs } from '../../../src/layout/Tabs';
 
 export default {
-  title: 'Blocks/Administration/Team'
+  title: 'Blocks/Administration/Team',
 };
 
 const GoodCodeLogo = () => (
@@ -81,7 +81,7 @@ export const TeamGeneral = () => {
           <div className="flex flex-col">
             <h2 className="font-bold text-xl">General</h2>
             <p className="text-content-text-neutral-2 text-sm">
-              Effectively manage your team's workflow with our intuitive
+              Effectively manage your team&apos;s workflow with our intuitive
               application. Streamline task delegation, monitor progress, and
               foster seamless collaboration among team members. Stay informed,
               stay connected, and drive productivity with ease.
@@ -97,7 +97,7 @@ export const TeamGeneral = () => {
                 <Tab>Notifications</Tab>
               </TabList>
             </Tabs>
-            <Divider disableMargins/>
+            <Divider disableMargins />
             <TabPanel>
               <div className="flex w-full justify-between items-center mb-4">
                 <div className="flex flex-col">
@@ -132,7 +132,7 @@ export const TeamGeneral = () => {
                       .fill({
                         name: 'Austin McDaniel',
                         email: 'austin@goodcode.us',
-                        role: 'Admin'
+                        role: 'Admin',
                       })
                       .map((user, index) => (
                         <>
@@ -150,7 +150,7 @@ export const TeamGeneral = () => {
                                     setCheckedUsers([...checkedUsers, index]);
                                   } else {
                                     setCheckedUsers(
-                                      checkedUsers.filter(i => i !== index)
+                                      checkedUsers.filter(i => i !== index),
                                     );
                                   }
                                 }}
@@ -252,7 +252,7 @@ export const TeamMinimal = () => {
             <div className="flex flex-col">
               <span className="font-bold">On teams</span>
               <span className="text-sm text-content-text-neutral-2">
-                You're currently on these teams.
+                You&apos;re currently on these teams.
               </span>
             </div>
             <Button
@@ -308,7 +308,7 @@ export const TeamMinimal = () => {
                   .fill({
                     name: 'Austin McDaniel',
                     email: 'austin@goodcode.us',
-                    dateAdded: new Date().toLocaleDateString()
+                    dateAdded: new Date().toLocaleDateString(),
                   })
                   .map((user, index) => (
                     <>
@@ -423,7 +423,7 @@ export const TeamRoles = () => {
                               ? Array(3)
                                   .fill(0)
                                   .map((_, i) => i)
-                              : []
+                              : [],
                           )
                         }
                       />
@@ -439,7 +439,7 @@ export const TeamRoles = () => {
                     .fill({
                       name: 'Austin McDaniel',
                       email: 'austin@goodcode.us',
-                      dateAdded: new Date().toLocaleDateString()
+                      dateAdded: new Date().toLocaleDateString(),
                     })
                     .map((user, index) => (
                       <>
@@ -457,7 +457,7 @@ export const TeamRoles = () => {
                                   setCheckedAdmins([...checkedAdmins, index]);
                                 } else {
                                   setCheckedAdmins(
-                                    checkedAdmins.filter(i => i !== index)
+                                    checkedAdmins.filter(i => i !== index),
                                   );
                                 }
                               }}
@@ -556,7 +556,7 @@ export const TeamRoles = () => {
                               ? Array(12)
                                   .fill(0)
                                   .map((_, i) => i)
-                              : []
+                              : [],
                           )
                         }
                       />
@@ -572,7 +572,7 @@ export const TeamRoles = () => {
                     .fill({
                       name: 'Austin McDaniel',
                       email: 'austin@goodcode.us',
-                      dateAdded: new Date().toLocaleDateString()
+                      dateAdded: new Date().toLocaleDateString(),
                     })
                     .map((user, index) => (
                       <>
@@ -590,7 +590,7 @@ export const TeamRoles = () => {
                                   setCheckedUsers([...checkedUsers, index]);
                                 } else {
                                   setCheckedUsers(
-                                    checkedUsers.filter(i => i !== index)
+                                    checkedUsers.filter(i => i !== index),
                                   );
                                 }
                               }}

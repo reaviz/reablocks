@@ -1,9 +1,12 @@
-import React, { FC, ReactNode, useCallback, useEffect, useRef } from 'react';
-import { NotificationOptions } from './NotificationsContext';
 import { motion } from 'motion/react';
+import type { FC, ReactNode } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
+
 import { twMerge } from '@/utils';
-import { NotificationTheme } from './NotificationTheme';
 import { useComponentTheme } from '@/utils';
+
+import type { NotificationOptions } from './NotificationsContext';
+import type { NotificationTheme } from './NotificationTheme';
 
 export interface NotificationProps extends NotificationOptions {
   /**
@@ -39,7 +42,7 @@ export const Notification: FC<NotificationProps> = ({
   action,
   component,
   onClose,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const timeoutRef = useRef<any | null>(null);
 
@@ -57,7 +60,7 @@ export const Notification: FC<NotificationProps> = ({
 
   const theme: NotificationTheme = useComponentTheme(
     'notification',
-    customTheme
+    customTheme,
   );
 
   return (
@@ -75,7 +78,7 @@ export const Notification: FC<NotificationProps> = ({
           className={twMerge(
             theme.notification?.base,
             theme.notification?.variants?.[variant]?.base,
-            className
+            className,
           )}
         >
           <div className={theme.notification?.content}>

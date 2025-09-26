@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+
 import { NotificationsContext } from './NotificationsContext';
 
 export const useNotification = () => {
@@ -6,7 +7,7 @@ export const useNotification = () => {
 
   if (context === undefined) {
     throw new Error(
-      '`useNotification` hook must be used within a `NotificationsContext` component'
+      '`useNotification` hook must be used within a `NotificationsContext` component',
     );
   }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { JsonTree } from './JsonTree';
 
 export default {
@@ -6,12 +7,12 @@ export default {
   components: JsonTree,
   argTypes: {
     showEmpty: {
-      control: 'boolean'
+      control: 'boolean',
     },
     showCount: {
-      control: 'boolean'
-    }
-  }
+      control: 'boolean',
+    },
+  },
 };
 
 export const Simple = props => (
@@ -23,8 +24,8 @@ export const Simple = props => (
       over21: true,
       children: [
         { name: 'Jane Doe', age: 25 },
-        { name: 'Jim Doe', age: 33 }
-      ]
+        { name: 'Jim Doe', age: 33 },
+      ],
     }}
   />
 );
@@ -38,11 +39,11 @@ export const Expanded = props => (
       over21: true,
       children: [
         { name: 'Jane Doe', age: 25 },
-        { name: 'Jim Doe', age: 33 }
+        { name: 'Jim Doe', age: 33 },
       ],
       extra: {
-        key: 'value'
-      }
+        key: 'value',
+      },
     }}
     expandDepth={Infinity}
   />
@@ -74,7 +75,7 @@ export const Complex = props => (
           address: '192.168.242.179',
           latitude: null,
           org: null,
-          asn: null
+          asn: null,
         },
         {
           city: 'Austin',
@@ -82,7 +83,7 @@ export const Complex = props => (
           address: '192.168.242.179',
           latitude: 50,
           org: 'Unassigned',
-          asn: 50
+          asn: 50,
         },
         {
           city: 'New York',
@@ -90,8 +91,8 @@ export const Complex = props => (
           address: '192.168.242.179',
           latitude: 0,
           org: 'Unassigned',
-          nested: [1, 2, 3]
-        }
+          nested: [1, 2, 3],
+        },
       ],
       type: 'flow',
       src_mac: '00:0c:29:30:b9:68',
@@ -120,13 +121,13 @@ export const Complex = props => (
         address: '6.6.6.167',
         latitude: 37.750999450683594,
         org: 'US Department of Defense Network',
-        asn: 0
+        asn: 0,
       },
       history: 'S',
       show_more: [
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-        21, 22, 23
-      ]
+        21, 22, 23,
+      ],
     }}
   />
 );
@@ -157,7 +158,7 @@ export const ShowAll = props => (
           address: '192.168.242.179',
           latitude: null,
           org: null,
-          asn: null
+          asn: null,
         },
         {
           city: 'Austin',
@@ -165,7 +166,7 @@ export const ShowAll = props => (
           address: '192.168.242.179',
           latitude: 50,
           org: 'Unassigned',
-          asn: 50
+          asn: 50,
         },
         {
           city: 'New York',
@@ -173,8 +174,8 @@ export const ShowAll = props => (
           address: '192.168.242.179',
           latitude: 0,
           org: 'Unassigned',
-          nested: [1, 2, 3]
-        }
+          nested: [1, 2, 3],
+        },
       ],
       type: 'flow',
       src_mac: '00:0c:29:30:b9:68',
@@ -203,13 +204,13 @@ export const ShowAll = props => (
         address: '6.6.6.167',
         latitude: 37.750999450683594,
         org: 'US Department of Defense Network',
-        asn: 0
+        asn: 0,
       },
       history: 'S',
       show_more: [
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
-        21, 22, 23
-      ]
+        21, 22, 23,
+      ],
     }}
     expandDepth={Infinity}
     showAll
@@ -247,8 +248,8 @@ export const Empties = props => (
         0,
         '',
         Infinity,
-        NaN
-      ]
+        NaN,
+      ],
     }}
     expandDepth={Infinity}
   />
@@ -263,8 +264,8 @@ export const NoRoot = props => (
       over21: true,
       children: [
         { name: 'Jane Doe', age: 25 },
-        { name: 'Jim Doe', age: 33 }
-      ]
+        { name: 'Jim Doe', age: 33 },
+      ],
     }}
     root={false}
   />

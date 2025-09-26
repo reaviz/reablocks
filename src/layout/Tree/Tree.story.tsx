@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Tree } from './Tree';
 import { TreeNode } from './TreeNode';
 
@@ -6,8 +7,8 @@ export default {
   title: 'Components/Layout/Tree',
   components: Tree,
   subcomponents: {
-    TreeNode
-  }
+    TreeNode,
+  },
 };
 
 const SmileIcon = () => (

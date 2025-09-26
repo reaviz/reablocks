@@ -1,5 +1,6 @@
-import { Toggle } from './Toggle';
 import React, { useState } from 'react';
+
+import { Toggle } from './Toggle';
 
 export default { title: 'Components/Form/Toggle', component: Toggle };
 
@@ -41,11 +42,11 @@ export const CustomAnimation = () => {
         type: 'spring' as const,
         stiffness: 300,
         damping: 20,
-        duration: 0.4
-      }
+        duration: 0.4,
+      },
     },
     whileHover: { scale: 1.1, transition: { duration: 0.2 } },
-    whileTap: { scale: 0.9, transition: { duration: 0.1 } }
+    whileTap: { scale: 0.9, transition: { duration: 0.1 } },
   };
 
   return (
@@ -54,7 +55,7 @@ export const CustomAnimation = () => {
         padding: '20px',
         display: 'flex',
         gap: '20px',
-        alignItems: 'center'
+        alignItems: 'center',
       }}
     >
       <Toggle

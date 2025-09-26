@@ -1,6 +1,8 @@
-import React, { FC, InputHTMLAttributes } from 'react';
+import type { FC, InputHTMLAttributes } from 'react';
+import React from 'react';
+
+import type { ListTheme } from '@/layout/List/ListTheme';
 import { Typography } from '@/typography';
-import { ListTheme } from '@/layout/List/ListTheme';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from '@/utils';
 

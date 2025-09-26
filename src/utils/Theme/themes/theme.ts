@@ -1,51 +1,79 @@
+import type {
+  DateFormatTheme,
+  EllipsisTheme,
+  PagerTheme,
+  RedactTheme,
+  SortTheme,
+} from '@/data';
 import {
-  buttonTheme,
-  ButtonTheme,
-  CommandPaletteTheme,
-  commandPaletteTheme,
-  AvatarTheme,
-  avatarTheme,
-  KbdTheme,
-  kbdTheme,
-  AvatarGroupTheme,
-  avatarGroupTheme,
-  BadgeTheme,
-  badgeTheme,
-  DotsLoaderTheme,
-  dotsLoaderTheme,
+  dateFormatTheme,
+  ellipsisTheme,
+  pagerTheme,
+  redactTheme,
+  sortTheme,
+} from '@/data';
+import type {
   ArrowTheme,
-  arrowTheme,
-  chipTheme,
+  AvatarGroupTheme,
+  AvatarTheme,
+  BadgeTheme,
+  ButtonTheme,
   ChipTheme,
+  CommandPaletteTheme,
+  DotsLoaderTheme,
+  KbdTheme,
   NavigationTheme,
-  navigationTheme
 } from '@/elements';
-
 import {
+  arrowTheme,
+  avatarGroupTheme,
+  avatarTheme,
+  badgeTheme,
+  buttonTheme,
+  chipTheme,
+  commandPaletteTheme,
+  dotsLoaderTheme,
+  kbdTheme,
+  navigationTheme,
+} from '@/elements';
+import type {
+  CalendarRangeTheme,
+  CalendarTheme,
   CheckboxTheme,
-  checkboxTheme,
-  inputTheme,
-  radioTheme,
-  rangeTheme,
-  selectTheme,
-  textareaTheme,
-  toggleTheme,
+  DateInputTheme,
   InputTheme,
   RadioTheme,
   RangeTheme,
   SelectTheme,
   TextareaTheme,
   ToggleTheme,
-  CalendarTheme,
-  calendarTheme,
-  CalendarRangeTheme,
-  calendarRangeTheme,
-  DateInputTheme,
-  dateInputTheme
 } from '@/form';
-
 import {
+  calendarRangeTheme,
+  calendarTheme,
+  checkboxTheme,
+  dateInputTheme,
+  inputTheme,
+  radioTheme,
+  rangeTheme,
+  selectTheme,
+  textareaTheme,
+  toggleTheme,
+} from '@/form';
+import type {
+  BackdropTheme,
+  CalloutTheme,
   ContextMenuTheme,
+  DialogTheme,
+  DrawerTheme,
+  MenuTheme,
+  NotificationTheme,
+  PopoverTheme,
+  TooltipTheme,
+} from '@/layers';
+import {
+  backdropTheme,
+  calloutTheme,
   contextMenuTheme,
   dialogTheme,
   drawerTheme,
@@ -53,64 +81,37 @@ import {
   notificationTheme,
   popoverTheme,
   tooltipTheme,
-  DialogTheme,
-  DrawerTheme,
-  MenuTheme,
-  NotificationTheme,
-  PopoverTheme,
-  TooltipTheme,
-  CalloutTheme,
-  calloutTheme,
-  BackdropTheme,
-  backdropTheme
 } from '@/layers';
-
-import {
+import type {
   BlockTheme,
+  BreadcrumbsTheme,
+  CardTheme,
   CollapseTheme,
+  DividerTheme,
+  JsonTreeTheme,
+  ListTheme,
+  StackTheme,
+  StepperTheme,
+  TabsTheme,
+  TreeTheme,
+  VerticalSpacerTheme,
+} from '@/layout';
+import {
   blockTheme,
+  breadcrumbsTheme,
+  cardTheme,
   collapseTheme,
   dividerTheme,
-  treeTheme,
-  DividerTheme,
-  TabsTheme,
-  tabsTheme,
-  TreeTheme,
-  verticalSpacerTheme,
-  VerticalSpacerTheme,
-  CardTheme,
-  cardTheme,
-  listTheme,
-  ListTheme,
-  stackTheme,
-  StackTheme,
-  JsonTreeTheme,
   jsonTreeTheme,
-  breadcrumbsTheme,
-  BreadcrumbsTheme,
-  StepperTheme,
-  stepperTheme
+  listTheme,
+  stackTheme,
+  stepperTheme,
+  tabsTheme,
+  treeTheme,
+  verticalSpacerTheme,
 } from '@/layout';
-
-import {
-  typographyTheme,
-  TypographyTheme,
-  typographyThemeDeprecated,
-  TypographyThemeDeprecated
-} from '@/typography';
-
-import {
-  ellipsisTheme,
-  EllipsisTheme,
-  PagerTheme,
-  pagerTheme,
-  RedactTheme,
-  redactTheme,
-  SortTheme,
-  sortTheme,
-  DateFormatTheme,
-  dateFormatTheme
-} from '@/data';
+import type { TypographyTheme, TypographyThemeDeprecated } from '@/typography';
+import { typographyTheme, typographyThemeDeprecated } from '@/typography';
 
 export interface ReablocksTheme {
   components: {
@@ -214,6 +215,6 @@ export const theme: ReablocksTheme = {
     stepper: stepperTheme,
     callout: calloutTheme,
     backdrop: backdropTheme,
-    navigation: navigationTheme
-  }
+    navigation: navigationTheme,
+  },
 };

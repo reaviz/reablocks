@@ -1,13 +1,13 @@
+import { motion } from 'motion/react';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { motion } from 'motion/react';
 
-import { Block, Card, Divider, Stack } from '../../../src/layout';
-import { Checkbox, Input } from '../../../src/form';
 import { Button } from '../../../src/elements/Button';
+import { Checkbox, Input } from '../../../src/form';
+import { Block, Card, Divider, Stack } from '../../../src/layout';
 
 export default {
-  title: 'Blocks/Authentication/Login'
+  title: 'Blocks/Authentication/Login',
 };
 
 const LogoIcon = ({ className }: { className?: string }) => (
@@ -47,7 +47,7 @@ export const Login = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -95,7 +95,7 @@ export const Login = () => {
                 height="16"
                 fill="none"
               >
-                <g clip-path="url(#a)">
+                <g clipPath="url(#a)">
                   <path
                     fill="#fff"
                     d="M7.833 4.667 6.9 5.6l1.733 1.733h-6.8v1.334h6.8L6.9 10.4l.933.933L11.167 8 7.833 4.667Zm6 8H8.5V14h5.333c.734 0 1.334-.6 1.334-1.333V3.333c0-.733-.6-1.333-1.334-1.333H8.5v1.333h5.333v9.334Z"
@@ -151,7 +151,7 @@ export const LoginBasic = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -199,7 +199,7 @@ export const LoginBasic = () => {
                 height="16"
                 fill="none"
               >
-                <g clip-path="url(#a)">
+                <g clipPath="url(#a)">
                   <path
                     fill="#fff"
                     d="M7.833 4.667 6.9 5.6l1.733 1.733h-6.8v1.334h6.8L6.9 10.4l.933.933L11.167 8 7.833 4.667Zm6 8H8.5V14h5.333c.734 0 1.334-.6 1.334-1.333V3.333c0-.733-.6-1.333-1.334-1.333H8.5v1.333h5.333v9.334Z"
@@ -255,7 +255,7 @@ export const LoginFull = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -325,7 +325,7 @@ export const LoginFull = () => {
               </Button>
             </Stack>
             <Stack className="my-7">
-              <Divider/>
+              <Divider />
               <span className="whitespace-nowrap text-sm text-content-text-neutral-2">
                 or with
               </span>
@@ -412,7 +412,7 @@ export const LoginPassword = () => {
     control,
     handleSubmit,
     setValue,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -476,9 +476,7 @@ export const LoginPassword = () => {
                 />
               )}
             />
-            <Button variant="text">
-              Forgot your password?
-            </Button>
+            <Button variant="text">Forgot your password?</Button>
           </Stack>
           <Divider className="my-7" variant="secondary" />
           <Button
@@ -495,7 +493,7 @@ export const LoginPassword = () => {
                 height="16"
                 fill="none"
               >
-                <g clip-path="url(#a)">
+                <g clipPath="url(#a)">
                   <path
                     fill="#fff"
                     d="M7.833 4.667 6.9 5.6l1.733 1.733h-6.8v1.334h6.8L6.9 10.4l.933.933L11.167 8 7.833 4.667Zm6 8H8.5V14h5.333c.734 0 1.334-.6 1.334-1.333V3.333c0-.733-.6-1.333-1.334-1.333H8.5v1.333h5.333v9.334Z"
@@ -513,7 +511,7 @@ export const LoginPassword = () => {
             {isSubmitting ? 'Logging in...' : 'Login'}
           </Button>
           <div className="mt-5 text-sm text-content-text-neutral-2 flex items-center justify-center gap-2">
-            Don't have an account?
+            Don&apos;t have an account?
             <Button variant="text" size="large">
               Sign up
             </Button>
@@ -528,7 +526,7 @@ export const LoginSocial = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -576,7 +574,7 @@ export const LoginSocial = () => {
                 height="16"
                 fill="none"
               >
-                <g clip-path="url(#a)">
+                <g clipPath="url(#a)">
                   <path
                     fill="#fff"
                     d="M7.833 4.667 6.9 5.6l1.733 1.733h-6.8v1.334h6.8L6.9 10.4l.933.933L11.167 8 7.833 4.667Zm6 8H8.5V14h5.333c.734 0 1.334-.6 1.334-1.333V3.333c0-.733-.6-1.333-1.334-1.333H8.5v1.333h5.333v9.334Z"

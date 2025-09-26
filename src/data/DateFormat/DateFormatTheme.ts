@@ -5,5 +5,5 @@ export interface DateFormatTheme {
 
 export const dateFormatTheme: DateFormatTheme = {
   base: 'cursor-text',
-  interactive: 'cursor-pointer hover:underline'
+  interactive: 'cursor-pointer hover:underline',
 };

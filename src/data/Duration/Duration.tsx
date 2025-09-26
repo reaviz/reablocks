@@ -1,5 +1,8 @@
-import React, { FC } from 'react';
-import { formatDuration, DurationFormatTypes } from './utils';
+import type { FC } from 'react';
+import React from 'react';
+
+import type { DurationFormatTypes } from './utils';
+import { formatDuration } from './utils';
 
 export interface DurationProps {
   /**
@@ -21,5 +24,5 @@ export interface DurationProps {
 export const Duration: FC<DurationProps> = ({
   value,
   emptyValue = 'N/A',
-  zeroValue = '0 ms'
+  zeroValue = '0 ms',
 }) => <>{formatDuration(value, emptyValue, zeroValue)}</>;

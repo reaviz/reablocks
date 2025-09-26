@@ -1,12 +1,14 @@
-import React, { useState, useCallback, ReactNode } from 'react';
-import { ConfirmDialog, ConfirmDialogProps } from './ConfirmDialog';
+import React, { useCallback, useState } from 'react';
+
+import type { ConfirmDialogProps } from './ConfirmDialog';
+import { ConfirmDialog } from './ConfirmDialog';
 
 export type OpenConfirmDialogProps = Omit<ConfirmDialogProps, 'open'>;
 
 export const useConfirmDialog = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [dialogProps, setDialogProps] = useState<OpenConfirmDialogProps | null>(
-    null
+    null,
   );
 
   const closeDialog = useCallback(() => {
@@ -18,11 +20,11 @@ export const useConfirmDialog = () => {
     (props: OpenConfirmDialogProps) => {
       setDialogProps({
         ...props,
-        onCancel: props.onCancel || closeDialog
+        onCancel: props.onCancel || closeDialog,
       });
       setIsOpen(true);
     },
-    [closeDialog]
+    [closeDialog],
   );
 
   const DialogComponent = useCallback(() => {
@@ -37,6 +39,6 @@ export const useConfirmDialog = () => {
     isOpen,
     openDialog,
     closeDialog,
-    DialogComponent
+    DialogComponent,
   };
 };

@@ -20,7 +20,7 @@ export function getPageRange(page: number, totalPages: number) {
 export function getItemsRange(
   page: number,
   perPage: number,
-  totalItems: number
+  totalItems: number,
 ) {
   const startItem = page * perPage + 1;
   const endOfPage = (page + 1) * perPage;

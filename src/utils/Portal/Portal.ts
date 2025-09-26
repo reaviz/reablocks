@@ -1,15 +1,15 @@
-import React, { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
+import type React from 'react';
+import type { FC, LegacyRef, PropsWithChildren } from 'react';
 import {
-  useImperativeHandle,
   forwardRef,
-  FC,
-  PropsWithChildren,
+  useEffect,
+  useImperativeHandle,
   useLayoutEffect,
   useRef,
-  useEffect,
-  LegacyRef
 } from 'react';
 import { createPortal } from 'react-dom';
+
 import { useUnmount } from '@/utils/useUnmount';
 
 export interface PortalProps extends PropsWithChildren {
@@ -52,7 +52,7 @@ export const Portal: FC<PortalProps & PortalRef> = forwardRef<
 >(
   (
     { children, className, style, element = 'div', onMount, onUnmount },
-    ref
+    ref,
   ) => {
     const elementRef = useRef<HTMLElement | null>(null);
     const mounted = useRef<boolean>(false);
@@ -63,7 +63,7 @@ export const Portal: FC<PortalProps & PortalRef> = forwardRef<
       }
       if (style && elementRef.current) {
         Object.keys(style)?.forEach((key: string) =>
-          elementRef.current.style?.setProperty(key, style[key])
+          elementRef.current.style?.setProperty(key, style[key]),
         );
       }
       // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -96,5 +96,5 @@ export const Portal: FC<PortalProps & PortalRef> = forwardRef<
     }
 
     return createPortal(children, elementRef.current) as React.JSX.Element;
-  }
+  },
 );

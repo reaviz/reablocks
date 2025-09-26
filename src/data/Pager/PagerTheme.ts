@@ -30,8 +30,8 @@ export const pagerTheme: PagerTheme = {
         border-buttons-colors-core-icon-ghost-stroke-resting hover:border-buttons-colors-core-icon-ghost-stroke-hover focus-visible:border-buttons-colors-core-icon-ghost-stroke-hover
       `,
       active:
-        'text-buttons-colors-core-icon-ghost-text-selected font-bold disabled:cursor-default disabled:opacity-100 disabled:bg-buttons-colors-core-icon-ghost-background-selected disabled:text-buttons-colors-core-icon-ghost-text-selected'
-    }
+        'text-buttons-colors-core-icon-ghost-text-selected font-bold disabled:cursor-default disabled:opacity-100 disabled:bg-buttons-colors-core-icon-ghost-background-selected disabled:text-buttons-colors-core-icon-ghost-text-selected',
+    },
   },
   ellipsis:
     'cursor-pointer text-buttons-colors-core-icon-ghost-text-resting min-w-8 flex items-baseline justify-center leading-8',
@@ -47,5 +47,5 @@ export const pagerTheme: PagerTheme = {
   firstPage: '',
   prevPage: '',
   lastPage: '',
-  nextPage: ''
+  nextPage: '',
 };

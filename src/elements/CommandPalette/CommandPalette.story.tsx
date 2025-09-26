@@ -1,14 +1,15 @@
 import { CommandPalette } from '@/elements';
-import { Dialog } from '@/layers';
-import { Chip } from '../Chip';
-import { Divider } from '@/layout';
-import { Stack } from '@/layout';
 import { CommandPaletteSection } from '@/elements';
 import { CommandPaletteItem } from '@/elements';
+import { Dialog } from '@/layers';
+import { Divider } from '@/layout';
+import { Stack } from '@/layout';
+
+import { Chip } from '../Chip';
 
 export default {
   title: 'Components/Data/Command Palette',
-  component: CommandPalette
+  component: CommandPalette,
 };
 
 export const Simple = () => (

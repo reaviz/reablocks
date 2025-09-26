@@ -1,9 +1,9 @@
-import { CommandPaletteInputTheme, commandPaletteInputTheme } from '@/elements';
-import { CommandPaletteItemTheme, commandPaletteItemTheme } from '@/elements';
-import {
-  CommandPaletteSectionTheme,
-  commandPaletteSectionTheme
-} from '@/elements';
+import type { CommandPaletteInputTheme } from '@/elements';
+import type { CommandPaletteItemTheme } from '@/elements';
+import type { CommandPaletteSectionTheme } from '@/elements';
+import { commandPaletteInputTheme } from '@/elements';
+import { commandPaletteItemTheme } from '@/elements';
+import { commandPaletteSectionTheme } from '@/elements';
 
 export interface CommandPaletteTheme {
   base: string;
@@ -20,5 +20,5 @@ export const commandPaletteTheme: CommandPaletteTheme = {
   emptyContainer: '',
   input: commandPaletteInputTheme,
   item: commandPaletteItemTheme,
-  section: commandPaletteSectionTheme
+  section: commandPaletteSectionTheme,
 };

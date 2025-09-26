@@ -1,27 +1,20 @@
-import React, {
-  ChangeEvent,
-  FocusEvent,
-  FC,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useRef,
-  useState
-} from 'react';
 import { format as formatDate, isValid, parse } from 'date-fns';
-
-import { IconButton } from '@/elements/IconButton';
-import { Menu } from '@/layers/Menu';
-import { Card } from '@/layout/Card';
-import { Placement } from '@/utils/Position';
-import { Calendar, PresetOption } from '@/form/Calendar';
-import { Input, InputProps, InputRef } from '@/form/Input';
+import type { ChangeEvent, FC, FocusEvent, ReactElement } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import CalendarIcon from '@/assets/icons/calendar.svg?react';
-import { List, ListItem } from '@/layout';
-import { cn, useComponentTheme } from '@/utils';
+import { IconButton } from '@/elements/IconButton';
+import type { DateInputTheme } from '@/form';
+import type { PresetOption } from '@/form/Calendar';
+import { Calendar } from '@/form/Calendar';
 import { isPresetActive } from '@/form/Calendar/utils';
-import { DateInputTheme } from '@/form';
+import type { InputProps, InputRef } from '@/form/Input';
+import { Input } from '@/form/Input';
+import { Menu } from '@/layers/Menu';
+import { List, ListItem } from '@/layout';
+import { Card } from '@/layout/Card';
+import { cn, useComponentTheme } from '@/utils';
+import type { Placement } from '@/utils/Position';
 
 export type DateInputProps = Omit<InputProps, 'value' | 'onChange'> & {
   /**
@@ -106,7 +99,7 @@ export const DateInput: FC<DateInputProps> = ({
         onChange(value);
       }
     },
-    [isRange, onChange]
+    [isRange, onChange],
   );
 
   const inputChangeHandler = useCallback(
@@ -137,7 +130,7 @@ export const DateInput: FC<DateInputProps> = ({
         }
       }
     },
-    [format, isRange, onChange]
+    [format, isRange, onChange],
   );
 
   const focusHandler = useCallback(
@@ -147,7 +140,7 @@ export const DateInput: FC<DateInputProps> = ({
       }
       onFocus?.(e);
     },
-    [onFocus, openOnFocus]
+    [onFocus, openOnFocus],
   );
 
   const closeHandler = useCallback(() => {
@@ -160,7 +153,7 @@ export const DateInput: FC<DateInputProps> = ({
       if (isRange) {
         const [start, end] = value;
         setInputValue(
-          `${start ? formatDate(start, format) : ''}-${end ? formatDate(end, format) : ''}`
+          `${start ? formatDate(start, format) : ''}-${end ? formatDate(end, format) : ''}`,
         );
       } else if (!isRange) {
         setInputValue(formatDate(value as Date, format));
@@ -226,7 +219,7 @@ export const DateInput: FC<DateInputProps> = ({
                     key={preset.label}
                     active={active}
                     className={cn(theme.preset.option.base, {
-                      [theme.preset.option.active]: active
+                      [theme.preset.option.active]: active,
                     })}
                     onClick={() => changeHandler(presetValue)}
                   >

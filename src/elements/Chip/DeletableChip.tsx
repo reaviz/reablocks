@@ -1,10 +1,14 @@
-import React, { FC, forwardRef, ReactElement } from 'react';
-import { twMerge } from '@/utils';
+import type { ReactElement } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { ChipTheme } from '@/elements';
 import { Button } from '@/elements/Button';
-import { Chip, ChipProps, ChipRef } from './Chip';
 import { CloseIcon } from '@/form';
-import { ChipTheme } from '@/elements';
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
+
+import type { ChipProps } from './Chip';
+import { Chip } from './Chip';
 
 /**
  * @deprecated
@@ -29,7 +33,7 @@ export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
 /**
  * @deprecated
  */
-export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
+export const DeletableChip = forwardRef<HTMLDivElement, DeletableChipProps>(
   (
     {
       children,
@@ -42,7 +46,7 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
       variant = 'filled',
       ...rest
     },
-    ref
+    ref,
   ) => {
     const theme: ChipTheme = useComponentTheme('chip', customTheme);
 
@@ -59,7 +63,7 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
             size={size}
             className={twMerge(
               theme.types.tag.closeButton.base,
-              theme.types.tag.closeButton.sizes[size]
+              theme.types.tag.closeButton.sizes[size],
             )}
             onClick={event => {
               if (!disabled) {
@@ -81,5 +85,5 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
         {children}
       </Chip>
     );
-  }
+  },
 );

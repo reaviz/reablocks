@@ -4,7 +4,7 @@
  */
 export const getThemeName = (): string => {
   const themeClassname = Array.from(document.documentElement.classList).find(
-    className => className.startsWith('theme-')
+    className => className.startsWith('theme-'),
   );
   return themeClassname ? themeClassname.replace('theme-', '') : 'dark';
 };
@@ -15,7 +15,7 @@ export const getThemeName = (): string => {
  * @returns The MutationObserver instance (can be disconnected later via observer.disconnect()).
  */
 export const observeThemeSwitcher = (
-  callback: (theme: string) => void
+  callback: (theme: string) => void,
 ): MutationObserver => {
   const targetElement = document.documentElement;
 
@@ -37,7 +37,7 @@ export const observeThemeSwitcher = (
 
   observer.observe(targetElement, {
     attributes: true,
-    attributeFilter: ['class']
+    attributeFilter: ['class'],
   });
 
   return observer;
@@ -51,17 +51,17 @@ export const observeThemeSwitcher = (
  */
 const extractVariablesFromRule = (
   rule: CSSStyleRule,
-  computedStyles: CSSStyleDeclaration
+  computedStyles: CSSStyleDeclaration,
 ) => {
   const variables: string[] = Array.from(rule.style).filter(prop =>
-    prop.startsWith('--')
+    prop.startsWith('--'),
   );
   return variables.reduce(
     (acc, variable) => {
       acc[variable] = computedStyles.getPropertyValue(variable).trim();
       return acc;
     },
-    {} as Record<string, string>
+    {} as Record<string, string>,
   );
 };
 
@@ -95,7 +95,7 @@ export const getThemeVariables = (): Record<string, string> => {
         // In case of cross-origin issues, ignore this stylesheet
         return [];
       }
-    }
+    },
   );
   const selectorVariablesMap: Record<string, Record<string, string>> = {};
   cssRules.forEach((rule, index) => {

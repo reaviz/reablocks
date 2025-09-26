@@ -1,20 +1,25 @@
-import React, { FC, ReactElement, useState } from 'react';
 import FocusTrap from 'focus-trap-react';
-import { useId, CloneElement } from '@/utils';
-import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
-import {
-  motion,
+import type {
   MotionNodeAnimationOptions,
   MotionProps,
   TargetAndTransition,
   Transition,
-  VariantLabels
+  VariantLabels,
 } from 'motion/react';
-import { variants } from './variants';
-import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
+import { motion } from 'motion/react';
+import type { FC, ReactElement } from 'react';
+import React from 'react';
+
+import { CloneElement, useId } from '@/utils';
 import { twMerge } from '@/utils';
-import { DrawerTheme } from './DrawerTheme';
 import { useComponentTheme } from '@/utils';
+import type { GlobalOverlayProps } from '@/utils/Overlay';
+import { GlobalOverlay } from '@/utils/Overlay';
+
+import type { DrawerHeaderProps } from './DrawerHeader';
+import { DrawerHeader } from './DrawerHeader';
+import type { DrawerTheme } from './DrawerTheme';
+import { variants } from './variants';
 
 export interface DrawerProps
   extends Omit<GlobalOverlayProps, 'children'>,
@@ -125,7 +130,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
 
   const style = {
     width: position === 'start' || position === 'end' ? size : 'auto',
-    height: position === 'top' || position === 'bottom' ? size : 'auto'
+    height: position === 'top' || position === 'bottom' ? size : 'auto',
   };
 
   const theme: DrawerTheme = useComponentTheme('drawer', customTheme);
@@ -144,7 +149,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
           focusTrapOptions={{
             clickOutsideDeactivates: true,
             escapeDeactivates: true,
-            fallbackFocus: `#${id}`
+            fallbackFocus: `#${id}`,
           }}
         >
           <div id={id} tabIndex={-1}>
@@ -156,14 +161,14 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
               transition={{
                 duration: 0.5,
                 ease: [0.04, 0.62, 0.23, 0.98],
-                when: 'beforeChildren'
+                when: 'beforeChildren',
               }}
               style={{ ...style, zIndex: overlayIndex }}
               className={twMerge(
                 theme.base,
                 theme.positions[position],
                 disablePadding && theme.disablePadding,
-                className
+                className,
               )}
               {...(animation ? animation : rest)}
               onAnimationComplete={() => {
@@ -187,7 +192,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                   type="button"
                   className={twMerge(
                     theme.closeButton.base,
-                    theme.closeButton.headerless
+                    theme.closeButton.headerless,
                   )}
                   onClick={onClose}
                 >

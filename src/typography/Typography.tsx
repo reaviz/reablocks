@@ -1,16 +1,18 @@
-import {
-  TypographyColor,
-  TypographySize,
-  TypographyTheme,
-  TypographyWeight
-} from '@/typography/TypographyTheme';
-import { cn, useComponentTheme } from '@/utils';
-import React, {
+import type {
   FC,
   FunctionComponent,
   HTMLAttributes,
-  PropsWithChildren
+  PropsWithChildren,
 } from 'react';
+import React from 'react';
+
+import type {
+  TypographyColor,
+  TypographySize,
+  TypographyTheme,
+  TypographyWeight,
+} from '@/typography/TypographyTheme';
+import { cn, useComponentTheme } from '@/utils';
 
 const COMPONENTS_MAP: Record<string, string> = {
   h1: 'h1',
@@ -22,7 +24,7 @@ const COMPONENTS_MAP: Record<string, string> = {
   body: 'span',
   label: 'label',
   button: 'span',
-  monospace: 'span'
+  monospace: 'span',
 };
 
 export interface TypographyProps
@@ -61,7 +63,7 @@ export const Typography: FC<TypographyProps> = ({
         theme?.variant?.[variant]?.size?.[size],
         theme?.color?.[color],
         theme?.weight?.[weight],
-        className
+        className,
       )}
     >
       {children}

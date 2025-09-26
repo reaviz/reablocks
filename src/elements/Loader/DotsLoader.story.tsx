@@ -1,9 +1,10 @@
 import React from 'react';
+
 import { DotsLoader } from './DotsLoader';
 
 export default {
   title: 'Components/Elements/Loader/Dots',
-  component: DotsLoader
+  component: DotsLoader,
 };
 
 export const Simple = () => {
@@ -16,7 +17,7 @@ export const Sizes = () => (
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center',
-      gap: 10
+      gap: 10,
     }}
   >
     <DotsLoader size="small" />

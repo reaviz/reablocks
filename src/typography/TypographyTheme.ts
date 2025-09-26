@@ -52,7 +52,7 @@ export const typographyTheme: TypographyTheme = {
   base: '',
   color: {
     primary: 'text-content-text-neutral-base',
-    secondary: 'text-content-text-neutral-2'
+    secondary: 'text-content-text-neutral-2',
   },
   weight: {
     thin: 'font-thin',
@@ -63,50 +63,50 @@ export const typographyTheme: TypographyTheme = {
     semibold: 'font-semibold',
     bold: 'font-bold',
     extrabold: 'font-extrabold',
-    black: 'font-black'
+    black: 'font-black',
   },
   variant: {
     h1: {
-      base: 'font-sans text-8xl font-normal'
+      base: 'font-sans text-8xl font-normal',
     },
     h2: {
-      base: 'font-sans text-6xl font-normal'
+      base: 'font-sans text-6xl font-normal',
     },
     h3: {
-      base: 'font-sans text-4xl font-normal'
+      base: 'font-sans text-4xl font-normal',
     },
     h4: {
-      base: 'font-sans text-2xl font-normal'
+      base: 'font-sans text-2xl font-normal',
     },
     h5: {
-      base: 'font-sans text-lg font-normal'
+      base: 'font-sans text-lg font-normal',
     },
     h6: {
-      base: 'font-sans text-base font-normal'
+      base: 'font-sans text-base font-normal',
     },
     body: {
       base: 'font-serif text-sm font-normal',
       size: {
         large: 'text-base leading-6',
-        small: 'text-xs leading-3.5'
-      }
+        small: 'text-xs leading-3.5',
+      },
     },
     button: {
       base: 'font-serif text-sm font-semibold',
       size: {
         large: 'text-base',
-        small: 'text-xs'
-      }
+        small: 'text-xs',
+      },
     },
     label: {
       base: 'font-serif text-xs font-semibold',
       size: {
         large: 'text-sm',
-        small: 'text-xxs'
-      }
+        small: 'text-xxs',
+      },
     },
     monospace: {
-      base: 'font-mono font-medium text-xxs'
-    }
-  }
+      base: 'font-mono font-medium text-xxs',
+    },
+  },
 };

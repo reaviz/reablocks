@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 export function useCursor(
   hovered: boolean,
   onPointerOver = 'pointer',
-  onPointerOut = 'auto'
+  onPointerOut = 'auto',
 ) {
   useEffect(() => {
     if (hovered) {

@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { useForm, Controller } from 'react-hook-form';
+import React, { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 
-import { Block } from '../../../src/layout/Block';
 import { Button } from '../../../src/elements/Button';
-import { Card } from '../../../src/layout/Card';
-import { Divider, Stack } from '../../../src/layout';
+import { Select, SelectOption } from '../../../src/form';
 import { Input } from '../../../src/form/Input';
 import { Radio } from '../../../src/form/Radio';
+import { Divider, Stack } from '../../../src/layout';
+import { Block } from '../../../src/layout/Block';
+import { Card } from '../../../src/layout/Card';
 import { cn } from '../../../src/utils';
-import { Select, SelectOption } from '../../../src/form';
 
 export default {
-  title: 'Blocks/Authentication/Register'
+  title: 'Blocks/Authentication/Register',
 };
 
 const LogoIcon = ({ className }: { className?: string }) => (
@@ -50,7 +50,7 @@ export const Register = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -68,9 +68,9 @@ export const Register = () => {
             Welcome to Reablocks
           </h4>
           <p className="text-sm text-content-text-neutral-2 font-sans">
-            Welcome! Let's get started by creating your account. Please provide
-            your email address and choose a secure password to begin accessing
-            our platform's features.
+            Welcome! Let&apos;s get started by creating your account. Please
+            provide your email address and choose a secure password to begin
+            accessing our platform&apos;s features.
           </p>
         </div>
         <form
@@ -166,7 +166,7 @@ export const Register = () => {
               privacy policy
             </Button>
           </div>
-          <Divider disableMargins/>
+          <Divider disableMargins />
           <div className="text-content-text-neutral-2 text-xs flex items-center justify-center gap-2">
             Already have an account?
             <Button size="large" variant="text">
@@ -184,7 +184,7 @@ export const RegisterFull = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -295,19 +295,15 @@ export const RegisterFull = () => {
           <h6 className="text-base font-bold">Select a package</h6>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card
-              className={cn('p-5',
-                {
-                  'bg-background-neutral-inverse-raised-2': selection === 'starter'
-                }
-              )}
+              className={cn('p-5', {
+                'bg-background-neutral-inverse-raised-2':
+                  selection === 'starter',
+              })}
               onClick={() => setSelection('starter')}
             >
               <Stack justifyContent="spaceBetween">
                 <h6 className="text-base font-bold">Starter</h6>
-                <Radio
-                  size="small"
-                  checked={selection === 'starter'}
-                />
+                <Radio size="small" checked={selection === 'starter'} />
               </Stack>
               <Stack direction="column" alignItems="start" dense>
                 <Stack dense>
@@ -359,19 +355,15 @@ export const RegisterFull = () => {
               </Stack>
             </Card>
             <Card
-              className={cn('p-5',
-                {
-                  'bg-background-neutral-inverse-raised-2': selection === 'premium'
-                }
-              )}
+              className={cn('p-5', {
+                'bg-background-neutral-inverse-raised-2':
+                  selection === 'premium',
+              })}
               onClick={() => setSelection('premium')}
             >
               <Stack justifyContent="spaceBetween">
                 <h6 className="text-base font-bold">Premium</h6>
-                <Radio
-                  size="small"
-                  checked={selection === 'premium'}
-                />
+                <Radio size="small" checked={selection === 'premium'} />
               </Stack>
               <Stack direction="column" alignItems="start" dense>
                 <Stack dense>
@@ -423,19 +415,15 @@ export const RegisterFull = () => {
               </Stack>
             </Card>
             <Card
-              className={cn('p-5',
-                {
-                  'bg-background-neutral-inverse-raised-2': selection === 'enterprise'
-                }
-              )}
+              className={cn('p-5', {
+                'bg-background-neutral-inverse-raised-2':
+                  selection === 'enterprise',
+              })}
               onClick={() => setSelection('enterprise')}
             >
               <Stack justifyContent="spaceBetween">
                 <h6 className="text-base font-bold">Enterprise</h6>
-                <Radio
-                  size="small"
-                  checked={selection === 'enterprise'}
-                />
+                <Radio size="small" checked={selection === 'enterprise'} />
               </Stack>
               <Stack direction="column" alignItems="start" dense>
                 <Stack dense>
@@ -517,7 +505,7 @@ export const RegisterV2 = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -533,9 +521,9 @@ export const RegisterV2 = () => {
             Welcome to Reablocks
           </h4>
           <p className="text-sm text-content-text-neutral-2 font-sans text-center">
-            Welcome! Let's get started by creating your account. Please provide
-            your email address and choose a secure password to begin accessing
-            our platform's features.
+            Welcome! Let&apos;s get started by creating your account. Please
+            provide your email address and choose a secure password to begin
+            accessing our platform&apos;s features.
           </p>
         </div>
         <form
@@ -669,7 +657,7 @@ export const RegisterWithSocial = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting }
+    formState: { isSubmitting },
   } = useForm();
 
   return (
@@ -804,9 +792,7 @@ export const RegisterWithSocial = () => {
             />
           </Block>
           <div className="text-right">
-            <Button variant="text">
-              Forgot Password?
-            </Button>
+            <Button variant="text">Forgot Password?</Button>
           </div>
           <Button
             size="large"

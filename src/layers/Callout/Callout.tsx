@@ -1,7 +1,10 @@
-import React, { FC, ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
+import React from 'react';
+
 import { Stack } from '@/layout';
 import { cn, useComponentTheme } from '@/utils';
-import { CalloutTheme, CalloutVariantTheme } from './CalloutTheme';
+
+import type { CalloutTheme, CalloutVariantTheme } from './CalloutTheme';
 
 export interface CalloutProps {
   /**
@@ -29,7 +32,7 @@ export const Callout: FC<CalloutProps> = ({
   text,
   icon,
   variant = 'default',
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const theme = useComponentTheme('callout', customTheme);
 

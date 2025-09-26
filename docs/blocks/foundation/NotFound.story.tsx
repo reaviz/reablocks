@@ -1,20 +1,16 @@
 import React from 'react';
-import {
-  Card,
-  MotionGroup,
-  MotionItem,
-  Stack
-} from '../../../src/layout';
+
 import { Button } from '../../../src/elements/Button';
-import { Input } from '../../../src/form/Input';
-import { Typography } from '../../../src/typography';
 import { Chip } from '../../../src/elements/Chip';
+import { Input } from '../../../src/form/Input';
+import { Card, MotionGroup, MotionItem, Stack } from '../../../src/layout';
+import { Typography } from '../../../src/typography';
 
 export default {
-  title: 'Blocks/Foundation/Not Found'
+  title: 'Blocks/Foundation/Not Found',
 };
 
-const GridPatternIcon = ({ className }) => (
+const GridPatternIcon = ({ className }: { className?: string }) => (
   <svg
     width="1349"
     height="959"
@@ -856,7 +852,7 @@ export const NotFound = () => (
               height="16"
               fill="none"
             >
-              <g clip-path="url(#a)">
+              <g clipPath="url(#a)">
                 <path
                   fill="#242433"
                   d="M10.503 9.503h-.526l-.187-.18a4.314 4.314 0 0 0 1.047-2.82 4.333 4.333 0 1 0-4.334 4.334c1.074 0 2.06-.394 2.82-1.047l.18.187v.526l3.334 3.327.993-.993-3.327-3.334Zm-4 0c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3Z"
@@ -871,10 +867,7 @@ export const NotFound = () => (
           }
         />
         <div className="grow flex flex-col justify-center">
-          <Button
-            size="large"
-            className="z-10 mx-auto relative"
-          >
+          <Button size="large" className="z-10 mx-auto relative">
             ← Back to Home
           </Button>
         </div>
@@ -957,11 +950,16 @@ export const DoesNotExist = () => (
         >
           404
         </Chip>
-        <Typography variant="h1" weight="bold" color="secondary" className="my-3">
+        <Typography
+          variant="h1"
+          weight="bold"
+          color="secondary"
+          className="my-3"
+        >
           This page does not exist
         </Typography>
         <span className="text-content-text-neutral-2">
-          Sorry, we couldn't find the page you're looking for.
+          Sorry, we couldn&apos;t find the page you&apos;re looking for.
         </span>
       </MotionItem>
       <div className="flex flex-col items-center w-full md:w-[600px] pb-[50px] m-auto">
@@ -1079,11 +1077,7 @@ export const DoesNotExist = () => (
         </MotionItem>
       </div>
       <MotionItem className="flex flex-col items-center">
-        <Button
-          size="large"
-          color="primary"
-          className="z-10 mx-auto relative"
-        >
+        <Button size="large" color="primary" className="z-10 mx-auto relative">
           ← Back to Home
         </Button>
       </MotionItem>
@@ -1097,11 +1091,7 @@ export const LostPage = () => (
       <GridPatternIcon className="absolute top-0" />
       <div className="flex flex-col gap-3 w-full h-full justify-center items-center">
         <div>
-          <Chip
-            size="large"
-            variant="outline"
-            color="primary"
-          >
+          <Chip size="large" variant="outline" color="primary">
             404 Error
           </Chip>
         </div>
@@ -1109,13 +1099,9 @@ export const LostPage = () => (
           We lost this page
         </div>
         <div className="text-content-text-neutral-2 opacity-80 z-10 relative">
-          Let's find a better place for you to go.
+          Let&apos;s find a better place for you to go.
         </div>
-        <Button
-          size="large"
-          color="primary"
-          className="width-fit"
-        >
+        <Button size="large" color="primary" className="width-fit">
           ← Back to Home
         </Button>
         <MotionGroup className="mt-12 md:mt-[200px] w-full grid md:grid-cols-3 grid-cols-1 px-10">

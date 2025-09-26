@@ -1,5 +1,6 @@
-import React, { FC, useMemo } from 'react';
 import chroma from 'chroma-js';
+import type { FC } from 'react';
+import React, { useMemo } from 'react';
 
 export interface ColorBlockProps {
   name: string;
@@ -18,7 +19,7 @@ const COLOR_TOKENS = [
   'purple',
   'red',
   'teal',
-  'yellow'
+  'yellow',
 ];
 
 export const ColorBlock: FC<ColorBlockProps> = ({ name, color, className }) => (
@@ -27,7 +28,7 @@ export const ColorBlock: FC<ColorBlockProps> = ({ name, color, className }) => (
     style={{
       border: 'solid 1px --border-color',
       borderRadius: '4px',
-      overflow: 'hidden'
+      overflow: 'hidden',
     }}
     className={className}
   >
@@ -36,13 +37,13 @@ export const ColorBlock: FC<ColorBlockProps> = ({ name, color, className }) => (
         padding: '20px',
         background: color,
         color: '#161616',
-        borderBottom: 'solid 1px var(--border-color)'
+        borderBottom: 'solid 1px var(--border-color)',
       }}
     />
     <div
       style={{
         padding: '6px',
-        fontSize: '12px'
+        fontSize: '12px',
       }}
     >
       <div>
@@ -80,7 +81,7 @@ export const ColorPaletteBlock: FC<ColorPaletteBlockProps> = ({
   color,
   className,
   showName = true,
-  theme = 'dark'
+  theme = 'dark',
 }) => {
   let fontColor = 'var(--body-color)';
   if (!name.includes('overlay')) {
@@ -112,7 +113,7 @@ export const ColorPaletteBlock: FC<ColorPaletteBlockProps> = ({
       className={className}
       style={{
         border: 'solid 1px var(--border-color)',
-        margin: '-0.5px'
+        margin: '-0.5px',
       }}
     >
       <div
@@ -120,7 +121,7 @@ export const ColorPaletteBlock: FC<ColorPaletteBlockProps> = ({
           padding: '6px',
           background: color,
           height: '100%',
-          minHeight: 50
+          minHeight: 50,
         }}
       >
         {showName && (
@@ -167,12 +168,12 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
   colors,
   className,
   showNames = true,
-  theme
+  theme,
 }) => (
   <div
     className={className}
     style={{
-      marginBottom: '24px'
+      marginBottom: '24px',
     }}
   >
     <h3 style={{ textTransform: 'capitalize', fontWeight: 500, margin: 0 }}>
@@ -184,7 +185,7 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
         overflow: 'hidden',
         borderRadius: '6px',
         border: 'solid 1px var(--border-color)',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
       }}
     >
       {typeof colors === 'string' && (
@@ -212,7 +213,7 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
 
 export const ColorBlocks = ({
   colors,
-  theme
+  theme,
 }: {
   colors: Record<string, string>;
   theme: string;
@@ -228,7 +229,7 @@ export const ColorBlocks = ({
         acc[groupName][token] = colors[token];
         return acc;
       },
-      {} as Record<string, Record<string, string>>
+      {} as Record<string, Record<string, string>>,
     );
 
     const sortedGroupNames = Object.keys(groups).sort((a, b) => {
@@ -257,7 +258,7 @@ export const ColorBlocks = ({
         sorted[groupName] = groups[groupName];
         return sorted;
       },
-      {} as Record<string, Record<string, string>>
+      {} as Record<string, Record<string, string>>,
     );
   }, [colors]);
 
@@ -266,7 +267,7 @@ export const ColorBlocks = ({
       style={{
         padding: '6px 12px',
         color: 'var(--body-color)',
-        width: '100%'
+        width: '100%',
       }}
     >
       {groupedColors ? (

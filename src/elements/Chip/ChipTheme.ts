@@ -107,7 +107,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-solid-neutral-text-default
               `,
               start: 'fill-badges-colors-solid-neutral-assets-default',
-              end: 'fill-badges-colors-solid-neutral-assets-default'
+              end: 'fill-badges-colors-solid-neutral-assets-default',
             },
             outline: {
               base: `
@@ -116,7 +116,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-outline-neutral-text-default
               `,
               start: 'fill-badges-colors-outline-neutral-assets-default',
-              end: 'fill-badges-colors-outline-neutral-assets-default'
+              end: 'fill-badges-colors-outline-neutral-assets-default',
             },
             subtle: {
               base: `
@@ -125,9 +125,9 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-subtle-neutral-text-default
               `,
               start: 'fill-badges-colors-subtle-neutral-assets-default',
-              end: 'fill-badges-colors-subtle-neutral-assets-default'
-            }
-          }
+              end: 'fill-badges-colors-subtle-neutral-assets-default',
+            },
+          },
         },
         primary: {
           variants: {
@@ -138,7 +138,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-solid-brand-text-default
               `,
               start: 'fill-badges-colors-solid-brand-assets-default',
-              end: 'fill-badges-colors-solid-brand-assets-default'
+              end: 'fill-badges-colors-solid-brand-assets-default',
             },
             outline: {
               base: `
@@ -147,7 +147,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-outline-brand-text-default
               `,
               start: 'fill-badges-colors-outline-brand-assets-default',
-              end: 'fill-badges-colors-outline-brand-assets-default'
+              end: 'fill-badges-colors-outline-brand-assets-default',
             },
             subtle: {
               base: `
@@ -156,9 +156,9 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-subtle-brand-text-default
               `,
               start: 'fill-badges-colors-subtle-brand-assets-default',
-              end: 'fill-badges-colors-subtle-brand-assets-default'
-            }
-          }
+              end: 'fill-badges-colors-subtle-brand-assets-default',
+            },
+          },
         },
         secondary: {
           variants: {
@@ -169,7 +169,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-solid-accent-text-default
               `,
               start: 'fill-badges-colors-solid-accent-assets-default',
-              end: 'fill-badges-colors-solid-accent-assets-default'
+              end: 'fill-badges-colors-solid-accent-assets-default',
             },
             outline: {
               base: `
@@ -178,7 +178,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-outline-accent-text-default
               `,
               start: 'fill-badges-colors-outline-accent-assets-default',
-              end: 'fill-badges-colors-outline-accent-assets-default'
+              end: 'fill-badges-colors-outline-accent-assets-default',
             },
             subtle: {
               base: `
@@ -187,9 +187,9 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-subtle-accent-text-default
               `,
               start: 'fill-badges-colors-subtle-accent-assets-default',
-              end: 'fill-badges-colors-subtle-accent-assets-default'
-            }
-          }
+              end: 'fill-badges-colors-subtle-accent-assets-default',
+            },
+          },
         },
         success: {
           variants: {
@@ -200,7 +200,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-solid-success-text-default
               `,
               start: 'fill-badges-colors-solid-success-assets-default',
-              end: 'fill-badges-colors-solid-success-assets-default'
+              end: 'fill-badges-colors-solid-success-assets-default',
             },
             outline: {
               base: `
@@ -209,7 +209,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-outline-success-text-default
               `,
               start: 'fill-badges-colors-outline-success-assets-default',
-              end: 'fill-badges-colors-outline-success-assets-default'
+              end: 'fill-badges-colors-outline-success-assets-default',
             },
             subtle: {
               base: `
@@ -218,9 +218,9 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-subtle-success-text-default
               `,
               start: 'fill-badges-colors-subtle-success-assets-default',
-              end: 'fill-badges-colors-subtle-success-assets-default'
-            }
-          }
+              end: 'fill-badges-colors-subtle-success-assets-default',
+            },
+          },
         },
         warning: {
           variants: {
@@ -231,7 +231,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-solid-warning-text-default
               `,
               start: 'fill-badges-colors-solid-warning-assets-default',
-              end: 'fill-badges-colors-solid-warning-assets-default'
+              end: 'fill-badges-colors-solid-warning-assets-default',
             },
             outline: {
               base: `
@@ -240,7 +240,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-outline-warning-text-default
               `,
               start: 'fill-badges-colors-outline-warning-assets-default',
-              end: 'fill-badges-colors-outline-warning-assets-default'
+              end: 'fill-badges-colors-outline-warning-assets-default',
             },
             subtle: {
               base: `
@@ -249,9 +249,9 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-subtle-warning-text-default
               `,
               start: 'fill-badges-colors-subtle-warning-assets-default',
-              end: 'fill-badges-colors-subtle-warning-assets-default'
-            }
-          }
+              end: 'fill-badges-colors-subtle-warning-assets-default',
+            },
+          },
         },
         error: {
           variants: {
@@ -262,7 +262,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-solid-error-text-default
               `,
               start: 'fill-badges-colors-solid-error-assets-default',
-              end: 'fill-badges-colors-solid-error-assets-default'
+              end: 'fill-badges-colors-solid-error-assets-default',
             },
             outline: {
               base: `
@@ -271,7 +271,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-outline-error-text-default
               `,
               start: 'fill-badges-colors-outline-error-assets-default',
-              end: 'fill-badges-colors-outline-error-assets-default'
+              end: 'fill-badges-colors-outline-error-assets-default',
             },
             subtle: {
               base: `
@@ -280,9 +280,9 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-subtle-error-text-default
               `,
               start: 'fill-badges-colors-subtle-error-assets-default',
-              end: 'fill-badges-colors-subtle-error-assets-default'
-            }
-          }
+              end: 'fill-badges-colors-subtle-error-assets-default',
+            },
+          },
         },
         info: {
           variants: {
@@ -293,7 +293,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-solid-info-text-default
               `,
               start: 'fill-badges-colors-solid-info-assets-default',
-              end: 'fill-badges-colors-solid-info-assets-default'
+              end: 'fill-badges-colors-solid-info-assets-default',
             },
             outline: {
               base: `
@@ -302,7 +302,7 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-outline-info-text-default
               `,
               start: 'fill-badges-colors-outline-info-assets-default',
-              end: 'fill-badges-colors-outline-info-assets-default'
+              end: 'fill-badges-colors-outline-info-assets-default',
             },
             subtle: {
               base: `
@@ -311,10 +311,10 @@ export const chipTheme: ChipTheme = {
                 text-badges-colors-subtle-info-text-default
               `,
               start: 'fill-badges-colors-subtle-info-assets-default',
-              end: 'fill-badges-colors-subtle-info-assets-default'
-            }
-          }
-        }
+              end: 'fill-badges-colors-subtle-info-assets-default',
+            },
+          },
+        },
       },
       adornment: {
         base: 'flex items-center justify-center',
@@ -323,8 +323,8 @@ export const chipTheme: ChipTheme = {
         sizes: {
           small: '[&>svg]:size-(--badges-details-asset-size-sm)',
           medium: '[&>svg]:size-(--badges-details-asset-size-md)',
-          large: '[&>svg]:size-(--badges-details-asset-size-lg)'
-        }
+          large: '[&>svg]:size-(--badges-details-asset-size-lg)',
+        },
       },
       sizes: {
         small:
@@ -332,13 +332,13 @@ export const chipTheme: ChipTheme = {
         medium:
           'h-(--badges-details-height-md) text-xs gap-(--badges-details-space-between-md) px-(--badges-details-horizontal-padding-md)',
         large:
-          'h-(--badges-details-height-lg) text-md gap-(--badges-details-space-between-lg) px-(--badges-details-horizontal-padding-lg)'
+          'h-(--badges-details-height-lg) text-md gap-(--badges-details-space-between-lg) px-(--badges-details-horizontal-padding-lg)',
       },
       variants: {
         filled: '',
         outline: '',
-        subtle: ''
-      }
+        subtle: '',
+      },
     },
     tag: {
       base: 'inline-flex whitespace-nowrap border font-medium select-none items-center justify-center rounded-(--tags-details-corner-radius-base) transition-colors outline-none',
@@ -360,9 +360,9 @@ export const chipTheme: ChipTheme = {
                 focus-visible:border-tags-colors-neutral-stroke-hover focus-visible:bg-tags-colors-neutral-background-hover
               `,
               start: 'text-tags-colors-neutral-assets-lead-icon-base',
-              end: 'text-tags-colors-neutral-assets-lead-icon-base'
-            }
-          }
+              end: 'text-tags-colors-neutral-assets-lead-icon-base',
+            },
+          },
         },
         primary: {
           variants: {
@@ -379,9 +379,9 @@ export const chipTheme: ChipTheme = {
                 focus-visible:border-tags-colors-brand-stroke-hover focus-visible:bg-tags-colors-brand-background-hover
               `,
               start: 'text-tags-colors-brand-assets-lead-icon-base',
-              end: 'text-tags-colors-brand-assets-lead-icon-base'
-            }
-          }
+              end: 'text-tags-colors-brand-assets-lead-icon-base',
+            },
+          },
         },
         secondary: {
           variants: {
@@ -398,9 +398,9 @@ export const chipTheme: ChipTheme = {
                 focus-visible:border-tags-colors-accent-stroke-hover focus-visible:bg-tags-colors-accent-background-hover
               `,
               start: 'text-tags-colors-accent-assets-lead-icon-base',
-              end: 'text-tags-colors-accent-assets-lead-icon-base'
-            }
-          }
+              end: 'text-tags-colors-accent-assets-lead-icon-base',
+            },
+          },
         },
         success: {
           variants: {
@@ -417,9 +417,9 @@ export const chipTheme: ChipTheme = {
                 focus-visible:border-tags-colors-success-stroke-hover focus-visible:bg-tags-colors-success-background-hover
               `,
               start: 'text-tags-colors-success-assets-lead-icon-base',
-              end: 'text-tags-colors-success-assets-lead-icon-base'
-            }
-          }
+              end: 'text-tags-colors-success-assets-lead-icon-base',
+            },
+          },
         },
         warning: {
           variants: {
@@ -436,9 +436,9 @@ export const chipTheme: ChipTheme = {
                 focus-visible:border-tags-colors-warning-stroke-hover focus-visible:bg-tags-colors-warning-background-hover
               `,
               start: 'text-tags-colors-warning-assets-lead-icon-base',
-              end: 'text-tags-colors-warning-assets-lead-icon-base'
-            }
-          }
+              end: 'text-tags-colors-warning-assets-lead-icon-base',
+            },
+          },
         },
         error: {
           variants: {
@@ -455,9 +455,9 @@ export const chipTheme: ChipTheme = {
                 focus-visible:border-tags-colors-error-stroke-hover focus-visible:bg-tags-colors-error-background-hover
               `,
               start: 'text-tags-colors-error-assets-lead-icon-base',
-              end: 'text-tags-colors-error-assets-lead-icon-base'
-            }
-          }
+              end: 'text-tags-colors-error-assets-lead-icon-base',
+            },
+          },
         },
         info: {
           variants: {
@@ -474,10 +474,10 @@ export const chipTheme: ChipTheme = {
                 focus-visible:border-tags-colors-info-stroke-hover focus-visible:bg-tags-colors-info-background-hover
               `,
               start: 'text-tags-colors-info-assets-lead-icon-base',
-              end: 'text-tags-colors-info-assets-lead-icon-base'
-            }
-          }
-        }
+              end: 'text-tags-colors-info-assets-lead-icon-base',
+            },
+          },
+        },
       },
       adornment: {
         base: 'flex items-center justify-center',
@@ -486,8 +486,8 @@ export const chipTheme: ChipTheme = {
         sizes: {
           small: '[&>svg]:size-(--tags-details-asset-size-icon)',
           medium: '[&>svg]:size-(--tags-details-asset-size-icon)',
-          large: '[&>svg]:size-(--tags-details-asset-size-icon)'
-        }
+          large: '[&>svg]:size-(--tags-details-asset-size-icon)',
+        },
       },
       sizes: {
         small:
@@ -495,20 +495,20 @@ export const chipTheme: ChipTheme = {
         medium:
           'h-(--tags-details-height-base) text-xs gap-(--tags-details-space-between-base) px-(--tags-details-horizontal-padding-base)',
         large:
-          'h-(--tags-details-height-base) text-sm gap-(--tags-details-space-between-base) px-(--tags-details-horizontal-padding-base)'
+          'h-(--tags-details-height-base) text-sm gap-(--tags-details-space-between-base) px-(--tags-details-horizontal-padding-base)',
       },
       closeButton: {
         base: 'transition-colors ml-1 outline-none text-tags-colors-neutral-assets-close-base hover:text-tags-colors-neutral-text-label-base',
         sizes: {
           small: 'size-2 [*>svg]:size-(--tags-details-asset-size-close)',
           medium: 'size-3 [*>svg]:size-(--tags-details-asset-size-close)',
-          large: 'size-3 [*>svg]:size-(--tags-details-asset-size-close)'
-        }
+          large: 'size-3 [*>svg]:size-(--tags-details-asset-size-close)',
+        },
       },
       disabled: 'cursor-not-allowed opacity-50',
       variants: {
-        outline: ''
-      }
-    }
-  }
+        outline: '',
+      },
+    },
+  },
 };

@@ -1,10 +1,13 @@
-import React from 'react';
-import { useExitListener } from './useExitListener';
-import { useRef, useState } from 'react';
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
+import { useRef, useState } from 'react';
+
+import { useExitListener } from './useExitListener';
 
 const meta: Meta = {
-  title: 'Components/Utils/Exit Listener'
+  title: 'Components/Utils/Exit Listener',
 };
 
 type Story = StoryObj;
@@ -17,7 +20,7 @@ export const Simple: Story = {
     useExitListener({
       ref,
       onClickOutside: () => setVisible(false),
-      onEscape: () => setVisible(false)
+      onEscape: () => setVisible(false),
     });
 
     return (
@@ -35,7 +38,7 @@ export const Simple: Story = {
         </div>
       </div>
     );
-  }
+  },
 };
 
 export default meta;

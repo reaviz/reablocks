@@ -1,13 +1,18 @@
-import { SelectInputSizeTheme } from '@/form';
-import React, { FC, Fragment, ReactElement, useCallback } from 'react';
 import { motion } from 'motion/react';
-import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
+import type { FC, ReactElement } from 'react';
+import React, { Fragment, useCallback } from 'react';
 import Highlighter from 'react-highlight-words';
-import { GroupOptions, GroupOption } from '@/form/Select/utils';
+
+import type { SelectInputSizeTheme } from '@/form';
+import { CheckIcon } from '@/form/Select/icons/CheckIcon';
+import type {
+  SelectOptionProps,
+  SelectValue,
+} from '@/form/Select/SelectOption';
+import type { SelectTheme } from '@/form/Select/SelectTheme';
+import type { GroupOption, GroupOptions } from '@/form/Select/utils';
 import { List, ListItem } from '@/layout';
 import { cn, useComponentTheme } from '@/utils';
-import { SelectTheme } from '@/form/Select/SelectTheme';
-import { CheckIcon } from '@/form/Select/icons/CheckIcon';
 
 export interface RenderCreateOptionArgs {
   text: string;
@@ -55,7 +60,7 @@ export interface SelectMenuProps {
    */
   renderCreateOption?: ({
     text,
-    onCreate
+    onCreate,
   }: RenderCreateOptionArgs) => ReactElement;
 
   /**
@@ -126,7 +131,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
   size,
   checkIcon,
   onSelectedChange,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const trimmedText = inputSearchText.trim();
 
@@ -142,18 +147,18 @@ export const SelectMenu: FC<SelectMenuProps> = ({
 
       return (selectedOption as SelectOptionProps)?.value === option.value;
     },
-    [selectedOption, multiple]
+    [selectedOption, multiple],
   );
 
   const { selectMenu: theme }: SelectTheme = useComponentTheme(
     'select',
-    customTheme
+    customTheme,
   );
 
   const onCreateOption = useCallback(() => {
     onSelectedChange({
       value: trimmedText.toLowerCase(),
-      children: trimmedText.toLowerCase()
+      children: trimmedText.toLowerCase(),
     });
   }, [onSelectedChange, trimmedText]);
 
@@ -169,8 +174,8 @@ export const SelectMenu: FC<SelectMenuProps> = ({
             {
               [theme.option?.selected]: checkOptionSelected(o),
               [theme.option?.active]: index === i + (group?.offset || 0),
-              [theme.option?.disabled]: disabled || o.disabled
-            }
+              [theme.option?.disabled]: disabled || o.disabled,
+            },
           )}
           contentClassName={theme.option.content}
           onClick={event => {
@@ -203,8 +208,8 @@ export const SelectMenu: FC<SelectMenuProps> = ({
       multiple,
       onSelectedChange,
       theme.option,
-      theme.size
-    ]
+      theme.size,
+    ],
   );
 
   return (
@@ -214,21 +219,21 @@ export const SelectMenu: FC<SelectMenuProps> = ({
       initial={{
         opacity: 0,
         y: -20,
-        pointerEvents: 'none'
+        pointerEvents: 'none',
       }}
       animate={{
         opacity: 1,
         y: 0,
         pointerEvents: 'auto',
         transition: {
-          when: 'beforeChildren'
-        }
+          when: 'beforeChildren',
+        },
       }}
       exit={{
         y: -14,
         opacity: 0,
         pointerEvents: 'none',
-        transition: { duration: 0.3, ease: 'anticipate' }
+        transition: { duration: 0.3, ease: 'anticipate' },
       }}
     >
       <List>
@@ -239,7 +244,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
           (renderCreateOption ? (
             renderCreateOption({
               text: trimmedText,
-              onCreate: onCreateOption
+              onCreate: onCreateOption,
             })
           ) : (
             <ListItem
@@ -284,7 +289,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
                       className={cn(
                         theme.groupItem.title,
                         theme.groupItem.size[size],
-                        'select-menu-group-header'
+                        'select-menu-group-header',
                       )}
                     >
                       {g.name}

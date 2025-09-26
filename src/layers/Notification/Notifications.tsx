@@ -1,29 +1,21 @@
-import React, {
-  Fragment,
-  FC,
-  ReactNode,
-  useState,
-  useCallback,
-  useMemo,
-  JSXElementConstructor
-} from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import type { FC, JSXElementConstructor, ReactNode } from 'react';
+import React, { Fragment, useCallback, useMemo, useState } from 'react';
+
+import CheckCircleIcon from '@/assets/icons/check_circle.svg?react';
+import ErrorCircleIcon from '@/assets/icons/error_circle.svg?react';
+import InfoIcon from '@/assets/icons/info.svg?react';
+import WarningIcon from '@/assets/icons/warning.svg?react';
 import { twMerge } from '@/utils';
+import { useComponentTheme } from '@/utils';
 
 import { Notification } from './Notification';
-import {
-  NotificationOptions,
-  NotificationsContext
-} from './NotificationsContext';
-import {
+import type { NotificationOptions } from './NotificationsContext';
+import { NotificationsContext } from './NotificationsContext';
+import type {
   NotificationTheme,
-  NotificationVariantTheme
+  NotificationVariantTheme,
 } from './NotificationTheme';
-import { useComponentTheme } from '@/utils';
-import InfoIcon from '@/assets/icons/info.svg?react';
-import CheckCircleIcon from '@/assets/icons/check_circle.svg?react';
-import WarningIcon from '@/assets/icons/warning.svg?react';
-import ErrorCircleIcon from '@/assets/icons/error_circle.svg?react';
 
 export interface NotificationComponentProps {
   message: string;
@@ -66,15 +58,15 @@ export const Notifications: FC<NotificationsProps> = ({
     success: <CheckCircleIcon />,
     warning: <WarningIcon />,
     error: <ErrorCircleIcon />,
-    info: <InfoIcon />
+    info: <InfoIcon />,
   },
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const [notifications, setNotifications] = useState<any[]>([]);
 
   const clearNotification = useCallback(
     (id: number) => setNotifications(notifications.filter(n => n.id !== id)),
-    [notifications]
+    [notifications],
   );
 
   const clearAllNotifications = useCallback(() => setNotifications([]), []);
@@ -97,7 +89,7 @@ export const Notifications: FC<NotificationsProps> = ({
           timeout,
           icon: icons?.default,
           showClose,
-          ...options
+          ...options,
         };
 
         const sorted = [obj, ...notifications];
@@ -110,7 +102,7 @@ export const Notifications: FC<NotificationsProps> = ({
         return sorted;
       });
     },
-    [icons?.default, limit, preventFlooding, showClose, timeout]
+    [icons?.default, limit, preventFlooding, showClose, timeout],
   );
 
   const notifyError = useCallback(
@@ -118,15 +110,15 @@ export const Notifications: FC<NotificationsProps> = ({
       notify(title, {
         variant: 'error',
         icon: icons?.error,
-        ...options
+        ...options,
       }),
-    [icons?.error, notify]
+    [icons?.error, notify],
   );
 
   const notifyWarning = useCallback(
     (title: string, options: NotificationOptions = {}) =>
       notify(title, { variant: 'warning', icon: icons?.warning, ...options }),
-    [icons?.warning, notify]
+    [icons?.warning, notify],
   );
 
   const notifySuccess = useCallback(
@@ -134,15 +126,15 @@ export const Notifications: FC<NotificationsProps> = ({
       notify(title, {
         variant: 'success',
         icon: icons?.success,
-        ...options
+        ...options,
       }),
-    [icons?.success, notify]
+    [icons?.success, notify],
   );
 
   const notifyInfo = useCallback(
     (title: string, options: NotificationOptions = {}) =>
       notify(title, { variant: 'info', icon: icons?.info, ...options }),
-    [icons?.info, notify]
+    [icons?.info, notify],
   );
 
   const values = useMemo(
@@ -153,7 +145,7 @@ export const Notifications: FC<NotificationsProps> = ({
       notifySuccess,
       notifyInfo,
       clearNotification,
-      clearAllNotifications
+      clearAllNotifications,
     }),
     [
       clearNotification,
@@ -162,13 +154,13 @@ export const Notifications: FC<NotificationsProps> = ({
       notifyError,
       notifySuccess,
       notifyWarning,
-      notifyInfo
-    ]
+      notifyInfo,
+    ],
   );
 
   const theme: NotificationTheme = useComponentTheme(
     'notification',
-    customTheme
+    customTheme,
   );
 
   return (

@@ -1,4 +1,5 @@
 import { Stepper } from '@/layout';
+
 import { Step } from './Step';
 
 export default { title: 'Components/Layout/Stepper', component: Stepper };
@@ -37,8 +38,8 @@ export const Markers = () => (
           In Progress
         </span>
         <div className="px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
-          This looks fine, might've missed it but maybe we can add a link to the
-          website where we also have the video of how to use the plug in?
+          This looks fine, might&apos;ve missed it but maybe we can add a link
+          to the website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
         </div>
       </div>
@@ -100,8 +101,8 @@ export const Numbered = () => (
           In Progress
         </span>
         <div className="px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
-          This looks fine, might've missed it but maybe we can add a link to the
-          website where we also have the video of how to use the plug in?
+          This looks fine, might&apos;ve missed it but maybe we can add a link
+          to the website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
         </div>
       </div>
@@ -163,8 +164,8 @@ export const Labels = () => (
           In Progress
         </span>
         <div className="px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
-          This looks fine, might've missed it but maybe we can add a link to the
-          website where we also have the video of how to use the plug in?
+          This looks fine, might&apos;ve missed it but maybe we can add a link
+          to the website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
         </div>
       </div>
@@ -226,8 +227,8 @@ export const Mixed = () => (
           In Progress
         </span>
         <div className="px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
-          This looks fine, might've missed it but maybe we can add a link to the
-          website where we also have the video of how to use the plug in?
+          This looks fine, might&apos;ve missed it but maybe we can add a link
+          to the website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
         </div>
       </div>
@@ -289,8 +290,8 @@ export const Animated = () => (
           In Progress
         </span>
         <div className="px-4 py-2 border border-solid border-tags-colors-neutral-stroke-hover bg-inputs-colors-normal-background-resting rounded-md">
-          This looks fine, might've missed it but maybe we can add a link to the
-          website where we also have the video of how to use the plug in?
+          This looks fine, might&apos;ve missed it but maybe we can add a link
+          to the website where we also have the video of how to use the plug in?
           Otherwise this is a nice addition.
         </div>
       </div>
@@ -334,11 +335,11 @@ export const CustomAnimation = () => {
           stiffness: 150,
           damping: 20,
           staggerChildren: 0.3,
-          delayChildren: 0.2
-        }
-      }
+          delayChildren: 0.2,
+        },
+      },
     },
-    transition: { duration: 0.8 }
+    transition: { duration: 0.8 },
   };
 
   return (
@@ -372,9 +373,9 @@ export const CustomAnimation = () => {
             Progress
           </span>
           <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
-            This looks fine, might've missed it but maybe we can add a link to
-            the website where we also have the video of how to use the plug in?
-            Otherwise this is a nice addition.
+            This looks fine, might&apos;ve missed it but maybe we can add a link
+            to the website where we also have the video of how to use the plug
+            in? Otherwise this is a nice addition.
           </div>
         </div>
       </Step>

@@ -1,8 +1,10 @@
-import React, { FC, Fragment } from 'react';
-import { cn, useComponentTheme } from '@/utils';
-import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
-import { List, ListHeader, ListItem } from '@/layout';
+import type { FC } from 'react';
+import React, { Fragment } from 'react';
+
+import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { isPresetActive } from '@/form/Calendar/utils';
+import { List, ListHeader, ListItem } from '@/layout';
+import { cn, useComponentTheme } from '@/utils';
 
 const DEFAULT_GROUP_NAME = 'Other';
 
@@ -50,11 +52,11 @@ export const CalendarPresets: FC<CalendarPresetsProps> = ({
   theme: customTheme,
   value,
   className,
-  onChange
+  onChange,
 }) => {
   const { presets: presetsTheme } = useComponentTheme<CalendarTheme>(
     'calendar',
-    customTheme
+    customTheme,
   );
 
   const groupedPresets = options.reduce(
@@ -67,7 +69,7 @@ export const CalendarPresets: FC<CalendarPresetsProps> = ({
 
       return acc;
     },
-    {} as Record<string, PresetOption[]>
+    {} as Record<string, PresetOption[]>,
   );
 
   return (
@@ -89,7 +91,7 @@ export const CalendarPresets: FC<CalendarPresetsProps> = ({
                 key={preset.label}
                 dense
                 className={cn(presetsTheme?.item?.base, {
-                  [presetsTheme?.item?.active]: active
+                  [presetsTheme?.item?.active]: active,
                 })}
                 onClick={() => onChange(presetValue)}
                 active={active}

@@ -1,7 +1,10 @@
-import React, { FC, forwardRef, HTMLAttributes, LegacyRef } from 'react';
+import type { FC, HTMLAttributes, LegacyRef } from 'react';
+import React, { forwardRef } from 'react';
+
 import { useComponentTheme } from '@/utils';
 import { twMerge } from '@/utils';
-import { StackTheme } from './StackTheme';
+
+import type { StackTheme } from './StackTheme';
 
 export interface StackProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -58,7 +61,7 @@ export const Stack: FC<StackProps & StackRef> = forwardRef<
       theme: customTheme,
       ...otherProps
     },
-    ref
+    ref,
   ) => {
     const theme: StackTheme = useComponentTheme('stack', customTheme);
 
@@ -71,7 +74,7 @@ export const Stack: FC<StackProps & StackRef> = forwardRef<
           theme.direction[direction],
           theme.alignItems[alignItems],
           theme.justifyContent[justifyContent],
-          className
+          className,
         )}
         ref={ref}
         {...otherProps}
@@ -79,5 +82,5 @@ export const Stack: FC<StackProps & StackRef> = forwardRef<
         {children}
       </div>
     );
-  }
+  },
 );

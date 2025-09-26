@@ -1,8 +1,8 @@
-import React, { FC, useMemo } from 'react';
-import {
-  ButtonGroupContext,
-  ButtonGroupContextProps
-} from './ButtonGroupContext';
+import type { FC } from 'react';
+import React, { useMemo } from 'react';
+
+import type { ButtonGroupContextProps } from './ButtonGroupContext';
+import { ButtonGroupContext } from './ButtonGroupContext';
 
 export interface ButtonGroupProps extends ButtonGroupContextProps {
   /**
@@ -20,14 +20,14 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({
   children,
   className,
   variant,
-  size
+  size,
 }) => {
   const values: ButtonGroupContextProps = useMemo(
     () => ({
       variant: variant || 'filled',
-      size: size || 'medium'
+      size: size || 'medium',
     }),
-    [size, variant]
+    [size, variant],
   );
 
   return (

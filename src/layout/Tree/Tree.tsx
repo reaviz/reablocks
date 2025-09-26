@@ -1,9 +1,13 @@
-import React, { FC, PropsWithChildren, useMemo } from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import React, { useMemo } from 'react';
+
 import { Arrow } from '@/elements/Arrow';
-import { TreeContext, TreeContextProps } from './TreeContext';
-import { TreeTheme } from './TreeTheme';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from '@/utils';
+
+import type { TreeContextProps } from './TreeContext';
+import { TreeContext } from './TreeContext';
+import type { TreeTheme } from './TreeTheme';
 
 export type TreeProps = {
   /**
@@ -43,9 +47,9 @@ export const Tree: FC<TreeProps> = ({
   const values = useMemo(
     () => ({
       expandedIcon,
-      collapsedIcon
+      collapsedIcon,
     }),
-    [collapsedIcon, expandedIcon]
+    [collapsedIcon, expandedIcon],
   );
 
   return (

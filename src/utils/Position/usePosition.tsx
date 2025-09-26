@@ -1,19 +1,16 @@
-import {
-  useLayoutEffect,
-  RefObject,
-  useCallback,
-  useEffect,
-  useMemo
-} from 'react';
-import {
-  useFloating,
-  Placement as FloatingUIPlacement,
+import type {
   Middleware,
+  Placement as FloatingUIPlacement,
+} from '@floating-ui/react';
+import {
+  autoUpdate,
   flip,
   limitShift,
   shift,
-  autoUpdate
+  useFloating,
 } from '@floating-ui/react';
+import type { RefObject } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo } from 'react';
 
 export type Placement = FloatingUIPlacement;
 export type Modifiers = Middleware[];
@@ -45,11 +42,11 @@ export const usePosition = ({
   floating,
   followCursor,
   placement = 'top',
-  modifiers = [flip(), shift({ limiter: limitShift() })]
+  modifiers = [flip(), shift({ limiter: limitShift() })],
 }: PositionOptions = {}) => {
   const isVirtualElement = useMemo(
     () => !(reference as Element)?.nodeType,
-    [reference]
+    [reference],
   );
 
   const { refs, floatingStyles, update } = useFloating({
@@ -58,9 +55,9 @@ export const usePosition = ({
     middleware: modifiers,
     elements: {
       reference: isVirtualElement ? null : (reference as Element),
-      floating: floating
+      floating: floating,
     },
-    whileElementsMounted: autoUpdate
+    whileElementsMounted: autoUpdate,
   });
 
   useEffect(() => {
@@ -76,9 +73,9 @@ export const usePosition = ({
             left: refObject.left,
             top: refObject.top,
             right: refObject.left + refObject.width,
-            bottom: refObject.top + refObject.height
+            bottom: refObject.top + refObject.height,
           };
-        }
+        },
       });
     }
   }, [reference, refs, isVirtualElement, followCursor]);
@@ -96,12 +93,12 @@ export const usePosition = ({
             left: clientX,
             top: clientY,
             right: clientX,
-            bottom: clientY
+            bottom: clientY,
           };
-        }
+        },
       });
     },
-    [refs]
+    [refs],
   );
 
   useLayoutEffect(() => {
@@ -119,6 +116,6 @@ export const usePosition = ({
     anchorRef: refs.reference,
     floatingRef: refs.floating,
     floatingStyles,
-    update
+    update,
   };
 };

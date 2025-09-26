@@ -1,6 +1,9 @@
-import React, { FC, ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
+import React from 'react';
+
 import { twMerge } from '@/utils';
-import { CheckboxSizeTheme, CheckboxTheme } from './CheckboxTheme';
+
+import type { CheckboxSizeTheme, CheckboxTheme } from './CheckboxTheme';
 
 interface CheckboxLabelProps {
   label: string | ReactNode;
@@ -19,7 +22,7 @@ export const CheckboxLabel: FC<CheckboxLabelProps> = ({
   checked,
   onChange,
   labelClassName,
-  theme
+  theme,
 }) => (
   <span
     className={twMerge(
@@ -28,7 +31,7 @@ export const CheckboxLabel: FC<CheckboxLabelProps> = ({
       checked && theme.label.checked,
       disabled && theme.label.disabled,
       !disabled && onChange && theme.label.clickable,
-      labelClassName
+      labelClassName,
     )}
     onClick={() => {
       if (!disabled && onChange) {

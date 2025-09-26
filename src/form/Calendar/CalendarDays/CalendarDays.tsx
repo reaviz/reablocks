@@ -1,20 +1,19 @@
-import React, { FC, useCallback, useMemo, useState } from 'react';
 import { endOfDay, isAfter, isBefore, isToday, startOfDay } from 'date-fns';
+import type { MotionNodeAnimationOptions } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
+import type { FC } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+
 import { Button } from '@/elements';
+import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import {
   daysOfWeek,
   getDayAttributes,
   getWeeks,
   isNextWeekEmpty,
-  isPreviousWeekEmpty
+  isPreviousWeekEmpty,
 } from '@/form/Calendar/utils';
-import {
-  AnimatePresence,
-  motion,
-  MotionNodeAnimationOptions
-} from 'motion/react';
 import { cn, useComponentTheme } from '@/utils';
-import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 
 export interface CalendarDaysProps {
   /**
@@ -144,7 +143,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
   hideNextMonthDays,
   onChange,
   onHover,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const { days }: CalendarTheme = useComponentTheme('calendar', customTheme);
 
@@ -171,7 +170,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         onChange(dayDate);
       }
     },
-    [showTime, isRange, current, maxLimit, minLimit, onChange]
+    [showTime, isRange, current, maxLimit, minLimit, onChange],
   );
 
   const renderDay = useCallback(
@@ -204,7 +203,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         day.date,
         current,
         currentHover,
-        isRange
+        isRange,
       );
 
       // Determine styling of range start and end dates -
@@ -243,7 +242,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
             [days.cornerStartDateBottom]:
               isRange && isActive && !rangeConnectsBottom,
             [days.endRangeDate]: isRange && isRangeEnd && !isRangeStart,
-            [days.cornerEndDateTop]: isRange && isActive && !rangeConnectsTop
+            [days.cornerEndDateTop]: isRange && isActive && !rangeConnectsTop,
           })}
           onMouseEnter={() => handleHover(day.date)}
           onMouseLeave={() => handleHover(null)}
@@ -271,8 +270,8 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
       days,
       hideNextMonthDays,
       hidePrevMonthDays,
-      showToday
-    ]
+      showToday,
+    ],
   );
 
   return (
@@ -286,8 +285,8 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
               animate: { opacity: 1, x: 0 },
               transition: {
                 x: { type: animated ? 'keyframes' : false },
-                opacity: { duration: 0.2, type: animated ? 'tween' : false }
-              }
+                opacity: { duration: 0.2, type: animated ? 'tween' : false },
+              },
             })}
       >
         {showDayOfWeek && (

@@ -1,10 +1,13 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
+
 import { useComponentTheme } from '@/utils';
 import { twMerge } from '@/utils';
-import {
+
+import type {
   DividerOrientationTheme,
   DividerTheme,
-  DividerVariantTheme
+  DividerVariantTheme,
 } from './DividerTheme';
 
 export interface DividerProps {
@@ -58,7 +61,7 @@ export const Divider: FC<DividerProps> = ({
         theme.variant[variant],
         theme.orientation[orientation],
         disableMargins && theme.disableMargins,
-        className
+        className,
       )}
     />
   );

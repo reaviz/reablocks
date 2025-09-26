@@ -32,11 +32,11 @@ export const typographyThemeDeprecated = {
     thin: 'font-thin',
     bold: 'font-semibold',
     extraBold: 'font-extrabold',
-    italic: 'italic'
+    italic: 'italic',
   },
   variant: {
     default: '',
-    mono: 'font-mono'
+    mono: 'font-mono',
   },
   colors: {
     primary: 'text-primary',
@@ -44,12 +44,12 @@ export const typographyThemeDeprecated = {
     success: 'text-success',
     warning: 'text-warning',
     error: 'text-error',
-    info: 'text-info'
+    info: 'text-info',
   },
   sub: 'text-sm font-semibold mb-0.5',
   smallHeading: 'text-sm font-normal mb-1',
   secondaryHeading: 'text-2xl font-normal mb-1',
   primaryHeading: 'text-2xl font-extrabold mb-1',
   pageTitle: 'text-[40px] font-semibold mb-5',
-  disableMargins: 'm-0'
+  disableMargins: 'm-0',
 };

@@ -1,9 +1,10 @@
 import React, { Fragment } from 'react';
+
 import { DataSize } from './DataSize';
 
 export default {
   title: 'Components/Data/Data Size',
-  component: DataSize
+  component: DataSize,
 };
 
 export const Simple = () => (
@@ -16,15 +17,15 @@ export const Simple = () => (
     <br />
     <DataSize value="434334434123" />
     <br />
-    <DataSize value={324344535345232} />
+    <DataSize value="324344535345232" />
     <br />
-    <DataSize value={324344535345232482} />
+    <DataSize value="324344535345232482" />
     <br />
-    <DataSize value={324344535345232482281} />
+    <DataSize value="324344535345232482281" />
     <br />
-    <DataSize value={32434453534523248228135} />
+    <DataSize value="32434453534523248228135" />
     <br />
-    <DataSize value={32434453534523248228123412} />
+    <DataSize value="32434453534523248228123412" />
   </Fragment>
 );
 
@@ -40,15 +41,15 @@ export const CustomScale = () => {
       <br />
       <DataSize value="434334434123" scale={scale} />
       <br />
-      <DataSize value={324344535345232} scale={scale} />
+      <DataSize value="324344535345232" scale={scale} />
       <br />
-      <DataSize value={324344535345232482} scale={scale} />
+      <DataSize value="324344535345232482" scale={scale} />
       <br />
-      <DataSize value={324344535345232482281} scale={scale} />
+      <DataSize value="324344535345232482281" scale={scale} />
       <br />
-      <DataSize value={32434453534523248228135} scale={scale} />
+      <DataSize value="32434453534523248228135" scale={scale} />
       <br />
-      <DataSize value={32434453534523248228123412} scale={scale} />
+      <DataSize value="32434453534523248228123412" scale={scale} />
     </Fragment>
   );
 };

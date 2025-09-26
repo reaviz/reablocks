@@ -1,8 +1,11 @@
-import React, { FC, useMemo, useState } from 'react';
 import coverup from 'coverup';
+import type { FC } from 'react';
+import React, { useMemo, useState } from 'react';
+
 import { twMerge } from '@/utils';
-import { RedactTheme } from './RedactTheme';
 import { useComponentTheme } from '@/utils';
+
+import type { RedactTheme } from './RedactTheme';
 
 export interface RedactProps {
   /**
@@ -48,7 +51,7 @@ export const Redact: FC<RedactProps> = ({
   className,
   character = '*',
   value,
-  theme: customTheme
+  theme: customTheme,
 }) => {
   const [visible, setVisible] = useState<boolean>(false);
   const masked = useMemo(
@@ -57,9 +60,9 @@ export const Redact: FC<RedactProps> = ({
         keepLeft: 1,
         keepRight: 1,
         compactTo: compactLength,
-        char: character
+        char: character,
       }) || '',
-    [value, character, compactLength]
+    [value, character, compactLength],
   );
 
   const theme: RedactTheme = useComponentTheme('redact', customTheme);
@@ -71,7 +74,7 @@ export const Redact: FC<RedactProps> = ({
       className={twMerge(
         theme.base,
         allowToggle && theme.interactive,
-        className
+        className,
       )}
       onClick={() => allowToggle && setVisible(!visible)}
     >

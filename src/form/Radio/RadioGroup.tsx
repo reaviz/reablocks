@@ -1,5 +1,8 @@
-import React, { FC, useCallback, useMemo, useState } from 'react';
-import { RadioGroupContext, RadioGroupContextProps } from './RadioGroupContext';
+import type { FC } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+
+import type { RadioGroupContextProps } from './RadioGroupContext';
+import { RadioGroupContext } from './RadioGroupContext';
 
 export interface RadioGroupProps extends RadioGroupContextProps {
   /**
@@ -17,7 +20,7 @@ export const RadioGroup: FC<RadioGroupProps> = ({
   children,
   className,
   onChange,
-  selectedValue: defaultValue
+  selectedValue: defaultValue,
 }) => {
   const [selectedValue, setSelectedValue] = useState<any>(defaultValue);
 
@@ -26,15 +29,15 @@ export const RadioGroup: FC<RadioGroupProps> = ({
       setSelectedValue(value);
       onChange(value);
     },
-    [onChange]
+    [onChange],
   );
 
   const values: RadioGroupContextProps = useMemo(
     () => ({
       onChange: handleValueChange,
-      selectedValue: selectedValue
+      selectedValue: selectedValue,
     }),
-    [handleValueChange, selectedValue]
+    [handleValueChange, selectedValue],
   );
 
   return (

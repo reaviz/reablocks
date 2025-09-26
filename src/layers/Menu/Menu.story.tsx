@@ -1,15 +1,18 @@
 import React, { Fragment, useRef, useState } from 'react';
-import { Card } from '@/layout';
-import { List, ListHeader, ListItem } from '@/layout';
-import { Menu } from './Menu';
-import { NestedMenu, NestedMenuRef } from '@/layers';
-import { useMenu } from '@/layers';
+
 import { Button } from '@/elements';
+import type { NestedMenuRef } from '@/layers';
+import { NestedMenu } from '@/layers';
+import { useMenu } from '@/layers';
+import { Card } from '@/layout';
+import { List, ListItem } from '@/layout';
+
+import { Menu } from './Menu';
 
 export default {
   title: 'Components/Layers/Menu',
   component: Menu,
-  subComponents: { NestedMenu }
+  subComponents: { NestedMenu },
 };
 
 export const Unstyled = () => {
@@ -184,8 +187,8 @@ export const AutoWidthModifiers = () => {
             name: 'offset',
             fn({ x, y }) {
               return { x: x - 100, y: y + 25 };
-            }
-          }
+            },
+          },
         ]}
       >
         <Card disablePadding>
@@ -252,7 +255,7 @@ export const CustomAnimation = () => {
               backgroundColor: 'rgba(255, 255, 255, 0.98)',
               backdropFilter: 'blur(12px)',
               boxShadow:
-                '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)'
+                '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)',
             },
             collapsed: {
               opacity: 0,
@@ -263,8 +266,8 @@ export const CustomAnimation = () => {
               transformOrigin: 'center',
               backgroundColor: 'rgba(255, 255, 255, 0.7)',
               backdropFilter: 'blur(4px)',
-              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
-            }
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+            },
           },
           transition: {
             duration: 0.5,
@@ -272,8 +275,8 @@ export const CustomAnimation = () => {
             rotateZ: { type: 'spring', stiffness: 200, damping: 20 },
             scale: { type: 'spring', stiffness: 300, damping: 25 },
             backgroundColor: { duration: 0.3 },
-            backdropFilter: { duration: 0.4 }
-          }
+            backdropFilter: { duration: 0.4 },
+          },
         }}
       >
         <Card disablePadding>

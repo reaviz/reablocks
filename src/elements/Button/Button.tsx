@@ -1,13 +1,16 @@
-import React, { FC, forwardRef, LegacyRef, useContext } from 'react';
 import { motion } from 'motion/react';
-import { ButtonGroupContext } from './ButtonGroupContext';
+import type { FC, LegacyRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
+
 import { useComponentTheme } from '@/utils';
 import { twMerge } from '@/utils';
-import {
+
+import { ButtonGroupContext } from './ButtonGroupContext';
+import type {
   ButtonColorTheme,
   ButtonSizeTheme,
   ButtonTheme,
-  ButtonVariantTheme
+  ButtonVariantTheme,
 } from './ButtonTheme';
 
 export interface ButtonProps
@@ -99,7 +102,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
       type = 'button',
       ...rest
     }: ButtonProps,
-    ref
+    ref,
   ) => {
     const theme = useComponentTheme('button', customTheme);
 
@@ -115,7 +118,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         disabled={disabled}
         ref={ref}
         whileTap={{
-          scale: disabled || disableAnimation || !animated ? 1 : 0.9
+          scale: disabled || disableAnimation || !animated ? 1 : 0.9,
         }}
         data-variant={groupVariant || variant}
         className={twMerge(
@@ -129,7 +132,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
           isGroup && groupVariant === 'text' && theme.groupText,
           disableMargins && 'm-0',
           disablePadding && 'p-0',
-          className
+          className,
         )}
       >
         {startAdornment && (
@@ -137,7 +140,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
             className={twMerge(
               theme.adornment.base,
               theme.adornment.sizes[size],
-              theme.adornment.start[size]
+              theme.adornment.start[size],
             )}
           >
             {startAdornment}
@@ -149,7 +152,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
             className={twMerge(
               theme.adornment.base,
               theme.adornment.sizes[size],
-              theme.adornment.end[size]
+              theme.adornment.end[size],
             )}
           >
             {endAdornment}
@@ -157,5 +160,5 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         )}
       </motion.button>
     );
-  }
+  },
 );

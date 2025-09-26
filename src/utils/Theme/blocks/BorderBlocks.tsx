@@ -1,11 +1,15 @@
 import React from 'react';
 
-export const BorderBlocks = ({ borders }) => (
+export const BorderBlocks = ({
+  borders,
+}: {
+  borders: { [key: string]: string };
+}) => (
   <div
     style={{
       padding: '2px 4px',
       color: 'var(--body-color)',
-      width: '100%'
+      width: '100%',
     }}
   >
     {borders ? (
@@ -19,14 +23,14 @@ export const BorderBlocks = ({ borders }) => (
               display: 'flex',
               alignItems: 'center',
               borderRadius: '4px',
-              border: 'solid 1px var(--border-color)'
+              border: 'solid 1px var(--border-color)',
             }}
           >
             <h3
               style={{
                 fontWeight: 500,
                 marginRight: '20px',
-                maxWidth: 300
+                maxWidth: 300,
               }}
             >
               <span
@@ -52,14 +56,14 @@ export const BorderBlocks = ({ borders }) => (
               style={{
                 justifyContent: 'end',
                 display: 'flex',
-                flex: 1
+                flex: 1,
               }}
             >
               <div
                 style={{
                   padding: '12px',
                   borderRadius: borders[key],
-                  border: 'solid 1px blue'
+                  border: 'solid 1px blue',
                 }}
               >
                 Content

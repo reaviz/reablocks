@@ -1,20 +1,19 @@
-import { Typography } from '@/typography';
 import React from 'react';
-import { Stack } from '@/layout';
-
-import {
-  Callout,
-  SuccessCallout,
-  WarningCallout,
-  ErrorCallout,
-  InfoCallout
-} from '@/layers';
 
 import CalendarIcon from '@/assets/icons/calendar.svg?react';
+import {
+  Callout,
+  ErrorCallout,
+  InfoCallout,
+  SuccessCallout,
+  WarningCallout,
+} from '@/layers';
+import { Stack } from '@/layout';
+import { Typography } from '@/typography';
 
 export default {
   title: 'Components/Layers/Callout',
-  component: Callout
+  component: Callout,
 };
 
 export const Simple = () => (

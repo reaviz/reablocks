@@ -1,10 +1,11 @@
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+
 import { OverlayPortal } from './OverlayPortal';
 
 const meta: Meta<typeof OverlayPortal> = {
   title: 'Components/Utils/Overlay/Overlay Portal',
-  component: OverlayPortal
+  component: OverlayPortal,
 };
 
 type Story = StoryObj<typeof OverlayPortal>;
@@ -14,7 +15,7 @@ export const Simple: Story = {
     <div
       style={{
         width: 300,
-        height: 300
+        height: 300,
       }}
     >
       <div
@@ -24,7 +25,7 @@ export const Simple: Story = {
           background: 'black',
           padding: 50,
           position: 'relative',
-          overflow: 'hidden'
+          overflow: 'hidden',
         }}
       >
         Hello
@@ -37,7 +38,7 @@ export const Simple: Story = {
         </OverlayPortal>
       </div>
     </div>
-  )
+  ),
 };
 
 export default meta;

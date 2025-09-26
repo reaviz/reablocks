@@ -1,15 +1,11 @@
-import React, {
-  FC,
-  forwardRef,
-  LegacyRef,
-  ReactNode,
-  useContext,
-  useMemo
-} from 'react';
 import { motion } from 'motion/react';
-import { RadioGroupContext } from './RadioGroupContext';
+import type { LegacyRef, ReactNode } from 'react';
+import React, { forwardRef, useContext, useMemo } from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
-import { RadioSizeTheme, RadioTheme } from './RadioTheme';
+
+import { RadioGroupContext } from './RadioGroupContext';
+import type { RadioSizeTheme, RadioTheme } from './RadioTheme';
 
 export interface RadioProps {
   /**
@@ -63,7 +59,7 @@ export interface RadioProps {
 
 const VARIANTS = {
   check: { opacity: 1, scale: 1 },
-  uncheck: { opacity: 0, scale: 0 }
+  uncheck: { opacity: 0, scale: 0 },
 };
 
 export interface RadioRef {
@@ -73,7 +69,7 @@ export interface RadioRef {
   ref?: LegacyRef<HTMLDivElement>;
 }
 
-export const Radio: FC<RadioProps & RadioRef> = forwardRef(
+export const Radio = forwardRef<HTMLDivElement, RadioProps>(
   (
     {
       checked: isRadioChecked,
@@ -87,7 +83,7 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
       theme: customTheme,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const { onChange: onGroupValueChange, selectedValue } =
       useContext(RadioGroupContext);
@@ -114,7 +110,7 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
           tabIndex={0}
           className={cn(theme.radio.base, theme.sizes[size], {
             [theme.radio.checked]: checked,
-            [theme.radio.disabled]: disabled
+            [theme.radio.disabled]: disabled,
           })}
           onClick={() => {
             if (!disabled) {
@@ -130,7 +126,7 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
         >
           <motion.div
             className={cn(theme.indicator.base, theme.indicator.sizes[size], {
-              [theme.indicator.disabled]: disabled
+              [theme.indicator.disabled]: disabled,
             })}
             initial={!disabled ? { opacity: 0, scale: 0.5 } : {}}
             variants={VARIANTS}
@@ -143,7 +139,7 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
             className={cn(theme.label.base, {
               [theme.label.checked]: checked,
               [theme.label.disabled]: disabled,
-              [theme.label.clickable]: !disabled
+              [theme.label.clickable]: !disabled,
             })}
             onClick={() => {
               if (!disabled) {
@@ -156,5 +152,5 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
         )}
       </div>
     );
-  }
+  },
 );

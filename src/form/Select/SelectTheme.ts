@@ -1,5 +1,7 @@
-import { selectInputTheme, SelectInputTheme } from '@/form';
-import { selectMenuTheme, SelectMenuTheme } from '@/form';
+import type { SelectInputTheme } from '@/form';
+import type { SelectMenuTheme } from '@/form';
+import { selectInputTheme } from '@/form';
+import { selectMenuTheme } from '@/form';
 
 export interface SelectTheme {
   selectInput: SelectInputTheme;
@@ -8,5 +10,5 @@ export interface SelectTheme {
 
 export const selectTheme: SelectTheme = {
   selectInput: selectInputTheme,
-  selectMenu: selectMenuTheme
+  selectMenu: selectMenuTheme,
 };

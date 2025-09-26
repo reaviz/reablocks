@@ -1,7 +1,11 @@
-import React, { FC, forwardRef, LegacyRef } from 'react';
-import { motion, MotionNodeAnimationOptions } from 'motion/react';
-import { ToggleSizeTheme, ToggleTheme } from './ToggleTheme';
+import type { MotionNodeAnimationOptions } from 'motion/react';
+import { motion } from 'motion/react';
+import type { FC, LegacyRef } from 'react';
+import React, { forwardRef } from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
+
+import type { ToggleSizeTheme, ToggleTheme } from './ToggleTheme';
 
 export interface ToggleProps {
   /**
@@ -74,7 +78,7 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
       theme: customTheme,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const theme: ToggleTheme = useComponentTheme('toggle', customTheme);
 
@@ -90,9 +94,9 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
           {
             [theme.checked]: checked,
             [theme.disabled]: disabled,
-            [theme.disabledAndChecked]: disabled && checked
+            [theme.disabledAndChecked]: disabled && checked,
           },
-          className
+          className,
         )}
         onClick={() => {
           if (!disabled && onChange) {
@@ -109,7 +113,7 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
         <motion.div
           className={cn(theme.handle.base, theme.handle.sizes[size], {
             [theme.handle.disabled]: disabled,
-            [theme.handle.disabledAndChecked]: disabled && checked
+            [theme.handle.disabledAndChecked]: disabled && checked,
           })}
           layout
           {...(animation
@@ -119,11 +123,11 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
                   type: 'spring',
                   stiffness: 700,
                   damping: 30,
-                  duration: animated ? 0.3 : 0
-                }
+                  duration: animated ? 0.3 : 0,
+                },
               })}
         />
       </div>
     );
-  }
+  },
 );

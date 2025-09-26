@@ -22,10 +22,10 @@ export const blockTheme: BlockTheme = {
   endAlign: 'items-end',
   horizontal: {
     base: 'flex flex-row items-baseline',
-    label: 'mr-2 whitespace-nowrap'
+    label: 'mr-2 whitespace-nowrap',
   },
   vertical: {
     base: 'block',
-    label: 'block mb-2'
-  }
+    label: 'block mb-2',
+  },
 };

@@ -1,17 +1,12 @@
-import { useComponentTheme } from '@/utils';
 import { motion, useMotionValue, useTransform } from 'motion/react';
-import React, {
-  FC,
-  forwardRef,
-  LegacyRef,
-  ReactNode,
-  useCallback,
-  useEffect,
-  useState
-} from 'react';
+import type { LegacyRef, ReactNode } from 'react';
+import React, { forwardRef, useCallback, useEffect, useState } from 'react';
+
+import { useComponentTheme } from '@/utils';
 import { twMerge } from '@/utils';
+
 import { CheckboxLabel } from './CheckboxLabel';
-import { CheckboxSizeTheme, CheckboxTheme } from './CheckboxTheme';
+import type { CheckboxSizeTheme, CheckboxTheme } from './CheckboxTheme';
 
 export interface CheckboxProps {
   /**
@@ -97,7 +92,7 @@ export interface CheckboxRef {
   ref?: LegacyRef<HTMLDivElement>;
 }
 
-export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
+export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
   (
     {
       checked = false,
@@ -117,7 +112,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
       theme: customTheme,
       ...rest
     },
-    ref
+    ref,
   ) => {
     const theme: CheckboxTheme = useComponentTheme('checkbox', customTheme);
     const pathLength = useMotionValue(0);
@@ -136,7 +131,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
     const checkVariants = {
       pressed: (isChecked: boolean) => ({ pathLength: isChecked ? 0.85 : 0.3 }),
       checked: { pathLength: 1 },
-      unchecked: { pathLength: 0 }
+      unchecked: { pathLength: 0 },
     };
 
     const handleOnChange = useCallback(() => {
@@ -150,7 +145,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
         className={twMerge(
           theme.base,
           containerClassName,
-          checked && 'checked'
+          checked && 'checked',
         )}
       >
         {labelPosition === 'start' && label && (
@@ -173,7 +168,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             checked && theme.checkbox.checked,
             disabled && theme.checkbox.disabled,
             theme.sizes[size],
-            className
+            className,
           )}
           onClick={e => {
             if (!disabled && onChange) {
@@ -200,7 +195,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
               className={twMerge(
                 theme.border.base,
                 checked && theme.border.checked,
-                disabled && theme.border.disabled
+                disabled && theme.border.disabled,
               )}
               d={borderPath}
               variants={theme.boxVariants}
@@ -223,7 +218,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
                 className={twMerge(
                   theme.check.base,
                   disabled && theme.check.disabled,
-                  checked && theme.check.checked
+                  checked && theme.check.checked,
                 )}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}
@@ -245,5 +240,5 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
         )}
       </div>
     );
-  }
+  },
 );

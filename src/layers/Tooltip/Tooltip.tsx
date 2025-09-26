@@ -1,11 +1,16 @@
-import React, { FC, useState, useRef, useEffect, ReactNode } from 'react';
-import { ConnectedOverlay, TriggerTypes } from '@/utils/Overlay';
-import { Modifiers, Placement, ReferenceObject } from '@/utils/Position';
-import { motion, MotionNodeAnimationOptions } from 'motion/react';
+import type { MotionNodeAnimationOptions } from 'motion/react';
+import { motion } from 'motion/react';
+import type { FC, ReactNode } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+
 import { twMerge } from '@/utils';
-import { useTooltipState } from './useTooltipState';
-import { TooltipTheme } from './TooltipTheme';
 import { useComponentTheme } from '@/utils';
+import type { TriggerTypes } from '@/utils/Overlay';
+import { ConnectedOverlay } from '@/utils/Overlay';
+import type { Modifiers, Placement, ReferenceObject } from '@/utils/Position';
+
+import type { TooltipTheme } from './TooltipTheme';
+import { useTooltipState } from './useTooltipState';
 
 export interface TooltipProps {
   /**
@@ -165,7 +170,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
       // Return whether the ref's state was updated
       return isPop === isPopover;
-    }
+    },
   );
 
   useEffect(() => {
@@ -217,25 +222,25 @@ export const Tooltip: FC<TooltipProps> = ({
                     scale: 0.3,
                     transition: {
                       when: 'beforeChildren',
-                      duration: animated ? 0.3 : 0
-                    }
+                      duration: animated ? 0.3 : 0,
+                    },
                   },
                   animate: {
                     opacity: 1,
                     scale: 1,
                     transition: {
                       when: 'beforeChildren',
-                      duration: animated ? 0.3 : 0
-                    }
+                      duration: animated ? 0.3 : 0,
+                    },
                   },
                   exit: {
                     opacity: 0,
                     scale: 0.3,
                     transition: {
                       when: 'beforeChildren',
-                      duration: animated ? 0.3 : 0
-                    }
-                  }
+                      duration: animated ? 0.3 : 0,
+                    },
+                  },
                 })}
             onClick={() => {
               if (closeOnClick) {

@@ -1,5 +1,8 @@
-import React, { FC } from 'react';
-import { formatSize, FormatSizeTypes } from './utils';
+import type { FC } from 'react';
+import React from 'react';
+
+import type { FormatSizeTypes } from './utils';
+import { formatSize } from './utils';
 
 export interface DataSizeProps {
   /**
@@ -27,5 +30,5 @@ export const DataSize: FC<DataSizeProps> = ({
   value,
   emptyValue,
   scale,
-  decimals
+  decimals,
 }) => <>{formatSize(value, emptyValue, scale, decimals)}</>;

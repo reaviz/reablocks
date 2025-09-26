@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SpacingBlocks = ({ spacings }) => {
+export const SpacingBlocks = ({ spacings }: any) => {
   const steps = Array.from({ length: 20 }, (_, index) => index + 1);
   steps.unshift(0.5);
   steps.push(...[24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 72, 80, 96]);
@@ -12,7 +12,7 @@ export const SpacingBlocks = ({ spacings }) => {
       style={{
         padding: '6px 12px',
         color: 'var(--body-color)',
-        width: '100%'
+        width: '100%',
       }}
     >
       {spacings ? (
@@ -26,7 +26,7 @@ export const SpacingBlocks = ({ spacings }) => {
                 display: 'flex',
                 alignItems: 'center',
                 borderRadius: '4px',
-                border: 'solid 1px var(--border-color)'
+                border: 'solid 1px var(--border-color)',
               }}
             >
               <h3 style={{ fontWeight: 500, marginRight: 50 }}>
@@ -54,13 +54,13 @@ export const SpacingBlocks = ({ spacings }) => {
                 style={{
                   justifyContent: 'end',
                   display: 'flex',
-                  flex: 1
+                  flex: 1,
                 }}
               >
                 <div
                   style={{
                     padding: value * step + unit,
-                    border: 'solid 1px blue'
+                    border: 'solid 1px blue',
                   }}
                 >
                   Content

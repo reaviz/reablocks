@@ -1,7 +1,9 @@
-import React, { FC, forwardRef, LegacyRef } from 'react';
+import type { FC, LegacyRef } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from '@/utils';
-import { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 
 /**
  * @deprecated
@@ -61,11 +63,11 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
       theme: customTheme,
       ...rest
     }: PageTitleProps,
-    ref
+    ref,
   ) => {
     const theme: TypographyThemeDeprecated = useComponentTheme(
       'typography_deprecated',
-      customTheme
+      customTheme,
     );
 
     return (
@@ -76,12 +78,12 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
           theme.variant[variant],
           theme.pageTitle,
           disableMargins && theme.disableMargins,
-          className
+          className,
         )}
         {...rest}
       >
         {children}
       </h1>
     );
-  }
+  },
 );

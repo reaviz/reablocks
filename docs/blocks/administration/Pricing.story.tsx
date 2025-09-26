@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import React, { useState } from 'react';
 
-import { IconButton } from '../../../src/elements/IconButton';
-import { Toggle } from '../../../src/form/Toggle';
-import { Radio } from '../../../src/form/Radio';
 import { Button, ButtonGroup } from '../../../src/elements/Button';
+import { Chip } from '../../../src/elements/Chip';
+import { IconButton } from '../../../src/elements/IconButton';
+import { Radio } from '../../../src/form/Radio';
+import { Toggle } from '../../../src/form/Toggle';
 import {
-  BreadcrumbItem, BreadcrumbLink,
-  BreadcrumbList, BreadcrumbPage, Breadcrumbs, BreadcrumbSeparator,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  Breadcrumbs,
+  BreadcrumbSeparator,
   Card,
   Divider,
   List,
@@ -15,13 +20,12 @@ import {
   MotionGroup,
   MotionItem,
   Stack,
-  VerticalSpacer
+  VerticalSpacer,
 } from '../../../src/layout';
-import { Chip } from '../../../src/elements/Chip';
 import { cn } from '../../../src/utils/Theme/helpers';
 
 export default {
-  title: 'Blocks/Administration/Pricing'
+  title: 'Blocks/Administration/Pricing',
 };
 
 const CheckIcon = () => (
@@ -47,24 +51,18 @@ export const Pricing = () => {
       <MotionItem>
         <Card
           className={cn('w-full h-[515px] rounded-sm transition-colors p-7', {
-            'bg-gradient-brand-100': selected === 'free'
+            'bg-gradient-brand-100': selected === 'free',
           })}
           contentClassName="w-full h-full"
         >
           <Stack direction="column" alignItems="start" className="h-full">
             <Stack justifyContent="spaceBetween" className="w-full">
               <h6 className="text-base font-semibold">Free</h6>
-              <Chip
-                size="large"
-                variant="outline"
-                color="primary"
-              >
+              <Chip size="large" variant="outline" color="primary">
                 Current Plan
               </Chip>
             </Stack>
-            <span className="text-content-text-neutral-2">
-              For small teams
-            </span>
+            <span className="text-content-text-neutral-2">For small teams</span>
             <Stack>
               <h1 className="text-2xl font-semibold">$0</h1>
               <span className="font-bold text-content-text-neutral-2">
@@ -119,18 +117,14 @@ export const Pricing = () => {
       <MotionItem>
         <Card
           className={cn('w-full h-[515px] rounded-sm transition-colors p-7', {
-            'bg-gradient-brand-100': selected === 'starter'
+            'bg-gradient-brand-100': selected === 'starter',
           })}
           contentClassName="w-full h-full"
         >
           <Stack direction="column" alignItems="start" className="h-full">
             <Stack justifyContent="spaceBetween" className="w-full">
               <h6 className="text-base font-semibold">Starter</h6>
-              <Chip
-                size="large"
-                color="success"
-                variant="outline"
-              >
+              <Chip size="large" color="success" variant="outline">
                 Recommended
               </Chip>
             </Stack>
@@ -197,7 +191,7 @@ export const Pricing = () => {
       <MotionItem>
         <Card
           className={cn('w-full h-[515px] rounded-sm transition-colors p-7', {
-            'bg-gradient-brand-100': selected === 'custom'
+            'bg-gradient-brand-100': selected === 'custom',
           })}
           contentClassName="w-full h-full"
         >
@@ -272,7 +266,10 @@ export const PricingFull = () => {
   const [cycle, setCycle] = useState('Monthly');
 
   return (
-    <Card className="w-full transition-colors p-7" contentClassName="w-full h-full">
+    <Card
+      className="w-full transition-colors p-7"
+      contentClassName="w-full h-full"
+    >
       <Stack justifyContent="spaceBetween">
         <Breadcrumbs>
           <BreadcrumbList>
@@ -298,7 +295,8 @@ export const PricingFull = () => {
         <ButtonGroup size="large">
           <Button
             className={cn({
-              'bg-buttons-colors-core-icon-primary-background-hover': cycle === 'Monthly',
+              'bg-buttons-colors-core-icon-primary-background-hover':
+                cycle === 'Monthly',
             })}
             onClick={() => setCycle('Monthly')}
           >
@@ -306,7 +304,8 @@ export const PricingFull = () => {
           </Button>
           <Button
             className={cn({
-              'bg-buttons-colors-core-icon-primary-background-hover': cycle === 'Yearly',
+              'bg-buttons-colors-core-icon-primary-background-hover':
+                cycle === 'Yearly',
             })}
             onClick={() => setCycle('Yearly')}
           >
@@ -356,18 +355,20 @@ export const PricingFull = () => {
             <Button
               size="large"
               color="primary"
-              startAdornment={<svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="17"
-                height="16"
-                viewBox="0 0 17 16"
-                fill="none"
-              >
-                <path
-                  d="M3.16669 7.99996L4.10669 8.93996L7.83335 5.21996V13.3333H9.16669V5.21996L12.8867 8.94663L13.8334 7.99996L8.50002 2.66663L3.16669 7.99996Z"
-                  fill="white"
-                />
-              </svg>}
+              startAdornment={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17"
+                  height="16"
+                  viewBox="0 0 17 16"
+                  fill="none"
+                >
+                  <path
+                    d="M3.16669 7.99996L4.10669 8.93996L7.83335 5.21996V13.3333H9.16669V5.21996L12.8867 8.94663L13.8334 7.99996L8.50002 2.66663L3.16669 7.99996Z"
+                    fill="white"
+                  />
+                </svg>
+              }
             >
               Upgrade
             </Button>
@@ -375,20 +376,26 @@ export const PricingFull = () => {
           </MotionItem>
           <MotionItem className="flex flex-col">
             <h6 className="text-base font-bold">Seed Package</h6>
-            <h2 className="text-xl font-bold">Let's talk</h2>
+            <h2 className="text-xl font-bold">Let&apos;s talk</h2>
             <span className="text-content-text-neutral-2 text-xs">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
             <VerticalSpacer space="md" />
-            <Button variant="outline" size="large" startAdornment={<svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="currentColor"
+            <Button
+              variant="outline"
+              size="large"
+              startAdornment={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path d="M7.99998 1.33337C4.324 1.33337 1.33331 4.32406 1.33331 8.00004C1.33331 11.676 4.324 14.6667 7.99998 14.6667C11.676 14.6667 14.6666 11.676 14.6666 8.00004C14.6666 4.32406 11.676 1.33337 7.99998 1.33337ZM7.99998 2.33337C11.1355 2.33337 13.6666 4.8645 13.6666 8.00004C13.6666 11.1356 11.1355 13.6667 7.99998 13.6667C4.86444 13.6667 2.33331 11.1356 2.33331 8.00004C2.33331 4.8645 4.86444 2.33337 7.99998 2.33337ZM7.99998 3.33337C5.42846 3.33337 3.33331 5.42853 3.33331 8.00004C3.33331 10.5716 5.42846 12.6667 7.99998 12.6667C8.57568 12.6667 9.1294 12.5622 9.63995 12.3705C9.70216 12.348 9.75927 12.3133 9.80799 12.2685C9.85671 12.2238 9.89605 12.1698 9.92376 12.1097C9.95146 12.0496 9.96696 11.9846 9.96937 11.9185C9.97178 11.8524 9.96104 11.7865 9.93778 11.7245C9.91452 11.6626 9.8792 11.6059 9.83387 11.5577C9.78854 11.5095 9.7341 11.4708 9.6737 11.4438C9.6133 11.4168 9.54814 11.4021 9.482 11.4004C9.41586 11.3988 9.35005 11.4103 9.28839 11.4343C8.88828 11.5845 8.45494 11.6667 7.99998 11.6667C5.96883 11.6667 4.33331 10.0312 4.33331 8.00004C4.33331 5.96889 5.96883 4.33337 7.99998 4.33337C10.0311 4.33337 11.6666 5.96889 11.6666 8.00004V8.50004C11.6666 8.96612 11.2994 9.33337 10.8333 9.33337C10.3672 9.33337 9.99998 8.96612 9.99998 8.50004V6.16671C10.001 6.0439 9.9567 5.92504 9.87566 5.83277C9.79462 5.74049 9.68246 5.68127 9.56056 5.66639C9.43865 5.6515 9.31554 5.68199 9.21468 5.75205C9.11381 5.82211 9.04226 5.92684 9.01365 6.04626C8.67619 5.80813 8.27254 5.66671 7.83331 5.66671C6.61604 5.66671 5.66665 6.74253 5.66665 8.00004C5.66665 9.25755 6.61604 10.3334 7.83331 10.3334C8.45023 10.3334 8.99741 10.0561 9.388 9.61983C9.72449 10.0521 10.2477 10.3334 10.8333 10.3334C11.8399 10.3334 12.6666 9.50663 12.6666 8.50004V8.00004C12.6666 5.42853 10.5715 3.33337 7.99998 3.33337ZM7.83331 6.66671C8.45404 6.66671 8.99998 7.23555 8.99998 8.00004C8.99998 8.76453 8.45404 9.33337 7.83331 9.33337C7.21258 9.33337 6.66665 8.76453 6.66665 8.00004C6.66665 7.23555 7.21258 6.66671 7.83331 6.66671Z" />
+                </svg>
+              }
             >
-              <path d="M7.99998 1.33337C4.324 1.33337 1.33331 4.32406 1.33331 8.00004C1.33331 11.676 4.324 14.6667 7.99998 14.6667C11.676 14.6667 14.6666 11.676 14.6666 8.00004C14.6666 4.32406 11.676 1.33337 7.99998 1.33337ZM7.99998 2.33337C11.1355 2.33337 13.6666 4.8645 13.6666 8.00004C13.6666 11.1356 11.1355 13.6667 7.99998 13.6667C4.86444 13.6667 2.33331 11.1356 2.33331 8.00004C2.33331 4.8645 4.86444 2.33337 7.99998 2.33337ZM7.99998 3.33337C5.42846 3.33337 3.33331 5.42853 3.33331 8.00004C3.33331 10.5716 5.42846 12.6667 7.99998 12.6667C8.57568 12.6667 9.1294 12.5622 9.63995 12.3705C9.70216 12.348 9.75927 12.3133 9.80799 12.2685C9.85671 12.2238 9.89605 12.1698 9.92376 12.1097C9.95146 12.0496 9.96696 11.9846 9.96937 11.9185C9.97178 11.8524 9.96104 11.7865 9.93778 11.7245C9.91452 11.6626 9.8792 11.6059 9.83387 11.5577C9.78854 11.5095 9.7341 11.4708 9.6737 11.4438C9.6133 11.4168 9.54814 11.4021 9.482 11.4004C9.41586 11.3988 9.35005 11.4103 9.28839 11.4343C8.88828 11.5845 8.45494 11.6667 7.99998 11.6667C5.96883 11.6667 4.33331 10.0312 4.33331 8.00004C4.33331 5.96889 5.96883 4.33337 7.99998 4.33337C10.0311 4.33337 11.6666 5.96889 11.6666 8.00004V8.50004C11.6666 8.96612 11.2994 9.33337 10.8333 9.33337C10.3672 9.33337 9.99998 8.96612 9.99998 8.50004V6.16671C10.001 6.0439 9.9567 5.92504 9.87566 5.83277C9.79462 5.74049 9.68246 5.68127 9.56056 5.66639C9.43865 5.6515 9.31554 5.68199 9.21468 5.75205C9.11381 5.82211 9.04226 5.92684 9.01365 6.04626C8.67619 5.80813 8.27254 5.66671 7.83331 5.66671C6.61604 5.66671 5.66665 6.74253 5.66665 8.00004C5.66665 9.25755 6.61604 10.3334 7.83331 10.3334C8.45023 10.3334 8.99741 10.0561 9.388 9.61983C9.72449 10.0521 10.2477 10.3334 10.8333 10.3334C11.8399 10.3334 12.6666 9.50663 12.6666 8.50004V8.00004C12.6666 5.42853 10.5715 3.33337 7.99998 3.33337ZM7.83331 6.66671C8.45404 6.66671 8.99998 7.23555 8.99998 8.00004C8.99998 8.76453 8.45404 9.33337 7.83331 9.33337C7.21258 9.33337 6.66665 8.76453 6.66665 8.00004C6.66665 7.23555 7.21258 6.66671 7.83331 6.66671Z" />
-            </svg>}>
               Email Sales
             </Button>
             <Divider />
@@ -397,29 +404,17 @@ export const PricingFull = () => {
         <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center gap-2.5 text-content-text-neutral-2">
           <div className="justify-self-start">Design Support (Add On)</div>
           <div>
-            <Chip
-              size="large"
-              color="primary"
-              variant="outline"
-            >
+            <Chip size="large" color="primary" variant="outline">
               Unlimited
             </Chip>
           </div>
           <div>
-            <Chip
-              size="large"
-              color="primary"
-              variant="outline"
-            >
+            <Chip size="large" color="primary" variant="outline">
               Unlimited
             </Chip>
           </div>
           <div>
-            <Chip
-              size="large"
-              color="primary"
-              variant="outline"
-            >
+            <Chip size="large" color="primary" variant="outline">
               Unlimited
             </Chip>
           </div>
@@ -428,33 +423,36 @@ export const PricingFull = () => {
           <Divider />
         </MotionItem>
         <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-content-text-neutral-2">
-          <div className="justify-self-start">
-            Product Research
-          </div>
+          <div className="justify-self-start">Product Research</div>
           <div>Logo and brand book</div>
           <div>Competitor analysis Product guidance</div>
-          <Button className="p-0" size="large" variant="text" endAdornment={
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <path
-                d="M8.00002 2.66663L7.06002 3.60663L10.78 7.33329H2.66669V8.66663H10.78L7.06002 12.3933L8.00002 13.3333L13.3334 7.99996L8.00002 2.66663Z"
-                fill="currentColor"
-              />
-            </svg>
-          }>See details</Button>
+          <Button
+            className="p-0"
+            size="large"
+            variant="text"
+            endAdornment={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M8.00002 2.66663L7.06002 3.60663L10.78 7.33329H2.66669V8.66663H10.78L7.06002 12.3933L8.00002 13.3333L13.3334 7.99996L8.00002 2.66663Z"
+                  fill="currentColor"
+                />
+              </svg>
+            }
+          >
+            See details
+          </Button>
         </MotionItem>
         <MotionItem>
           <Divider />
         </MotionItem>
         <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-sm text-content-text-neutral-2">
-          <div className="justify-self-start">
-            Brand Style Guide
-          </div>
+          <div className="justify-self-start">Brand Style Guide</div>
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -483,44 +481,56 @@ export const PricingFull = () => {
               />
             </svg>
           </div>
-          <Button className="p-0" size="large" variant="text" endAdornment={
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <path
-                d="M8.00002 2.66663L7.06002 3.60663L10.78 7.33329H2.66669V8.66663H10.78L7.06002 12.3933L8.00002 13.3333L13.3334 7.99996L8.00002 2.66663Z"
-                fill="currentColor"
-              />
-            </svg>
-          }>See details</Button>
+          <Button
+            className="p-0"
+            size="large"
+            variant="text"
+            endAdornment={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M8.00002 2.66663L7.06002 3.60663L10.78 7.33329H2.66669V8.66663H10.78L7.06002 12.3933L8.00002 13.3333L13.3334 7.99996L8.00002 2.66663Z"
+                  fill="currentColor"
+                />
+              </svg>
+            }
+          >
+            See details
+          </Button>
         </MotionItem>
         <MotionItem>
           <Divider />
         </MotionItem>
         <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-sm text-content-text-neutral-2">
-          <div className="justify-self-start">
-            Prototype of Web Application
-          </div>
+          <div className="justify-self-start">Prototype of Web Application</div>
           <div>3 Figma Designs</div>
           <div>Fully interactive prototype</div>
-          <Button className="p-0" size="large" variant="text" endAdornment={
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-            >
-              <path
-                d="M8.00002 2.66663L7.06002 3.60663L10.78 7.33329H2.66669V8.66663H10.78L7.06002 12.3933L8.00002 13.3333L13.3334 7.99996L8.00002 2.66663Z"
-                fill="currentColor"
-              />
-            </svg>
-          }>See details</Button>
+          <Button
+            className="p-0"
+            size="large"
+            variant="text"
+            endAdornment={
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+              >
+                <path
+                  d="M8.00002 2.66663L7.06002 3.60663L10.78 7.33329H2.66669V8.66663H10.78L7.06002 12.3933L8.00002 13.3333L13.3334 7.99996L8.00002 2.66663Z"
+                  fill="currentColor"
+                />
+              </svg>
+            }
+          >
+            See details
+          </Button>
         </MotionItem>
         <MotionItem>
           <Divider />
@@ -592,17 +602,11 @@ export const PricingMinimal = () => {
       >
         <div className="p-7">
           <Stack>
-            <Toggle
-              checked={isAnnual}
-              onChange={setIsAnnual}
-            />
+            <Toggle checked={isAnnual} onChange={setIsAnnual} />
             <span className="text-xs text-content-text-neutral-2">
               Annual pricing
             </span>
-            <Chip
-              color="primary"
-              variant="outline"
-            >
+            <Chip color="primary" variant="outline">
               Save 16%
             </Chip>
           </Stack>
@@ -611,7 +615,7 @@ export const PricingMinimal = () => {
               <Card
                 className={cn('px-5 py-7', {
                   'border-solid border-transparent rounded-sm dark:[border-image:linear-gradient(to_top_right,#2F6AFF,#0B0B11)_10] light:[border-image:linear-gradient(to_top_right,#105EFF,#F7F7FA)_10] bg-background-brand-5':
-                    isFree
+                    isFree,
                 })}
               >
                 <Stack>
@@ -657,7 +661,7 @@ export const PricingMinimal = () => {
               <Card
                 className={cn('px-5 py-7', {
                   'border-solid border-transparent dark:[border-image:linear-gradient(to_top_right,#2F6AFF,#0B0B11)_10] light:[border-image:linear-gradient(to_top_right,#105EFF,#F7F7FA)_10] bg-background-brand-5':
-                    !isFree
+                    !isFree,
                 })}
               >
                 <Stack>

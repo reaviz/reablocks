@@ -21,6 +21,6 @@ export const verticalSpacerTheme = {
     md: 'h-2.5',
     lg: 'h-5',
     xl: 'h-6',
-    xxl: 'h-8'
-  }
+    xxl: 'h-8',
+  },
 };

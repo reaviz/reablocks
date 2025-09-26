@@ -1,11 +1,12 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { Card } from '../../../src/layout';
+import React from 'react';
+
 import { Button } from '../../../src/elements/Button';
 import { Input } from '../../../src/form/Input';
+import { Card } from '../../../src/layout';
 
 export default {
-  title: 'Blocks/Foundation/Empty State'
+  title: 'Blocks/Foundation/Empty State',
 };
 
 export const NoResults = () => (
@@ -19,11 +20,12 @@ export const NoResults = () => (
         <span className="text-2xl font-bold">No Results Found</span>
         <span className="text-content-text-neutral-2 text-sm">
           There are no results matching your search criteria. Try adjusting your
-          filters or search terms to find what you're looking for.
+          filters or search terms to find what you&apos;re looking for.
         </span>
       </div>
       <motion.div
-        className="transition-colors p-6 rounded-md hover:bg-background-brand-4 border border-transparent hover:border-stroke-brand-base"        initial={{ y: -20, opacity: 0 }}
+        className="transition-colors p-6 rounded-md hover:bg-background-brand-4 border border-transparent hover:border-stroke-brand-base"
+        initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
       >
         <a className="flex gap-4 cursor-pointer">
@@ -73,7 +75,7 @@ export const NoResults = () => (
             <path d="M4.6875 3.4375C3.65344 3.4375 2.8125 4.27844 2.8125 5.3125V14.6875C2.8125 15.7216 3.65344 16.5625 4.6875 16.5625H15.3125C16.3466 16.5625 17.1875 15.7216 17.1875 14.6875V5.3125C17.1875 4.27844 16.3466 3.4375 15.3125 3.4375H4.6875ZM4.0625 7.1875H15.9375V14.6875C15.9375 15.0322 15.6572 15.3125 15.3125 15.3125H4.6875C4.34281 15.3125 4.0625 15.0322 4.0625 14.6875V7.1875ZM6.875 9.0625C6.52969 9.0625 6.25 9.34219 6.25 9.6875C6.25 10.0328 6.52969 10.3125 6.875 10.3125C7.22031 10.3125 7.5 10.0328 7.5 9.6875C7.5 9.34219 7.22031 9.0625 6.875 9.0625ZM9.6875 9.0625C9.3425 9.0625 9.0625 9.3425 9.0625 9.6875C9.0625 10.0325 9.3425 10.3125 9.6875 10.3125H13.125C13.47 10.3125 13.75 10.0325 13.75 9.6875C13.75 9.3425 13.47 9.0625 13.125 9.0625H9.6875ZM6.875 11.875C6.52969 11.875 6.25 12.1547 6.25 12.5C6.25 12.8453 6.52969 13.125 6.875 13.125C7.22031 13.125 7.5 12.8453 7.5 12.5C7.5 12.1547 7.22031 11.875 6.875 11.875ZM9.6875 11.875C9.3425 11.875 9.0625 12.155 9.0625 12.5C9.0625 12.845 9.3425 13.125 9.6875 13.125H13.125C13.47 13.125 13.75 12.845 13.75 12.5C13.75 12.155 13.47 11.875 13.125 11.875H9.6875Z" />
           </svg>
           <div className="flex flex-col gap-1 flex-1">
-            <span className="font-bold">API's</span>
+            <span className="font-bold">API&apos;s</span>
             <div className="">
               <span className="text-sm text-content-text-neutral-2 inline-block">
                 Explore all API references.
@@ -93,7 +95,8 @@ export const NoResults = () => (
         </a>
       </motion.div>
       <motion.div
-        className="transition-colors p-6 rounded-md hover:bg-background-brand-4 border border-transparent hover:border-stroke-brand-base"        initial={{ y: -20, opacity: 0 }}
+        className="transition-colors p-6 rounded-md hover:bg-background-brand-4 border border-transparent hover:border-stroke-brand-base"
+        initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
       >
@@ -128,7 +131,8 @@ export const NoResults = () => (
         </a>
       </motion.div>
       <motion.div
-        className="transition-colors p-6 rounded-md hover:bg-background-brand-4 border border-transparent hover:border-stroke-brand-base"        initial={{ y: -20, opacity: 0 }}
+        className="transition-colors p-6 rounded-md hover:bg-background-brand-4 border border-transparent hover:border-stroke-brand-base"
+        initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
@@ -242,8 +246,8 @@ export const NothingToDisplay = () => (
       </svg>
       <span className="text-lg font-bold">Nothing to display</span>
       <span className="text-content-text-neutral-2 text-sm">
-        We couldn't find any data to show here. Try refining your search or come
-        back later to see if there's anything new.
+        We couldn&apos;t find any data to show here. Try refining your search or
+        come back later to see if there&apos;s anything new.
       </span>
       <Button
         size="large"

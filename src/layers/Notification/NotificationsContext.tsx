@@ -1,5 +1,7 @@
-import { NotificationVariantTheme } from '@/layers';
-import React, { createContext } from 'react';
+import type React from 'react';
+import { createContext } from 'react';
+
+import type { NotificationVariantTheme } from '@/layers';
 
 export interface NotificationOptions {
   title?: string | React.JSX.Element | React.JSX.Element[];
@@ -56,5 +58,5 @@ export const NotificationsContext = createContext<NotificationsContextValue>({
   notifySuccess: () => undefined,
   notifyInfo: () => undefined,
   clearNotification: () => undefined,
-  clearAllNotifications: () => undefined
+  clearAllNotifications: () => undefined,
 });

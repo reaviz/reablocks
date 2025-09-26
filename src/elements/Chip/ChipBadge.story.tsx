@@ -1,11 +1,13 @@
-import { cn, extendComponentTheme } from '@/utils';
-import { Chip } from './Chip';
+import type { ChipTheme } from '@/elements';
+import { chipTheme } from '@/elements';
 import { Stack } from '@/layout';
-import { ChipTheme, chipTheme } from '@/elements';
+import { cn, extendComponentTheme } from '@/utils';
+
+import { Chip } from './Chip';
 
 export default {
   title: 'Components/Elements/Chip/Badge type',
-  component: Chip
+  component: Chip,
 };
 
 export const Variants = () => (
@@ -140,62 +142,62 @@ export const CustomTheme = () => {
             default: {
               variants: {
                 filled: {
-                  base: 'bg-neutrals-kyber-crystal-a-800'
-                }
-              }
+                  base: 'bg-neutrals-kyber-crystal-a-800',
+                },
+              },
             },
             primary: {
               variants: {
                 filled: {
-                  base: 'bg-blue-hyperstream-800'
-                }
-              }
+                  base: 'bg-blue-hyperstream-800',
+                },
+              },
             },
             secondary: {
               variants: {
                 filled: {
-                  base: 'bg-teal-sunspark-oasis-a-800'
-                }
-              }
+                  base: 'bg-teal-sunspark-oasis-a-800',
+                },
+              },
             },
             success: {
               variants: {
                 filled: {
-                  base: 'bg-green-emerald-saber-a-800'
-                }
-              }
+                  base: 'bg-green-emerald-saber-a-800',
+                },
+              },
             },
             error: {
               variants: {
                 filled: {
-                  base: 'bg-pink-mew-mode-800'
-                }
-              }
+                  base: 'bg-pink-mew-mode-800',
+                },
+              },
             },
             warning: {
               variants: {
                 filled: {
-                  base: 'bg-orange-sunstreak-a-800'
-                }
-              }
+                  base: 'bg-orange-sunstreak-a-800',
+                },
+              },
             },
             info: {
               variants: {
                 filled: {
-                  base: 'bg-purple-nexus-a-800'
-                }
-              }
-            }
-          }
-        }
-      }
+                  base: 'bg-purple-nexus-a-800',
+                },
+              },
+            },
+          },
+        },
+      },
     },
     (source, target) => {
       if (typeof source === 'string' && typeof target === 'string') {
         return cn(source, target);
       }
       return undefined;
-    }
+    },
   );
 
   return (

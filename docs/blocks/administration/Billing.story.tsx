@@ -1,21 +1,21 @@
-import React from 'react';
 import { motion } from 'motion/react';
+import React from 'react';
 
-import { Card } from '../../../src/layout/Card';
+import { Button } from '../../../src/elements/Button';
+import { Chip } from '../../../src/elements/Chip';
+import { Tooltip } from '../../../src/layers';
 import {
   Divider,
   Stack,
   Tab,
   TabList,
   TabPanel,
-  Tabs
+  Tabs,
 } from '../../../src/layout';
-import { Chip } from '../../../src/elements/Chip';
-import { Button } from '../../../src/elements/Button';
-import { Tooltip } from '../../../src/layers';
+import { Card } from '../../../src/layout/Card';
 
 export default {
-  title: 'Blocks/Administration/Billing'
+  title: 'Blocks/Administration/Billing',
 };
 
 export const BillingFull = () => (
@@ -53,10 +53,7 @@ export const BillingFull = () => (
               >
                 <Stack justifyContent="spaceBetween">
                   <span className="font-bold">Premium</span>
-                  <Chip
-                    size="large"
-                    variant="outline"
-                  >
+                  <Chip size="large" variant="outline">
                     Annual
                   </Chip>
                 </Stack>
@@ -135,7 +132,9 @@ export const BillingFull = () => (
             </div>
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2 font-semibold">
-                <div className="border-background-neutral-raised-4 border px-4 py-2">5</div>
+                <div className="border-background-neutral-raised-4 border px-4 py-2">
+                  5
+                </div>
                 <span className="text-sm">of 25 seats used</span>
               </div>
               <Button
@@ -696,9 +695,7 @@ export const BillingInformation = () => (
       </div>
       <div className="flex flex-col">
         <span className="font-bold">$62/mo</span>
-        <span className="text-content-text-neutral-2 text-sm">
-          65 Seats
-        </span>
+        <span className="text-content-text-neutral-2 text-sm">65 Seats</span>
       </div>
     </div>
     <Card className="p-12 transition-colors">

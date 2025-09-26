@@ -1,9 +1,10 @@
 import React from 'react';
+
 import { Divider } from './Divider';
 
 export default {
   title: 'Components/Layout/Divider',
-  component: Divider
+  component: Divider,
 };
 
 export const Horizontal = () => (

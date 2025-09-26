@@ -1,9 +1,12 @@
-import React, { FC, forwardRef, HTMLAttributes, LegacyRef } from 'react';
+import type { FC, HTMLAttributes, LegacyRef } from 'react';
+import React, { forwardRef } from 'react';
+
 import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import {
+
+import type {
   VerticalSpacerSizeTheme,
-  VerticalSpacerTheme
+  VerticalSpacerTheme,
 } from './VerticalSpacerTheme';
 
 export interface VerticalSpacerProps extends HTMLAttributes<HTMLDivElement> {
@@ -30,7 +33,7 @@ export const VerticalSpacer: FC<VerticalSpacerProps & VerticalSpacerRef> =
     ({ space = 'md', className, theme: customTheme, ...rest }, ref) => {
       const theme: VerticalSpacerTheme = useComponentTheme(
         'verticalSpacer',
-        customTheme
+        customTheme,
       );
 
       return (
@@ -40,5 +43,5 @@ export const VerticalSpacer: FC<VerticalSpacerProps & VerticalSpacerRef> =
           {...rest}
         />
       );
-    }
+    },
   );

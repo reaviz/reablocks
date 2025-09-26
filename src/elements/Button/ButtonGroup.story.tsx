@@ -1,10 +1,11 @@
 import React from 'react';
-import { ButtonGroup } from './ButtonGroup';
+
 import { Button } from './Button';
+import { ButtonGroup } from './ButtonGroup';
 
 export default {
   title: 'Components/Elements/Button/Group',
-  component: ButtonGroup
+  component: ButtonGroup,
 };
 
 export const Filled = () => {

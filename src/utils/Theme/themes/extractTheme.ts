@@ -8,21 +8,21 @@
 const filterVariablesByPrefix = (
   config: Record<string, string>,
   prefix: string,
-  excludePrefixes?: string[]
+  excludePrefixes?: string[],
 ) =>
   Object.keys(config).reduce(
     (filteredColors, tokenKey) => {
       if (
         tokenKey.startsWith(prefix) &&
         !excludePrefixes?.some(excludePrefix =>
-          tokenKey.startsWith(excludePrefix)
+          tokenKey.startsWith(excludePrefix),
         )
       ) {
         filteredColors[tokenKey] = config[tokenKey];
       }
       return filteredColors;
     },
-    {} as Record<string, string>
+    {} as Record<string, string>,
   );
 
 /**
@@ -34,11 +34,11 @@ export function extractTheme(config: Record<string, string>) {
   const boxShadow = filterVariablesByPrefix(config, '--shadow');
   const fontSize = filterVariablesByPrefix(config, '--text', [
     '--text-primary',
-    '--text-secondary'
+    '--text-secondary',
   ]);
   const spacing = filterVariablesByPrefix(config, '--spacing');
   const fontFamily = filterVariablesByPrefix(config, '--font', [
-    '--font-weight'
+    '--font-weight',
   ]);
   const fontWeight = filterVariablesByPrefix(config, '--font-weight');
 
@@ -49,6 +49,6 @@ export function extractTheme(config: Record<string, string>) {
     spacing,
     fontFamily,
     fontSize,
-    fontWeight
+    fontWeight,
   };
 }
