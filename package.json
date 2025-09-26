@@ -8,7 +8,7 @@
     "build:js": "vite build --mode library",
     "build:styles": "npx @tailwindcss/cli -i src/assets/css/index.css -o ./dist/index.css",
     "build:docs": "node scripts/docs.js",
-    "rewrite:stories": "node scripts/stories.cjs",
+    "rewrite:stories": "node scripts/stories.mjs",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "lint:prettier": "prettier --loglevel warn --write 'src/**/*.{ts,tsx,js,jsx}'",
