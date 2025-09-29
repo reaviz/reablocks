@@ -51,8 +51,8 @@ export const tabsTheme: TabsTheme = {
       size: {
         small: 'h-(--tabs-details-stroke-width-underline-sm)',
         medium: 'h-(--tabs-details-stroke-width-underline-sm)',
-        large: 'h-(--tabs-details-stroke-width-underline-lg)',
-      },
+        large: 'h-(--tabs-details-stroke-width-underline-lg)'
+      }
     },
     divider: 'w-full h-px border-0',
     variant: {
@@ -71,7 +71,7 @@ export const tabsTheme: TabsTheme = {
           hover:[&_svg]:text-tabs-colors-contained-assets-selected-hover focus-visible:[&_svg]:text-tabs-colors-contained-assets-selected-hover
         `,
         disabled:
-          'disabled:text-tabs-colors-contained-text-resting hover:text-tabs-colors-contained-text-resting disabled:[&_svg]:text-tabs-colors-contained-assets-resting disabled:bg-transparent disabled:hover:bg-transparent',
+          'disabled:text-tabs-colors-contained-text-resting hover:text-tabs-colors-contained-text-resting disabled:[&_svg]:text-tabs-colors-contained-assets-resting disabled:bg-transparent disabled:hover:bg-transparent'
       },
       secondary: {
         indicator:
@@ -85,7 +85,7 @@ export const tabsTheme: TabsTheme = {
         selected:
           'text-tabs-colors-underline-text-selected group-hover:text-tabs-colors-underline-text-selected-hover [&_svg]:text-tabs-colors-underline-assets-selected',
         disabled:
-          'disabled:text-tabs-colors-underline-text-resting hover:text-tabs-colors-underline-text-resting disabled:[&_svg]:text-tabs-colors-underline-assets-resting',
+          'disabled:text-tabs-colors-underline-text-resting hover:text-tabs-colors-underline-text-resting disabled:[&_svg]:text-tabs-colors-underline-assets-resting'
       },
       outlined: {
         button: `
@@ -101,7 +101,7 @@ export const tabsTheme: TabsTheme = {
           [&_svg]:text-tabs-colors-outline-assets-selected hover:[&_svg]:text-tabs-colors-outline-assets-selected-hover focus-visible:[&_svg]:text-tabs-colors-outline-assets-selected-hover
         `,
         disabled:
-          'disabled:text-tabs-colors-outline-text-resting hover:text-tabs-colors-outline-text-resting disabled:[&_svg]:text-tabs-colors-outline-assets-resting disabled:bg-transparent disabled:hover:bg-transparent',
+          'disabled:text-tabs-colors-outline-text-resting hover:text-tabs-colors-outline-text-resting disabled:[&_svg]:text-tabs-colors-outline-assets-resting disabled:bg-transparent disabled:hover:bg-transparent'
       },
       text: {
         button: `
@@ -119,8 +119,8 @@ export const tabsTheme: TabsTheme = {
           hover:[&_svg]:text-tabs-colors-text-only-assets-selected-hover
         `,
         disabled:
-          'disabled:text-tabs-colors-text-only-text-resting hover:text-tabs-colors-text-only-text-resting disabled:[&_svg]:text-tabs-colors-text-only-assets-resting',
-      },
+          'disabled:text-tabs-colors-text-only-text-resting hover:text-tabs-colors-text-only-text-resting disabled:[&_svg]:text-tabs-colors-text-only-assets-resting'
+      }
     },
     tab: {
       base: 'group relative',
@@ -133,9 +133,9 @@ export const tabsTheme: TabsTheme = {
         medium:
           'h-(--tabs-details-height-lg) px-(--tabs-details-horizontal-padding-sm) text-xs font-semibold',
         large:
-          'h-(--tabs-details-height-lg) px-(--tabs-details-horizontal-padding-lg) text-sm font-semibold',
-      },
-    },
+          'h-(--tabs-details-height-lg) px-(--tabs-details-horizontal-padding-lg) text-sm font-semibold'
+      }
+    }
   },
-  panel: 'mt-4',
+  panel: 'mt-4'
 };

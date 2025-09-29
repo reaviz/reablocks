@@ -8,7 +8,7 @@ import { Button } from './Button';
 
 export default {
   title: 'Components/Elements/Button',
-  component: Button,
+  component: Button
 };
 
 export const Variants = () => (
@@ -245,17 +245,17 @@ export const CustomTheme = () => {
         sizes: {
           small: 'p-2',
           medium: 'p-3',
-          large: 'p-4',
+          large: 'p-4'
         },
         colors: {
           primary: {
             filled: 'bg-green-ion-sprout-500 hover:bg-green-ion-sprout-700',
             outline: 'border-green-ion-sprout-600',
-            text: 'text-neutrals-pure-white-dnt-900',
-          },
-        },
-      },
-    },
+            text: 'text-neutrals-pure-white-dnt-900'
+          }
+        }
+      }
+    }
   };
 
   return (
@@ -289,11 +289,11 @@ export const CustomColor = () => {
         colors: {
           gradient: {
             filled:
-              'bg-linear-to-r from-blue-skybolt-a-500 to-blue-hyperstream-500',
-          },
-        },
-      },
-    },
+              'bg-linear-to-r from-blue-skybolt-a-500 to-blue-hyperstream-500'
+          }
+        }
+      }
+    }
   };
 
   return (
@@ -308,20 +308,20 @@ export const CustomVariant = () => {
     components: {
       button: {
         variants: {
-          gradient: 'border rounded-lg',
+          gradient: 'border rounded-lg'
         },
         colors: {
           primary: {
             gradient:
-              'bg-linear-to-r from-blue-skybolt-a-500 to-blue-hyperstream-500 border-blue-hyperstream-500',
+              'bg-linear-to-r from-blue-skybolt-a-500 to-blue-hyperstream-500 border-blue-hyperstream-500'
           },
           secondary: {
             gradient:
-              'bg-linear-to-r from-pink-plasma-circuit-500 to-purple-fuchsia-a-500 border-pink-plasma-circuit-500',
-          },
-        },
-      },
-    },
+              'bg-linear-to-r from-pink-plasma-circuit-500 to-purple-fuchsia-a-500 border-pink-plasma-circuit-500'
+          }
+        }
+      }
+    }
   };
 
   return (
@@ -344,10 +344,10 @@ export const CustomSize = () => {
       button: {
         sizes: {
           xsmall: 'text-xxs px-1 py-0.5',
-          xlarge: 'text-xl px-6 py-3',
-        },
-      },
-    },
+          xlarge: 'text-xl px-6 py-3'
+        }
+      }
+    }
   };
 
   return (

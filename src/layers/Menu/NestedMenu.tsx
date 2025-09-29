@@ -6,7 +6,7 @@ import React, {
   useCallback,
   useImperativeHandle,
   useRef,
-  useState,
+  useState
 } from 'react';
 
 import type { OverlayEvent } from '@/utils/Overlay';
@@ -121,9 +121,9 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
       closeOnBodyClick = true,
       closeOnEscape = true,
       animation,
-      onClose,
+      onClose
     },
-    ref,
+    ref
   ) => {
     const [active, setActive] = useState<boolean>(false);
     const itemRef = useRef<HTMLDivElement | null>(null);
@@ -170,7 +170,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
           }
         }, leaveDelay);
       },
-      [leaveDelay],
+      [leaveDelay]
     );
 
     const onNestedMenuClose = useCallback(
@@ -178,7 +178,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
         setActive(false);
         onClose?.(event);
       },
-      [onClose],
+      [onClose]
     );
 
     /**
@@ -187,7 +187,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
     useImperativeHandle(ref, () => ({
       close: () => {
         setActive(false);
-      },
+      }
     }));
 
     return (
@@ -222,5 +222,5 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
         </Menu>
       </Fragment>
     );
-  },
+  }
 );

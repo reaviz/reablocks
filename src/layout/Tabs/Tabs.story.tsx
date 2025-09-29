@@ -11,8 +11,8 @@ export default {
   subComponents: {
     TabList,
     Tab,
-    TabPanel,
-  },
+    TabPanel
+  }
 };
 
 const Icon = () => (

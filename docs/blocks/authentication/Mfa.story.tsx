@@ -9,7 +9,7 @@ import { Block } from '../../../src/layout/Block';
 import { Card } from '../../../src/layout/Card';
 
 export default {
-  title: 'Blocks/Authentication/MFA',
+  title: 'Blocks/Authentication/MFA'
 };
 
 const LogoIcon = ({ className }: { className?: string }) => (
@@ -966,7 +966,7 @@ export const Mfa = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -1094,7 +1094,7 @@ export const MfaLogin = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -1204,7 +1204,7 @@ export const MfaAuthenticator = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (

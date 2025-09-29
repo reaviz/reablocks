@@ -7,8 +7,8 @@ export default {
   title: 'Components/Layout/Tree',
   components: Tree,
   subcomponents: {
-    TreeNode,
-  },
+    TreeNode
+  }
 };
 
 const SmileIcon = () => (

@@ -35,7 +35,7 @@ export const CommandPaletteSection = forwardRef<
 >(({ children, className, title, index, theme: customTheme, ...rest }, ref) => {
   const { section: sectionTheme }: CommandPaletteTheme = useComponentTheme(
     'commandPalette',
-    customTheme,
+    customTheme
   );
 
   return (
@@ -46,7 +46,7 @@ export const CommandPaletteSection = forwardRef<
         className={twMerge(
           sectionTheme.base,
           index === 0 && sectionTheme.first,
-          className,
+          className
         )}
       >
         {title && <ListHeader>{title}</ListHeader>}

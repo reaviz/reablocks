@@ -9,10 +9,10 @@ const baseTheme: Partial<CalendarRangeTheme> = {
     base: 'flex text-center justify-between mb-2 items-center',
     prev: '',
     mid: '',
-    next: '',
+    next: ''
   },
   title: 'font-semibold flex grow justify-around',
-  content: 'flex gap-4',
+  content: 'flex gap-4'
 };
 
 export const calendarRangeTheme: CalendarRangeTheme = {
@@ -25,6 +25,6 @@ export const calendarRangeTheme: CalendarRangeTheme = {
   time: calendarTheme.time,
   presets: {
     ...calendarTheme.presets,
-    divider: 'mx-1 h-[calc(100%-30px)] self-end',
-  },
+    divider: 'mx-1 h-[calc(100%-30px)] self-end'
+  }
 };

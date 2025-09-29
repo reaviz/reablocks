@@ -335,11 +335,11 @@ export const CustomAnimation = () => {
           stiffness: 150,
           damping: 20,
           staggerChildren: 0.3,
-          delayChildren: 0.2,
-        },
-      },
+          delayChildren: 0.2
+        }
+      }
     },
-    transition: { duration: 0.8 },
+    transition: { duration: 0.8 }
   };
 
   return (

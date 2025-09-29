@@ -7,7 +7,7 @@ import { useDialog } from './useDialog';
 
 export default {
   title: 'Components/Layers/Dialog',
-  component: Dialog,
+  component: Dialog
 };
 
 export const Simple = () => {
@@ -134,7 +134,7 @@ export const CustomAnimation = () => {
           initial: { opacity: 0, scale: 0.5, rotate: -10 },
           animate: { opacity: 1, scale: 1, rotate: 0 },
           exit: { opacity: 0, scale: 0.5, rotate: 10 },
-          transition: { duration: 0.4, type: 'spring', stiffness: 150 },
+          transition: { duration: 0.4, type: 'spring', stiffness: 150 }
         }}
       >
         <div className="p-4">

@@ -7,7 +7,7 @@ import React, {
   useLayoutEffect,
   useMemo,
   useRef,
-  useState,
+  useState
 } from 'react';
 import isEqual from 'react-fast-compare';
 
@@ -180,9 +180,7 @@ export interface SelectProps {
    * When the select was focused.
    */
   onFocus?: (
-    event:
-      | React.FocusEvent<HTMLInputElement>
-      | React.MouseEvent<HTMLDivElement>,
+    event: React.FocusEvent<HTMLInputElement> | React.MouseEvent<HTMLDivElement>
   ) => void;
 
   /**
@@ -282,22 +280,22 @@ export const Select: FC<SelectProps> = ({
   onInputChange,
   searchOptions,
   onOpenMenu,
-  onCloseMenu,
+  onCloseMenu
 }) => {
   const overlayRef = useRef<ConnectedOverlayContentRef | null>(null);
   const inputRef = useRef<SelectInputRef | null>(null);
   const [internalValue, setInternalValue] = useState<string | string[] | null>(
-    value,
+    value
   );
   const [open, setOpen] = useState<boolean>(false);
   const [index, setIndex] = useState<number>(-1);
   const internalId = useId(id);
   const [menuWidth, updateMenuWidth] = useWidth(
     inputRef.current?.containerRef,
-    overlayRef,
+    overlayRef
   );
   const [options, setOptions] = useState<SelectOptionProps[]>(
-    createOptions(children),
+    createOptions(children)
   );
 
   useEffect(() => {
@@ -311,11 +309,11 @@ export const Select: FC<SelectProps> = ({
     result: fuseResult,
     keyword,
     search,
-    resetSearch,
+    resetSearch
   } = useFuzzy<SelectOptionProps>(options, {
     keys: ['children', 'group'],
     ...searchOptions,
-    getFn: menuDisabled ? () => '' : searchOptions?.getFn,
+    getFn: menuDisabled ? () => '' : searchOptions?.getFn
   });
 
   // TODO: Come back and cleanup the fuzzy search to be more extensible
@@ -345,7 +343,7 @@ export const Select: FC<SelectProps> = ({
     if (multiple) {
       if (internalValue || internalValue === '') {
         return options.filter(o =>
-          (internalValue as string[]).includes(o.value),
+          (internalValue as string[]).includes(o.value)
         );
       }
 
@@ -380,7 +378,7 @@ export const Select: FC<SelectProps> = ({
           if (!has) {
             newOptions.push({
               children: v,
-              value: v,
+              value: v
             });
           }
 
@@ -397,8 +395,8 @@ export const Select: FC<SelectProps> = ({
             ...options,
             {
               children: internalValue,
-              value: internalValue,
-            },
+              value: internalValue
+            }
           ];
 
           onOptionsChange?.(updatedOptions);
@@ -424,7 +422,7 @@ export const Select: FC<SelectProps> = ({
       event.preventDefault();
       setIndex(Math.max(index - 1, -1));
     },
-    [index],
+    [index]
   );
 
   const onArrowDownKeyUp = useCallback(
@@ -432,14 +430,14 @@ export const Select: FC<SelectProps> = ({
       event.preventDefault();
       setIndex(Math.min(index + 1, groups.itemsCount - 1));
     },
-    [groups.itemsCount, index],
+    [groups.itemsCount, index]
   );
 
   const onInputFocused = useCallback(
     (
       event:
         | React.FocusEvent<HTMLInputElement>
-        | React.MouseEvent<HTMLDivElement>,
+        | React.MouseEvent<HTMLDivElement>
     ) => {
       if (!disabled && !menuDisabled) {
         setOpen(true);
@@ -447,7 +445,7 @@ export const Select: FC<SelectProps> = ({
 
       onInputFocus?.(event);
     },
-    [disabled, menuDisabled, onInputFocus],
+    [disabled, menuDisabled, onInputFocus]
   );
 
   const onInputExpanded = useCallback(
@@ -458,7 +456,7 @@ export const Select: FC<SelectProps> = ({
         setOpen(!open);
       }
     },
-    [disabled, menuDisabled, open],
+    [disabled, menuDisabled, open]
   );
 
   const onInputChanged = useCallback(
@@ -467,7 +465,7 @@ export const Select: FC<SelectProps> = ({
       search(value);
       onInputChange?.(event);
     },
-    [onInputChange, search],
+    [onInputChange, search]
   );
 
   const toggleSelectedMultiOption = useCallback(
@@ -487,7 +485,7 @@ export const Select: FC<SelectProps> = ({
           const has = (internalValue || []).includes(next.value);
           if (has) {
             newSelectedOptions = newSelectedOptions.filter(
-              o => o.value !== next.value,
+              o => o.value !== next.value
             );
           } else {
             newSelectedOptions = [...newSelectedOptions, next];
@@ -502,10 +500,10 @@ export const Select: FC<SelectProps> = ({
       return {
         newValue: newSelectedOptions.map(o => o.value),
         newSelectedOptions,
-        newOptions,
+        newOptions
       };
     },
-    [createable, internalValue, options, selectedOption],
+    [createable, internalValue, options, selectedOption]
   );
 
   const toggleSelectedOption = useCallback(
@@ -555,8 +553,8 @@ export const Select: FC<SelectProps> = ({
       onOptionsChange,
       options,
       resetInput,
-      toggleSelectedMultiOption,
-    ],
+      toggleSelectedMultiOption
+    ]
   );
 
   const onAddSelection = useCallback(
@@ -580,7 +578,7 @@ export const Select: FC<SelectProps> = ({
         if (createable && !hasSelection) {
           newSelection = {
             value: inputValue,
-            children: inputValue,
+            children: inputValue
           };
         } else {
           newSelection = result[index];
@@ -603,8 +601,8 @@ export const Select: FC<SelectProps> = ({
       resetInput,
       result,
       toggleSelectedOption,
-      value,
-    ],
+      value
+    ]
   );
 
   const onTabKeyDown = useCallback(
@@ -627,7 +625,7 @@ export const Select: FC<SelectProps> = ({
         setOpen(false);
       }
     },
-    [index, onAddSelection, setOpen, multiple, createable],
+    [index, onAddSelection, setOpen, multiple, createable]
   );
 
   const onInputKeyedUp = useCallback(
@@ -652,8 +650,8 @@ export const Select: FC<SelectProps> = ({
       onArrowUpKeyUp,
       onArrowDownKeyUp,
       resetSelect,
-      onAddSelection,
-    ],
+      onAddSelection
+    ]
   );
 
   const onInputKeyedDown = useCallback(
@@ -669,7 +667,7 @@ export const Select: FC<SelectProps> = ({
 
       onInputKeydown?.(event);
     },
-    [onInputKeydown, onTabKeyDown, tabToSelect],
+    [onInputKeydown, onTabKeyDown, tabToSelect]
   );
 
   const onInputBlured = useCallback(
@@ -679,7 +677,7 @@ export const Select: FC<SelectProps> = ({
       if (menuDisabled && createable && inputValue) {
         const newSelection = {
           value: inputValue,
-          children: inputValue,
+          children: inputValue
         };
 
         toggleSelectedOption(newSelection);
@@ -687,7 +685,7 @@ export const Select: FC<SelectProps> = ({
 
       onInputBlur?.(event);
     },
-    [createable, menuDisabled, onInputBlur, toggleSelectedOption],
+    [createable, menuDisabled, onInputBlur, toggleSelectedOption]
   );
 
   const onPasteHandler = useCallback(
@@ -700,7 +698,7 @@ export const Select: FC<SelectProps> = ({
 
         if (multiple) {
           const separators = selectOnKeys?.map(key =>
-            String.fromCharCode(keyNameToCode[key]),
+            String.fromCharCode(keyNameToCode[key])
           );
           const expression = `[${separators}]`;
           const regex = new RegExp(expression, 'g');
@@ -708,7 +706,7 @@ export const Select: FC<SelectProps> = ({
             .split(regex)
             .filter(item => !internalValue?.includes(item));
           const result = toggleSelectedMultiOption(
-            items.map(item => ({ value: item, children: item })),
+            items.map(item => ({ value: item, children: item }))
           );
           const optionsToSelect = createable
             ? result.newOptions
@@ -738,8 +736,8 @@ export const Select: FC<SelectProps> = ({
       resetInput,
       selectOnKeys,
       toggleSelectedMultiOption,
-      toggleSelectedOption,
-    ],
+      toggleSelectedOption
+    ]
   );
 
   const onClearHandler = useCallback(() => {
@@ -757,7 +755,7 @@ export const Select: FC<SelectProps> = ({
         inputRef.current?.focus();
       }
     },
-    [closeOnSelect, toggleSelectedOption],
+    [closeOnSelect, toggleSelectedOption]
   );
 
   const onOverlayClose = useCallback(() => {
@@ -765,7 +763,7 @@ export const Select: FC<SelectProps> = ({
     if (createable && inputValue) {
       const newSelection = {
         value: inputValue,
-        children: inputValue,
+        children: inputValue
       };
 
       toggleSelectedOption(newSelection);

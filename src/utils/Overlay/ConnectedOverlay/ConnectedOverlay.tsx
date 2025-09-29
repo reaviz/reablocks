@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useImperativeHandle,
   useMemo,
-  useRef,
+  useRef
 } from 'react';
 
 import { OverlayContext } from '@/utils/Overlay/OverlayContext';
@@ -132,7 +132,7 @@ export const ConnectedOverlay = forwardRef<
       onClose,
       ...rest
     },
-    ref,
+    ref
   ) => {
     const mounted = useRef<boolean>(false);
     const overlayTriggerRef = useRef<any | null>(null);
@@ -142,7 +142,7 @@ export const ConnectedOverlay = forwardRef<
     useImperativeHandle(ref, () => ({
       updatePosition: () => {
         contentRef.current?.updatePosition();
-      },
+      }
     }));
 
     useEffect(() => {
@@ -163,9 +163,9 @@ export const ConnectedOverlay = forwardRef<
 
     const providerValue = useMemo(
       () => ({
-        close: () => onClose?.(),
+        close: () => onClose?.()
       }),
-      [onClose],
+      [onClose]
     );
 
     return (
@@ -202,5 +202,5 @@ export const ConnectedOverlay = forwardRef<
         </AnimatePresence>
       </OverlayContext.Provider>
     );
-  },
+  }
 );

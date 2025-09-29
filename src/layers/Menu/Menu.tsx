@@ -156,9 +156,9 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
       onClose,
       onMouseEnter,
       onMouseLeave,
-      theme: customTheme,
+      theme: customTheme
     },
-    ref,
+    ref
   ) => {
     const id = useId();
 
@@ -177,13 +177,13 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
             }
 
             return { data: { menuWidth } };
-          },
+          }
         };
 
         const sizeModifier = size({
           apply({ middlewareData, elements }) {
             elements.floating.style.width = `${middlewareData?.sameWidth?.menuWidth ?? 0}px`;
-          },
+          }
         });
 
         return modifiers
@@ -194,7 +194,7 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
         const autoWidth = size({
           apply({ elements }) {
             elements.floating.style.width = 'auto';
-          },
+          }
         });
 
         return [...(modifiers ?? []), autoWidth];
@@ -221,7 +221,7 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
                   transition: { duration: animated ? 0.3 : 0 },
                   initial: { opacity: 0, y: -10 },
                   animate: { opacity: 1, y: 0 },
-                  exit: { opacity: 0, y: -10 },
+                  exit: { opacity: 0, y: -10 }
                 })}
             className={twMerge(theme.base, className)}
             style={style}
@@ -233,7 +233,7 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
                 focusTrapOptions={{
                   escapeDeactivates: true,
                   clickOutsideDeactivates: true,
-                  fallbackFocus: `#${id}`,
+                  fallbackFocus: `#${id}`
                 }}
               >
                 <div
@@ -255,5 +255,5 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
         onClose={onClose}
       />
     );
-  },
+  }
 );

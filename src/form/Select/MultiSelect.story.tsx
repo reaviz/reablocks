@@ -14,8 +14,8 @@ export default {
     SelectOption,
     SelectMenu,
     SelectInput,
-    SelectInputChip,
-  },
+    SelectInputChip
+  }
 };
 
 const options = [
@@ -23,7 +23,7 @@ const options = [
   { value: 'twitter', label: 'Twitter' },
   { value: 'github', label: 'GitHub' },
   { value: 'google', label: 'Google' },
-  { value: 'azure', label: 'Azure' },
+  { value: 'azure', label: 'Azure' }
 ];
 
 export const Basic = () => {
@@ -369,7 +369,7 @@ export const Async = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [refreshable, setRefreshable] = useState<boolean>(false);
   const [opts, setOpts] = useState<{ value: string; label: string }[] | null>(
-    null,
+    null
   );
 
   useEffect(() => {

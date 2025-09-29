@@ -24,5 +24,5 @@ export interface DurationProps {
 export const Duration: FC<DurationProps> = ({
   value,
   emptyValue = 'N/A',
-  zeroValue = '0 ms',
+  zeroValue = '0 ms'
 }) => <>{formatDuration(value, emptyValue, zeroValue)}</>;

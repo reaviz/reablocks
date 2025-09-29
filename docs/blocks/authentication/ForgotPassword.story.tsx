@@ -7,7 +7,7 @@ import { Input } from '../../../src/form';
 import { Block, Card, Divider, Stack } from '../../../src/layout';
 
 export default {
-  title: 'Blocks/Authentication/Forgot Password',
+  title: 'Blocks/Authentication/Forgot Password'
 };
 
 const LogoIcon = ({ className }: { className?: string }) => (
@@ -47,7 +47,7 @@ export const ForgotPassword = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -166,7 +166,7 @@ export const ForgotPasswordFull = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -252,7 +252,7 @@ export const ForgotPasswordMinimal = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -341,7 +341,7 @@ export const ResetPassword = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -471,7 +471,7 @@ export const ResetPasswordMinimal = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (

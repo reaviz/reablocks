@@ -31,13 +31,13 @@ export const useDrawer = (prop?: DrawerOptions) => {
     (props: Partial<DrawerProps>) => (
       <Drawer {...props} open={internalOpen} onClose={onCloseInternal} />
     ),
-    [internalOpen, onCloseInternal],
+    [internalOpen, onCloseInternal]
   );
 
   return {
     isOpen: internalOpen,
     setOpen: setInternalOpen,
     toggleOpen: onToggleOpen,
-    Drawer: Component,
+    Drawer: Component
   };
 };

@@ -9,7 +9,7 @@ import { Chip } from './Chip';
 
 export default {
   title: 'Components/Elements/Chip/Tag type',
-  component: Chip,
+  component: Chip
 };
 
 export const Colors = () => (
@@ -346,62 +346,62 @@ export const CustomTheme = () => {
             default: {
               variants: {
                 outline: {
-                  base: 'bg-neutrals-kyber-crystal-a-200',
-                },
-              },
+                  base: 'bg-neutrals-kyber-crystal-a-200'
+                }
+              }
             },
             primary: {
               variants: {
                 outline: {
-                  base: 'bg-blue-hyperstream-600',
-                },
-              },
+                  base: 'bg-blue-hyperstream-600'
+                }
+              }
             },
             secondary: {
               variants: {
                 outline: {
-                  base: 'bg-teal-sunspark-oasis-a-600',
-                },
-              },
+                  base: 'bg-teal-sunspark-oasis-a-600'
+                }
+              }
             },
             success: {
               variants: {
                 outline: {
-                  base: 'bg-green-emerald-saber-a-600',
-                },
-              },
+                  base: 'bg-green-emerald-saber-a-600'
+                }
+              }
             },
             error: {
               variants: {
                 outline: {
-                  base: 'bg-pink-mew-mode-600',
-                },
-              },
+                  base: 'bg-pink-mew-mode-600'
+                }
+              }
             },
             warning: {
               variants: {
                 outline: {
-                  base: 'bg-orange-sunstreak-a-600',
-                },
-              },
+                  base: 'bg-orange-sunstreak-a-600'
+                }
+              }
             },
             info: {
               variants: {
                 outline: {
-                  base: 'bg-purple-nexus-a-600',
-                },
-              },
-            },
-          },
-        },
-      },
+                  base: 'bg-purple-nexus-a-600'
+                }
+              }
+            }
+          }
+        }
+      }
     },
     (source, target) => {
       if (typeof source === 'string' && typeof target === 'string') {
         return cn(source, target);
       }
       return undefined;
-    },
+    }
   );
 
   return (

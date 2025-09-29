@@ -63,11 +63,11 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
       theme: customTheme,
       ...rest
     }: PageTitleProps,
-    ref,
+    ref
   ) => {
     const theme: TypographyThemeDeprecated = useComponentTheme(
       'typography_deprecated',
-      customTheme,
+      customTheme
     );
 
     return (
@@ -78,12 +78,12 @@ export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
           theme.variant[variant],
           theme.pageTitle,
           disableMargins && theme.disableMargins,
-          className,
+          className
         )}
         {...rest}
       >
         {children}
       </h1>
     );
-  },
+  }
 );

@@ -58,7 +58,7 @@ export const Card: FC<CardRefProps> = forwardRef(
       theme: customTheme,
       ...rest
     }: CardProps,
-    ref,
+    ref
   ) => {
     const theme: CardTheme = useComponentTheme('card', customTheme);
 
@@ -69,7 +69,7 @@ export const Card: FC<CardRefProps> = forwardRef(
         className={twMerge(
           theme.base,
           disablePadding && theme.disablePadding,
-          className,
+          className
         )}
       >
         {header && (
@@ -86,5 +86,5 @@ export const Card: FC<CardRefProps> = forwardRef(
         </div>
       </section>
     );
-  },
+  }
 );

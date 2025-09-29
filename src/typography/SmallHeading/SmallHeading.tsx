@@ -65,11 +65,11 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
       theme: customTheme,
       ...rest
     }: SmallHeadingProps,
-    ref,
+    ref
   ) => {
     const theme: TypographyThemeDeprecated = useComponentTheme(
       'typography_deprecated',
-      customTheme,
+      customTheme
     );
 
     return (
@@ -80,12 +80,12 @@ export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
           theme.variant[variant],
           theme.smallHeading,
           disableMargins && theme.disableMargins,
-          className,
+          className
         )}
         {...rest}
       >
         {children}
       </h5>
     );
-  },
+  }
 );

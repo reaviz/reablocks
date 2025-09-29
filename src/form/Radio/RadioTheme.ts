@@ -38,7 +38,7 @@ export const radioTheme: RadioTheme = {
           border-selectors-colors-radio-selected-stroke-resting group-hover:border-selectors-colors-radio-selected-stroke-hover group-focus-within:border-selectors-colors-radio-selected-stroke-hover
         `,
     disabled:
-      'cursor-not-allowed opacity-40 group-hover:bg-inherit group-focus-within:bg-inherit',
+      'cursor-not-allowed opacity-40 group-hover:bg-inherit group-focus-within:bg-inherit'
   },
   indicator: {
     base: 'rounded-full bg-selectors-colors-radio-selected-assets-base',
@@ -46,19 +46,19 @@ export const radioTheme: RadioTheme = {
     sizes: {
       small: 'size-(--selectors-details-asset-size-radio-checkbox-sm)',
       medium: 'size-(--selectors-details-asset-size-radio-checkbox-sm)',
-      large: 'size-(--selectors-details-asset-size-radio-checkbox-lg)',
-    },
+      large: 'size-(--selectors-details-asset-size-radio-checkbox-lg)'
+    }
   },
   label: {
     base: 'w-full align-middle ml-3 text-selectors-colors-text-label-not-selected',
     clickable:
       'cursor-pointer group-hover:text-selectors-colors-text-label-selected group-focus-within:text-selectors-colors-text-label-selected',
     disabled: 'cursor-not-allowed opacity-40',
-    checked: 'text-selectors-colors-text-label-selected',
+    checked: 'text-selectors-colors-text-label-selected'
   },
   sizes: {
     small: 'size-(--selectors-details-width-radio-checkbox-sm) p-0.5',
     medium: 'size-(--selectors-details-width-radio-checkbox-sm) p-0.5',
-    large: 'size-(--selectors-details-width-radio-checkbox-lg) p-0.5',
-  },
+    large: 'size-(--selectors-details-width-radio-checkbox-lg) p-0.5'
+  }
 };

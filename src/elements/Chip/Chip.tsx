@@ -10,7 +10,7 @@ import type {
   ChipTheme,
   ChipTypeTheme,
   ChipVariantTheme,
-  TagTypeThemeConfig,
+  TagTypeThemeConfig
 } from '@/elements';
 import { twMerge } from '@/utils';
 import { cn, useComponentTheme } from '@/utils';
@@ -110,7 +110,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
       theme: customTheme,
       ...rest
     },
-    ref,
+    ref
   ) => {
     const theme = useComponentTheme('chip', customTheme).types[type];
     const isClickable = type === 'tag' && onClick && !disabled;
@@ -118,7 +118,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
     return (
       <motion.div
         whileTap={{
-          scale: !isClickable || !animated || onClose ? 1 : 0.9,
+          scale: !isClickable || !animated || onClose ? 1 : 0.9
         }}
         {...rest}
         ref={ref}
@@ -133,11 +133,11 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
           {
             [theme.colors[color]?.variants?.[variant]?.selected]: selected,
             [theme.colors[color]?.variants?.[variant]?.selectable]: isClickable,
-            'cursor-pointer': isClickable,
+            'cursor-pointer': isClickable
           },
           disableMargins && 'm-0',
           disabled && type === 'tag' && (theme as TagTypeThemeConfig).disabled,
-          className,
+          className
         )}
         aria-disabled={disabled}
       >
@@ -147,7 +147,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
               theme.adornment.base,
               theme.adornment.start,
               theme.adornment.sizes[size],
-              theme.colors[color]?.variants?.[variant]?.start,
+              theme.colors[color]?.variants?.[variant]?.start
             )}
           >
             {start}
@@ -160,7 +160,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
               theme.adornment.base,
               theme.adornment.end,
               theme.adornment.sizes[size],
-              theme.colors[color]?.variants?.[variant]?.end,
+              theme.colors[color]?.variants?.[variant]?.end
             )}
           >
             {end}
@@ -171,7 +171,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
             whileTap={{ scale: disabled || !animated ? 1 : 0.9 }}
             className={cn(
               (theme as TagTypeThemeConfig).closeButton.base,
-              (theme as TagTypeThemeConfig).closeButton.sizes[size],
+              (theme as TagTypeThemeConfig).closeButton.sizes[size]
             )}
             onClick={e => {
               e.stopPropagation();
@@ -183,5 +183,5 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
         )}
       </motion.div>
     );
-  },
+  }
 );

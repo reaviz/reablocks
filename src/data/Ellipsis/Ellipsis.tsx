@@ -5,7 +5,7 @@ import React, {
   useEffect,
   useMemo,
   useRef,
-  useState,
+  useState
 } from 'react';
 
 import { useComponentTheme } from '@/utils';
@@ -74,7 +74,7 @@ export const Ellipsis: FC<EllipsisProps> = ({
   lines,
   moreText = '...',
   lessText = 'Show less',
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const [expanded, setExpanded] = useState<boolean>(false);
   const [isTruncated, setIsTruncated] = useState<boolean>(false);

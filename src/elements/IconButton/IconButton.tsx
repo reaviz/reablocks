@@ -20,7 +20,7 @@ export const IconButton: FC<IconButtonProps & ButtonRef> = forwardRef(
       theme: customTheme,
       ...rest
     }: IconButtonProps,
-    ref: Ref<HTMLButtonElement>,
+    ref: Ref<HTMLButtonElement>
   ) => {
     const theme = useComponentTheme('button', customTheme);
 
@@ -34,5 +34,5 @@ export const IconButton: FC<IconButtonProps & ButtonRef> = forwardRef(
         {children}
       </Button>
     );
-  },
+  }
 );

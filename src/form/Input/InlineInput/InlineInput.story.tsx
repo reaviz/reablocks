@@ -4,7 +4,7 @@ import { InlineInput } from './InlineInput';
 
 export default {
   title: 'Components/Form/Inline Input',
-  component: InlineInput,
+  component: InlineInput
 };
 
 export const Basic = () => {

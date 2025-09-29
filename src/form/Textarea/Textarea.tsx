@@ -3,7 +3,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useLayoutEffect,
-  useRef,
+  useRef
 } from 'react';
 import type { TextareaAutosizeProps } from 'react-textarea-autosize';
 import TextareaAutosize from 'react-textarea-autosize';
@@ -74,7 +74,7 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
       theme: customTheme,
       ...rest
     },
-    inputRef,
+    inputRef
   ) => {
     const containerRef = useRef<HTMLDivElement | null>(null);
     const textareaRef = useRef<HTMLTextAreaElement | null>(null);
@@ -83,7 +83,7 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
       textareaRef,
       containerRef,
       blur: () => textareaRef.current?.blur(),
-      focus: () => textareaRef.current?.focus(),
+      focus: () => textareaRef.current?.focus()
     }));
 
     useLayoutEffect(() => {
@@ -101,7 +101,7 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
           theme.base,
           fullWidth && theme.fullWidth,
           error && theme.error,
-          containerClassName,
+          containerClassName
         )}
         ref={containerRef}
       >
@@ -112,12 +112,12 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
             fullWidth && theme.fullWidth,
             rest.disabled && theme.disabled,
             theme.sizes[size],
-            className,
+            className
           )}
           autoFocus={autoFocus}
           {...rest}
         />
       </div>
     );
-  },
+  }
 );

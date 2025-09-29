@@ -10,12 +10,12 @@ import {
   Tab,
   TabList,
   TabPanel,
-  Tabs,
+  Tabs
 } from '../../../src/layout';
 import { Card } from '../../../src/layout/Card';
 
 export default {
-  title: 'Blocks/Administration/Billing',
+  title: 'Blocks/Administration/Billing'
 };
 
 export const BillingFull = () => (

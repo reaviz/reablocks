@@ -72,7 +72,7 @@ export const Popover: FC<PopoverProps> = ({
       className={twMerge(
         theme.base,
         disablePadding && theme.disablePadding,
-        className,
+        className
       )}
       content={() => {
         const isContentFunction = typeof content === 'function';
@@ -87,7 +87,7 @@ export const Popover: FC<PopoverProps> = ({
               escapeDeactivates: true,
               clickOutsideDeactivates: true,
               fallbackFocus: `#${id}`,
-              initialFocus: autoFocus,
+              initialFocus: autoFocus
             }}
           >
             <div

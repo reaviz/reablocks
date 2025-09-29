@@ -32,7 +32,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
     setTokens(getThemeVariables());
 
     const themeObserver = observeThemeSwitcher(() =>
-      setTokens(getThemeVariables()),
+      setTokens(getThemeVariables())
     );
 
     return () => themeObserver.disconnect();
@@ -48,7 +48,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
         theme: activeTheme,
         updateTheme,
         tokens,
-        updateTokens: setTokens,
+        updateTokens: setTokens
       }}
     >
       {children}

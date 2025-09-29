@@ -5,7 +5,7 @@ import { Popover } from './Popover';
 
 export default {
   title: 'Components/Layers/Popover',
-  component: Popover,
+  component: Popover
 };
 
 export const Simple = () => (

@@ -101,7 +101,7 @@ export const Pager: FC<PagerProps> = ({
   nextArrow = <NextArrow />,
   onPageChange,
   displayMode = 'pages',
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const pageCount = Math.ceil(total / size);
   const canPrevious = page !== 0;
@@ -201,7 +201,7 @@ export const Pager: FC<PagerProps> = ({
                     theme.pages.page.base,
                     page === i &&
                       (activePageClassName || theme.pages.page.active),
-                    pageClassName,
+                    pageClassName
                   )}
                   onClick={() => onPageChange?.(i)}
                 >

@@ -36,12 +36,12 @@ export const badgeTheme: BadgeTheme = {
     'bottom-start':
       'bottom-0 left-0 -translate-x-2/4 translate-y-2/4 origin-[0%_100%]',
     'bottom-end':
-      'bottom-0 right-0 translate-x-2/4 translate-y-2/4 origin-[100%_100%]',
+      'bottom-0 right-0 translate-x-2/4 translate-y-2/4 origin-[100%_100%]'
   },
   colors: {
     default: 'bg-background-neutral-raised-base text-content-text-inverse-base',
     primary: 'bg-background-brand-base text-content-text-inverse-base',
     secondary: 'bg-background-neutral-raised-3 text-content-text-inverse-base',
-    error: 'bg-background-semantic-error-base text-content-text-inverse-base',
-  },
+    error: 'bg-background-semantic-error-base text-content-text-inverse-base'
+  }
 };

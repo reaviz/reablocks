@@ -14,5 +14,5 @@ export interface TreeContextProps {
 
 export const TreeContext = createContext<TreeContextProps>({
   collapsedIcon: null,
-  expandedIcon: null,
+  expandedIcon: null
 });

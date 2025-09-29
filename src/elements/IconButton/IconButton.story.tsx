@@ -7,7 +7,7 @@ import { IconButton } from './IconButton';
 
 export default {
   title: 'Components/Elements/IconButton',
-  component: IconButton,
+  component: IconButton
 };
 
 const BellIcon = () => (
@@ -133,16 +133,16 @@ export const Custom = () => {
         colors: {
           primary: {
             filled:
-              'bg-pink-plasma-circuit-400 hover:bg-pink-plasma-circuit-600',
-          },
+              'bg-pink-plasma-circuit-400 hover:bg-pink-plasma-circuit-600'
+          }
         },
         iconSizes: {
           small: 'p-1',
           medium: 'p-2',
-          large: 'p-2.5',
-        },
-      },
-    },
+          large: 'p-2.5'
+        }
+      }
+    }
   };
   return (
     <ThemeProvider theme={extendTheme(theme, iconTheme)}>

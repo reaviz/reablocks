@@ -17,7 +17,7 @@ import {
   Tab,
   TabList,
   TabPanel,
-  Tabs,
+  Tabs
 } from '../../../src/layout';
 
 interface IconProps {
@@ -57,7 +57,7 @@ const LogoIcon: FC<IconProps> = ({ className }) => (
 );
 
 export default {
-  title: 'Blocks/Administration/Profile',
+  title: 'Blocks/Administration/Profile'
 };
 
 const LocationIcon: FC<IconProps> = ({ className }) => (
@@ -1693,13 +1693,13 @@ export const Settings = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm({
     defaultValues: {
       fullName: 'Austin McDaniel',
       title: 'CEO / Cyber Security Wizard',
-      website: 'goodcode.us',
-    },
+      website: 'goodcode.us'
+    }
   });
 
   return (
@@ -1744,7 +1744,7 @@ export const Settings = () => {
                 <Block className="min-w-[350px] max-w-[350px] mt-12">
                   <form
                     onSubmit={handleSubmit(values =>
-                      console.log('values', values),
+                      console.log('values', values)
                     )}
                   >
                     <Block>

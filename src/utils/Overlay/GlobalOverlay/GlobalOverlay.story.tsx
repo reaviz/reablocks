@@ -10,7 +10,7 @@ import { GlobalOverlay } from './GlobalOverlay';
 
 const meta: Meta<typeof GlobalOverlay> = {
   title: 'Components/Utils/Overlay/Global Overlay',
-  component: GlobalOverlay,
+  component: GlobalOverlay
 };
 
 type Story = StoryObj<typeof GlobalOverlay>;
@@ -23,7 +23,7 @@ export const AutoOpen: Story = {
       <div
         style={{
           width: 300,
-          height: 300,
+          height: 300
         }}
       >
         <div
@@ -33,7 +33,7 @@ export const AutoOpen: Story = {
             border: 'solid 1px blue',
             padding: 50,
             position: 'relative',
-            overflow: 'hidden',
+            overflow: 'hidden'
           }}
         >
           Hello
@@ -45,7 +45,7 @@ export const AutoOpen: Story = {
                   zIndex: overlayIndex,
                   position: 'absolute',
                   width: 500,
-                  height: 300,
+                  height: 300
                 }}
               >
                 Hi - {overlayIndex}
@@ -55,7 +55,7 @@ export const AutoOpen: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
 
 export const ClickToOpen: Story = {
@@ -66,7 +66,7 @@ export const ClickToOpen: Story = {
       <div
         style={{
           width: 300,
-          height: 300,
+          height: 300
         }}
       >
         <div
@@ -76,7 +76,7 @@ export const ClickToOpen: Story = {
             background: 'black',
             padding: 50,
             position: 'relative',
-            overflow: 'hidden',
+            overflow: 'hidden'
           }}
         >
           <button type="button" onClick={() => setOpen(true)}>
@@ -94,7 +94,7 @@ export const ClickToOpen: Story = {
                   zIndex: overlayIndex,
                   position: 'absolute',
                   width: 500,
-                  height: 300,
+                  height: 300
                 }}
               >
                 Hi - {overlayIndex}
@@ -104,7 +104,7 @@ export const ClickToOpen: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
 
 export const PromptToClose: Story = {
@@ -115,7 +115,7 @@ export const PromptToClose: Story = {
       <div
         style={{
           width: 300,
-          height: 300,
+          height: 300
         }}
       >
         <div
@@ -125,7 +125,7 @@ export const PromptToClose: Story = {
             background: 'black',
             padding: 50,
             position: 'relative',
-            overflow: 'hidden',
+            overflow: 'hidden'
           }}
         >
           <button type="button" onClick={() => setOpen(true)}>
@@ -148,7 +148,7 @@ export const PromptToClose: Story = {
                   zIndex: overlayIndex,
                   position: 'absolute',
                   width: 500,
-                  height: 300,
+                  height: 300
                 }}
               >
                 Hi - {overlayIndex}
@@ -158,7 +158,7 @@ export const PromptToClose: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
 
 export const DialogExample: Story = {
@@ -174,7 +174,7 @@ export const DialogExample: Story = {
         </Dialog>
       </Fragment>
     );
-  },
+  }
 };
 
 const Dialog: FC<
@@ -193,7 +193,7 @@ const Dialog: FC<
           right: 0,
           zIndex: overlayIndex,
           position: 'fixed',
-          pointerEvents: 'none',
+          pointerEvents: 'none'
         }}
       >
         <motion.div
@@ -206,7 +206,7 @@ const Dialog: FC<
             top: 50,
             background: 'black',
             padding: 20,
-            pointerEvents: 'auto',
+            pointerEvents: 'auto'
           }}
         >
           <h1>

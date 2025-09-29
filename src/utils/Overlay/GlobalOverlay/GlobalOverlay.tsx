@@ -1,6 +1,6 @@
 import {
   clearAllBodyScrollLocks,
-  disableBodyScroll,
+  disableBodyScroll
 } from 'body-scroll-lock-upgrade';
 import { AnimatePresence } from 'motion/react';
 import type { FC } from 'react';
@@ -55,7 +55,7 @@ export const GlobalOverlay: FC<GlobalOverlayProps> = ({
   closeOnBackdropClick = true,
   backdropClassName,
   children,
-  onClose,
+  onClose
 }) => {
   const overlayRef = useRef<any | null>(null);
 
@@ -68,7 +68,7 @@ export const GlobalOverlay: FC<GlobalOverlayProps> = ({
   useExitListener({
     ref: overlayRef,
     open,
-    onEscape: () => closeOnEscape && onClose?.(),
+    onEscape: () => closeOnEscape && onClose?.()
   });
 
   useEffect(() => {
@@ -87,7 +87,7 @@ export const GlobalOverlay: FC<GlobalOverlayProps> = ({
             }
           }
           return false;
-        },
+        }
       });
     } else {
       clearAllBodyScrollLocks();

@@ -18,7 +18,7 @@ export function getGroups(options: SelectOptionProps[]): GroupOptions {
     return {
       groups: [],
       itemsCount: 0,
-      hasGroups: false,
+      hasGroups: false
     };
   }
 
@@ -36,7 +36,7 @@ export function getGroups(options: SelectOptionProps[]): GroupOptions {
     return {
       groups: [],
       itemsCount: options.length,
-      hasGroups: false,
+      hasGroups: false
     };
   }
 
@@ -45,7 +45,7 @@ export function getGroups(options: SelectOptionProps[]): GroupOptions {
     offset: 0,
     index: i,
     items: groupsMap[key],
-    name: key,
+    name: key
   }));
 
   for (const group of groups) {
@@ -62,6 +62,6 @@ export function getGroups(options: SelectOptionProps[]): GroupOptions {
       groups?.length !== 0
         ? groups.reduce((acc, g) => acc + g.items.length, 0)
         : options.length,
-    hasGroups: groups?.length !== 0,
+    hasGroups: groups?.length !== 0
   };
 }

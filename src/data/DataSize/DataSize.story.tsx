@@ -4,7 +4,7 @@ import { DataSize } from './DataSize';
 
 export default {
   title: 'Components/Data/Data Size',
-  component: DataSize,
+  component: DataSize
 };
 
 export const Simple = () => (

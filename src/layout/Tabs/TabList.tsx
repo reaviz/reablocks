@@ -63,7 +63,7 @@ export const TabList: FC<TabListProps> = ({
   onSelect,
   variant = 'primary',
   size = 'medium',
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const theme: TabsTheme = useComponentTheme('tabs', customTheme);
 
@@ -75,7 +75,7 @@ export const TabList: FC<TabListProps> = ({
     <nav
       role="tablist"
       className={cn(theme.list.base, className, {
-        'justify-end': direction === 'rtl',
+        'justify-end': direction === 'rtl'
       })}
     >
       {childs.map(({ children, ...rest }, index) => (

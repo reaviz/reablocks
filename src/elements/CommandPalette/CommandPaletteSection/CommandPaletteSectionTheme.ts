@@ -5,10 +5,10 @@ export interface CommandPaletteSectionTheme {
 
 const baseTheme: CommandPaletteSectionTheme = {
   base: '',
-  first: 'pt-2.5',
+  first: 'pt-2.5'
 };
 
 export const commandPaletteSectionTheme: CommandPaletteSectionTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-background-neutral-inverse-raised-1'].join(' '),
+  base: [baseTheme.base, 'bg-background-neutral-inverse-raised-1'].join(' ')
 };

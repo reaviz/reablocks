@@ -12,5 +12,5 @@ export const breadcrumbsTheme: BreadcrumbsTheme = {
   list: 'flex gap-(--breadcrumbs-details-space-between-lg) items-center',
   link: 'hover:text-breadcrumbs-colors-primary-text-hover transition-colors',
   activePage:
-    'text-breadcrumbs-colors-primary-text-selected pointer-events-none',
+    'text-breadcrumbs-colors-primary-text-selected pointer-events-none'
 };

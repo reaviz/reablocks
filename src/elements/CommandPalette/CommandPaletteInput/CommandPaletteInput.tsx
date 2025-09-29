@@ -71,7 +71,7 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
   onBlur,
   onChange,
   onKeyPress,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
   const handlerRef = useRef<HandlerInterface>(keys());
@@ -107,7 +107,7 @@ export const CommandPaletteInput: FC<CommandPaletteInputProps> = ({
 
   const { input: inputTheme }: CommandPaletteTheme = useComponentTheme(
     'commandPalette',
-    customTheme,
+    customTheme
   );
 
   return (

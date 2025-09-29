@@ -34,7 +34,7 @@ export const useExitListener = ({
   ref,
   open = true,
   onClickOutside,
-  onEscape,
+  onEscape
 }: ExitListenerOptions) => {
   useEffect(() => {
     if (!open) {

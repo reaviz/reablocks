@@ -8,7 +8,7 @@ import { NavigationBar } from './NavigationBar';
 
 export default {
   title: 'Components/Elements/Navigation',
-  component: NavigationBar,
+  component: NavigationBar
 };
 
 const logo = (
@@ -506,7 +506,7 @@ export const CustomTheme = () => {
 
   const customTheme: NavigationTheme = extendComponentTheme(navigationTheme, {
     bar: {
-      base: 'flex flex-col p-4 gap-4 rounded-md shadow-[0_4px_20px_0_#e1e2e333_inset] bg-navigation-colors-background-container-base border border-navigation-colors-stroke-container-base',
+      base: 'flex flex-col p-4 gap-4 rounded-md shadow-[0_4px_20px_0_#e1e2e333_inset] bg-navigation-colors-background-container-base border border-navigation-colors-stroke-container-base'
     },
     button: {
       variant: {
@@ -515,10 +515,10 @@ export const CustomTheme = () => {
           absolute z-1 top-0 left-0 w-full h-full rounded-md border
           border-red-infernal-blade-a-700 bg-red-infernal-blade-a-500
           hover:border-red-infernal-blade-a-500 hover:bg-red-infernal-blade-a-500
-        `,
-        },
-      },
-    },
+        `
+        }
+      }
+    }
   });
 
   return (

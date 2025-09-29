@@ -64,11 +64,11 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
         theme: customTheme,
         ...rest
       }: PrimaryHeadingProps,
-      ref,
+      ref
     ) => {
       const theme: TypographyThemeDeprecated = useComponentTheme(
         'typography_deprecated',
-        customTheme,
+        customTheme
       );
 
       return (
@@ -79,12 +79,12 @@ export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
             theme.variant[variant],
             theme.primaryHeading,
             disableMargins && theme.disableMargins,
-            className,
+            className
           )}
           {...rest}
         >
           {children}
         </h2>
       );
-    },
+    }
   );

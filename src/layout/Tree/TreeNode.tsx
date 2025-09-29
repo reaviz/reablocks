@@ -4,7 +4,7 @@ import React, {
   useCallback,
   useContext,
   useEffect,
-  useState,
+  useState
 } from 'react';
 
 import { Button } from '@/elements/Button';
@@ -60,7 +60,7 @@ export const TreeNode: FC<TreeNodeProps> = ({
   expanded: expandedProp,
   onExpand,
   onCollapse,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const { expandedIcon, collapsedIcon } = useContext(TreeContext);
   const [expanded, setExpanded] = useState<boolean>(expandedProp as boolean);
@@ -96,7 +96,7 @@ export const TreeNode: FC<TreeNodeProps> = ({
             title={expanded ? 'Collapse' : 'Expand'}
             className={twMerge(
               theme.node.button.base,
-              disabled && theme.node.disabled,
+              disabled && theme.node.disabled
             )}
             onClick={onButtonClick}
           >
@@ -107,7 +107,7 @@ export const TreeNode: FC<TreeNodeProps> = ({
           className={twMerge(
             theme.node.label,
             !hasChildren && theme.node.leaf,
-            disabled && theme.node.disabled,
+            disabled && theme.node.disabled
           )}
         >
           {label}

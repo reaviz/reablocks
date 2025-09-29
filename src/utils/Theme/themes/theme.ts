@@ -3,14 +3,14 @@ import type {
   EllipsisTheme,
   PagerTheme,
   RedactTheme,
-  SortTheme,
+  SortTheme
 } from '@/data';
 import {
   dateFormatTheme,
   ellipsisTheme,
   pagerTheme,
   redactTheme,
-  sortTheme,
+  sortTheme
 } from '@/data';
 import type {
   ArrowTheme,
@@ -22,7 +22,7 @@ import type {
   CommandPaletteTheme,
   DotsLoaderTheme,
   KbdTheme,
-  NavigationTheme,
+  NavigationTheme
 } from '@/elements';
 import {
   arrowTheme,
@@ -34,7 +34,7 @@ import {
   commandPaletteTheme,
   dotsLoaderTheme,
   kbdTheme,
-  navigationTheme,
+  navigationTheme
 } from '@/elements';
 import type {
   CalendarRangeTheme,
@@ -46,7 +46,7 @@ import type {
   RangeTheme,
   SelectTheme,
   TextareaTheme,
-  ToggleTheme,
+  ToggleTheme
 } from '@/form';
 import {
   calendarRangeTheme,
@@ -58,7 +58,7 @@ import {
   rangeTheme,
   selectTheme,
   textareaTheme,
-  toggleTheme,
+  toggleTheme
 } from '@/form';
 import type {
   BackdropTheme,
@@ -69,7 +69,7 @@ import type {
   MenuTheme,
   NotificationTheme,
   PopoverTheme,
-  TooltipTheme,
+  TooltipTheme
 } from '@/layers';
 import {
   backdropTheme,
@@ -80,7 +80,7 @@ import {
   menuTheme,
   notificationTheme,
   popoverTheme,
-  tooltipTheme,
+  tooltipTheme
 } from '@/layers';
 import type {
   BlockTheme,
@@ -94,7 +94,7 @@ import type {
   StepperTheme,
   TabsTheme,
   TreeTheme,
-  VerticalSpacerTheme,
+  VerticalSpacerTheme
 } from '@/layout';
 import {
   blockTheme,
@@ -108,7 +108,7 @@ import {
   stepperTheme,
   tabsTheme,
   treeTheme,
-  verticalSpacerTheme,
+  verticalSpacerTheme
 } from '@/layout';
 import type { TypographyTheme, TypographyThemeDeprecated } from '@/typography';
 import { typographyTheme, typographyThemeDeprecated } from '@/typography';
@@ -215,6 +215,6 @@ export const theme: ReablocksTheme = {
     stepper: stepperTheme,
     callout: calloutTheme,
     backdrop: backdropTheme,
-    navigation: navigationTheme,
-  },
+    navigation: navigationTheme
+  }
 };

@@ -6,7 +6,7 @@ import { Input } from '../../../src/form/Input';
 import { Card } from '../../../src/layout';
 
 export default {
-  title: 'Blocks/Foundation/Empty State',
+  title: 'Blocks/Foundation/Empty State'
 };
 
 export const NoResults = () => (

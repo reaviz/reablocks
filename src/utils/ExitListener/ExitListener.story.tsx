@@ -7,7 +7,7 @@ import { useRef, useState } from 'react';
 import { useExitListener } from './useExitListener';
 
 const meta: Meta = {
-  title: 'Components/Utils/Exit Listener',
+  title: 'Components/Utils/Exit Listener'
 };
 
 type Story = StoryObj;
@@ -20,7 +20,7 @@ export const Simple: Story = {
     useExitListener({
       ref,
       onClickOutside: () => setVisible(false),
-      onEscape: () => setVisible(false),
+      onEscape: () => setVisible(false)
     });
 
     return (
@@ -38,7 +38,7 @@ export const Simple: Story = {
         </div>
       </div>
     );
-  },
+  }
 };
 
 export default meta;

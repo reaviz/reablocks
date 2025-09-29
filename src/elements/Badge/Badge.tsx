@@ -8,7 +8,7 @@ import { twMerge } from '@/utils';
 import type {
   BadgeColorTheme,
   BadgePlacementTheme,
-  BadgeTheme,
+  BadgeTheme
 } from './BadgeTheme';
 
 export interface BadgeProps
@@ -64,7 +64,7 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
       theme: customTheme,
       ...rest
     }: BadgeProps,
-    ref,
+    ref
   ) => {
     const theme: BadgeTheme = useComponentTheme('badge', customTheme);
 
@@ -87,7 +87,7 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
                 theme.position,
                 theme.colors[color],
                 theme.positions[placement],
-                className,
+                className
               )}
             >
               {content}
@@ -96,5 +96,5 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
         )}
       </span>
     );
-  },
+  }
 );

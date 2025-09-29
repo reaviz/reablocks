@@ -38,18 +38,18 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
       theme: customTheme,
       ...rest
     }: AvatarGroupProps,
-    ref: Ref<HTMLDivElement>,
+    ref: Ref<HTMLDivElement>
   ) => {
     const childrenArray = Children.toArray(children);
 
     const { data, hasMore, remaining } = useInfinityList({
       items: childrenArray,
-      size,
+      size
     });
 
     const theme: AvatarGroupTheme = useComponentTheme(
       'avatarGroup',
-      customTheme,
+      customTheme
     );
 
     return (
@@ -62,5 +62,5 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
         {hasMore && <span className={theme.overflow}>+{remaining} more</span>}
       </div>
     );
-  },
+  }
 );

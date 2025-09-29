@@ -42,7 +42,7 @@ export const Notification: FC<NotificationProps> = ({
   action,
   component,
   onClose,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const timeoutRef = useRef<any | null>(null);
 
@@ -60,7 +60,7 @@ export const Notification: FC<NotificationProps> = ({
 
   const theme: NotificationTheme = useComponentTheme(
     'notification',
-    customTheme,
+    customTheme
   );
 
   return (
@@ -78,7 +78,7 @@ export const Notification: FC<NotificationProps> = ({
           className={twMerge(
             theme.notification?.base,
             theme.notification?.variants?.[variant]?.base,
-            className,
+            className
           )}
         >
           <div className={theme.notification?.content}>

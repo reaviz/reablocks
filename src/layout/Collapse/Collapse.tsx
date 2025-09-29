@@ -10,13 +10,13 @@ import type { CollapseTheme } from './CollapseTheme';
 
 const VARIANTS = {
   open: { opacity: 1, height: 'auto' },
-  collapsed: { opacity: 0, height: 0 },
+  collapsed: { opacity: 0, height: 0 }
 };
 
 const TRANSITION = {
   duration: 0.5,
   ease: [0.04, 0.62, 0.23, 0.98],
-  when: 'beforeChildren',
+  when: 'beforeChildren'
 };
 
 export interface CollapseProps
@@ -73,7 +73,7 @@ export const Collapse: FC<CollapseProps> = ({
                 animate: 'open',
                 exit: 'collapsed',
                 variants: VARIANTS,
-                transition: animated ? TRANSITION : { duration: 0 },
+                transition: animated ? TRANSITION : { duration: 0 }
               })}
         >
           {typeof children === 'function' ? children() : children}

@@ -12,7 +12,7 @@ import { Card } from '../../../src/layout/Card';
 import { cn } from '../../../src/utils';
 
 export default {
-  title: 'Blocks/Authentication/Register',
+  title: 'Blocks/Authentication/Register'
 };
 
 const LogoIcon = ({ className }: { className?: string }) => (
@@ -50,7 +50,7 @@ export const Register = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -184,7 +184,7 @@ export const RegisterFull = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -297,7 +297,7 @@ export const RegisterFull = () => {
             <Card
               className={cn('p-5', {
                 'bg-background-neutral-inverse-raised-2':
-                  selection === 'starter',
+                  selection === 'starter'
               })}
               onClick={() => setSelection('starter')}
             >
@@ -357,7 +357,7 @@ export const RegisterFull = () => {
             <Card
               className={cn('p-5', {
                 'bg-background-neutral-inverse-raised-2':
-                  selection === 'premium',
+                  selection === 'premium'
               })}
               onClick={() => setSelection('premium')}
             >
@@ -417,7 +417,7 @@ export const RegisterFull = () => {
             <Card
               className={cn('p-5', {
                 'bg-background-neutral-inverse-raised-2':
-                  selection === 'enterprise',
+                  selection === 'enterprise'
               })}
               onClick={() => setSelection('enterprise')}
             >
@@ -505,7 +505,7 @@ export const RegisterV2 = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -657,7 +657,7 @@ export const RegisterWithSocial = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (

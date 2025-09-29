@@ -10,5 +10,5 @@ export interface SelectTheme {
 
 export const selectTheme: SelectTheme = {
   selectInput: selectInputTheme,
-  selectMenu: selectMenuTheme,
+  selectMenu: selectMenuTheme
 };

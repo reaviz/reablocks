@@ -20,5 +20,5 @@ export const commandPaletteTheme: CommandPaletteTheme = {
   emptyContainer: '',
   input: commandPaletteInputTheme,
   item: commandPaletteItemTheme,
-  section: commandPaletteSectionTheme,
+  section: commandPaletteSectionTheme
 };

@@ -22,10 +22,10 @@ const preview: Preview = {
     withThemeByClassName({
       themes: {
         light: 'theme-light',
-        dark: 'theme-dark',
+        dark: 'theme-dark'
       },
-      defaultTheme: 'dark',
-    }),
+      defaultTheme: 'dark'
+    })
   ],
   parameters: {
     layout: 'centered',
@@ -48,7 +48,7 @@ const preview: Preview = {
             </ThemeProvider>
           </DocsContainer>
         );
-      },
+      }
     },
     options: {
       storySort: {
@@ -56,11 +56,11 @@ const preview: Preview = {
           'Docs',
           ['Intro', 'Getting Started', 'Changelog', 'Support'],
           'Components',
-          '*',
-        ],
-      },
-    },
-  },
+          '*'
+        ]
+      }
+    }
+  }
 };
 
 export default preview;

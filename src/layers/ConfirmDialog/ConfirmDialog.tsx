@@ -49,7 +49,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   confirmLabel = 'Confirm',
   cancelLabel = 'Cancel',
   onConfirm,
-  onCancel,
+  onCancel
 }) => (
   <Dialog open={open} onClose={onCancel} header={header}>
     {() => (

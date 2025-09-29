@@ -37,7 +37,7 @@ export const useMenu = (prop?: MenuOptions) => {
         onClose={onCloseInternal}
       />
     ),
-    [internalOpen, onCloseInternal],
+    [internalOpen, onCloseInternal]
   );
 
   return {
@@ -45,6 +45,6 @@ export const useMenu = (prop?: MenuOptions) => {
     setOpen: setInternalOpen,
     toggleOpen: onToggleOpen,
     Menu: Component,
-    ref,
+    ref
   };
 };

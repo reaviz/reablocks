@@ -59,7 +59,7 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
   xAnimation = 0,
   animation,
   onChange,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const { years }: CalendarTheme = useComponentTheme('calendar', customTheme);
 
@@ -87,8 +87,8 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
               animate: { opacity: 1, x: 0 },
               transition: {
                 x: { type: animated ? 'keyframes' : false },
-                opacity: { duration: 0.2, type: animated ? 'tween' : false },
-              },
+                opacity: { duration: 0.2, type: animated ? 'tween' : false }
+              }
             })}
       >
         {yearDates.map(year => (

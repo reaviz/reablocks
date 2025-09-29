@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const ShadowBlocks = ({
-  shadows,
+  shadows
 }: {
   shadows: { [key: string]: string };
 }) => (
@@ -9,7 +9,7 @@ export const ShadowBlocks = ({
     style={{
       padding: '4px 8px',
       color: 'var(--body-color)',
-      width: '100%',
+      width: '100%'
     }}
   >
     {shadows ? (
@@ -23,7 +23,7 @@ export const ShadowBlocks = ({
               display: 'flex',
               alignItems: 'center',
               borderRadius: '6px',
-              border: 'solid 1px var(--border-color)',
+              border: 'solid 1px var(--border-color)'
             }}
           >
             <h3 style={{ fontWeight: 500, marginRight: 50, maxWidth: 300 }}>
@@ -52,7 +52,7 @@ export const ShadowBlocks = ({
               style={{
                 justifyContent: 'end',
                 display: 'flex',
-                flex: 1,
+                flex: 1
               }}
             >
               <div
@@ -60,7 +60,7 @@ export const ShadowBlocks = ({
                   backgroundColor: '#191919',
                   padding: '12px',
                   fontSize: '16px',
-                  boxShadow: shadows[key],
+                  boxShadow: shadows[key]
                 }}
               >
                 Content

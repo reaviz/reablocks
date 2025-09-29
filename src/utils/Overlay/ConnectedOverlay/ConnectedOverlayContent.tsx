@@ -3,7 +3,7 @@ import React, {
   forwardRef,
   useCallback,
   useImperativeHandle,
-  useState,
+  useState
 } from 'react';
 
 import { useExitListener } from '@/utils/ExitListener';
@@ -89,9 +89,9 @@ export const ConnectedOverlayContent = forwardRef<
       followCursor,
       modifiers,
       placement = 'bottom',
-      onClose,
+      onClose
     },
-    ref,
+    ref
   ) => {
     const id = useId();
     const [overlayIndex, setOverlayIndex] = useState<number | null>(null);
@@ -99,13 +99,13 @@ export const ConnectedOverlayContent = forwardRef<
       reference: triggerRef.current ?? triggerRef,
       followCursor,
       modifiers,
-      placement,
+      placement
     });
 
     useImperativeHandle(ref, () => ({
       updatePosition: () => {
         update();
-      },
+      }
     }));
 
     const onClickOutside = useCallback(
@@ -131,7 +131,7 @@ export const ConnectedOverlayContent = forwardRef<
         }
       },
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      [closeOnBodyClick, onClose],
+      [closeOnBodyClick, onClose]
     );
 
     const onEscape = useCallback(() => {
@@ -144,7 +144,7 @@ export const ConnectedOverlayContent = forwardRef<
       open: true,
       ref: refs.floating,
       onClickOutside,
-      onEscape,
+      onEscape
     });
 
     return (
@@ -160,5 +160,5 @@ export const ConnectedOverlayContent = forwardRef<
         {children}
       </OverlayPortal>
     );
-  },
+  }
 );

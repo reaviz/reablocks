@@ -30,5 +30,5 @@ export const DataSize: FC<DataSizeProps> = ({
   value,
   emptyValue,
   scale,
-  decimals,
+  decimals
 }) => <>{formatSize(value, emptyValue, scale, decimals)}</>;

@@ -22,7 +22,7 @@ export const dateInputTheme: DateInputTheme = {
     list: 'w-full',
     option: {
       base: '',
-      active: '',
-    },
-  },
+      active: ''
+    }
+  }
 };

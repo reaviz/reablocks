@@ -4,7 +4,7 @@ import { VerticalSpacer } from './VerticalSpacer';
 
 export default {
   title: 'Components/Layout/Vertical Spacer',
-  component: VerticalSpacer,
+  component: VerticalSpacer
 };
 
 export const Simple = () => (

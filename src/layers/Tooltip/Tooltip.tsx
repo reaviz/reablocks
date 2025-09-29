@@ -170,7 +170,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
       // Return whether the ref's state was updated
       return isPop === isPopover;
-    },
+    }
   );
 
   useEffect(() => {
@@ -222,25 +222,25 @@ export const Tooltip: FC<TooltipProps> = ({
                     scale: 0.3,
                     transition: {
                       when: 'beforeChildren',
-                      duration: animated ? 0.3 : 0,
-                    },
+                      duration: animated ? 0.3 : 0
+                    }
                   },
                   animate: {
                     opacity: 1,
                     scale: 1,
                     transition: {
                       when: 'beforeChildren',
-                      duration: animated ? 0.3 : 0,
-                    },
+                      duration: animated ? 0.3 : 0
+                    }
                   },
                   exit: {
                     opacity: 0,
                     scale: 0.3,
                     transition: {
                       when: 'beforeChildren',
-                      duration: animated ? 0.3 : 0,
-                    },
-                  },
+                      duration: animated ? 0.3 : 0
+                    }
+                  }
                 })}
             onClick={() => {
               if (closeOnClick) {

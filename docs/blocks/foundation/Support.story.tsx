@@ -7,14 +7,14 @@ import { Input, Textarea } from '../../../src/form';
 import { Block, Card } from '../../../src/layout';
 
 export default {
-  title: 'Blocks/Foundation/Support',
+  title: 'Blocks/Foundation/Support'
 };
 
 export const Support = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (

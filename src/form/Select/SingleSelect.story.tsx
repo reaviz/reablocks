@@ -14,8 +14,8 @@ export default {
     SelectOption,
     SelectMenu,
     SelectInput,
-    SelectInputChip,
-  },
+    SelectInputChip
+  }
 };
 
 const options = [
@@ -23,7 +23,7 @@ const options = [
   { value: 'twitter', label: 'Twitter' },
   { value: 'github', label: 'GitHub' },
   { value: 'google', label: 'Google' },
-  { value: 'azure', label: 'Azure' },
+  { value: 'azure', label: 'Azure' }
 ];
 
 export const Basic = () => {
@@ -112,7 +112,7 @@ export const Fonts = () => {
     <div
       style={{
         width: 300,
-        fontFamily: `"Electrolux Sans", system-ui, -apple-system,BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,Noto Color Emoji`,
+        fontFamily: `"Electrolux Sans", system-ui, -apple-system,BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans,sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol,Noto Color Emoji`
       }}
     >
       <Select
@@ -372,7 +372,7 @@ export const Async = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [refreshable, setRefreshable] = useState<boolean>(false);
   const [opts, setOpts] = useState<{ value: string; label: string }[] | null>(
-    null,
+    null
   );
 
   useEffect(() => {
@@ -426,7 +426,7 @@ export const AsyncDefaultValue = () => {
   const [loading, setLoading] = useState<boolean>(false);
   const [refreshable, setRefreshable] = useState<boolean>(false);
   const [opts, setOpts] = useState<{ value: string; label: string }[] | null>(
-    null,
+    null
   );
 
   useEffect(() => {
@@ -480,7 +480,7 @@ export const AsyncFiltering = () => {
   const [value, setValue] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
   const [opts, setOpts] = useState<{ value: string; label: string }[] | null>(
-    null,
+    null
   );
 
   useEffect(() => {
@@ -494,7 +494,7 @@ export const AsyncFiltering = () => {
       });
 
       const filtered = next.filter(n =>
-        n.label.toLowerCase().startsWith(inputValue.toLowerCase()),
+        n.label.toLowerCase().startsWith(inputValue.toLowerCase())
       );
       setOpts(filtered);
       setLoading(false);

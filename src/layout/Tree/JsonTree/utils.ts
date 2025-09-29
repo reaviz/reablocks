@@ -51,7 +51,7 @@ export function parseJsonTree({
   data,
   index,
   label,
-  showEmpty = true,
+  showEmpty = true
 }: ParseJsonInputs): JsonTreeData {
   const type = getDataType(data);
 
@@ -64,7 +64,7 @@ export function parseJsonTree({
         id: `${id}.${key}`,
         index: idx,
         label: key,
-        showEmpty,
+        showEmpty
       });
 
       if (showEmpty || (!showEmpty && childParsed !== null)) {
@@ -84,7 +84,7 @@ export function parseJsonTree({
       id,
       data: result,
       label: labelValue,
-      index,
+      index
     };
   } else if (type === 'array') {
     const result = data.map((item, idx) =>
@@ -92,8 +92,8 @@ export function parseJsonTree({
         data: item,
         id: `${id}[${idx}]`,
         index: idx,
-        showEmpty,
-      }),
+        showEmpty
+      })
     );
 
     return {
@@ -101,7 +101,7 @@ export function parseJsonTree({
       id,
       data: result,
       label,
-      index,
+      index
     };
   } else {
     return {
@@ -109,7 +109,7 @@ export function parseJsonTree({
       id,
       data,
       label,
-      index,
+      index
     };
   }
 }

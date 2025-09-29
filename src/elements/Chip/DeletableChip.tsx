@@ -46,7 +46,7 @@ export const DeletableChip = forwardRef<HTMLDivElement, DeletableChipProps>(
       variant = 'filled',
       ...rest
     },
-    ref,
+    ref
   ) => {
     const theme: ChipTheme = useComponentTheme('chip', customTheme);
 
@@ -63,7 +63,7 @@ export const DeletableChip = forwardRef<HTMLDivElement, DeletableChipProps>(
             size={size}
             className={twMerge(
               theme.types.tag.closeButton.base,
-              theme.types.tag.closeButton.sizes[size],
+              theme.types.tag.closeButton.sizes[size]
             )}
             onClick={event => {
               if (!disabled) {
@@ -85,5 +85,5 @@ export const DeletableChip = forwardRef<HTMLDivElement, DeletableChipProps>(
         {children}
       </Chip>
     );
-  },
+  }
 );

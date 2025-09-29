@@ -86,7 +86,7 @@ export const Tab: FC<TabProps> = ({
   start,
   end,
   onSelect,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const tabTheme: TabsTheme = useComponentTheme('tabs', customTheme);
 
@@ -103,9 +103,9 @@ export const Tab: FC<TabProps> = ({
             [tabTheme.list.tab.disabled]: disabled,
             [tabTheme.list.tab.selected]: selected,
             [tabTheme.list.variant?.[variant]?.selected]: selected,
-            [tabTheme.list.variant?.[variant]?.disabled]: disabled,
+            [tabTheme.list.variant?.[variant]?.disabled]: disabled
           },
-          tabTheme.list.tab.size?.[size],
+          tabTheme.list.tab.size?.[size]
         )}
         disabled={disabled}
         role="tab"
@@ -125,7 +125,7 @@ export const Tab: FC<TabProps> = ({
           className={cn(
             tabTheme.list.indicator?.base,
             tabTheme.list.indicator?.size?.[size],
-            tabTheme.list.variant?.[variant]?.indicator,
+            tabTheme.list.variant?.[variant]?.indicator
           )}
           layoutId={`${id}-tabs-underline`}
         />

@@ -10,7 +10,7 @@ export interface SafeFormatOptions {
 
 export function safeFormat(
   date: Date | string | number | null | undefined,
-  options: SafeFormatOptions,
+  options: SafeFormatOptions
 ) {
   let relative;
   let formatted;
@@ -30,6 +30,6 @@ export function safeFormat(
   return {
     dateObj,
     formatted,
-    relative,
+    relative
   };
 }

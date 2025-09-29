@@ -38,7 +38,7 @@ export const Backdrop: FC<BackdropProps> = ({
   portalIndex = 0,
   className,
   theme: customTheme,
-  onClick,
+  onClick
 }) => {
   const theme = useComponentTheme<BackdropTheme>('backdrop', customTheme);
 

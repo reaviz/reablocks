@@ -7,7 +7,7 @@ import { Checkbox, Input } from '../../../src/form';
 import { Block, Card, Divider, Stack } from '../../../src/layout';
 
 export default {
-  title: 'Blocks/Authentication/Login',
+  title: 'Blocks/Authentication/Login'
 };
 
 const LogoIcon = ({ className }: { className?: string }) => (
@@ -47,7 +47,7 @@ export const Login = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -151,7 +151,7 @@ export const LoginBasic = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -255,7 +255,7 @@ export const LoginFull = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -412,7 +412,7 @@ export const LoginPassword = () => {
     control,
     handleSubmit,
     setValue,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (
@@ -526,7 +526,7 @@ export const LoginSocial = () => {
   const {
     control,
     handleSubmit,
-    formState: { isSubmitting },
+    formState: { isSubmitting }
   } = useForm();
 
   return (

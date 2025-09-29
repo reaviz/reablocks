@@ -22,7 +22,7 @@ export interface SortValue {
 export function getNextDirection(
   direction?: SortDirection | null,
   defaultDirection: NonNullable<SortDirection> = 'asc',
-  canBeNull: boolean = true,
+  canBeNull: boolean = true
 ) {
   if (!direction) {
     return defaultDirection;

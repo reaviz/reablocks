@@ -59,7 +59,7 @@ export interface RadioProps {
 
 const VARIANTS = {
   check: { opacity: 1, scale: 1 },
-  uncheck: { opacity: 0, scale: 0 },
+  uncheck: { opacity: 0, scale: 0 }
 };
 
 export interface RadioRef {
@@ -83,7 +83,7 @@ export const Radio = forwardRef<HTMLDivElement, RadioProps>(
       theme: customTheme,
       ...rest
     },
-    ref,
+    ref
   ) => {
     const { onChange: onGroupValueChange, selectedValue } =
       useContext(RadioGroupContext);
@@ -110,7 +110,7 @@ export const Radio = forwardRef<HTMLDivElement, RadioProps>(
           tabIndex={0}
           className={cn(theme.radio.base, theme.sizes[size], {
             [theme.radio.checked]: checked,
-            [theme.radio.disabled]: disabled,
+            [theme.radio.disabled]: disabled
           })}
           onClick={() => {
             if (!disabled) {
@@ -126,7 +126,7 @@ export const Radio = forwardRef<HTMLDivElement, RadioProps>(
         >
           <motion.div
             className={cn(theme.indicator.base, theme.indicator.sizes[size], {
-              [theme.indicator.disabled]: disabled,
+              [theme.indicator.disabled]: disabled
             })}
             initial={!disabled ? { opacity: 0, scale: 0.5 } : {}}
             variants={VARIANTS}
@@ -139,7 +139,7 @@ export const Radio = forwardRef<HTMLDivElement, RadioProps>(
             className={cn(theme.label.base, {
               [theme.label.checked]: checked,
               [theme.label.disabled]: disabled,
-              [theme.label.clickable]: !disabled,
+              [theme.label.clickable]: !disabled
             })}
             onClick={() => {
               if (!disabled) {
@@ -152,5 +152,5 @@ export const Radio = forwardRef<HTMLDivElement, RadioProps>(
         )}
       </div>
     );
-  },
+  }
 );

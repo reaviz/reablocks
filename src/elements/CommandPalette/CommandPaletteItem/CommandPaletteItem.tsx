@@ -32,11 +32,11 @@ export const CommandPaletteItem = forwardRef<
       theme: customTheme,
       ...rest
     },
-    ref,
+    ref
   ) => {
     const { item: itemTheme }: CommandPaletteTheme = useComponentTheme(
       'commandPalette',
-      customTheme,
+      customTheme
     );
 
     return (
@@ -47,7 +47,7 @@ export const CommandPaletteItem = forwardRef<
           className={twMerge(
             itemTheme.base,
             active && itemTheme.active,
-            onClick && itemTheme.clickable,
+            onClick && itemTheme.clickable
           )}
           end={
             <>
@@ -60,7 +60,7 @@ export const CommandPaletteItem = forwardRef<
         </ListItem>
       </MotionItem>
     );
-  },
+  }
 );
 
 CommandPaletteItem.displayName = 'CommandPaletteItem';

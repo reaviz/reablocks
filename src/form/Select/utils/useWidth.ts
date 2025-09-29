@@ -5,7 +5,7 @@ import type { ConnectedOverlayContentRef } from '@/utils/Overlay';
 
 export const useWidth = (
   ref: RefObject<HTMLDivElement>,
-  overlayRef: RefObject<ConnectedOverlayContentRef>,
+  overlayRef: RefObject<ConnectedOverlayContentRef>
 ) => {
   const [menuWidth, setMenuWidth] = useState<number>(0);
 

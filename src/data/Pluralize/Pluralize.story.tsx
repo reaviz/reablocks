@@ -4,7 +4,7 @@ import { Pluralize } from './Pluralize';
 
 export default {
   title: 'Components/Data/Pluralize',
-  component: Pluralize,
+  component: Pluralize
 };
 
 export const Simple = () => {

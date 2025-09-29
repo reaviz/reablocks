@@ -7,7 +7,7 @@ import {
   IconBlocks,
   ShadowBlocks,
   SpacingBlocks,
-  TypographyBlocks,
+  TypographyBlocks
 } from './blocks';
 import { useTheme } from './hooks/useTheme';
 import favoriteIcon from './icon-demo.svg';
@@ -26,7 +26,7 @@ export default {
         spacing,
         fontFamily,
         fontSize,
-        fontWeight,
+        fontWeight
       } = extractTheme(tokens);
 
       return (
@@ -43,8 +43,8 @@ export default {
           />
         </div>
       );
-    },
-  ],
+    }
+  ]
 };
 
 export const Colors = (_: unknown, { colors, theme }) => {
@@ -53,7 +53,7 @@ export const Colors = (_: unknown, { colors, theme }) => {
 
 export const Typography = (
   __: unknown,
-  { fontFamily, fontSize, fontWeight },
+  { fontFamily, fontSize, fontWeight }
 ) => (
   <TypographyBlocks
     families={fontFamily}
@@ -86,12 +86,12 @@ export const Icons = () => (
       icons={[
         {
           name: 'favorite',
-          src: favoriteIcon,
+          src: favoriteIcon
         },
         {
           name: 'another favorite',
-          src: favoriteIcon,
-        },
+          src: favoriteIcon
+        }
       ]}
     />
   </>

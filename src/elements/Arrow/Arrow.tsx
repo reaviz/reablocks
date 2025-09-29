@@ -26,7 +26,7 @@ export interface ArrowProps {
 export const Arrow: FC<ArrowProps> = ({
   direction = 'down',
   className,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const theme: ArrowTheme = useComponentTheme('arrow', customTheme);
 

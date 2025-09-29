@@ -8,7 +8,7 @@ import { RangeSingle } from './RangeSingle';
 
 export default {
   title: 'Components/Form/Range',
-  component: RangeSingle,
+  component: RangeSingle
 };
 
 export const Single = () => {

@@ -9,7 +9,7 @@ import { ConnectedOverlay } from './ConnectedOverlay';
 
 const meta: Meta<typeof ConnectedOverlay> = {
   title: 'Components/Utils/Overlay/Connected Overlay',
-  component: ConnectedOverlay,
+  component: ConnectedOverlay
 };
 
 type Story = StoryObj<typeof ConnectedOverlay>;
@@ -24,7 +24,7 @@ export const Simple: Story = {
           width: 300,
           padding: 50,
           height: 300,
-          border: 'solid 1px red',
+          border: 'solid 1px red'
         }}
       >
         <ConnectedOverlay
@@ -35,7 +35,7 @@ export const Simple: Story = {
             <div
               style={{
                 background: 'green',
-                padding: 15,
+                padding: 15
               }}
             >
               <h1>Hello + {overlayIndex}</h1>
@@ -46,7 +46,7 @@ export const Simple: Story = {
         </ConnectedOverlay>
       </div>
     );
-  },
+  }
 };
 
 export const DefaultOpen: Story = {
@@ -59,7 +59,7 @@ export const DefaultOpen: Story = {
           width: 300,
           padding: 50,
           height: 300,
-          border: 'solid 1px red',
+          border: 'solid 1px red'
         }}
       >
         <ConnectedOverlay
@@ -70,7 +70,7 @@ export const DefaultOpen: Story = {
             <div
               style={{
                 background: 'black',
-                padding: 15,
+                padding: 15
               }}
             >
               <h1>Hello</h1>
@@ -81,12 +81,12 @@ export const DefaultOpen: Story = {
         </ConnectedOverlay>
       </div>
     );
-  },
+  }
 };
 
 const Tooltip: FC<PropsWithChildren & { content?: string }> = ({
   children,
-  content,
+  content
 }) => {
   const timeout = React.useRef<any>();
   const [open, setOpen] = React.useState(false);
@@ -103,7 +103,7 @@ const Tooltip: FC<PropsWithChildren & { content?: string }> = ({
             background: 'rgba(0, 0, 0, .5)',
             color: 'white',
             textAlign: 'center',
-            borderRadius: 5,
+            borderRadius: 5
           }}
           initial={{ opacity: 0, scale: 0.3 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -133,7 +133,7 @@ export const TooltipExample: Story = {
         width: 300,
         padding: 50,
         height: 300,
-        border: 'solid 1px red',
+        border: 'solid 1px red'
       }}
     >
       <Tooltip content="Hello 1">
@@ -146,7 +146,7 @@ export const TooltipExample: Story = {
         <span style={{ padding: 10, background: 'blue' }}>Hover Me Too</span>
       </Tooltip>
     </div>
-  ),
+  )
 };
 
 const Menu = ({ children, open, reference, onClose }: any) => (
@@ -161,7 +161,7 @@ const Menu = ({ children, open, reference, onClose }: any) => (
           padding: '5px 20px 5px 0',
           background: 'rgba(0, 0, 0, .5)',
           color: 'white',
-          borderRadius: 5,
+          borderRadius: 5
         }}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -185,7 +185,7 @@ export const MenuExample: Story = {
           width: 150,
           padding: 50,
           height: 150,
-          border: 'solid 1px red',
+          border: 'solid 1px red'
         }}
       >
         <button
@@ -208,7 +208,7 @@ export const MenuExample: Story = {
         </Menu>
       </div>
     );
-  },
+  }
 };
 
 export const MenuInMenuExample: Story = {
@@ -224,7 +224,7 @@ export const MenuInMenuExample: Story = {
           width: 150,
           padding: 50,
           height: 150,
-          border: 'solid 1px red',
+          border: 'solid 1px red'
         }}
       >
         <button
@@ -262,12 +262,12 @@ export const MenuInMenuExample: Story = {
         </Menu>
       </div>
     );
-  },
+  }
 };
 
 const ContextMenu: FC<PropsWithChildren<{ content: any }>> = ({
   children,
-  content,
+  content
 }) => {
   const timeout = React.useRef<any>();
   const [open, setOpen] = React.useState(false);
@@ -284,7 +284,7 @@ const ContextMenu: FC<PropsWithChildren<{ content: any }>> = ({
             padding: 5,
             background: 'rgba(0, 0, 0, .5)',
             color: 'white',
-            borderRadius: 5,
+            borderRadius: 5
           }}
           initial={{ opacity: 0, y: -25 }}
           animate={{ opacity: 1, y: 0 }}
@@ -314,7 +314,7 @@ export const ContextMenuExample: Story = {
         width: 300,
         padding: 50,
         height: 300,
-        border: 'solid 1px red',
+        border: 'solid 1px red'
       }}
     >
       <ContextMenu
@@ -329,7 +329,7 @@ export const ContextMenuExample: Story = {
         <span style={{ padding: 10, background: 'blue' }}>Hi!</span>
       </ContextMenu>
     </div>
-  ),
+  )
 };
 
 export default meta;

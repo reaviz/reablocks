@@ -4,7 +4,7 @@ import { Duration } from './Duration';
 
 export default {
   title: 'Components/Data/Duration',
-  component: Duration,
+  component: Duration
 };
 
 export const Simple = () => (

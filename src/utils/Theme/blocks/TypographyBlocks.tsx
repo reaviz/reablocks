@@ -8,7 +8,7 @@ export interface TypographyLetterBlockProps {
 
 export const TypographyLetterBlock: FC<TypographyLetterBlockProps> = ({
   fontFamily,
-  className,
+  className
 }) => (
   <div
     className={className}
@@ -16,7 +16,7 @@ export const TypographyLetterBlock: FC<TypographyLetterBlockProps> = ({
       fontFamily,
       display: 'flex',
       alignItems: 'center',
-      marginLeft: '20px',
+      marginLeft: '20px'
     }}
   >
     <div style={{ fontSize: 128 }}>Aa</div>
@@ -25,7 +25,7 @@ export const TypographyLetterBlock: FC<TypographyLetterBlockProps> = ({
         marginLeft: '20px',
         paddingLeft: '20px',
         fontSize: 22,
-        borderLeft: 'solid 1px var(--border-color)',
+        borderLeft: 'solid 1px var(--border-color)'
       }}
     >
       <h2 style={{ margin: 0 }}>{fontFamily}</h2>
@@ -43,7 +43,7 @@ export interface TypographySizeBlockProps {
 
 export const TypographySizeBlock: FC<TypographySizeBlockProps> = ({
   sizes,
-  className,
+  className
 }) => (
   <div className={className}>
     {Object.keys(sizes)
@@ -56,7 +56,7 @@ export const TypographySizeBlock: FC<TypographySizeBlockProps> = ({
             lineHeight: sizes[`${size}-line-height`],
             display: 'flex',
             alignItems: 'center',
-            margin: '20px',
+            margin: '20px'
           }}
         >
           <div
@@ -64,7 +64,7 @@ export const TypographySizeBlock: FC<TypographySizeBlockProps> = ({
               fontSize: 16,
               minWidth: 110,
               marginRight: '6px',
-              color: 'var(--body-color)',
+              color: 'var(--body-color)'
             }}
           >
             <code
@@ -98,14 +98,14 @@ export interface TypographyWeightBlockProps {
 
 export const TypographyWeightBlock: FC<TypographyWeightBlockProps> = ({
   weights,
-  className,
+  className
 }) => (
   <div
     className={className}
     style={{
       padding: '6px',
       borderRadius: '6px',
-      border: 'solid 1px var(--border-color)',
+      border: 'solid 1px var(--border-color)'
     }}
   >
     {Object.keys(weights).map((weight, i) => (
@@ -114,7 +114,7 @@ export const TypographyWeightBlock: FC<TypographyWeightBlockProps> = ({
         style={{
           display: 'flex',
           alignItems: 'center',
-          marginBottom: '16px',
+          marginBottom: '16px'
         }}
       >
         <code style={{ width: '25%', minWidth: 200 }}>
@@ -145,7 +145,7 @@ export const TypographyWeightBlock: FC<TypographyWeightBlockProps> = ({
 export const TypographyBlocks = ({
   families,
   sizes,
-  weights,
+  weights
 }: {
   families: Record<string, string>;
   sizes: Record<string, string>;
@@ -157,7 +157,7 @@ export const TypographyBlocks = ({
     <div
       style={{
         color: 'var(--body-color)',
-        width: '100%',
+        width: '100%'
       }}
     >
       <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '8px' }}>
@@ -169,7 +169,7 @@ export const TypographyBlocks = ({
         <div
           key={family}
           style={{
-            marginBottom: '24px',
+            marginBottom: '24px'
           }}
         >
           <h3 style={{ fontWeight: 600, fontSize: '20px' }}>
@@ -182,7 +182,7 @@ export const TypographyBlocks = ({
             style={{
               padding: '10px',
               borderRadius: '8px',
-              border: 'solid 1px var(--border-color)',
+              border: 'solid 1px var(--border-color)'
             }}
           >
             <TypographyLetterBlock fontFamily={families[family]} />
@@ -190,7 +190,7 @@ export const TypographyBlocks = ({
               style={{
                 background: 'none',
                 border: 'none',
-                borderTop: 'solid 1px var(--border-color)',
+                borderTop: 'solid 1px var(--border-color)'
               }}
             />
             <TypographySizeBlock sizes={sizes} />

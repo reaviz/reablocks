@@ -49,36 +49,36 @@ export const notificationTheme: NotificationTheme = {
         `,
     variants: {
       default: {
-        base: '',
+        base: ''
       },
       success: {
         base: `
           border-notifications-colors-stroke-success-resting hover:border-notifications-colors-stroke-success-hover
           bg-notifications-colors-background-success-resting hover:bg-notifications-colors-background-success-hover
         `,
-        icon: 'text-notifications-colors-assets-success-resting size-(--notifications-details-asset-size-base)',
+        icon: 'text-notifications-colors-assets-success-resting size-(--notifications-details-asset-size-base)'
       },
       error: {
         base: `
           border-notifications-colors-stroke-error-resting hover:border-notifications-colors-stroke-error-hover
           bg-notifications-colors-background-error-resting hover:bg-notifications-colors-background-error-hover
         `,
-        icon: 'text-notifications-colors-assets-destructive-resting size-(--notifications-details-asset-size-base)',
+        icon: 'text-notifications-colors-assets-destructive-resting size-(--notifications-details-asset-size-base)'
       },
       warning: {
         base: `
           border-notifications-colors-stroke-warning-resting hover:border-notifications-colors-stroke-warning-hover
           bg-notifications-colors-background-warning-resting hover:bg-notifications-colors-background-warning-hover
         `,
-        icon: 'text-notifications-colors-assets-warning-static size-(--notifications-details-asset-size-base)',
+        icon: 'text-notifications-colors-assets-warning-static size-(--notifications-details-asset-size-base)'
       },
       info: {
         base: `
           border-notifications-colors-stroke-info-resting hover:border-notifications-colors-stroke-info-hover
           bg-notifications-colors-background-info-resting hover:bg-notifications-colors-background-info-hover
         `,
-        icon: 'text-notifications-colors-assets-info-resting size-(--notifications-details-asset-size-base)',
-      },
+        icon: 'text-notifications-colors-assets-info-resting size-(--notifications-details-asset-size-base)'
+      }
     },
     content: 'inline-flex items-start flex-1 flex-col justify-center',
     header:
@@ -90,6 +90,6 @@ export const notificationTheme: NotificationTheme = {
       size-(--notifications-details-asset-size-compact) cursor-pointer text-xs font-semibold
       m-0 border-0 text-notifications-colors-assets-normal-resting hover:opacity-70 transition-opacity
     `,
-    body: 'text-xxs mt-(--notifications-details-space-between-standard-sm) text-notifications-colors-text-normal-resting',
-  },
+    body: 'text-xxs mt-(--notifications-details-space-between-standard-sm) text-notifications-colors-text-normal-resting'
+  }
 };

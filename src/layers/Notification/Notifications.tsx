@@ -14,7 +14,7 @@ import type { NotificationOptions } from './NotificationsContext';
 import { NotificationsContext } from './NotificationsContext';
 import type {
   NotificationTheme,
-  NotificationVariantTheme,
+  NotificationVariantTheme
 } from './NotificationTheme';
 
 export interface NotificationComponentProps {
@@ -58,15 +58,15 @@ export const Notifications: FC<NotificationsProps> = ({
     success: <CheckCircleIcon />,
     warning: <WarningIcon />,
     error: <ErrorCircleIcon />,
-    info: <InfoIcon />,
+    info: <InfoIcon />
   },
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const [notifications, setNotifications] = useState<any[]>([]);
 
   const clearNotification = useCallback(
     (id: number) => setNotifications(notifications.filter(n => n.id !== id)),
-    [notifications],
+    [notifications]
   );
 
   const clearAllNotifications = useCallback(() => setNotifications([]), []);
@@ -89,7 +89,7 @@ export const Notifications: FC<NotificationsProps> = ({
           timeout,
           icon: icons?.default,
           showClose,
-          ...options,
+          ...options
         };
 
         const sorted = [obj, ...notifications];
@@ -102,7 +102,7 @@ export const Notifications: FC<NotificationsProps> = ({
         return sorted;
       });
     },
-    [icons?.default, limit, preventFlooding, showClose, timeout],
+    [icons?.default, limit, preventFlooding, showClose, timeout]
   );
 
   const notifyError = useCallback(
@@ -110,15 +110,15 @@ export const Notifications: FC<NotificationsProps> = ({
       notify(title, {
         variant: 'error',
         icon: icons?.error,
-        ...options,
+        ...options
       }),
-    [icons?.error, notify],
+    [icons?.error, notify]
   );
 
   const notifyWarning = useCallback(
     (title: string, options: NotificationOptions = {}) =>
       notify(title, { variant: 'warning', icon: icons?.warning, ...options }),
-    [icons?.warning, notify],
+    [icons?.warning, notify]
   );
 
   const notifySuccess = useCallback(
@@ -126,15 +126,15 @@ export const Notifications: FC<NotificationsProps> = ({
       notify(title, {
         variant: 'success',
         icon: icons?.success,
-        ...options,
+        ...options
       }),
-    [icons?.success, notify],
+    [icons?.success, notify]
   );
 
   const notifyInfo = useCallback(
     (title: string, options: NotificationOptions = {}) =>
       notify(title, { variant: 'info', icon: icons?.info, ...options }),
-    [icons?.info, notify],
+    [icons?.info, notify]
   );
 
   const values = useMemo(
@@ -145,7 +145,7 @@ export const Notifications: FC<NotificationsProps> = ({
       notifySuccess,
       notifyInfo,
       clearNotification,
-      clearAllNotifications,
+      clearAllNotifications
     }),
     [
       clearNotification,
@@ -154,13 +154,13 @@ export const Notifications: FC<NotificationsProps> = ({
       notifyError,
       notifySuccess,
       notifyWarning,
-      notifyInfo,
-    ],
+      notifyInfo
+    ]
   );
 
   const theme: NotificationTheme = useComponentTheme(
     'notification',
-    customTheme,
+    customTheme
   );
 
   return (

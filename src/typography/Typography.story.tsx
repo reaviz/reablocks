@@ -5,7 +5,7 @@ import { Typography } from '@/typography/Typography';
 
 export default {
   title: 'Components/Typography',
-  component: Typography,
+  component: Typography
 };
 
 export const Heading = () => (

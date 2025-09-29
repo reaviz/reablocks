@@ -8,5 +8,5 @@ export interface OverlayContextValue {
 }
 
 export const OverlayContext = createContext<OverlayContextValue>({
-  close: () => undefined,
+  close: () => undefined
 });

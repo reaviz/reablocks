@@ -4,7 +4,7 @@ import { DateFormat } from './DateFormat';
 
 export default {
   title: 'Components/Data/DateFormat',
-  component: DateFormat,
+  component: DateFormat
 };
 
 export const Simple = () => <DateFormat date={new Date()} />;

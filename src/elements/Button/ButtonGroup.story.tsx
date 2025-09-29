@@ -5,7 +5,7 @@ import { ButtonGroup } from './ButtonGroup';
 
 export default {
   title: 'Components/Elements/Button/Group',
-  component: ButtonGroup,
+  component: ButtonGroup
 };
 
 export const Filled = () => {

@@ -7,7 +7,7 @@ import { Textarea } from './Textarea';
 
 export default {
   title: 'Components/Form/Textarea',
-  component: Textarea,
+  component: Textarea
 };
 
 export const AutoFocus = () => <Textarea autoFocus />;

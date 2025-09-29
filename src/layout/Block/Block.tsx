@@ -51,7 +51,7 @@ export interface BlockProps extends React.HTMLAttributes<HTMLElement> {
    * Event when the label is clicked.
    */
   onTitleClick?: (
-    event: React.MouseEvent<HTMLLabelElement, MouseEvent>,
+    event: React.MouseEvent<HTMLLabelElement, MouseEvent>
   ) => void;
 
   /**
@@ -85,7 +85,7 @@ export const Block: FC<BlockProps> = ({
         direction === 'vertical' && theme.vertical.base,
         alignment === 'end' && theme.endAlign,
         alignment === 'center' && theme.centerAlign,
-        className,
+        className
       )}
     >
       {label && (
@@ -94,7 +94,7 @@ export const Block: FC<BlockProps> = ({
             theme.label,
             direction === 'horizontal' && theme.horizontal.label,
             direction === 'vertical' && theme.vertical.label,
-            labelClassName,
+            labelClassName
           )}
           onClick={onTitleClick}
         >

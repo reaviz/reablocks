@@ -112,7 +112,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
       theme: customTheme,
       ...rest
     },
-    ref,
+    ref
   ) => {
     const theme: CheckboxTheme = useComponentTheme('checkbox', customTheme);
     const pathLength = useMotionValue(0);
@@ -131,7 +131,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
     const checkVariants = {
       pressed: (isChecked: boolean) => ({ pathLength: isChecked ? 0.85 : 0.3 }),
       checked: { pathLength: 1 },
-      unchecked: { pathLength: 0 },
+      unchecked: { pathLength: 0 }
     };
 
     const handleOnChange = useCallback(() => {
@@ -145,7 +145,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
         className={twMerge(
           theme.base,
           containerClassName,
-          checked && 'checked',
+          checked && 'checked'
         )}
       >
         {labelPosition === 'start' && label && (
@@ -168,7 +168,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
             checked && theme.checkbox.checked,
             disabled && theme.checkbox.disabled,
             theme.sizes[size],
-            className,
+            className
           )}
           onClick={e => {
             if (!disabled && onChange) {
@@ -195,7 +195,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
               className={twMerge(
                 theme.border.base,
                 checked && theme.border.checked,
-                disabled && theme.border.disabled,
+                disabled && theme.border.disabled
               )}
               d={borderPath}
               variants={theme.boxVariants}
@@ -218,7 +218,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
                 className={twMerge(
                   theme.check.base,
                   disabled && theme.check.disabled,
-                  checked && theme.check.checked,
+                  checked && theme.check.checked
                 )}
                 variants={checkVariants}
                 style={{ pathLength, opacity }}
@@ -240,5 +240,5 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
         )}
       </div>
     );
-  },
+  }
 );

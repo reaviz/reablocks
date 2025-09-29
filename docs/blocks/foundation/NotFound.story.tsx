@@ -7,7 +7,7 @@ import { Card, MotionGroup, MotionItem, Stack } from '../../../src/layout';
 import { Typography } from '../../../src/typography';
 
 export default {
-  title: 'Blocks/Foundation/Not Found',
+  title: 'Blocks/Foundation/Not Found'
 };
 
 const GridPatternIcon = ({ className }: { className?: string }) => (

@@ -3,5 +3,5 @@ export interface CollapseTheme {
 }
 
 export const collapseTheme: CollapseTheme = {
-  base: 'will-change-[height,opacity] overflow-hidden',
+  base: 'will-change-[height,opacity] overflow-hidden'
 };

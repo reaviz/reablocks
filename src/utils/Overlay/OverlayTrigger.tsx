@@ -57,9 +57,9 @@ export const OverlayTrigger = forwardRef<HTMLSpanElement, OverlayTriggerProps>(
       elementType = 'span',
       trigger = ['click'],
       onOpen = () => undefined,
-      onClose = () => undefined,
+      onClose = () => undefined
     },
-    ref,
+    ref
   ) => {
     const hasTrigger = useCallback(
       (type: TriggerTypes) => {
@@ -69,7 +69,7 @@ export const OverlayTrigger = forwardRef<HTMLSpanElement, OverlayTriggerProps>(
           return type === trigger;
         }
       },
-      [trigger],
+      [trigger]
     );
 
     const onFocus = useCallback(
@@ -78,7 +78,7 @@ export const OverlayTrigger = forwardRef<HTMLSpanElement, OverlayTriggerProps>(
           onOpen({ type: 'focus', nativeEvent: event });
         }
       },
-      [onOpen, hasTrigger],
+      [onOpen, hasTrigger]
     );
 
     const onBlur = useCallback(
@@ -87,7 +87,7 @@ export const OverlayTrigger = forwardRef<HTMLSpanElement, OverlayTriggerProps>(
           onClose({ type: 'focus', nativeEvent: event });
         }
       },
-      [onClose, hasTrigger],
+      [onClose, hasTrigger]
     );
 
     const onMouseEnter = useCallback(
@@ -96,7 +96,7 @@ export const OverlayTrigger = forwardRef<HTMLSpanElement, OverlayTriggerProps>(
           onOpen({ type: 'hover', nativeEvent: event });
         }
       },
-      [onOpen, hasTrigger],
+      [onOpen, hasTrigger]
     );
 
     const onMouseLeave = useCallback(
@@ -105,7 +105,7 @@ export const OverlayTrigger = forwardRef<HTMLSpanElement, OverlayTriggerProps>(
           onClose({ type: 'hover', nativeEvent: event });
         }
       },
-      [onClose, hasTrigger],
+      [onClose, hasTrigger]
     );
 
     const onClick = useCallback(
@@ -119,7 +119,7 @@ export const OverlayTrigger = forwardRef<HTMLSpanElement, OverlayTriggerProps>(
           onClose({ type: 'hover', nativeEvent: event });
         }
       },
-      [onOpen, onClose, hasTrigger],
+      [onOpen, onClose, hasTrigger]
     );
 
     const onContextMenu = useCallback(
@@ -129,7 +129,7 @@ export const OverlayTrigger = forwardRef<HTMLSpanElement, OverlayTriggerProps>(
           onOpen({ type: 'contextmenu', nativeEvent: event });
         }
       },
-      [hasTrigger, onOpen],
+      [hasTrigger, onOpen]
     );
 
     const tabIndex = hasTrigger('focus') ? -1 : undefined;
@@ -150,5 +150,5 @@ export const OverlayTrigger = forwardRef<HTMLSpanElement, OverlayTriggerProps>(
         {children}
       </Component>
     );
-  },
+  }
 );

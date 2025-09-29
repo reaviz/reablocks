@@ -52,11 +52,11 @@ export const CalendarPresets: FC<CalendarPresetsProps> = ({
   theme: customTheme,
   value,
   className,
-  onChange,
+  onChange
 }) => {
   const { presets: presetsTheme } = useComponentTheme<CalendarTheme>(
     'calendar',
-    customTheme,
+    customTheme
   );
 
   const groupedPresets = options.reduce(
@@ -69,7 +69,7 @@ export const CalendarPresets: FC<CalendarPresetsProps> = ({
 
       return acc;
     },
-    {} as Record<string, PresetOption[]>,
+    {} as Record<string, PresetOption[]>
   );
 
   return (
@@ -91,7 +91,7 @@ export const CalendarPresets: FC<CalendarPresetsProps> = ({
                 key={preset.label}
                 dense
                 className={cn(presetsTheme?.item?.base, {
-                  [presetsTheme?.item?.active]: active,
+                  [presetsTheme?.item?.active]: active
                 })}
                 onClick={() => onChange(presetValue)}
                 active={active}

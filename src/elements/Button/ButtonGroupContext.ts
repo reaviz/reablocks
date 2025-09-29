@@ -14,5 +14,5 @@ export interface ButtonGroupContextProps {
 
 export const ButtonGroupContext = createContext<ButtonGroupContextProps>({
   variant: null,
-  size: null,
+  size: null
 });

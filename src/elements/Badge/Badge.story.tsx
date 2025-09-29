@@ -7,7 +7,7 @@ import { Badge } from './Badge';
 
 export default {
   title: 'Components/Elements/Badge',
-  component: Badge,
+  component: Badge
 };
 
 export const Colors = () => (

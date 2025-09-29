@@ -4,7 +4,7 @@ import { Stack } from './Stack';
 
 export default {
   title: 'Components/Layout/Stack',
-  components: Stack,
+  components: Stack
 };
 
 export const Simple = () => (
@@ -36,7 +36,7 @@ export const Alignments = () => (
     style={{
       display: 'grid',
       gridTemplateColumns: '1fr 1fr 1fr',
-      gap: '30px 100px',
+      gap: '30px 100px'
     }}
   >
     <div>Start (Row)</div>
@@ -132,7 +132,7 @@ export const JustifyContent = () => (
       display: 'grid',
       gridTemplateColumns: 'repeat(4, 250px)',
       gridTemplateRows: '1fr 250px 1fr 250px',
-      gap: '20px 100px',
+      gap: '20px 100px'
     }}
   >
     <div>Start (Row)</div>

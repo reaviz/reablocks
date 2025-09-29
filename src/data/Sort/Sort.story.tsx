@@ -5,7 +5,7 @@ import type { SortDirection } from './utils';
 
 export default {
   title: 'Components/Data/Sort',
-  component: Sort,
+  component: Sort
 };
 
 const NeutralIcon = ({ className }: { className?: string }) => (

@@ -61,7 +61,7 @@ export const Stack: FC<StackProps & StackRef> = forwardRef<
       theme: customTheme,
       ...otherProps
     },
-    ref,
+    ref
   ) => {
     const theme: StackTheme = useComponentTheme('stack', customTheme);
 
@@ -74,7 +74,7 @@ export const Stack: FC<StackProps & StackRef> = forwardRef<
           theme.direction[direction],
           theme.alignItems[alignItems],
           theme.justifyContent[justifyContent],
-          className,
+          className
         )}
         ref={ref}
         {...otherProps}
@@ -82,5 +82,5 @@ export const Stack: FC<StackProps & StackRef> = forwardRef<
         {children}
       </div>
     );
-  },
+  }
 );

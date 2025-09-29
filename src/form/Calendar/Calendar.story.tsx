@@ -4,7 +4,7 @@ import {
   endOfMonth,
   format,
   startOfMonth,
-  sub,
+  sub
 } from 'date-fns';
 import { useState } from 'react';
 
@@ -15,7 +15,7 @@ import {
   FUTURE_PRESETS,
   FUTURE_RANGE_PRESETS,
   PAST_PRESETS,
-  PAST_RANGE_PRESETS,
+  PAST_RANGE_PRESETS
 } from '@/form';
 import { Card } from '@/layout';
 import { Divider } from '@/layout';
@@ -26,7 +26,7 @@ const FIVE_DAYS_FROM_NOW = add(new Date(), { days: 5 });
 
 export default {
   title: 'Components/Form/Calendar',
-  component: Calendar,
+  component: Calendar
 };
 
 export const Simple = () => {
@@ -144,7 +144,7 @@ export const CustomAnimation = () => {
       opacity: 0,
       scale: 0.9,
       y: 20,
-      filter: 'blur(5px)',
+      filter: 'blur(5px)'
     },
     animate: {
       opacity: 1,
@@ -155,8 +155,8 @@ export const CustomAnimation = () => {
         type: 'spring' as const,
         stiffness: 200,
         damping: 25,
-        duration: 0.5,
-      },
+        duration: 0.5
+      }
     },
     exit: {
       opacity: 0,
@@ -164,16 +164,16 @@ export const CustomAnimation = () => {
       y: -20,
       filter: 'blur(5px)',
       transition: {
-        duration: 0.3,
-      },
-    },
+        duration: 0.3
+      }
+    }
   };
 
   const viewChangeAnimation = {
     initial: {
       opacity: 0,
       scale: 0.7,
-      rotateY: -90,
+      rotateY: -90
     },
     animate: {
       opacity: 1,
@@ -183,17 +183,17 @@ export const CustomAnimation = () => {
         type: 'spring' as const,
         stiffness: 250,
         damping: 25,
-        duration: 0.5,
-      },
+        duration: 0.5
+      }
     },
     exit: {
       opacity: 0,
       scale: 0.7,
       rotateY: 90,
       transition: {
-        duration: 0.3,
-      },
-    },
+        duration: 0.3
+      }
+    }
   };
 
   return (
@@ -355,7 +355,7 @@ export const RangeWithTime = () => {
 export const CurrentMonth = () => {
   const [range, setRange] = useState<[Date, Date]>([
     startOfMonth(new Date()),
-    endOfMonth(new Date()),
+    endOfMonth(new Date())
   ]);
 
   return (
@@ -463,7 +463,7 @@ export const WithCustomDatePresets = () => {
                 }
 
                 return thanksgiving;
-              },
+              }
             },
             {
               label: 'Labor Day',
@@ -475,16 +475,16 @@ export const WithCustomDatePresets = () => {
                 }
 
                 return laborDay;
-              },
+              }
             },
             {
               label: 'New Year',
-              value: new Date(new Date().getFullYear(), 0, 1),
+              value: new Date(new Date().getFullYear(), 0, 1)
             },
             {
               label: 'Christmas',
-              value: new Date(new Date().getFullYear(), 11, 25),
-            },
+              value: new Date(new Date().getFullYear(), 11, 25)
+            }
           ]}
         />
       </Card>

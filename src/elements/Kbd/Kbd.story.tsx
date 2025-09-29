@@ -4,7 +4,7 @@ import { Kbd } from './Kbd';
 
 export default {
   title: 'Components/Elements/Kbd',
-  component: Kbd,
+  component: Kbd
 };
 
 export const Basic = () => (

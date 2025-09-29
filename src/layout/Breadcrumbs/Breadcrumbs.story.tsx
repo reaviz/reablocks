@@ -4,12 +4,12 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   Breadcrumbs,
-  BreadcrumbSeparator,
+  BreadcrumbSeparator
 } from './';
 
 export default {
   title: 'Components/Layout/Breadcrumbs',
-  component: Breadcrumbs,
+  component: Breadcrumbs
 };
 
 export const Basic = () => (

@@ -17,11 +17,11 @@ export const Pluralize: FC<PluralizeProps> = ({
   className,
   showCount = true,
   plural,
-  zero,
+  zero
 }) => {
   const text = useMemo(
     () => pluralize({ count, singular, showCount, plural, zero }),
-    [count, singular, showCount, plural, zero],
+    [count, singular, showCount, plural, zero]
   );
 
   return <span className={className}>{text}</span>;

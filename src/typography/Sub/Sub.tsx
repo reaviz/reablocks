@@ -62,11 +62,11 @@ export const Sub: FC<SubProps & SubRef> = forwardRef(
       theme: customTheme,
       ...rest
     }: SubProps,
-    ref,
+    ref
   ) => {
     const theme: TypographyThemeDeprecated = useComponentTheme(
       'typography_deprecated',
-      customTheme,
+      customTheme
     );
 
     return (
@@ -77,12 +77,12 @@ export const Sub: FC<SubProps & SubRef> = forwardRef(
           theme.variant[variant],
           theme.sub,
           disableMargins && theme.disableMargins,
-          className,
+          className
         )}
         {...rest}
       >
         {children}
       </h6>
     );
-  },
+  }
 );

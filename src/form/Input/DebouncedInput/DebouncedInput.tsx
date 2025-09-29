@@ -14,7 +14,7 @@ export interface DebouncedInputProps extends InputProps {
 export const DebouncedInput = forwardRef<InputRef, DebouncedInputProps>(
   (
     { debounce = 100, value, onChange, onValueChange, ...rest },
-    ref: Ref<InputRef>,
+    ref: Ref<InputRef>
   ) => {
     const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
     const [internalValue, setInternalValue] = useState<
@@ -53,5 +53,5 @@ export const DebouncedInput = forwardRef<InputRef, DebouncedInputProps>(
         }}
       />
     );
-  },
+  }
 );

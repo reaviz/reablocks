@@ -3,7 +3,7 @@ import React, {
   forwardRef,
   useImperativeHandle,
   useRef,
-  useState,
+  useState
 } from 'react';
 
 import { Portal } from '@/utils/Portal';
@@ -86,7 +86,7 @@ export interface OverlayPortalProps {
 export const OverlayPortal = forwardRef<HTMLElement, OverlayPortalProps>(
   (
     { className, children, onMount, onUnmount, appendToBody = true, id, style },
-    ref,
+    ref
   ) => {
     const portalId = useId(id);
 
@@ -114,7 +114,7 @@ export const OverlayPortal = forwardRef<HTMLElement, OverlayPortalProps>(
             portalId,
             overlayIndex: overlayIdx,
             portalIndex: pidx,
-            backdropIndex: overlayIdx,
+            backdropIndex: overlayIdx
           });
         }}
         onUnmount={() => {
@@ -128,9 +128,9 @@ export const OverlayPortal = forwardRef<HTMLElement, OverlayPortalProps>(
           overlayIndex: overlayIndex as number,
           portalIndex: portalIndex as number,
           backdropIndex: overlayIndex as number,
-          portalId,
+          portalId
         })}
       </Portal>
     );
-  },
+  }
 );

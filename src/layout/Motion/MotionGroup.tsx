@@ -7,15 +7,15 @@ export const groupVariants = {
   initial: {
     transition: {
       staggerChildren: 0.05,
-      staggerDirection: -1 as any,
-    },
+      staggerDirection: -1 as any
+    }
   },
   animate: {
     transition: {
       staggerChildren: 0.07,
-      delayChildren: 0.2,
-    },
-  },
+      delayChildren: 0.2
+    }
+  }
 };
 
 export interface MotionGroupProps extends HTMLMotionProps<'div'> {

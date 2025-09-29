@@ -30,9 +30,9 @@ export const treeTheme: TreeTheme = {
     label: 'flex items-center',
     button: {
       base: 'min-w-[auto] min-h-[auto] size-auto transition-transform duration-100 ease-in-out ml-0 mr-1 my-0 p-0',
-      icon: 'align-middle block h-2 w-2 m-0.5',
-    },
+      icon: 'align-middle block h-2 w-2 m-0.5'
+    }
   },
   nodeBlock: 'flex items-center',
-  subtree: 'relative ml-5 mr-0 mt-1 mb-0 p-0',
+  subtree: 'relative ml-5 mr-0 mt-1 mb-0 p-0'
 };

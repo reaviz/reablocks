@@ -5,23 +5,23 @@ export const themeV9: ReablocksTheme = {
     avatar: {
       base: 'flex justify-center items-center bg-cover bg-center font-bold text-white',
       rounded: 'rounded-[50%]',
-      clickable: 'cursor-pointer',
+      clickable: 'cursor-pointer'
     },
     avatarGroup: {
       base: 'flex items-center text-text-primary',
       avatar: '-ml-2.5',
-      overflow: 'ml-[5px]',
+      overflow: 'ml-[5px]'
     },
     arrow: {
       base: ' text-text-primary',
       up: 'rotate-x180',
       down: '',
       left: 'rotate-90',
-      right: '-rotate-90',
+      right: '-rotate-90'
     },
     backdrop: {
       base: 'fixed top-0 left-0 w-full h-full opacity-0 select-none bg-black',
-      opacity: 0.8,
+      opacity: 0.8
     },
     badge: {
       base: 'relative inline-flex align-middle shrink-0 mx-2 my-0',
@@ -38,14 +38,14 @@ export const themeV9: ReablocksTheme = {
         'bottom-start':
           'bottom-0 left-0 -translate-x-2/4 translate-y-2/4 origin-[0%_100%]',
         'bottom-end':
-          'bottom-0 right-0 translate-x-2/4 translate-y-2/4 origin-[100%_100%]',
+          'bottom-0 right-0 translate-x-2/4 translate-y-2/4 origin-[100%_100%]'
       },
       colors: {
         default: 'bg-white text-black',
         primary: 'bg-primary text-text-primary',
         secondary: 'bg-secondary text-text-primary',
-        error: 'bg-error text-text-primary',
-      },
+        error: 'bg-error text-text-primary'
+      }
     },
     block: {
       base: 'mb-2.5',
@@ -55,19 +55,19 @@ export const themeV9: ReablocksTheme = {
       endAlign: 'items-end',
       horizontal: {
         base: 'flex flex-row items-baseline',
-        label: 'mr-0.5 whitespace-nowrap',
+        label: 'mr-0.5 whitespace-nowrap'
       },
       vertical: {
         base: 'block',
-        label: 'block mb-0.5',
-      },
+        label: 'block mb-0.5'
+      }
     },
     breadcrumbs: {
       base: '',
       separator: '[&>svg]:size-3.5',
       list: 'flex gap-2 items-center',
       link: 'hover:text-text-primary text-text-secondary transition-colors',
-      activePage: 'text-primary pointer-events-none',
+      activePage: 'text-primary pointer-events-none'
     },
     button: {
       base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-xs font-sans cursor-pointer text-text-primary font-semibold',
@@ -83,85 +83,85 @@ export const themeV9: ReablocksTheme = {
         start: {
           small: 'pr-1',
           medium: 'pr-1',
-          large: 'pr-1',
+          large: 'pr-1'
         },
         end: {
           small: 'pr-1',
           medium: 'pr-1',
-          large: 'pr-1',
+          large: 'pr-1'
         },
         sizes: {
           small: '[&>svg]:w-3 [&>svg]:h-3',
           medium: '[&>svg]:w-4 [&>svg]:h-4',
-          large: '[&>svg]:w-5 [&>svg]:h-5',
-        },
+          large: '[&>svg]:w-5 [&>svg]:h-5'
+        }
       },
       sizes: {
         small: 'text-sm px-2 py-1 leading-[normal]',
         medium: 'text-base px-4 py-2 leading-[normal]',
-        large: 'text-xl px-5 py-2.5 leading-[normal]',
+        large: 'text-xl px-5 py-2.5 leading-[normal]'
       },
       iconSizes: {
         small: 'px-2 py-1',
         medium: 'px-4 py-2',
-        large: 'px-5 py-2.5',
+        large: 'px-5 py-2.5'
       },
       variants: {
         filled:
           'bg-secondary hover:bg-border-secondary-hover border-secondary light:text-gray-100',
         outline: 'border-grey border',
         text: 'border-0',
-        ghost: '',
+        ghost: ''
       },
       colors: {
         default: {
           filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
           outline: 'border-secondary border',
           text: 'text-text-primary',
-          ghost: '',
+          ghost: ''
         },
         primary: {
           filled:
             'bg-primary hover:bg-primary-hover border-primary text-text-primary',
           outline: 'border border-primary',
           text: 'text-primary hover:text-primary-hover',
-          ghost: '',
+          ghost: ''
         },
         secondary: {
           filled: 'bg-secondary hover:bg-secondary-hover text-text-primary!',
           outline: 'border border-secondary',
           text: 'text-secondary hover:text-secondary-hover',
-          ghost: '',
+          ghost: ''
         },
         success: {
           filled:
             'bg-success hover:bg-success-hover border-success text-text-primary',
           outline: 'border border-success',
           text: 'text-success hover:text-success-hover',
-          ghost: '',
+          ghost: ''
         },
         warning: {
           filled:
             'bg-warning hover:bg-warning-hover border-warning text-text-primary',
           outline: 'border border-warning',
           text: 'text-warning hover:text-warning-hover',
-          ghost: '',
+          ghost: ''
         },
         error: {
           filled:
             'bg-error hover:bg-error-hover border-error text-text-primary',
           outline: 'border border-error',
           text: 'text-error hover:text-error-hover',
-          ghost: '',
+          ghost: ''
         },
         destructive: {
           filled:
             'bg-error hover:bg-error-hover border-error text-text-primary',
           outline: 'border border-error',
           text: 'text-error hover:text-error-hover',
-          ghost: '',
-        },
-      },
+          ghost: ''
+        }
+      }
     },
     calendar: {
       base: 'relative overflow-hidden',
@@ -169,7 +169,7 @@ export const themeV9: ReablocksTheme = {
         base: 'flex text-center justify-between mb-2 items-center text-text-secondary',
         prev: 'text-xl leading-4',
         mid: '',
-        next: 'text-xl leading-4',
+        next: 'text-xl leading-4'
       },
       title: 'font-semibold leading-[normal]',
       content: 'flex',
@@ -190,18 +190,18 @@ export const themeV9: ReablocksTheme = {
           ' text-black border-transparent light:text-white light:border-transparent opacity-100',
         hover:
           'rounded-sm bg-primary-active text-black border-transparent light:text-white opacity-100',
-        today: 'rounded-sm border border-panel-accent text-text-primary',
+        today: 'rounded-sm border border-panel-accent text-text-primary'
       },
       months: {
         root: 'grid grid-cols-4 gap-2',
         month:
           'p-1.5 hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white',
-        selected: ' border-transparent text-black light:text-white',
+        selected: ' border-transparent text-black light:text-white'
       },
       years: {
         root: 'grid grid-cols-4 gap-2',
         year: 'p-1.5 hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white',
-        selected: ' border-transparent text-black light:text-white',
+        selected: ' border-transparent text-black light:text-white'
       },
       time: {
         base: 'flex flex-col h-full gap-0',
@@ -215,7 +215,7 @@ export const themeV9: ReablocksTheme = {
           label: 'text-center text-xs text-gray-500',
           list: 'p-0 m-0 list-none',
           scrollbar:
-            'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500',
+            'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500'
         },
         items: {
           wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
@@ -226,9 +226,9 @@ export const themeV9: ReablocksTheme = {
             base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 text-text-secondary hover:bg-primary-hover hover:text-black',
             selected:
               ' bg-blue-500 text-white dark:bg-blue-600 dark:text-white',
-            disabled: 'cursor-not-allowed opacity-50',
-          },
-        },
+            disabled: 'cursor-not-allowed opacity-50'
+          }
+        }
       },
       presets: {
         wrapper: 'bg-panel z-10',
@@ -238,9 +238,9 @@ export const themeV9: ReablocksTheme = {
           'text-sm font-medium my-1 !pr-0 !pl-0 !text-gray-500 dark:text-gray-400',
         item: {
           base: 'text-sm p-1.5 my-0.5 duration-0 hover:text-black dark:hover:bg-primary-hover hover:rounded-sm',
-          active: ' bg-primary text-black rounded-sm',
-        },
-      },
+          active: ' bg-primary text-black rounded-sm'
+        }
+      }
     },
     calendarRange: {
       base: 'relative overflow-hidden',
@@ -248,7 +248,7 @@ export const themeV9: ReablocksTheme = {
         base: 'flex text-center justify-between mb-2 items-center',
         prev: '',
         mid: '',
-        next: '',
+        next: ''
       },
       title: 'font-semibold flex grow justify-around',
       content: 'flex gap-4',
@@ -269,7 +269,7 @@ export const themeV9: ReablocksTheme = {
           ' text-black border-transparent light:text-white light:border-transparent opacity-100',
         hover:
           'rounded-sm bg-primary-active text-black border-transparent light:text-white opacity-100',
-        today: 'rounded-sm border border-panel-accent text-text-primary',
+        today: 'rounded-sm border border-panel-accent text-text-primary'
       },
       presets: {
         wrapper: 'bg-panel z-10',
@@ -279,8 +279,8 @@ export const themeV9: ReablocksTheme = {
           'text-sm font-medium my-1 !pr-0 !pl-0 !text-gray-500 dark:text-gray-400',
         item: {
           base: 'text-sm p-1.5 my-0.5 duration-0 hover:text-black dark:hover:bg-primary-hover hover:rounded-sm',
-          active: ' bg-primary text-black rounded-sm',
-        },
+          active: ' bg-primary text-black rounded-sm'
+        }
       },
       time: {
         base: 'flex flex-col h-full gap-0',
@@ -294,7 +294,7 @@ export const themeV9: ReablocksTheme = {
           label: 'text-center text-xs text-gray-500',
           list: 'p-0 m-0 list-none',
           scrollbar:
-            'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500',
+            'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500'
         },
         items: {
           wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
@@ -305,17 +305,17 @@ export const themeV9: ReablocksTheme = {
             base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 text-text-secondary hover:bg-primary-hover hover:text-black',
             selected:
               ' bg-blue-500 text-white dark:bg-blue-600 dark:text-white',
-            disabled: 'cursor-not-allowed opacity-50',
-          },
-        },
-      },
+            disabled: 'cursor-not-allowed opacity-50'
+          }
+        }
+      }
     },
     card: {
       base: 'relative flex flex-col p-7 rounded-xs bg-panel border border-panel-accent text-text-primary',
       disablePadding: 'p-0',
       header: 'flex items-center',
       headerText: 'text-sm font-medium mt-0 mb-1',
-      content: 'flex-1',
+      content: 'flex-1'
     },
     callout: {
       base: {
@@ -325,8 +325,8 @@ export const themeV9: ReablocksTheme = {
           success: 'bg-success-background border-success',
           error: 'bg-error-background border-error',
           warning: 'bg-warning-background border-warning',
-          info: 'bg-info-background border-info',
-        },
+          info: 'bg-info-background border-info'
+        }
       },
       icon: {
         common: '',
@@ -335,10 +335,10 @@ export const themeV9: ReablocksTheme = {
           success: 'text-success',
           error: 'text-error',
           warning: 'text-warning',
-          info: 'text-info',
-        },
+          info: 'text-info'
+        }
       },
-      text: 'text-base',
+      text: 'text-base'
     },
     checkbox: {
       base: 'inline-flex items-center w-full group',
@@ -352,51 +352,51 @@ export const themeV9: ReablocksTheme = {
         sizes: {
           small: 'text-sm',
           medium: 'text-base',
-          large: 'text-lg',
-        },
+          large: 'text-lg'
+        }
       },
       check: {
         base: 'stroke-white group-hover:stroke-black light:group-hover:stroke-white',
         checked: '',
         disabled:
-          'cursor-not-allowed stroke-black light:stroke-white group-hover:stroke-black ',
+          'cursor-not-allowed stroke-black light:stroke-white group-hover:stroke-black '
       },
       border: {
         base: 'stroke-gray-400 light:stroke-gray-700 dark:group-hover:stroke-blue-300 light:group-hover:stroke-blue-600',
         checked: 'stroke-blue-500',
         disabled:
-          'cursor-not-allowed stroke-gray-500 dark:group-hover:stroke-gray-500 light:group-hover:stroke-gray-400',
+          'cursor-not-allowed stroke-gray-500 dark:group-hover:stroke-gray-500 light:group-hover:stroke-gray-400'
       },
       checkbox: {
         base: 'fill-transparent flex items-center justify-center cursor-pointer focus-visible:outline-hidden border border-surface [&.checked.disabled]:fill-gray-400',
         checked:
           'fill-blue-500 checked group-hover:fill-blue-400 light:group-hover:fill-blue-600 light:group-hover:[&.disabled]:fill-gray-400',
         disabled:
-          'fill-transparent disabled group-hover:transparent light:group-hover:transparent',
+          'fill-transparent disabled group-hover:transparent light:group-hover:transparent'
       },
       sizes: {
         small: '[&>svg]:w-3 [&>svg]:h-3',
         medium: '[&>svg]:w-4 [&>svg]:h-4',
-        large: '[&>svg]:w-5 [&>svg]:h-5',
+        large: '[&>svg]:w-5 [&>svg]:h-5'
       },
       boxVariants: {
         hover: {
           stroke: '',
           fill: '',
-          strokeWidth: 1,
+          strokeWidth: 1
         },
         pressed: {
-          scale: 0.95,
+          scale: 0.95
         },
         checked: {
           stroke: '',
-          fill: '',
+          fill: ''
         },
         unchecked: {
           stroke: '',
-          fill: '',
-        },
-      },
+          fill: ''
+        }
+      }
     },
     chip: {
       types: {
@@ -409,17 +409,17 @@ export const themeV9: ReablocksTheme = {
             sizes: {
               small: '[&>svg]:w-3 [&>svg]:h-3',
               medium: '[&>svg]:w-4 [&>svg]:h-4',
-              large: '[&>svg]:w-5 [&>svg]:h-5',
-            },
+              large: '[&>svg]:w-5 [&>svg]:h-5'
+            }
           },
           sizes: {
             small: 'text-[10px] leading-[inherit] px-1 py-0.5',
             medium: 'text-sm leading-[inherit] px-2 py-0.5',
-            large: 'text-base leading-[inherit] px-3 py-0.5',
+            large: 'text-base leading-[inherit] px-3 py-0.5'
           },
           variants: {
             filled: 'border border-transparent box-border',
-            outline: 'bg-transparent border hover:bg-transparent',
+            outline: 'bg-transparent border hover:bg-transparent'
           },
           colors: {
             default: {
@@ -428,15 +428,15 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-panel border-panel text-text-primary',
                   selectable:
                     'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
-                  selected: 'bg-primary text-panel',
+                  selected: 'bg-primary text-panel'
                 },
                 outline: {
                   base: 'text-text-primary dark:border-gray-100 light:border-gray-900',
                   selected: 'border-panel-accent text-primary',
                   selectable:
-                    'hover:text-primary-hover hover:border-panel-accent',
-                },
-              },
+                    'hover:text-primary-hover hover:border-panel-accent'
+                }
+              }
             },
             primary: {
               variants: {
@@ -444,14 +444,14 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-primary border-primary text-panel',
                   selectable:
                     'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
-                  selected: 'bg-primary-hover',
+                  selected: 'bg-primary-hover'
                 },
                 outline: {
                   base: 'text-primary border-panel-accent',
                   selectable: 'hover:text-primary-hover hover:border-primary',
-                  selected: 'border-primary',
-                },
-              },
+                  selected: 'border-primary'
+                }
+              }
             },
             secondary: {
               variants: {
@@ -459,15 +459,15 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-secondary border-secondary text-text-primary',
                   selectable:
                     'hover:bg-secondary-hover hover:border-secondary-hover hover:text-panel',
-                  selected: 'bg-secondary-hover text-panel',
+                  selected: 'bg-secondary-hover text-panel'
                 },
                 outline: {
                   base: 'text-secondary border-panel-accent',
                   selectable:
                     'hover:text-secondary-hover hover:border-secondary',
-                  selected: 'border-secondary',
-                },
-              },
+                  selected: 'border-secondary'
+                }
+              }
             },
             success: {
               variants: {
@@ -475,14 +475,14 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-success border-success text-panel',
                   selected: 'bg-success-hover',
                   selectable:
-                    'hover:bg-success-hover hover:border-success-hover',
+                    'hover:bg-success-hover hover:border-success-hover'
                 },
                 outline: {
                   base: 'text-success border-panel-accent',
                   selected: 'border-success',
-                  selectable: 'hover:text-success-hover hover:border-success',
-                },
-              },
+                  selectable: 'hover:text-success-hover hover:border-success'
+                }
+              }
             },
             warning: {
               variants: {
@@ -490,14 +490,14 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-warning border-warning text-panel',
                   selectable:
                     'hover:bg-warning-hover hover:border-warning-hover hover:text-panel',
-                  selected: 'bg-warning-hover',
+                  selected: 'bg-warning-hover'
                 },
                 outline: {
                   base: 'text-warning border-panel-accent',
                   selectable: 'hover:text-warning-hover hover:border-warning',
-                  selected: 'border-warning',
-                },
-              },
+                  selected: 'border-warning'
+                }
+              }
             },
             error: {
               variants: {
@@ -505,14 +505,14 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-error border-error text-panel',
                   selectable:
                     'hover:bg-error-hover hover:border-error-hover hover:text-panel',
-                  selected: 'bg-error-hover',
+                  selected: 'bg-error-hover'
                 },
                 outline: {
                   base: 'text-error border-panel-accent',
                   selectable: 'hover:text-error-hover hover:border-error',
-                  selected: 'border-error',
-                },
-              },
+                  selected: 'border-error'
+                }
+              }
             },
             info: {
               variants: {
@@ -520,16 +520,16 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-info border-info text-panel',
                   selectable:
                     'hover:bg-info-hover hover:border-info-hover hover:text-panel',
-                  selected: 'bg-info-hover',
+                  selected: 'bg-info-hover'
                 },
                 outline: {
                   base: 'text-info border-panel-accent',
                   selectable: 'hover:text-info-hover hover:border-info',
-                  selected: 'border-info',
-                },
-              },
-            },
-          },
+                  selected: 'border-info'
+                }
+              }
+            }
+          }
         },
         tag: {
           base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5 rounded-xs leading-none text-white transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium',
@@ -540,17 +540,17 @@ export const themeV9: ReablocksTheme = {
             sizes: {
               small: '[&>svg]:w-3 [&>svg]:h-3',
               medium: '[&>svg]:w-4 [&>svg]:h-4',
-              large: '[&>svg]:w-5 [&>svg]:h-5',
-            },
+              large: '[&>svg]:w-5 [&>svg]:h-5'
+            }
           },
           sizes: {
             small: 'text-[10px] leading-[inherit] px-1 py-0.5',
             medium: 'text-sm leading-[inherit] px-2 py-0.5',
-            large: 'text-base leading-[inherit] px-3 py-0.5',
+            large: 'text-base leading-[inherit] px-3 py-0.5'
           },
           variants: {
             filled: 'border border-transparent box-border',
-            outline: 'bg-transparent border hover:bg-transparent',
+            outline: 'bg-transparent border hover:bg-transparent'
           },
           colors: {
             default: {
@@ -559,15 +559,15 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-panel border-panel text-text-primary',
                   selectable:
                     'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
-                  selected: 'bg-primary text-panel',
+                  selected: 'bg-primary text-panel'
                 },
                 outline: {
                   base: 'text-text-primary dark:border-gray-100 light:border-gray-900',
                   selectable:
                     'hover:text-primary-hover hover:border-panel-accent',
-                  selected: 'border-panel-accent text-primary',
-                },
-              },
+                  selected: 'border-panel-accent text-primary'
+                }
+              }
             },
             primary: {
               variants: {
@@ -575,14 +575,14 @@ export const themeV9: ReablocksTheme = {
                   base: 'text-primary border-panel-accent',
                   selectable:
                     'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
-                  selected: 'bg-primary-hover',
+                  selected: 'bg-primary-hover'
                 },
                 filled: {
                   base: 'bg-primary border-primary text-panel',
                   selectable: 'hover:text-primary-hover hover:border-primary',
-                  selected: 'border-primary',
-                },
-              },
+                  selected: 'border-primary'
+                }
+              }
             },
             secondary: {
               variants: {
@@ -590,15 +590,15 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-secondary border-secondary text-text-primary',
                   selectable:
                     'hover:bg-secondary-hover hover:border-secondary-hover hover:text-panel',
-                  selected: 'bg-secondary-hover text-panel',
+                  selected: 'bg-secondary-hover text-panel'
                 },
                 outline: {
                   base: 'text-secondary border-panel-accent',
                   selectable:
                     'hover:text-secondary-hover hover:border-secondary',
-                  selected: 'border-secondary',
-                },
-              },
+                  selected: 'border-secondary'
+                }
+              }
             },
             success: {
               variants: {
@@ -606,14 +606,14 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-success border-success text-panel',
                   selectable:
                     'hover:bg-success-hover hover:border-success-hover',
-                  selected: 'bg-success-hover',
+                  selected: 'bg-success-hover'
                 },
                 outline: {
                   base: 'text-success border-panel-accent',
                   selectable: 'hover:text-success-hover hover:border-success',
-                  selected: 'border-success',
-                },
-              },
+                  selected: 'border-success'
+                }
+              }
             },
             warning: {
               variants: {
@@ -621,14 +621,14 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-warning border-warning text-panel',
                   selectable:
                     'hover:bg-warning-hover hover:border-warning-hover hover:text-panel',
-                  selected: 'bg-warning-hover',
+                  selected: 'bg-warning-hover'
                 },
                 outline: {
                   base: 'text-warning border-panel-accent',
                   selectable: 'hover:text-warning-hover hover:border-warning',
-                  selected: 'border-warning',
-                },
-              },
+                  selected: 'border-warning'
+                }
+              }
             },
             error: {
               variants: {
@@ -636,14 +636,14 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-error border-error text-panel',
                   selectable:
                     'hover:bg-error-hover hover:border-error-hover hover:text-panel',
-                  selected: 'border-error',
+                  selected: 'border-error'
                 },
                 outline: {
                   base: 'text-error border-panel-accent',
                   selectable: 'hover:text-error-hover hover:border-error',
-                  selected: 'border-error',
-                },
-              },
+                  selected: 'border-error'
+                }
+              }
             },
             info: {
               variants: {
@@ -651,30 +651,30 @@ export const themeV9: ReablocksTheme = {
                   base: 'bg-info border-info text-panel',
                   selectable:
                     'hover:bg-info-hover hover:border-info-hover hover:text-panel',
-                  selected: 'bg-info-hover',
+                  selected: 'bg-info-hover'
                 },
                 outline: {
                   base: 'text-info border-panel-accent',
                   selected: 'hover:text-info-hover hover:border-info',
-                  selectable: 'border-info',
-                },
-              },
-            },
+                  selectable: 'border-info'
+                }
+              }
+            }
           },
           closeButton: {
             base: 'text-inherit',
             sizes: {
               small: 'leading-[10px] max-h-2.5',
               medium: 'leading-3 max-h-3',
-              large: 'leading-[14px] max-h-3.5',
-            },
+              large: 'leading-[14px] max-h-3.5'
+            }
           },
-          disabled: 'opacity-50 cursor-not-allowed',
-        },
-      },
+          disabled: 'opacity-50 cursor-not-allowed'
+        }
+      }
     },
     contextMenu: {
-      enabled: 'cursor-context-menu',
+      enabled: 'cursor-context-menu'
     },
     commandPalette: {
       base: 'w-full border border-panel-accent',
@@ -684,25 +684,25 @@ export const themeV9: ReablocksTheme = {
         base: 'flex w-full items-center border-b-2 bg-panel border-bottom border-panel-accent',
         input:
           'flex-1 border-0 box-border p-2.5 focus-within:outline-hidden focus-visible:outline-hidden bg-panel text-text-primary placeholder:placeholder-accent',
-        icon: 'w-4 h-4 ml-2.5',
+        icon: 'w-4 h-4 ml-2.5'
       },
       item: {
         base: 'transition-colors ease-in-out duration-200',
         active: ' bg-primary text-text-primary',
         clickable:
-          'cursor-pointer hover:bg-primary-hover/70 dark:hover:bg-primary-hover dark:hover:text-white',
+          'cursor-pointer hover:bg-primary-hover/70 dark:hover:bg-primary-hover dark:hover:text-white'
       },
       section: {
         base: ' bg-panel',
-        first: 'pt-2.5',
-      },
+        first: 'pt-2.5'
+      }
     },
     collapse: {
-      base: 'will-change-[height,opacity] overflow-hidden',
+      base: 'will-change-[height,opacity] overflow-hidden'
     },
     dateFormat: {
       base: 'cursor-text',
-      interactive: 'cursor-pointer hover:underline',
+      interactive: 'cursor-pointer hover:underline'
     },
     dateInput: {
       input: {
@@ -719,13 +719,13 @@ export const themeV9: ReablocksTheme = {
         sizes: {
           small: '[&>input]:text-sm p-1 text-sm',
           medium: '[&>input]:text-base px-2.5 py-1.5 text-base',
-          large: '[&>input]:text-lg p-5 text-lg',
+          large: '[&>input]:text-lg p-5 text-lg'
         },
         adornment: {
           base: 'flex items-center justify-center [&>svg]:w-4 [&>svg]:h-4 [&>svg]:current-color text-text-primary',
           start: 'pr-1.5',
-          end: 'pl-1.5',
-        },
+          end: 'pl-1.5'
+        }
       },
       calendar: {
         base: 'relative overflow-hidden',
@@ -733,7 +733,7 @@ export const themeV9: ReablocksTheme = {
           base: 'flex text-center justify-between mb-2 items-center text-text-secondary',
           prev: 'text-xl leading-4',
           mid: '',
-          next: 'text-xl leading-4',
+          next: 'text-xl leading-4'
         },
         title: 'font-semibold leading-[normal]',
         content: 'flex',
@@ -754,18 +754,18 @@ export const themeV9: ReablocksTheme = {
             ' text-black border-transparent light:text-white light:border-transparent opacity-100',
           hover:
             'rounded-sm bg-primary-active text-black border-transparent light:text-white opacity-100',
-          today: 'rounded-sm border border-panel-accent text-text-primary',
+          today: 'rounded-sm border border-panel-accent text-text-primary'
         },
         months: {
           root: 'grid grid-cols-4 gap-2',
           month:
             'p-1.5 hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white',
-          selected: ' border-transparent text-black light:text-white',
+          selected: ' border-transparent text-black light:text-white'
         },
         years: {
           root: 'grid grid-cols-4 gap-2',
           year: 'p-1.5 hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white',
-          selected: ' border-transparent text-black light:text-white',
+          selected: ' border-transparent text-black light:text-white'
         },
         time: {
           base: 'flex flex-col h-full gap-0',
@@ -779,7 +779,7 @@ export const themeV9: ReablocksTheme = {
             label: 'text-center text-xs text-gray-500',
             list: 'p-0 m-0 list-none',
             scrollbar:
-              'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500',
+              'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500'
           },
           items: {
             wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
@@ -790,9 +790,9 @@ export const themeV9: ReablocksTheme = {
               base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 text-text-secondary hover:bg-primary-hover hover:text-black',
               selected:
                 ' bg-blue-500 text-white dark:bg-blue-600 dark:text-white',
-              disabled: 'cursor-not-allowed opacity-50',
-            },
-          },
+              disabled: 'cursor-not-allowed opacity-50'
+            }
+          }
         },
         presets: {
           wrapper: 'bg-panel z-10',
@@ -802,17 +802,17 @@ export const themeV9: ReablocksTheme = {
             'text-sm font-medium my-1 !pr-0 !pl-0 !text-gray-500 dark:text-gray-400',
           item: {
             base: 'text-sm p-1.5 my-0.5 duration-0 hover:text-black dark:hover:bg-primary-hover hover:rounded-sm',
-            active: ' bg-primary text-black rounded-sm',
-          },
-        },
+            active: ' bg-primary text-black rounded-sm'
+          }
+        }
       },
       preset: {
         list: 'w-full border border-panel-accent',
         option: {
           base: 'hover:bg-vulcan hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-secondary',
-          active: 'bg-vulcan hover:text-mystic',
-        },
-      },
+          active: 'bg-vulcan hover:text-mystic'
+        }
+      }
     },
     dialog: {
       base: 'justify-center items-center flex pointer-events-none top-0 left-0 w-full h-full fixed will-change-transform will-change-opacity',
@@ -824,21 +824,20 @@ export const themeV9: ReablocksTheme = {
         base: 'flex justify-between pt-[20px] px-[20px] pb-[10px]',
         text: 'flex-1 m-0 p-0 inline-flex text-3xl font-bold',
         closeButton:
-          'p-0 m-0 ml-[15px] opacity-80 h-auto w-auto inline-flex bg-none border-none cursor-pointer items-center text-[16px] focus:outline-hidden text-text-primary',
-      },
+          'p-0 m-0 ml-[15px] opacity-80 h-auto w-auto inline-flex bg-none border-none cursor-pointer items-center text-[16px] focus:outline-hidden text-text-primary'
+      }
     },
     divider: {
       base: 'border-none',
       orientation: {
         horizontal: 'h-px w-full my-2.5',
-        vertical: 'w-px h-full mx-2.5',
+        vertical: 'w-px h-full mx-2.5'
       },
       variant: {
         primary: 'bg-surface',
-        secondary:
-          'bg-linear-to-r from-transparent to-transparent via-blue-500',
+        secondary: 'bg-linear-to-r from-transparent to-transparent via-blue-500'
       },
-      disableMargins: 'my-0 mx-0',
+      disableMargins: 'my-0 mx-0'
     },
     dotsLoader: {
       base: 'flex',
@@ -846,30 +845,30 @@ export const themeV9: ReablocksTheme = {
       sizes: {
         small: 'w-1 h-1 m-1',
         medium: 'w-1.5 h-1.5 m-1.5',
-        large: 'w-2 h-2 m-2',
-      },
+        large: 'w-2 h-2 m-2'
+      }
     },
     drawer: {
       base: 'fixed overflow-y-auto overflow-x-hidden bg-panel text-text-primary',
       header: {
         base: 'flex items-center justify-between px-8 py-5 text-3xl font-bold',
-        text: 'flex-1 m-0',
+        text: 'flex-1 m-0'
       },
       content: 'px-8 py-5',
       disablePadding: 'p-0',
       closeButton: {
         base: 'opacity-80 h-auto w-auto min-w-[auto] min-h-[auto] cursor-pointer text-base p-0 border-0 focus:outline-hidden',
-        headerless: 'absolute right-5 top-5',
+        headerless: 'absolute right-5 top-5'
       },
       positions: {
         top: 'w-full inset-x-0 top-0',
         end: 'h-full inset-y-0 right-0',
         bottom: 'w-full inset-x-0 bottom-0',
-        start: 'h-full inset-y-0 left-0',
-      },
+        start: 'h-full inset-y-0 left-0'
+      }
     },
     ellipsis: {
-      dots: 'cursor-pointer opacity-50 text-[unset] p-0 border-[none] outline-hidden',
+      dots: 'cursor-pointer opacity-50 text-[unset] p-0 border-[none] outline-hidden'
     },
     input: {
       base: 'flex relative flex-row items-center flex-nowrap box-border transition-colors rounded-xs bg-panel border border-panel-accent text-text-primary hover:border-panel-accent light:hover:border-panel-accent hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#242433_100%)] light:hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#E6E6F0_100%)] hover:after:content-[""] hover:after:absolute hover:after:mx-1 hover:after:h-px after:z-2 hover:after:rounded-sm hover:after:-bottom-[1px] hover:after:inset-x-0.5',
@@ -885,13 +884,13 @@ export const themeV9: ReablocksTheme = {
       sizes: {
         small: '[&>input]:text-sm p-1 text-sm',
         medium: '[&>input]:text-base px-2.5 py-1.5 text-base',
-        large: '[&>input]:text-lg p-5 text-lg',
+        large: '[&>input]:text-lg p-5 text-lg'
       },
       adornment: {
         base: 'flex items-center justify-center [&>svg]:w-4 [&>svg]:h-4 [&>svg]:current-color text-text-primary',
         start: 'pr-1.5',
-        end: 'pl-1.5',
-      },
+        end: 'pl-1.5'
+      }
     },
     jsonTree: {
       node: {
@@ -899,13 +898,13 @@ export const themeV9: ReablocksTheme = {
         delimiter: 'pr-1',
         symbol: 'px-1 opacity-50 font-mono',
         value: '',
-        count: 'opacity-50',
+        count: 'opacity-50'
       },
-      pager: 'opacity-50 cursor-pointer pl-4',
+      pager: 'opacity-50 cursor-pointer pl-4'
     },
     kbd: {
       base: 'inline-flex gap-1 items-center',
-      chip: 'whitespace-nowrap rounded-sm font-mono',
+      chip: 'whitespace-nowrap rounded-sm font-mono'
     },
     list: {
       base: 'flex flex-col text-text-primary',
@@ -923,20 +922,20 @@ export const themeV9: ReablocksTheme = {
           base: 'p-1',
           content: '',
           startAdornment: 'pr-[calc(5/2)]',
-          endAdornment: 'pl-[calc(5/2)]',
+          endAdornment: 'pl-[calc(5/2)]'
         },
         adornment: {
           base: 'items-center flex',
           start: 'pr-1',
           end: 'pl-1',
-          svg: 'fill-current',
+          svg: 'fill-current'
         },
-        content: 'overflow-wrap break-word word-wrap break-all flex-1',
-      },
+        content: 'overflow-wrap break-word word-wrap break-all flex-1'
+      }
     },
     menu: {
       base: 'relative min-w-[112px] max-w-[500px] p-px',
-      inner: 'focus:outline-hidden text-text-primary bg-panel',
+      inner: 'focus:outline-hidden text-text-primary bg-panel'
     },
     notification: {
       container: '',
@@ -947,24 +946,24 @@ export const themeV9: ReablocksTheme = {
         variants: {
           default: {
             base: '',
-            icon: '',
+            icon: ''
           },
           success: {
             base: 'bg-success-background border border-success',
-            icon: 'text-success h-4 w-4',
+            icon: 'text-success h-4 w-4'
           },
           error: {
             base: 'bg-error-background border border-error',
-            icon: 'text-error h-4 w-4',
+            icon: 'text-error h-4 w-4'
           },
           warning: {
             base: 'bg-warning-background border border-warning',
-            icon: 'text-warning h-4 w-4',
+            icon: 'text-warning h-4 w-4'
           },
           info: {
             base: 'bg-info-background border border-info',
-            icon: 'text-info h-4 w-4',
-          },
+            icon: 'text-info h-4 w-4'
+          }
         },
         content: 'inline-flex items-start flex-1 flex-col justify-center',
         header: 'text-base flex gap-2 items-center',
@@ -972,8 +971,8 @@ export const themeV9: ReablocksTheme = {
         action: 'ml-auto mr-2 items-center flex',
         closeButton:
           'cursor-pointer text-sm font-semibold m-0 border-0 text-text-primary hover:text-text-primary/70',
-        body: 'opacity-70 text-sm mt-1',
-      },
+        body: 'opacity-70 text-sm mt-1'
+      }
     },
     navigation: {
       bar: {
@@ -983,11 +982,11 @@ export const themeV9: ReablocksTheme = {
         `,
         direction: {
           vertical: 'flex-col ',
-          horizontal: 'flex-row border-none pb-0',
+          horizontal: 'flex-row border-none pb-0'
         },
         start: 'pt-4',
         navigation: 'flex-1 flex flex-col gap-2',
-        end: '',
+        end: ''
       },
       button: {
         base: 'group relative',
@@ -1014,7 +1013,7 @@ export const themeV9: ReablocksTheme = {
             disabled: `
               opacity-40 cursor-not-allowed font-normal text-navigation-colors-text-resting bg-transparent border-transparent
               hover:text-navigation-colors-text-resting hover:bg-transparent hover:border-transparent
-            `,
+            `
           },
           underline: {
             content: `
@@ -1036,10 +1035,10 @@ export const themeV9: ReablocksTheme = {
             disabled: `
               opacity-40 cursor-not-allowed font-normal text-navigation-colors-text-resting bg-transparent border-transparent
               hover:text-navigation-colors-text-resting hover:bg-transparent hover:border-transparent
-            `,
-          },
-        },
-      },
+            `
+          }
+        }
+      }
     },
     pager: {
       base: 'items-center flex user-select-none',
@@ -1047,8 +1046,8 @@ export const themeV9: ReablocksTheme = {
         base: 'inline-flex',
         page: {
           base: 'py-1 text-slate-500',
-          active: 'font-bold text-text-primary!',
-        },
+          active: 'font-bold text-text-primary!'
+        }
       },
       ellipsis: 'cursor-pointer',
       pagerDisplayItems: 'mr-1.5 text-slate-500',
@@ -1060,18 +1059,18 @@ export const themeV9: ReablocksTheme = {
       firstPage: '',
       prevPage: '',
       lastPage: '',
-      nextPage: '',
+      nextPage: ''
     },
     popover: {
       base: 'whitespace-nowrap text-center will-change-[transform,opacity] p-1.5 rounded-sm bg-panel text-text-primary',
-      disablePadding: 'p-0',
+      disablePadding: 'p-0'
     },
     radio: {
       base: 'box-border leading-none group',
       radio: {
         base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-[100%] bg-transparent border cursor-pointer border-surface group-hover:border-primary-hover hover:border-primary-hover',
         disabled: 'cursor-not-allowed border-secondary-inactive!',
-        checked: ' border-primary-active group-hover:border-primary-hover',
+        checked: ' border-primary-active group-hover:border-primary-hover'
       },
       indicator: {
         base: 'rounded-[100%] bg-primary group-hover:bg-primary-hover',
@@ -1079,20 +1078,20 @@ export const themeV9: ReablocksTheme = {
         sizes: {
           small: 'w-2 h-2',
           medium: 'w-2.5 h-2.5',
-          large: 'w-3.5 h-3.5',
-        },
+          large: 'w-3.5 h-3.5'
+        }
       },
       label: {
         base: 'w-full align-middle ml-2.5 text-text-secondary',
         clickable: 'cursor-pointer hover:text-blue-300',
         disabled: 'cursor-not-allowed text-secondary-inactive/40!',
-        checked: ' text-text-primary',
+        checked: ' text-text-primary'
       },
       sizes: {
         small: 'w-3 h-3',
         medium: 'w-4 h-4',
-        large: 'w-5 h-5',
-      },
+        large: 'w-5 h-5'
+      }
     },
     range: {
       base: 'relative box-border w-full h-0.5 bg-surface light:bg-gray-200',
@@ -1100,20 +1099,20 @@ export const themeV9: ReablocksTheme = {
       inputWrapper: {
         base: 'cursor-pointer inline-block relative h-full w-full rounded-full bg-primary-active hover:bg-primary-hover shadow-[0px_4px_4px_0px_rgba(0,0,0,0.20)]',
         disabled:
-          'cursor-not-allowed bg-secondary-inactive hover:bg-secondary-inactive',
+          'cursor-not-allowed bg-secondary-inactive hover:bg-secondary-inactive'
       },
       rangeHighlight: {
         base: 'pointer-events-none h-0.5 bg-primary-active',
-        disabled: 'cursor-not-allowed bg-secondary-inactive',
+        disabled: 'cursor-not-allowed bg-secondary-inactive'
       },
       disabled: 'cursor-not-allowed',
       input: 'absolute left-[-9999px]',
       tooltip:
-        'absolute top-[-45px] whitespace-nowrap text-center left-2/4 rounded-lg p-2.5 text-text-primary bg-surface',
+        'absolute top-[-45px] whitespace-nowrap text-center left-2/4 rounded-lg p-2.5 text-text-primary bg-surface'
     },
     redact: {
       base: 'cursor-text text-text-primary',
-      interactive: 'cursor-pointer hover:underline',
+      interactive: 'cursor-pointer hover:underline'
     },
     sort: {
       base: 'cursor-pointer select-none flex items-center relative text-text-primary',
@@ -1121,8 +1120,8 @@ export const themeV9: ReablocksTheme = {
       hasValue: 'cursor-not-allowed',
       icon: {
         base: 'w-4 h-4 align-middle mx-1.5 fill-current',
-        ascending: 'rotate-180',
-      },
+        ascending: 'rotate-180'
+      }
     },
     select: {
       selectInput: {
@@ -1140,7 +1139,7 @@ export const themeV9: ReablocksTheme = {
           refresh: 'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-text-secondary',
           loader: 'mr-2.5',
           close: 'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-text-secondary',
-          expand: '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-text-secondary',
+          expand: '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-text-secondary'
         },
         disabled:
           'cursor-not-allowed text-disabled hover:after:content-none text-text-secondary/40 border-surface light:hover:border-surface',
@@ -1150,11 +1149,11 @@ export const themeV9: ReablocksTheme = {
         single: {
           prefix: 'overflow-hidden whitespace-nowrap text-ellipsis max-w-full',
           inputContainer: 'flex-nowrap',
-          input: 'max-w-full',
+          input: 'max-w-full'
         },
         multiple: {
           prefix: 'contents',
-          inputContainer: 'flex-wrap',
+          inputContainer: 'flex-wrap'
         },
         chip: {
           base: 'cursor-pointer flex text-sm leading-none box-border mr-1 px-1 py-1 rounded-sm border-solid border-transparent [&>svg]:fill-text-primary [&>svg]:disabled:fill-text-secondary/40',
@@ -1163,13 +1162,13 @@ export const themeV9: ReablocksTheme = {
             'focused:border-transparent focused:outline-none border-panel-accent',
           disabled: 'disabled:cursor-not-allowed',
           removeButton:
-            'cursor-pointer leading-0 ml-1 p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none [&>svg]:fill-text-primary [&>svg]:disabled:fill-text-secondary/40',
+            'cursor-pointer leading-0 ml-1 p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none [&>svg]:fill-text-primary [&>svg]:disabled:fill-text-secondary/40'
         },
         size: {
           small: 'py-1 px-2 text-sm min-h-8',
           medium: 'py-2 px-3 text-base min-h-[35px]',
-          large: 'py-2 px-3 text-lg min-h-[42px]',
-        },
+          large: 'py-2 px-3 text-lg min-h-[42px]'
+        }
       },
       selectMenu: {
         base: 'border border-solid rounded-b-md text-center will-change-[transform,opacity] min-w-[112px] max-h-[300px] overflow-y-auto text-left box-border bg-panel text-text-primary border-panel-accent border-t-transparent',
@@ -1179,8 +1178,8 @@ export const themeV9: ReablocksTheme = {
           size: {
             small: 'px-2.5 text-sm',
             medium: 'px-3 text-sm',
-            large: 'px-3.5 text-base',
-          },
+            large: 'px-3.5 text-base'
+          }
         },
         option: {
           base: 'flex-1 whitespace-break-spaces break-words py-1.5 px-2.5 text-text-secondary ',
@@ -1190,14 +1189,14 @@ export const themeV9: ReablocksTheme = {
           active: ' bg-vulcan hover:text-mystic',
           disabled: '',
           checkIcon: 'ml-1',
-          content: 'flex flex-row justify-between',
+          content: 'flex flex-row justify-between'
         },
         size: {
           small: 'px-2.5 py-1.5 text-sm',
           medium: 'px-4 py-2 text-base',
-          large: 'px-5 py-3 text-lg',
-        },
-      },
+          large: 'px-5 py-3 text-lg'
+        }
+      }
     },
     stack: {
       base: 'flex items-center gap-2.5 text-text-primary',
@@ -1207,20 +1206,20 @@ export const themeV9: ReablocksTheme = {
         row: 'flex-row',
         column: 'flex-col',
         rowReverse: 'flex-row-reverse',
-        columnReverse: 'flex-col-reverse',
+        columnReverse: 'flex-col-reverse'
       },
       alignItems: {
         start: 'items-start',
         end: 'items-end',
         center: 'items-center',
-        stretch: 'items-stretch',
+        stretch: 'items-stretch'
       },
       justifyContent: {
         start: 'justify-start',
         end: 'justify-end',
         center: 'justify-center',
-        spaceBetween: 'justify-between',
-      },
+        spaceBetween: 'justify-between'
+      }
     },
     stepper: {
       base: 'grid grid-cols-[min-content_1fr] gap-x-3',
@@ -1228,7 +1227,7 @@ export const themeV9: ReablocksTheme = {
         base: {
           common: 'border-l border-solid border-panel-accent translate-x-1/2',
           dot: '',
-          circle: '',
+          circle: ''
         },
         marker: {
           base: 'rounded-full w-[9px] h-[9px] bg-surface',
@@ -1236,17 +1235,17 @@ export const themeV9: ReablocksTheme = {
             common:
               'w-max pt-1 pb-0.5 backdrop-blur-md -translate-x-[calc(50%+0.5px)]',
             dot: '',
-            circle: '',
+            circle: ''
           },
           active: 'bg-info',
           label: {
             base: 'flex flex-row items-center gap-1 border border-solid border-surface px-3 py-1 rounded-[20px]',
-            active: 'border-info bg-info-background',
-          },
+            active: 'border-info bg-info-background'
+          }
         },
         active: 'border-primary',
-        content: 'pb-6',
-      },
+        content: 'pb-6'
+      }
     },
     tabs: {
       base: 'flex flex-col',
@@ -1257,18 +1256,18 @@ export const themeV9: ReablocksTheme = {
           size: {
             small: 'h-0.5',
             medium: 'h-0.5',
-            large: 'h-1',
-          },
+            large: 'h-1'
+          }
         },
         divider: 'w-full h-px border-0',
         variant: {
           primary: {
-            divider: 'bg-surface',
+            divider: 'bg-surface'
           },
           secondary: {
             divider:
-              'bg-linear-to-r from-transparent to-transparent via-primary',
-          },
+              'bg-linear-to-r from-transparent to-transparent via-primary'
+          }
         },
         tab: {
           base: 'relative',
@@ -1279,11 +1278,11 @@ export const themeV9: ReablocksTheme = {
           size: {
             small: 'pb-1 text-sm',
             medium: 'pb-2 text-lg',
-            large: 'pb-4 text-xl',
-          },
-        },
+            large: 'pb-4 text-xl'
+          }
+        }
       },
-      panel: 'mt-2',
+      panel: 'mt-2'
     },
     textarea: {
       input:
@@ -1296,8 +1295,8 @@ export const themeV9: ReablocksTheme = {
       sizes: {
         small: '[&>input]:text-sm p-1 text-sm',
         medium: '[&>input]:text-base px-2.5 py-1.5 text-base',
-        large: '[&>input]:text-lg p-5 text-lg',
-      },
+        large: '[&>input]:text-lg p-5 text-lg'
+      }
     },
     toggle: {
       base: 'flex items-center justify-start cursor-pointer bg-surface box-border border border-panel-accent rounded-full hover:bg-primary-hover transition-[background-color] ease-in-out duration-300',
@@ -1310,20 +1309,20 @@ export const themeV9: ReablocksTheme = {
         sizes: {
           small: 'w-3 h-full',
           medium: 'w-5 h-full',
-          large: 'w-6 h-full',
+          large: 'w-6 h-full'
         },
         disabled: 'bg-secondary-inactive light:bg-gray-400',
-        disabledAndChecked: 'bg-black light:bg-white',
+        disabledAndChecked: 'bg-black light:bg-white'
       },
       sizes: {
         small: 'w-8 h-4 p-px',
         medium: 'w-12 h-6 p-px',
-        large: 'w-16 h-7 p-px',
-      },
+        large: 'w-16 h-7 p-px'
+      }
     },
     tooltip: {
       base: 'whitespace-nowrap text-center will-change-[transform,opacity] p-1.5 rounded-sm bg-panel-accent text-text-primary',
-      disablePointer: 'pointer-events-none',
+      disablePointer: 'pointer-events-none'
     },
     tree: {
       base: 'relative m-0 p-0 list-none',
@@ -1337,17 +1336,17 @@ export const themeV9: ReablocksTheme = {
         label: '',
         button: {
           base: 'min-w-[auto] min-h-[auto] w-auto h-auto transition-transform duration-100 ease-in-out ml-0 mr-1 my-0 p-0',
-          icon: 'align-middle block h-2 w-2 m-0.5 fill-text-primary',
-        },
+          icon: 'align-middle block h-2 w-2 m-0.5 fill-text-primary'
+        }
       },
       nodeBlock: 'flex items-center',
-      subtree: 'relative ml-5 mr-0 mt-1 mb-0 p-0',
+      subtree: 'relative ml-5 mr-0 mt-1 mb-0 p-0'
     },
     typography: {
       base: '',
       color: {
         primary: 'text-primary',
-        secondary: 'text-secondary',
+        secondary: 'text-secondary'
       },
       weight: {
         thin: 'font-thin',
@@ -1358,52 +1357,52 @@ export const themeV9: ReablocksTheme = {
         semibold: 'font-semibold',
         bold: 'font-bold',
         extrabold: 'font-extrabold',
-        black: 'font-black',
+        black: 'font-black'
       },
       variant: {
         h1: {
-          base: 'font-sans text-5xl font-normal leading-12',
+          base: 'font-sans text-5xl font-normal leading-12'
         },
         h2: {
-          base: 'font-sans text-4xl font-normal leading-9',
+          base: 'font-sans text-4xl font-normal leading-9'
         },
         h3: {
-          base: 'font-sans text-3xl font-normal leading-8',
+          base: 'font-sans text-3xl font-normal leading-8'
         },
         h4: {
-          base: 'font-sans text-2xl font-normal leading-7',
+          base: 'font-sans text-2xl font-normal leading-7'
         },
         h5: {
-          base: 'font-sans text-xl font-normal leading-6',
+          base: 'font-sans text-xl font-normal leading-6'
         },
         h6: {
-          base: 'font-sans text-lg font-normal leading-6',
+          base: 'font-sans text-lg font-normal leading-6'
         },
         body: {
           base: 'font-serif text-base font-normal leading-4.5',
           size: {
             large: 'text-lg leading-6',
-            small: 'text-sm leading-3.5',
-          },
+            small: 'text-sm leading-3.5'
+          }
         },
         button: {
           base: 'font-serif text-base font-semibold leading-4.5',
           size: {
             large: 'text-lg leading-6',
-            small: 'text-sm leading-3.5',
-          },
+            small: 'text-sm leading-3.5'
+          }
         },
         label: {
           base: 'font-serif text-sm font-semibold leading-3',
           size: {
             large: 'text-md leading-3.5',
-            small: 'text-xs',
-          },
+            small: 'text-xs'
+          }
         },
         monospace: {
-          base: 'font-mono font-medium text-xs leading-3',
-        },
-      },
+          base: 'font-mono font-medium text-xs leading-3'
+        }
+      }
     },
     typography_deprecated: {
       base: '',
@@ -1411,7 +1410,7 @@ export const themeV9: ReablocksTheme = {
         thin: 'font-thin',
         bold: 'font-semibold',
         extraBold: 'font-extrabold',
-        italic: 'italic',
+        italic: 'italic'
       },
       variant: {},
       colors: {
@@ -1420,14 +1419,14 @@ export const themeV9: ReablocksTheme = {
         success: 'text-success',
         warning: 'text-warning',
         error: 'text-error',
-        info: 'text-info',
+        info: 'text-info'
       },
       sub: 'text-sm font-semibold mb-0.5',
       smallHeading: 'text-base font-normal mb-1',
       secondaryHeading: 'text-3xl font-normal mb-1',
       primaryHeading: 'text-3xl font-extrabold mb-1',
       pageTitle: 'text-[40px] font-semibold mb-5',
-      disableMargins: 'm-0',
+      disableMargins: 'm-0'
     },
     verticalSpacer: {
       base: '',
@@ -1437,8 +1436,8 @@ export const themeV9: ReablocksTheme = {
         md: 'h-2.5',
         lg: 'h-5',
         xl: 'h-6',
-        xxl: 'h-8',
-      },
-    },
-  },
+        xxl: 'h-8'
+      }
+    }
+  }
 };

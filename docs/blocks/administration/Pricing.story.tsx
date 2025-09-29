@@ -20,12 +20,12 @@ import {
   MotionGroup,
   MotionItem,
   Stack,
-  VerticalSpacer,
+  VerticalSpacer
 } from '../../../src/layout';
 import { cn } from '../../../src/utils/Theme/helpers';
 
 export default {
-  title: 'Blocks/Administration/Pricing',
+  title: 'Blocks/Administration/Pricing'
 };
 
 const CheckIcon = () => (
@@ -51,7 +51,7 @@ export const Pricing = () => {
       <MotionItem>
         <Card
           className={cn('w-full h-[515px] rounded-sm transition-colors p-7', {
-            'bg-gradient-brand-100': selected === 'free',
+            'bg-gradient-brand-100': selected === 'free'
           })}
           contentClassName="w-full h-full"
         >
@@ -117,7 +117,7 @@ export const Pricing = () => {
       <MotionItem>
         <Card
           className={cn('w-full h-[515px] rounded-sm transition-colors p-7', {
-            'bg-gradient-brand-100': selected === 'starter',
+            'bg-gradient-brand-100': selected === 'starter'
           })}
           contentClassName="w-full h-full"
         >
@@ -191,7 +191,7 @@ export const Pricing = () => {
       <MotionItem>
         <Card
           className={cn('w-full h-[515px] rounded-sm transition-colors p-7', {
-            'bg-gradient-brand-100': selected === 'custom',
+            'bg-gradient-brand-100': selected === 'custom'
           })}
           contentClassName="w-full h-full"
         >
@@ -296,7 +296,7 @@ export const PricingFull = () => {
           <Button
             className={cn({
               'bg-buttons-colors-core-icon-primary-background-hover':
-                cycle === 'Monthly',
+                cycle === 'Monthly'
             })}
             onClick={() => setCycle('Monthly')}
           >
@@ -305,7 +305,7 @@ export const PricingFull = () => {
           <Button
             className={cn({
               'bg-buttons-colors-core-icon-primary-background-hover':
-                cycle === 'Yearly',
+                cycle === 'Yearly'
             })}
             onClick={() => setCycle('Yearly')}
           >
@@ -615,7 +615,7 @@ export const PricingMinimal = () => {
               <Card
                 className={cn('px-5 py-7', {
                   'border-solid border-transparent rounded-sm dark:[border-image:linear-gradient(to_top_right,#2F6AFF,#0B0B11)_10] light:[border-image:linear-gradient(to_top_right,#105EFF,#F7F7FA)_10] bg-background-brand-5':
-                    isFree,
+                    isFree
                 })}
               >
                 <Stack>
@@ -661,7 +661,7 @@ export const PricingMinimal = () => {
               <Card
                 className={cn('px-5 py-7', {
                   'border-solid border-transparent dark:[border-image:linear-gradient(to_top_right,#2F6AFF,#0B0B11)_10] light:[border-image:linear-gradient(to_top_right,#105EFF,#F7F7FA)_10] bg-background-brand-5':
-                    !isFree,
+                    !isFree
                 })}
               >
                 <Stack>

@@ -47,7 +47,7 @@ export const InlineInput: FC<InlineInputProps & InlineInputRef> = forwardRef<
       theme: customTheme,
       ...props
     },
-    ref: Ref<HTMLInputElement>,
+    ref: Ref<HTMLInputElement>
   ) => {
     const theme: InputTheme = useComponentTheme('input', customTheme);
 
@@ -72,10 +72,10 @@ export const InlineInput: FC<InlineInputProps & InlineInputRef> = forwardRef<
           className={cn(
             'border-none bg-transparent focus:outline-hidden',
             theme.inline,
-            inputClassName,
+            inputClassName
           )}
         />
       </div>
     );
-  },
+  }
 );

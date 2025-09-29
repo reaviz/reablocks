@@ -7,8 +7,8 @@ export default {
   title: 'Components/Layout/Motion',
   component: MotionGroup,
   subcomponents: {
-    MotionItem,
-  },
+    MotionItem
+  }
 };
 
 export const Simple = () => (

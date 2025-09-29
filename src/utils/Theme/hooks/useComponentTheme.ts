@@ -10,7 +10,7 @@ import { useTheme } from './useTheme';
  */
 export const useComponentTheme = <T extends object>(
   component: keyof ReablocksTheme['components'],
-  customTheme?: T,
+  customTheme?: T
 ): T => {
   const context = useTheme();
 

@@ -4,7 +4,7 @@ import type {
   MotionProps,
   TargetAndTransition,
   Transition,
-  VariantLabels,
+  VariantLabels
 } from 'motion/react';
 import { motion } from 'motion/react';
 import type { FC, ReactElement } from 'react';
@@ -130,7 +130,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
 
   const style = {
     width: position === 'start' || position === 'end' ? size : 'auto',
-    height: position === 'top' || position === 'bottom' ? size : 'auto',
+    height: position === 'top' || position === 'bottom' ? size : 'auto'
   };
 
   const theme: DrawerTheme = useComponentTheme('drawer', customTheme);
@@ -149,7 +149,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
           focusTrapOptions={{
             clickOutsideDeactivates: true,
             escapeDeactivates: true,
-            fallbackFocus: `#${id}`,
+            fallbackFocus: `#${id}`
           }}
         >
           <div id={id} tabIndex={-1}>
@@ -161,14 +161,14 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
               transition={{
                 duration: 0.5,
                 ease: [0.04, 0.62, 0.23, 0.98],
-                when: 'beforeChildren',
+                when: 'beforeChildren'
               }}
               style={{ ...style, zIndex: overlayIndex }}
               className={twMerge(
                 theme.base,
                 theme.positions[position],
                 disablePadding && theme.disablePadding,
-                className,
+                className
               )}
               {...(animation ? animation : rest)}
               onAnimationComplete={() => {
@@ -192,7 +192,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                   type="button"
                   className={twMerge(
                     theme.closeButton.base,
-                    theme.closeButton.headerless,
+                    theme.closeButton.headerless
                   )}
                   onClick={onClose}
                 >

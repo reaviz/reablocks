@@ -5,7 +5,7 @@ import { AvatarGroup } from './AvatarGroup';
 
 export default {
   title: 'Components/Elements/Avatar Group',
-  component: AvatarGroup,
+  component: AvatarGroup
 };
 
 export const Basic = () => (

@@ -7,7 +7,7 @@ import { ContextMenu } from './ContextMenu';
 
 export default {
   title: 'Components/Layers/Context Menu',
-  component: ContextMenu,
+  component: ContextMenu
 };
 
 export const Simple = () => (

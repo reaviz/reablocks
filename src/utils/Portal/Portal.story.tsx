@@ -7,7 +7,7 @@ import { Portal } from './Portal';
 
 const meta: Meta<typeof Portal> = {
   title: 'Components/Utils/Portal',
-  component: Portal,
+  component: Portal
 };
 
 type Story = StoryObj<typeof Portal>;
@@ -44,7 +44,7 @@ export const Simple: Story = {
               border: 'solid 2px red',
               padding: 50,
               position: 'relative',
-              overflow: 'hidden',
+              overflow: 'hidden'
             }}
           >
             Inside
@@ -53,7 +53,7 @@ export const Simple: Story = {
         )}
       </div>
     );
-  },
+  }
 };
 
 export default meta;

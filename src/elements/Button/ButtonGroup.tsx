@@ -20,14 +20,14 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({
   children,
   className,
   variant,
-  size,
+  size
 }) => {
   const values: ButtonGroupContextProps = useMemo(
     () => ({
       variant: variant || 'filled',
-      size: size || 'medium',
+      size: size || 'medium'
     }),
-    [size, variant],
+    [size, variant]
   );
 
   return (

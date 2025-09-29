@@ -51,7 +51,7 @@ export const Redact: FC<RedactProps> = ({
   className,
   character = '*',
   value,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const [visible, setVisible] = useState<boolean>(false);
   const masked = useMemo(
@@ -60,9 +60,9 @@ export const Redact: FC<RedactProps> = ({
         keepLeft: 1,
         keepRight: 1,
         compactTo: compactLength,
-        char: character,
+        char: character
       }) || '',
-    [value, character, compactLength],
+    [value, character, compactLength]
   );
 
   const theme: RedactTheme = useComponentTheme('redact', customTheme);
@@ -74,7 +74,7 @@ export const Redact: FC<RedactProps> = ({
       className={twMerge(
         theme.base,
         allowToggle && theme.interactive,
-        className,
+        className
       )}
       onClick={() => allowToggle && setVisible(!visible)}
     >

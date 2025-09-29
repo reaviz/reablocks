@@ -15,8 +15,8 @@ const meta: Meta<typeof ConfirmDialog> = {
     confirmLabel: { control: 'text' },
     cancelLabel: { control: 'text' },
     onConfirm: { action: 'confirmed' },
-    onCancel: { action: 'cancelled' },
-  },
+    onCancel: { action: 'cancelled' }
+  }
 };
 
 export default meta;
@@ -36,7 +36,7 @@ export const Default: Story = {
         }
         setIsOpen(false);
       },
-      [args, setIsOpen],
+      [args, setIsOpen]
     );
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -47,7 +47,7 @@ export const Default: Story = {
         }
         setIsOpen(false);
       },
-      [args, setIsOpen],
+      [args, setIsOpen]
     );
 
     return (
@@ -72,6 +72,6 @@ export const Default: Story = {
     header: 'Confirm Action',
     content: 'Are you sure you want to proceed?',
     confirmLabel: 'Confirm',
-    cancelLabel: 'Cancel',
-  },
+    cancelLabel: 'Cancel'
+  }
 };

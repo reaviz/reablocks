@@ -4,7 +4,7 @@ import {
   format,
   max as maxDate,
   min as minDate,
-  sub,
+  sub
 } from 'date-fns';
 import { AnimatePresence, motion } from 'motion/react';
 import type { FC } from 'react';
@@ -92,11 +92,11 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
 }) => {
   const theme: CalendarRangeTheme = useComponentTheme(
     'calendarRange',
-    customTheme,
+    customTheme
   );
   const date = useMemo(
     () => (Array.isArray(value) ? value[0] : new Date()),
-    [value],
+    [value]
   );
   const rangeStart = useMemo(() => (value ? value[0] : undefined), [value]);
   const rangeEnd = useMemo(() => (value ? value[1] : undefined), [value]);
@@ -124,7 +124,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
         onChange?.([date, undefined]);
       }
     },
-    [onChange, rangeEnd, rangeStart],
+    [onChange, rangeEnd, rangeStart]
   );
 
   const previousClickHandler = useCallback(() => {
@@ -164,7 +164,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
       setViewValue(newValue[1]);
       onChange?.(newValue);
     },
-    [onChange],
+    [onChange]
   );
 
   return (
@@ -215,7 +215,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 >
                   {format(
                     addMonths(viewValue, showPast ? -i : i),
-                    headerDateFormat,
+                    headerDateFormat
                   )}
                 </span>
               ))}
@@ -250,7 +250,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
               transition={{
                 x: { type: animated ? 'keyframes' : false },
                 opacity: { duration: 0.2, type: animated ? 'tween' : false },
-                scale: { type: animated ? 'tween' : false },
+                scale: { type: animated ? 'tween' : false }
               }}
             >
               <div className={theme.content}>

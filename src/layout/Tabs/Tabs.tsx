@@ -67,12 +67,12 @@ export const Tabs: FC<TabsProps> = ({
   defaultIndex = 0,
   selectedIndex,
   onSelect,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const id = useId();
   const theme: TabsTheme = useComponentTheme('tabs', customTheme);
   const [internalActive, setInternalActive] = useState<number>(
-    selectedIndex || defaultIndex,
+    selectedIndex || defaultIndex
   );
 
   useEffect(() => {

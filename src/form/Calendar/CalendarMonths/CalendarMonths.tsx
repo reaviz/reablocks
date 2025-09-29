@@ -26,7 +26,7 @@ export interface CalendarMonthsProps {
 export const CalendarMonths: FC<CalendarMonthsProps> = ({
   value,
   onChange,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const { months }: CalendarTheme = useComponentTheme('calendar', customTheme);
 

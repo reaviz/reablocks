@@ -78,7 +78,7 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
   showAllLimit,
   ellipsisText,
   ellipsisTextLength,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const theme = useComponentTheme('jsonTree', customTheme);
   const type = data.type;
@@ -86,12 +86,12 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
   const {
     data: listData,
     hasMore,
-    showNext,
+    showNext
   } = useInfinityList({
     items: isList ? data.data : [],
     size: showAll ? Infinity : showAllLimit,
     threshold: 3,
-    nextSize: Infinity,
+    nextSize: Infinity
   });
 
   const renderExpandableNode = useCallback(() => {
@@ -152,7 +152,7 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
 
   const isNestedData = useMemo(
     () => data.type === 'array' || data.type === 'object',
-    [data.type],
+    [data.type]
   );
   const isNestedDataEmpty = useMemo(() => {
     if (isNestedData) {

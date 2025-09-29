@@ -67,7 +67,7 @@ export const Sort: FC<SortProps> = ({
   neutralIconClassName,
   children,
   onSort,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const onSortClick = useCallback(() => {
     if (!disabled) {
@@ -81,7 +81,7 @@ export const Sort: FC<SortProps> = ({
         onSort?.(getNextDirection(direction));
       }
     },
-    [disabled, direction, onSort],
+    [disabled, direction, onSort]
   );
 
   const theme: SortTheme = useComponentTheme('sort', customTheme);
@@ -94,7 +94,7 @@ export const Sort: FC<SortProps> = ({
         disabled &&
           direction !== undefined &&
           direction !== null &&
-          theme.hasValue,
+          theme.hasValue
       )}
       role="button"
       tabIndex={-1}
@@ -115,7 +115,7 @@ export const Sort: FC<SortProps> = ({
               className={twMerge(
                 theme.icon.base,
                 theme.icon.ascending,
-                iconClassName,
+                iconClassName
               )}
             />
           </motion.div>

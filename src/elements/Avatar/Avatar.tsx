@@ -78,7 +78,7 @@ export const Avatar: FC<AvatarProps> & AvatarRef = forwardRef<
       theme: customTheme,
       ...rest
     },
-    ref,
+    ref
   ) => {
     const fontSize = size * 0.4;
 
@@ -105,7 +105,7 @@ export const Avatar: FC<AvatarProps> & AvatarRef = forwardRef<
           theme.base,
           rounded && theme.rounded,
           rest.onClick && theme.clickable,
-          className,
+          className
         )}
         style={{
           width: `${size}px`,
@@ -116,13 +116,13 @@ export const Avatar: FC<AvatarProps> & AvatarRef = forwardRef<
           ...(variant === 'outline' && {
             backgroundColor: 'transparent',
             border: `solid 1px ${backgroundColor}`,
-            color: backgroundColor,
-          }),
+            color: backgroundColor
+          })
         }}
         ref={ref}
       >
         {!src && name && <span>{initials}</span>}
       </div>
     );
-  },
+  }
 );

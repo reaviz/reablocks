@@ -99,7 +99,7 @@ export const DateInput: FC<DateInputProps> = ({
         onChange(value);
       }
     },
-    [isRange, onChange],
+    [isRange, onChange]
   );
 
   const inputChangeHandler = useCallback(
@@ -130,7 +130,7 @@ export const DateInput: FC<DateInputProps> = ({
         }
       }
     },
-    [format, isRange, onChange],
+    [format, isRange, onChange]
   );
 
   const focusHandler = useCallback(
@@ -140,7 +140,7 @@ export const DateInput: FC<DateInputProps> = ({
       }
       onFocus?.(e);
     },
-    [onFocus, openOnFocus],
+    [onFocus, openOnFocus]
   );
 
   const closeHandler = useCallback(() => {
@@ -153,7 +153,7 @@ export const DateInput: FC<DateInputProps> = ({
       if (isRange) {
         const [start, end] = value;
         setInputValue(
-          `${start ? formatDate(start, format) : ''}-${end ? formatDate(end, format) : ''}`,
+          `${start ? formatDate(start, format) : ''}-${end ? formatDate(end, format) : ''}`
         );
       } else if (!isRange) {
         setInputValue(formatDate(value as Date, format));
@@ -219,7 +219,7 @@ export const DateInput: FC<DateInputProps> = ({
                     key={preset.label}
                     active={active}
                     className={cn(theme.preset.option.base, {
-                      [theme.preset.option.active]: active,
+                      [theme.preset.option.active]: active
                     })}
                     onClick={() => changeHandler(presetValue)}
                   >

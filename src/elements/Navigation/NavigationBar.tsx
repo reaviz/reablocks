@@ -5,7 +5,7 @@ import { cn, useComponentTheme } from '@/utils';
 
 import type {
   NavigationBarDirectionTheme,
-  NavigationTheme,
+  NavigationTheme
 } from './NavigationTheme';
 
 export interface NavigationBarProps extends PropsWithChildren {
@@ -59,11 +59,11 @@ export const NavigationBar: FC<NavigationBarProps> = ({
   start,
   end,
   children,
-  theme,
+  theme
 }) => {
   const navigationTheme: NavigationTheme = useComponentTheme(
     'navigation',
-    theme,
+    theme
   );
 
   return (
@@ -72,7 +72,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
       className={cn(
         navigationTheme.bar.base,
         className,
-        navigationTheme.bar.direction?.[direction],
+        navigationTheme.bar.direction?.[direction]
       )}
     >
       <div className={cn(navigationTheme.bar.start, classNameStart)}>
@@ -82,7 +82,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
         className={cn(
           navigationTheme.bar.navigation,
           classNameNavigation,
-          navigationTheme.bar.direction?.[direction],
+          navigationTheme.bar.direction?.[direction]
         )}
       >
         {children}

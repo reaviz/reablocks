@@ -8,13 +8,13 @@ import { NotificationsContext } from '@/layers';
 
 export default {
   title: 'Components/Layers/Notification',
-  component: Notifications,
+  component: Notifications
 };
 
 const CustomNotification: FC<NotificationComponentProps> = ({
   message,
   variant,
-  onClose,
+  onClose
 }) => (
   <div
     className={variant}
@@ -37,7 +37,7 @@ const CustomNotification: FC<NotificationComponentProps> = ({
         : null),
       ...(variant === 'error'
         ? { backgroundColor: 'lightcoral', color: 'black' }
-        : null),
+        : null)
     }}
     onClick={onClose}
   >
@@ -82,7 +82,7 @@ export const TitleAndBody = () => (
           <Button
             onClick={() =>
               notify('Welcome', {
-                body: <h3>Hello Friend!</h3>,
+                body: <h3>Hello Friend!</h3>
               })
             }
           >
@@ -105,7 +105,7 @@ export const Variants = () => (
         notifyError,
         notifyWarning,
         notifyInfo,
-        clearAllNotifications: clearAll,
+        clearAllNotifications: clearAll
       }) => (
         <Fragment>
           <Button
@@ -226,7 +226,7 @@ export const CustomIcon = () => (
                       </clipPath>
                     </defs>
                   </svg>
-                ),
+                )
               });
             }}
           >
@@ -247,7 +247,7 @@ export const CustomComponent = () => (
       default: CustomNotification,
       success: CustomNotification,
       warning: CustomNotification,
-      error: CustomNotification,
+      error: CustomNotification
     }}
   >
     <NotificationsContext.Consumer>
@@ -292,7 +292,7 @@ export const WithAction = () => (
             onClick={() =>
               notify('New Message Alert!', {
                 body: 'You have a new message',
-                action: <Button onClick={() => alert('Hey!')}>View</Button>,
+                action: <Button onClick={() => alert('Hey!')}>View</Button>
               })
             }
           >

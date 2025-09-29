@@ -40,7 +40,7 @@ export function CloneElement<T = any>({
         return acc;
       }, {});
     },
-    [rest],
+    [rest]
   );
 
   if (element === null) {
@@ -63,6 +63,6 @@ export function CloneElement<T = any>({
     ...element.props,
     ...newProps,
     children,
-    ref,
+    ref
   });
 }

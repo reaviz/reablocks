@@ -20,19 +20,19 @@ function buildDocs() {
         const hasPropAdditionalDescription = prop.declarations.find(
           declaration => {
             return !declaration.fileName.includes('node_modules');
-          },
+          }
         );
 
         return Boolean(hasPropAdditionalDescription);
       }
 
       return true;
-    },
+    }
   };
 
   const docgenWithTSConfig = docgen.withCustomConfig(
     './tsconfig.json',
-    options,
+    options
   );
 
   files.forEach(file => {

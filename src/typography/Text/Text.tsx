@@ -50,11 +50,11 @@ export const Text: FC<TextProps & TextRef> = forwardRef(
       theme: customTheme,
       ...rest
     }: TextProps,
-    ref,
+    ref
   ) => {
     const theme: TypographyThemeDeprecated = useComponentTheme(
       'typography_deprecated',
-      customTheme,
+      customTheme
     );
 
     return (
@@ -64,12 +64,12 @@ export const Text: FC<TextProps & TextRef> = forwardRef(
           theme.colors[color],
           theme.variant[variant],
           theme.text[fontStyle],
-          className,
+          className
         )}
         {...rest}
       >
         {children}
       </span>
     );
-  },
+  }
 );

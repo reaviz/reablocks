@@ -58,5 +58,5 @@ export const NotificationsContext = createContext<NotificationsContextValue>({
   notifySuccess: () => undefined,
   notifyInfo: () => undefined,
   clearNotification: () => undefined,
-  clearAllNotifications: () => undefined,
+  clearAllNotifications: () => undefined
 });

@@ -62,7 +62,7 @@ export const selectInputTheme: SelectInputTheme = {
     close:
       'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:text-inputs-colors-normal-assets-input-resting',
     expand:
-      '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:text-inputs-colors-normal-assets-input-resting',
+      '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:text-inputs-colors-normal-assets-input-resting'
   },
   disabled:
     'cursor-not-allowed text-disabled hover:after:content-none opacity-40',
@@ -76,11 +76,11 @@ export const selectInputTheme: SelectInputTheme = {
   single: {
     prefix: 'overflow-hidden whitespace-nowrap text-ellipsis max-w-full',
     inputContainer: 'flex-nowrap',
-    input: 'max-w-full',
+    input: 'max-w-full'
   },
   multiple: {
     prefix: 'contents',
-    inputContainer: 'flex-wrap',
+    inputContainer: 'flex-wrap'
   },
   chip: {
     base: 'cursor-pointer flex text-xs leading-none box-border mr-1 px-1 py-1 rounded-sm border-solid border-transparent',
@@ -88,13 +88,13 @@ export const selectInputTheme: SelectInputTheme = {
     focused: 'focused:border-transparent focused:outline-none',
     disabled: 'disabled:cursor-not-allowed',
     removeButton:
-      'cursor-pointer leading-0 ml-1 p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none',
+      'cursor-pointer leading-0 ml-1 p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none'
   },
   size: {
     small:
       '[&_input]:text-xs [&_input]:leading-4 [&_svg]:size-4 px-2 py-[5px] gap-2',
     medium:
       '[&_input]:text-sm [&_input]:leading-4 [&_svg]:size-4 px-3 py-[7px] gap-2',
-    large: '[&_input]:text-base [&_svg]:size-4.5 px-3 py-[7px] gap-2',
-  },
+    large: '[&_input]:text-base [&_svg]:size-4.5 px-3 py-[7px] gap-2'
+  }
 };

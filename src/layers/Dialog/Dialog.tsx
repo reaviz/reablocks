@@ -4,7 +4,7 @@ import type {
   MotionProps,
   TargetAndTransition,
   Transition,
-  VariantLabels,
+  VariantLabels
 } from 'motion/react';
 import { motion } from 'motion/react';
 import type { FC, ReactElement } from 'react';
@@ -139,7 +139,7 @@ export const Dialog: FC<DialogProps> = ({
           focusTrapOptions={{
             clickOutsideDeactivates: true,
             escapeDeactivates: true,
-            fallbackFocus: `#${id}-content`,
+            fallbackFocus: `#${id}-content`
           }}
         >
           <div id={id} tabIndex={-1}>
@@ -170,7 +170,7 @@ export const Dialog: FC<DialogProps> = ({
                   id={`${id}-content`}
                   className={cn(theme.content, contentClassName, {
                     'p-[20px]': !header,
-                    'pt-0 pb-0 pl-0 pr-0': disablePadding,
+                    'pt-0 pb-0 pl-0 pr-0': disablePadding
                   })}
                 >
                   {typeof children === 'function' ? children() : children}

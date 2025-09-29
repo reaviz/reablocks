@@ -57,18 +57,18 @@ export const buttonTheme: ButtonTheme = {
     start: {
       small: 'pr-(--buttons-details-space-between-horizontal-sm)',
       medium: 'pr-(--buttons-details-space-between-horizontal-md)',
-      large: 'pr-(--buttons-details-space-between-horizontal-lg)',
+      large: 'pr-(--buttons-details-space-between-horizontal-lg)'
     },
     end: {
       small: 'pl-(--buttons-details-space-between-horizontal-sm)',
       medium: 'pl-(--buttons-details-space-between-horizontal-md)',
-      large: 'pl-(--buttons-details-space-between-horizontal-lg)',
+      large: 'pl-(--buttons-details-space-between-horizontal-lg)'
     },
     sizes: {
       small: '[&>svg]:size-(--buttons-details-asset-size-sm)',
       medium: '[&>svg]:size-(--buttons-details-asset-size-md)',
-      large: '[&>svg]:size-(--buttons-details-asset-size-lg)',
-    },
+      large: '[&>svg]:size-(--buttons-details-asset-size-lg)'
+    }
   },
   sizes: {
     small:
@@ -76,7 +76,7 @@ export const buttonTheme: ButtonTheme = {
     medium:
       'h-(--buttons-details-height-core-icon-md) text-sm px-(--buttons-details-horizontal-padding-md)',
     large:
-      'h-(--buttons-details-height-core-icon-lg) text-base px-(--buttons-details-horizontal-padding-lg)',
+      'h-(--buttons-details-height-core-icon-lg) text-base px-(--buttons-details-horizontal-padding-lg)'
   },
   iconSizes: {
     xsmall:
@@ -86,13 +86,13 @@ export const buttonTheme: ButtonTheme = {
     medium:
       'size-(--buttons-details-height-core-icon-md) [&>svg]:size-(--buttons-details-asset-size-md) px-0 py-0',
     large:
-      'size-(--buttons-details-height-core-icon-lg) [&>svg]:size-(--buttons-details-asset-size-lg) px-0 py-0',
+      'size-(--buttons-details-height-core-icon-lg) [&>svg]:size-(--buttons-details-asset-size-lg) px-0 py-0'
   },
   variants: {
     filled: 'bg-secondary hover:bg-border-secondary-hover',
     outline: 'border',
     text: 'border-0',
-    ghost: '',
+    ghost: ''
   },
   colors: {
     primary: {
@@ -118,7 +118,7 @@ export const buttonTheme: ButtonTheme = {
         hover:bg-buttons-colors-core-icon-ghost-background-hover hover:border-buttons-colors-core-icon-ghost-stroke-hover hover:text-buttons-colors-core-icon-ghost-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-hover
         focus-visible:bg-buttons-colors-core-icon-ghost-background-selected focus-visible:border-buttons-colors-core-icon-ghost-stroke-selected focus-visible:text-buttons-colors-core-icon-ghost-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-selected
         disabled:bg-buttons-colors-core-icon-ghost-background-resting disabled:border-buttons-colors-core-icon-ghost-stroke-resting disabled:text-buttons-colors-core-icon-ghost-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
-      `,
+      `
     },
     secondary: {
       filled: `
@@ -143,7 +143,7 @@ export const buttonTheme: ButtonTheme = {
         hover:bg-buttons-colors-core-icon-secondary-background-hover hover:border-buttons-colors-core-icon-ghost-stroke-hover hover:text-buttons-colors-core-icon-secondary-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-hover
         focus-visible:bg-buttons-colors-core-icon-secondary-background-selected focus-visible:border-buttons-colors-core-icon-secondary-stroke-selected focus-visible:-buttons-colors-core-icon-secondary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-selected
         disabled:bg-buttons-colors-core-icon-ghost-background-resting disabled:border-buttons-colors-core-icon-ghost-stroke-resting disabled:text-buttons-colors-core-icon-secondary-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
-      `,
+      `
     },
     destructive: {
       filled: `
@@ -168,7 +168,7 @@ export const buttonTheme: ButtonTheme = {
         hover:bg-buttons-colors-core-icon-destructive-background-hover hover:border-buttons-colors-core-icon-ghost-stroke-hover hover:text-buttons-colors-core-icon-ghost-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-hover
         focus-visible:bg-buttons-colors-core-icon-destructive-background-selected focus-visible:border-buttons-colors-core-icon-destructive-stroke-selected focus-visible:text-buttons-colors-core-icon-ghost-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-selected
         disabled:bg-buttons-colors-core-icon-ghost-background-resting disabled:border-buttons-colors-core-icon-ghost-stroke-resting disabled:text-buttons-colors-core-icon-ghost-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
-      `,
-    },
-  },
+      `
+    }
+  }
 };

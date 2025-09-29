@@ -14,5 +14,5 @@ export interface RadioGroupContextProps {
 
 export const RadioGroupContext = createContext<RadioGroupContextProps>({
   onChange: null,
-  selectedValue: null,
+  selectedValue: null
 });

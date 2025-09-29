@@ -38,7 +38,7 @@ export const DrawerHeader: FC<DrawerHeaderProps> = ({
   className,
   showCloseButton,
   onClose,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const theme: DrawerTheme = useComponentTheme('drawer', customTheme);
 

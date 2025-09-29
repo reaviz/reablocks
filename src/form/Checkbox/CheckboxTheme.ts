@@ -63,18 +63,18 @@ export const checkboxTheme: CheckboxTheme = {
     sizes: {
       small: 'text-xs',
       medium: 'text-sm',
-      large: 'text-base',
-    },
+      large: 'text-base'
+    }
   },
   check: {
     base: 'stroke-selectors-colors-checkbox-selected-assets-base group-hover:selectors-colors-checkbox-selected-assets-hover',
     checked: '',
-    disabled: 'cursor-not-allowed',
+    disabled: 'cursor-not-allowed'
   },
   border: {
     base: '',
     checked: '',
-    disabled: 'cursor-not-allowed',
+    disabled: 'cursor-not-allowed'
   },
   checkbox: {
     base: `
@@ -88,7 +88,7 @@ export const checkboxTheme: CheckboxTheme = {
           border-selectors-colors-checkbox-selected-stroke-resting group-hover:border-selectors-colors-checkbox-selected-stroke-hover group-focus-within:border-selectors-colors-checkbox-selected-stroke-hover
         `,
     disabled:
-      'disabled cursor-not-allowed opacity-40 group-hover:bg-selectors-colors-checkbox-selected-resting',
+      'disabled cursor-not-allowed opacity-40 group-hover:bg-selectors-colors-checkbox-selected-resting'
   },
   sizes: {
     small:
@@ -96,6 +96,6 @@ export const checkboxTheme: CheckboxTheme = {
     medium:
       '[&>svg]:size-(--selectors-details-width-radio-checkbox-sm) rounded-(--selectors-details-corner-radius-checkbox-sm)',
     large:
-      '[&>svg]:size-(--selectors-details-width-radio-checkbox-lg) rounded-(--selectors-details-corner-radius-checkbox-lg)',
-  },
+      '[&>svg]:size-(--selectors-details-width-radio-checkbox-lg) rounded-(--selectors-details-corner-radius-checkbox-lg)'
+  }
 } as CheckboxTheme;

@@ -46,7 +46,7 @@ const createStateHook = () => {
       tooltips: state,
       deactivateAllTooltips,
       deactivateTooltip,
-      addTooltip,
+      addTooltip
     };
   };
 };

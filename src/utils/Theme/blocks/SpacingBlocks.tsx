@@ -12,7 +12,7 @@ export const SpacingBlocks = ({ spacings }: any) => {
       style={{
         padding: '6px 12px',
         color: 'var(--body-color)',
-        width: '100%',
+        width: '100%'
       }}
     >
       {spacings ? (
@@ -26,7 +26,7 @@ export const SpacingBlocks = ({ spacings }: any) => {
                 display: 'flex',
                 alignItems: 'center',
                 borderRadius: '4px',
-                border: 'solid 1px var(--border-color)',
+                border: 'solid 1px var(--border-color)'
               }}
             >
               <h3 style={{ fontWeight: 500, marginRight: 50 }}>
@@ -54,13 +54,13 @@ export const SpacingBlocks = ({ spacings }: any) => {
                 style={{
                   justifyContent: 'end',
                   display: 'flex',
-                  flex: 1,
+                  flex: 1
                 }}
               >
                 <div
                   style={{
                     padding: value * step + unit,
-                    border: 'solid 1px blue',
+                    border: 'solid 1px blue'
                   }}
                 >
                   Content

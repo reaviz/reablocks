@@ -47,9 +47,9 @@ export const Tree: FC<TreeProps> = ({
   const values = useMemo(
     () => ({
       expandedIcon,
-      collapsedIcon,
+      collapsedIcon
     }),
-    [collapsedIcon, expandedIcon],
+    [collapsedIcon, expandedIcon]
   );
 
   return (

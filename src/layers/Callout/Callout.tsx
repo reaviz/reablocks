@@ -32,7 +32,7 @@ export const Callout: FC<CalloutProps> = ({
   text,
   icon,
   variant = 'default',
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const theme = useComponentTheme('callout', customTheme);
 

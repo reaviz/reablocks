@@ -21,7 +21,7 @@ export interface TabPanelProps extends PropsWithChildren {
 export const TabPanel: FC<TabPanelProps> = ({
   children,
   className,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const theme: TabsTheme = useComponentTheme('tabs', customTheme);
   return (

@@ -7,7 +7,7 @@ import { DateInput } from './DateInput';
 
 export default {
   title: 'Components/Form/Date Input',
-  component: DateInput,
+  component: DateInput
 };
 
 export const Simple = () => {
@@ -82,16 +82,16 @@ export const CustomPreset = () => {
             }
 
             return laborDay;
-          },
+          }
         },
         {
           label: 'New Year',
-          value: new Date(new Date().getFullYear(), 0, 1),
+          value: new Date(new Date().getFullYear(), 0, 1)
         },
         {
           label: 'Christmas',
-          value: new Date(new Date().getFullYear(), 11, 25),
-        },
+          value: new Date(new Date().getFullYear(), 11, 25)
+        }
       ]}
       openCalendarOptionName="Open Calendar"
     />

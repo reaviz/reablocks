@@ -9,11 +9,11 @@ import {
   Stack,
   Step,
   Stepper,
-  Textarea,
+  Textarea
 } from '../../../src';
 
 export default {
-  title: 'Blocks/Foundation/Timeline',
+  title: 'Blocks/Foundation/Timeline'
 };
 
 export const ActivityTimeline = () => (

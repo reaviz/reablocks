@@ -9,7 +9,7 @@ import { Chip } from '../Chip';
 
 export default {
   title: 'Components/Data/Command Palette',
-  component: CommandPalette,
+  component: CommandPalette
 };
 
 export const Simple = () => (

@@ -7,7 +7,7 @@ import { twMerge } from '@/utils';
 import type {
   DividerOrientationTheme,
   DividerTheme,
-  DividerVariantTheme,
+  DividerVariantTheme
 } from './DividerTheme';
 
 export interface DividerProps {
@@ -61,7 +61,7 @@ export const Divider: FC<DividerProps> = ({
         theme.variant[variant],
         theme.orientation[orientation],
         disableMargins && theme.disableMargins,
-        className,
+        className
       )}
     />
   );

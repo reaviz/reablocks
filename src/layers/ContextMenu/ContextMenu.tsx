@@ -118,7 +118,7 @@ export const ContextMenu: FC<ContextMenuProps> = ({
       triggerClassName={twMerge(
         triggerClassName,
         !disabled && theme.enabled,
-        open && triggerOpenClassName,
+        open && triggerOpenClassName
       )}
       trigger="contextmenu"
       open={open}
@@ -134,7 +134,7 @@ export const ContextMenu: FC<ContextMenuProps> = ({
               focusTrapOptions={{
                 escapeDeactivates: true,
                 clickOutsideDeactivates: true,
-                fallbackFocus: `#${id}`,
+                fallbackFocus: `#${id}`
               }}
             >
               <div id={id} tabIndex={-1}>

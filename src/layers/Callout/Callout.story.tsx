@@ -6,14 +6,14 @@ import {
   ErrorCallout,
   InfoCallout,
   SuccessCallout,
-  WarningCallout,
+  WarningCallout
 } from '@/layers';
 import { Stack } from '@/layout';
 import { Typography } from '@/typography';
 
 export default {
   title: 'Components/Layers/Callout',
-  component: Callout,
+  component: Callout
 };
 
 export const Simple = () => (

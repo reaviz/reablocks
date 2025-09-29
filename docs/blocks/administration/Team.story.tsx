@@ -13,7 +13,7 @@ import { Stack } from '../../../src/layout/Stack';
 import { Tab, TabList, TabPanel, Tabs } from '../../../src/layout/Tabs';
 
 export default {
-  title: 'Blocks/Administration/Team',
+  title: 'Blocks/Administration/Team'
 };
 
 const GoodCodeLogo = () => (
@@ -132,7 +132,7 @@ export const TeamGeneral = () => {
                       .fill({
                         name: 'Austin McDaniel',
                         email: 'austin@goodcode.us',
-                        role: 'Admin',
+                        role: 'Admin'
                       })
                       .map((user, index) => (
                         <>
@@ -150,7 +150,7 @@ export const TeamGeneral = () => {
                                     setCheckedUsers([...checkedUsers, index]);
                                   } else {
                                     setCheckedUsers(
-                                      checkedUsers.filter(i => i !== index),
+                                      checkedUsers.filter(i => i !== index)
                                     );
                                   }
                                 }}
@@ -308,7 +308,7 @@ export const TeamMinimal = () => {
                   .fill({
                     name: 'Austin McDaniel',
                     email: 'austin@goodcode.us',
-                    dateAdded: new Date().toLocaleDateString(),
+                    dateAdded: new Date().toLocaleDateString()
                   })
                   .map((user, index) => (
                     <>
@@ -423,7 +423,7 @@ export const TeamRoles = () => {
                               ? Array(3)
                                   .fill(0)
                                   .map((_, i) => i)
-                              : [],
+                              : []
                           )
                         }
                       />
@@ -439,7 +439,7 @@ export const TeamRoles = () => {
                     .fill({
                       name: 'Austin McDaniel',
                       email: 'austin@goodcode.us',
-                      dateAdded: new Date().toLocaleDateString(),
+                      dateAdded: new Date().toLocaleDateString()
                     })
                     .map((user, index) => (
                       <>
@@ -457,7 +457,7 @@ export const TeamRoles = () => {
                                   setCheckedAdmins([...checkedAdmins, index]);
                                 } else {
                                   setCheckedAdmins(
-                                    checkedAdmins.filter(i => i !== index),
+                                    checkedAdmins.filter(i => i !== index)
                                   );
                                 }
                               }}
@@ -556,7 +556,7 @@ export const TeamRoles = () => {
                               ? Array(12)
                                   .fill(0)
                                   .map((_, i) => i)
-                              : [],
+                              : []
                           )
                         }
                       />
@@ -572,7 +572,7 @@ export const TeamRoles = () => {
                     .fill({
                       name: 'Austin McDaniel',
                       email: 'austin@goodcode.us',
-                      dateAdded: new Date().toLocaleDateString(),
+                      dateAdded: new Date().toLocaleDateString()
                     })
                     .map((user, index) => (
                       <>
@@ -590,7 +590,7 @@ export const TeamRoles = () => {
                                   setCheckedUsers([...checkedUsers, index]);
                                 } else {
                                   setCheckedUsers(
-                                    checkedUsers.filter(i => i !== index),
+                                    checkedUsers.filter(i => i !== index)
                                   );
                                 }
                               }}

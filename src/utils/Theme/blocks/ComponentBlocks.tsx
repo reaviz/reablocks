@@ -6,7 +6,7 @@ import { JsonTree } from '@/layout/Tree';
 import type { ReablocksTheme } from '@/utils/Theme/themes';
 
 export const ComponentBlocks = ({
-  components,
+  components
 }: {
   components: ReablocksTheme['components'];
 }) => (
@@ -17,7 +17,7 @@ export const ComponentBlocks = ({
           style={{
             padding: '4px 8px',
             color: 'var(--body-color)',
-            width: '100%',
+            width: '100%'
           }}
         >
           {components ? (
@@ -31,7 +31,7 @@ export const ComponentBlocks = ({
                       marginRight: 50,
                       marginBottom: '4px',
                       maxWidth: 300,
-                      textTransform: 'capitalize',
+                      textTransform: 'capitalize'
                     }}
                   >
                     {key}
@@ -49,7 +49,7 @@ export const ComponentBlocks = ({
                     onClick={async () => {
                       try {
                         await navigator.clipboard.writeText(
-                          JSON.stringify(components[key], null, 2),
+                          JSON.stringify(components[key], null, 2)
                         );
                         notifySuccess('Content copied to clipboard');
                       } catch (err) {

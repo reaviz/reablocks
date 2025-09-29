@@ -73,14 +73,14 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
   onHotkey,
   onSelectedIndexChange,
   onSearchChange,
-  theme: customTheme,
+  theme: customTheme
 }) => {
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const [filterText, setFilterText] = useState<string>(search);
   const { flattenedTree, itemsRef, hotkeys } = useFlattenedTree(
     children,
     selectedIndex,
-    onSelectedIndexChange,
+    onSelectedIndexChange
   );
   const hasChildren = Children.count(children) > 0;
   const elementRef = useRef<HTMLDivElement | null>(null);
@@ -106,7 +106,7 @@ export const CommandPalette: FC<CommandPaletteProps> = ({
 
   const theme: CommandPaletteTheme = useComponentTheme(
     'commandPalette',
-    customTheme,
+    customTheme
   );
 
   return (

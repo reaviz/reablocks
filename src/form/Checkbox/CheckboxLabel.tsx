@@ -22,7 +22,7 @@ export const CheckboxLabel: FC<CheckboxLabelProps> = ({
   checked,
   onChange,
   labelClassName,
-  theme,
+  theme
 }) => (
   <span
     className={twMerge(
@@ -31,7 +31,7 @@ export const CheckboxLabel: FC<CheckboxLabelProps> = ({
       checked && theme.label.checked,
       disabled && theme.label.disabled,
       !disabled && onChange && theme.label.clickable,
-      labelClassName,
+      labelClassName
     )}
     onClick={() => {
       if (!disabled && onChange) {
