@@ -1,7 +1,7 @@
-import type { SelectInputTheme } from '@/form';
-import type { SelectMenuTheme } from '@/form';
-import { selectInputTheme } from '@/form';
-import { selectMenuTheme } from '@/form';
+import type { SelectInputTheme } from '@/form/Select/SelectInput';
+import { selectInputTheme } from '@/form/Select/SelectInput';
+import type { SelectMenuTheme } from '@/form/Select/SelectMenu';
+import { selectMenuTheme } from '@/form/Select/SelectMenu';
 
 export interface SelectTheme {
   selectInput: SelectInputTheme;

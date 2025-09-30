@@ -1,9 +1,9 @@
-import type { CommandPaletteInputTheme } from '@/elements';
-import type { CommandPaletteItemTheme } from '@/elements';
-import type { CommandPaletteSectionTheme } from '@/elements';
-import { commandPaletteInputTheme } from '@/elements';
-import { commandPaletteItemTheme } from '@/elements';
-import { commandPaletteSectionTheme } from '@/elements';
+import type { CommandPaletteInputTheme } from './CommandPaletteInput';
+import { commandPaletteInputTheme } from './CommandPaletteInput/CommandPaletteInputTheme';
+import type { CommandPaletteItemTheme } from './CommandPaletteItem';
+import { commandPaletteItemTheme } from './CommandPaletteItem/CommandPaletteItemTheme';
+import type { CommandPaletteSectionTheme } from './CommandPaletteSection';
+import { commandPaletteSectionTheme } from './CommandPaletteSection/CommandPaletteSectionTheme';
 
 export interface CommandPaletteTheme {
   base: string;
