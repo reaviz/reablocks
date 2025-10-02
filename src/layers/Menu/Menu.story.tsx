@@ -67,27 +67,29 @@ export const Nested = () => {
       </Button>
       <MenuComponent style={{ background: 'var(--slate-500)' }}>
         <h5 style={{ margin: 4 }}>My Menu</h5>
-        <div role="list">
-          <div role="listitem" style={itemStyle}>
+        <List>
+          <ListItem role="listitem" style={itemStyle} onClick={() => null}>
             1
-          </div>
+          </ListItem>
           <NestedMenu
             label="2"
             style={itemStyle}
             menuStyle={{ background: 'var(--slate-500)', marginLeft: 4 }}
           >
-            <div role="listitem" style={itemStyle}>
-              2.1
-            </div>
-            <div role="listitem" style={itemStyle}>
-              2.2
-            </div>
-            <div role="listitem" style={itemStyle}>
-              2.3
-            </div>
-            <div role="listitem" style={itemStyle}>
-              2.4
-            </div>
+            <List>
+              <ListItem role="listitem" style={itemStyle} onClick={() => null}>
+                2.1
+              </ListItem>
+              <ListItem role="listitem" style={itemStyle} onClick={() => null}>
+                2.2
+              </ListItem>
+              <ListItem role="listitem" style={itemStyle} onClick={() => null}>
+                2.3
+              </ListItem>
+              <ListItem role="listitem" style={itemStyle} onClick={() => null}>
+                2.4
+              </ListItem>
+            </List>
           </NestedMenu>
           <NestedMenu
             ref={nestedMenuRef}
@@ -95,42 +97,62 @@ export const Nested = () => {
             style={itemStyle}
             menuStyle={{ background: 'var(--slate-500)', marginLeft: 4 }}
           >
-            <div role="listitem" style={itemStyle}>
-              3.1
-            </div>
-            <NestedMenu
-              label="3.2"
-              style={itemStyle}
-              menuStyle={{ background: 'var(--slate-500)', marginLeft: 4 }}
-            >
-              <div role="listitem" style={itemStyle}>
-                3.2.1
-              </div>
-              <div role="listitem" style={itemStyle}>
-                3.2.2
-              </div>
-              <div role="listitem" style={itemStyle}>
-                3.2.3
-              </div>
-              <div role="listitem" style={itemStyle}>
-                3.2.4
-              </div>
-            </NestedMenu>
-            <div role="listitem" style={itemStyle}>
-              3.3
-            </div>
-            <ListItem
-              onClick={() => {
-                nestedMenuRef.current?.close();
-              }}
-            >
-              Close
-            </ListItem>
+            <List>
+              <ListItem role="listitem" style={itemStyle} onClick={() => null}>
+                3.1
+              </ListItem>
+              <NestedMenu
+                label="3.2"
+                style={itemStyle}
+                menuStyle={{ background: 'var(--slate-500)', marginLeft: 4 }}
+              >
+                <List>
+                  <ListItem
+                    role="listitem"
+                    style={itemStyle}
+                    onClick={() => null}
+                  >
+                    3.2.1
+                  </ListItem>
+                  <ListItem
+                    role="listitem"
+                    style={itemStyle}
+                    onClick={() => null}
+                  >
+                    3.2.2
+                  </ListItem>
+                  <ListItem
+                    role="listitem"
+                    style={itemStyle}
+                    onClick={() => null}
+                  >
+                    3.2.3
+                  </ListItem>
+                  <ListItem
+                    role="listitem"
+                    style={itemStyle}
+                    onClick={() => null}
+                  >
+                    3.2.4
+                  </ListItem>
+                </List>
+              </NestedMenu>
+              <ListItem role="listitem" style={itemStyle} onClick={() => null}>
+                3.3
+              </ListItem>
+              <ListItem
+                onClick={() => {
+                  nestedMenuRef.current?.close();
+                }}
+              >
+                Close
+              </ListItem>
+            </List>
           </NestedMenu>
-          <div role="listitem" style={itemStyle}>
+          <ListItem role="listitem" style={itemStyle} onClick={() => null}>
             4
-          </div>
-        </div>
+          </ListItem>
+        </List>
       </MenuComponent>
     </Fragment>
   );

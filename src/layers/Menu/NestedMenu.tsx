@@ -1,6 +1,8 @@
+import { ListItem } from '@/layout';
 import React, {
   forwardRef,
   Fragment,
+  KeyboardEvent,
   useCallback,
   useImperativeHandle,
   useRef,
@@ -179,6 +181,13 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
       [onClose]
     );
 
+    const onKeyDown = useCallback((e: KeyboardEvent) => {
+      e.stopPropagation();
+      if (e.key === 'ArrowLeft' || e.key === 'Escape') {
+        setActive(false);
+      }
+    }, []);
+
     /**
      * Expose the close ability to the outside
      */
@@ -190,7 +199,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
 
     return (
       <Fragment>
-        <div
+        <ListItem
           className={classNames(className, { [activeClassName]: active })}
           style={style}
           ref={itemRef}
@@ -199,7 +208,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
           onMouseLeave={onMouseLeaveItem}
         >
           {label}
-        </div>
+        </ListItem>
         <Menu
           className={menuClassName}
           autofocus={autofocus}
@@ -216,7 +225,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
           onMouseLeave={onMouseLeaveMenu}
           onClose={onNestedMenuClose}
         >
-          {children}
+          <div onKeyDown={onKeyDown}>{children}</div>
         </Menu>
       </Fragment>
     );
