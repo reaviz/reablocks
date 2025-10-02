@@ -68,20 +68,16 @@ export const List: FC<ListProps & ListRef> = forwardRef<
     isValidElement(child) ? cloneElement(child, { tabIndex: 0 }) : child
   );
 
-  const setRef = (node: HTMLDivElement) => {
-    if (typeof ref === 'function') {
-      ref(node);
-    } else if (ref) {
-      ref.current = node;
-    }
-    containerRef.current = node;
-  };
-
   return (
-    <div ref={setRef} onKeyDown={handleKeyDown}>
+    <div ref={containerRef} onKeyDown={handleKeyDown}>
       {/* First invisible item which takes focus for correct keyboard navigation*/}
       <div data-first-item="true" tabIndex={0} />
-      <div {...rest} role="list" className={twMerge(theme.base, className)}>
+      <div
+        {...rest}
+        ref={ref}
+        role="list"
+        className={twMerge(theme.base, className)}
+      >
         {focusableChildren}
       </div>
     </div>
