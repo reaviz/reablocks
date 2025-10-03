@@ -3,6 +3,7 @@ import React, {
   forwardRef,
   Fragment,
   KeyboardEvent,
+  ReactNode,
   useCallback,
   useImperativeHandle,
   useRef,
@@ -25,7 +26,7 @@ export interface NestedMenuProps {
   /**
    * Menu contents.
    */
-  children: any;
+  children: ReactNode | ((args: NestedMenuRef) => ReactNode);
 
   /**
    * Label element for the menu item.
@@ -152,7 +153,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
       }, leaveDelay);
     }, [leaveDelay]);
 
-    const onMouseEnterMenu = useCallback(event => {
+    const onMouseEnterMenu = useCallback(() => {
       clearTimeout(enterTimeoutRef.current);
       clearTimeout(leaveTimeoutRef.current);
       menuEntered.current = true;
@@ -225,7 +226,13 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
           onMouseLeave={onMouseLeaveMenu}
           onClose={onNestedMenuClose}
         >
-          <div onKeyDown={onKeyDown}>{children}</div>
+          {() => (
+            <div onKeyDown={onKeyDown}>
+              {typeof children === 'function'
+                ? children({ close: () => setActive(false) })
+                : children}
+            </div>
+          )}
         </Menu>
       </Fragment>
     );
