@@ -1,10 +1,11 @@
-import { CommandPalette } from './CommandPalette';
-import { Dialog } from '../../layers/Dialog';
+import { CommandPalette } from '@/elements';
+import { CommandPaletteSection } from '@/elements';
+import { CommandPaletteItem } from '@/elements';
+import { Dialog } from '@/layers';
+import { Divider } from '@/layout';
+import { Stack } from '@/layout';
+
 import { Chip } from '../Chip';
-import { Divider } from '../../layout/Divider';
-import { Stack } from '../../layout/Stack';
-import { CommandPaletteSection } from './CommandPaletteSection';
-import { CommandPaletteItem } from './CommandPaletteItem';
 
 export default {
   title: 'Components/Data/Command Palette',
@@ -129,7 +130,14 @@ export const LongList = () => (
 );
 
 export const WithDialog = () => (
-  <Dialog open size={400} showCloseButton={false} disablePadding>
+  <Dialog
+    innerClassName="border-none!"
+    contentClassName="p-2!"
+    open
+    size={400}
+    showCloseButton={false}
+    disablePadding
+  >
     <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection title="Recently Used" key="recent">
         <CommandPaletteItem key="home">Home</CommandPaletteItem>

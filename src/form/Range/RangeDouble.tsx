@@ -1,17 +1,20 @@
+import { motion, useMotionValue } from 'motion/react';
+import type { FC } from 'react';
 import React, {
   useCallback,
   useEffect,
-  useRef,
-  useState,
-  FC,
+  useLayoutEffect,
   useMemo,
-  useLayoutEffect
+  useRef,
+  useState
 } from 'react';
-import { motion, useMotionValue } from 'motion/react';
-import { RangeProps, RangeTooltip } from './RangeTooltip';
-import { twMerge } from 'tailwind-merge';
+
+import { twMerge } from '@/utils';
 import { cn, useComponentTheme } from '@/utils';
-import { RangeTheme } from './RangeTheme';
+
+import type { RangeTheme } from './RangeTheme';
+import type { RangeProps } from './RangeTooltip';
+import { RangeTooltip } from './RangeTooltip';
 
 export const RangeDouble: FC<RangeProps<[number, number]>> = ({
   disabled,
@@ -81,7 +84,9 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
       if (newMin <= currentMax - minValueBetween) {
         setCurrentMin(newMin);
         minX.set(getPosition(newMin));
-        notifyChange && onChange?.([newMin, currentMax]);
+        if (notifyChange) {
+          onChange?.([newMin, currentMax]);
+        }
       }
     },
     [currentMax, min, minX, getPosition, onChange, minValueBetween]
@@ -93,7 +98,9 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
       if (newMax >= currentMin + minValueBetween) {
         setCurrentMax(newMax);
         maxX.set(getPosition(newMax));
-        notifyChange && onChange?.([currentMin, newMax]);
+        if (notifyChange) {
+          onChange?.([currentMin, newMax]);
+        }
       }
     },
     [currentMin, max, maxX, getPosition, onChange, minValueBetween]

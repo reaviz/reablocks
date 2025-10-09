@@ -1,5 +1,6 @@
-import { Toggle } from './Toggle';
 import React, { useState } from 'react';
+
+import { Toggle } from './Toggle';
 
 export default { title: 'Components/Form/Toggle', component: Toggle };
 
@@ -10,7 +11,7 @@ export const Simple = () => {
 
 export const Disabled = () => (
   <div
-    className="bg-panel p-20"
+    className="p-20"
     style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}
   >
     <Toggle disabled checked />

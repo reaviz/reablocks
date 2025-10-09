@@ -1,10 +1,14 @@
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+
 import { Avatar } from './Avatar';
 
 export default {
   title: 'Components/Elements/Avatar',
-  component: Avatar
+  component: Avatar,
+  args: {
+    color: 'bg-avatar-colors-background-container-resting'
+  }
 } satisfies Meta<typeof Avatar>;
 
 export const Simple: StoryObj<typeof Avatar> = {
@@ -37,6 +41,15 @@ export const LargeRounded: StoryObj<typeof Avatar> = {
     name: 'John Doe',
     size: 100,
     rounded: true
+  }
+};
+
+export const Clickable: StoryObj<typeof Avatar> = {
+  args: {
+    name: 'Charlie',
+    size: 50,
+    rounded: true,
+    onClick: () => null
   }
 };
 

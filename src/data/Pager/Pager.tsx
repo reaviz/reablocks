@@ -1,16 +1,19 @@
-import React, { FC, Fragment, ReactNode, useCallback } from 'react';
+import type { FC, ReactNode } from 'react';
+import React, { Fragment, useCallback } from 'react';
+
+import type { PagerTheme } from '@/data';
+import { FUZZY_RANGE, getItemsRange, getPageRange } from '@/data';
+import { Pluralize } from '@/data/Pluralize';
 import { Button } from '@/elements';
 import { Stack } from '@/layout';
-import { Text } from '@/typography';
-import { Pluralize } from '@/data/Pluralize';
+import { Typography } from '@/typography';
+import { useComponentTheme } from '@/utils';
+import { twMerge } from '@/utils';
+
 import EndArrow from './assets/arrow-end.svg?react';
 import NextArrow from './assets/arrow-next.svg?react';
 import PreviousArrow from './assets/arrow-previous.svg?react';
 import StartArrow from './assets/arrow-start.svg?react';
-import { FUZZY_RANGE, getItemsRange, getPageRange } from './utils';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
-import { PagerTheme } from './PagerTheme';
 
 export interface PagerProps {
   /**
@@ -128,23 +131,31 @@ export const Pager: FC<PagerProps> = ({
       {(displayMode === 'items' || displayMode === 'all') && (
         <div className={theme.pagerDisplayItems}>
           {pageCount === 1 && total > 0 && (
-            <Text>
+            <Typography variant="body" size="small">
               Showing {total === 1 ? total : `all ${total.toLocaleString()}`}{' '}
               <Pluralize count={total} singular="item" showCount={false} />
-            </Text>
+            </Typography>
           )}
           {pageCount > 1 && (
             <Stack className={theme.itemsDisplay} dense>
-              <Text>
-                <Text className={theme.showPageRange}>
+              <Typography variant="body" size="small">
+                <Typography
+                  variant="body"
+                  size="small"
+                  className={theme.showPageRange}
+                >
                   {startItem.toLocaleString()}-{endItem.toLocaleString()}
-                </Text>{' '}
+                </Typography>{' '}
                 of{' '}
-                <Text className={theme.totalCount}>
+                <Typography
+                  variant="body"
+                  size="small"
+                  className={theme.totalCount}
+                >
                   {total.toLocaleString()}
-                </Text>{' '}
+                </Typography>{' '}
                 <Pluralize count={total} singular="item" showCount={false} />
-              </Text>
+              </Typography>
             </Stack>
           )}
         </div>
@@ -152,7 +163,7 @@ export const Pager: FC<PagerProps> = ({
       {startArrow && (
         <Button
           className={twMerge(theme.control, theme.firstPage)}
-          variant="text"
+          variant="ghost"
           size="small"
           disablePadding
           title="First Page"
@@ -164,7 +175,7 @@ export const Pager: FC<PagerProps> = ({
       )}
       <Button
         className={twMerge(theme.control, theme.prevPage)}
-        variant="text"
+        variant="ghost"
         size="small"
         disablePadding
         title="Previous page"
@@ -182,7 +193,7 @@ export const Pager: FC<PagerProps> = ({
             <Fragment key={i}>
               {i >= startPage && i <= endPage && (
                 <Button
-                  variant="text"
+                  variant="ghost"
                   size="small"
                   disabled={page === i}
                   title={`Page ${(i + 1).toLocaleString()}`}
@@ -206,7 +217,7 @@ export const Pager: FC<PagerProps> = ({
       )}
       <Button
         className={twMerge(theme.control, theme.nextPage)}
-        variant="text"
+        variant="ghost"
         title="Next Page"
         size="small"
         disablePadding
@@ -221,7 +232,7 @@ export const Pager: FC<PagerProps> = ({
           size="small"
           title="Last Page"
           disablePadding
-          variant="text"
+          variant="ghost"
           onClick={() => onPageChange?.(pageCount - 1)}
           disabled={!canNext}
         >

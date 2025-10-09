@@ -1,10 +1,14 @@
-import React, { FC, PropsWithChildren, useCallback } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { DownArrowIcon } from './DownArrowIcon';
-import { getNextDirection, SortDirection } from './utils';
-import { twMerge } from 'tailwind-merge';
-import { SortTheme } from './SortTheme';
+import type { FC, PropsWithChildren } from 'react';
+import React, { useCallback } from 'react';
+
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
+
+import { DownArrowIcon } from './DownArrowIcon';
+import type { SortTheme } from './SortTheme';
+import type { SortDirection } from './utils';
+import { getNextDirection } from './utils';
 
 export interface SortProps extends PropsWithChildren {
   /**

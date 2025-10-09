@@ -1,15 +1,15 @@
+import type { RefObject } from 'react';
 import React, {
-  FC,
   forwardRef,
-  useImperativeHandle,
-  RefObject,
-  useState,
   useCallback,
-  LegacyRef
+  useImperativeHandle,
+  useState
 } from 'react';
+
 import { useExitListener } from '@/utils/ExitListener';
-import { Modifiers, Placement, usePosition } from '@/utils/Position';
 import { OverlayPortal, portals } from '@/utils/Overlay/OverlayPortal';
+import type { Modifiers, Placement } from '@/utils/Position';
+import { usePosition } from '@/utils/Position';
 import { useId } from '@/utils/useId';
 
 export interface ConnectedOverlayContentRef {
@@ -73,11 +73,10 @@ export interface ConnectedOverlayContentProps {
   onClose?: (event?: any) => void;
 }
 
-export const ConnectedOverlayContent: FC<
-  ConnectedOverlayContentProps & {
-    ref?: LegacyRef<ConnectedOverlayContentRef>;
-  }
-> = forwardRef(
+export const ConnectedOverlayContent = forwardRef<
+  ConnectedOverlayContentRef,
+  ConnectedOverlayContentProps
+>(
   (
     {
       triggerRef,

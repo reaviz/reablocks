@@ -1,6 +1,11 @@
-import React, { FC, useCallback, useMemo, useState } from 'react';
 import { endOfDay, isAfter, isBefore, isToday, startOfDay } from 'date-fns';
+import type { MotionNodeAnimationOptions } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
+import type { FC } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+
 import { Button } from '@/elements';
+import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import {
   daysOfWeek,
   getDayAttributes,
@@ -8,13 +13,7 @@ import {
   isNextWeekEmpty,
   isPreviousWeekEmpty
 } from '@/form/Calendar/utils';
-import {
-  AnimatePresence,
-  motion,
-  MotionNodeAnimationOptions
-} from 'motion/react';
 import { cn, useComponentTheme } from '@/utils';
-import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 
 export interface CalendarDaysProps {
   /**
@@ -224,7 +223,7 @@ export const CalendarDays: FC<CalendarDaysProps> = ({
         isPreviousWeekEmpty(day.date, currentRange, hidePrevMonthDays);
 
       // Determine the color variant of the button
-      const colorVariant = isActive ? 'primary' : 'default';
+      const colorVariant = isActive ? 'primary' : 'secondary';
 
       // Determine the button variant
       const buttonVariant = isActive ? 'filled' : 'text';

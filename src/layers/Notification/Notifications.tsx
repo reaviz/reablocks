@@ -1,31 +1,25 @@
-import React, {
-  Fragment,
-  FC,
-  ReactNode,
-  useState,
-  useCallback,
-  useMemo,
-  JSXElementConstructor
-} from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { twMerge } from 'tailwind-merge';
+import type { FC, JSXElementConstructor, ReactNode } from 'react';
+import React, { Fragment, useCallback, useMemo, useState } from 'react';
+
+import CheckCircleIcon from '@/assets/icons/check_circle.svg?react';
+import ErrorCircleIcon from '@/assets/icons/error_circle.svg?react';
+import InfoIcon from '@/assets/icons/info.svg?react';
+import WarningIcon from '@/assets/icons/warning.svg?react';
+import { twMerge } from '@/utils';
+import { useComponentTheme } from '@/utils';
 
 import { Notification } from './Notification';
-import {
-  NotificationOptions,
-  NotificationsContext,
-  NotificationVariants
-} from './NotificationsContext';
-import { NotificationTheme } from './NotificationTheme';
-import { useComponentTheme } from '@/utils';
-import InfoIcon from '@/assets/icons/info.svg?react';
-import CheckCircleIcon from '@/assets/icons/check_circle.svg?react';
-import WarningIcon from '@/assets/icons/warning.svg?react';
-import ErrorCircleIcon from '@/assets/icons/error_circle.svg?react';
+import type { NotificationOptions } from './NotificationsContext';
+import { NotificationsContext } from './NotificationsContext';
+import type {
+  NotificationTheme,
+  NotificationVariantTheme
+} from './NotificationTheme';
 
 export interface NotificationComponentProps {
   message: string;
-  variant: NotificationVariants;
+  variant: keyof NotificationVariantTheme;
   onClose?: () => void;
 }
 
@@ -37,10 +31,10 @@ export interface NotificationsProps {
   children?: ReactNode;
   className?: string;
   components?: {
-    [variant in NotificationVariants]?: JSXElementConstructor<NotificationComponentProps>;
+    [variant in keyof NotificationVariantTheme]?: JSXElementConstructor<NotificationComponentProps>;
   };
   icons?: {
-    [variant in NotificationVariants]?:
+    [variant in keyof NotificationVariantTheme]?:
       | string
       | React.JSX.Element
       | React.JSX.Element[];

@@ -1,7 +1,7 @@
-import { CalendarTheme, calendarTheme } from './CalendarTheme';
+import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
+import { calendarTheme } from '@/form/Calendar/CalendarTheme';
 
-export interface CalendarRangeTheme
-  extends Omit<CalendarTheme, 'months' | 'years'> {}
+export type CalendarRangeTheme = Omit<CalendarTheme, 'months' | 'years'>;
 
 const baseTheme: Partial<CalendarRangeTheme> = {
   base: 'relative overflow-hidden',
@@ -20,17 +20,11 @@ export const calendarRangeTheme: CalendarRangeTheme = {
   header: baseTheme.header,
   title: baseTheme.title,
   content: baseTheme.content,
+  contentContainer: baseTheme.contentContainer,
   days: calendarTheme.days,
+  time: calendarTheme.time,
   presets: {
     ...calendarTheme.presets,
     divider: 'mx-1 h-[calc(100%-30px)] self-end'
   }
-};
-
-export const legacyCalendarRangeTheme: CalendarRangeTheme = {
-  base: baseTheme.base,
-  header: baseTheme.header,
-  title: baseTheme.title,
-  content: baseTheme.content,
-  days: calendarTheme.days
 };

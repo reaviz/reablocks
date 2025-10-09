@@ -1,5 +1,7 @@
-import { calendarTheme, CalendarTheme } from '@/form/Calendar';
-import { inputTheme, InputTheme } from '@/form/Input';
+import type { CalendarTheme } from '@/form/Calendar';
+import { calendarTheme } from '@/form/Calendar';
+import type { InputTheme } from '@/form/Input';
+import { inputTheme } from '@/form/Input';
 
 export interface DateInputTheme {
   input: InputTheme;
@@ -17,12 +19,10 @@ export const dateInputTheme: DateInputTheme = {
   input: inputTheme,
   calendar: calendarTheme,
   preset: {
-    list: 'w-full border border-panel-accent',
+    list: 'w-full',
     option: {
-      base: 'hover:bg-vulcan hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-secondary',
-      active: 'bg-vulcan hover:text-mystic'
+      base: '',
+      active: ''
     }
   }
 };
-
-export const legacyDateInputTheme: DateInputTheme = dateInputTheme;

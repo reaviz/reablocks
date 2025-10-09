@@ -1,7 +1,11 @@
-import React, { FC, forwardRef, LegacyRef } from 'react';
-import { motion, MotionNodeAnimationOptions } from 'motion/react';
-import { ToggleTheme } from './ToggleTheme';
+import type { MotionNodeAnimationOptions } from 'motion/react';
+import { motion } from 'motion/react';
+import type { FC, LegacyRef } from 'react';
+import React, { forwardRef } from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
+
+import type { ToggleSizeTheme, ToggleTheme } from './ToggleTheme';
 
 export interface ToggleProps {
   /**
@@ -32,7 +36,7 @@ export interface ToggleProps {
   /**
    * The size of the toggle.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof ToggleSizeTheme;
 
   /**
    * When the toggle is changed.

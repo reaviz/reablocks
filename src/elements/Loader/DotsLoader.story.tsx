@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { DotsLoader } from './DotsLoader';
 
 export default {

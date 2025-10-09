@@ -1,5 +1,7 @@
-import React, { FC, ReactNode } from 'react';
-import { HTMLMotionProps, motion } from 'motion/react';
+import type { HTMLMotionProps } from 'motion/react';
+import { motion } from 'motion/react';
+import type { FC, ReactNode } from 'react';
+import React from 'react';
 
 export const groupVariants = {
   initial: {

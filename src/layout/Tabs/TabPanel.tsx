@@ -1,7 +1,10 @@
-import React, { FC, PropsWithChildren } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { TabsTheme } from './TabsTheme';
+import type { FC, PropsWithChildren } from 'react';
+import React from 'react';
+
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
+
+import type { TabsTheme } from './TabsTheme';
 
 export interface TabPanelProps extends PropsWithChildren {
   /**

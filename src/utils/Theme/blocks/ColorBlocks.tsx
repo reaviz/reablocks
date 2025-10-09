@@ -1,11 +1,26 @@
-import React, { FC, useMemo } from 'react';
 import chroma from 'chroma-js';
+import type { FC } from 'react';
+import React, { useMemo } from 'react';
 
 export interface ColorBlockProps {
   name: string;
   color: string;
   className?: string;
 }
+
+const COLOR_TOKENS = [
+  'white',
+  'black',
+  'neutrals',
+  'blue',
+  'green',
+  'orange',
+  'pink',
+  'purple',
+  'red',
+  'teal',
+  'yellow'
+];
 
 export const ColorBlock: FC<ColorBlockProps> = ({ name, color, className }) => (
   <div
@@ -58,13 +73,15 @@ interface ColorPaletteBlockProps {
   color: string;
   className?: string;
   showName?: boolean;
+  theme: string;
 }
 
 export const ColorPaletteBlock: FC<ColorPaletteBlockProps> = ({
   name,
   color,
   className,
-  showName = true
+  showName = true,
+  theme = 'dark'
 }) => {
   let fontColor = 'var(--body-color)';
   if (!name.includes('overlay')) {
@@ -80,10 +97,13 @@ export const ColorPaletteBlock: FC<ColorPaletteBlockProps> = ({
 
     if (valid) {
       const colorInstance = isOklch ? chroma.oklch(oklchColor) : chroma(color);
+      const luminance = colorInstance.luminance();
+      const alpha = colorInstance.alpha();
+      const effectiveLuminance =
+        alpha * luminance + (1 - alpha) * (theme === 'light' ? 1 : 0);
+
       fontColor =
-        colorInstance.luminance() >= 0.3
-          ? colorInstance.darken(100).css()
-          : colorInstance.brighten(100).css();
+        effectiveLuminance > 0.5 ? 'var(--color-black)' : 'var(--color-white)';
     }
   }
 
@@ -92,7 +112,8 @@ export const ColorPaletteBlock: FC<ColorPaletteBlockProps> = ({
       key={name}
       className={className}
       style={{
-        borderRight: 'solid 1px var(--border-color)'
+        border: 'solid 1px var(--border-color)',
+        margin: '-0.5px'
       }}
     >
       <div
@@ -134,6 +155,7 @@ export interface ColorPaletteBlocksProps {
   className?: string;
   token?: string | null;
   showNames?: boolean;
+  theme: string;
 }
 
 const extractColorName = (colorToken: string): string => {
@@ -145,7 +167,8 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
   name,
   colors,
   className,
-  showNames = true
+  showNames = true,
+  theme
 }) => (
   <div
     className={className}
@@ -153,14 +176,16 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
       marginBottom: '24px'
     }}
   >
-    <h3 style={{ fontWeight: 500, margin: 0 }}>{name}</h3>
+    <h3 style={{ textTransform: 'capitalize', fontWeight: 500, margin: 0 }}>
+      {name}
+    </h3>
     <div
       style={{
         display: 'grid',
         overflow: 'hidden',
         borderRadius: '6px',
         border: 'solid 1px var(--border-color)',
-        gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))'
+        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
       }}
     >
       {typeof colors === 'string' && (
@@ -174,6 +199,7 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
               name={color.replace('--color-', '')}
               color={colors[color]}
               showName={showNames}
+              theme={theme}
             />
           ))}
         </>
@@ -185,7 +211,13 @@ export const ColorPaletteBlocks: FC<ColorPaletteBlocksProps> = ({
   </div>
 );
 
-export const ColorBlocks = ({ colors }: { colors: Record<string, string> }) => {
+export const ColorBlocks = ({
+  colors,
+  theme
+}: {
+  colors: Record<string, string>;
+  theme: string;
+}) => {
   const groupedColors = useMemo((): Record<string, Record<string, string>> => {
     const groups = Object.keys(colors).reduce(
       (acc, token) => {
@@ -200,9 +232,26 @@ export const ColorBlocks = ({ colors }: { colors: Record<string, string> }) => {
       {} as Record<string, Record<string, string>>
     );
 
-    const sortedGroupNames = Object.keys(groups).sort(
-      (a, b) => Object.keys(groups[a]).length - Object.keys(groups[b]).length
-    );
+    const sortedGroupNames = Object.keys(groups).sort((a, b) => {
+      const indexA = COLOR_TOKENS.indexOf(a);
+      const indexB = COLOR_TOKENS.indexOf(b);
+
+      const aIsColor = indexA !== -1;
+      const bIsColor = indexB !== -1;
+
+      // Both are colors → sort by token order
+      if (aIsColor && bIsColor) {
+        return indexA - indexB;
+      }
+
+      // Only A is a color → A comes first
+      if (aIsColor) return -1;
+
+      // Only B is a color → B comes first
+      if (bIsColor) return 1;
+
+      return a.localeCompare(b); // both are non-color → sort alphabetically
+    });
 
     return sortedGroupNames.reduce(
       (sorted, groupName) => {
@@ -228,6 +277,7 @@ export const ColorBlocks = ({ colors }: { colors: Record<string, string> }) => {
               key={key}
               name={extractColorName(key)}
               colors={groupedColors[key]}
+              theme={theme}
             />
           ))}
         </>

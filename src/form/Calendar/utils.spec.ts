@@ -1,16 +1,16 @@
 import { differenceInDays } from 'date-fns';
-import { describe, test, expect } from 'vitest';
+import { describe, expect, test } from 'vitest';
 import { vi } from 'vitest';
 
 import {
   getDayAttributes,
   getDayLabels,
+  getMonthNames,
   getWeeks,
   isNextWeekEmpty,
-  isPreviousWeekEmpty,
-  updateDateTime,
   isPresetActive,
-  getMonthNames
+  isPreviousWeekEmpty,
+  updateDateTime
 } from './utils';
 
 describe('getDayLabels', () => {

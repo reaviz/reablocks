@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from 'react';
-import { useDrawer } from './useDrawer';
-import { Drawer } from './Drawer';
+
 import { Button } from '../../elements';
+import { Drawer } from './Drawer';
+import { useDrawer } from './useDrawer';
 
 export default {
   title: 'Components/Layers/Drawer',

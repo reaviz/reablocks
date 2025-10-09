@@ -1,15 +1,15 @@
-import React, { CSSProperties } from 'react';
+import type { CSSProperties } from 'react';
+import type React from 'react';
+import type { FC, LegacyRef, PropsWithChildren } from 'react';
 import {
-  useImperativeHandle,
   forwardRef,
-  FC,
-  PropsWithChildren,
-  useLayoutEffect,
-  useRef,
   useEffect,
-  LegacyRef
+  useImperativeHandle,
+  useLayoutEffect,
+  useRef
 } from 'react';
 import { createPortal } from 'react-dom';
+
 import { useUnmount } from '@/utils/useUnmount';
 
 export interface PortalProps extends PropsWithChildren {
