@@ -79,7 +79,7 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
     const textareaRef = useRef<HTMLTextAreaElement | null>(null);
 
     useImperativeHandle(inputRef, () => ({
-      textareaRef,
+      inputRef: textareaRef,
       containerRef,
       blur: () => textareaRef.current?.blur(),
       focus: () => textareaRef.current?.focus()

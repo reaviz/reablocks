@@ -89,12 +89,15 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
         onClick={e => !disabled && onClick?.(e)}
         className={cn(
           theme.listItem.base,
-          dense && theme.listItem.dense.base,
-          disabled && theme.listItem.disabled,
-          active && theme.listItem.active,
-          onClick && !disabled && theme.listItem.clickable,
-          disablePadding && theme.listItem.disablePadding,
-          disableGutters && theme.listItem.disableGutters,
+          {
+            disabled: disabled,
+            [theme.listItem.disabled]: disabled,
+            [theme.listItem.dense.base]: dense,
+            [theme.listItem.active]: active,
+            [theme.listItem.clickable]: onClick && !disabled,
+            [theme.listItem.disablePadding]: disablePadding,
+            [theme.listItem.disableGutters]: disableGutters
+          },
           className
         )}
       >

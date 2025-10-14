@@ -1,6 +1,9 @@
+import { ListItem } from '@/layout';
 import React, {
   forwardRef,
   Fragment,
+  KeyboardEvent,
+  ReactNode,
   useCallback,
   useImperativeHandle,
   useRef,
@@ -23,7 +26,7 @@ export interface NestedMenuProps {
   /**
    * Menu contents.
    */
-  children: any;
+  children: ReactNode | ((args: NestedMenuRef) => ReactNode);
 
   /**
    * Label element for the menu item.
@@ -150,7 +153,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
       }, leaveDelay);
     }, [leaveDelay]);
 
-    const onMouseEnterMenu = useCallback(event => {
+    const onMouseEnterMenu = useCallback(() => {
       clearTimeout(enterTimeoutRef.current);
       clearTimeout(leaveTimeoutRef.current);
       menuEntered.current = true;
@@ -179,6 +182,13 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
       [onClose]
     );
 
+    const onKeyDown = useCallback((e: KeyboardEvent) => {
+      e.stopPropagation();
+      if (e.key === 'ArrowLeft' || e.key === 'Escape') {
+        setActive(false);
+      }
+    }, []);
+
     /**
      * Expose the close ability to the outside
      */
@@ -190,7 +200,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
 
     return (
       <Fragment>
-        <div
+        <ListItem
           className={classNames(className, { [activeClassName]: active })}
           style={style}
           ref={itemRef}
@@ -199,7 +209,7 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
           onMouseLeave={onMouseLeaveItem}
         >
           {label}
-        </div>
+        </ListItem>
         <Menu
           className={menuClassName}
           autofocus={autofocus}
@@ -216,7 +226,13 @@ export const NestedMenu = forwardRef<NestedMenuRef, NestedMenuProps>(
           onMouseLeave={onMouseLeaveMenu}
           onClose={onNestedMenuClose}
         >
-          {children}
+          {() => (
+            <div onKeyDown={onKeyDown}>
+              {typeof children === 'function'
+                ? children({ close: () => setActive(false) })
+                : children}
+            </div>
+          )}
         </Menu>
       </Fragment>
     );
