@@ -1,0 +1,117 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Docs/Utils/cn Helper" />
+
+# cn Helper Function
+
+The `cn` helper function is a utility that combines [classnames](https://github.com/JedWatson/classnames) and [tailwind-merge](https://github.com/dcastil/tailwind-merge) to intelligently merge Tailwind CSS classes.
+
+## Basic Usage
+
+```tsx
+import { cn } from 'reablocks';
+
+// Merge classes - later classes override earlier ones
+const className = cn('p-4 bg-blue-500', 'p-2 text-white');
+// Result: 'bg-blue-500 p-2 text-white'
+
+// Conditional classes
+const isActive = true;
+const className = cn('base-class', isActive && 'active-class');
+// Result: 'base-class active-class'
+```
+
+## Custom Configuration with createCn
+
+The `createCn` function allows you to create a customized version of `cn` with tailwind-merge configuration. This is useful when you need to:
+
+- Add custom class groups for your design system
+- Configure custom prefixes or separators
+- Define conflict resolution for custom utility classes
+
+### Example: Custom Class Groups
+
+```tsx
+import { createCn } from 'reablocks';
+
+// Create a custom cn with extended class groups
+const customCn = createCn({
+  extend: {
+    classGroups: {
+      'font-size': [
+        { text: ['xs', 'sm', 'base', 'lg', 'xl', '2xl', 'display-sm', 'display-md', 'display-lg'] }
+      ],
+      'brand-color': [
+        { 'bg-brand': ['primary', 'secondary', 'accent'] },
+        { 'text-brand': ['primary', 'secondary', 'accent'] }
+      ]
+    }
+  }
+});
+
+// Now use it like regular cn, but with custom class merging
+const heading = customCn('text-2xl text-brand-primary', 'text-display-md');
+// Result: 'text-brand-primary text-display-md' (custom classes merge correctly)
+```
+
+### Example: Custom Prefix
+
+```tsx
+import { createCn } from 'reablocks';
+
+const customCn = createCn({
+  prefix: 'tw-'
+});
+
+const className = customCn('tw-p-4', 'tw-p-2');
+// Result: 'tw-p-2'
+```
+
+### Example: Custom Separator
+
+```tsx
+import { createCn } from 'reablocks';
+
+const customCn = createCn({
+  separator: '_'
+});
+
+const className = customCn('hover_bg-blue-500', 'hover_bg-red-500');
+// Result: 'hover_bg-red-500'
+```
+
+## Configuration Options
+
+The `createCn` function accepts a configuration object that is passed directly to [tailwind-merge's extendTailwindMerge](https://github.com/dcastil/tailwind-merge/blob/v2.6.0/docs/configuration.md) function. You can:
+
+- **extend**: Add new class groups and theme values without removing the defaults
+- **override**: Replace default class groups and theme values
+- **prefix**: Set a custom prefix for Tailwind classes
+- **separator**: Set a custom separator for modifiers
+- **cacheSize**: Configure the LRU cache size for performance
+
+See the [tailwind-merge documentation](https://github.com/dcastil/tailwind-merge/blob/v2.6.0/docs/configuration.md) for detailed configuration options.
+
+## API Reference
+
+### cn(...classes)
+
+Merges class names using classnames and tailwind-merge.
+
+**Parameters:**
+- `classes`: Any number of class names (strings, objects, arrays, or conditionals)
+
+**Returns:** Merged class name string
+
+### createCn(config)
+
+Creates a custom cn function with tailwind-merge configuration.
+
+**Parameters:**
+- `config`: Configuration object for tailwind-merge
+
+**Returns:** A customized cn function with the same signature as the default cn
+
+## Examples
+
+See the [cn Helper Story](?path=/story/utils-cn-helper--default-cn) for interactive examples.
