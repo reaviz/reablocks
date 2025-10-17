@@ -67,7 +67,7 @@ export const checkboxTheme: CheckboxTheme = {
     }
   },
   check: {
-    base: 'stroke-selectors-colors-checkbox-selected-assets-base group-hover:selectors-colors-checkbox-selected-assets-hover',
+    base: 'stroke-selectors-colors-checkbox-selected-assets-base group-hover:stroke-selectors-colors-checkbox-selected-assets-hover',
     checked: '',
     disabled: 'cursor-not-allowed'
   },
