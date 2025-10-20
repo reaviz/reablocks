@@ -17,6 +17,8 @@ import {
   arrowTheme,
   chipTheme,
   ChipTheme,
+  SkeletonTheme,
+  skeletonTheme,
   legacyAvatarTheme,
   legacyAvatarGroupTheme,
   legacyArrowTheme,
@@ -25,7 +27,8 @@ import {
   legacyChipTheme,
   legacyLoaderTheme,
   legacyKbdTheme,
-  legacyCommandPaletteTheme
+  legacyCommandPaletteTheme,
+  legacySkeletonTheme
 } from '@/elements';
 
 import {
@@ -202,6 +205,7 @@ export interface ReablocksTheme {
     stepper: StepperTheme;
     callout: CalloutTheme;
     backdrop: BackdropTheme;
+    skeleton: SkeletonTheme;
   };
 }
 
@@ -252,7 +256,8 @@ export const theme: ReablocksTheme = {
     breadcrumbs: breadcrumbsTheme,
     stepper: stepperTheme,
     callout: calloutTheme,
-    backdrop: backdropTheme
+    backdrop: backdropTheme,
+    skeleton: skeletonTheme
   }
 };
 
@@ -303,6 +308,7 @@ export const legacyThemeVars: ReablocksTheme = {
     breadcrumbs: legacyBreadcrumbTheme,
     stepper: legacyStepperTheme,
     callout: legacyCalloutTheme,
-    backdrop: legacyBackdropTheme
+    backdrop: legacyBackdropTheme,
+    skeleton: legacySkeletonTheme
   }
 };
