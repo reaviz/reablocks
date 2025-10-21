@@ -77,3 +77,51 @@ export const CustomStyles = () => {
     </div>
   );
 };
+
+export const Variants = () => {
+  return (
+    <div className="flex flex-col gap-6">
+      <div>
+        <h3 className="text-sm font-semibold mb-2 light:text-gray-700 dark:text-gray-300">
+          Text
+        </h3>
+        <Skeleton variant="text" animated />
+      </div>
+      <div>
+        <h3 className="text-sm font-semibold mb-2 light:text-gray-700 dark:text-gray-300">
+          Rounded
+        </h3>
+        <Skeleton variant="rounded" animated />
+      </div>
+      <div>
+        <h3 className="text-sm font-semibold mb-2 light:text-gray-700 dark:text-gray-300">
+          Rectangle
+        </h3>
+        <Skeleton variant="rectangle" animated />
+      </div>
+      <div>
+        <h3 className="text-sm font-semibold mb-2 light:text-gray-700 dark:text-gray-300">
+          Square
+        </h3>
+        <Skeleton variant="square" animated />
+      </div>
+    </div>
+  );
+};
+
+export const VariantsInContext = () => {
+  return (
+    <div className="w-[400px] p-5 border border-gray-300 rounded-lg">
+      <div className="flex items-center gap-4 mb-4">
+        <Skeleton variant="rounded" animated />
+        <div className="flex-1">
+          <Skeleton variant="text" animated className="mb-2" />
+          <Skeleton variant="text" animated className="w-3/4" />
+        </div>
+      </div>
+      <Skeleton variant="rectangle" animated className="mb-3" />
+      <Skeleton variant="text" animated className="mb-2" />
+      <Skeleton variant="text" animated className="w-5/6" />
+    </div>
+  );
+};
