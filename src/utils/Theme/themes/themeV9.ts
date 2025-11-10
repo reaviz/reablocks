@@ -727,6 +727,7 @@ export const themeV9: ReablocksTheme = {
           end: 'pl-1.5'
         }
       },
+      card: '',
       calendar: {
         base: 'relative overflow-hidden',
         header: {
