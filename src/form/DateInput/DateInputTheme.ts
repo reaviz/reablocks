@@ -6,6 +6,7 @@ import { inputTheme } from '@/form/Input';
 export interface DateInputTheme {
   input: InputTheme;
   calendar: CalendarTheme;
+  card: string;
   preset: {
     list: string;
     option: {
@@ -18,6 +19,7 @@ export interface DateInputTheme {
 export const dateInputTheme: DateInputTheme = {
   input: inputTheme,
   calendar: calendarTheme,
+  card: '',
   preset: {
     list: 'w-full',
     option: {
