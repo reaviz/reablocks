@@ -10,6 +10,7 @@ import { ellipsisTheme } from '@/data/Ellipsis/EllipsisTheme';
 import { pagerTheme } from '@/data/Pager/PagerTheme';
 import { redactTheme } from '@/data/Redact/RedactTheme';
 import { sortTheme } from '@/data/Sort/SortTheme';
+import type { SkeletonTheme } from '@/elements';
 import {
   type ArrowTheme,
   type AvatarGroupTheme,
@@ -32,6 +33,7 @@ import { commandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteThe
 import { kbdTheme } from '@/elements/Kbd/KbdTheme';
 import { dotsLoaderTheme } from '@/elements/Loader/DotsLoaderTheme';
 import { navigationTheme } from '@/elements/Navigation/NavigationTheme';
+import { skeletonTheme } from '@/elements/Skeleton';
 import type {
   CalendarRangeTheme,
   CalendarTheme,
@@ -154,6 +156,7 @@ export interface ReablocksTheme {
     callout: CalloutTheme;
     backdrop: BackdropTheme;
     navigation: NavigationTheme;
+    skeleton: SkeletonTheme;
   };
 }
 
@@ -206,6 +209,7 @@ export const theme: ReablocksTheme = {
     stepper: stepperTheme,
     callout: calloutTheme,
     backdrop: backdropTheme,
+    skeleton: skeletonTheme,
     navigation: navigationTheme
   }
 };

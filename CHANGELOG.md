@@ -1,3 +1,9 @@
+# 9.3.0 - 10/22/25
+- [chore] Skeleton loading component with theme support, animation, and predefined variants
+
+# 9.2.2 - 10/14/25
+- [chore] Replace vulnerable @marko19907/string-to-color with secure custom implementation #312
+
 # 9.2.1 - 9/11/25
 - [fix] Add return to clone element to add ability use values from overridden fn #308
 

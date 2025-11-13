@@ -9,3 +9,4 @@ export * from './IconButton';
 export * from './Kbd';
 export * from './Loader';
 export * from './Navigation';
+export * from './Skeleton';
