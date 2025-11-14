@@ -3,16 +3,7 @@ export interface RedactTheme {
   interactive: string;
 }
 
-const baseTheme: RedactTheme = {
+export const redactTheme: RedactTheme = {
   base: 'cursor-text',
   interactive: 'cursor-pointer hover:underline'
-};
-
-export const redactTheme: RedactTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-text-primary'].join(' ')
-};
-
-export const legacyRedactTheme: RedactTheme = {
-  ...baseTheme
 };

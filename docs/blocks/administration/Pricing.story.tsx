@@ -1,10 +1,18 @@
-import React, { useState } from 'react';
 import { motion } from 'motion/react';
+import React, { useState } from 'react';
 
-import { toggleTheme, Toggle } from '../../../src/form/Toggle';
-import { radioTheme, Radio } from '../../../src/form/Radio';
-import { Button } from '../../../src/elements/Button';
+import { Button, ButtonGroup } from '../../../src/elements/Button';
+import { Chip } from '../../../src/elements/Chip';
+import { IconButton } from '../../../src/elements/IconButton';
+import { Radio } from '../../../src/form/Radio';
+import { Toggle } from '../../../src/form/Toggle';
 import {
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  Breadcrumbs,
+  BreadcrumbSeparator,
   Card,
   Divider,
   List,
@@ -14,7 +22,6 @@ import {
   Stack,
   VerticalSpacer
 } from '../../../src/layout';
-import { Chip } from '../../../src/elements/Chip';
 import { cn } from '../../../src/utils/Theme/helpers';
 
 export default {
@@ -36,33 +43,6 @@ const CheckIcon = () => (
   </svg>
 );
 
-const ToggleTheme = {
-  ...toggleTheme,
-  base: 'flex items-center justify-start cursor-pointer box-border border dark:border-charade dark:bg-[#1E1E2E] light:border-mystic light:bg-[#C9C9D6] hover:bg-primary-hover focus-visible:outline-hidden focus-visible:border-primary-hover rounded-xl transition-colors',
-  checked: 'justify-end bg-blue-500!',
-  handle: {
-    base: 'rounded-full dark:bg-black light:bg-white',
-    sizes: {
-      ...toggleTheme.handle.sizes,
-      medium: 'w-5 h-5'
-    }
-  },
-  sizes: {
-    ...toggleTheme.sizes,
-    medium: 'w-12 h-6 py-0.5 px-[1px]'
-  }
-};
-
-const RadioTheme = {
-  ...radioTheme,
-  base: 'box-border leading-3',
-  radio: {
-    ...radioTheme.radio,
-    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-hidden focus-visible:border-primary-hover',
-    checked: 'border-primary'
-  }
-};
-
 export const Pricing = () => {
   const [selected, setSelected] = useState('free');
 
@@ -70,67 +50,53 @@ export const Pricing = () => {
     <MotionGroup className="w-full grid grid-cols-3 gap-2.5">
       <MotionItem>
         <Card
-          className={cn('w-full h-[515px] rounded-sm transition-colors', {
-            'dark:dark:bg-[#1E1E2E]': selected !== 'free',
-            'light:border-primary-active light:bg-athens-gray':
-              selected === 'free'
+          className={cn('w-full h-[515px] rounded-sm transition-colors p-7', {
+            'bg-gradient-brand-100': selected === 'free'
           })}
           contentClassName="w-full h-full"
         >
           <Stack direction="column" alignItems="start" className="h-full">
             <Stack justifyContent="spaceBetween" className="w-full">
-              <h6 className="text-lg font-semibold">Free</h6>
-              <Chip
-                color="primary"
-                className="rounded-full px-3 text-sm dark:bg-blue-950 light:bg-blue-100 dark:text-athens-gray light:text-vulcan"
-              >
+              <h6 className="text-base font-semibold">Free</h6>
+              <Chip size="large" variant="outline" color="primary">
                 Current Plan
               </Chip>
             </Stack>
-            <span className="dark:text-waterloo light:text-charade">
-              For small teams
-            </span>
+            <span className="text-content-text-neutral-2">For small teams</span>
             <Stack>
-              <h1 className="text-3xl font-semibold">$0</h1>
-              <span className="font-bold dark:text-waterloo light:text-charade">
+              <h1 className="text-2xl font-semibold">$0</h1>
+              <span className="font-bold text-content-text-neutral-2">
                 /Month
               </span>
             </Stack>
-            <Divider className="mt-0" variant="secondary" />
+            <Divider className="mt-0" />
             <Stack direction="column" alignItems="start" className="grow">
               <List>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-content-text-neutral-2"
                 >
                   10 members
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-content-text-neutral-2"
                 >
                   Integration support
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-content-text-neutral-2"
                 >
                   Figma support
                 </ListItem>
               </List>
             </Stack>
             <Button
+              size="large"
               variant={selected === 'free' ? 'filled' : 'outline'}
-              color={selected === 'free' ? 'primary' : 'default'}
-              className={cn(
-                'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
-                {
-                  'bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
-                    selected === 'free',
-                  'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:border-waterloo!':
-                    selected !== 'free'
-                }
-              )}
+              color={selected === 'free' ? 'primary' : 'secondary'}
+              className="px-4 py-2 flex items-center gap-2 self-stretch focus:outline-hidden transition-colors"
               onClick={() => setSelected('free')}
               fullWidth
             >
@@ -150,73 +116,61 @@ export const Pricing = () => {
       </MotionItem>
       <MotionItem>
         <Card
-          className={cn('w-full h-[515px] rounded-sm transition-colors', {
-            'dark:bg-[#1E1E2E]': selected !== 'starter',
-            'light:border-primary-active light:bg-athens-gray':
-              selected === 'starter'
+          className={cn('w-full h-[515px] rounded-sm transition-colors p-7', {
+            'bg-gradient-brand-100': selected === 'starter'
           })}
           contentClassName="w-full h-full"
         >
           <Stack direction="column" alignItems="start" className="h-full">
             <Stack justifyContent="spaceBetween" className="w-full">
-              <h6 className="text-lg font-semibold">Starter</h6>
-              <Chip
-                color="success"
-                className="rounded-full px-3 text-sm dark:bg-green-950 light:bg-green-100 dark:text-athens-gray light:text-vulcan"
-              >
+              <h6 className="text-base font-semibold">Starter</h6>
+              <Chip size="large" color="success" variant="outline">
                 Recommended
               </Chip>
             </Stack>
-            <span className="dark:text-waterloo light:text-charade">
+            <span className="text-content-text-neutral-2">
               For a broad set of teams
             </span>
             <Stack>
-              <h1 className="text-3xl font-semibold">$1,000</h1>
-              <span className="font-bold dark:text-waterloo light:text-charade">
+              <h1 className="text-2xl font-semibold">$1,000</h1>
+              <span className="font-bold text-content-text-neutral-2">
                 /Month
               </span>
             </Stack>
-            <Divider className="mt-0" variant="secondary" />
+            <Divider className="mt-0" />
             <Stack direction="column" alignItems="start" className="grow">
               <List>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-content-text-neutral-2"
                 >
                   Unlimited members
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-content-text-neutral-2"
                 >
                   Integration support
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-content-text-neutral-2"
                 >
                   Figma support
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-content-text-neutral-2"
                 >
                   Storybook support
                 </ListItem>
               </List>
             </Stack>
             <Button
+              size="large"
               variant={selected === 'starter' ? 'filled' : 'outline'}
-              color={selected === 'starter' ? 'primary' : 'default'}
-              className={cn(
-                'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
-                {
-                  'bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
-                    selected === 'starter',
-                  'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:border-waterloo!':
-                    selected !== 'starter'
-                }
-              )}
+              color={selected === 'starter' ? 'primary' : 'secondary'}
+              className="px-4 py-2 flex items-center gap-2 self-stretch focus:outline-hidden transition-colors"
               onClick={() => setSelected('starter')}
               fullWidth
             >
@@ -236,66 +190,57 @@ export const Pricing = () => {
       </MotionItem>
       <MotionItem>
         <Card
-          className={cn('w-full h-[515px] rounded-sm transition-colors', {
-            'dark:bg-[#1E1E2E]': selected !== 'custom',
-            'light:border-primary-active light:bg-athens-gray':
-              selected === 'custom'
+          className={cn('w-full h-[515px] rounded-sm transition-colors p-7', {
+            'bg-gradient-brand-100': selected === 'custom'
           })}
           contentClassName="w-full h-full"
         >
           <Stack direction="column" alignItems="start" className="h-full">
-            <h6 className="text-lg font-semibold leading-[31px]">Enterprise</h6>
-            <span className="dark:text-waterloo light:text-charade">
+            <h6 className="text-base font-semibold">Enterprise</h6>
+            <span className="text-content-text-neutral-2">
               For all custom needs
             </span>
-            <h1 className="text-3xl font-semibold">Custom</h1>
-            <Divider className="mt-0" variant="secondary" />
+            <h1 className="text-2xl font-semibold">Custom</h1>
+            <Divider className="mt-0" />
             <Stack direction="column" alignItems="start" className="grow">
               <List>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-content-text-neutral-2"
                 >
                   Unlimited members
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-content-text-neutral-2"
                 >
                   Integration support
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-content-text-neutral-2"
                 >
                   Figma support
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-content-text-neutral-2"
                 >
                   Storybook support
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-content-text-neutral-2"
                 >
                   Everything else
                 </ListItem>
               </List>
             </Stack>
             <Button
+              size="large"
               variant={selected === 'custom' ? 'filled' : 'outline'}
-              color={selected === 'custom' ? 'primary' : 'default'}
-              className={cn(
-                'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
-                {
-                  'bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
-                    selected === 'custom',
-                  'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:border-waterloo!':
-                    selected !== 'custom'
-                }
-              )}
+              color={selected === 'custom' ? 'primary' : 'secondary'}
+              className="px-4 py-2 flex items-center gap-2 self-stretch focus:outline-hidden transition-colors"
               onClick={() => setSelected('custom')}
               fullWidth
             >
@@ -321,66 +266,70 @@ export const PricingFull = () => {
   const [cycle, setCycle] = useState('Monthly');
 
   return (
-    <Card className="w-full transition-colors" contentClassName="w-full h-full">
+    <Card
+      className="w-full transition-colors p-7"
+      contentClassName="w-full h-full"
+    >
       <Stack justifyContent="spaceBetween">
-        <Stack>
-          <div className="dark:bg-charade/40 light:bg-blue-200/40 rounded-xs p-3">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-            >
-              <path d="M2.83333 3.33337C1.82674 3.33337 1 4.16012 1 5.16671V11.5C1 12.5066 1.82674 13.3334 2.83333 13.3334H13.1667C14.1733 13.3334 15 12.5066 15 11.5V5.16671C15 4.16012 14.1733 3.33337 13.1667 3.33337H2.83333ZM2.83333 4.33337H13.1667C13.6327 4.33337 14 4.70063 14 5.16671V11.5C14 11.9661 13.6327 12.3334 13.1667 12.3334H2.83333C2.36726 12.3334 2 11.9661 2 11.5V5.16671C2 4.70063 2.36726 4.33337 2.83333 4.33337ZM3.5 5.66671C3.43374 5.66577 3.36796 5.67801 3.30648 5.70272C3.24499 5.72743 3.18903 5.76411 3.14185 5.81063C3.09466 5.85715 3.0572 5.91259 3.03162 5.97371C3.00605 6.03484 2.99288 6.10044 2.99288 6.16671C2.99288 6.23297 3.00605 6.29857 3.03162 6.3597C3.0572 6.42083 3.09466 6.47626 3.14185 6.52279C3.18903 6.56931 3.24499 6.60599 3.30648 6.6307C3.36796 6.6554 3.43374 6.66764 3.5 6.66671H8.16667C8.23292 6.66764 8.2987 6.6554 8.36019 6.6307C8.42167 6.60599 8.47763 6.56931 8.52482 6.52279C8.572 6.47626 8.60947 6.42083 8.63505 6.3597C8.66062 6.29857 8.67379 6.23297 8.67379 6.16671C8.67379 6.10044 8.66062 6.03484 8.63505 5.97371C8.60947 5.91259 8.572 5.85715 8.52482 5.81063C8.47763 5.76411 8.42167 5.72743 8.36019 5.70272C8.2987 5.67801 8.23292 5.66577 8.16667 5.66671H3.5ZM3.5 7.66671C3.43374 7.66577 3.36796 7.67801 3.30648 7.70272C3.24499 7.72743 3.18903 7.76411 3.14185 7.81063C3.09466 7.85715 3.0572 7.91259 3.03162 7.97371C3.00605 8.03484 2.99288 8.10044 2.99288 8.16671C2.99288 8.23297 3.00605 8.29857 3.03162 8.3597C3.0572 8.42083 3.09466 8.47626 3.14185 8.52279C3.18903 8.56931 3.24499 8.60599 3.30648 8.6307C3.36796 8.6554 3.43374 8.66764 3.5 8.66671H6.5C6.56626 8.66764 6.63204 8.6554 6.69352 8.6307C6.75501 8.60599 6.81097 8.56931 6.85815 8.52279C6.90534 8.47626 6.9428 8.42083 6.96838 8.3597C6.99395 8.29857 7.00712 8.23297 7.00712 8.16671C7.00712 8.10044 6.99395 8.03484 6.96838 7.97371C6.9428 7.91259 6.90534 7.85715 6.85815 7.81063C6.81097 7.76411 6.75501 7.72743 6.69352 7.70272C6.63204 7.67801 6.56626 7.66577 6.5 7.66671H3.5ZM8.91667 8.66671C8.59346 8.66671 8.3847 8.85711 8.2474 9.02543C8.11009 9.19375 8.01427 9.38142 7.93229 9.58272C7.76834 9.98532 7.66667 10.4304 7.66667 10.8334C7.66573 10.8996 7.67797 10.9654 7.70268 11.0269C7.72738 11.0884 7.76406 11.1443 7.81059 11.1915C7.85711 11.2387 7.91255 11.2762 7.97367 11.3018C8.0348 11.3273 8.1004 11.3405 8.16667 11.3405C8.23293 11.3405 8.29853 11.3273 8.35966 11.3018C8.42079 11.2762 8.47622 11.2387 8.52275 11.1915C8.56927 11.1443 8.60595 11.0884 8.63066 11.0269C8.65536 10.9654 8.6676 10.8996 8.66667 10.8334C8.66667 10.627 8.7447 10.2387 8.85807 9.96033C8.86723 9.93783 8.87521 9.93253 8.88477 9.9115C8.92186 10 8.95499 10.0644 8.99349 10.1706C9.06713 10.3738 9.13851 10.5878 9.23177 10.7858C9.2784 10.8849 9.32742 10.9813 9.41471 11.0847C9.50201 11.188 9.66667 11.3334 9.91667 11.3334C10.3917 11.3334 10.6552 11.0001 10.8053 10.808C10.8072 10.8056 10.8074 10.8052 10.8092 10.8028C10.8501 10.8398 10.8607 10.8557 10.916 10.8978C11.2139 11.1248 11.7132 11.3334 12.5 11.3334C12.5663 11.3343 12.632 11.3221 12.6935 11.2974C12.755 11.2727 12.811 11.236 12.8582 11.1895C12.9053 11.1429 12.9428 11.0875 12.9684 11.0264C12.994 10.9652 13.0071 10.8996 13.0071 10.8334C13.0071 10.7671 12.994 10.7015 12.9684 10.6404C12.9428 10.5793 12.9053 10.5238 12.8582 10.4773C12.811 10.4308 12.755 10.3941 12.6935 10.3694C12.632 10.3447 12.5663 10.3324 12.5 10.3334C11.8701 10.3334 11.6611 10.2086 11.5215 10.1023C11.4517 10.0491 11.3992 9.98954 11.3008 9.90043C11.2024 9.81132 11 9.66671 10.75 9.66671C10.4313 9.66671 10.3016 9.84299 10.2161 9.93949C10.1466 10.018 10.1012 10.0833 10.0547 10.1452C10.0152 10.0422 9.97967 9.95656 9.93359 9.82947C9.85619 9.61594 9.77434 9.39052 9.65365 9.17908C9.5933 9.07336 9.52403 8.96828 9.41341 8.86788C9.30279 8.76748 9.12547 8.66671 8.91667 8.66671Z" />
-            </svg>
-          </div>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="currentColor"
+        <Breadcrumbs>
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path d="M2.83333 3.33337C1.82674 3.33337 1 4.16012 1 5.16671V11.5C1 12.5066 1.82674 13.3334 2.83333 13.3334H13.1667C14.1733 13.3334 15 12.5066 15 11.5V5.16671C15 4.16012 14.1733 3.33337 13.1667 3.33337H2.83333ZM2.83333 4.33337H13.1667C13.6327 4.33337 14 4.70063 14 5.16671V11.5C14 11.9661 13.6327 12.3334 13.1667 12.3334H2.83333C2.36726 12.3334 2 11.9661 2 11.5V5.16671C2 4.70063 2.36726 4.33337 2.83333 4.33337ZM3.5 5.66671C3.43374 5.66577 3.36796 5.67801 3.30648 5.70272C3.24499 5.72743 3.18903 5.76411 3.14185 5.81063C3.09466 5.85715 3.0572 5.91259 3.03162 5.97371C3.00605 6.03484 2.99288 6.10044 2.99288 6.16671C2.99288 6.23297 3.00605 6.29857 3.03162 6.3597C3.0572 6.42083 3.09466 6.47626 3.14185 6.52279C3.18903 6.56931 3.24499 6.60599 3.30648 6.6307C3.36796 6.6554 3.43374 6.66764 3.5 6.66671H8.16667C8.23292 6.66764 8.2987 6.6554 8.36019 6.6307C8.42167 6.60599 8.47763 6.56931 8.52482 6.52279C8.572 6.47626 8.60947 6.42083 8.63505 6.3597C8.66062 6.29857 8.67379 6.23297 8.67379 6.16671C8.67379 6.10044 8.66062 6.03484 8.63505 5.97371C8.60947 5.91259 8.572 5.85715 8.52482 5.81063C8.47763 5.76411 8.42167 5.72743 8.36019 5.70272C8.2987 5.67801 8.23292 5.66577 8.16667 5.66671H3.5ZM3.5 7.66671C3.43374 7.66577 3.36796 7.67801 3.30648 7.70272C3.24499 7.72743 3.18903 7.76411 3.14185 7.81063C3.09466 7.85715 3.0572 7.91259 3.03162 7.97371C3.00605 8.03484 2.99288 8.10044 2.99288 8.16671C2.99288 8.23297 3.00605 8.29857 3.03162 8.3597C3.0572 8.42083 3.09466 8.47626 3.14185 8.52279C3.18903 8.56931 3.24499 8.60599 3.30648 8.6307C3.36796 8.6554 3.43374 8.66764 3.5 8.66671H6.5C6.56626 8.66764 6.63204 8.6554 6.69352 8.6307C6.75501 8.60599 6.81097 8.56931 6.85815 8.52279C6.90534 8.47626 6.9428 8.42083 6.96838 8.3597C6.99395 8.29857 7.00712 8.23297 7.00712 8.16671C7.00712 8.10044 6.99395 8.03484 6.96838 7.97371C6.9428 7.91259 6.90534 7.85715 6.85815 7.81063C6.81097 7.76411 6.75501 7.72743 6.69352 7.70272C6.63204 7.67801 6.56626 7.66577 6.5 7.66671H3.5ZM8.91667 8.66671C8.59346 8.66671 8.3847 8.85711 8.2474 9.02543C8.11009 9.19375 8.01427 9.38142 7.93229 9.58272C7.76834 9.98532 7.66667 10.4304 7.66667 10.8334C7.66573 10.8996 7.67797 10.9654 7.70268 11.0269C7.72738 11.0884 7.76406 11.1443 7.81059 11.1915C7.85711 11.2387 7.91255 11.2762 7.97367 11.3018C8.0348 11.3273 8.1004 11.3405 8.16667 11.3405C8.23293 11.3405 8.29853 11.3273 8.35966 11.3018C8.42079 11.2762 8.47622 11.2387 8.52275 11.1915C8.56927 11.1443 8.60595 11.0884 8.63066 11.0269C8.65536 10.9654 8.6676 10.8996 8.66667 10.8334C8.66667 10.627 8.7447 10.2387 8.85807 9.96033C8.86723 9.93783 8.87521 9.93253 8.88477 9.9115C8.92186 10 8.95499 10.0644 8.99349 10.1706C9.06713 10.3738 9.13851 10.5878 9.23177 10.7858C9.2784 10.8849 9.32742 10.9813 9.41471 11.0847C9.50201 11.188 9.66667 11.3334 9.91667 11.3334C10.3917 11.3334 10.6552 11.0001 10.8053 10.808C10.8072 10.8056 10.8074 10.8052 10.8092 10.8028C10.8501 10.8398 10.8607 10.8557 10.916 10.8978C11.2139 11.1248 11.7132 11.3334 12.5 11.3334C12.5663 11.3343 12.632 11.3221 12.6935 11.2974C12.755 11.2727 12.811 11.236 12.8582 11.1895C12.9053 11.1429 12.9428 11.0875 12.9684 11.0264C12.994 10.9652 13.0071 10.8996 13.0071 10.8334C13.0071 10.7671 12.994 10.7015 12.9684 10.6404C12.9428 10.5793 12.9053 10.5238 12.8582 10.4773C12.811 10.4308 12.755 10.3941 12.6935 10.3694C12.632 10.3447 12.5663 10.3324 12.5 10.3334C11.8701 10.3334 11.6611 10.2086 11.5215 10.1023C11.4517 10.0491 11.3992 9.98954 11.3008 9.90043C11.2024 9.81132 11 9.66671 10.75 9.66671C10.4313 9.66671 10.3016 9.84299 10.2161 9.93949C10.1466 10.018 10.1012 10.0833 10.0547 10.1452C10.0152 10.0422 9.97967 9.95656 9.93359 9.82947C9.85619 9.61594 9.77434 9.39052 9.65365 9.17908C9.5933 9.07336 9.52403 8.96828 9.41341 8.86788C9.30279 8.76748 9.12547 8.66671 8.91667 8.66671Z" />
+                </svg>
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+            <BreadcrumbSeparator />
+            <BreadcrumbItem>
+              <BreadcrumbPage>Billing</BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumbs>
+        <ButtonGroup size="large">
+          <Button
+            className={cn({
+              'bg-buttons-colors-core-icon-primary-background-hover':
+                cycle === 'Monthly'
+            })}
+            onClick={() => setCycle('Monthly')}
           >
-            <path d="M10.47 4.94L9.53 4L5.53 8L9.53 12L10.47 11.06L7.41667 8L10.47 4.94Z" />
-          </svg>
-          <a href="#" className="text-primary">
-            Back to billing
-          </a>
-        </Stack>
-        <Stack className="dark:bg-vulcan light:bg-mystic rounded-sm p-1" dense>
-          {['Monthly', 'Yearly'].map(type => (
-            <Button
-              key={type}
-              size="large"
-              className={cn('text-lg', {
-                'dark:text-black dark:bg-blue-100': cycle === type,
-                'light:text-black light:bg-blue-200/40': cycle !== type
-              })}
-              onClick={() => setCycle(type)}
-            >
-              {type}
-            </Button>
-          ))}
-        </Stack>
+            Monthly
+          </Button>
+          <Button
+            className={cn({
+              'bg-buttons-colors-core-icon-primary-background-hover':
+                cycle === 'Yearly'
+            })}
+            onClick={() => setCycle('Yearly')}
+          >
+            Yearly
+          </Button>
+        </ButtonGroup>
       </Stack>
       <h4 className="text-[24px] font-bold">Plans</h4>
-      <span className="dark:text-waterloo light:text-charade text-base">
+      <span className="text-content-text-neutral-2 text-sm">
         Change your current workspace plan
       </span>
       <MotionGroup className="flex flex-col gap-2.5 mt-7">
         <div className="grid grid-cols-[400px_1fr_1fr_1fr] gap-2.5">
           <MotionItem className="self-end font-bold">Core Features</MotionItem>
           <MotionItem className="flex flex-col">
-            <h6 className="text-lg font-bold">Founders Package</h6>
-            <h2 className="text-2xl font-bold">
+            <h6 className="text-base font-bold">Founders Package</h6>
+            <h2 className="text-xl font-bold">
               {cycle === 'Monthly' ? '$1,000' : '$10,000'}
             </h2>
-            <span className="dark:text-waterloo light:text-charade text-sm">
+            <span className="text-content-text-neutral-2 text-xs">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
             <VerticalSpacer space="md" />
-            <div className="dark:bg-charade/40 light:bg-blue-200/40 py-2 px-4 rounded-xs flex gap-2 items-center justify-center">
+            <div className="bg-content-assets-brand-4 py-2 px-4 rounded-xs flex gap-2 items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
@@ -395,95 +344,93 @@ export const PricingFull = () => {
             <Divider />
           </MotionItem>
           <MotionItem className="flex flex-col">
-            <h6 className="text-lg font-bold">Startup Package</h6>
-            <h2 className="text-2xl font-bold">
+            <h6 className="text-base font-bold">Startup Package</h6>
+            <h2 className="text-xl font-bold">
               {cycle === 'Monthly' ? '$5,000' : '$50,000'}
             </h2>
-            <span className="dark:text-waterloo light:text-charade text-sm">
+            <span className="text-content-text-neutral-2 text-xs">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
             <VerticalSpacer space="md" />
             <Button
+              size="large"
               color="primary"
-              className="px-4 py-2 text-lg gap-2 bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+              startAdornment={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="17"
+                  height="16"
+                  viewBox="0 0 17 16"
+                  fill="none"
+                >
+                  <path
+                    d="M3.16669 7.99996L4.10669 8.93996L7.83335 5.21996V13.3333H9.16669V5.21996L12.8867 8.94663L13.8334 7.99996L8.50002 2.66663L3.16669 7.99996Z"
+                    fill="white"
+                  />
+                </svg>
+              }
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="17"
-                height="16"
-                viewBox="0 0 17 16"
-                fill="none"
-              >
-                <path
-                  d="M3.16669 7.99996L4.10669 8.93996L7.83335 5.21996V13.3333H9.16669V5.21996L12.8867 8.94663L13.8334 7.99996L8.50002 2.66663L3.16669 7.99996Z"
-                  fill="white"
-                />
-              </svg>
               Upgrade
             </Button>
             <Divider />
           </MotionItem>
           <MotionItem className="flex flex-col">
-            <h6 className="text-lg font-bold">Seed Package</h6>
-            <h2 className="text-2xl font-bold">Let's talk</h2>
-            <span className="dark:text-waterloo light:text-charade text-sm">
+            <h6 className="text-base font-bold">Seed Package</h6>
+            <h2 className="text-xl font-bold">Let&apos;s talk</h2>
+            <span className="text-content-text-neutral-2 text-xs">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
             <VerticalSpacer space="md" />
-            <Button variant="outline" className="text-lg py-2 gap-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 16 16"
-                fill="currentColor"
-              >
-                <path d="M7.99998 1.33337C4.324 1.33337 1.33331 4.32406 1.33331 8.00004C1.33331 11.676 4.324 14.6667 7.99998 14.6667C11.676 14.6667 14.6666 11.676 14.6666 8.00004C14.6666 4.32406 11.676 1.33337 7.99998 1.33337ZM7.99998 2.33337C11.1355 2.33337 13.6666 4.8645 13.6666 8.00004C13.6666 11.1356 11.1355 13.6667 7.99998 13.6667C4.86444 13.6667 2.33331 11.1356 2.33331 8.00004C2.33331 4.8645 4.86444 2.33337 7.99998 2.33337ZM7.99998 3.33337C5.42846 3.33337 3.33331 5.42853 3.33331 8.00004C3.33331 10.5716 5.42846 12.6667 7.99998 12.6667C8.57568 12.6667 9.1294 12.5622 9.63995 12.3705C9.70216 12.348 9.75927 12.3133 9.80799 12.2685C9.85671 12.2238 9.89605 12.1698 9.92376 12.1097C9.95146 12.0496 9.96696 11.9846 9.96937 11.9185C9.97178 11.8524 9.96104 11.7865 9.93778 11.7245C9.91452 11.6626 9.8792 11.6059 9.83387 11.5577C9.78854 11.5095 9.7341 11.4708 9.6737 11.4438C9.6133 11.4168 9.54814 11.4021 9.482 11.4004C9.41586 11.3988 9.35005 11.4103 9.28839 11.4343C8.88828 11.5845 8.45494 11.6667 7.99998 11.6667C5.96883 11.6667 4.33331 10.0312 4.33331 8.00004C4.33331 5.96889 5.96883 4.33337 7.99998 4.33337C10.0311 4.33337 11.6666 5.96889 11.6666 8.00004V8.50004C11.6666 8.96612 11.2994 9.33337 10.8333 9.33337C10.3672 9.33337 9.99998 8.96612 9.99998 8.50004V6.16671C10.001 6.0439 9.9567 5.92504 9.87566 5.83277C9.79462 5.74049 9.68246 5.68127 9.56056 5.66639C9.43865 5.6515 9.31554 5.68199 9.21468 5.75205C9.11381 5.82211 9.04226 5.92684 9.01365 6.04626C8.67619 5.80813 8.27254 5.66671 7.83331 5.66671C6.61604 5.66671 5.66665 6.74253 5.66665 8.00004C5.66665 9.25755 6.61604 10.3334 7.83331 10.3334C8.45023 10.3334 8.99741 10.0561 9.388 9.61983C9.72449 10.0521 10.2477 10.3334 10.8333 10.3334C11.8399 10.3334 12.6666 9.50663 12.6666 8.50004V8.00004C12.6666 5.42853 10.5715 3.33337 7.99998 3.33337ZM7.83331 6.66671C8.45404 6.66671 8.99998 7.23555 8.99998 8.00004C8.99998 8.76453 8.45404 9.33337 7.83331 9.33337C7.21258 9.33337 6.66665 8.76453 6.66665 8.00004C6.66665 7.23555 7.21258 6.66671 7.83331 6.66671Z" />
-              </svg>
+            <Button
+              variant="outline"
+              size="large"
+              startAdornment={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="currentColor"
+                >
+                  <path d="M7.99998 1.33337C4.324 1.33337 1.33331 4.32406 1.33331 8.00004C1.33331 11.676 4.324 14.6667 7.99998 14.6667C11.676 14.6667 14.6666 11.676 14.6666 8.00004C14.6666 4.32406 11.676 1.33337 7.99998 1.33337ZM7.99998 2.33337C11.1355 2.33337 13.6666 4.8645 13.6666 8.00004C13.6666 11.1356 11.1355 13.6667 7.99998 13.6667C4.86444 13.6667 2.33331 11.1356 2.33331 8.00004C2.33331 4.8645 4.86444 2.33337 7.99998 2.33337ZM7.99998 3.33337C5.42846 3.33337 3.33331 5.42853 3.33331 8.00004C3.33331 10.5716 5.42846 12.6667 7.99998 12.6667C8.57568 12.6667 9.1294 12.5622 9.63995 12.3705C9.70216 12.348 9.75927 12.3133 9.80799 12.2685C9.85671 12.2238 9.89605 12.1698 9.92376 12.1097C9.95146 12.0496 9.96696 11.9846 9.96937 11.9185C9.97178 11.8524 9.96104 11.7865 9.93778 11.7245C9.91452 11.6626 9.8792 11.6059 9.83387 11.5577C9.78854 11.5095 9.7341 11.4708 9.6737 11.4438C9.6133 11.4168 9.54814 11.4021 9.482 11.4004C9.41586 11.3988 9.35005 11.4103 9.28839 11.4343C8.88828 11.5845 8.45494 11.6667 7.99998 11.6667C5.96883 11.6667 4.33331 10.0312 4.33331 8.00004C4.33331 5.96889 5.96883 4.33337 7.99998 4.33337C10.0311 4.33337 11.6666 5.96889 11.6666 8.00004V8.50004C11.6666 8.96612 11.2994 9.33337 10.8333 9.33337C10.3672 9.33337 9.99998 8.96612 9.99998 8.50004V6.16671C10.001 6.0439 9.9567 5.92504 9.87566 5.83277C9.79462 5.74049 9.68246 5.68127 9.56056 5.66639C9.43865 5.6515 9.31554 5.68199 9.21468 5.75205C9.11381 5.82211 9.04226 5.92684 9.01365 6.04626C8.67619 5.80813 8.27254 5.66671 7.83331 5.66671C6.61604 5.66671 5.66665 6.74253 5.66665 8.00004C5.66665 9.25755 6.61604 10.3334 7.83331 10.3334C8.45023 10.3334 8.99741 10.0561 9.388 9.61983C9.72449 10.0521 10.2477 10.3334 10.8333 10.3334C11.8399 10.3334 12.6666 9.50663 12.6666 8.50004V8.00004C12.6666 5.42853 10.5715 3.33337 7.99998 3.33337ZM7.83331 6.66671C8.45404 6.66671 8.99998 7.23555 8.99998 8.00004C8.99998 8.76453 8.45404 9.33337 7.83331 9.33337C7.21258 9.33337 6.66665 8.76453 6.66665 8.00004C6.66665 7.23555 7.21258 6.66671 7.83331 6.66671Z" />
+                </svg>
+              }
+            >
               Email Sales
             </Button>
             <Divider />
           </MotionItem>
         </div>
-        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center gap-2.5 text-base">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center gap-2.5 text-content-text-neutral-2">
           <div className="justify-self-start">Design Support (Add On)</div>
           <div>
-            <Chip
-              color="primary"
-              className="rounded-full px-3 dark:text-athens-gray light:text-charade dark:bg-blue-950 light:bg-blue-100"
-            >
+            <Chip size="large" color="primary" variant="outline">
               Unlimited
             </Chip>
           </div>
           <div>
-            <Chip
-              color="primary"
-              className="rounded-full px-3 dark:text-athens-gray light:text-charade dark:bg-blue-950 light:bg-blue-100"
-            >
+            <Chip size="large" color="primary" variant="outline">
               Unlimited
             </Chip>
           </div>
           <div>
-            <Chip
-              color="primary"
-              className="rounded-full px-3 dark:text-athens-gray light:text-charade dark:bg-blue-950 light:bg-blue-100"
-            >
+            <Chip size="large" color="primary" variant="outline">
               Unlimited
             </Chip>
           </div>
         </MotionItem>
         <MotionItem>
-          <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
+          <Divider />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
-          <div className="justify-self-start dark:text-athens-gray light:text-charade">
-            Product Research
-          </div>
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-content-text-neutral-2">
+          <div className="justify-self-start">Product Research</div>
           <div>Logo and brand book</div>
           <div>Competitor analysis Product guidance</div>
-          <div>
-            <a href="" className="inline-flex items-center gap-2 text-primary">
-              See details{' '}
+          <Button
+            className="p-0"
+            size="large"
+            variant="text"
+            endAdornment={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -493,19 +440,19 @@ export const PricingFull = () => {
               >
                 <path
                   d="M8.00002 2.66663L7.06002 3.60663L10.78 7.33329H2.66669V8.66663H10.78L7.06002 12.3933L8.00002 13.3333L13.3334 7.99996L8.00002 2.66663Z"
-                  fill="#105EFF"
+                  fill="currentColor"
                 />
               </svg>
-            </a>
-          </div>
+            }
+          >
+            See details
+          </Button>
         </MotionItem>
         <MotionItem>
-          <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
+          <Divider />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
-          <div className="justify-self-start dark:text-athens-gray light:text-charade">
-            Brand Style Guide
-          </div>
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-sm text-content-text-neutral-2">
+          <div className="justify-self-start">Brand Style Guide</div>
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -534,9 +481,11 @@ export const PricingFull = () => {
               />
             </svg>
           </div>
-          <div>
-            <a href="" className="inline-flex items-center gap-2 text-primary">
-              See details{' '}
+          <Button
+            className="p-0"
+            size="large"
+            variant="text"
+            endAdornment={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -546,24 +495,26 @@ export const PricingFull = () => {
               >
                 <path
                   d="M8.00002 2.66663L7.06002 3.60663L10.78 7.33329H2.66669V8.66663H10.78L7.06002 12.3933L8.00002 13.3333L13.3334 7.99996L8.00002 2.66663Z"
-                  fill="#105EFF"
+                  fill="currentColor"
                 />
               </svg>
-            </a>
-          </div>
+            }
+          >
+            See details
+          </Button>
         </MotionItem>
         <MotionItem>
-          <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
+          <Divider />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
-          <div className="justify-self-start dark:text-athens-gray light:text-charade">
-            Prototype of Web Application
-          </div>
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-sm text-content-text-neutral-2">
+          <div className="justify-self-start">Prototype of Web Application</div>
           <div>3 Figma Designs</div>
           <div>Fully interactive prototype</div>
-          <div>
-            <a href="" className="inline-flex items-center gap-2 text-primary">
-              See details{' '}
+          <Button
+            className="p-0"
+            size="large"
+            variant="text"
+            endAdornment={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -573,17 +524,19 @@ export const PricingFull = () => {
               >
                 <path
                   d="M8.00002 2.66663L7.06002 3.60663L10.78 7.33329H2.66669V8.66663H10.78L7.06002 12.3933L8.00002 13.3333L13.3334 7.99996L8.00002 2.66663Z"
-                  fill="#105EFF"
+                  fill="currentColor"
                 />
               </svg>
-            </a>
-          </div>
+            }
+          >
+            See details
+          </Button>
         </MotionItem>
         <MotionItem>
-          <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
+          <Divider />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
-          <div className="justify-self-start dark:text-athens-gray light:text-charade">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-sm text-content-text-neutral-2">
+          <div className="justify-self-start">
             Development of Web Application
           </div>
           <div>
@@ -604,7 +557,7 @@ export const PricingFull = () => {
           <div>Build out of pages/features in react.js</div>
         </MotionItem>
         <MotionItem>
-          <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
+          <Divider />
         </MotionItem>
       </MotionGroup>
     </Card>
@@ -623,16 +576,16 @@ export const PricingMinimal = () => {
     >
       <Card
         className="transition-colors"
-        headerClassName="border-b dark:border-waterloo/40 light:border-mystic px-7 pt-7 pb-2"
+        headerClassName="border-b border-stroke-neutral-3 px-7 pt-7 pb-2"
         header={
           <Stack className="w-full" justifyContent="spaceBetween">
             <div>
-              <h2 className="text-2xl font-bold">Change your plan</h2>
-              <span className="text-sm dark:text-waterloo light:text-charade">
+              <h2 className="text-xl font-bold">Change your plan</h2>
+              <span className="text-xs text-content-text-neutral-2">
                 Switch to annual to save 16%
               </span>
             </div>
-            <Button className="p-3 light:bg-blue-200/40 light:text-charade">
+            <IconButton size="large" color="secondary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -642,26 +595,18 @@ export const PricingMinimal = () => {
               >
                 <path d="M12.6666 4.27325L11.7266 3.33325L7.99998 7.05992L4.27331 3.33325L3.33331 4.27325L7.05998 7.99992L3.33331 11.7266L4.27331 12.6666L7.99998 8.93992L11.7266 12.6666L12.6666 11.7266L8.93998 7.99992L12.6666 4.27325Z" />
               </svg>
-            </Button>
+            </IconButton>
           </Stack>
         }
         disablePadding
       >
         <div className="p-7">
           <Stack>
-            <Toggle
-              checked={isAnnual}
-              onChange={setIsAnnual}
-              theme={ToggleTheme}
-            />
-            <span className="text-sm dark:text-waterloo light:text-charade">
+            <Toggle checked={isAnnual} onChange={setIsAnnual} />
+            <span className="text-xs text-content-text-neutral-2">
               Annual pricing
             </span>
-            <Chip
-              size="small"
-              color="primary"
-              className="rounded-full dark:bg-blue-950 light:bg-blue-100 dark:text-gray-100 light:text-vulcan px-3 py-1"
-            >
+            <Chip color="primary" variant="outline">
               Save 16%
             </Chip>
           </Stack>
@@ -669,24 +614,23 @@ export const PricingMinimal = () => {
             <MotionItem>
               <Card
                 className={cn('px-5 py-7', {
-                  'border-solid border-transparent rounded-sm dark:[border-image:linear-gradient(to_top_right,#2F6AFF,#0B0B11)_10] light:[border-image:linear-gradient(to_top_right,#105EFF,#F7F7FA)_10] dark:bg-blue-900/40 light:bg-blue-200/40':
+                  'border-solid border-transparent rounded-sm dark:[border-image:linear-gradient(to_top_right,#2F6AFF,#0B0B11)_10] light:[border-image:linear-gradient(to_top_right,#105EFF,#F7F7FA)_10] bg-background-brand-5':
                     isFree
                 })}
               >
                 <Stack>
-                  <h6 className="grow text-lg font-bold whitespace-nowrap">
+                  <h6 className="grow text-base font-bold whitespace-nowrap">
                     FREE account
                   </h6>
                   <Radio
                     size="small"
-                    theme={RadioTheme}
                     checked={isFree}
                     onChange={selected => setIsFree(selected)}
                   />
                 </Stack>
                 <Stack>
                   <h2 className="text-[32px] font-bold">$0</h2>
-                  <h6 className="dark:text-waterloo light:text-charade text-lg font-bold">
+                  <h6 className="text-content-text-neutral-2 text-base font-bold">
                     {isAnnual ? '/Year' : '/Month'}
                   </h6>
                 </Stack>
@@ -694,19 +638,19 @@ export const PricingMinimal = () => {
                 <List>
                   <ListItem
                     start={<CheckIcon />}
-                    className="dark:text-waterloo light:text-charade"
+                    className="text-content-text-neutral-2"
                   >
                     Basic Integration support
                   </ListItem>
                   <ListItem
                     start={<CheckIcon />}
-                    className="dark:text-waterloo light:text-charade"
+                    className="text-content-text-neutral-2"
                   >
                     Limited Figma support
                   </ListItem>
                   <ListItem
                     start={<CheckIcon />}
-                    className="dark:text-waterloo light:text-charade"
+                    className="text-content-text-neutral-2"
                   >
                     Storybook Support
                   </ListItem>
@@ -716,17 +660,16 @@ export const PricingMinimal = () => {
             <MotionItem>
               <Card
                 className={cn('px-5 py-7', {
-                  'border-solid border-transparent dark:[border-image:linear-gradient(to_top_right,#2F6AFF,#0B0B11)_10] light:[border-image:linear-gradient(to_top_right,#105EFF,#F7F7FA)_10] dark:bg-blue-900/40 light:bg-blue-200/40':
+                  'border-solid border-transparent dark:[border-image:linear-gradient(to_top_right,#2F6AFF,#0B0B11)_10] light:[border-image:linear-gradient(to_top_right,#105EFF,#F7F7FA)_10] bg-background-brand-5':
                     !isFree
                 })}
               >
                 <Stack>
-                  <h6 className="grow text-lg font-bold whitespace-nowrap">
+                  <h6 className="grow text-base font-bold whitespace-nowrap">
                     PRO account
                   </h6>
                   <Radio
                     size="small"
-                    theme={RadioTheme}
                     checked={!isFree}
                     onChange={selected => setIsFree(!selected)}
                   />
@@ -735,7 +678,7 @@ export const PricingMinimal = () => {
                   <h2 className="text-[32px] font-bold">
                     {isAnnual ? '$222' : '$25'}
                   </h2>
-                  <h6 className="dark:text-waterloo light:text-charade text-lg font-bold">
+                  <h6 className="text-content-text-neutral-2 text-base font-bold">
                     {isAnnual ? '/Year' : '/Month'}
                   </h6>
                 </Stack>
@@ -743,19 +686,19 @@ export const PricingMinimal = () => {
                 <List>
                   <ListItem
                     start={<CheckIcon />}
-                    className="dark:text-waterloo light:text-charade"
+                    className="text-content-text-neutral-2"
                   >
                     Basic Integration support
                   </ListItem>
                   <ListItem
                     start={<CheckIcon />}
-                    className="dark:text-waterloo light:text-charade"
+                    className="text-content-text-neutral-2"
                   >
                     Limited Figma support
                   </ListItem>
                   <ListItem
                     start={<CheckIcon />}
-                    className="dark:text-waterloo light:text-charade"
+                    className="text-content-text-neutral-2"
                   >
                     Storybook Support
                   </ListItem>
@@ -764,11 +707,11 @@ export const PricingMinimal = () => {
             </MotionItem>
           </MotionGroup>
         </div>
-        <div className="border-t dark:border-waterloo/40 light:border-mystic p-7">
+        <div className="border-t border-stroke-neutral-3 p-7">
           <Stack direction="rowReverse">
             <Button
+              size="large"
               color="primary"
-              className="px-4 py-2 text-lg bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
               endAdornment={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -784,8 +727,8 @@ export const PricingMinimal = () => {
               Save Changes
             </Button>
             <Button
+              size="large"
               variant="outline"
-              className="px-4 py-2 text-lg"
               endAdornment={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -802,6 +745,7 @@ export const PricingMinimal = () => {
             </Button>
             <div className="grow">
               <Button
+                size="large"
                 variant="text"
                 color="primary"
                 startAdornment={

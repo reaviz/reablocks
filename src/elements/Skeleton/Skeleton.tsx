@@ -1,7 +1,10 @@
-import React, { FC } from 'react';
-import { SkeletonTheme } from './SkeletonTheme';
-import { useComponentTheme } from '@/utils';
+import type { FC } from 'react';
+import React from 'react';
 import { twMerge } from 'tailwind-merge';
+
+import { useComponentTheme } from '@/utils';
+
+import type { SkeletonTheme } from './SkeletonTheme';
 
 export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   /**

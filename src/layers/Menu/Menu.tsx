@@ -1,13 +1,19 @@
-import React, { FC, forwardRef, LegacyRef, useMemo } from 'react';
+import type { MiddlewareState } from '@floating-ui/react';
+import { size } from '@floating-ui/react';
 import FocusTrap from 'focus-trap-react';
-import { MiddlewareState, size } from '@floating-ui/react';
-import { ConnectedOverlay, OverlayEvent } from '@/utils/Overlay';
-import { Modifiers, Placement } from '@/utils/Position';
+import type { MotionNodeAnimationOptions } from 'motion/react';
+import { motion } from 'motion/react';
+import type { FC, LegacyRef } from 'react';
+import React, { forwardRef, useMemo } from 'react';
+
 import { useId } from '@/utils';
-import { motion, MotionNodeAnimationOptions } from 'motion/react';
-import { twMerge } from 'tailwind-merge';
-import { MenuTheme } from './MenuTheme';
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
+import type { OverlayEvent } from '@/utils/Overlay';
+import { ConnectedOverlay } from '@/utils/Overlay';
+import type { Modifiers, Placement } from '@/utils/Position';
+
+import type { MenuTheme } from './MenuTheme';
 
 export interface MenuProps {
   /**

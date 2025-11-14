@@ -1,3 +1,10 @@
+export interface CheckboxSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
+
 export interface CheckboxTheme {
   base: string;
   label: {
@@ -5,12 +12,7 @@ export interface CheckboxTheme {
     clickable: string;
     disabled: string;
     checked: string;
-    sizes: {
-      small: string;
-      medium: string;
-      large: string;
-      [key: string]: string;
-    };
+    sizes: CheckboxSizeTheme;
   };
   border: {
     base: string;
@@ -27,12 +29,7 @@ export interface CheckboxTheme {
     disabled: string;
     checked: string;
   };
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  sizes: CheckboxSizeTheme;
   boxVariants: {
     hover: {
       strokeWidth: number;
@@ -53,119 +50,52 @@ export interface CheckboxTheme {
   };
 }
 
-const baseTheme: Partial<CheckboxTheme> = {
+export const checkboxTheme: CheckboxTheme = {
   base: 'inline-flex items-center w-full group',
   label: {
-    base: 'dark:text-gray-400 light:text-gray-700 ml-2.5 w-full',
-    checked: 'checked dark:text-gray-100 light:text-gray-900',
-    disabled: 'cursor-not-allowed dark:text-gray-600 light:text-gray-400',
-    clickable: 'cursor-pointer',
+    base: 'ml-3 w-full text-selectors-colors-text-description-not-selected whitespace-nowrap',
+    checked: 'checked text-selectors-colors-text-description-selected',
+    disabled: 'cursor-not-allowed opacity-40',
+    clickable: `
+          cursor-pointer transition-colors
+          group-hover:text-selectors-colors-text-label-selected group-focus-within:text-selectors-colors-text-label-selected
+        `,
     sizes: {
-      small: 'text-sm',
-      medium: 'text-base',
-      large: 'text-lg'
+      small: 'text-xs',
+      medium: 'text-sm',
+      large: 'text-base'
     }
   },
   check: {
-    base: 'stroke-white',
+    base: 'stroke-selectors-colors-checkbox-selected-assets-base group-hover:stroke-selectors-colors-checkbox-selected-assets-hover',
     checked: '',
     disabled: 'cursor-not-allowed'
   },
   border: {
-    base: 'stroke-gray-400 light:stroke-gray-700',
-    checked: 'stroke-blue-500',
-    disabled: 'cursor-not-allowed stroke-gray-500'
+    base: '',
+    checked: '',
+    disabled: 'cursor-not-allowed'
   },
   checkbox: {
-    base: 'fill-transparent flex items-center justify-center cursor-pointer focus-visible:outline-hidden',
-    checked: 'fill-blue-500 checked',
-    disabled: 'fill-transparent disabled'
+    base: `
+          flex items-center justify-center cursor-pointer border transition-colors focus-visible:outline-none
+          bg-selectors-colors-checkbox-not-selected-background-resting group-hover:bg-selectors-colors-checkbox-not-selected-background-hover group-focus-within:bg-selectors-colors-checkbox-not-selected-background-hover
+          border-selectors-colors-checkbox-not-selected-stroke-resting group-hover:border-selectors-colors-checkbox-not-selected-stroke-hover group-focus-within:border-selectors-colors-checkbox-not-selected-stroke-hover
+          [&>svg>path:first-child]:stroke-transparent [&>svg]:fill-transparent [&>svg]:outline-none
+        `,
+    checked: `
+          bg-selectors-colors-checkbox-selected-background-resting group-hover:bg-selectors-colors-checkbox-selected-background-hover group-focus-within:bg-selectors-colors-checkbox-selected-background-hover
+          border-selectors-colors-checkbox-selected-stroke-resting group-hover:border-selectors-colors-checkbox-selected-stroke-hover group-focus-within:border-selectors-colors-checkbox-selected-stroke-hover
+        `,
+    disabled:
+      'disabled cursor-not-allowed opacity-40 group-hover:bg-selectors-colors-checkbox-selected-resting'
   },
   sizes: {
-    small: '[&>svg]:w-3 [&>svg]:h-3',
-    medium: '[&>svg]:w-4 [&>svg]:h-4',
-    large: '[&>svg]:w-5 [&>svg]:h-5'
-  }
-};
-export const checkboxTheme: CheckboxTheme = {
-  ...baseTheme,
-  checkbox: {
-    ...baseTheme.checkbox,
-    base: [
-      baseTheme.checkbox.base,
-      'border border-surface',
-      '[&.checked.disabled]:fill-gray-400'
-    ].join(' '),
-    checked: [
-      baseTheme.checkbox.checked,
-      'group-hover:fill-blue-400',
-      'light:group-hover:fill-blue-600',
-      'light:group-hover:[&.disabled]:fill-gray-400'
-    ].join(' '),
-    disabled: [
-      baseTheme.checkbox.disabled,
-      'group-hover:transparent',
-      'light:group-hover:transparent'
-    ].join(' ')
-  },
-  check: {
-    ...baseTheme.check,
-    base: [
-      baseTheme.check.base,
-      'group-hover:stroke-black light:group-hover:stroke-white'
-    ].join(' '),
-    disabled: [
-      baseTheme.check.disabled,
-      'stroke-black light:stroke-white group-hover:stroke-black '
-    ].join(' ')
-  },
-  border: {
-    ...baseTheme.border,
-    base: [
-      baseTheme.border.base,
-      'dark:group-hover:stroke-blue-300',
-      'light:group-hover:stroke-blue-600'
-    ].join(' '),
-    disabled: [
-      baseTheme.border.disabled,
-      'dark:group-hover:stroke-gray-500',
-      'light:group-hover:stroke-gray-400'
-    ].join(' ')
-  },
-  label: {
-    ...baseTheme.label,
-    base: [
-      baseTheme.label.base,
-      'text-text-primary dark:group-hover:text-blue-300 light:group-hover:text-blue-400'
-    ].join(' '),
-    checked: [baseTheme.label.checked, 'group-hover:text-gray-100'].join(' '),
-    disabled: [
-      baseTheme.label.disabled,
-      'light:group-hover:text-gray-400',
-      'dark:group-hover:text-gray-600'
-    ].join(' ')
-  },
-  boxVariants: {
-    hover: {
-      strokeWidth: 1
-    },
-    pressed: { scale: 0.95 }
-  }
-} as CheckboxTheme;
-
-export const legacyCheckboxTheme: CheckboxTheme = {
-  ...baseTheme,
-  checkbox: { base: [baseTheme.checkbox, 'fill-transparent'].join(' ') },
-  check: {
-    base: [baseTheme.check.base, 'stroke-[var(--checkbox-check-stroke)]'].join(
-      ' '
-    )
-  },
-  label: {
-    ...baseTheme.label,
-    base: [
-      baseTheme.label.base,
-      'text-[var(--checkbox-label-color)] ml-[var(--spacing-md)]'
-    ].join(' ')
+    small:
+      '[&>svg]:size-(--selectors-details-width-radio-checkbox-sm) rounded-(--selectors-details-corner-radius-checkbox-sm)',
+    medium:
+      '[&>svg]:size-(--selectors-details-width-radio-checkbox-sm) rounded-(--selectors-details-corner-radius-checkbox-sm)',
+    large:
+      '[&>svg]:size-(--selectors-details-width-radio-checkbox-lg) rounded-(--selectors-details-corner-radius-checkbox-lg)'
   }
 } as CheckboxTheme;

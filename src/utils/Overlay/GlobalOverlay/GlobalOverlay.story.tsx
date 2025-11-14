@@ -1,8 +1,12 @@
-import { Meta, StoryObj } from '@storybook/react';
-import React, { Fragment, useState } from 'react';
-import { GlobalOverlay } from './GlobalOverlay';
+/* eslint-disable react-hooks/rules-of-hooks */
+
+import type { Meta, StoryObj } from '@storybook/react';
 import { motion } from 'motion/react';
+import type { FC, PropsWithChildren } from 'react';
+import React, { Fragment, useState } from 'react';
+
 import { useOverlay } from '../useOverlay';
+import { GlobalOverlay } from './GlobalOverlay';
 
 const meta: Meta<typeof GlobalOverlay> = {
   title: 'Components/Utils/Overlay/Global Overlay',
@@ -173,7 +177,9 @@ export const DialogExample: Story = {
   }
 };
 
-const Dialog = ({ visible, header, children, onClose }) => (
+const Dialog: FC<
+  PropsWithChildren<{ visible: boolean; header: string; onClose: () => void }>
+> = ({ visible, header, children, onClose }) => (
   <GlobalOverlay open={visible} onClose={onClose}>
     {({ overlayIndex }) => (
       <div

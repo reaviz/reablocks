@@ -1,3 +1,3 @@
 export * from './Pager';
-export * from './utils';
 export * from './PagerTheme';
+export * from './utils';

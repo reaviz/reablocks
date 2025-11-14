@@ -1,7 +1,10 @@
-import React, { FC } from 'react';
-import { twMerge } from 'tailwind-merge';
+import type { FC } from 'react';
+import React from 'react';
+
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { DrawerTheme } from './DrawerTheme';
+
+import type { DrawerTheme } from './DrawerTheme';
 
 export interface DrawerHeaderProps {
   /**

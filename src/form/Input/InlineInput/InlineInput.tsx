@@ -1,11 +1,7 @@
-import React, {
-  forwardRef,
-  Ref,
-  InputHTMLAttributes,
-  FC,
-  LegacyRef
-} from 'react';
-import { InputTheme } from '@/form/Input/InputTheme';
+import type { FC, InputHTMLAttributes, LegacyRef, Ref } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { InputTheme } from '@/form/Input/InputTheme';
 import { cn, useComponentTheme } from '@/utils';
 
 export interface InlineInputProps

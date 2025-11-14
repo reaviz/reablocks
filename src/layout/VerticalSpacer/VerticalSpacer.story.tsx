@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { VerticalSpacer } from './VerticalSpacer';
 
 export default {
