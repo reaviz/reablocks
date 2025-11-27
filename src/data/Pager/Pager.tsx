@@ -52,6 +52,12 @@ export interface PagerProps {
   total: number;
 
   /**
+   * The number of pages to show in the pager.
+   * Default is 6.
+   */
+  pageCountToShow?: number;
+
+  /**
    * The React node or string to use for the previous arrow.
    */
   previousArrow?: ReactNode | string;
@@ -95,6 +101,7 @@ export const Pager: FC<PagerProps> = ({
   page,
   size,
   total,
+  pageCountToShow,
   startArrow = <StartArrow />,
   endArrow = <EndArrow />,
   previousArrow = <PreviousArrow />,
@@ -106,7 +113,11 @@ export const Pager: FC<PagerProps> = ({
   const pageCount = Math.ceil(total / size);
   const canPrevious = page !== 0;
   const canNext = page < pageCount - 1;
-  const [startPage, endPage] = getPageRange(page, pageCount - 1);
+  const [startPage, endPage] = getPageRange(
+    page,
+    pageCount - 1,
+    pageCountToShow
+  );
   const [startItem, endItem] = getItemsRange(page, size, total);
   const theme = useComponentTheme('pager', customTheme);
 

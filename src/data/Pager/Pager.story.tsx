@@ -52,6 +52,23 @@ export const ShowAll = () => {
   );
 };
 
+export const CustomPageCount = () => {
+  const [page, setPage] = useState<number>(0);
+
+  return (
+    <Pager
+      page={page}
+      size={10}
+      total={100}
+      onPageChange={setPage}
+      displayMode="all"
+      startArrow={null}
+      endArrow={null}
+      pageCountToShow={2}
+    />
+  );
+};
+
 export const CustomTheme = () => {
   const [page, setPage] = useState<number>(0);
   const customTheme = pagerTheme;
