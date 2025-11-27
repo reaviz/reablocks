@@ -1,6 +1,6 @@
 {
   "name": "reablocks",
-  "version": "10.0.0-alpha.7",
+  "version": "10.0.0-alpha.12",
   "description": "Component library for React",
   "scripts": {
     "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run build:docs",
@@ -60,7 +60,6 @@
   "homepage": "https://github.com/reaviz/reablocks#readme",
   "dependencies": {
     "@floating-ui/react": "^0.27.16",
-    "@marko19907/string-to-color": "^1.0.0",
     "@reaviz/react-use-fuzzy": "^1.0.3",
     "body-scroll-lock-upgrade": "^1.1.0",
     "chroma-js": "^3.1.2",

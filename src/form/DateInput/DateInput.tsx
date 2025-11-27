@@ -195,7 +195,7 @@ export const DateInput: FC<DateInputProps> = ({
       >
         {() =>
           isCalendarView ? (
-            <Card>
+            <Card className={theme.card}>
               <Calendar
                 disabled={disabled}
                 value={value}

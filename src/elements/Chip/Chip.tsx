@@ -170,8 +170,8 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
           <motion.button
             whileTap={{ scale: disabled || !animated ? 1 : 0.9 }}
             className={cn(
-              (theme as TagTypeThemeConfig).closeButton.base,
-              (theme as TagTypeThemeConfig).closeButton.sizes[size]
+              (theme as TagTypeThemeConfig).closeButton?.base,
+              (theme as TagTypeThemeConfig).closeButton?.sizes?.[size]
             )}
             onClick={e => {
               e.stopPropagation();

@@ -1,9 +1,8 @@
-import { generateColor } from '@marko19907/string-to-color';
 import getInitials from 'name-initials';
 import type { FC, LegacyRef } from 'react';
 import React, { forwardRef, useMemo } from 'react';
 
-import { twMerge } from '@/utils';
+import { generateColor, twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
 
 import type { AvatarTheme } from './AvatarTheme';
