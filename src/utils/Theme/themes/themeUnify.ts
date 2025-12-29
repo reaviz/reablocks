@@ -19,11 +19,11 @@ import type { ReablocksTheme } from './theme';
 export const themeUDS: ReablocksTheme = {
   components: {
     avatar: {
-      base: 'flex justify-center items-center bg-cover bg-center font-bold text-white',
+      base: 'flex justify-center items-center bg-cover bg-center font-bold text-avatar-colors-text-resting bg-avatar-colors-background-container-resting border border-avatar-colors-stroke-container-resting hover:bg-avatar-colors-background-container-hover hover:border-avatar-colors-stroke-container-hover hover:text-avatar-colors-text-hover',
       rounded: 'rounded-[50%]'
     },
     avatarGroup: {
-      base: 'flex items-center text-text-primary',
+      base: 'flex items-center text-avatar-colors-text-resting',
       avatar: '-ml-2.5',
       overflow: 'ml-[5px]'
     },
@@ -56,10 +56,14 @@ export const themeUDS: ReablocksTheme = {
           'bottom-0 right-0 translate-x-2/4 translate-y-2/4 origin-[100%_100%]'
       },
       colors: {
-        default: 'bg-white text-black',
-        primary: 'bg-primary text-text-primary',
-        secondary: 'bg-secondary text-text-primary',
-        error: 'bg-error text-text-primary'
+        default:
+          'bg-badges-colors-solid-brand-background-standard border-badges-colors-solid-brand-stroke-default text-badges-colors-solid-brand-text-default',
+        primary:
+          'bg-badges-colors-solid-brand-background-standard border-badges-colors-solid-brand-stroke-default text-badges-colors-solid-brand-text-default',
+        secondary:
+          'bg-badges-colors-solid-brand-background-standard border-badges-colors-solid-brand-stroke-default text-badges-colors-solid-brand-text-default',
+        error:
+          'bg-badges-colors-solid-brand-background-standard border-badges-colors-solid-brand-stroke-default text-badges-colors-solid-brand-text-default'
       }
     },
     block: {
@@ -81,8 +85,9 @@ export const themeUDS: ReablocksTheme = {
       base: '',
       separator: '[&>svg]:size-3.5',
       list: 'flex gap-2 items-center',
-      link: 'hover:text-text-primary text-text-secondary transition-colors',
-      activePage: 'text-primary pointer-events-none'
+      link: 'hover:text-breadcrumbs-colors-primary-text-hover text-breadcrumbs-colors-primary-text-resting transition-colors [&>svg]:fill-breadcrumbs-colors-primary-assets-resting hover:[&>svg]:fill-breadcrumbs-colors-primary-assets-hover',
+      activePage:
+        'text-breadcrumbs-colors-primary-text-selected [&>svg]:fill-breadcrumbs-colors-primary-assets-selected pointer-events-none'
     },
     button: {
       base: `
@@ -158,17 +163,17 @@ export const themeUDS: ReablocksTheme = {
         },
         success: {
           filled:
-            'bg-buttons-colors-core-icon-primary-background-resting border-buttons-colors-core-icon-primary-stroke-resting text-buttons-colors-core-icon-primary-text-resting [&_svg]:fill-buttons-colors-core-icon-primary-assets-resting hover:bg-buttons-colors-core-icon-primary-background-hover hover:border-buttons-colors-core-icon-primary-stroke-hover hover:text-buttons-colors-core-icon-primary-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-primary-assets-hover focus-visible:bg-buttons-colors-core-icon-primary-background-selected focus-visible:border-buttons-colors-core-icon-primary-stroke-selected focus-visible:text-buttons-colors-core-icon-primary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-primary-assets-selected',
+            'bg-success border-success text-text-primary hover:bg-success-hover hover:border-success-hover focus-visible:bg-success-active focus-visible:border-success-active',
           outline:
-            'border-buttons-colors-core-icon-outline-stroke-resting text-buttons-colors-core-icon-outline-text-resting [&_svg]:fill-buttons-colors-core-icon-outline-assets-resting hover:bg-buttons-colors-core-icon-outline-background-hover hover:border-buttons-colors-core-icon-outline-stroke-hover hover:text-buttons-colors-core-icon-outline-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-outline-assets-hover focus-visible:bg-buttons-colors-core-icon-outline-background-selected focus-visible:border-buttons-colors-core-icon-outline-stroke-selected focus-visible:text-buttons-colors-core-icon-outline-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-outline-assets-selected',
-          text: 'text-buttons-colors-link-primary-text-resting hover:text-buttons-colors-link-primary-text-hover focus-visible:text-buttons-colors-link-primary-text-selected [&_svg]:fill-buttons-colors-link-primary-assets-resting hover:[&_svg]:fill-buttons-colors-link-primary-assets-hover focus-visible:[&_svg]:fill-buttons-colors-link-primary-assets-selected'
+            'border-success text-success hover:bg-success-background hover:border-success-hover focus-visible:bg-success-background focus-visible:border-success-active',
+          text: 'text-success hover:text-success-hover focus-visible:text-success-active'
         },
         warning: {
           filled:
-            'bg-buttons-colors-core-icon-secondary-background-resting border-buttons-colors-core-icon-secondary-stroke-resting text-buttons-colors-core-icon-secondary-text-resting [&_svg]:fill-buttons-colors-core-icon-secondary-assets-resting hover:bg-buttons-colors-core-icon-secondary-background-hover hover:border-buttons-colors-core-icon-secondary-stroke-hover hover:text-buttons-colors-core-icon-secondary-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-hover focus-visible:bg-buttons-colors-core-icon-secondary-background-selected focus-visible:border-buttons-colors-core-icon-secondary-stroke-selected focus-visible:text-buttons-colors-core-icon-secondary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-selected',
+            'bg-warning border-warning text-text-primary hover:bg-warning-hover hover:border-warning-hover focus-visible:bg-warning-active focus-visible:border-warning-active',
           outline:
-            'border-buttons-colors-core-icon-outline-stroke-resting text-buttons-colors-core-icon-outline-text-resting [&_svg]:fill-buttons-colors-core-icon-outline-assets-resting hover:bg-buttons-colors-core-icon-outline-background-hover hover:border-buttons-colors-core-icon-outline-stroke-hover hover:text-buttons-colors-core-icon-outline-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-outline-assets-hover focus-visible:bg-buttons-colors-core-icon-outline-background-selected focus-visible:border-buttons-colors-core-icon-outline-stroke-selected focus-visible:text-buttons-colors-core-icon-outline-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-outline-assets-selected',
-          text: 'text-buttons-colors-link-secondary-text-resting hover:text-buttons-colors-link-secondary-text-hover focus-visible:text-buttons-colors-link-secondary-text-selected [&_svg]:fill-buttons-colors-link-secondary-assets-resting hover:[&_svg]:fill-buttons-colors-link-secondary-assets-hover focus-visible:[&_svg]:fill-buttons-colors-link-secondary-assets-selected'
+            'border-warning text-warning hover:bg-warning-background hover:border-warning-hover focus-visible:bg-warning-background focus-visible:border-warning-active',
+          text: 'text-warning hover:text-warning-hover focus-visible:text-warning-active'
         },
         error: {
           filled:
@@ -179,12 +184,22 @@ export const themeUDS: ReablocksTheme = {
         }
       }
     },
-    // For remaining components, using default theme as placeholder
-    // These should be updated with UDS values following the same pattern
+    /**
+     * UDS Component Token Mapping Strategy:
+     *
+     * Components below use one of two approaches:
+     * 1. UDS Component Tokens - Where UDS provides component-specific tokens
+     *    (e.g., calendar-colors-*, inputs-colors-*, navigation-colors-*)
+     * 2. Semantic Token Layer - Where UDS doesn't provide component tokens
+     *    (e.g., bg-panel → var(--background-neutral-raised-base))
+     *
+     * This two-tier approach ensures all components render with UDS design system
+     * colors while using authentic UDS tokens where they exist.
+     */
     calendar: {
-      base: 'relative overflow-hidden',
+      base: 'relative overflow-hidden bg-calendar-colors-container-background-default',
       header: {
-        base: 'flex text-center justify-between mb-2 items-center text-text-secondary',
+        base: 'flex text-center justify-between mb-2 items-center text-calendar-colors-header-text-default',
         prev: 'text-xl leading-4',
         mid: '',
         next: 'text-xl leading-4'
@@ -193,75 +208,81 @@ export const themeUDS: ReablocksTheme = {
       content: 'flex',
       days: {
         header:
-          'text-center grid grid-cols-7 mb-1 pt-2 font-medium text-text-secondary',
+          'text-center grid grid-cols-7 mb-1 pt-2 font-medium text-calendar-colors-label-text-default',
         dayOfWeek: 'text-center font-medium',
         week: 'grid grid-cols-7',
-        day: 'font-normal flex p-2 border border-transparent text-text-secondary opacity-90 hover:bg-primary-hover hover:disabled:bg-transparent! hover:text-black disabled:text-text-secondary/60',
-        outside: 'opacity-40 text-text-secondary',
+        day: 'font-normal flex p-2 border border-calendar-colors-date-stroke-resting text-calendar-colors-date-text-resting opacity-90 hover:bg-calendar-colors-date-background-hover hover:disabled:bg-transparent! hover:text-calendar-colors-date-text-hover disabled:text-calendar-colors-date-text-resting/60',
+        outside: 'opacity-40 text-calendar-colors-date-text-resting',
         startRangeDate: 'rounded-tl-md rounded-tr-none rounded-br-none',
         cornerStartDateBottom: 'rounded-bl-none',
         endRangeDate: 'rounded-br-md rounded-bl-none rounded-tl-none',
         cornerEndDateTop: 'rounded-tr-none',
-        range: 'rounded-none',
+        range: 'rounded-none bg-calendar-colors-date-background-range',
         selected:
-          'text-black border-transparent light:text-white light:border-transparent opacity-100',
+          'text-calendar-colors-date-text-selected border-calendar-colors-date-stroke-selected bg-calendar-colors-date-background-selected opacity-100',
         hover:
-          'rounded-sm bg-primary-active text-black border-transparent light:text-white opacity-100',
-        today: 'rounded-sm border border-panel-accent text-text-primary'
+          'rounded-sm bg-calendar-colors-date-background-hover text-calendar-colors-date-text-hover border-calendar-colors-date-stroke-hover opacity-100',
+        today:
+          'rounded-sm border border-calendar-colors-date-stroke-today text-calendar-colors-date-text-today bg-calendar-colors-date-background-today'
       },
       months: {
         root: 'grid grid-cols-4 gap-2',
         month:
-          'p-1.5 hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white',
-        selected: 'border-transparent text-black light:text-white'
+          'p-1.5 hover:bg-calendar-colors-date-background-hover hover:text-calendar-colors-date-text-hover border-transparent text-calendar-colors-date-text-resting',
+        selected:
+          'border-transparent text-calendar-colors-date-text-selected bg-calendar-colors-date-background-selected'
       },
       years: {
         root: 'grid grid-cols-4 gap-2',
-        year: 'p-1.5 hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white',
-        selected: 'border-transparent text-black light:text-white'
+        year: 'p-1.5 hover:bg-calendar-colors-date-background-hover hover:text-calendar-colors-date-text-hover border-transparent text-calendar-colors-date-text-resting',
+        selected:
+          'border-transparent text-calendar-colors-date-text-selected bg-calendar-colors-date-background-selected'
       },
       time: {
         base: 'flex flex-col h-full gap-0',
-        wrapper: 'mt-4 bg-panel z-10 flex flex-row border-panel-border',
+        wrapper:
+          'mt-4 bg-calendar-colors-container-background-default z-10 flex flex-row border-calendar-colors-container-stroke-default',
         dividerTop: 'w-full',
-        dividerLeft: 'h-auto mt-2.5 mx-1 bg-surface z-10',
+        dividerLeft:
+          'h-auto mt-2.5 mx-1 bg-calendar-colors-container-stroke-default z-10',
         header: 'flex gap-4 px-0.5 pb-2.5 mb-2',
         column: {
           base: 'w-6',
           wrapper: 'overflow-y-auto h-52',
-          label: 'text-center text-xs text-gray-500',
+          label: 'text-center text-xs text-calendar-colors-label-text-default',
           list: 'p-0 m-0 list-none',
-          scrollbar:
-            'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500'
+          scrollbar: ''
         },
         items: {
           wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
           container: 'h-full',
-          list: 'relative h-full p-0 m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
+          list: 'relative h-full p-0 m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden touch-pan-y',
           divider: 'mx-0',
           item: {
-            base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 text-text-secondary hover:bg-primary-hover hover:text-black',
-            selected: 'bg-blue-500 text-white dark:bg-blue-600 dark:text-white',
+            base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 text-calendar-colors-date-text-resting hover:bg-calendar-colors-date-background-hover hover:text-calendar-colors-date-text-hover',
+            selected:
+              'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected',
             disabled: 'cursor-not-allowed opacity-50'
           }
         }
       },
       presets: {
-        wrapper: 'bg-panel z-10',
+        wrapper: 'bg-calendar-colors-container-background-default z-10',
         divider: 'mx-1 h-[calc(100%-26px)] self-end',
-        base: 'relative h-59 max-w-52 pr-1 overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y space-y-0',
+        base: 'relative h-59 max-w-52 pr-1 overflow-y-auto [&::-webkit-scrollbar]:hidden touch-pan-y space-y-0',
         group:
-          'text-sm font-medium my-1 !pr-0 !pl-0 !text-gray-500 dark:text-gray-400',
+          'text-sm font-medium my-1 !pr-0 !pl-0 text-calendar-colors-label-text-default',
         item: {
-          base: 'text-sm p-1.5 my-0.5 duration-0 hover:text-black dark:hover:bg-primary-hover hover:rounded-sm',
-          active: 'bg-primary text-black rounded-sm'
+          base: 'text-sm p-1.5 my-0.5 duration-0 hover:text-calendar-colors-date-text-hover hover:bg-calendar-colors-date-background-hover hover:rounded-sm',
+          active:
+            'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected rounded-sm'
         }
       }
     },
     calendarRange: {
-      base: 'relative overflow-hidden',
+      base: 'relative overflow-hidden bg-calendar-colors-container-background-default',
       header: {
-        base: 'flex text-center justify-between mb-2 items-center',
+        base: 'flex text-center justify-between mb-2 items-center text-calendar-colors-header-text-default',
         prev: '',
         mid: '',
         next: ''
@@ -270,55 +291,59 @@ export const themeUDS: ReablocksTheme = {
       content: 'flex gap-4',
       days: {
         header:
-          'text-center grid grid-cols-7 mb-1 pt-2 font-medium text-text-secondary',
+          'text-center grid grid-cols-7 mb-1 pt-2 font-medium text-calendar-colors-label-text-default',
         dayOfWeek: 'text-center font-medium',
         week: 'grid grid-cols-7',
-        day: 'font-normal flex p-2 border border-transparent text-text-secondary opacity-90 hover:bg-primary-hover hover:disabled:bg-transparent! hover:text-black disabled:text-text-secondary/60',
-        outside: 'opacity-40 text-text-secondary',
+        day: 'font-normal flex p-2 border border-calendar-colors-date-stroke-resting text-calendar-colors-date-text-resting opacity-90 hover:bg-calendar-colors-date-background-hover hover:disabled:bg-transparent! hover:text-calendar-colors-date-text-hover disabled:text-calendar-colors-date-text-resting/60',
+        outside: 'opacity-40 text-calendar-colors-date-text-resting',
         startRangeDate: 'rounded-tl-md rounded-tr-none rounded-br-none',
         cornerStartDateBottom: 'rounded-bl-none',
         endRangeDate: 'rounded-br-md rounded-bl-none rounded-tl-none',
         cornerEndDateTop: 'rounded-tr-none',
-        range: 'rounded-none',
+        range: 'rounded-none bg-calendar-colors-date-background-range',
         selected:
-          'text-black border-transparent light:text-white light:border-transparent opacity-100',
+          'text-calendar-colors-date-text-selected border-calendar-colors-date-stroke-selected bg-calendar-colors-date-background-selected opacity-100',
         hover:
-          'rounded-sm bg-primary-active text-black border-transparent light:text-white opacity-100',
-        today: 'rounded-sm border border-panel-accent text-text-primary'
+          'rounded-sm bg-calendar-colors-date-background-hover text-calendar-colors-date-text-hover border-calendar-colors-date-stroke-hover opacity-100',
+        today:
+          'rounded-sm border border-calendar-colors-date-stroke-today text-calendar-colors-date-text-today bg-calendar-colors-date-background-today'
       },
       presets: {
-        wrapper: 'bg-panel z-10',
+        wrapper: 'bg-calendar-colors-container-background-default z-10',
         divider: 'mx-1 h-[calc(100%-30px)] self-end',
-        base: 'relative h-59 max-w-52 pr-1 overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y space-y-0',
+        base: 'relative h-59 max-w-52 pr-1 overflow-y-auto [&::-webkit-scrollbar]:hidden touch-pan-y space-y-0',
         group:
-          'text-sm font-medium my-1 !pr-0 !pl-0 !text-gray-500 dark:text-gray-400',
+          'text-sm font-medium my-1 !pr-0 !pl-0 text-calendar-colors-label-text-default',
         item: {
-          base: 'text-sm p-1.5 my-0.5 duration-0 hover:text-black dark:hover:bg-primary-hover hover:rounded-sm',
-          active: 'bg-primary text-black rounded-sm'
+          base: 'text-sm p-1.5 my-0.5 duration-0 hover:text-calendar-colors-date-text-hover hover:bg-calendar-colors-date-background-hover hover:rounded-sm',
+          active:
+            'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected rounded-sm'
         }
       },
       time: {
         base: 'flex flex-col h-full gap-0',
-        wrapper: 'mt-4 bg-panel z-10 flex flex-row border-panel-border',
+        wrapper:
+          'mt-4 bg-calendar-colors-container-background-default z-10 flex flex-row border-calendar-colors-container-stroke-default',
         dividerTop: 'w-full',
-        dividerLeft: 'h-auto mt-2.5 mx-1 bg-surface z-10',
+        dividerLeft:
+          'h-auto mt-2.5 mx-1 bg-calendar-colors-container-stroke-default z-10',
         header: 'flex gap-4 px-0.5 pb-2.5 mb-2',
         column: {
           base: 'w-6',
           wrapper: 'overflow-y-auto h-52',
-          label: 'text-center text-xs text-gray-500',
+          label: 'text-center text-xs text-calendar-colors-label-text-default',
           list: 'p-0 m-0 list-none',
-          scrollbar:
-            'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500'
+          scrollbar: ''
         },
         items: {
           wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
           container: 'h-full',
-          list: 'relative h-full p-0 m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
+          list: 'relative h-full p-0 m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden touch-pan-y',
           divider: 'mx-0',
           item: {
-            base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 text-text-secondary hover:bg-primary-hover hover:text-black',
-            selected: 'bg-blue-500 text-white dark:bg-blue-600 dark:text-white',
+            base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 text-calendar-colors-date-text-resting hover:bg-calendar-colors-date-background-hover hover:text-calendar-colors-date-text-hover',
+            selected:
+              'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected',
             disabled: 'cursor-not-allowed opacity-50'
           }
         }
@@ -413,9 +438,9 @@ export const themeUDS: ReablocksTheme = {
       }
     },
     chip: {
-      base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5 rounded-xs leading-none text-white transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium',
+      base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5 rounded-xs leading-none transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium',
       adornment: {
-        base: 'flex items-center justify-center',
+        base: 'flex items-center justify-center [&>svg]:fill-tags-colors-neutral-assets-lead-icon-base',
         start: 'mr-1',
         end: 'ml-1',
         sizes: {
@@ -430,70 +455,70 @@ export const themeUDS: ReablocksTheme = {
         large: 'text-base leading-[inherit] px-3 py-0.5'
       },
       variants: {
-        filled: 'border border-transparent box-border',
+        filled: 'border box-border',
         outline: 'bg-transparent border hover:bg-transparent'
       },
       colors: {
         default: {
           variants: {
             filled:
-              'bg-panel border-panel text-text-primary hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+              'bg-tags-colors-neutral-background-resting border-tags-colors-neutral-stroke-resting text-tags-colors-neutral-text-label-base hover:bg-tags-colors-neutral-background-hover hover:border-tags-colors-neutral-stroke-hover',
             outline:
-              'text-text-primary dark:border-gray-100 light:border-gray-900 hover:text-primary-hover hover:border-panel-accent'
+              'text-tags-colors-neutral-text-label-base border-tags-colors-neutral-stroke-resting hover:bg-tags-colors-neutral-background-hover hover:border-tags-colors-neutral-stroke-hover'
           }
         },
         primary: {
           variants: {
             filled:
-              'bg-primary border-primary text-panel hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+              'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover',
             outline:
-              'text-primary border-panel-accent hover:text-primary-hover hover:border-primary'
+              'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
           }
         },
         secondary: {
           variants: {
             filled:
-              'bg-secondary border-secondary text-text-primary hover:bg-secondary-hover hover:border-secondary-hover hover:text-panel',
+              'bg-tags-colors-neutral-background-resting border-tags-colors-neutral-stroke-resting text-tags-colors-neutral-text-label-base hover:bg-tags-colors-neutral-background-hover hover:border-tags-colors-neutral-stroke-hover',
             outline:
-              'text-secondary border-panel-accent hover:text-secondary-hover hover:border-secondary'
+              'text-tags-colors-neutral-text-label-base border-tags-colors-neutral-stroke-resting hover:bg-tags-colors-neutral-background-hover hover:border-tags-colors-neutral-stroke-hover'
           }
         },
         success: {
           variants: {
             filled:
-              'bg-success border-success text-panel hover:bg-success-hover hover:border-success-hover',
+              'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover',
             outline:
-              'text-success border-panel-accent hover:text-success-hover hover:border-success'
+              'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
           }
         },
         warning: {
           variants: {
             filled:
-              'bg-warning border-warning text-panel hover:bg-warning-hover hover:border-warning-hover hover:text-panel',
+              'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover',
             outline:
-              'text-warning border-panel-accent hover:text-warning-hover hover:border-warning'
+              'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
           }
         },
         error: {
           variants: {
             filled:
-              'bg-error border-error text-panel hover:bg-error-hover hover:border-error-hover hover:text-panel',
+              'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover',
             outline:
-              'text-error border-panel-accent hover:text-error-hover hover:border-error'
+              'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
           }
         },
         info: {
           variants: {
             filled:
-              'bg-info border-info text-panel hover:bg-info-hover hover:border-info-hover hover:text-panel',
+              'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover',
             outline:
-              'text-info border-panel-accent hover:text-info-hover hover:border-info'
+              'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
           }
         }
       },
       focus: '',
       deleteButton: {
-        base: 'text-inherit',
+        base: 'text-tags-colors-neutral-assets-close-base',
         sizes: {
           small: 'leading-[10px] max-h-2.5',
           medium: 'leading-3 max-h-3',
@@ -535,30 +560,32 @@ export const themeUDS: ReablocksTheme = {
     },
     dateInput: {
       input: {
-        base: 'flex relative flex-row items-center flex-nowrap box-border transition-colors rounded-xs bg-panel border border-panel-accent text-text-primary hover:border-panel-accent light:hover:border-panel-accent',
-        focused: '',
+        base: 'flex relative flex-row items-center flex-nowrap box-border transition-colors rounded-xs bg-inputs-colors-normal-background-resting border border-inputs-colors-normal-stroke-resting text-inputs-colors-normal-text-input-text-resting hover:border-inputs-colors-normal-stroke-hover',
+        focused:
+          'border-inputs-colors-normal-stroke-selected bg-inputs-colors-normal-background-selected',
         input:
-          'flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-hidden px-0.5 disabled:cursor-not-allowed disabled:text-disabled placeholder-accent',
+          'flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-hidden px-0.5 disabled:cursor-not-allowed disabled:text-disabled placeholder:text-inputs-colors-normal-text-input-text-resting',
         inline: 'bg-transparent border-0 outline-hidden',
         disabled:
-          'text-waterloo cursor-not-allowed disabled-within:bg-dark-disabled disabled-within:after:content-none',
+          'cursor-not-allowed opacity-40 hover:border-inputs-colors-normal-stroke-resting',
         fullWidth: 'w-full',
-        error: 'border-error',
+        error:
+          'border-inputs-colors-error-stroke-resting bg-inputs-colors-error-background-resting hover:border-inputs-colors-error-stroke-hover',
         sizes: {
           small: '[&>input]:text-sm p-1 text-sm',
           medium: '[&>input]:text-base px-2.5 py-1.5 text-base',
           large: '[&>input]:text-lg p-5 text-lg'
         },
         adornment: {
-          base: 'flex items-center justify-center [&>svg]:w-4 [&>svg]:h-4 [&>svg]:current-color text-text-primary',
+          base: 'flex items-center justify-center [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-inputs-colors-normal-assets-input-resting',
           start: 'pr-1.5',
           end: 'pl-1.5'
         }
       },
       calendar: {
-        base: 'relative overflow-hidden',
+        base: 'relative overflow-hidden bg-calendar-colors-container-background-default',
         header: {
-          base: 'flex text-center justify-between mb-2 items-center text-text-secondary',
+          base: 'flex text-center justify-between mb-2 items-center text-calendar-colors-header-text-default',
           prev: 'text-xl leading-4',
           mid: '',
           next: 'text-xl leading-4'
@@ -567,77 +594,84 @@ export const themeUDS: ReablocksTheme = {
         content: 'flex',
         days: {
           header:
-            'text-center grid grid-cols-7 mb-1 pt-2 font-medium text-text-secondary',
+            'text-center grid grid-cols-7 mb-1 pt-2 font-medium text-calendar-colors-label-text-default',
           dayOfWeek: 'text-center font-medium',
           week: 'grid grid-cols-7',
-          day: 'font-normal flex p-2 border border-transparent text-text-secondary opacity-90 hover:bg-primary-hover hover:disabled:bg-transparent! hover:text-black disabled:text-text-secondary/60',
-          outside: 'opacity-40 text-text-secondary',
+          day: 'font-normal flex p-2 border border-calendar-colors-date-stroke-resting text-calendar-colors-date-text-resting opacity-90 hover:bg-calendar-colors-date-background-hover hover:disabled:bg-transparent! hover:text-calendar-colors-date-text-hover disabled:text-calendar-colors-date-text-resting/60',
+          outside: 'opacity-40 text-calendar-colors-date-text-resting',
           startRangeDate: 'rounded-tl-md rounded-tr-none rounded-br-none',
           cornerStartDateBottom: 'rounded-bl-none',
           endRangeDate: 'rounded-br-md rounded-bl-none rounded-tl-none',
           cornerEndDateTop: 'rounded-tr-none',
-          range: 'rounded-none',
+          range: 'rounded-none bg-calendar-colors-date-background-range',
           selected:
-            'text-black border-transparent light:text-white light:border-transparent opacity-100',
+            'text-calendar-colors-date-text-selected border-calendar-colors-date-stroke-selected bg-calendar-colors-date-background-selected opacity-100',
           hover:
-            'rounded-sm bg-primary-active text-black border-transparent light:text-white opacity-100',
-          today: 'rounded-sm border border-panel-accent text-text-primary'
+            'rounded-sm bg-calendar-colors-date-background-hover text-calendar-colors-date-text-hover border-calendar-colors-date-stroke-hover opacity-100',
+          today:
+            'rounded-sm border border-calendar-colors-date-stroke-today text-calendar-colors-date-text-today bg-calendar-colors-date-background-today'
         },
         months: {
           root: 'grid grid-cols-4 gap-2',
           month:
-            'p-1.5 hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white',
-          selected: 'border-transparent text-black light:text-white'
+            'p-1.5 hover:bg-calendar-colors-date-background-hover hover:text-calendar-colors-date-text-hover border-transparent text-calendar-colors-date-text-resting',
+          selected:
+            'border-transparent text-calendar-colors-date-text-selected bg-calendar-colors-date-background-selected'
         },
         years: {
           root: 'grid grid-cols-4 gap-2',
-          year: 'p-1.5 hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white',
-          selected: 'border-transparent text-black light:text-white'
+          year: 'p-1.5 hover:bg-calendar-colors-date-background-hover hover:text-calendar-colors-date-text-hover border-transparent text-calendar-colors-date-text-resting',
+          selected:
+            'border-transparent text-calendar-colors-date-text-selected bg-calendar-colors-date-background-selected'
         },
         time: {
           base: 'flex flex-col h-full gap-0',
-          wrapper: 'mt-4 bg-panel z-10 flex flex-row border-panel-border',
+          wrapper:
+            'mt-4 bg-calendar-colors-container-background-default z-10 flex flex-row border-calendar-colors-container-stroke-default',
           dividerTop: 'w-full',
-          dividerLeft: 'h-auto mt-2.5 mx-1 bg-surface z-10',
+          dividerLeft:
+            'h-auto mt-2.5 mx-1 bg-calendar-colors-container-stroke-default z-10',
           header: 'flex gap-4 px-0.5 pb-2.5 mb-2',
           column: {
             base: 'w-6',
             wrapper: 'overflow-y-auto h-52',
-            label: 'text-center text-xs text-gray-500',
+            label:
+              'text-center text-xs text-calendar-colors-label-text-default',
             list: 'p-0 m-0 list-none',
-            scrollbar:
-              'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500'
+            scrollbar: ''
           },
           items: {
             wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
             container: 'h-full',
-            list: 'relative h-full p-0 m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
+            list: 'relative h-full p-0 m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden touch-pan-y',
             divider: 'mx-0',
             item: {
-              base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 text-text-secondary hover:bg-primary-hover hover:text-black',
+              base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 text-calendar-colors-date-text-resting hover:bg-calendar-colors-date-background-hover hover:text-calendar-colors-date-text-hover',
               selected:
-                'bg-blue-500 text-white dark:bg-blue-600 dark:text-white',
+                'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected',
               disabled: 'cursor-not-allowed opacity-50'
             }
           }
         },
         presets: {
-          wrapper: 'bg-panel z-10',
+          wrapper: 'bg-calendar-colors-container-background-default z-10',
           divider: 'mx-1 h-[calc(100%-26px)] self-end',
-          base: 'relative h-59 max-w-52 pr-1 overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y space-y-0',
+          base: 'relative h-59 max-w-52 pr-1 overflow-y-auto [&::-webkit-scrollbar]:hidden touch-pan-y space-y-0',
           group:
-            'text-sm font-medium my-1 !pr-0 !pl-0 !text-gray-500 dark:text-gray-400',
+            'text-sm font-medium my-1 !pr-0 !pl-0 text-calendar-colors-label-text-default',
           item: {
-            base: 'text-sm p-1.5 my-0.5 duration-0 hover:text-black dark:hover:bg-primary-hover hover:rounded-sm',
-            active: 'bg-primary text-black rounded-sm'
+            base: 'text-sm p-1.5 my-0.5 duration-0 hover:text-calendar-colors-date-text-hover hover:bg-calendar-colors-date-background-hover hover:rounded-sm',
+            active:
+              'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected rounded-sm'
           }
         }
       },
       preset: {
-        list: 'w-full border border-panel-accent',
+        list: 'w-full border border-inputs-colors-normal-stroke-resting',
         option: {
-          base: 'hover:bg-vulcan hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-secondary',
-          active: 'bg-vulcan hover:text-mystic'
+          base: 'hover:bg-inputs-colors-normal-background-hover hover:text-inputs-colors-normal-text-input-text-hover',
+          active:
+            'bg-inputs-colors-normal-background-selected text-inputs-colors-normal-text-input-text-selected'
         }
       }
     },
@@ -662,13 +696,13 @@ export const themeUDS: ReablocksTheme = {
       },
       variant: {
         primary: 'bg-surface',
-        secondary: 'bg-linear-to-r from-transparent to-transparent via-blue-500'
+        secondary: 'bg-linear-to-r from-transparent to-transparent via-primary'
       },
       disableMargins: 'my-0 mx-0'
     },
     dotsLoader: {
       base: 'flex',
-      dot: 'rounded-[50%] light:bg-gray-900 dark:bg-gray-100',
+      dot: 'rounded-[50%] bg-neutral-900 light:bg-neutral-900 dark:bg-neutral-100',
       sizes: {
         small: 'w-1 h-1 m-1',
         medium: 'w-1.5 h-1.5 m-1.5',
@@ -738,15 +772,16 @@ export const themeUDS: ReablocksTheme = {
       chip: 'whitespace-nowrap rounded-sm font-mono'
     },
     list: {
-      base: 'flex flex-col text-text-primary',
-      header: 'pl-2 pr-2 text-text-primary',
+      base: 'flex flex-col text-navigation-colors-text-resting',
+      header: 'pl-2 pr-2 text-navigation-colors-text-static',
       listItem: {
-        base: 'items-center flex p-2.5 relative rounded-none hover:bg-panel-accent hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-secondary [&:has(h3)]:hover:bg-transparent',
+        base: 'items-center flex p-2.5 relative rounded-none bg-navigation-colors-background-row-items-resting text-navigation-colors-text-resting hover:bg-navigation-colors-background-row-items-hover hover:text-navigation-colors-text-hover border-navigation-colors-stroke-row-items-resting hover:border-navigation-colors-stroke-row-items-hover [&:has(h3)]:hover:bg-transparent',
         disabled:
-          'cursor-not-allowed pointer-events-none opacity-40 text-text-secondary',
-        active: 'text-primary-active hover:text-mystic',
+          'cursor-not-allowed pointer-events-none opacity-40 text-navigation-colors-text-static',
+        active:
+          'bg-navigation-colors-background-row-items-selected text-navigation-colors-text-selected border-navigation-colors-stroke-row-items-selected',
         clickable:
-          'cursor-pointer transition-color duration-300 ease-linear transition-bg duration-300 ease-linear hover:color-inherit hover:bg-transparent',
+          'cursor-pointer transition-color duration-300 ease-linear transition-bg duration-300 ease-linear',
         disablePadding: 'p-0',
         disableGutters: 'pl-0 pr-0',
         dense: {
@@ -765,40 +800,41 @@ export const themeUDS: ReablocksTheme = {
       }
     },
     menu: {
-      base: 'relative min-w-[112px] max-w-[500px] p-px',
-      inner: 'focus:outline-hidden text-text-primary bg-panel'
+      base: 'relative min-w-[112px] max-w-[500px] p-px bg-navigation-colors-background-container-base border border-navigation-colors-stroke-container-base',
+      inner: 'focus:outline-hidden text-navigation-colors-text-resting'
     },
     notification: {
       container: '',
       positions:
         'fixed z-9998 h-auto -translate-x-2/4 mb-1 px-24 py-0 left-2/4 bottom-0',
       notification: {
-        base: 'flex relative text-base min-w-[400px] rounded-xs mb-2.5 py-2 px-4 bg-panel text-text-primary border-panel-accent border',
+        base: 'flex relative text-base min-w-[400px] rounded-xs mb-2.5 py-2 px-4 bg-notifications-colors-background-neutral-resting text-notifications-colors-text-normal-resting border-notifications-colors-stroke-neutral-resting border hover:bg-notifications-colors-background-neutral-hover hover:border-notifications-colors-stroke-neutral-hover',
         variants: {
           success: {
-            base: 'bg-success-background border border-success',
-            icon: 'text-success h-4 w-4'
+            base: 'bg-notifications-colors-background-success-resting border border-notifications-colors-stroke-success-resting hover:bg-notifications-colors-background-success-hover hover:border-notifications-colors-stroke-success-hover',
+            icon: 'text-notifications-colors-assets-success-resting h-4 w-4'
           },
           error: {
-            base: 'bg-error-background border border-error',
-            icon: 'text-error h-4 w-4'
+            base: 'bg-notifications-colors-background-error-resting border border-notifications-colors-stroke-error-resting hover:bg-notifications-colors-background-error-hover hover:border-notifications-colors-stroke-error-hover',
+            icon: 'text-notifications-colors-assets-destructive-resting h-4 w-4'
           },
           warning: {
-            base: 'bg-warning-background border border-warning',
-            icon: 'text-warning h-4 w-4'
+            base: 'bg-notifications-colors-background-neutral-resting border border-notifications-colors-stroke-warning-resting hover:bg-notifications-colors-background-neutral-hover hover:border-notifications-colors-stroke-warning-hover',
+            icon: 'text-notifications-colors-assets-normal-resting h-4 w-4'
           },
           info: {
-            base: 'bg-info-background border border-info',
-            icon: 'text-info h-4 w-4'
+            base: 'bg-notifications-colors-background-neutral-resting border border-notifications-colors-stroke-info-resting hover:bg-notifications-colors-background-neutral-hover hover:border-notifications-colors-stroke-info-hover',
+            icon: 'text-notifications-colors-assets-normal-resting h-4 w-4'
           }
         },
         content: 'inline-flex items-start flex-1 flex-col justify-center',
-        header: 'text-base flex gap-2 items-center',
+        header:
+          'text-base flex gap-2 items-center text-notifications-colors-text-title-resting',
         closeContainer: 'inline-flex items-center',
         action: 'ml-auto mr-2 items-center flex',
         closeButton:
-          'cursor-pointer text-sm font-semibold m-0 border-0 text-text-primary hover:text-text-primary/70',
-        body: 'opacity-70 text-sm mt-1'
+          'cursor-pointer text-sm font-semibold m-0 border-0 text-notifications-colors-assets-normal-resting hover:text-notifications-colors-assets-normal-hover',
+        body: 'opacity-70 text-sm mt-1 text-notifications-colors-text-normal-resting'
       }
     },
     pager: {
@@ -829,13 +865,14 @@ export const themeUDS: ReablocksTheme = {
     radio: {
       base: 'box-border leading-none group',
       radio: {
-        base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-[100%] bg-transparent border cursor-pointer border-surface group-hover:border-primary-hover hover:border-primary-hover',
-        disabled: 'cursor-not-allowed border-secondary-inactive!',
-        checked: 'border-primary-active group-hover:border-primary-hover'
+        base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-[100%] bg-selectors-colors-radio-not-selected-background-resting border cursor-pointer border-selectors-colors-radio-not-selected-stroke-resting group-hover:border-selectors-colors-radio-not-selected-stroke-hover hover:bg-selectors-colors-radio-not-selected-background-hover',
+        disabled: 'cursor-not-allowed opacity-40',
+        checked:
+          'border-selectors-colors-radio-selected-stroke-resting bg-selectors-colors-radio-selected-background-resting group-hover:border-selectors-colors-radio-selected-stroke-hover group-hover:bg-selectors-colors-radio-selected-background-hover'
       },
       indicator: {
-        base: 'rounded-[100%] bg-primary group-hover:bg-primary-hover',
-        disabled: 'cursor-not-allowed bg-secondary-inactive!',
+        base: 'rounded-[100%] bg-selectors-colors-radio-selected-assets-base',
+        disabled: 'cursor-not-allowed opacity-40',
         sizes: {
           small: 'w-2 h-2',
           medium: 'w-2.5 h-2.5',
@@ -843,10 +880,11 @@ export const themeUDS: ReablocksTheme = {
         }
       },
       label: {
-        base: 'w-full align-middle ml-2.5 text-text-secondary',
-        clickable: 'cursor-pointer hover:text-blue-300',
-        disabled: 'cursor-not-allowed text-secondary-inactive/40!',
-        checked: 'text-text-primary'
+        base: 'w-full align-middle ml-2.5 text-selectors-colors-text-label-not-selected',
+        clickable:
+          'cursor-pointer hover:text-selectors-colors-text-label-selected',
+        disabled: 'cursor-not-allowed opacity-40',
+        checked: 'text-selectors-colors-text-label-selected'
       },
       sizes: {
         small: 'w-3 h-3',
@@ -855,7 +893,7 @@ export const themeUDS: ReablocksTheme = {
       }
     },
     range: {
-      base: 'relative box-border w-full h-0.5 bg-surface light:bg-gray-200',
+      base: 'relative box-border w-full h-0.5 bg-surface',
       drag: 'absolute w-4 h-4 -left-2 -top-2 rounded-full',
       inputWrapper: {
         base: 'cursor-pointer inline-block relative h-full w-full rounded-full bg-primary-active hover:bg-primary-hover shadow-[0px_4px_4px_0px_rgba(0,0,0,0.20)]',
@@ -886,26 +924,31 @@ export const themeUDS: ReablocksTheme = {
     },
     select: {
       selectInput: {
-        base: 'flex flex-nowrap items-center box-border border rounded-sm bg-panel text-text-primary border-panel-accent border-solid hover:border-panel-accent light:hover:border-panel-accent',
+        base: 'flex flex-nowrap items-center box-border border rounded-sm bg-inputs-colors-normal-background-resting text-inputs-colors-normal-text-input-text-resting border-inputs-colors-normal-stroke-resting border-solid hover:border-inputs-colors-normal-stroke-hover',
         container: 'relative',
         inputContainer:
           'flex-wrap flex items-center overflow-hidden flex-1 max-w-full [&>div]:max-w-full [&_.invisible]:text-ellipsis [&_.invisible]:overflow-hidden',
         input:
           'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-hidden disabled:text-disabled',
-        placeholder: 'placeholder:text-secondary-content',
+        placeholder:
+          'placeholder:text-inputs-colors-normal-text-input-text-resting',
         prefix: 'overflow-hidden whitespace-nowrap text-ellipsis',
         suffix: {
           container: 'flex items-center justify-center',
           button: 'disabled:cursor-not-allowed hover:cursor-pointer',
-          refresh: 'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-text-secondary',
+          refresh:
+            'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-inputs-colors-normal-assets-input-resting',
           loader: 'mr-2.5',
-          close: 'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-text-secondary',
-          expand: '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-text-secondary'
+          close:
+            'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-inputs-colors-normal-assets-input-resting',
+          expand:
+            '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-inputs-colors-normal-assets-input-resting'
         },
         disabled:
-          'cursor-not-allowed text-disabled hover:after:content-none text-text-secondary/40 border-surface light:hover:border-surface',
+          'cursor-not-allowed text-disabled hover:after:content-none opacity-40 hover:border-inputs-colors-normal-stroke-resting',
         unfilterable: 'caret-transparent',
-        error: 'border border-solid border-error light:border-error/20',
+        error:
+          'border border-solid border-inputs-colors-error-stroke-resting bg-inputs-colors-error-background-resting',
         open: 'rounded-sm rounded-ee-none rounded-es-none',
         single: {
           prefix: 'overflow-hidden whitespace-nowrap text-ellipsis max-w-full',
@@ -917,13 +960,13 @@ export const themeUDS: ReablocksTheme = {
           inputContainer: 'flex-wrap'
         },
         chip: {
-          base: 'cursor-pointer flex text-sm leading-none box-border mr-1 px-1 py-1 rounded-sm border-solid border-transparent [&>svg]:fill-text-primary [&>svg]:disabled:fill-text-secondary/40',
+          base: 'cursor-pointer flex text-sm leading-none box-border mr-1 px-1 py-1 rounded-sm border-solid border-transparent [&>svg]:fill-inputs-colors-normal-assets-input-resting [&>svg]:disabled:opacity-40',
           hover: 'hover:brightness-150',
           focused:
-            'focused:border-transparent focused:outline-none border-panel-accent',
+            'focused:border-transparent focused:outline-none border-inputs-colors-normal-stroke-selected',
           disabled: 'disabled:cursor-not-allowed',
           removeButton:
-            'cursor-pointer leading-0 ml-1 p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none [&>svg]:fill-text-primary [&>svg]:disabled:fill-text-secondary/40'
+            'cursor-pointer leading-0 ml-1 p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none [&>svg]:fill-inputs-colors-normal-assets-input-resting [&>svg]:disabled:opacity-40'
         },
         size: {
           small: 'py-1 px-2 text-sm min-h-8',
@@ -932,10 +975,11 @@ export const themeUDS: ReablocksTheme = {
         }
       },
       selectMenu: {
-        base: 'border border-solid rounded-b-md text-center will-change-[transform,opacity] min-w-[112px] max-h-[300px] overflow-y-auto text-left box-border bg-panel text-text-primary border-panel-accent border-t-transparent',
+        base: 'border border-solid rounded-b-md text-center will-change-[transform,opacity] min-w-[112px] max-h-[300px] overflow-y-auto text-left box-border bg-inputs-colors-normal-background-resting text-inputs-colors-normal-text-input-text-resting border-inputs-colors-normal-stroke-resting border-t-transparent',
         groupItem: {
           base: 'p-0 border-0 first:pt-2 last:pb-2',
-          title: 'font-bold uppercase m-0 px-1.5 py-2.5 text-text-primary',
+          title:
+            'font-bold uppercase m-0 px-1.5 py-2.5 text-inputs-colors-normal-text-label-resting',
           size: {
             small: 'px-2.5 text-sm',
             medium: 'px-3 text-sm',
@@ -943,11 +987,13 @@ export const themeUDS: ReablocksTheme = {
           }
         },
         option: {
-          base: 'flex-1 whitespace-break-spaces break-words py-1.5 px-2.5 text-text-secondary',
+          base: 'flex-1 whitespace-break-spaces break-words py-1.5 px-2.5 text-inputs-colors-normal-text-input-text-resting',
           hover:
-            'hover:bg-vulcan hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-secondary',
-          selected: 'text-primary-active',
-          active: 'bg-vulcan hover:text-mystic',
+            'hover:bg-inputs-colors-normal-background-hover hover:text-inputs-colors-normal-text-input-text-hover',
+          selected:
+            'text-inputs-colors-normal-text-input-text-selected bg-inputs-colors-normal-background-selected',
+          active:
+            'bg-inputs-colors-normal-background-selected hover:text-inputs-colors-normal-text-input-text-selected',
           disabled: '',
           checkIcon: 'ml-1',
           content: 'flex flex-row justify-between'
@@ -1005,7 +1051,7 @@ export const themeUDS: ReablocksTheme = {
       list: {
         base: 'flex text-center flex-wrap -mb-px',
         indicator: {
-          base: 'bg-primary absolute bottom-0 left-0 right-0',
+          base: 'bg-tabs-colors-contained-background-selected absolute bottom-0 left-0 right-0',
           size: {
             small: 'h-0.5',
             medium: 'h-0.5',
@@ -1015,18 +1061,19 @@ export const themeUDS: ReablocksTheme = {
         divider: 'w-full h-px border-0',
         variant: {
           primary: {
-            divider: 'bg-surface'
+            divider: 'bg-tabs-colors-contained-stroke-resting'
           },
           secondary: {
             divider:
-              'bg-linear-to-r from-transparent to-transparent via-primary'
+              'bg-linear-to-r from-transparent to-transparent via-tabs-colors-contained-background-selected'
           }
         },
         tab: {
-          base: 'relative',
+          base: 'relative bg-tabs-colors-contained-background-resting',
           button:
-            'transition-colors text-text-secondary font-bold hover:text-primary-hover',
-          selected: 'text-text-primary',
+            'transition-colors text-tabs-colors-contained-text-resting font-bold hover:text-tabs-colors-contained-text-hover hover:bg-tabs-colors-contained-background-hover',
+          selected:
+            'text-tabs-colors-contained-text-selected bg-tabs-colors-contained-background-selected hover:bg-tabs-colors-contained-background-selected-hover hover:text-tabs-colors-contained-text-selected-hover',
           disabled: 'cursor-not-allowed opacity-40',
           size: {
             small: 'pb-1 text-sm',
@@ -1039,12 +1086,13 @@ export const themeUDS: ReablocksTheme = {
     },
     textarea: {
       input:
-        'resize-none read-only:cursor-not-allowed flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-hidden px-0.5 disabled:cursor-not-allowed disabled:text-disabled placeholder-accent',
-      base: 'flex relative flex-row items-center flex-nowrap box-border transition-colors rounded-xs bg-panel border border-panel-accent text-text-primary hover:border-panel-accent light:hover:border-panel-accent disabled-within:hover:after:content-none',
+        'resize-none read-only:cursor-not-allowed flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-hidden px-0.5 disabled:cursor-not-allowed disabled:text-disabled placeholder:text-inputs-colors-normal-text-input-text-resting',
+      base: 'flex relative flex-row items-center flex-nowrap box-border transition-colors rounded-xs bg-inputs-colors-normal-background-resting border border-inputs-colors-normal-stroke-resting text-inputs-colors-normal-text-input-text-resting hover:border-inputs-colors-normal-stroke-hover disabled-within:hover:after:content-none',
       disabled:
-        'text-waterloo cursor-not-allowed disabled-within:bg-dark-disabled disabled-within:after:content-none',
+        'cursor-not-allowed opacity-40 hover:border-inputs-colors-normal-stroke-resting',
       fullWidth: 'w-full',
-      error: 'border-error',
+      error:
+        'border-inputs-colors-error-stroke-resting bg-inputs-colors-error-background-resting hover:border-inputs-colors-error-stroke-hover',
       sizes: {
         small: '[&>input]:text-sm p-1 text-sm',
         medium: '[&>input]:text-base px-2.5 py-1.5 text-base',
@@ -1052,20 +1100,23 @@ export const themeUDS: ReablocksTheme = {
       }
     },
     toggle: {
-      base: 'flex items-center justify-start cursor-pointer bg-surface box-border border border-panel-accent rounded-full hover:bg-primary-hover transition-[background-color] ease-in-out duration-300',
-      disabled: 'cursor-not-allowed bg-transparent hover:bg-transparent',
-      checked: 'justify-end bg-primary',
+      base: 'flex items-center justify-start cursor-pointer bg-selectors-colors-toggle-off-background-resting box-border border border-selectors-colors-toggle-off-stroke-resting rounded-full hover:bg-selectors-colors-toggle-off-background-hover hover:border-selectors-colors-toggle-off-stroke-hover transition-[background-color] ease-in-out duration-300',
+      disabled:
+        'cursor-not-allowed opacity-40 hover:bg-selectors-colors-toggle-off-background-resting',
+      checked:
+        'justify-end bg-selectors-colors-toggle-on-background-resting border-selectors-colors-toggle-on-stroke-resting hover:bg-selectors-colors-toggle-on-background-hover hover:border-selectors-colors-toggle-on-stroke-hover',
       disabledAndChecked:
-        'bg-secondary-inactive hover:bg-secondary-inactive light:bg-gray-400 light:hover:bg-gray-400',
+        'opacity-40 hover:bg-selectors-colors-toggle-on-background-resting',
       handle: {
-        base: 'rounded-full bg-panel',
+        base: 'rounded-full bg-selectors-colors-toggle-off-assets-resting',
         sizes: {
           small: 'w-3 h-full',
           medium: 'w-5 h-full',
           large: 'w-6 h-full'
         },
-        disabled: 'bg-secondary-inactive light:bg-gray-400',
-        disabledAndChecked: 'bg-black light:bg-white'
+        disabled: 'opacity-40',
+        disabledAndChecked:
+          'bg-selectors-colors-toggle-on-assets-resting opacity-40'
       },
       sizes: {
         small: 'w-8 h-4 p-px',
@@ -1074,7 +1125,7 @@ export const themeUDS: ReablocksTheme = {
       }
     },
     tooltip: {
-      base: 'whitespace-nowrap text-center will-change-[transform,opacity] p-1.5 rounded-sm bg-panel-accent text-text-primary',
+      base: 'whitespace-nowrap text-center will-change-[transform,opacity] p-1.5 rounded-sm bg-tooltip-colors-neutral-background-default text-tooltip-colors-neutral-text-default',
       disablePointer: 'pointer-events-none'
     },
     tree: {
@@ -1131,9 +1182,9 @@ export const themeUDS: ReablocksTheme = {
       }
     },
     skeleton: {
-      base: 'rounded-md light:bg-gray-200 dark:bg-gray-700',
+      base: 'rounded-md bg-neutral-200 light:bg-neutral-200 dark:bg-neutral-700',
       animated:
-        'animate-[pulse_1.5s_ease-in-out_infinite] light:bg-gradient-to-r light:from-gray-200 light:via-gray-300 light:to-gray-200 dark:bg-gradient-to-r dark:from-gray-700 dark:via-gray-600 dark:to-gray-700 bg-[length:200%_100%]',
+        'animate-[pulse_1.5s_ease-in-out_infinite] light:bg-gradient-to-r light:from-neutral-200 light:via-neutral-300 light:to-neutral-200 dark:bg-gradient-to-r dark:from-neutral-700 dark:via-neutral-600 dark:to-neutral-700 bg-[length:200%_100%]',
       variants: {
         text: 'h-4 w-full',
         rounded: 'rounded-full w-10 h-10',

@@ -1,13 +1,66 @@
 # v9 to UDS Token Mapping
 
-This document provides a comprehensive mapping of v9 theme tokens to UDS (Unify Design System) tokens for migration purposes.
+This guide provides a comprehensive mapping of v9 theme tokens to UDS (Unify Design System) tokens for migration purposes.
 
 ## Overview
 
 - **v9 Theme**: Uses simplified Tailwind utilities and semantic color tokens (e.g., `bg-primary`, `text-gray-400`)
-- **UDS Theme**: Uses UDS design system tokens with CSS custom properties (e.g., `bg-buttons-colors-core-icon-primary-background-resting`)
+- **UDS Theme**: Uses a two-tier approach:
+  1. **UDS Component Tokens**: Component-specific tokens from the Unify Design System (e.g., `bg-buttons-colors-core-icon-primary-background-resting`)
+  2. **Semantic Token Layer**: v9-style tokens mapped to UDS design tokens for components without UDS component equivalents (e.g., `bg-panel` → `var(--background-neutral-raised-base)`)
 
-**Note**: All UDS token names in this document have been verified to exist in the UDS CSS files (`src/assets/css/uds/`).
+## Component Coverage
+
+### Components with Full UDS Component Token Mappings
+The following components use UDS component-specific tokens (documented in detail below):
+- Avatar, AvatarGroup
+- Badge
+- Breadcrumbs
+- Button (primary, secondary, error variants use UDS tokens; success, warning variants use semantic tokens)*
+- Calendar, CalendarRange, DateInput
+- Checkbox
+- Chip
+- Input, Textarea
+- List (uses navigation-colors-*)
+- Menu (uses navigation-colors-*)
+- Notification/Toast
+- Radio
+- Select
+- Tabs
+- Toggle (Switch)
+- Tooltip
+
+**Important Note:** Success and warning button variants intentionally use the semantic token layer because UDS does not provide `success` or `warning` button variants at the component token level. These variants map to UDS semantic colors (e.g., `var(--background-semantic-success-base)`) to maintain semantic parity with v9 while staying within UDS's design system constraints.
+
+### Components Using Semantic Token Layer
+The following components use the semantic token layer (v9-style tokens mapped to UDS design tokens) **because UDS does not provide component-specific tokens for them**:
+- Card
+- Callout
+- Dialog
+- Divider
+- Drawer
+- Kbd
+- Pager
+- Popover
+- Range
+- Redact
+- Sort
+- Stack
+- Stepper
+- Tree
+- Typography
+
+**Why Semantic Layer?** These components use tokens like `bg-panel`, `text-text-primary`, and `border-panel-accent` which map to UDS level-2 design tokens (e.g., `var(--background-neutral-raised-base)`, `var(--content-text-neutral-base)`). This approach:
+- ✅ Renders components with correct UDS design system colors
+- ✅ Maintains backwards compatibility with v9
+- ✅ Uses authentic UDS design tokens (level-2) where component tokens (level-3) don't exist
+- ❌ Does not provide component-level styling nuances (stroke, asset tokens, granular states)
+
+**Design Decision:** This is the correct architectural approach given UDS's token coverage. Creating fake "component tokens" for these would be misleading and potentially conflict with future UDS additions.
+
+See the [Semantic Color Tokens](#semantic-color-tokens) section for detailed mappings.
+
+**Note**: All UDS component token names documented below have been verified to exist in the UDS CSS files (`src/assets/css/uds/`). Semantic tokens are defined in `semantic-tokens.css` and map to UDS design tokens.
 
 ## CSS Import
 
@@ -48,29 +101,38 @@ import { ThemeProvider } from 'reablocks';
 #### v9 → UDS Primary Button (Filled)
 - **Background (Resting)**: `bg-primary` → `bg-buttons-colors-core-icon-primary-background-resting`
 - **Background (Hover)**: `hover:bg-primary-hover` → `hover:bg-buttons-colors-core-icon-primary-background-hover`
-- **Border**: `border-primary` → `border-buttons-colors-core-icon-primary-border-resting`
-- **Text**: `text-text-primary` → `text-buttons-colors-core-icon-primary-foreground-resting`
+- **Border**: `border-primary` → `border-buttons-colors-core-icon-primary-stroke-resting`
+- **Text**: `text-text-primary` → `text-buttons-colors-core-icon-primary-text-resting`
 
 #### v9 → UDS Secondary Button (Filled)
 - **Background (Resting)**: `bg-secondary` → `bg-buttons-colors-core-icon-secondary-background-resting`
 - **Background (Hover)**: `hover:bg-secondary-hover` → `hover:bg-buttons-colors-core-icon-secondary-background-hover`
-- **Text**: `text-text-primary` → `text-buttons-colors-core-icon-secondary-foreground-resting`
+- **Border**: `border-secondary` → `border-buttons-colors-core-icon-secondary-stroke-resting`
+- **Text**: `text-text-primary` → `text-buttons-colors-core-icon-secondary-text-resting`
 
-#### v9 → UDS Success Button (Filled)
-- **Background (Resting)**: `bg-success` → `bg-buttons-colors-core-icon-success-background-resting`
-- **Background (Hover)**: `hover:bg-success-hover` → `hover:bg-buttons-colors-core-icon-success-background-hover`
-- **Border**: `border-success` → `border-buttons-colors-core-icon-success-border-resting`
+#### v9 → UDS Success Button (via Semantic Tokens)
 
-#### v9 → UDS Warning Button (Filled)
-- **Background (Resting)**: `bg-warning` → `bg-buttons-colors-core-icon-warning-background-resting`
-- **Background (Hover)**: `hover:bg-warning-hover` → `hover:bg-buttons-colors-core-icon-warning-background-hover`
-- **Border**: `border-warning` → `border-buttons-colors-core-icon-warning-border-resting`
+**Note**: UDS does not have `success` button variant. Success buttons use the [semantic token layer](#semantic-color-tokens) to maintain semantic parity with v9.
+
+- **Background (Resting)**: `bg-success` → `bg-success` (mapped to `var(--background-semantic-success-base)`)
+- **Background (Hover)**: `hover:bg-success-hover` → `hover:bg-success-hover` (mapped to `var(--background-semantic-success-1)`)
+- **Border**: `border-success` → `border-success` (mapped to `var(--background-semantic-success-base)`)
+- **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
+
+#### v9 → UDS Warning Button (via Semantic Tokens)
+
+**Note**: UDS does not have `warning` button variant. Warning buttons use the [semantic token layer](#semantic-color-tokens) to maintain semantic parity with v9.
+
+- **Background (Resting)**: `bg-warning` → `bg-warning` (mapped to `var(--background-semantic-warning-base)`)
+- **Background (Hover)**: `hover:bg-warning-hover` → `hover:bg-warning-hover` (mapped to `var(--background-semantic-warning-1)`)
+- **Border**: `border-warning` → `border-warning` (mapped to `var(--background-semantic-warning-base)`)
+- **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
 #### v9 → UDS Error Button (Filled)
-- **Background (Resting)**: `bg-error` → `bg-buttons-colors-core-icon-error-background-resting`
-- **Background (Hover)**: `hover:bg-error-hover` → `hover:bg-buttons-colors-core-icon-error-background-hover`
-- **Border**: `border-error` → `border-buttons-colors-core-icon-error-stroke-resting`
-- **Text**: `text-text-primary` → `text-buttons-colors-core-icon-error-text-resting`
+- **Background (Resting)**: `bg-error` → `bg-buttons-colors-core-icon-destructive-background-resting`
+- **Background (Hover)**: `hover:bg-error-hover` → `hover:bg-buttons-colors-core-icon-destructive-background-hover`
+- **Border**: `border-error` → `border-buttons-colors-core-icon-destructive-stroke-resting`
+- **Text**: `text-text-primary` → `text-buttons-colors-core-icon-destructive-text-resting`
 
 ### Input
 
@@ -80,105 +142,291 @@ import { ThemeProvider } from 'reablocks';
 - **Border (Hover)**: `hover:border-primary` → `hover:border-inputs-colors-normal-stroke-hover`
 - **Border (Focus)**: `focus:border-primary` → `focus:border-inputs-colors-normal-stroke-selected`
 - **Text**: `text-text-primary` → `text-inputs-colors-normal-text-input-text-resting`
-- **Icon**: `text-text-secondary` → `text-inputs-colors-normal-assets-input-resting`
+- **Icon**: `text-text-secondary` → `[&>svg]:fill-inputs-colors-normal-assets-input-resting`
 
 #### v9 → UDS Error State
+- **Background**: `bg-error-background` → `bg-inputs-colors-error-background-resting`
 - **Border**: `border-error` → `border-inputs-colors-error-stroke-resting`
-- **Text**: `text-error` → `text-inputs-colors-error-text-input-text-resting`
+- **Border (Hover)**: `hover:border-error` → `hover:border-inputs-colors-error-stroke-hover`
+- **Text**: `text-error` → `text-inputs-colors-error-text-input-filled`
 
 ### Checkbox
 
 #### v9 → UDS Checkbox
+- **Background (Not Selected)**: `bg-panel` → `bg-selectors-colors-checkbox-not-selected-background-resting`
 - **Background (Selected)**: `checked:bg-primary` → `checked:bg-selectors-colors-checkbox-selected-background-resting`
-- **Background (Hover)**: `hover:bg-primary-hover` → `hover:bg-selectors-colors-checkbox-unselected-background-hover`
-- **Border**: `border-panel-accent` → `border-selectors-colors-checkbox-unselected-border-resting`
-- **Icon**: `text-panel` → `text-selectors-colors-checkbox-selected-foreground-resting`
+- **Border (Not Selected)**: `border-panel-accent` → `border-selectors-colors-checkbox-not-selected-stroke-resting`
+- **Border (Selected)**: `checked:border-primary` → `checked:border-selectors-colors-checkbox-selected-stroke-resting`
+- **Icon**: `text-white` → `stroke-selectors-colors-checkbox-selected-assets-base`
 
 ### Radio
 
 #### v9 → UDS Radio Button
+- **Background (Not Selected)**: `bg-transparent` → `bg-selectors-colors-radio-not-selected-background-resting`
 - **Background (Selected)**: `checked:bg-primary` → `checked:bg-selectors-colors-radio-selected-background-resting`
-- **Border**: `border-panel-accent` → `border-selectors-colors-radio-unselected-border-resting`
-- **Dot**: `checked:after:bg-panel` → `checked:after:bg-selectors-colors-radio-selected-foreground-resting`
+- **Border (Not Selected)**: `border-panel-accent` → `border-selectors-colors-radio-not-selected-stroke-resting`
+- **Border (Selected)**: `checked:border-primary` → `checked:border-selectors-colors-radio-selected-stroke-resting`
+- **Dot**: `bg-primary` → `bg-selectors-colors-radio-selected-assets-base`
 
 ### Toggle (Switch)
 
 #### v9 → UDS Toggle
-- **Background (Off)**: `bg-panel-accent` → `bg-selectors-colors-toggle-off-background-resting`
+- **Background (Off)**: `bg-surface` → `bg-selectors-colors-toggle-off-background-resting`
 - **Background (On)**: `checked:bg-primary` → `checked:bg-selectors-colors-toggle-on-background-resting`
-- **Thumb**: `bg-panel` → `bg-selectors-colors-toggle-off-thumb`
-- **Thumb (On)**: `checked:bg-panel` → `checked:bg-selectors-colors-toggle-on-thumb`
+- **Border (Off)**: `border-panel-accent` → `border-selectors-colors-toggle-off-stroke-resting`
+- **Border (On)**: `checked:border-primary` → `checked:border-selectors-colors-toggle-on-stroke-resting`
+- **Thumb (Off)**: `bg-panel` → `bg-selectors-colors-toggle-off-assets-resting`
+- **Thumb (On)**: `bg-panel` → `bg-selectors-colors-toggle-on-assets-resting`
 
 ### Select
 
 #### v9 → UDS Select
 - **Background**: `bg-panel` → `bg-inputs-colors-normal-background-resting`
-- **Border**: `border-panel-accent` → `border-inputs-colors-normal-border-resting`
-- **Border (Hover)**: `hover:border-primary` → `hover:border-inputs-colors-normal-border-hover`
-- **Text**: `text-text-primary` → `text-inputs-colors-normal-foreground-resting`
-- **Icon**: `text-text-secondary` → `text-inputs-colors-normal-icon-resting`
+- **Border**: `border-panel-accent` → `border-inputs-colors-normal-stroke-resting`
+- **Border (Hover)**: `hover:border-primary` → `hover:border-inputs-colors-normal-stroke-hover`
+- **Text**: `text-text-primary` → `text-inputs-colors-normal-text-input-text-resting`
+- **Icon**: `text-text-secondary` → `[&>svg]:fill-inputs-colors-normal-assets-input-resting`
 
 ### Chip
 
 #### v9 → UDS Chip (Filled)
-- **Background**: `bg-primary` → `bg-chips-colors-primary-background-resting`
-- **Background (Hover)**: `hover:bg-primary-hover` → `hover:bg-chips-colors-primary-background-hover`
-- **Border**: `border-primary` → `border-chips-colors-primary-border-resting`
-- **Text**: `text-panel` → `text-chips-colors-primary-foreground-resting`
+- **Background**: `bg-primary` → `bg-tags-colors-brand-background-resting`
+- **Background (Hover)**: `hover:bg-primary-hover` → `hover:bg-tags-colors-brand-background-hover`
+- **Border**: `border-primary` → `border-tags-colors-brand-stroke-resting`
+- **Text**: `text-panel` → `text-tags-colors-brand-text-label-base`
 
 #### v9 → UDS Chip (Selectable)
-- **Background (Selected)**: `bg-primary` → `bg-chips-colors-primary-selected-background-resting`
-- **Text (Selected)**: `text-panel` → `text-chips-colors-primary-selected-foreground-resting`
+- **Background (Selected)**: `bg-primary` → `bg-tags-colors-brand-background-selected`
+- **Border (Selected)**: `border-primary` → `border-tags-colors-brand-stroke-selected`
+- **Text (Selected)**: `text-panel` → `text-tags-colors-brand-text-label-base`
 
 ### Badge
 
 #### v9 → UDS Badge
-- **Background**: `bg-primary` → `bg-badges-colors-primary-background-resting`
-- **Text**: `text-panel` → `text-badges-colors-primary-foreground-resting`
+- **Background**: `bg-primary` → `bg-badges-colors-solid-brand-background-standard`
+- **Border**: `border-primary` → `border-badges-colors-solid-brand-stroke-default`
+- **Text**: `text-white` → `text-badges-colors-solid-brand-text-default`
 
 ### Card
 
-#### v9 → UDS Card
-- **Background**: `bg-panel` → `bg-cards-colors-background-resting`
-- **Border**: `border-panel-accent` → `border-cards-colors-border-resting`
-- **Border (Hover)**: `hover:border-primary` → `hover:border-cards-colors-border-hover`
+**Note**: Card does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-### Dialog/Modal
+#### v9 → UDS Card (via Semantic Tokens)
+- **Background**: `bg-panel` → `bg-panel` (mapped to `var(--background-neutral-raised-base)`)
+- **Border**: `border-panel-accent` → `border-panel-accent` (mapped to `var(--background-neutral-raised-1)`)
+- **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
-#### v9 → UDS Dialog
-- **Background**: `bg-panel` → `bg-dialogs-colors-background-resting`
-- **Border**: `border-panel-accent` → `border-dialogs-colors-border-resting`
-- **Overlay**: `bg-black/50` → `bg-dialogs-colors-overlay`
+The Card component continues to use v9-style semantic tokens which are automatically mapped to UDS design tokens through the semantic token layer. No code changes are required when switching to the UDS variant.
 
-### Menu
+### Callout
 
-#### v9 → UDS Menu
-- **Background**: `bg-panel` → `bg-menus-colors-background-resting`
-- **Border**: `border-panel-accent` → `border-menus-colors-border-resting`
-- **Item (Hover)**: `hover:bg-panel-accent` → `hover:bg-menus-colors-item-background-hover`
-- **Item (Active)**: `bg-primary` → `bg-menus-colors-item-background-active`
+**Note**: Callout does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Callout (via Semantic Tokens)
+- **Default Background**: `bg-panel-background` → `bg-panel-background` (mapped to `var(--background-neutral-raised-base)`)
+- **Default Border**: `border-panel-accent` → `border-panel-accent` (mapped to `var(--background-neutral-raised-1)`)
+- **Success Background**: `bg-success-background` → `bg-success-background` (mapped to `var(--background-semantic-success-5)`)
+- **Success Border**: `border-success` → `border-success` (mapped to `var(--background-semantic-success-base)`)
+- **Success Icon**: `text-success` → `text-success` (mapped to `var(--background-semantic-success-base)`)
+- **Error Background**: `bg-error-background` → `bg-error-background` (mapped to `var(--background-semantic-error-5)`)
+- **Error Border**: `border-error` → `border-error` (mapped to `var(--background-semantic-error-base)`)
+- **Error Icon**: `text-error` → `text-error` (mapped to `var(--background-semantic-error-base)`)
+- **Warning Background**: `bg-warning-background` → `bg-warning-background` (mapped to `var(--background-semantic-warning-5)`)
+- **Warning Border**: `border-warning` → `border-warning` (mapped to `var(--background-semantic-warning-base)`)
+- **Warning Icon**: `text-warning` → `text-warning` (mapped to `var(--background-semantic-warning-base)`)
+- **Info Background**: `bg-info-background` → `bg-info-background` (mapped to `var(--background-semantic-info-5)`)
+- **Info Border**: `border-info` → `border-info` (mapped to `var(--background-semantic-info-base)`)
+- **Info Icon**: `text-info` → `text-info` (mapped to `var(--background-semantic-info-base)`)
+
+### Calendar
+
+#### v9 → UDS Calendar
+- **Container Background**: `bg-transparent` → `bg-calendar-colors-container-background-default`
+- **Header Text**: `text-text-secondary` → `text-calendar-colors-header-text-default`
+- **Label Text**: `text-text-secondary` → `text-calendar-colors-label-text-default`
+- **Date Background (Resting)**: `bg-transparent` → `bg-transparent` (uses calendar-colors-date-background-resting)
+- **Date Background (Hover)**: `hover:bg-primary-hover` → `hover:bg-calendar-colors-date-background-hover`
+- **Date Background (Selected)**: `bg-primary` → `bg-calendar-colors-date-background-selected`
+- **Date Background (Today)**: `bg-transparent` → `bg-calendar-colors-date-background-today`
+- **Date Text (Resting)**: `text-text-secondary` → `text-calendar-colors-date-text-resting`
+- **Date Text (Hover)**: `hover:text-black` → `hover:text-calendar-colors-date-text-hover`
+- **Date Text (Selected)**: `text-white` → `text-calendar-colors-date-text-selected`
+- **Date Border (Today)**: `border-panel-accent` → `border-calendar-colors-date-stroke-today`
 
 ### Notification/Toast
 
+#### v9 → UDS Notification (Neutral/Default)
+- **Background**: `bg-panel` → `bg-notifications-colors-background-neutral-resting`
+- **Border**: `border-panel-accent` → `border-notifications-colors-stroke-neutral-resting`
+- **Text**: `text-text-primary` → `text-notifications-colors-text-normal-resting`
+- **Title**: `text-text-primary` → `text-notifications-colors-text-title-resting`
+
 #### v9 → UDS Notification (Success)
-- **Background**: `bg-success` → `bg-notifications-colors-success-background-resting`
-- **Border**: `border-success` → `border-notifications-colors-success-border-resting`
-- **Text**: `text-panel` → `text-notifications-colors-success-foreground-resting`
+- **Background**: `bg-success-background` → `bg-notifications-colors-background-success-resting`
+- **Border**: `border-success` → `border-notifications-colors-stroke-success-resting`
+- **Icon**: `text-success` → `text-notifications-colors-assets-success-resting`
 
 #### v9 → UDS Notification (Error)
-- **Background**: `bg-error` → `bg-notifications-colors-error-background-resting`
-- **Border**: `border-error` → `border-notifications-colors-error-border-resting`
-- **Text**: `text-panel` → `text-notifications-colors-error-foreground-resting`
+- **Background**: `bg-error-background` → `bg-notifications-colors-background-error-resting`
+- **Border**: `border-error` → `border-notifications-colors-stroke-error-resting`
+- **Icon**: `text-error` → `text-notifications-colors-assets-destructive-resting`
 
 #### v9 → UDS Notification (Warning)
-- **Background**: `bg-warning` → `bg-notifications-colors-warning-background-resting`
-- **Border**: `border-warning` → `border-notifications-colors-warning-border-resting`
-- **Text**: `text-panel` → `text-notifications-colors-warning-foreground-resting`
+- **Background**: `bg-warning-background` → `bg-notifications-colors-background-neutral-resting`
+- **Border**: `border-warning` → `border-notifications-colors-stroke-warning-resting`
+- **Icon**: `text-warning` → `text-notifications-colors-assets-normal-resting`
 
 #### v9 → UDS Notification (Info)
-- **Background**: `bg-info` → `bg-notifications-colors-info-background-resting`
-- **Border**: `border-info` → `border-notifications-colors-info-border-resting`
-- **Text**: `text-panel` → `text-notifications-colors-info-foreground-resting`
+- **Background**: `bg-info-background` → `bg-notifications-colors-background-neutral-resting`
+- **Border**: `border-info` → `border-notifications-colors-stroke-info-resting`
+- **Icon**: `text-info` → `text-notifications-colors-assets-normal-resting`
+
+### Dialog
+
+**Note**: Dialog does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Dialog (via Semantic Tokens)
+- **Background**: `bg-panel` → `bg-panel` (mapped to `var(--background-neutral-raised-base)`)
+- **Border**: `border-panel-accent` → `border-panel-accent` (mapped to `var(--background-neutral-raised-1)`)
+- **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
+- **Close Button**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
+
+### Divider
+
+**Note**: Divider does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Divider (via Semantic Tokens)
+- **Primary Variant**: `bg-surface` → `bg-surface` (mapped to `var(--background-neutral-canvas-base)`)
+- **Secondary Variant**: Uses gradient with `via-blue-500` (custom styling, not mapped)
+
+### Drawer
+
+**Note**: Drawer does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Drawer (via Semantic Tokens)
+- **Background**: `bg-panel` → `bg-panel` (mapped to `var(--background-neutral-raised-base)`)
+- **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
+
+### List
+
+#### v9 → UDS List (using navigation-colors-*)
+- **Base Text**: `text-text-primary` → `text-navigation-colors-text-resting`
+- **Header Text**: `text-text-primary` → `text-navigation-colors-text-static`
+- **Item Background (Resting)**: N/A → `bg-navigation-colors-background-row-items-resting`
+- **Item Background (Hover)**: `hover:bg-panel-accent` → `hover:bg-navigation-colors-background-row-items-hover`
+- **Item Background (Selected)**: N/A → `bg-navigation-colors-background-row-items-selected`
+- **Item Text (Resting)**: `text-text-primary` → `text-navigation-colors-text-resting`
+- **Item Text (Hover)**: `hover:text-mystic` → `hover:text-navigation-colors-text-hover`
+- **Item Text (Selected)**: N/A → `text-navigation-colors-text-selected`
+- **Item Border (Resting)**: N/A → `border-navigation-colors-stroke-row-items-resting`
+- **Item Border (Hover)**: N/A → `hover:border-navigation-colors-stroke-row-items-hover`
+- **Item Border (Selected)**: N/A → `border-navigation-colors-stroke-row-items-selected`
+- **Disabled Text**: `text-text-secondary` → `text-navigation-colors-text-static`
+
+### Menu
+
+#### v9 → UDS Menu (using navigation-colors-*)
+- **Container Background**: N/A → `bg-navigation-colors-background-container-base`
+- **Container Border**: N/A → `border-navigation-colors-stroke-container-base`
+- **Text**: `text-text-primary` → `text-navigation-colors-text-resting`
+
+### Pager
+
+**Note**: Pager does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Pager (via Semantic Tokens)
+- **Active Page**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
+- **Inactive Page**: `text-slate-500` (custom styling, not mapped to UDS design tokens)
+
+### Popover
+
+**Note**: Popover does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Popover (via Semantic Tokens)
+- **Background**: `bg-panel` → `bg-panel` (mapped to `var(--background-neutral-raised-base)`)
+- **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
+
+### Range
+
+**Note**: Range does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Range (via Semantic Tokens)
+- **Base Background**: `bg-surface` → `bg-surface` (mapped to `var(--background-neutral-canvas-base)`)
+- **Active Background**: `bg-primary-active` → `bg-primary-active` (mapped to `var(--background-brand-base)`)
+- **Hover Background**: `hover:bg-primary-hover` → `hover:bg-primary-hover` (mapped to `var(--background-brand-1)`)
+- **Disabled Background**: `bg-secondary-inactive` → `bg-secondary-inactive` (mapped to `var(--background-neutral-raised-3)`)
+- **Tooltip Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
+- **Tooltip Background**: `bg-surface` → `bg-surface` (mapped to `var(--background-neutral-canvas-base)`)
+
+### Redact
+
+**Note**: Redact does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Redact (via Semantic Tokens)
+- **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
+
+### Sort
+
+**Note**: Sort does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Sort (via Semantic Tokens)
+- **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
+- **Icon**: `fill-current` (inherits text color)
+
+### Stack
+
+**Note**: Stack does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Stack (via Semantic Tokens)
+- **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
+
+### Stepper
+
+**Note**: Stepper does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Stepper (via Semantic Tokens)
+- **Border**: `border-panel-accent` → `border-panel-accent` (mapped to `var(--background-neutral-raised-1)`)
+- **Marker Background**: `bg-surface` → `bg-surface` (mapped to `var(--background-neutral-canvas-base)`)
+- **Active Marker**: `bg-info` → `bg-info` (mapped to `var(--background-semantic-info-base)`)
+- **Active Border**: `border-primary` → `border-primary` (mapped to `var(--background-brand-base)`)
+- **Active Label Border**: `border-info` → `border-info` (mapped to `var(--background-semantic-info-base)`)
+- **Active Label Background**: `bg-info-background` → `bg-info-background` (mapped to `var(--background-semantic-info-5)`)
+- **Label Border**: `border-surface` → `border-surface` (mapped to `var(--background-neutral-canvas-base)`)
+
+### Textarea
+
+**Note**: Textarea uses the same UDS tokens as Input. See [Input](#input) for token mappings.
+
+#### v9 → UDS Textarea
+- Same token mappings as Input component
+- **Background**: `bg-inputs-colors-normal-background-resting`
+- **Border**: `border-inputs-colors-normal-stroke-resting`
+- **Border (Hover)**: `hover:border-inputs-colors-normal-stroke-hover`
+- **Text**: `text-inputs-colors-normal-text-input-text-resting`
+- **Placeholder**: `placeholder:text-inputs-colors-normal-text-input-text-resting`
+- **Error Background**: `bg-inputs-colors-error-background-resting`
+- **Error Border**: `border-inputs-colors-error-stroke-resting`
+
+### Tree
+
+**Note**: Tree does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Tree (via Semantic Tokens)
+- **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
+- **Arrow Icon**: `fill-text-primary` → `fill-text-primary` (uses `var(--content-text-neutral-base)`)
+- **Button Icon**: `fill-text-primary` → `fill-text-primary` (uses `var(--content-text-neutral-base)`)
+
+### Typography
+
+**Note**: Typography does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+
+#### v9 → UDS Typography (via Semantic Tokens)
+- **Primary**: `text-primary` → `text-primary` (mapped to `var(--background-brand-base)`)
+- **Secondary**: `text-secondary` → `text-secondary` (mapped to `var(--background-neutral-raised-1)`)
+- **Success**: `text-success` → `text-success` (mapped to `var(--background-semantic-success-base)`)
+- **Warning**: `text-warning` → `text-warning` (mapped to `var(--background-semantic-warning-base)`)
+- **Error**: `text-error` → `text-error` (mapped to `var(--background-semantic-error-base)`)
+- **Info**: `text-info` → `text-info` (mapped to `var(--background-semantic-info-base)`)
 
 ## Semantic Color Tokens
 
@@ -266,8 +514,8 @@ The semantic token layer provides:
 The `variant` prop should be **set once at app initialization** and **not changed at runtime**.
 
 **Why?**
-- Each variant requires its corresponding CSS file (v9: 141KB, UDS: 246KB)
-- Runtime switching requires loading both CSS files (~387KB total)
+- Each variant requires its corresponding CSS file (v9 || UDS)
+- Runtime switching requires loading both CSS files
 - Changing variants without the corresponding CSS loaded will result in unstyled components
 - May cause flash of unstyled content (FOUC)
 
@@ -343,9 +591,175 @@ Light/dark mode is handled through CSS custom properties that change based on `.
 ### UDS
 UDS tokens include built-in light/dark mode support through `theme-light.css` and `theme-dark.css` which automatically respond to theme changes.
 
+### Tabs
+
+#### v9 → UDS Tabs
+- **Tab Background (Resting)**: `bg-transparent` → `bg-tabs-colors-contained-background-resting`
+- **Tab Background (Hover)**: `hover:bg-panel-accent` → `hover:bg-tabs-colors-contained-background-hover`
+- **Tab Background (Selected)**: `bg-transparent` → `bg-tabs-colors-contained-background-selected`
+- **Tab Text (Resting)**: `text-text-secondary` → `text-tabs-colors-contained-text-resting`
+- **Tab Text (Hover)**: `hover:text-primary-hover` → `hover:text-tabs-colors-contained-text-hover`
+- **Tab Text (Selected)**: `text-text-primary` → `text-tabs-colors-contained-text-selected`
+- **Indicator**: `bg-primary` → `bg-tabs-colors-contained-background-selected`
+
+### Tooltip
+
+#### v9 → UDS Tooltip
+- **Background**: `bg-panel-accent` → `bg-tooltip-colors-neutral-background-default`
+- **Text**: `text-text-primary` → `text-tooltip-colors-neutral-text-default`
+
+### Breadcrumbs
+
+#### v9 → UDS Breadcrumbs
+- **Link Text (Resting)**: `text-text-secondary` → `text-breadcrumbs-colors-primary-text-resting`
+- **Link Text (Hover)**: `hover:text-text-primary` → `hover:text-breadcrumbs-colors-primary-text-hover`
+- **Link Text (Selected)**: `text-primary` → `text-breadcrumbs-colors-primary-text-selected`
+- **Icon (Resting)**: N/A → `[&>svg]:fill-breadcrumbs-colors-primary-assets-resting`
+- **Icon (Hover)**: N/A → `hover:[&>svg]:fill-breadcrumbs-colors-primary-assets-hover`
+
+### Avatar
+
+#### v9 → UDS Avatar
+- **Background**: `bg-cover` → `bg-avatar-colors-background-container-resting`
+- **Border**: N/A → `border-avatar-colors-stroke-container-resting`
+- **Text**: `text-white` → `text-avatar-colors-text-resting`
+
 ## Notes
 
-- UDS tokens follow a more verbose but explicit naming convention for better clarity
-- UDS includes state variants: `resting`, `hover`, `focused`, `pressed`, `disabled`
-- v9 uses shorter, more semantic names optimized for developer experience
-- Both themes are fully supported and maintained in v10
+### UDS Two-Tier Token Approach
+
+The UDS variant uses a two-tier approach to ensure full backwards compatibility while leveraging the Unify Design System:
+
+1. **UDS Component Tokens** (Tier 1): 17 components use UDS component-specific tokens (e.g., `bg-buttons-colors-core-icon-primary-background-resting`). These provide the most granular control and align directly with the Unify Design System.
+
+2. **Semantic Token Layer** (Tier 2): Components without UDS component equivalents use v9-style semantic tokens (e.g., `bg-panel`, `text-text-primary`) that are automatically mapped to UDS design tokens (e.g., `var(--background-neutral-raised-base)`). This provides backwards compatibility while still leveraging UDS design system colors.
+
+### Token Naming Patterns
+
+- **UDS Component Tokens**: Follow verbose, explicit naming for clarity
+  - Pattern: `{component}-colors-{element}-{property}-{state}`
+  - State variants: `resting`, `hover`, `selected` (not `focused`/`pressed` for most components)
+  - Borders use `stroke-*` not `border-*`
+  - Text uses `text-*` not `foreground-*`
+  - Icons/assets use `assets-*` or require `[&>svg]:fill-*` syntax
+
+- **Semantic Tokens**: Follow v9-style shorter, semantic names
+  - Optimized for developer experience
+  - Automatically mapped to UDS design tokens
+  - Defined in `src/assets/css/uds/semantic-tokens.css`
+
+### Migration Status
+
+- **Fully Supported**: All components work with both v9 and UDS variants
+- **No Breaking Changes**: Existing v9 code works unchanged when switching to UDS variant
+- **Backwards Compatible**: Both token approaches coexist in the UDS variant
+- **Maintained**: Both v9 and UDS themes are fully supported and maintained in v10+
+
+## Intentional Limitations and Design Decisions
+
+This section documents architectural decisions, limitations, and trade-offs made during UDS theme implementation to provide transparency for consumers and maintainers.
+
+### Success and Warning Button Variants
+
+**Limitation**: Success and warning button variants use the semantic token layer rather than UDS component tokens.
+
+**Why**: UDS provides component tokens for these button variants only:
+- Primary (`buttons-colors-core-icon-primary-*`)
+- Secondary (`buttons-colors-core-icon-secondary-*`)
+- Destructive/Error (`buttons-colors-core-icon-destructive-*`)
+
+UDS does **not** provide `success` or `warning` button variants at the component token level (level-3).
+
+**Implementation**: Success and warning buttons use semantic tokens that map to UDS level-2 semantic colors:
+- `bg-success` → `var(--background-semantic-success-base)`
+- `bg-warning` → `var(--background-semantic-warning-base)`
+
+**Impact**:
+- ✅ Buttons render with correct UDS semantic colors
+- ✅ Maintains backwards compatibility with v9 semantic behavior
+- ❌ Does not pick up UDS component-level states (stroke, asset, pressed states)
+- ❌ Does not reflect granular component taxonomy from Unify Design System
+
+**Recommendation**: If your application requires full UDS component-level parity for success/warning buttons, consider:
+1. Using only primary/secondary/error variants that have full UDS component tokens
+2. Requesting UDS team add success/warning button variants to the design system
+3. Accepting this as an intentional semantic-parity limitation
+
+### Components Using Semantic Token Layer
+
+**13 components use the semantic token layer** because UDS does not provide component-specific tokens (level-3) for them:
+
+1. Card
+2. Callout
+3. Dialog
+4. Divider
+5. Drawer
+6. Kbd
+7. Pager
+8. Popover
+9. Range
+10. Redact
+11. Sort
+12. Stack
+13. Stepper
+14. Tree
+15. Typography
+
+**Why**: These components use tokens like `bg-panel`, `text-text-primary`, `border-panel-accent` which map to UDS level-2 design tokens:
+- `bg-panel` → `var(--background-neutral-raised-base)`
+- `text-text-primary` → `var(--content-text-neutral-base)`
+- `border-panel-accent` → `var(--background-neutral-raised-1)`
+
+**This is architecturally correct** given UDS's current token coverage. Creating fake "component tokens" for these would:
+- ❌ Be misleading about UDS design system coverage
+- ❌ Potentially conflict with future UDS additions
+- ❌ Create maintenance burden for non-standard tokens
+
+**Impact**:
+- ✅ Components render with correct UDS design system colors (level-2)
+- ✅ Maintains backwards compatibility with v9
+- ✅ Uses authentic UDS design tokens where they exist
+- ❌ Does not provide component-level styling nuances (granular stroke, asset, state tokens)
+- ❌ Does not reflect full UDS component taxonomy (because it doesn't exist for these components)
+
+**Recommendation**: If your application requires granular component-level control for these components:
+1. Use custom theme overrides with component-specific tokens
+2. Request UDS team add component tokens for these components
+3. Accept that semantic-level tokens provide appropriate UDS color parity for utility components
+
+### Token Coverage Summary
+
+**19 components with full UDS component tokens** (level-3):
+- Avatar, AvatarGroup, Badge, Breadcrumbs, Button (primary/secondary/error), Calendar, CalendarRange, DateInput, Checkbox, Chip, Input, Textarea, List, Menu, Notification/Toast, Radio, Select, Tabs, Toggle, Tooltip
+
+**15 components with semantic token layer** (level-2 UDS design tokens):
+- Card, Callout, Dialog, Divider, Drawer, Kbd, Pager, Popover, Range, Redact, Sort, Stack, Stepper, Tree, Typography
+- Button success/warning variants (intentional limitation)
+
+**Design Philosophy**:
+- Use UDS component tokens (level-3) where they exist in the Unify Design System
+- Use semantic tokens mapped to UDS design tokens (level-2) where component tokens don't exist
+- Never create fake component tokens that don't exist in UDS
+- Maintain full backwards compatibility with v9
+
+### When to Use Which Variant
+
+**Use v9 Theme** if you:
+- Prefer simpler, semantic token names (`bg-primary`, `text-secondary`)
+- Want smaller CSS bundle size (141KB vs 246KB)
+- Are building prototypes, MVPs, or internal tools
+- Don't need granular component-level token control
+
+**Use UDS Theme** if you:
+- Need compliance with Unify Design System
+- Require granular component-level token control for supported components
+- Are building enterprise applications with strict design system requirements
+- Are migrating from Unify Design System
+- Need component-specific states (resting, hover, selected, stroke, assets)
+
+**Both variants**:
+- ✅ Are fully supported and maintained
+- ✅ Provide the same component functionality
+- ✅ Support custom theme overrides
+- ✅ Support light/dark mode
+- ✅ Use Tailwind CSS v4
