@@ -5,12 +5,10 @@ import React, {
   FC,
   PropsWithChildren,
   useEffect,
-  useMemo,
   useState
 } from 'react';
 import { getThemeVariables, mergeDeep, observeThemeSwitcher } from './helpers';
 import { ReablocksTheme, theme as defaultTheme } from './themes/theme';
-import { themeUnify } from './themes/themeUnify';
 
 export type ThemeVariant = 'v9' | 'unify';
 
@@ -40,8 +38,8 @@ export interface ThemeProviderProps extends PropsWithChildren {
    * - v9: `import 'reablocks/index.css'`
    * - unify: `import 'reablocks/unify.css'`
    *
-   * Runtime switching is not recommended as it requires loading both CSS files (~387KB total)
-   * and may cause a flash of unstyled content.
+   * Runtime switching is not recommended as it may require loading multiple CSS bundles
+   * and can cause a flash of unstyled content.
    */
   variant?: ThemeVariant;
 }
@@ -51,15 +49,31 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   theme,
   variant = 'v9'
 }) => {
-  const baseTheme = useMemo(
-    () => (variant === 'unify' ? themeUnify : defaultTheme),
-    [variant]
-  );
-
-  const [activeTheme, setActiveTheme] = useState<ReablocksTheme>(() =>
-    theme ? mergeDeep(baseTheme, theme) : baseTheme
-  );
+  const [baseTheme, setBaseTheme] = useState<ReablocksTheme>(defaultTheme);
+  const [activeTheme, setActiveTheme] = useState<ReablocksTheme>(defaultTheme);
   const [tokens, setTokens] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    let isCancelled = false;
+
+    if (variant === 'unify') {
+      import('./themes/themeUnify')
+        .then(module => {
+          if (isCancelled) return;
+          setBaseTheme(module.themeUnify);
+        })
+        .catch(() => {
+          if (isCancelled) return;
+          setBaseTheme(defaultTheme);
+        });
+    } else {
+      setBaseTheme(defaultTheme);
+    }
+
+    return () => {
+      isCancelled = true;
+    };
+  }, [variant]);
 
   useEffect(() => {
     if (theme) {
