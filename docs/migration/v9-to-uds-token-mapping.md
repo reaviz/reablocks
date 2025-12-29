@@ -779,8 +779,8 @@ The following components use the semantic token layer because UDS does not provi
 - Need component-specific states (resting, hover, selected, stroke, assets)
 
 **Both variants**:
-- ✅ Are shipped and versioned as part of `reablocks` (v9 is the default; UDS is opt-in)
-- ✅ Provide the same component APIs
-- ✅ Support custom theme overrides
-- ✅ Support light/dark mode
-- ✅ Use Tailwind CSS v4
+- Are shipped and versioned as part of `reablocks` (v9 is the default; UDS is opt-in)
+- Provide the same component APIs
+- Support custom theme overrides
+- Support light/dark mode
+- Use Tailwind CSS v4
