@@ -103,7 +103,7 @@ function App() {
 
 - **Set variant once**: The `variant` prop should be set at app initialization and not changed at runtime
 - **Match CSS import**: Always import the CSS file that matches your variant
-- **No runtime switching**: Changing variants at runtime requires loading both CSS files (~387KB) and may cause styling issues
+- **No runtime switching**: Changing variants at runtime requires loading both CSS files and may cause styling issues
 
 ### Custom Theme Overrides
 
