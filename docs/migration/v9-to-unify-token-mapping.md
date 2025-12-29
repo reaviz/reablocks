@@ -1,13 +1,34 @@
 # v9 to UDS Token Mapping
 
-This guide provides a comprehensive mapping of v9 theme tokens to UDS (Unify Design System) tokens for migration purposes.
+This guide provides a best-effort mapping of v9 theme tokens to UDS (Unify Design System) tokens for migration purposes.
 
 ## Overview
 
-- **v9 Theme**: Uses simplified Tailwind utilities and semantic color tokens (e.g., `bg-primary`, `text-gray-400`)
+- **v9 Theme**: Uses simplified Tailwind utilities and semantic color tokens (e.g., `bg-primary`, `text-text-secondary`)
 - **UDS Theme**: Uses a two-tier approach:
   1. **UDS Component Tokens**: Component-specific tokens from the Unify Design System (e.g., `bg-buttons-colors-core-icon-primary-background-resting`)
   2. **Semantic Token Layer**: v9-style tokens mapped to UDS design tokens for components without UDS component equivalents (e.g., `bg-panel` → `var(--background-neutral-raised-base)`)
+
+## Important: Tailwind Palette Utilities When Opting Into UDS
+
+The UDS CSS (`reablocks/uds.css`) intentionally disables Tailwind’s default palette tokens (e.g., `gray-*`, `slate-*`, `blue-*`, `neutral-*`). If your application still uses raw palette utilities like `text-gray-700` or `bg-blue-500`, those usages may not render as expected when you opt into the UDS variant.
+
+### Recommended Migration Approach
+
+- Prefer **semantic tokens** (v9-style) such as `text-text-primary`, `text-text-secondary`, `bg-panel`, `border-panel-accent`.
+- Prefer **UDS component tokens** where UDS provides them (e.g., `bg-inputs-colors-normal-background-resting`).
+
+### Optional Compatibility Layer (If You Need Minimum Friction)
+
+If you need a smoother adoption path (e.g., you have lots of legacy `text-gray-*` usage), you can temporarily use the compatibility build:
+
+```javascript
+import 'reablocks/uds-compat.css';
+```
+
+This provides a limited set of palette aliases (e.g., `gray-*`, `slate-*`, `blue-500`) mapped to approximate UDS neutrals/brand. This is an approximation and should be treated as transitional.
+
+If you require strict UDS compliance, do not add palette aliases and instead migrate raw palette utilities directly.
 
 ## Component Coverage
 
@@ -52,7 +73,7 @@ The following components use the semantic token layer (v9-style tokens mapped to
 
 **Why Semantic Layer?** These components use tokens like `bg-panel`, `text-text-primary`, and `border-panel-accent` which map to UDS level-2 design tokens (e.g., `var(--background-neutral-raised-base)`, `var(--content-text-neutral-base)`). This approach:
 - ✅ Renders components with correct UDS design system colors
-- ✅ Maintains backwards compatibility with v9
+- ✅ Preserves the v9-style semantic token API for components without UDS component tokens
 - ✅ Uses authentic UDS design tokens (level-2) where component tokens (level-3) don't exist
 - ❌ Does not provide component-level styling nuances (stroke, asset tokens, granular states)
 
@@ -60,7 +81,7 @@ The following components use the semantic token layer (v9-style tokens mapped to
 
 See the [Semantic Color Tokens](#semantic-color-tokens) section for detailed mappings.
 
-**Note**: All UDS component token names documented below have been verified to exist in the UDS CSS files (`src/assets/css/uds/`). Semantic tokens are defined in `semantic-tokens.css` and map to UDS design tokens.
+**Note**: Token names and mappings in this guide are verified against the UDS CSS shipped with this version of `reablocks`. UDS token sets can evolve; if a token is missing in your build, prefer the semantic token layer or provide a custom theme override.
 
 ## CSS Import
 
@@ -628,9 +649,9 @@ UDS tokens include built-in light/dark mode support through `theme-light.css` an
 
 ### UDS Two-Tier Token Approach
 
-The UDS variant uses a two-tier approach to ensure full backwards compatibility while leveraging the Unify Design System:
+The UDS variant uses a two-tier approach to reduce migration churn while leveraging the Unify Design System:
 
-1. **UDS Component Tokens** (Tier 1): 17 components use UDS component-specific tokens (e.g., `bg-buttons-colors-core-icon-primary-background-resting`). These provide the most granular control and align directly with the Unify Design System.
+1. **UDS Component Tokens** (Tier 1): Components use UDS component-specific tokens where UDS provides them (e.g., `bg-buttons-colors-core-icon-primary-background-resting`). These provide the most granular control and align directly with the Unify Design System.
 
 2. **Semantic Token Layer** (Tier 2): Components without UDS component equivalents use v9-style semantic tokens (e.g., `bg-panel`, `text-text-primary`) that are automatically mapped to UDS design tokens (e.g., `var(--background-neutral-raised-base)`). This provides backwards compatibility while still leveraging UDS design system colors.
 
@@ -650,10 +671,10 @@ The UDS variant uses a two-tier approach to ensure full backwards compatibility 
 
 ### Migration Status
 
-- **Fully Supported**: All components work with both v9 and UDS variants
-- **No Breaking Changes**: Existing v9 code works unchanged when switching to UDS variant
-- **Backwards Compatible**: Both token approaches coexist in the UDS variant
-- **Maintained**: Both v9 and UDS themes are fully supported and maintained in v10+
+- **Designed for compatibility**: The UDS variant is intended to keep the same component APIs as v9 while changing the underlying token sources.
+- **Migration scope**: Many existing v9 usages work unchanged when switching to the UDS variant, but usages that rely on raw Tailwind palette tokens (e.g., `text-gray-700`) may require remapping.
+- **Backwards-compatible strategy**: Both the UDS component-token approach and the semantic token layer coexist in the UDS variant to reduce migration churn.
+- **Ongoing evolution**: Token coverage and mappings may evolve as UDS and `reablocks` evolve; treat this guide as versioned documentation.
 
 ## Intentional Limitations and Design Decisions
 
@@ -676,7 +697,7 @@ UDS does **not** provide `success` or `warning` button variants at the component
 
 **Impact**:
 - ✅ Buttons render with correct UDS semantic colors
-- ✅ Maintains backwards compatibility with v9 semantic behavior
+- ✅ Preserves v9-style semantics for success/warning variants
 - ❌ Does not pick up UDS component-level states (stroke, asset, pressed states)
 - ❌ Does not reflect granular component taxonomy from Unify Design System
 
@@ -687,23 +708,23 @@ UDS does **not** provide `success` or `warning` button variants at the component
 
 ### Components Using Semantic Token Layer
 
-**13 components use the semantic token layer** because UDS does not provide component-specific tokens (level-3) for them:
+The following components use the semantic token layer because UDS does not provide component-specific tokens (level-3) for them:
 
-1. Card
-2. Callout
-3. Dialog
-4. Divider
-5. Drawer
-6. Kbd
-7. Pager
-8. Popover
-9. Range
-10. Redact
-11. Sort
-12. Stack
-13. Stepper
-14. Tree
-15. Typography
+- Card
+- Callout
+- Dialog
+- Divider
+- Drawer
+- Kbd
+- Pager
+- Popover
+- Range
+- Redact
+- Sort
+- Stack
+- Stepper
+- Tree
+- Typography
 
 **Why**: These components use tokens like `bg-panel`, `text-text-primary`, `border-panel-accent` which map to UDS level-2 design tokens:
 - `bg-panel` → `var(--background-neutral-raised-base)`
@@ -717,7 +738,7 @@ UDS does **not** provide `success` or `warning` button variants at the component
 
 **Impact**:
 - ✅ Components render with correct UDS design system colors (level-2)
-- ✅ Maintains backwards compatibility with v9
+- ✅ Preserves the v9-style semantic token API for these components
 - ✅ Uses authentic UDS design tokens where they exist
 - ❌ Does not provide component-level styling nuances (granular stroke, asset, state tokens)
 - ❌ Does not reflect full UDS component taxonomy (because it doesn't exist for these components)
@@ -729,10 +750,10 @@ UDS does **not** provide `success` or `warning` button variants at the component
 
 ### Token Coverage Summary
 
-**19 components with full UDS component tokens** (level-3):
+**Components with UDS component tokens** (level-3):
 - Avatar, AvatarGroup, Badge, Breadcrumbs, Button (primary/secondary/error), Calendar, CalendarRange, DateInput, Checkbox, Chip, Input, Textarea, List, Menu, Notification/Toast, Radio, Select, Tabs, Toggle, Tooltip
 
-**15 components with semantic token layer** (level-2 UDS design tokens):
+**Components using the semantic token layer** (level-2 UDS design tokens):
 - Card, Callout, Dialog, Divider, Drawer, Kbd, Pager, Popover, Range, Redact, Sort, Stack, Stepper, Tree, Typography
 - Button success/warning variants (intentional limitation)
 
@@ -740,13 +761,13 @@ UDS does **not** provide `success` or `warning` button variants at the component
 - Use UDS component tokens (level-3) where they exist in the Unify Design System
 - Use semantic tokens mapped to UDS design tokens (level-2) where component tokens don't exist
 - Never create fake component tokens that don't exist in UDS
-- Maintain full backwards compatibility with v9
+- Preserve the v9-style semantic token API where UDS component tokens don't exist
 
 ### When to Use Which Variant
 
 **Use v9 Theme** if you:
 - Prefer simpler, semantic token names (`bg-primary`, `text-secondary`)
-- Want smaller CSS bundle size (141KB vs 246KB)
+- Want smaller CSS bundle size (v9 is typically smaller than the UDS variant)
 - Are building prototypes, MVPs, or internal tools
 - Don't need granular component-level token control
 
@@ -758,8 +779,8 @@ UDS does **not** provide `success` or `warning` button variants at the component
 - Need component-specific states (resting, hover, selected, stroke, assets)
 
 **Both variants**:
-- ✅ Are fully supported and maintained
-- ✅ Provide the same component functionality
+- ✅ Are shipped and versioned as part of `reablocks` (v9 is the default; UDS is opt-in)
+- ✅ Provide the same component APIs
 - ✅ Support custom theme overrides
 - ✅ Support light/dark mode
 - ✅ Use Tailwind CSS v4
