@@ -1,5 +1,7 @@
-import React, { FC, InputHTMLAttributes, LegacyRef, forwardRef } from 'react';
-import { ListTheme } from '@/layout/List/ListTheme';
+import type { FC, InputHTMLAttributes, LegacyRef } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { ListTheme } from '@/layout/List/ListTheme';
 import { cn, useComponentTheme } from '@/utils';
 
 export interface ListItemProps extends InputHTMLAttributes<HTMLDivElement> {

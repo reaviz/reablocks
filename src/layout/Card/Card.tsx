@@ -1,7 +1,10 @@
-import React, { forwardRef, LegacyRef, FC, PropsWithChildren } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { CardTheme } from './CardTheme';
+import type { FC, LegacyRef, PropsWithChildren } from 'react';
+import React, { forwardRef } from 'react';
+
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
+
+import type { CardTheme } from './CardTheme';
 
 export interface CardProps extends React.DOMAttributes<any> {
   /**

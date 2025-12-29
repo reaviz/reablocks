@@ -1,21 +1,22 @@
 import React from 'react';
+
 import {
-  TypographyBlocks,
-  ColorBlocks,
-  SpacingBlocks,
   BorderBlocks,
+  ColorBlocks,
+  ComponentBlocks,
   IconBlocks,
   ShadowBlocks,
-  ComponentBlocks
+  SpacingBlocks,
+  TypographyBlocks
 } from './blocks';
-import favoriteIcon from './icon-demo.svg';
 import { useTheme } from './hooks/useTheme';
+import favoriteIcon from './icon-demo.svg';
 import { extractTheme } from './themes/extractTheme';
 
 export default {
   title: 'Components/Theme',
   decorators: [
-    Story => {
+    (Story, context) => {
       const { tokens } = useTheme();
 
       const {
@@ -38,6 +39,7 @@ export default {
             fontFamily={fontFamily}
             fontSize={fontSize}
             fontWeight={fontWeight}
+            theme={context?.globals?.theme}
           />
         </div>
       );
@@ -45,8 +47,8 @@ export default {
   ]
 };
 
-export const Colors = (_: unknown, { colors }) => {
-  return <ColorBlocks colors={colors} />;
+export const Colors = (_: unknown, { colors, theme }) => {
+  return <ColorBlocks colors={colors} theme={theme} />;
 };
 
 export const Typography = (

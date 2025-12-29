@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { MotionProps } from 'motion/react';
-import { Dialog } from './Dialog';
-import { useDialog } from './useDialog';
+
 import { Button } from '../../elements';
 import { Stack } from '../../layout';
+import { Dialog } from './Dialog';
+import { useDialog } from './useDialog';
 
 export default {
   title: 'Components/Layers/Dialog',
@@ -27,7 +27,9 @@ export const CustomHeader = () => {
   return (
     <div style={{ textAlign: 'center', margin: '50px' }}>
       <Button onClick={toggleOpen}>Open</Button>
-      <Dialog header={<h3 className="text-2xl">What's up</h3>}>Hello</Dialog>
+      <Dialog header={<h3 className="text-xl">What&apos;s up</h3>}>
+        Hello
+      </Dialog>
     </div>
   );
 };
@@ -101,7 +103,9 @@ export const ConfirmDialog = () => {
         header="Whats up"
         footer={
           <Stack justifyContent="end" className="w-full">
-            <Button>Cancel</Button>
+            <Button variant="outline" color="secondary">
+              Cancel
+            </Button>
             <Button color="primary">Save</Button>
           </Stack>
         }

@@ -1,5 +1,5 @@
-import { readFileSync, writeFileSync } from 'fs';
 import fg from 'fast-glob';
+import { writeFileSync } from 'fs';
 import { resolve } from 'path';
 import docgen from 'react-docgen-typescript';
 
@@ -15,17 +15,19 @@ function buildDocs() {
   const options = {
     savePropValueAsString: true,
     // Skip generating docs for HTML attributes
-    propFilter: (prop) => {
+    propFilter: prop => {
       if (prop.declarations !== undefined && prop.declarations.length > 0) {
-        const hasPropAdditionalDescription = prop.declarations.find((declaration) => {
-          return !declaration.fileName.includes('node_modules');
-        });
-  
+        const hasPropAdditionalDescription = prop.declarations.find(
+          declaration => {
+            return !declaration.fileName.includes('node_modules');
+          }
+        );
+
         return Boolean(hasPropAdditionalDescription);
       }
-  
+
       return true;
-    },
+    }
   };
 
   const docgenWithTSConfig = docgen.withCustomConfig(

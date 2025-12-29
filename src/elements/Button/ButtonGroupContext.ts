@@ -1,10 +1,10 @@
-import { ReactNode, createContext } from 'react';
+import { createContext } from 'react';
 
 export interface ButtonGroupContextProps {
   /**
    * Style variant of the buttons.
    */
-  variant?: 'filled' | 'outline' | 'text';
+  variant?: 'filled' | 'outline' | 'text' | 'ghost';
 
   /**
    * The size variation of the buttons.

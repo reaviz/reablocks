@@ -1,43 +1,42 @@
 import {
-  AnimatePresence,
-  motion,
-  MotionNodeAnimationOptions
-} from 'motion/react';
-import React, { FC, useCallback, useMemo, useState } from 'react';
-import { Button } from '@/elements/Button';
-import {
   add,
   addYears,
   endOfDecade,
+  format,
+  getHours,
+  getMinutes,
   getMonth,
+  getSeconds,
   getYear,
-  min as minDate,
   max as maxDate,
+  min as minDate,
+  setHours,
+  setMinutes,
   setMonth,
+  setSeconds,
   setYear,
   startOfDecade,
   sub,
-  subYears,
-  format,
-  setSeconds,
-  setMinutes,
-  setHours,
-  getMinutes,
-  getSeconds,
-  getHours
+  subYears
 } from 'date-fns';
+import type { MotionNodeAnimationOptions } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
+import type { FC } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+
+import { Button } from '@/elements/Button';
+import type { CalendarTheme, PresetOption } from '@/form';
+import { CalendarPresets } from '@/form';
+import { Stack } from '@/layout';
+import { Divider } from '@/layout/Divider';
+import { Typography } from '@/typography';
+import { twMerge, useComponentTheme } from '@/utils';
+
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
-import { CalendarYears } from './CalendarYears';
-import { SmallHeading } from '@/typography';
-import { twMerge } from 'tailwind-merge';
-import { cn, useComponentTheme } from '@/utils';
-import { CalendarTheme } from './CalendarTheme';
-import { Divider } from '@/layout/Divider';
 import { CalendarTimes } from './CalendarTimes';
+import { CalendarYears } from './CalendarYears';
 import { updateDateTime } from './utils';
-import { CalendarPresets, PresetOption } from './CalendarPresets';
-import { Stack } from '@/layout';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -278,8 +277,7 @@ export const Calendar: FC<CalendarProps> = ({
           );
           onChange?.([rangeStart!, newRangeEnd]);
         } else {
-          const newRangeStart = newTimeDate;
-          onChange?.([newRangeStart, rangeEnd]);
+          onChange?.([newTimeDate, rangeEnd]);
         }
       }
     },
@@ -350,7 +348,7 @@ export const Calendar: FC<CalendarProps> = ({
               disablePadding
               fullWidth
             >
-              <SmallHeading disableMargins className={theme.title}>
+              <Typography variant="h6" className={theme.title}>
                 {view === 'days' && format(viewValue, 'MMMM')}
                 {view === 'months' && <>{yearValue}</>}
                 {view === 'years' && (
@@ -358,7 +356,7 @@ export const Calendar: FC<CalendarProps> = ({
                     {decadeStart.getFullYear()}-{decadeEnd.getFullYear()}
                   </>
                 )}
-              </SmallHeading>
+              </Typography>
             </Button>
             <Button
               variant="text"
@@ -434,6 +432,7 @@ export const Calendar: FC<CalendarProps> = ({
             value={
               isRange ? (rangeEnd ? rangeEnd : value?.[0]) : (value as Date)
             }
+            disabled={disabled}
             min={min}
             max={max === 'now' ? new Date() : max}
             theme={theme.time}

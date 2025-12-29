@@ -1,20 +1,25 @@
-import React, { FC, ReactElement, useState } from 'react';
 import FocusTrap from 'focus-trap-react';
-import { useId, CloneElement } from '@/utils';
-import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
-import {
-  motion,
+import type {
   MotionNodeAnimationOptions,
   MotionProps,
   TargetAndTransition,
   Transition,
   VariantLabels
 } from 'motion/react';
-import { variants } from './variants';
-import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
-import { twMerge } from 'tailwind-merge';
-import { DrawerTheme } from './DrawerTheme';
+import { motion } from 'motion/react';
+import type { FC, ReactElement } from 'react';
+import React from 'react';
+
+import { CloneElement, useId } from '@/utils';
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
+import type { GlobalOverlayProps } from '@/utils/Overlay';
+import { GlobalOverlay } from '@/utils/Overlay';
+
+import type { DrawerHeaderProps } from './DrawerHeader';
+import { DrawerHeader } from './DrawerHeader';
+import type { DrawerTheme } from './DrawerTheme';
+import { variants } from './variants';
 
 export interface DrawerProps
   extends Omit<GlobalOverlayProps, 'children'>,

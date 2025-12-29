@@ -1,28 +1,25 @@
-import React, { FC, forwardRef, HTMLAttributes, LegacyRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import type { FC, HTMLAttributes, LegacyRef } from 'react';
+import React, { forwardRef } from 'react';
+
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { VerticalSpacerTheme } from './VerticalSpacerTheme';
+
+import type {
+  VerticalSpacerSizeTheme,
+  VerticalSpacerTheme
+} from './VerticalSpacerTheme';
 
 export interface VerticalSpacerProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The amount of space to add.
    */
-  space: VerticalSpaceType;
+  space: keyof VerticalSpacerSizeTheme;
 
   /**
    * Theme for the VerticalSpacer.
    */
   theme?: VerticalSpacerTheme;
 }
-
-export type VerticalSpaceType =
-  | 'xs'
-  | 'sm'
-  | 'md'
-  | 'lg'
-  | 'xl'
-  | 'xxl'
-  | string;
 
 export interface VerticalSpacerRef {
   /**

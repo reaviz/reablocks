@@ -1,7 +1,10 @@
+import type { FC } from 'react';
+import React from 'react';
+
 import { Arrow } from '@/elements';
 import { cn, useComponentTheme } from '@/utils';
-import React, { FC } from 'react';
-import { BreadcrumbsTheme } from './BreadcrumbsTheme';
+
+import type { BreadcrumbsTheme } from './BreadcrumbsTheme';
 
 export interface BreadcrumbSeparatorProps
   extends React.LiHTMLAttributes<HTMLLIElement> {

@@ -1,10 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Select } from './Select';
-import { SelectOption } from './SelectOption';
-import { SelectMenu } from './SelectMenu';
-import { SelectInput, SelectInputChip } from './SelectInput';
-import { Stack } from '../../layout/Stack';
+
 import { ListItem } from '../../layout/List/ListItem';
+import { Stack } from '../../layout/Stack';
+import { Select } from './Select';
+import { SelectInput, SelectInputChip } from './SelectInput';
+import { SelectMenu } from './SelectMenu';
+import { SelectOption } from './SelectOption';
 
 export default {
   title: 'Components/Form/Select/Single',
@@ -683,7 +684,9 @@ export const CustomCreatableOption = () => {
         menu={
           <SelectMenu
             renderCreateOption={({ text, onCreate }) => (
-              <ListItem onClick={onCreate}>➕&nbsp;Create "{text}"</ListItem>
+              <ListItem onClick={onCreate}>
+                ➕&nbsp;Create &quot;{text}&quot;
+              </ListItem>
             )}
           />
         }

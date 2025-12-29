@@ -1,161 +1,110 @@
+import type {
+  DateFormatTheme,
+  EllipsisTheme,
+  PagerTheme,
+  RedactTheme,
+  SortTheme
+} from '@/data';
+import { dateFormatTheme } from '@/data/DateFormat/DateFormatTheme';
+import { ellipsisTheme } from '@/data/Ellipsis/EllipsisTheme';
+import { pagerTheme } from '@/data/Pager/PagerTheme';
+import { redactTheme } from '@/data/Redact/RedactTheme';
+import { sortTheme } from '@/data/Sort/SortTheme';
+import type { SkeletonTheme } from '@/elements';
 import {
-  buttonTheme,
-  ButtonTheme,
-  CommandPaletteTheme,
-  commandPaletteTheme,
-  AvatarTheme,
-  avatarTheme,
-  KbdTheme,
-  kbdTheme,
-  AvatarGroupTheme,
-  avatarGroupTheme,
-  BadgeTheme,
-  badgeTheme,
-  DotsLoaderTheme,
-  dotsLoaderTheme,
-  ArrowTheme,
-  arrowTheme,
-  chipTheme,
-  ChipTheme,
-  SkeletonTheme,
-  skeletonTheme,
-  legacyAvatarTheme,
-  legacyAvatarGroupTheme,
-  legacyArrowTheme,
-  legacyBadgeTheme,
-  legacyButtonTheme,
-  legacyChipTheme,
-  legacyLoaderTheme,
-  legacyKbdTheme,
-  legacyCommandPaletteTheme,
-  legacySkeletonTheme
+  type ArrowTheme,
+  type AvatarGroupTheme,
+  type AvatarTheme,
+  type BadgeTheme,
+  type ButtonTheme,
+  type ChipTheme,
+  type CommandPaletteTheme,
+  type DotsLoaderTheme,
+  type KbdTheme,
+  type NavigationTheme
 } from '@/elements';
-
-import {
+import { arrowTheme } from '@/elements/Arrow/ArrowTheme';
+import { avatarTheme } from '@/elements/Avatar/AvatarTheme';
+import { avatarGroupTheme } from '@/elements/AvatarGroup/AvatarGroupTheme';
+import { badgeTheme } from '@/elements/Badge/BadgeTheme';
+import { buttonTheme } from '@/elements/Button/ButtonTheme';
+import { chipTheme } from '@/elements/Chip/ChipTheme';
+import { commandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
+import { kbdTheme } from '@/elements/Kbd/KbdTheme';
+import { dotsLoaderTheme } from '@/elements/Loader/DotsLoaderTheme';
+import { navigationTheme } from '@/elements/Navigation/NavigationTheme';
+import { skeletonTheme } from '@/elements/Skeleton';
+import type {
+  CalendarRangeTheme,
+  CalendarTheme,
   CheckboxTheme,
-  checkboxTheme,
-  inputTheme,
-  radioTheme,
-  rangeTheme,
-  selectTheme,
-  textareaTheme,
-  toggleTheme,
+  DateInputTheme,
   InputTheme,
   RadioTheme,
   RangeTheme,
   SelectTheme,
   TextareaTheme,
-  ToggleTheme,
-  CalendarTheme,
-  calendarTheme,
-  CalendarRangeTheme,
-  calendarRangeTheme,
-  legacyCheckboxTheme,
-  legacySelectTheme,
-  legacyInputTheme,
-  legacyCalendarTheme,
-  legacyCalendarRangeTheme,
-  legacyTextareaTheme,
-  legacyRadioTheme,
-  legacyRangeTheme,
-  legacyToggleTheme,
-  DateInputTheme,
-  dateInputTheme,
-  legacyDateInputTheme
+  ToggleTheme
 } from '@/form';
-
-import {
+import { calendarRangeTheme } from '@/form/Calendar/CalendarRangeTheme';
+import { calendarTheme } from '@/form/Calendar/CalendarTheme';
+import { checkboxTheme } from '@/form/Checkbox/CheckboxTheme';
+import { dateInputTheme } from '@/form/DateInput/DateInputTheme';
+import { inputTheme } from '@/form/Input/InputTheme';
+import { radioTheme } from '@/form/Radio/RadioTheme';
+import { rangeTheme } from '@/form/Range/RangeTheme';
+import { selectTheme } from '@/form/Select/SelectTheme';
+import { textareaTheme } from '@/form/Textarea/TextareaTheme';
+import { toggleTheme } from '@/form/Toggle/ToggleTheme';
+import type {
+  BackdropTheme,
+  CalloutTheme,
   ContextMenuTheme,
-  legacyContextMenuTheme,
-  legacyDialogTheme,
-  legacyDrawerTheme,
-  legacyMenuTheme,
-  legacyNotificationTheme,
-  legacyPopoverTheme,
-  legacyTooltipTheme,
-  contextMenuTheme,
-  dialogTheme,
-  drawerTheme,
-  menuTheme,
-  notificationTheme,
-  popoverTheme,
-  tooltipTheme,
   DialogTheme,
   DrawerTheme,
   MenuTheme,
   NotificationTheme,
   PopoverTheme,
-  TooltipTheme,
-  CalloutTheme,
-  calloutTheme,
-  legacyCalloutTheme,
-  BackdropTheme,
-  backdropTheme,
-  legacyBackdropTheme
+  TooltipTheme
 } from '@/layers';
-
-import {
+import { backdropTheme } from '@/layers/Backdrop/BackdropTheme';
+import { calloutTheme } from '@/layers/Callout/CalloutTheme';
+import { contextMenuTheme } from '@/layers/ContextMenu/ContextMenuTheme';
+import { dialogTheme } from '@/layers/Dialog/DialogTheme';
+import { drawerTheme } from '@/layers/Drawer/DrawerTheme';
+import { menuTheme } from '@/layers/Menu/MenuTheme';
+import { notificationTheme } from '@/layers/Notification/NotificationTheme';
+import { popoverTheme } from '@/layers/Popover/PopoverTheme';
+import { tooltipTheme } from '@/layers/Tooltip/TooltipTheme';
+import type {
   BlockTheme,
-  CollapseTheme,
-  blockTheme,
-  collapseTheme,
-  dividerTheme,
-  treeTheme,
-  DividerTheme,
-  TabsTheme,
-  tabsTheme,
-  TreeTheme,
-  legacyBlockTheme,
-  legacyListTheme,
-  verticalSpacerTheme,
-  VerticalSpacerTheme,
-  CardTheme,
-  cardTheme,
-  listTheme,
-  ListTheme,
-  stackTheme,
-  StackTheme,
-  legacyStackTheme,
-  legacyCardTheme,
-  legacyVerticalSpacerTheme,
-  legacyCollapseTheme,
-  legacyTreeTheme,
-  legacyTabsTheme,
-  legacyDividerTheme,
-  JsonTreeTheme,
-  jsonTreeTheme,
-  legacyJsonTreeTheme,
-  breadcrumbsTheme,
   BreadcrumbsTheme,
-  legacyBreadcrumbTheme,
+  CardTheme,
+  CollapseTheme,
+  DividerTheme,
+  JsonTreeTheme,
+  ListTheme,
+  StackTheme,
   StepperTheme,
-  stepperTheme,
-  legacyStepperTheme
+  TabsTheme,
+  TreeTheme,
+  VerticalSpacerTheme
 } from '@/layout';
-
-import {
-  legacyTypographyTheme,
-  typographyTheme,
-  TypographyTheme
-} from '@/typography';
-
-import {
-  ellipsisTheme,
-  EllipsisTheme,
-  PagerTheme,
-  pagerTheme,
-  RedactTheme,
-  redactTheme,
-  SortTheme,
-  sortTheme,
-  DateFormatTheme,
-  dateFormatTheme,
-  legacyDateFormatTheme,
-  legacyEllipsisTheme,
-  legacySortTheme,
-  legacyRedactTheme,
-  legacyPagerTheme
-} from '@/data';
+import { blockTheme } from '@/layout/Block/BlockTheme';
+import { breadcrumbsTheme } from '@/layout/Breadcrumbs/BreadcrumbsTheme';
+import { cardTheme } from '@/layout/Card/CardTheme';
+import { collapseTheme } from '@/layout/Collapse/CollapseTheme';
+import { dividerTheme } from '@/layout/Divider/DividerTheme';
+import { listTheme } from '@/layout/List/ListTheme';
+import { stackTheme } from '@/layout/Stack/StackTheme';
+import { stepperTheme } from '@/layout/Stepper/StepperTheme';
+import { tabsTheme } from '@/layout/Tabs/TabsTheme';
+import { jsonTreeTheme } from '@/layout/Tree/JsonTree/JsonTreeTheme';
+import { treeTheme } from '@/layout/Tree/TreeTheme';
+import { verticalSpacerTheme } from '@/layout/VerticalSpacer/VerticalSpacerTheme';
+import type { TypographyTheme, TypographyThemeDeprecated } from '@/typography';
+import { typographyTheme } from '@/typography/TypographyTheme';
+import { typographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 
 export interface ReablocksTheme {
   components: {
@@ -190,6 +139,7 @@ export interface ReablocksTheme {
     commandPalette: CommandPaletteTheme;
     collapse: CollapseTheme;
     textarea: TextareaTheme;
+    typography_deprecated: TypographyThemeDeprecated;
     typography: TypographyTheme;
     radio: RadioTheme;
     range: RangeTheme;
@@ -205,6 +155,7 @@ export interface ReablocksTheme {
     stepper: StepperTheme;
     callout: CalloutTheme;
     backdrop: BackdropTheme;
+    navigation: NavigationTheme;
     skeleton: SkeletonTheme;
   };
 }
@@ -242,6 +193,7 @@ export const theme: ReablocksTheme = {
     commandPalette: commandPaletteTheme,
     collapse: collapseTheme,
     textarea: textareaTheme,
+    typography_deprecated: typographyThemeDeprecated,
     typography: typographyTheme,
     radio: radioTheme,
     range: rangeTheme,
@@ -257,58 +209,7 @@ export const theme: ReablocksTheme = {
     stepper: stepperTheme,
     callout: calloutTheme,
     backdrop: backdropTheme,
-    skeleton: skeletonTheme
-  }
-};
-
-export const legacyThemeVars: ReablocksTheme = {
-  components: {
-    avatar: legacyAvatarTheme,
-    avatarGroup: legacyAvatarGroupTheme,
-    arrow: legacyArrowTheme,
-    badge: legacyBadgeTheme,
-    button: legacyButtonTheme,
-    block: legacyBlockTheme,
-    chip: legacyChipTheme,
-    contextMenu: legacyContextMenuTheme,
-    checkbox: legacyCheckboxTheme,
-    dateFormat: legacyDateFormatTheme,
-    dialog: legacyDialogTheme,
-    divider: legacyDividerTheme,
-    dotsLoader: legacyLoaderTheme,
-    drawer: legacyDrawerTheme,
-    ellipsis: legacyEllipsisTheme,
-    select: legacySelectTheme,
-    list: legacyListTheme,
-    menu: legacyMenuTheme,
-    sort: legacySortTheme,
-    stack: legacyStackTheme,
-    card: legacyCardTheme,
-    kbd: legacyKbdTheme,
-    verticalSpacer: legacyVerticalSpacerTheme,
-    notification: legacyNotificationTheme,
-    input: legacyInputTheme,
-    dateInput: legacyDateInputTheme,
-    calendar: legacyCalendarTheme,
-    calendarRange: legacyCalendarRangeTheme,
-    commandPalette: legacyCommandPaletteTheme,
-    collapse: legacyCollapseTheme,
-    textarea: legacyTextareaTheme,
-    typography: legacyTypographyTheme,
-    radio: legacyRadioTheme,
-    range: legacyRangeTheme,
-    redact: legacyRedactTheme,
-    toggle: legacyToggleTheme,
-    tooltip: legacyTooltipTheme,
-    tree: legacyTreeTheme,
-    popover: legacyPopoverTheme,
-    pager: legacyPagerTheme,
-    tabs: legacyTabsTheme,
-    jsonTree: legacyJsonTreeTheme,
-    breadcrumbs: legacyBreadcrumbTheme,
-    stepper: legacyStepperTheme,
-    callout: legacyCalloutTheme,
-    backdrop: legacyBackdropTheme,
-    skeleton: legacySkeletonTheme
+    skeleton: skeletonTheme,
+    navigation: navigationTheme
   }
 };

@@ -1,7 +1,10 @@
-import React, { FC } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { BlockTheme } from './BlockTheme';
+import type { FC } from 'react';
+import React from 'react';
+
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
+
+import type { BlockTheme } from './BlockTheme';
 
 export interface BlockProps extends React.HTMLAttributes<HTMLElement> {
   /**

@@ -1,18 +1,23 @@
-import React, { FC, ReactElement } from 'react';
-import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
-import { useId, CloneElement, cn } from '@/utils';
 import FocusTrap from 'focus-trap-react';
-import {
-  motion,
+import type {
   MotionNodeAnimationOptions,
   MotionProps,
   TargetAndTransition,
   Transition,
   VariantLabels
 } from 'motion/react';
-import { DialogHeader, DialogHeaderProps } from './DialogHeader';
+import { motion } from 'motion/react';
+import type { FC, ReactElement } from 'react';
+import React from 'react';
+
+import { CloneElement, cn, useId } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { DialogTheme } from './DialogTheme';
+import type { GlobalOverlayProps } from '@/utils/Overlay';
+import { GlobalOverlay } from '@/utils/Overlay';
+
+import type { DialogHeaderProps } from './DialogHeader';
+import { DialogHeader } from './DialogHeader';
+import type { DialogTheme } from './DialogTheme';
 
 export interface DialogProps
   extends Omit<GlobalOverlayProps, 'children'>,

@@ -1,7 +1,9 @@
-import React, { FC, forwardRef, LegacyRef } from 'react';
+import type { FC, LegacyRef } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { TypographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
-import { TypographyTheme } from '@/typography/TypographyTheme';
+import { twMerge } from '@/utils';
 
 export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
@@ -27,7 +29,7 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * Theme for the Typography.
    */
-  theme?: TypographyTheme;
+  theme?: TypographyThemeDeprecated;
 }
 
 export interface TextRef {
@@ -50,7 +52,10 @@ export const Text: FC<TextProps & TextRef> = forwardRef(
     }: TextProps,
     ref
   ) => {
-    const theme: TypographyTheme = useComponentTheme('typography', customTheme);
+    const theme: TypographyThemeDeprecated = useComponentTheme(
+      'typography_deprecated',
+      customTheme
+    );
 
     return (
       <span

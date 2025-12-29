@@ -1,8 +1,11 @@
-import React, { FC, useMemo, useState } from 'react';
 import coverup from 'coverup';
-import { twMerge } from 'tailwind-merge';
-import { RedactTheme } from './RedactTheme';
+import type { FC } from 'react';
+import React, { useMemo, useState } from 'react';
+
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
+
+import type { RedactTheme } from './RedactTheme';
 
 export interface RedactProps {
   /**

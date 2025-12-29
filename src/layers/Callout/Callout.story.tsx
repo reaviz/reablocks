@@ -1,16 +1,15 @@
 import React from 'react';
-import { Stack } from '@/layout';
-import { Text } from '@/typography';
-
-import {
-  Callout,
-  SuccessCallout,
-  WarningCallout,
-  ErrorCallout,
-  InfoCallout
-} from '@/layers';
 
 import CalendarIcon from '@/assets/icons/calendar.svg?react';
+import {
+  Callout,
+  ErrorCallout,
+  InfoCallout,
+  SuccessCallout,
+  WarningCallout
+} from '@/layers';
+import { Stack } from '@/layout';
+import { Typography } from '@/typography';
 
 export default {
   title: 'Components/Layers/Callout',
@@ -47,13 +46,10 @@ export const CustomText = () => (
     <InfoCallout
       variant="info"
       text={
-        <Text>
-          You will need{' '}
-          <Text fontStyle="bold" color="warning">
-            admin
-          </Text>{' '}
+        <Typography>
+          You will need <Typography variant="button">admin</Typography>{' '}
           privileges to install and access this application.
-        </Text>
+        </Typography>
       }
     />
   </div>
