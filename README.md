@@ -64,7 +64,7 @@ function App() {
 - New projects getting started quickly
 - Prototypes and MVPs
 - Projects that prefer simpler, semantic token names
-- Smaller bundle size (141KB CSS)
+- Typically smaller CSS than the UDS variant
 
 ### UDS Theme (Unify Design System)
 Comprehensive design system with detailed component-specific tokens for advanced customization.
@@ -89,11 +89,29 @@ function App() {
 - Teams migrating from Unify Design System
 - Advanced theming and customization needs
 
+### UDS Theme (Compatibility build)
+If you’re migrating an existing app with lots of raw Tailwind palette utilities (e.g., `text-gray-700`), you can temporarily use the compatibility build:
+
+```tsx
+import 'reablocks/uds-compat.css';
+import { ThemeProvider, Button } from 'reablocks';
+
+function App() {
+  return (
+    <ThemeProvider variant="uds">
+      <Button>Click me</Button>
+    </ThemeProvider>
+  );
+}
+```
+
+This keeps `variant="uds"` but adds a limited set of palette aliases as a migration aid. Prefer migrating to semantic tokens or UDS component tokens over time.
+
 ### Choosing a Variant
 
 | Feature | v9 Theme | UDS Theme |
 |---------|----------|-----------|
-| **CSS Bundle Size** | 141KB | 246KB |
+| **CSS Bundle Size** | Typically smaller | Typically larger |
 | **Token Style** | Semantic (`bg-primary`) | Component-specific (`bg-buttons-colors-core-icon-primary-background-resting`) |
 | **Customization** | Simple overrides | Granular control |
 | **Setup** | Minimal | More configuration |
@@ -104,6 +122,7 @@ function App() {
 - **Set variant once**: The `variant` prop should be set at app initialization and not changed at runtime
 - **Match CSS import**: Always import the CSS file that matches your variant
 - **No runtime switching**: Changing variants at runtime requires loading both CSS files and may cause styling issues
+- **Tailwind palette utilities**: When using `reablocks/uds.css`, plan to migrate raw Tailwind palette utilities (e.g., `text-gray-700`) to semantic tokens or UDS component tokens. See the migration guide for details.
 
 ### Custom Theme Overrides
 
