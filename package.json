@@ -6,7 +6,9 @@
     "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run build:docs",
     "build-storybook": "storybook build",
     "build:js": "vite build --mode library",
-    "build:styles": "npx @tailwindcss/cli -i ./src/index.css -o ./dist/index.css",
+    "build:styles": "npm run build:styles:v9 && npm run build:styles:uds",
+    "build:styles:v9": "npx @tailwindcss/cli -i ./src/index.css -o ./dist/index.css",
+    "build:styles:uds": "npx @tailwindcss/cli -i ./src/uds.css -o ./dist/uds.css",
     "build:docs": "node scripts/docs.js",
     "rewrite:stories": "node scripts/stories.cjs",
     "lint": "eslint --ext js,ts,tsx",
@@ -30,6 +32,7 @@
       "require": "./dist/index.umd.cjs"
     },
     "./index.css": "./dist/index.css",
+    "./uds.css": "./dist/uds.css",
     "./stories/*": "./dist/stories/*",
     "./blocks/*": "./dist/blocks/*"
   },
