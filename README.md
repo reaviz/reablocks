@@ -40,6 +40,12 @@
 npm install reablocks
 ```
 
+### Requirements
+- **React** ≥ 16.0.0
+- **Tailwind CSS** ≥ 4.0.0 (required for `@theme` directive and custom variants)
+
+> **Note**: Tailwind CSS v4 is required for both theme variants. The v9 and Unify themes use v4 features like `@theme` blocks and `@custom-variant` directives.
+
 ## 🎨 Theme Variants
 
 Reablocks v10 offers two theme variants to suit different design needs:
@@ -121,7 +127,7 @@ function App() {
 | **Setup** | Minimal | More configuration |
 | **Migration Required** | No (default) | Opt-in |
 
-**Bundle Size Impact**: In v10.0, Unify theme adds approximately 16 KB (gzipped) over v9. Sizes may vary in future versions as design tokens evolve.
+**Bundle Size Impact**: The Unify theme includes more comprehensive design tokens and is typically larger than the v9 theme. Actual sizes vary between versions as design tokens evolve—run `npm run build:styles` to see exact sizes for your version.
 
 **Important**: CSS files are pre-built and shipped in the package. You download the full stylesheet regardless of which components you use (no tree-shaking). This keeps setup simple (no Tailwind build required) but means the bundle size is fixed.
 
@@ -153,6 +159,7 @@ The ThemeProvider automatically observes these changes and updates component sty
 - **Set variant once**: The `variant` prop should be set at app initialization and not changed at runtime
 - **Match CSS import**: Always import the CSS file that matches your variant
 - **No runtime switching**: Changing variants at runtime requires loading both CSS files and may cause styling issues
+- **Import only one CSS file**: Do not import both `index.css` and `unify.css` in the same application. The last import wins, which can cause unexpected styling and increased bundle size. Choose one based on your `variant` prop.
 - **Tailwind palette utilities**: Standard Tailwind palette utilities (e.g., `text-gray-700`, `bg-blue-500`) work with both themes. For tighter integration with Unify tokens, consider migrating to semantic tokens or Unify component tokens. See the migration guide for details.
 
 ### Custom Theme Overrides
