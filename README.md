@@ -64,18 +64,18 @@ function App() {
 - New projects getting started quickly
 - Prototypes and MVPs
 - Projects that prefer simpler, semantic token names
-- Typically smaller CSS than the UDS variant
+- Typically smaller CSS than the Unify variant
 
-### UDS Theme (Unify Design System)
+### Unify Theme (Unify Design System)
 Comprehensive design system with detailed component-specific tokens for advanced customization.
 
 ```tsx
-import 'reablocks/uds.css';
+import 'reablocks/unify.css';
 import { ThemeProvider, Button } from 'reablocks';
 
 function App() {
   return (
-    <ThemeProvider variant="uds">
+    <ThemeProvider variant="unify">
       <Button>Click me</Button>
     </ThemeProvider>
   );
@@ -89,28 +89,28 @@ function App() {
 - Teams migrating from Unify Design System
 - Advanced theming and customization needs
 
-### UDS Theme (Compatibility build)
-If you’re migrating an existing app with lots of raw Tailwind palette utilities (e.g., `text-gray-700`), you can temporarily use the compatibility build:
+### Unify Theme (Compatibility build)
+If you need additional Tailwind palette aliases (e.g., `gray-*`, `slate-*`) mapped to Unify neutral tokens, you can use the compatibility build:
 
 ```tsx
-import 'reablocks/uds-compat.css';
+import 'reablocks/unify-compat.css';
 import { ThemeProvider, Button } from 'reablocks';
 
 function App() {
   return (
-    <ThemeProvider variant="uds">
+    <ThemeProvider variant="unify">
       <Button>Click me</Button>
     </ThemeProvider>
   );
 }
 ```
 
-This keeps `variant="uds"` but adds a limited set of palette aliases as a migration aid. Prefer migrating to semantic tokens or UDS component tokens over time.
+This provides a limited set of palette aliases (gray, slate, blue) mapped to Unify tokens. Note that standard Tailwind palette utilities work with the regular Unify build - this compat build is only needed if you want specific palette-to-Unify mappings.
 
 ### Choosing a Variant
 
-| Feature | v9 Theme | UDS Theme |
-|---------|----------|-----------|
+| Feature | v9 Theme | Unify Theme |
+|---------|----------|-------------|
 | **CSS Bundle Size** | Typically smaller | Typically larger |
 | **Token Style** | Semantic (`bg-primary`) | Component-specific (`bg-buttons-colors-core-icon-primary-background-resting`) |
 | **Customization** | Simple overrides | Granular control |
@@ -122,7 +122,7 @@ This keeps `variant="uds"` but adds a limited set of palette aliases as a migrat
 - **Set variant once**: The `variant` prop should be set at app initialization and not changed at runtime
 - **Match CSS import**: Always import the CSS file that matches your variant
 - **No runtime switching**: Changing variants at runtime requires loading both CSS files and may cause styling issues
-- **Tailwind palette utilities**: When using `reablocks/uds.css`, plan to migrate raw Tailwind palette utilities (e.g., `text-gray-700`) to semantic tokens or UDS component tokens. See the migration guide for details.
+- **Tailwind palette utilities**: Standard Tailwind palette utilities (e.g., `text-gray-700`, `bg-blue-500`) work with both themes. For tighter integration with Unify tokens, consider migrating to semantic tokens or Unify component tokens. See the migration guide for details.
 
 ### Custom Theme Overrides
 
@@ -130,7 +130,7 @@ Both variants support custom theme overrides:
 
 ```tsx
 <ThemeProvider
-  variant="v9"  // or "uds"
+  variant="v9"  // or "unify"
   theme={{
     components: {
       button: {
@@ -147,7 +147,7 @@ Both variants support custom theme overrides:
 </ThemeProvider>
 ```
 
-For detailed migration guidance and token mappings, see [v9 to UDS Token Mapping](docs/migration/v9-to-uds-token-mapping.md).
+For detailed migration guidance and token mappings, see [v9 to Unify Token Mapping](docs/migration/v9-to-unify-token-mapping.md).
 
 ## 🎁 Other Projects
 

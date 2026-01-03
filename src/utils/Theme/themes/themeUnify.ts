@@ -1,22 +1,22 @@
 import type { ReablocksTheme } from './theme';
 
 /**
- * UDS (Unify Design System) theme.
+ * Unify Design System theme.
  *
  * This theme uses Unify Design System tokens and styling.
  * Enable it via ThemeProvider's variant prop:
  *
  * @example
  * ```tsx
- * <ThemeProvider variant="uds">
+ * <ThemeProvider variant="unify">
  *   <App />
  * </ThemeProvider>
  * ```
  *
- * NOTE: This theme relies on UDS CSS custom properties being defined.
- * Make sure to import the UDS CSS tokens in your application.
+ * NOTE: This theme relies on Unify CSS custom properties being defined.
+ * Make sure to import the Unify CSS tokens in your application.
  */
-export const themeUDS: ReablocksTheme = {
+export const themeUnify: ReablocksTheme = {
   components: {
     avatar: {
       base: 'flex justify-center items-center bg-cover bg-center font-bold text-avatar-colors-text-resting bg-avatar-colors-background-container-resting border border-avatar-colors-stroke-container-resting hover:bg-avatar-colors-background-container-hover hover:border-avatar-colors-stroke-container-hover hover:text-avatar-colors-text-hover',
@@ -185,16 +185,16 @@ export const themeUDS: ReablocksTheme = {
       }
     },
     /**
-     * UDS Component Token Mapping Strategy:
+     * Unify Component Token Mapping Strategy:
      *
      * Components below use one of two approaches:
-     * 1. UDS Component Tokens - Where UDS provides component-specific tokens
+     * 1. Unify Component Tokens - Where Unify provides component-specific tokens
      *    (e.g., calendar-colors-*, inputs-colors-*, navigation-colors-*)
-     * 2. Semantic Token Layer - Where UDS doesn't provide component tokens
+     * 2. Semantic Token Layer - Where Unify doesn't provide component tokens
      *    (e.g., bg-panel → var(--background-neutral-raised-base))
      *
-     * This two-tier approach ensures all components render with UDS design system
-     * colors while using authentic UDS tokens where they exist.
+     * This two-tier approach ensures all components render with Unify design system
+     * colors while using authentic Unify tokens where they exist.
      */
     calendar: {
       base: 'relative overflow-hidden bg-calendar-colors-container-background-default',

@@ -1,28 +1,28 @@
 /**
  * Semantic Token Mappings
  *
- * Maps v9 semantic tokens to UDS design tokens for backwards compatibility.
- * This allows themeUDS.ts to use simpler token names while leveraging
- * the full UDS design system underneath.
+ * Maps v9 semantic tokens to Unify design tokens for backwards compatibility.
+ * This allows themeUnify.ts to use simpler token names while leveraging
+ * the full Unify design system underneath.
  *
  * Note: Tailwind CSS v4 requires the --color- prefix for color utilities
  * to work with bg-*, text-*, border-*, etc.
  */
 
 @theme {
-  /* Primary colors - map to UDS brand colors */
+  /* Primary colors - map to Unify brand colors */
   --color-primary: var(--background-brand-base);
   --color-primary-active: var(--background-brand-base);
   --color-primary-hover: var(--background-brand-1);
   --color-primary-inactive: var(--background-brand-5);
 
-  /* Secondary colors - map to UDS neutral colors */
+  /* Secondary colors - map to Unify neutral colors */
   --color-secondary: var(--background-neutral-raised-1);
   --color-secondary-active: var(--background-neutral-raised-1);
   --color-secondary-hover: var(--background-neutral-raised-2);
   --color-secondary-inactive: var(--background-neutral-raised-3);
 
-  /* Success colors - map to UDS semantic colors */
+  /* Success colors - map to Unify semantic colors */
   --color-success: var(--background-semantic-success-base);
   --color-success-active: var(--background-semantic-success-base);
   --color-success-hover: var(--background-semantic-success-1);
@@ -46,7 +46,7 @@
   --color-info-hover: var(--background-semantic-info-1);
   --color-info-background: var(--background-semantic-info-5);
 
-  /* Panel colors - map to UDS neutral raised surfaces */
+  /* Panel colors - map to Unify neutral raised surfaces */
   --color-panel: var(--background-neutral-raised-base);
   --color-panel-accent: var(--background-neutral-raised-1);
   --color-panel-border: var(--stroke-neutral-base);
@@ -56,7 +56,7 @@
   --color-surface: var(--background-neutral-canvas-base);
   --color-surface-accent: var(--background-brand-base);
 
-  /* Text colors - map to UDS content text tokens */
+  /* Text colors - map to Unify content text tokens */
   --color-text-primary: var(--content-text-neutral-base);
   --color-text-secondary: var(--content-text-neutral-3);
 
@@ -72,7 +72,7 @@
   --color-secondary-content: var(--content-text-neutral-3);
   --color-dark-disabled: var(--background-neutral-raised-3);
 
-  /* Neutral backgrounds for components without UDS tokens (Skeleton, Loader, etc.) */
+  /* Neutral backgrounds for components without Unify tokens (Skeleton, Loader, etc.) */
   --color-neutral-100: var(--background-neutral-raised-5);
   --color-neutral-200: var(--background-neutral-raised-4);
   --color-neutral-300: var(--background-neutral-raised-3);

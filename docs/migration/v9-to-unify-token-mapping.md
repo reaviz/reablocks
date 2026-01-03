@@ -1,43 +1,41 @@
-# v9 to UDS Token Mapping
+# v9 to Unify Token Mapping
 
-This guide provides a best-effort mapping of v9 theme tokens to UDS (Unify Design System) tokens for migration purposes.
+This guide provides a best-effort mapping of v9 theme tokens to Unify (Unify Design System) tokens for migration purposes.
 
 ## Overview
 
 - **v9 Theme**: Uses simplified Tailwind utilities and semantic color tokens (e.g., `bg-primary`, `text-text-secondary`)
-- **UDS Theme**: Uses a two-tier approach:
-  1. **UDS Component Tokens**: Component-specific tokens from the Unify Design System (e.g., `bg-buttons-colors-core-icon-primary-background-resting`)
-  2. **Semantic Token Layer**: v9-style tokens mapped to UDS design tokens for components without UDS component equivalents (e.g., `bg-panel` → `var(--background-neutral-raised-base)`)
+- **Unify Theme**: Uses a two-tier approach:
+  1. **Unify Component Tokens**: Component-specific tokens from the Unify Design System (e.g., `bg-buttons-colors-core-icon-primary-background-resting`)
+  2. **Semantic Token Layer**: v9-style tokens mapped to Unify design tokens for components without Unify component equivalents (e.g., `bg-panel` → `var(--background-neutral-raised-base)`)
 
-## Important: Tailwind Palette Utilities When Opting Into UDS
+## Important: Tailwind Palette Utilities When Opting Into Unify
 
-The UDS CSS (`reablocks/uds.css`) intentionally disables Tailwind’s default palette tokens (e.g., `gray-*`, `slate-*`, `blue-*`, `neutral-*`). If your application still uses raw palette utilities like `text-gray-700` or `bg-blue-500`, those usages may not render as expected when you opt into the UDS variant.
+The Unify theme supports Tailwind's default palette utilities (e.g., `gray-*`, `slate-*`, `blue-*`, `neutral-*`), so your existing palette utilities will continue to work. However, for tighter integration with the Unify Design System:
 
 ### Recommended Migration Approach
 
 - Prefer **semantic tokens** (v9-style) such as `text-text-primary`, `text-text-secondary`, `bg-panel`, `border-panel-accent`.
-- Prefer **UDS component tokens** where UDS provides them (e.g., `bg-inputs-colors-normal-background-resting`).
+- Prefer **Unify component tokens** where Unify provides them (e.g., `bg-inputs-colors-normal-background-resting`).
 
-### Optional Compatibility Layer (If You Need Minimum Friction)
+### Optional Compatibility Layer (Additional Palette Mappings)
 
-If you need a smoother adoption path (e.g., you have lots of legacy `text-gray-*` usage), you can temporarily use the compatibility build:
+If you want specific Tailwind palette colors (gray, slate, blue) mapped to Unify neutral/brand tokens, you can use the compatibility build:
 
 ```javascript
-import 'reablocks/uds-compat.css';
+import 'reablocks/unify-compat.css';
 ```
 
-This provides a limited set of palette aliases (e.g., `gray-*`, `slate-*`, `blue-500`) mapped to approximate UDS neutrals/brand. This is an approximation and should be treated as transitional.
-
-If you require strict UDS compliance, do not add palette aliases and instead migrate raw palette utilities directly.
+This provides a limited set of palette aliases (e.g., `gray-*`, `slate-*`, `blue-500`) mapped to Unify tokens. This is optional - the standard `unify.css` already supports Tailwind palette utilities.
 
 ## Component Coverage
 
-### Components with Full UDS Component Token Mappings
-The following components use UDS component-specific tokens (documented in detail below):
+### Components with Full Unify Component Token Mappings
+The following components use Unify component-specific tokens (documented in detail below):
 - Avatar, AvatarGroup
 - Badge
 - Breadcrumbs
-- Button (primary, secondary, error variants use UDS tokens; success, warning variants use semantic tokens)*
+- Button (primary, secondary, error variants use Unify tokens; success, warning variants use semantic tokens)*
 - Calendar, CalendarRange, DateInput
 - Checkbox
 - Chip
@@ -51,10 +49,10 @@ The following components use UDS component-specific tokens (documented in detail
 - Toggle (Switch)
 - Tooltip
 
-**Important Note:** Success and warning button variants intentionally use the semantic token layer because UDS does not provide `success` or `warning` button variants at the component token level. These variants map to UDS semantic colors (e.g., `var(--background-semantic-success-base)`) to maintain semantic parity with v9 while staying within UDS's design system constraints.
+**Important Note:** Success and warning button variants intentionally use the semantic token layer because Unify does not provide `success` or `warning` button variants at the component token level. These variants map to Unify semantic colors (e.g., `var(--background-semantic-success-base)`) to maintain semantic parity with v9 while staying within Unify's design system constraints.
 
 ### Components Using Semantic Token Layer
-The following components use the semantic token layer (v9-style tokens mapped to UDS design tokens) **because UDS does not provide component-specific tokens for them**:
+The following components use the semantic token layer (v9-style tokens mapped to Unify design tokens) **because Unify does not provide component-specific tokens for them**:
 - Card
 - Callout
 - Dialog
@@ -71,17 +69,17 @@ The following components use the semantic token layer (v9-style tokens mapped to
 - Tree
 - Typography
 
-**Why Semantic Layer?** These components use tokens like `bg-panel`, `text-text-primary`, and `border-panel-accent` which map to UDS level-2 design tokens (e.g., `var(--background-neutral-raised-base)`, `var(--content-text-neutral-base)`). This approach:
-- ✅ Renders components with correct UDS design system colors
-- ✅ Preserves the v9-style semantic token API for components without UDS component tokens
-- ✅ Uses authentic UDS design tokens (level-2) where component tokens (level-3) don't exist
+**Why Semantic Layer?** These components use tokens like `bg-panel`, `text-text-primary`, and `border-panel-accent` which map to Unify level-2 design tokens (e.g., `var(--background-neutral-raised-base)`, `var(--content-text-neutral-base)`). This approach:
+- ✅ Renders components with correct Unify design system colors
+- ✅ Preserves the v9-style semantic token API for components without Unify component tokens
+- ✅ Uses authentic Unify design tokens (level-2) where component tokens (level-3) don't exist
 - ❌ Does not provide component-level styling nuances (stroke, asset tokens, granular states)
 
-**Design Decision:** This is the correct architectural approach given UDS's token coverage. Creating fake "component tokens" for these would be misleading and potentially conflict with future UDS additions.
+**Design Decision:** This is the correct architectural approach given Unify's token coverage. Creating fake "component tokens" for these would be misleading and potentially conflict with future Unify additions.
 
 See the [Semantic Color Tokens](#semantic-color-tokens) section for detailed mappings.
 
-**Note**: Token names and mappings in this guide are verified against the UDS CSS shipped with this version of `reablocks`. UDS token sets can evolve; if a token is missing in your build, prefer the semantic token layer or provide a custom theme override.
+**Note**: Token names and mappings in this guide are verified against the Unify CSS shipped with this version of `reablocks`. Unify token sets can evolve; if a token is missing in your build, prefer the semantic token layer or provide a custom theme override.
 
 ## CSS Import
 
@@ -90,9 +88,9 @@ See the [Semantic Color Tokens](#semantic-color-tokens) section for detailed map
 import 'reablocks/index.css';
 ```
 
-### UDS
+### Unify
 ```javascript
-import 'reablocks/uds.css';
+import 'reablocks/unify.css';
 ```
 
 ## ThemeProvider Configuration
@@ -106,11 +104,11 @@ import { ThemeProvider } from 'reablocks';
 </ThemeProvider>
 ```
 
-### UDS
+### Unify
 ```jsx
 import { ThemeProvider } from 'reablocks';
 
-<ThemeProvider variant="uds">
+<ThemeProvider variant="unify">
   <App />
 </ThemeProvider>
 ```
@@ -119,37 +117,37 @@ import { ThemeProvider } from 'reablocks';
 
 ### Button
 
-#### v9 → UDS Primary Button (Filled)
+#### v9 → Unify Primary Button (Filled)
 - **Background (Resting)**: `bg-primary` → `bg-buttons-colors-core-icon-primary-background-resting`
 - **Background (Hover)**: `hover:bg-primary-hover` → `hover:bg-buttons-colors-core-icon-primary-background-hover`
 - **Border**: `border-primary` → `border-buttons-colors-core-icon-primary-stroke-resting`
 - **Text**: `text-text-primary` → `text-buttons-colors-core-icon-primary-text-resting`
 
-#### v9 → UDS Secondary Button (Filled)
+#### v9 → Unify Secondary Button (Filled)
 - **Background (Resting)**: `bg-secondary` → `bg-buttons-colors-core-icon-secondary-background-resting`
 - **Background (Hover)**: `hover:bg-secondary-hover` → `hover:bg-buttons-colors-core-icon-secondary-background-hover`
 - **Border**: `border-secondary` → `border-buttons-colors-core-icon-secondary-stroke-resting`
 - **Text**: `text-text-primary` → `text-buttons-colors-core-icon-secondary-text-resting`
 
-#### v9 → UDS Success Button (via Semantic Tokens)
+#### v9 → Unify Success Button (via Semantic Tokens)
 
-**Note**: UDS does not have `success` button variant. Success buttons use the [semantic token layer](#semantic-color-tokens) to maintain semantic parity with v9.
+**Note**: Unify does not have `success` button variant. Success buttons use the [semantic token layer](#semantic-color-tokens) to maintain semantic parity with v9.
 
 - **Background (Resting)**: `bg-success` → `bg-success` (mapped to `var(--background-semantic-success-base)`)
 - **Background (Hover)**: `hover:bg-success-hover` → `hover:bg-success-hover` (mapped to `var(--background-semantic-success-1)`)
 - **Border**: `border-success` → `border-success` (mapped to `var(--background-semantic-success-base)`)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
-#### v9 → UDS Warning Button (via Semantic Tokens)
+#### v9 → Unify Warning Button (via Semantic Tokens)
 
-**Note**: UDS does not have `warning` button variant. Warning buttons use the [semantic token layer](#semantic-color-tokens) to maintain semantic parity with v9.
+**Note**: Unify does not have `warning` button variant. Warning buttons use the [semantic token layer](#semantic-color-tokens) to maintain semantic parity with v9.
 
 - **Background (Resting)**: `bg-warning` → `bg-warning` (mapped to `var(--background-semantic-warning-base)`)
 - **Background (Hover)**: `hover:bg-warning-hover` → `hover:bg-warning-hover` (mapped to `var(--background-semantic-warning-1)`)
 - **Border**: `border-warning` → `border-warning` (mapped to `var(--background-semantic-warning-base)`)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
-#### v9 → UDS Error Button (Filled)
+#### v9 → Unify Error Button (Filled)
 - **Background (Resting)**: `bg-error` → `bg-buttons-colors-core-icon-destructive-background-resting`
 - **Background (Hover)**: `hover:bg-error-hover` → `hover:bg-buttons-colors-core-icon-destructive-background-hover`
 - **Border**: `border-error` → `border-buttons-colors-core-icon-destructive-stroke-resting`
@@ -157,7 +155,7 @@ import { ThemeProvider } from 'reablocks';
 
 ### Input
 
-#### v9 → UDS Input Field
+#### v9 → Unify Input Field
 - **Background**: `bg-panel` → `bg-inputs-colors-normal-background-resting`
 - **Border**: `border-panel-accent` → `border-inputs-colors-normal-stroke-resting`
 - **Border (Hover)**: `hover:border-primary` → `hover:border-inputs-colors-normal-stroke-hover`
@@ -165,7 +163,7 @@ import { ThemeProvider } from 'reablocks';
 - **Text**: `text-text-primary` → `text-inputs-colors-normal-text-input-text-resting`
 - **Icon**: `text-text-secondary` → `[&>svg]:fill-inputs-colors-normal-assets-input-resting`
 
-#### v9 → UDS Error State
+#### v9 → Unify Error State
 - **Background**: `bg-error-background` → `bg-inputs-colors-error-background-resting`
 - **Border**: `border-error` → `border-inputs-colors-error-stroke-resting`
 - **Border (Hover)**: `hover:border-error` → `hover:border-inputs-colors-error-stroke-hover`
@@ -173,7 +171,7 @@ import { ThemeProvider } from 'reablocks';
 
 ### Checkbox
 
-#### v9 → UDS Checkbox
+#### v9 → Unify Checkbox
 - **Background (Not Selected)**: `bg-panel` → `bg-selectors-colors-checkbox-not-selected-background-resting`
 - **Background (Selected)**: `checked:bg-primary` → `checked:bg-selectors-colors-checkbox-selected-background-resting`
 - **Border (Not Selected)**: `border-panel-accent` → `border-selectors-colors-checkbox-not-selected-stroke-resting`
@@ -182,7 +180,7 @@ import { ThemeProvider } from 'reablocks';
 
 ### Radio
 
-#### v9 → UDS Radio Button
+#### v9 → Unify Radio Button
 - **Background (Not Selected)**: `bg-transparent` → `bg-selectors-colors-radio-not-selected-background-resting`
 - **Background (Selected)**: `checked:bg-primary` → `checked:bg-selectors-colors-radio-selected-background-resting`
 - **Border (Not Selected)**: `border-panel-accent` → `border-selectors-colors-radio-not-selected-stroke-resting`
@@ -191,7 +189,7 @@ import { ThemeProvider } from 'reablocks';
 
 ### Toggle (Switch)
 
-#### v9 → UDS Toggle
+#### v9 → Unify Toggle
 - **Background (Off)**: `bg-surface` → `bg-selectors-colors-toggle-off-background-resting`
 - **Background (On)**: `checked:bg-primary` → `checked:bg-selectors-colors-toggle-on-background-resting`
 - **Border (Off)**: `border-panel-accent` → `border-selectors-colors-toggle-off-stroke-resting`
@@ -201,7 +199,7 @@ import { ThemeProvider } from 'reablocks';
 
 ### Select
 
-#### v9 → UDS Select
+#### v9 → Unify Select
 - **Background**: `bg-panel` → `bg-inputs-colors-normal-background-resting`
 - **Border**: `border-panel-accent` → `border-inputs-colors-normal-stroke-resting`
 - **Border (Hover)**: `hover:border-primary` → `hover:border-inputs-colors-normal-stroke-hover`
@@ -210,40 +208,40 @@ import { ThemeProvider } from 'reablocks';
 
 ### Chip
 
-#### v9 → UDS Chip (Filled)
+#### v9 → Unify Chip (Filled)
 - **Background**: `bg-primary` → `bg-tags-colors-brand-background-resting`
 - **Background (Hover)**: `hover:bg-primary-hover` → `hover:bg-tags-colors-brand-background-hover`
 - **Border**: `border-primary` → `border-tags-colors-brand-stroke-resting`
 - **Text**: `text-panel` → `text-tags-colors-brand-text-label-base`
 
-#### v9 → UDS Chip (Selectable)
+#### v9 → Unify Chip (Selectable)
 - **Background (Selected)**: `bg-primary` → `bg-tags-colors-brand-background-selected`
 - **Border (Selected)**: `border-primary` → `border-tags-colors-brand-stroke-selected`
 - **Text (Selected)**: `text-panel` → `text-tags-colors-brand-text-label-base`
 
 ### Badge
 
-#### v9 → UDS Badge
+#### v9 → Unify Badge
 - **Background**: `bg-primary` → `bg-badges-colors-solid-brand-background-standard`
 - **Border**: `border-primary` → `border-badges-colors-solid-brand-stroke-default`
 - **Text**: `text-white` → `text-badges-colors-solid-brand-text-default`
 
 ### Card
 
-**Note**: Card does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Card does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Card (via Semantic Tokens)
+#### v9 → Unify Card (via Semantic Tokens)
 - **Background**: `bg-panel` → `bg-panel` (mapped to `var(--background-neutral-raised-base)`)
 - **Border**: `border-panel-accent` → `border-panel-accent` (mapped to `var(--background-neutral-raised-1)`)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
-The Card component continues to use v9-style semantic tokens which are automatically mapped to UDS design tokens through the semantic token layer. No code changes are required when switching to the UDS variant.
+The Card component continues to use v9-style semantic tokens which are automatically mapped to Unify design tokens through the semantic token layer. No code changes are required when switching to the Unify variant.
 
 ### Callout
 
-**Note**: Callout does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Callout does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Callout (via Semantic Tokens)
+#### v9 → Unify Callout (via Semantic Tokens)
 - **Default Background**: `bg-panel-background` → `bg-panel-background` (mapped to `var(--background-neutral-raised-base)`)
 - **Default Border**: `border-panel-accent` → `border-panel-accent` (mapped to `var(--background-neutral-raised-1)`)
 - **Success Background**: `bg-success-background` → `bg-success-background` (mapped to `var(--background-semantic-success-5)`)
@@ -261,7 +259,7 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 ### Calendar
 
-#### v9 → UDS Calendar
+#### v9 → Unify Calendar
 - **Container Background**: `bg-transparent` → `bg-calendar-colors-container-background-default`
 - **Header Text**: `text-text-secondary` → `text-calendar-colors-header-text-default`
 - **Label Text**: `text-text-secondary` → `text-calendar-colors-label-text-default`
@@ -276,37 +274,37 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 ### Notification/Toast
 
-#### v9 → UDS Notification (Neutral/Default)
+#### v9 → Unify Notification (Neutral/Default)
 - **Background**: `bg-panel` → `bg-notifications-colors-background-neutral-resting`
 - **Border**: `border-panel-accent` → `border-notifications-colors-stroke-neutral-resting`
 - **Text**: `text-text-primary` → `text-notifications-colors-text-normal-resting`
 - **Title**: `text-text-primary` → `text-notifications-colors-text-title-resting`
 
-#### v9 → UDS Notification (Success)
+#### v9 → Unify Notification (Success)
 - **Background**: `bg-success-background` → `bg-notifications-colors-background-success-resting`
 - **Border**: `border-success` → `border-notifications-colors-stroke-success-resting`
 - **Icon**: `text-success` → `text-notifications-colors-assets-success-resting`
 
-#### v9 → UDS Notification (Error)
+#### v9 → Unify Notification (Error)
 - **Background**: `bg-error-background` → `bg-notifications-colors-background-error-resting`
 - **Border**: `border-error` → `border-notifications-colors-stroke-error-resting`
 - **Icon**: `text-error` → `text-notifications-colors-assets-destructive-resting`
 
-#### v9 → UDS Notification (Warning)
+#### v9 → Unify Notification (Warning)
 - **Background**: `bg-warning-background` → `bg-notifications-colors-background-neutral-resting`
 - **Border**: `border-warning` → `border-notifications-colors-stroke-warning-resting`
 - **Icon**: `text-warning` → `text-notifications-colors-assets-normal-resting`
 
-#### v9 → UDS Notification (Info)
+#### v9 → Unify Notification (Info)
 - **Background**: `bg-info-background` → `bg-notifications-colors-background-neutral-resting`
 - **Border**: `border-info` → `border-notifications-colors-stroke-info-resting`
 - **Icon**: `text-info` → `text-notifications-colors-assets-normal-resting`
 
 ### Dialog
 
-**Note**: Dialog does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Dialog does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Dialog (via Semantic Tokens)
+#### v9 → Unify Dialog (via Semantic Tokens)
 - **Background**: `bg-panel` → `bg-panel` (mapped to `var(--background-neutral-raised-base)`)
 - **Border**: `border-panel-accent` → `border-panel-accent` (mapped to `var(--background-neutral-raised-1)`)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
@@ -314,23 +312,23 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 ### Divider
 
-**Note**: Divider does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Divider does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Divider (via Semantic Tokens)
+#### v9 → Unify Divider (via Semantic Tokens)
 - **Primary Variant**: `bg-surface` → `bg-surface` (mapped to `var(--background-neutral-canvas-base)`)
 - **Secondary Variant**: Uses gradient with `via-blue-500` (custom styling, not mapped)
 
 ### Drawer
 
-**Note**: Drawer does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Drawer does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Drawer (via Semantic Tokens)
+#### v9 → Unify Drawer (via Semantic Tokens)
 - **Background**: `bg-panel` → `bg-panel` (mapped to `var(--background-neutral-raised-base)`)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
 ### List
 
-#### v9 → UDS List (using navigation-colors-*)
+#### v9 → Unify List (using navigation-colors-*)
 - **Base Text**: `text-text-primary` → `text-navigation-colors-text-resting`
 - **Header Text**: `text-text-primary` → `text-navigation-colors-text-static`
 - **Item Background (Resting)**: N/A → `bg-navigation-colors-background-row-items-resting`
@@ -346,32 +344,32 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 ### Menu
 
-#### v9 → UDS Menu (using navigation-colors-*)
+#### v9 → Unify Menu (using navigation-colors-*)
 - **Container Background**: N/A → `bg-navigation-colors-background-container-base`
 - **Container Border**: N/A → `border-navigation-colors-stroke-container-base`
 - **Text**: `text-text-primary` → `text-navigation-colors-text-resting`
 
 ### Pager
 
-**Note**: Pager does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Pager does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Pager (via Semantic Tokens)
+#### v9 → Unify Pager (via Semantic Tokens)
 - **Active Page**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
-- **Inactive Page**: `text-slate-500` (custom styling, not mapped to UDS design tokens)
+- **Inactive Page**: `text-slate-500` (custom styling, not mapped to Unify design tokens)
 
 ### Popover
 
-**Note**: Popover does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Popover does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Popover (via Semantic Tokens)
+#### v9 → Unify Popover (via Semantic Tokens)
 - **Background**: `bg-panel` → `bg-panel` (mapped to `var(--background-neutral-raised-base)`)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
 ### Range
 
-**Note**: Range does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Range does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Range (via Semantic Tokens)
+#### v9 → Unify Range (via Semantic Tokens)
 - **Base Background**: `bg-surface` → `bg-surface` (mapped to `var(--background-neutral-canvas-base)`)
 - **Active Background**: `bg-primary-active` → `bg-primary-active` (mapped to `var(--background-brand-base)`)
 - **Hover Background**: `hover:bg-primary-hover` → `hover:bg-primary-hover` (mapped to `var(--background-brand-1)`)
@@ -381,31 +379,31 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 ### Redact
 
-**Note**: Redact does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Redact does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Redact (via Semantic Tokens)
+#### v9 → Unify Redact (via Semantic Tokens)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
 ### Sort
 
-**Note**: Sort does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Sort does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Sort (via Semantic Tokens)
+#### v9 → Unify Sort (via Semantic Tokens)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 - **Icon**: `fill-current` (inherits text color)
 
 ### Stack
 
-**Note**: Stack does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Stack does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Stack (via Semantic Tokens)
+#### v9 → Unify Stack (via Semantic Tokens)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
 ### Stepper
 
-**Note**: Stepper does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Stepper does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Stepper (via Semantic Tokens)
+#### v9 → Unify Stepper (via Semantic Tokens)
 - **Border**: `border-panel-accent` → `border-panel-accent` (mapped to `var(--background-neutral-raised-1)`)
 - **Marker Background**: `bg-surface` → `bg-surface` (mapped to `var(--background-neutral-canvas-base)`)
 - **Active Marker**: `bg-info` → `bg-info` (mapped to `var(--background-semantic-info-base)`)
@@ -416,9 +414,9 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 ### Textarea
 
-**Note**: Textarea uses the same UDS tokens as Input. See [Input](#input) for token mappings.
+**Note**: Textarea uses the same Unify tokens as Input. See [Input](#input) for token mappings.
 
-#### v9 → UDS Textarea
+#### v9 → Unify Textarea
 - Same token mappings as Input component
 - **Background**: `bg-inputs-colors-normal-background-resting`
 - **Border**: `border-inputs-colors-normal-stroke-resting`
@@ -430,18 +428,18 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 ### Tree
 
-**Note**: Tree does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Tree does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Tree (via Semantic Tokens)
+#### v9 → Unify Tree (via Semantic Tokens)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 - **Arrow Icon**: `fill-text-primary` → `fill-text-primary` (uses `var(--content-text-neutral-base)`)
 - **Button Icon**: `fill-text-primary` → `fill-text-primary` (uses `var(--content-text-neutral-base)`)
 
 ### Typography
 
-**Note**: Typography does not have UDS component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
+**Note**: Typography does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → UDS Typography (via Semantic Tokens)
+#### v9 → Unify Typography (via Semantic Tokens)
 - **Primary**: `text-primary` → `text-primary` (mapped to `var(--background-brand-base)`)
 - **Secondary**: `text-secondary` → `text-secondary` (mapped to `var(--background-neutral-raised-1)`)
 - **Success**: `text-success` → `text-success` (mapped to `var(--background-semantic-success-base)`)
@@ -451,11 +449,11 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 ## Semantic Color Tokens
 
-### v9 → UDS Semantic Mappings
+### v9 → Unify Semantic Mappings
 
-The UDS variant includes a semantic token layer (`semantic-tokens.css`) that maps v9 tokens to UDS design tokens. This allows both token systems to coexist and provides a migration path.
+The Unify variant includes a semantic token layer (`semantic-tokens.css`) that maps v9 tokens to Unify design tokens. This allows both token systems to coexist and provides a migration path.
 
-**Note**: These mappings are automatically included when you import `reablocks/uds.css`.
+**Note**: These mappings are automatically included when you import `reablocks/unify.css`.
 
 #### Primary Colors
 - `--primary` → `--background-brand-base`
@@ -512,22 +510,22 @@ The UDS variant includes a semantic token layer (`semantic-tokens.css`) that map
 ### Semantic Token Layer Benefits
 
 The semantic token layer provides:
-1. **Backwards Compatibility**: v9-style tokens work in UDS variant
-2. **Migration Path**: Gradually replace semantic tokens with component-specific UDS tokens
+1. **Backwards Compatibility**: v9-style tokens work in Unify variant
+2. **Migration Path**: Gradually replace semantic tokens with component-specific Unify tokens
 3. **Flexibility**: Use simple tokens for utility components, detailed tokens for design system components
-4. **No Breaking Changes**: Existing v9 code works when switching to UDS variant
+4. **No Breaking Changes**: Existing v9 code works when switching to Unify variant
 
 ## Migration Strategy
 
 ### Approach 1: Incremental Migration (Recommended)
 1. Keep using v9 theme (default) for existing applications
-2. New features/components can optionally use UDS variant
+2. New features/components can optionally use Unify variant
 3. No breaking changes for existing users
 
-### Approach 2: Full Migration to UDS
-1. Import UDS CSS: `import 'reablocks/uds.css'`
-2. Update ThemeProvider: `<ThemeProvider variant="uds">`
-3. Custom theme overrides will automatically use UDS tokens
+### Approach 2: Full Migration to Unify
+1. Import Unify CSS: `import 'reablocks/unify.css'`
+2. Update ThemeProvider: `<ThemeProvider variant="unify">`
+3. Custom theme overrides will automatically use Unify tokens
 4. Review and update any custom component styles that reference v9 tokens
 
 ## Important: Variant Selection
@@ -535,7 +533,7 @@ The semantic token layer provides:
 The `variant` prop should be **set once at app initialization** and **not changed at runtime**.
 
 **Why?**
-- Each variant requires its corresponding CSS file (v9 || UDS)
+- Each variant requires its corresponding CSS file (v9 || Unify)
 - Runtime switching requires loading both CSS files
 - Changing variants without the corresponding CSS loaded will result in unstyled components
 - May cause flash of unstyled content (FOUC)
@@ -544,7 +542,7 @@ The `variant` prop should be **set once at app initialization** and **not change
 ```jsx
 // Import BOTH CSS files (not recommended for production)
 import 'reablocks/index.css';
-import 'reablocks/uds.css';
+import 'reablocks/unify.css';
 
 // Then you can switch at runtime
 <ThemeProvider variant={userSelectedVariant}>
@@ -555,10 +553,10 @@ import 'reablocks/uds.css';
 **Recommended pattern** (set once):
 ```jsx
 // Choose one CSS file based on your variant
-import 'reablocks/uds.css';
+import 'reablocks/unify.css';
 
 // Set variant once at root
-<ThemeProvider variant="uds">
+<ThemeProvider variant="unify">
   <App />
 </ThemeProvider>
 ```
@@ -584,10 +582,10 @@ import 'reablocks/uds.css';
 </ThemeProvider>
 ```
 
-### UDS Custom Theme
+### Unify Custom Theme
 ```jsx
 <ThemeProvider
-  variant="uds"
+  variant="unify"
   theme={{
     components: {
       button: {
@@ -609,12 +607,12 @@ import 'reablocks/uds.css';
 ### v9
 Light/dark mode is handled through CSS custom properties that change based on `.theme-light` or `.theme-dark` classes or `data-theme` attribute.
 
-### UDS
-UDS tokens include built-in light/dark mode support through `theme-light.css` and `theme-dark.css` which automatically respond to theme changes.
+### Unify
+Unify tokens include built-in light/dark mode support through `theme-light.css` and `theme-dark.css` which automatically respond to theme changes.
 
 ### Tabs
 
-#### v9 → UDS Tabs
+#### v9 → Unify Tabs
 - **Tab Background (Resting)**: `bg-transparent` → `bg-tabs-colors-contained-background-resting`
 - **Tab Background (Hover)**: `hover:bg-panel-accent` → `hover:bg-tabs-colors-contained-background-hover`
 - **Tab Background (Selected)**: `bg-transparent` → `bg-tabs-colors-contained-background-selected`
@@ -625,13 +623,13 @@ UDS tokens include built-in light/dark mode support through `theme-light.css` an
 
 ### Tooltip
 
-#### v9 → UDS Tooltip
+#### v9 → Unify Tooltip
 - **Background**: `bg-panel-accent` → `bg-tooltip-colors-neutral-background-default`
 - **Text**: `text-text-primary` → `text-tooltip-colors-neutral-text-default`
 
 ### Breadcrumbs
 
-#### v9 → UDS Breadcrumbs
+#### v9 → Unify Breadcrumbs
 - **Link Text (Resting)**: `text-text-secondary` → `text-breadcrumbs-colors-primary-text-resting`
 - **Link Text (Hover)**: `hover:text-text-primary` → `hover:text-breadcrumbs-colors-primary-text-hover`
 - **Link Text (Selected)**: `text-primary` → `text-breadcrumbs-colors-primary-text-selected`
@@ -640,24 +638,24 @@ UDS tokens include built-in light/dark mode support through `theme-light.css` an
 
 ### Avatar
 
-#### v9 → UDS Avatar
+#### v9 → Unify Avatar
 - **Background**: `bg-cover` → `bg-avatar-colors-background-container-resting`
 - **Border**: N/A → `border-avatar-colors-stroke-container-resting`
 - **Text**: `text-white` → `text-avatar-colors-text-resting`
 
 ## Notes
 
-### UDS Two-Tier Token Approach
+### Unify Two-Tier Token Approach
 
-The UDS variant uses a two-tier approach to reduce migration churn while leveraging the Unify Design System:
+The Unify variant uses a two-tier approach to reduce migration churn while leveraging the Unify Design System:
 
-1. **UDS Component Tokens** (Tier 1): Components use UDS component-specific tokens where UDS provides them (e.g., `bg-buttons-colors-core-icon-primary-background-resting`). These provide the most granular control and align directly with the Unify Design System.
+1. **Unify Component Tokens** (Tier 1): Components use Unify component-specific tokens where Unify provides them (e.g., `bg-buttons-colors-core-icon-primary-background-resting`). These provide the most granular control and align directly with the Unify Design System.
 
-2. **Semantic Token Layer** (Tier 2): Components without UDS component equivalents use v9-style semantic tokens (e.g., `bg-panel`, `text-text-primary`) that are automatically mapped to UDS design tokens (e.g., `var(--background-neutral-raised-base)`). This provides backwards compatibility while still leveraging UDS design system colors.
+2. **Semantic Token Layer** (Tier 2): Components without Unify component equivalents use v9-style semantic tokens (e.g., `bg-panel`, `text-text-primary`) that are automatically mapped to Unify design tokens (e.g., `var(--background-neutral-raised-base)`). This provides backwards compatibility while still leveraging Unify design system colors.
 
 ### Token Naming Patterns
 
-- **UDS Component Tokens**: Follow verbose, explicit naming for clarity
+- **Unify Component Tokens**: Follow verbose, explicit naming for clarity
   - Pattern: `{component}-colors-{element}-{property}-{state}`
   - State variants: `resting`, `hover`, `selected` (not `focused`/`pressed` for most components)
   - Borders use `stroke-*` not `border-*`
@@ -666,49 +664,49 @@ The UDS variant uses a two-tier approach to reduce migration churn while leverag
 
 - **Semantic Tokens**: Follow v9-style shorter, semantic names
   - Optimized for developer experience
-  - Automatically mapped to UDS design tokens
-  - Defined in `src/assets/css/uds/semantic-tokens.css`
+  - Automatically mapped to Unify design tokens
+  - Defined in `src/assets/css/unify/semantic-tokens.css`
 
 ### Migration Status
 
-- **Designed for compatibility**: The UDS variant is intended to keep the same component APIs as v9 while changing the underlying token sources.
-- **Migration scope**: Many existing v9 usages work unchanged when switching to the UDS variant, but usages that rely on raw Tailwind palette tokens (e.g., `text-gray-700`) may require remapping.
-- **Backwards-compatible strategy**: Both the UDS component-token approach and the semantic token layer coexist in the UDS variant to reduce migration churn.
-- **Ongoing evolution**: Token coverage and mappings may evolve as UDS and `reablocks` evolve; treat this guide as versioned documentation.
+- **Designed for compatibility**: The Unify variant is intended to keep the same component APIs as v9 while changing the underlying token sources.
+- **Migration scope**: Many existing v9 usages work unchanged when switching to the Unify variant, but usages that rely on raw Tailwind palette tokens (e.g., `text-gray-700`) may require remapping.
+- **Backwards-compatible strategy**: Both the Unify component-token approach and the semantic token layer coexist in the Unify variant to reduce migration churn.
+- **Ongoing evolution**: Token coverage and mappings may evolve as Unify and `reablocks` evolve; treat this guide as versioned documentation.
 
 ## Intentional Limitations and Design Decisions
 
-This section documents architectural decisions, limitations, and trade-offs made during UDS theme implementation to provide transparency for consumers and maintainers.
+This section documents architectural decisions, limitations, and trade-offs made during Unify theme implementation to provide transparency for consumers and maintainers.
 
 ### Success and Warning Button Variants
 
-**Limitation**: Success and warning button variants use the semantic token layer rather than UDS component tokens.
+**Limitation**: Success and warning button variants use the semantic token layer rather than Unify component tokens.
 
-**Why**: UDS provides component tokens for these button variants only:
+**Why**: Unify provides component tokens for these button variants only:
 - Primary (`buttons-colors-core-icon-primary-*`)
 - Secondary (`buttons-colors-core-icon-secondary-*`)
 - Destructive/Error (`buttons-colors-core-icon-destructive-*`)
 
-UDS does **not** provide `success` or `warning` button variants at the component token level (level-3).
+Unify does **not** provide `success` or `warning` button variants at the component token level (level-3).
 
-**Implementation**: Success and warning buttons use semantic tokens that map to UDS level-2 semantic colors:
+**Implementation**: Success and warning buttons use semantic tokens that map to Unify level-2 semantic colors:
 - `bg-success` → `var(--background-semantic-success-base)`
 - `bg-warning` → `var(--background-semantic-warning-base)`
 
 **Impact**:
-- ✅ Buttons render with correct UDS semantic colors
+- ✅ Buttons render with correct Unify semantic colors
 - ✅ Preserves v9-style semantics for success/warning variants
-- ❌ Does not pick up UDS component-level states (stroke, asset, pressed states)
+- ❌ Does not pick up Unify component-level states (stroke, asset, pressed states)
 - ❌ Does not reflect granular component taxonomy from Unify Design System
 
-**Recommendation**: If your application requires full UDS component-level parity for success/warning buttons, consider:
-1. Using only primary/secondary/error variants that have full UDS component tokens
-2. Requesting UDS team add success/warning button variants to the design system
+**Recommendation**: If your application requires full Unify component-level parity for success/warning buttons, consider:
+1. Using only primary/secondary/error variants that have full Unify component tokens
+2. Requesting Unify team add success/warning button variants to the design system
 3. Accepting this as an intentional semantic-parity limitation
 
 ### Components Using Semantic Token Layer
 
-The following components use the semantic token layer because UDS does not provide component-specific tokens (level-3) for them:
+The following components use the semantic token layer because Unify does not provide component-specific tokens (level-3) for them:
 
 - Card
 - Callout
@@ -726,52 +724,52 @@ The following components use the semantic token layer because UDS does not provi
 - Tree
 - Typography
 
-**Why**: These components use tokens like `bg-panel`, `text-text-primary`, `border-panel-accent` which map to UDS level-2 design tokens:
+**Why**: These components use tokens like `bg-panel`, `text-text-primary`, `border-panel-accent` which map to Unify level-2 design tokens:
 - `bg-panel` → `var(--background-neutral-raised-base)`
 - `text-text-primary` → `var(--content-text-neutral-base)`
 - `border-panel-accent` → `var(--background-neutral-raised-1)`
 
-**This is architecturally correct** given UDS's current token coverage. Creating fake "component tokens" for these would:
-- ❌ Be misleading about UDS design system coverage
-- ❌ Potentially conflict with future UDS additions
+**This is architecturally correct** given Unify's current token coverage. Creating fake "component tokens" for these would:
+- ❌ Be misleading about Unify design system coverage
+- ❌ Potentially conflict with future Unify additions
 - ❌ Create maintenance burden for non-standard tokens
 
 **Impact**:
-- ✅ Components render with correct UDS design system colors (level-2)
+- ✅ Components render with correct Unify design system colors (level-2)
 - ✅ Preserves the v9-style semantic token API for these components
-- ✅ Uses authentic UDS design tokens where they exist
+- ✅ Uses authentic Unify design tokens where they exist
 - ❌ Does not provide component-level styling nuances (granular stroke, asset, state tokens)
-- ❌ Does not reflect full UDS component taxonomy (because it doesn't exist for these components)
+- ❌ Does not reflect full Unify component taxonomy (because it doesn't exist for these components)
 
 **Recommendation**: If your application requires granular component-level control for these components:
 1. Use custom theme overrides with component-specific tokens
-2. Request UDS team add component tokens for these components
-3. Accept that semantic-level tokens provide appropriate UDS color parity for utility components
+2. Request Unify team add component tokens for these components
+3. Accept that semantic-level tokens provide appropriate Unify color parity for utility components
 
 ### Token Coverage Summary
 
-**Components with UDS component tokens** (level-3):
+**Components with Unify component tokens** (level-3):
 - Avatar, AvatarGroup, Badge, Breadcrumbs, Button (primary/secondary/error), Calendar, CalendarRange, DateInput, Checkbox, Chip, Input, Textarea, List, Menu, Notification/Toast, Radio, Select, Tabs, Toggle, Tooltip
 
-**Components using the semantic token layer** (level-2 UDS design tokens):
+**Components using the semantic token layer** (level-2 Unify design tokens):
 - Card, Callout, Dialog, Divider, Drawer, Kbd, Pager, Popover, Range, Redact, Sort, Stack, Stepper, Tree, Typography
 - Button success/warning variants (intentional limitation)
 
 **Design Philosophy**:
-- Use UDS component tokens (level-3) where they exist in the Unify Design System
-- Use semantic tokens mapped to UDS design tokens (level-2) where component tokens don't exist
-- Never create fake component tokens that don't exist in UDS
-- Preserve the v9-style semantic token API where UDS component tokens don't exist
+- Use Unify component tokens (level-3) where they exist in the Unify Design System
+- Use semantic tokens mapped to Unify design tokens (level-2) where component tokens don't exist
+- Never create fake component tokens that don't exist in Unify
+- Preserve the v9-style semantic token API where Unify component tokens don't exist
 
 ### When to Use Which Variant
 
 **Use v9 Theme** if you:
 - Prefer simpler, semantic token names (`bg-primary`, `text-secondary`)
-- Want smaller CSS bundle size (v9 is typically smaller than the UDS variant)
+- Want smaller CSS bundle size (v9 is typically smaller than the Unify variant)
 - Are building prototypes, MVPs, or internal tools
 - Don't need granular component-level token control
 
-**Use UDS Theme** if you:
+**Use Unify Theme** if you:
 - Need compliance with Unify Design System
 - Require granular component-level token control for supported components
 - Are building enterprise applications with strict design system requirements
@@ -779,7 +777,7 @@ The following components use the semantic token layer because UDS does not provi
 - Need component-specific states (resting, hover, selected, stroke, assets)
 
 **Both variants**:
-- Are shipped and versioned as part of `reablocks` (v9 is the default; UDS is opt-in)
+- Are shipped and versioned as part of `reablocks` (v9 is the default; Unify is opt-in)
 - Provide the same component APIs
 - Support custom theme overrides
 - Support light/dark mode

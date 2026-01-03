@@ -1,28 +1,5 @@
 @theme inline {
-  /* TW overrides */
-  --color-red-*: initial;
-  --color-orange-*: initial;
-  --color-amber-*: initial;
-  --color-yellow-*: initial;
-  --color-lime-*: initial;
-  --color-green-*: initial;
-  --color-emerald-*: initial;
-  --color-teal-*: initial;
-  --color-cyan-*: initial;
-  --color-sky-*: initial;
-  --color-blue-*: initial;
-  --color-indigo-*: initial;
-  --color-violet-*: initial;
-  --color-purple-*: initial;
-  --color-fuchsia-*: initial;
-  --color-pink-*: initial;
-  --color-rose-*: initial;
-  --color-slate-*: initial;
-  --color-gray-*: initial;
-  --color-zinc-*: initial;
-  --color-neutral-*: initial;
-  --color-stone-*: initial;
-
+  /* Override white/black to use Unify tokens */
   --color-white: var(--color-neutrals-pure-white-dnt-1000);
   --color-black: var(--color-neutrals-pure-black-dnt-1000);
 
