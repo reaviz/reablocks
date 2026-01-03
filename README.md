@@ -89,8 +89,8 @@ function App() {
 - Teams migrating from Unify Design System
 - Advanced theming and customization needs
 
-### Unify Theme (Compatibility build)
-If you need additional Tailwind palette aliases (e.g., `gray-*`, `slate-*`) mapped to Unify neutral tokens, you can use the compatibility build:
+### Unify Theme (Compatibility Build)
+If you want Tailwind palette utilities (e.g., `gray-500`, `slate-700`) to use Unify's design tokens instead of Tailwind's default values, use the compatibility build:
 
 ```tsx
 import 'reablocks/unify-compat.css';
@@ -105,17 +105,48 @@ function App() {
 }
 ```
 
-This provides a limited set of palette aliases (gray, slate, blue) mapped to Unify tokens. Note that standard Tailwind palette utilities work with the regular Unify build - this compat build is only needed if you want specific palette-to-Unify mappings.
+**Key Difference**:
+- **`unify.css`**: `text-gray-500` uses Tailwind's default gray (#6b7280)
+- **`unify-compat.css`**: `text-gray-500` uses Unify's neutral token (matches your design system)
+
+**Use this when**: You have existing code with palette utilities and want them to match your Unify design system colors. Otherwise, use the standard `unify.css` and migrate to semantic/component tokens over time.
 
 ### Choosing a Variant
 
 | Feature | v9 Theme | Unify Theme |
 |---------|----------|-------------|
-| **CSS Bundle Size** | Typically smaller | Typically larger |
+| **CSS Bundle Size** | Smaller (~145 KB / 19 KB gzipped in v10.0) | Larger (~310 KB / 35 KB gzipped in v10.0) |
 | **Token Style** | Semantic (`bg-primary`) | Component-specific (`bg-buttons-colors-core-icon-primary-background-resting`) |
 | **Customization** | Simple overrides | Granular control |
 | **Setup** | Minimal | More configuration |
 | **Migration Required** | No (default) | Opt-in |
+
+**Bundle Size Impact**: In v10.0, Unify theme adds approximately 16 KB (gzipped) over v9. Sizes may vary in future versions as design tokens evolve.
+
+**Important**: CSS files are pre-built and shipped in the package. You download the full stylesheet regardless of which components you use (no tree-shaking). This keeps setup simple (no Tailwind build required) but means the bundle size is fixed.
+
+**Recommendation**: Use Unify for design-system-heavy enterprise applications where the extra 16 KB is negligible compared to features gained. For marketing sites or lightweight apps, the v9 theme may be more appropriate.
+
+### Light and Dark Mode
+
+Both themes support light and dark modes out of the box. Toggle between modes by applying theme classes:
+
+```tsx
+// Toggle to dark mode
+document.documentElement.classList.add('theme-dark');
+
+// Toggle to light mode
+document.documentElement.classList.remove('theme-dark');
+document.documentElement.classList.add('theme-light');
+```
+
+Or using data attributes:
+```tsx
+document.documentElement.setAttribute('data-theme', 'dark');
+document.documentElement.setAttribute('data-theme', 'light');
+```
+
+The ThemeProvider automatically observes these changes and updates component styling accordingly. Both v9 and Unify themes include pre-configured light and dark color palettes.
 
 ### Important Notes
 

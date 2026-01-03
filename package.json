@@ -107,6 +107,8 @@
     "@tailwindcss/cli": "^4.1.13",
     "@tailwindcss/postcss": "^4.1.13",
     "@tailwindcss/vite": "^4.1.13",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^16.3.1",
     "@types/classnames": "^2.3.4",
     "@types/node": "^22.18.1",
     "@types/react": "^18.3.24",

@@ -50,34 +50,39 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   theme,
   variant = 'v9'
 }) => {
+  const [baseTheme, setBaseTheme] = useState<ReablocksTheme>(defaultTheme);
   const [activeTheme, setActiveTheme] = useState<ReablocksTheme>(defaultTheme);
   const [tokens, setTokens] = useState<Record<string, string>>({});
-  const [isLoading, setIsLoading] = useState(variant === 'unify');
+  const [isClient, setIsClient] = useState(false);
   const variantRef = useRef(variant);
 
-  // Warn if variant changes at runtime
+  // Detect client-side mount (SSR-safe)
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Warn if variant changes at runtime (and update ref to prevent infinite warnings)
   useEffect(() => {
     if (variantRef.current !== variant) {
       console.warn(
         '[ThemeProvider] Changing variant at runtime is not supported and may cause styling issues. ' +
           `Attempted to change from "${variantRef.current}" to "${variant}".`
       );
+      variantRef.current = variant;
     }
   }, [variant]);
 
-  // Load theme based on variant - single effect to avoid race conditions
+  // Load base theme when variant changes (client-side only)
   useEffect(() => {
+    if (!isClient) return;
+
     let isCancelled = false;
 
     if (variant === 'unify') {
-      setIsLoading(true);
       import('./themes/themeUnify')
         .then(module => {
           if (isCancelled) return;
-          const merged = theme
-            ? mergeDeep(module.themeUnify, theme)
-            : module.themeUnify;
-          setActiveTheme(merged);
+          setBaseTheme(module.themeUnify);
         })
         .catch(error => {
           if (isCancelled) return;
@@ -86,28 +91,25 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
               'Make sure you have imported "reablocks/unify.css" in your application.',
             error
           );
-          const merged = theme ? mergeDeep(defaultTheme, theme) : defaultTheme;
-          setActiveTheme(merged);
-        })
-        .finally(() => {
-          if (!isCancelled) {
-            setIsLoading(false);
-          }
+          setBaseTheme(defaultTheme);
         });
     } else {
-      setIsLoading(false);
-      const merged = theme ? mergeDeep(defaultTheme, theme) : defaultTheme;
-      setActiveTheme(merged);
+      setBaseTheme(defaultTheme);
     }
 
     return () => {
       isCancelled = true;
     };
-  }, [variant, theme]);
+  }, [variant, isClient]);
 
+  // Merge custom theme with base theme whenever either changes
   useEffect(() => {
-    if (isLoading) return;
+    const merged = theme ? mergeDeep(baseTheme, theme) : baseTheme;
+    setActiveTheme(merged);
+  }, [baseTheme, theme]);
 
+  // Update tokens when active theme changes
+  useEffect(() => {
     setTokens(getThemeVariables());
 
     const themeObserver = observeThemeSwitcher(() =>
@@ -115,15 +117,11 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     );
 
     return () => themeObserver.disconnect();
-  }, [activeTheme, isLoading]);
+  }, [activeTheme]);
 
   const updateTheme = (newTheme: ReablocksTheme) => {
     setActiveTheme({ ...activeTheme, ...newTheme });
   };
-
-  if (isLoading) {
-    return null;
-  }
 
   return (
     <ThemeContext.Provider
