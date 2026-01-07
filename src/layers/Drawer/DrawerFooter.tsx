@@ -1,11 +1,12 @@
 'use client';
 
-import React, { FC, ReactNode } from 'react';
+import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { DrawerTheme } from './DrawerTheme';
 
-export interface DrawerFooterProps {
+export interface DrawerFooterProps extends HTMLAttributes<HTMLElement> {
   /**
    * The content to display in the drawer footer.
    */
@@ -17,22 +18,36 @@ export interface DrawerFooterProps {
   className?: string;
 
   /**
+   * When true, the component will render its child directly, merging props.
+   */
+  asChild?: boolean;
+
+  /**
    * Theme for the Drawer Footer.
    */
   theme?: DrawerTheme;
 }
 
-export const DrawerFooter: FC<DrawerFooterProps> = ({
-  children,
-  className,
-  theme: customTheme
-}) => {
-  const theme = useComponentTheme<DrawerTheme>('drawer', customTheme);
+export const DrawerFooter = forwardRef<HTMLElement, DrawerFooterProps>(
+  (
+    { children, className, asChild = false, theme: customTheme, ...props },
+    ref
+  ) => {
+    const theme = useComponentTheme<DrawerTheme>('drawer', customTheme);
 
-  return (
-    <footer className={twMerge(theme.footer, className)}>{children}</footer>
-  );
-};
+    const Comp = asChild ? Slot : 'footer';
+
+    return (
+      <Comp
+        ref={ref as any}
+        className={twMerge(theme.footer, className)}
+        {...props}
+      >
+        {children}
+      </Comp>
+    );
+  }
+);
 
 // Mark this component as a Drawer slot for detection
 DrawerFooter.displayName = 'DrawerFooter';

@@ -60,6 +60,7 @@
   "homepage": "https://github.com/reaviz/reablocks#readme",
   "dependencies": {
     "@floating-ui/react": "^0.27.16",
+    "@radix-ui/react-slot": "^1.2.4",
     "@reaviz/react-use-fuzzy": "^1.0.3",
     "body-scroll-lock-upgrade": "^1.1.0",
     "chroma-js": "^3.1.2",

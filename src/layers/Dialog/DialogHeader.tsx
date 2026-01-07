@@ -1,12 +1,13 @@
 'use client';
 
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, forwardRef, HTMLAttributes } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
 import { useOptionalDialogContext } from './DialogContext';
 
-export interface DialogHeaderProps {
+export interface DialogHeaderProps extends HTMLAttributes<HTMLElement> {
   /**
    * The content of the dialog header.
    */
@@ -36,52 +37,79 @@ export interface DialogHeaderProps {
   onClose?: () => void;
 
   /**
+   * When true, the component will render its child directly, merging props.
+   */
+  asChild?: boolean;
+
+  /**
    * Theme for the Dialog Header.
    */
   theme?: DialogTheme;
 }
 
-export const DialogHeader: FC<DialogHeaderProps> = ({
-  children,
-  className,
-  showCloseButton: showCloseButtonProp,
-  disablePadding: disablePaddingProp,
-  onClose: onCloseProp,
-  theme: customTheme
-}) => {
-  const theme = useComponentTheme<DialogTheme>('dialog', customTheme);
-  const context = useOptionalDialogContext();
+export const DialogHeader = forwardRef<HTMLElement, DialogHeaderProps>(
+  (
+    {
+      children,
+      className,
+      showCloseButton: showCloseButtonProp,
+      disablePadding: disablePaddingProp,
+      onClose: onCloseProp,
+      asChild = false,
+      theme: customTheme,
+      ...props
+    },
+    ref
+  ) => {
+    const theme = useComponentTheme<DialogTheme>('dialog', customTheme);
+    const context = useOptionalDialogContext();
 
-  // Use props if provided, otherwise fall back to context values
-  const showCloseButton =
-    showCloseButtonProp ?? context?.showCloseButton ?? true;
-  const disablePadding = disablePaddingProp ?? context?.disablePadding ?? false;
-  const onClose = onCloseProp ?? context?.onClose;
+    // Use props if provided, otherwise fall back to context values
+    const showCloseButton =
+      showCloseButtonProp ?? context?.showCloseButton ?? true;
+    const disablePadding =
+      disablePaddingProp ?? context?.disablePadding ?? false;
+    const onClose = onCloseProp ?? context?.onClose;
 
-  return (
-    <header
-      className={twMerge(theme.header.base, className, disablePadding && 'p-0')}
-    >
-      <div className="flex-1">
-        {typeof children === 'string' ? (
-          <h1 className={theme.header.text}>{children}</h1>
-        ) : (
-          children
+    const Comp = asChild ? Slot : 'header';
+
+    return (
+      <Comp
+        ref={ref as any}
+        className={twMerge(
+          theme.header.base,
+          disablePadding && 'p-0',
+          className
         )}
-      </div>
-      {showCloseButton && onClose && (
-        <button
-          type="button"
-          className={theme.header.closeButton}
-          onClick={onClose}
-          aria-label="Close"
-        >
-          ✕
-        </button>
-      )}
-    </header>
-  );
-};
+        {...props}
+      >
+        {asChild ? (
+          children
+        ) : (
+          <>
+            <div className="flex-1">
+              {typeof children === 'string' ? (
+                <h1 className={theme.header.text}>{children}</h1>
+              ) : (
+                children
+              )}
+            </div>
+            {showCloseButton && onClose && (
+              <button
+                type="button"
+                className={theme.header.closeButton}
+                onClick={onClose}
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            )}
+          </>
+        )}
+      </Comp>
+    );
+  }
+);
 
 // Mark this component as a Dialog slot for detection
 DialogHeader.displayName = 'DialogHeader';

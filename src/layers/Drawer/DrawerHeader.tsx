@@ -1,12 +1,13 @@
 'use client';
 
-import React, { FC, ReactNode } from 'react';
+import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
+import { Slot } from '@radix-ui/react-slot';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { DrawerTheme } from './DrawerTheme';
 import { useOptionalDrawerContext } from './DrawerContext';
 
-export interface DrawerHeaderProps {
+export interface DrawerHeaderProps extends HTMLAttributes<HTMLElement> {
   /**
    * The content of the drawer header.
    */
@@ -30,48 +31,72 @@ export interface DrawerHeaderProps {
   onClose?: () => void;
 
   /**
+   * When true, the component will render its child directly, merging props.
+   */
+  asChild?: boolean;
+
+  /**
    * Theme for the Drawer Header.
    */
   theme?: DrawerTheme;
 }
 
-export const DrawerHeader: FC<DrawerHeaderProps> = ({
-  children,
-  className,
-  showCloseButton: showCloseButtonProp,
-  onClose: onCloseProp,
-  theme: customTheme
-}) => {
-  const theme: DrawerTheme = useComponentTheme('drawer', customTheme);
-  const context = useOptionalDrawerContext();
+export const DrawerHeader = forwardRef<HTMLElement, DrawerHeaderProps>(
+  (
+    {
+      children,
+      className,
+      showCloseButton: showCloseButtonProp,
+      onClose: onCloseProp,
+      asChild = false,
+      theme: customTheme,
+      ...props
+    },
+    ref
+  ) => {
+    const theme: DrawerTheme = useComponentTheme('drawer', customTheme);
+    const context = useOptionalDrawerContext();
 
-  // Use props if provided, otherwise fall back to context values
-  const showCloseButton =
-    showCloseButtonProp ?? context?.showCloseButton ?? true;
-  const onClose = onCloseProp ?? context?.onClose;
+    // Use props if provided, otherwise fall back to context values
+    const showCloseButton =
+      showCloseButtonProp ?? context?.showCloseButton ?? true;
+    const onClose = onCloseProp ?? context?.onClose;
 
-  return (
-    <header className={twMerge(theme.header.base, className)}>
-      <div className="flex-1">
-        {typeof children === 'string' ? (
-          <h1 className={theme.header.text}>{children}</h1>
-        ) : (
+    const Comp = asChild ? Slot : 'header';
+
+    return (
+      <Comp
+        ref={ref as any}
+        className={twMerge(theme.header.base, className)}
+        {...props}
+      >
+        {asChild ? (
           children
+        ) : (
+          <>
+            <div className="flex-1">
+              {typeof children === 'string' ? (
+                <h1 className={theme.header.text}>{children}</h1>
+              ) : (
+                children
+              )}
+            </div>
+            {showCloseButton && onClose && (
+              <button
+                type="button"
+                className={theme.closeButton.base}
+                onClick={onClose}
+                aria-label="Close"
+              >
+                ✕
+              </button>
+            )}
+          </>
         )}
-      </div>
-      {showCloseButton && onClose && (
-        <button
-          type="button"
-          className={theme.closeButton.base}
-          onClick={onClose}
-          aria-label="Close"
-        >
-          ✕
-        </button>
-      )}
-    </header>
-  );
-};
+      </Comp>
+    );
+  }
+);
 
 // Mark this component as a Drawer slot for detection
 DrawerHeader.displayName = 'DrawerHeader';
