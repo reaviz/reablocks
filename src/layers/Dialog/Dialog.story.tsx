@@ -148,50 +148,6 @@ export const SlotBasedCustomHeader = () => {
   );
 };
 
-export const AsChildPattern = () => {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div style={{ textAlign: 'center', margin: '50px' }}>
-      <Button onClick={() => setOpen(true)}>Open asChild Dialog</Button>
-      <Dialog open={open} onClose={() => setOpen(false)}>
-        <DialogHeader asChild>
-          <nav className="flex items-center justify-between border-b border-panel-accent">
-            <h2 className="text-xl font-bold">Custom Navigation Header</h2>
-            <button
-              onClick={() => setOpen(false)}
-              className="text-text-secondary hover:text-text-primary"
-            >
-              ✕
-            </button>
-          </nav>
-        </DialogHeader>
-        <DialogContent asChild>
-          <section className="space-y-4">
-            <p>
-              Using <code>asChild</code>, you can render any element while
-              inheriting the slot's styles.
-            </p>
-            <p>
-              This is useful when you need semantic HTML or custom components.
-            </p>
-          </section>
-        </DialogContent>
-        <DialogFooter asChild>
-          <div className="flex justify-between border-t border-panel-accent pt-4">
-            <span className="text-text-secondary text-sm">
-              Custom footer layout
-            </span>
-            <Button onClick={() => setOpen(false)} color="primary">
-              Done
-            </Button>
-          </div>
-        </DialogFooter>
-      </Dialog>
-    </div>
-  );
-};
-
 // Legacy prop-based examples (deprecated but still supported)
 export const LegacySimple = () => {
   const { toggleOpen, Dialog } = useDialog();

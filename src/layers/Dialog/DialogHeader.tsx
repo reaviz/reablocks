@@ -1,7 +1,6 @@
 'use client';
 
 import React, { FC, ReactNode, forwardRef, HTMLAttributes } from 'react';
-import { Slot } from '@radix-ui/react-slot';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
@@ -37,11 +36,6 @@ export interface DialogHeaderProps extends HTMLAttributes<HTMLElement> {
   onClose?: () => void;
 
   /**
-   * When true, the component will render its child directly, merging props.
-   */
-  asChild?: boolean;
-
-  /**
    * Theme for the Dialog Header.
    */
   theme?: DialogTheme;
@@ -55,7 +49,6 @@ export const DialogHeader = forwardRef<HTMLElement, DialogHeaderProps>(
       showCloseButton: showCloseButtonProp,
       disablePadding: disablePaddingProp,
       onClose: onCloseProp,
-      asChild = false,
       theme: customTheme,
       ...props
     },
@@ -71,11 +64,9 @@ export const DialogHeader = forwardRef<HTMLElement, DialogHeaderProps>(
       disablePaddingProp ?? context?.disablePadding ?? false;
     const onClose = onCloseProp ?? context?.onClose;
 
-    const Comp = asChild ? Slot : 'header';
-
     return (
-      <Comp
-        ref={ref as any}
+      <header
+        ref={ref}
         className={twMerge(
           theme.header.base,
           disablePadding && 'p-0',
@@ -83,30 +74,24 @@ export const DialogHeader = forwardRef<HTMLElement, DialogHeaderProps>(
         )}
         {...props}
       >
-        {asChild ? (
-          children
-        ) : (
-          <>
-            <div className="flex-1">
-              {typeof children === 'string' ? (
-                <h1 className={theme.header.text}>{children}</h1>
-              ) : (
-                children
-              )}
-            </div>
-            {showCloseButton && onClose && (
-              <button
-                type="button"
-                className={theme.header.closeButton}
-                onClick={onClose}
-                aria-label="Close"
-              >
-                ✕
-              </button>
-            )}
-          </>
+        <div className="flex-1">
+          {typeof children === 'string' ? (
+            <h1 className={theme.header.text}>{children}</h1>
+          ) : (
+            children
+          )}
+        </div>
+        {showCloseButton && onClose && (
+          <button
+            type="button"
+            className={theme.header.closeButton}
+            onClick={onClose}
+            aria-label="Close"
+          >
+            ✕
+          </button>
         )}
-      </Comp>
+      </header>
     );
   }
 );

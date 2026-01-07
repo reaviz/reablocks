@@ -1,7 +1,6 @@
 'use client';
 
 import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
-import { Slot } from '@radix-ui/react-slot';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { DrawerTheme } from './DrawerTheme';
@@ -31,11 +30,6 @@ export interface DrawerHeaderProps extends HTMLAttributes<HTMLElement> {
   onClose?: () => void;
 
   /**
-   * When true, the component will render its child directly, merging props.
-   */
-  asChild?: boolean;
-
-  /**
    * Theme for the Drawer Header.
    */
   theme?: DrawerTheme;
@@ -48,7 +42,6 @@ export const DrawerHeader = forwardRef<HTMLElement, DrawerHeaderProps>(
       className,
       showCloseButton: showCloseButtonProp,
       onClose: onCloseProp,
-      asChild = false,
       theme: customTheme,
       ...props
     },
@@ -62,38 +55,30 @@ export const DrawerHeader = forwardRef<HTMLElement, DrawerHeaderProps>(
       showCloseButtonProp ?? context?.showCloseButton ?? true;
     const onClose = onCloseProp ?? context?.onClose;
 
-    const Comp = asChild ? Slot : 'header';
-
     return (
-      <Comp
-        ref={ref as any}
+      <header
+        ref={ref}
         className={twMerge(theme.header.base, className)}
         {...props}
       >
-        {asChild ? (
-          children
-        ) : (
-          <>
-            <div className="flex-1">
-              {typeof children === 'string' ? (
-                <h1 className={theme.header.text}>{children}</h1>
-              ) : (
-                children
-              )}
-            </div>
-            {showCloseButton && onClose && (
-              <button
-                type="button"
-                className={theme.closeButton.base}
-                onClick={onClose}
-                aria-label="Close"
-              >
-                ✕
-              </button>
-            )}
-          </>
+        <div className="flex-1">
+          {typeof children === 'string' ? (
+            <h1 className={theme.header.text}>{children}</h1>
+          ) : (
+            children
+          )}
+        </div>
+        {showCloseButton && onClose && (
+          <button
+            type="button"
+            className={theme.closeButton.base}
+            onClick={onClose}
+            aria-label="Close"
+          >
+            ✕
+          </button>
         )}
-      </Comp>
+      </header>
     );
   }
 );
