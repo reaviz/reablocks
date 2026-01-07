@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from 'react';
-import { useDrawer } from './useDrawer';
 import { Drawer } from './Drawer';
 import { DrawerHeader } from './DrawerHeader';
 import { DrawerContent } from './DrawerContent';
@@ -12,8 +11,7 @@ export default {
   component: Drawer
 };
 
-// New slot-based approach examples
-export const SlotBased = () => {
+export const Simple = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -31,7 +29,7 @@ export const SlotBased = () => {
   );
 };
 
-export const SlotBasedWithFooter = () => {
+export const WithFooter = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -58,7 +56,7 @@ export const SlotBasedWithFooter = () => {
   );
 };
 
-export const SlotBasedWithForm = () => {
+export const WithForm = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -111,7 +109,7 @@ export const SlotBasedWithForm = () => {
   );
 };
 
-export const SlotBasedBottomSheet = () => {
+export const BottomSheet = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -139,7 +137,7 @@ export const SlotBasedBottomSheet = () => {
   );
 };
 
-export const SlotBasedLeftDrawer = () => {
+export const LeftDrawer = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -169,90 +167,6 @@ export const SlotBasedLeftDrawer = () => {
     </Fragment>
   );
 };
-
-// Legacy prop-based examples (deprecated but still supported)
-export const LegacySimple = () => {
-  const { toggleOpen, Drawer } = useDrawer();
-  return (
-    <Fragment>
-      <Drawer>
-        <p>Hello There!</p>
-      </Drawer>
-      <Button type="button" onClick={toggleOpen}>
-        Open
-      </Button>
-    </Fragment>
-  );
-};
-
-LegacySimple.storyName = 'Legacy: Simple (Deprecated)';
-
-export const LegacyBottomSheet = () => {
-  const { toggleOpen, Drawer } = useDrawer();
-  return (
-    <Fragment>
-      <Drawer position="bottom">
-        <p>Hello There!</p>
-      </Drawer>
-      <Button type="button" onClick={toggleOpen}>
-        Open
-      </Button>
-    </Fragment>
-  );
-};
-
-LegacyBottomSheet.storyName = 'Legacy: Bottom Sheet (Deprecated)';
-
-const MyHeader = () => <div>hello!</div>;
-
-export const LegacyCustomHeaderElement = () => {
-  const { toggleOpen, Drawer } = useDrawer();
-  return (
-    <Fragment>
-      <Drawer headerElement={<MyHeader />}>
-        <p>Hello There!</p>
-      </Drawer>
-      <Button type="button" onClick={toggleOpen}>
-        Open
-      </Button>
-    </Fragment>
-  );
-};
-
-LegacyCustomHeaderElement.storyName =
-  'Legacy: Custom Header Element (Deprecated)';
-
-export const LegacyHeader = () => {
-  const { toggleOpen, Drawer } = useDrawer();
-  return (
-    <Fragment>
-      <Drawer header="Hello!!!!">
-        <p>Hello There!</p>
-      </Drawer>
-      <Button type="button" onClick={toggleOpen}>
-        Open
-      </Button>
-    </Fragment>
-  );
-};
-
-LegacyHeader.storyName = 'Legacy: Header (Deprecated)';
-
-export const LegacyCustomHeader = () => {
-  const { toggleOpen, Drawer } = useDrawer();
-  return (
-    <Fragment>
-      <Drawer header={<h3>Hello!!!!</h3>}>
-        <p>Hello There!</p>
-      </Drawer>
-      <Button type="button" onClick={toggleOpen}>
-        Open
-      </Button>
-    </Fragment>
-  );
-};
-
-LegacyCustomHeader.storyName = 'Legacy: Custom Header (Deprecated)';
 
 export const CustomAnimation = () => {
   const [isOpen, setIsOpen] = useState(false);

@@ -1,15 +1,14 @@
 'use client';
 
-import React, {
-  FC,
-  ReactElement,
-  ReactNode,
-  Children,
-  isValidElement,
-  useMemo
-} from 'react';
+import React, { FC, ReactElement, ReactNode, useMemo } from 'react';
 import FocusTrap from 'focus-trap-react';
-import { useId, CloneElement } from '@/utils';
+import {
+  useId,
+  CloneElement,
+  hasSlotComponents,
+  extractSlots,
+  useComponentTheme
+} from '@/utils';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
 import {
   motion,
@@ -21,12 +20,9 @@ import {
 } from 'motion/react';
 import { variants } from './variants';
 import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
-import { DrawerContent } from './DrawerContent';
-import { DrawerFooter } from './DrawerFooter';
 import { DrawerContext, DrawerContextValue } from './DrawerContext';
 import { twMerge } from 'tailwind-merge';
 import { DrawerTheme } from './DrawerTheme';
-import { useComponentTheme } from '@/utils';
 
 export interface DrawerProps
   extends Omit<GlobalOverlayProps, 'children'>,
@@ -125,73 +121,18 @@ export interface DrawerProps
 }
 
 // Slot component display names for detection
-const SLOT_NAMES = ['DrawerHeader', 'DrawerContent', 'DrawerFooter'];
+const DRAWER_SLOT_NAMES = ['DrawerHeader', 'DrawerContent', 'DrawerFooter'];
+const DRAWER_SLOT_MAP = {
+  DrawerHeader: 'header',
+  DrawerContent: 'content',
+  DrawerFooter: 'footer'
+} as const;
 
-/**
- * Check if children contain any slot components
- */
-function hasSlotComponents(children: ReactNode): boolean {
-  let hasSlots = false;
-
-  Children.forEach(children, child => {
-    if (isValidElement(child)) {
-      const displayName =
-        (child.type as any)?.displayName || (child.type as any)?.name || '';
-      if (SLOT_NAMES.includes(displayName)) {
-        hasSlots = true;
-      }
-    }
-  });
-
-  return hasSlots;
-}
-
-/**
- * Extract slot components from children
- */
-function extractSlots(children: ReactNode): {
+type DrawerSlots = {
   header: ReactNode;
   content: ReactNode;
   footer: ReactNode;
-  other: ReactNode[];
-} {
-  const slots: {
-    header: ReactNode;
-    content: ReactNode;
-    footer: ReactNode;
-    other: ReactNode[];
-  } = {
-    header: null,
-    content: null,
-    footer: null,
-    other: []
-  };
-
-  Children.forEach(children, child => {
-    if (isValidElement(child)) {
-      const displayName =
-        (child.type as any)?.displayName || (child.type as any)?.name || '';
-
-      switch (displayName) {
-        case 'DrawerHeader':
-          slots.header = child;
-          break;
-        case 'DrawerContent':
-          slots.content = child;
-          break;
-        case 'DrawerFooter':
-          slots.footer = child;
-          break;
-        default:
-          slots.other.push(child);
-      }
-    } else if (child != null) {
-      slots.other.push(child);
-    }
-  });
-
-  return slots;
-}
+};
 
 export const Drawer: FC<Partial<DrawerProps>> = ({
   className,
@@ -224,11 +165,15 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
   const theme: DrawerTheme = useComponentTheme('drawer', customTheme);
 
   // Detect if using slot-based approach
-  const useSlots = useMemo(() => hasSlotComponents(children), [children]);
+  const useSlots = useMemo(
+    () => hasSlotComponents(children, DRAWER_SLOT_NAMES),
+    [children]
+  );
 
   // Extract slots if using slot-based approach
   const slots = useMemo(
-    () => (useSlots ? extractSlots(children) : null),
+    () =>
+      useSlots ? extractSlots<DrawerSlots>(children, DRAWER_SLOT_MAP) : null,
     [useSlots, children]
   );
 

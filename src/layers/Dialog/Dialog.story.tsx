@@ -3,7 +3,6 @@ import { Dialog } from './Dialog';
 import { DialogHeader } from './DialogHeader';
 import { DialogContent } from './DialogContent';
 import { DialogFooter } from './DialogFooter';
-import { useDialog } from './useDialog';
 import { Button } from '../../elements';
 import { Stack } from '../../layout';
 
@@ -12,8 +11,7 @@ export default {
   component: Dialog
 };
 
-// New slot-based approach examples
-export const SlotBased = () => {
+export const Simple = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -27,7 +25,7 @@ export const SlotBased = () => {
   );
 };
 
-export const SlotBasedWithFooter = () => {
+export const WithFooter = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -53,7 +51,7 @@ export const SlotBasedWithFooter = () => {
   );
 };
 
-export const SlotBasedWithForm = () => {
+export const WithForm = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -104,7 +102,7 @@ export const SlotBasedWithForm = () => {
   );
 };
 
-export const SlotBasedNoCloseButton = () => {
+export const NoCloseButton = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -127,7 +125,7 @@ export const SlotBasedNoCloseButton = () => {
   );
 };
 
-export const SlotBasedCustomHeader = () => {
+export const CustomHeader = () => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -147,128 +145,6 @@ export const SlotBasedCustomHeader = () => {
     </div>
   );
 };
-
-// Legacy prop-based examples (deprecated but still supported)
-export const LegacySimple = () => {
-  const { toggleOpen, Dialog } = useDialog();
-
-  return (
-    <div style={{ textAlign: 'center', margin: '50px' }}>
-      <Button onClick={toggleOpen}>Open</Button>
-      <Dialog header="Whats up">Hello</Dialog>
-    </div>
-  );
-};
-
-LegacySimple.storyName = 'Legacy: Simple (Deprecated)';
-
-export const LegacyCustomHeader = () => {
-  const { toggleOpen, Dialog } = useDialog();
-
-  return (
-    <div style={{ textAlign: 'center', margin: '50px' }}>
-      <Button onClick={toggleOpen}>Open</Button>
-      <Dialog header={<h3 className="text-2xl">What's up</h3>}>Hello</Dialog>
-    </div>
-  );
-};
-
-LegacyCustomHeader.storyName = 'Legacy: Custom Header (Deprecated)';
-
-const MyHeader = ({ children }: any) => <div>{children}</div>;
-
-export const LegacyCustomHeaderElement = () => {
-  const { toggleOpen, Dialog } = useDialog();
-
-  return (
-    <div style={{ textAlign: 'center', margin: '50px' }}>
-      <Button onClick={toggleOpen}>Open</Button>
-      <Dialog header="My Custom Header" headerElement={<MyHeader />}>
-        Body Content
-      </Dialog>
-    </div>
-  );
-};
-
-LegacyCustomHeaderElement.storyName =
-  'Legacy: Custom Header Element (Deprecated)';
-
-export const LegacyNoHeader = () => {
-  const { toggleOpen, Dialog } = useDialog();
-
-  return (
-    <div style={{ textAlign: 'center', margin: '50px' }}>
-      <Button onClick={toggleOpen}>Open</Button>
-      <Dialog header={null}>Hello</Dialog>
-    </div>
-  );
-};
-
-LegacyNoHeader.storyName = 'Legacy: No Header (Deprecated)';
-
-export const LegacyNoPadding = () => {
-  const { toggleOpen, Dialog } = useDialog();
-
-  return (
-    <div style={{ textAlign: 'center', margin: '50px' }}>
-      <Button onClick={toggleOpen}>Open</Button>
-      <Dialog header={null} disablePadding={true}>
-        Hello
-      </Dialog>
-    </div>
-  );
-};
-
-LegacyNoPadding.storyName = 'Legacy: No Padding (Deprecated)';
-
-export const LegacyFooter = () => {
-  const { toggleOpen, Dialog } = useDialog();
-
-  return (
-    <div style={{ textAlign: 'center', margin: '50px' }}>
-      <Button onClick={toggleOpen}>Open</Button>
-      <Dialog
-        header="Whats up"
-        footer={
-          <div>
-            <Button>Save</Button>
-          </div>
-        }
-      >
-        <div style={{ height: '300px', backgroundColor: 'white' }}>Hello</div>
-      </Dialog>
-    </div>
-  );
-};
-
-LegacyFooter.storyName = 'Legacy: Footer (Deprecated)';
-
-export const LegacyConfirmDialog = () => {
-  const { toggleOpen, Dialog } = useDialog();
-
-  return (
-    <div style={{ textAlign: 'center', margin: '50px' }}>
-      <Button onClick={toggleOpen}>Open</Button>
-      <Dialog
-        header="Whats up"
-        footer={
-          <Stack justifyContent="end" className="w-full">
-            <Button>Cancel</Button>
-            <Button color="primary">Save</Button>
-          </Stack>
-        }
-      >
-        <div>
-          This is notification text. Fusce dapibus, tellus ac cursus commodo,
-          tortor mauris condimentum nibh, ut fermentum massa justo sit amet
-          risus.
-        </div>
-      </Dialog>
-    </div>
-  );
-};
-
-LegacyConfirmDialog.storyName = 'Legacy: Confirm Dialog (Deprecated)';
 
 export const CustomAnimation = () => {
   const [open, setOpen] = useState(false);

@@ -1,15 +1,14 @@
 'use client';
 
-import React, {
-  FC,
-  ReactElement,
-  ReactNode,
-  Children,
-  isValidElement,
-  useMemo
-} from 'react';
+import React, { FC, ReactElement, ReactNode, useMemo } from 'react';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
-import { useId, CloneElement, cn } from '@/utils';
+import {
+  useId,
+  CloneElement,
+  cn,
+  hasSlotComponents,
+  extractSlots
+} from '@/utils';
 import FocusTrap from 'focus-trap-react';
 import {
   motion,
@@ -20,8 +19,6 @@ import {
   VariantLabels
 } from 'motion/react';
 import { DialogHeader, DialogHeaderProps } from './DialogHeader';
-import { DialogContent } from './DialogContent';
-import { DialogFooter } from './DialogFooter';
 import { DialogContext, DialogContextValue } from './DialogContext';
 import { useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
@@ -133,73 +130,18 @@ export interface DialogProps
 }
 
 // Slot component display names for detection
-const SLOT_NAMES = ['DialogHeader', 'DialogContent', 'DialogFooter'];
+const DIALOG_SLOT_NAMES = ['DialogHeader', 'DialogContent', 'DialogFooter'];
+const DIALOG_SLOT_MAP = {
+  DialogHeader: 'header',
+  DialogContent: 'content',
+  DialogFooter: 'footer'
+} as const;
 
-/**
- * Check if children contain any slot components
- */
-function hasSlotComponents(children: ReactNode): boolean {
-  let hasSlots = false;
-
-  Children.forEach(children, child => {
-    if (isValidElement(child)) {
-      const displayName =
-        (child.type as any)?.displayName || (child.type as any)?.name || '';
-      if (SLOT_NAMES.includes(displayName)) {
-        hasSlots = true;
-      }
-    }
-  });
-
-  return hasSlots;
-}
-
-/**
- * Extract slot components from children
- */
-function extractSlots(children: ReactNode): {
+type DialogSlots = {
   header: ReactNode;
   content: ReactNode;
   footer: ReactNode;
-  other: ReactNode[];
-} {
-  const slots: {
-    header: ReactNode;
-    content: ReactNode;
-    footer: ReactNode;
-    other: ReactNode[];
-  } = {
-    header: null,
-    content: null,
-    footer: null,
-    other: []
-  };
-
-  Children.forEach(children, child => {
-    if (isValidElement(child)) {
-      const displayName =
-        (child.type as any)?.displayName || (child.type as any)?.name || '';
-
-      switch (displayName) {
-        case 'DialogHeader':
-          slots.header = child;
-          break;
-        case 'DialogContent':
-          slots.content = child;
-          break;
-        case 'DialogFooter':
-          slots.footer = child;
-          break;
-        default:
-          slots.other.push(child);
-      }
-    } else if (child != null) {
-      slots.other.push(child);
-    }
-  });
-
-  return slots;
-}
+};
 
 export const Dialog: FC<DialogProps> = ({
   children,
@@ -230,13 +172,16 @@ export const Dialog: FC<DialogProps> = ({
 
   // Detect if using slot-based approach
   const useSlots = useMemo(
-    () => hasSlotComponents(resolvedChildren),
+    () => hasSlotComponents(resolvedChildren, DIALOG_SLOT_NAMES),
     [resolvedChildren]
   );
 
   // Extract slots if using slot-based approach
   const slots = useMemo(
-    () => (useSlots ? extractSlots(resolvedChildren) : null),
+    () =>
+      useSlots
+        ? extractSlots<DialogSlots>(resolvedChildren, DIALOG_SLOT_MAP)
+        : null,
     [useSlots, resolvedChildren]
   );
 
