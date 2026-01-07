@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import { MotionProps } from 'motion/react';
 import { Dialog } from './Dialog';
+import { DialogHeader } from './DialogHeader';
+import { DialogContent } from './DialogContent';
+import { DialogFooter } from './DialogFooter';
 import { useDialog } from './useDialog';
 import { Button } from '../../elements';
 import { Stack } from '../../layout';
@@ -10,7 +12,144 @@ export default {
   component: Dialog
 };
 
-export const Simple = () => {
+// New slot-based approach examples
+export const SlotBased = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div style={{ textAlign: 'center', margin: '50px' }}>
+      <Button onClick={() => setOpen(true)}>Open</Button>
+      <Dialog open={open} onClose={() => setOpen(false)}>
+        <DialogHeader>Whats up</DialogHeader>
+        <DialogContent>Hello</DialogContent>
+      </Dialog>
+    </div>
+  );
+};
+
+export const SlotBasedWithFooter = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div style={{ textAlign: 'center', margin: '50px' }}>
+      <Button onClick={() => setOpen(true)}>Open</Button>
+      <Dialog open={open} onClose={() => setOpen(false)}>
+        <DialogHeader>Confirm Action</DialogHeader>
+        <DialogContent>
+          <p>
+            This is notification text. Fusce dapibus, tellus ac cursus commodo,
+            tortor mauris condimentum nibh, ut fermentum massa justo sit amet
+            risus.
+          </p>
+        </DialogContent>
+        <DialogFooter>
+          <Stack justifyContent="end" className="w-full">
+            <Button onClick={() => setOpen(false)}>Cancel</Button>
+            <Button color="primary">Save</Button>
+          </Stack>
+        </DialogFooter>
+      </Dialog>
+    </div>
+  );
+};
+
+export const SlotBasedWithForm = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div style={{ textAlign: 'center', margin: '50px' }}>
+      <Button onClick={() => setOpen(true)}>Open Form Dialog</Button>
+      <Dialog open={open} onClose={() => setOpen(false)} size="400px">
+        <form
+          onSubmit={e => {
+            e.preventDefault();
+            alert('Form submitted!');
+            setOpen(false);
+          }}
+        >
+          <DialogHeader>Edit Profile</DialogHeader>
+          <DialogContent>
+            <div className="flex flex-col gap-4">
+              <label className="flex flex-col gap-1">
+                <span className="text-sm text-text-secondary">Name</span>
+                <input
+                  type="text"
+                  className="px-3 py-2 border border-panel-accent rounded bg-panel"
+                  placeholder="Enter your name"
+                />
+              </label>
+              <label className="flex flex-col gap-1">
+                <span className="text-sm text-text-secondary">Email</span>
+                <input
+                  type="email"
+                  className="px-3 py-2 border border-panel-accent rounded bg-panel"
+                  placeholder="Enter your email"
+                />
+              </label>
+            </div>
+          </DialogContent>
+          <DialogFooter>
+            <Stack justifyContent="end" className="w-full">
+              <Button type="button" onClick={() => setOpen(false)}>
+                Cancel
+              </Button>
+              <Button type="submit" color="primary">
+                Save Changes
+              </Button>
+            </Stack>
+          </DialogFooter>
+        </form>
+      </Dialog>
+    </div>
+  );
+};
+
+export const SlotBasedNoCloseButton = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div style={{ textAlign: 'center', margin: '50px' }}>
+      <Button onClick={() => setOpen(true)}>Open</Button>
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        showCloseButton={false}
+      >
+        <DialogHeader>No Close Button</DialogHeader>
+        <DialogContent>
+          <p>This dialog has no close button in the header.</p>
+        </DialogContent>
+        <DialogFooter>
+          <Button onClick={() => setOpen(false)}>Close</Button>
+        </DialogFooter>
+      </Dialog>
+    </div>
+  );
+};
+
+export const SlotBasedCustomHeader = () => {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <div style={{ textAlign: 'center', margin: '50px' }}>
+      <Button onClick={() => setOpen(true)}>Open</Button>
+      <Dialog open={open} onClose={() => setOpen(false)}>
+        <DialogHeader>
+          <div className="flex items-center gap-2">
+            <span className="text-2xl">🎉</span>
+            <span>Custom Header Content</span>
+          </div>
+        </DialogHeader>
+        <DialogContent>
+          <p>You can put any custom content in the header!</p>
+        </DialogContent>
+      </Dialog>
+    </div>
+  );
+};
+
+// Legacy prop-based examples (deprecated but still supported)
+export const LegacySimple = () => {
   const { toggleOpen, Dialog } = useDialog();
 
   return (
@@ -21,7 +160,9 @@ export const Simple = () => {
   );
 };
 
-export const CustomHeader = () => {
+LegacySimple.storyName = 'Legacy: Simple (Deprecated)';
+
+export const LegacyCustomHeader = () => {
   const { toggleOpen, Dialog } = useDialog();
 
   return (
@@ -32,9 +173,11 @@ export const CustomHeader = () => {
   );
 };
 
+LegacyCustomHeader.storyName = 'Legacy: Custom Header (Deprecated)';
+
 const MyHeader = ({ children }: any) => <div>{children}</div>;
 
-export const CustomHeaderElement = () => {
+export const LegacyCustomHeaderElement = () => {
   const { toggleOpen, Dialog } = useDialog();
 
   return (
@@ -47,7 +190,10 @@ export const CustomHeaderElement = () => {
   );
 };
 
-export const NoHeader = () => {
+LegacyCustomHeaderElement.storyName =
+  'Legacy: Custom Header Element (Deprecated)';
+
+export const LegacyNoHeader = () => {
   const { toggleOpen, Dialog } = useDialog();
 
   return (
@@ -58,7 +204,9 @@ export const NoHeader = () => {
   );
 };
 
-export const NoPadding = () => {
+LegacyNoHeader.storyName = 'Legacy: No Header (Deprecated)';
+
+export const LegacyNoPadding = () => {
   const { toggleOpen, Dialog } = useDialog();
 
   return (
@@ -71,7 +219,9 @@ export const NoPadding = () => {
   );
 };
 
-export const Footer = () => {
+LegacyNoPadding.storyName = 'Legacy: No Padding (Deprecated)';
+
+export const LegacyFooter = () => {
   const { toggleOpen, Dialog } = useDialog();
 
   return (
@@ -91,7 +241,9 @@ export const Footer = () => {
   );
 };
 
-export const ConfirmDialog = () => {
+LegacyFooter.storyName = 'Legacy: Footer (Deprecated)';
+
+export const LegacyConfirmDialog = () => {
   const { toggleOpen, Dialog } = useDialog();
 
   return (
@@ -116,6 +268,8 @@ export const ConfirmDialog = () => {
   );
 };
 
+LegacyConfirmDialog.storyName = 'Legacy: Confirm Dialog (Deprecated)';
+
 export const CustomAnimation = () => {
   const [open, setOpen] = useState(false);
 
@@ -125,7 +279,6 @@ export const CustomAnimation = () => {
       <Dialog
         open={open}
         onClose={() => setOpen(false)}
-        header="Custom Animation Dialog"
         animation={{
           initial: { opacity: 0, scale: 0.5, rotate: -10 },
           animate: { opacity: 1, scale: 1, rotate: 0 },
@@ -133,10 +286,11 @@ export const CustomAnimation = () => {
           transition: { duration: 0.4, type: 'spring', stiffness: 150 }
         }}
       >
-        <div className="p-4">
+        <DialogHeader>Custom Animation Dialog</DialogHeader>
+        <DialogContent>
           <p>This dialog uses custom animation properties.</p>
           <p>It scales and rotates while fading in and out.</p>
-        </div>
+        </DialogContent>
       </Dialog>
     </div>
   );

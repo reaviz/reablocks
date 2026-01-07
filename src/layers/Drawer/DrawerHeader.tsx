@@ -1,13 +1,16 @@
-import React, { FC } from 'react';
+'use client';
+
+import React, { FC, ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { DrawerTheme } from './DrawerTheme';
+import { useOptionalDrawerContext } from './DrawerContext';
 
 export interface DrawerHeaderProps {
   /**
    * The content of the drawer header.
    */
-  children?: any;
+  children?: ReactNode;
 
   /**
    * The CSS class name for the root element of the component.
@@ -16,11 +19,13 @@ export interface DrawerHeaderProps {
 
   /**
    * Whether to show the close button in the drawer header.
+   * When used in context, defaults to Drawer's showCloseButton prop.
    */
   showCloseButton?: boolean;
 
   /**
    * Callback when the close button is clicked.
+   * When used in context, defaults to Drawer's onClose prop.
    */
   onClose?: () => void;
 
@@ -33,22 +38,28 @@ export interface DrawerHeaderProps {
 export const DrawerHeader: FC<DrawerHeaderProps> = ({
   children,
   className,
-  showCloseButton,
-  onClose,
+  showCloseButton: showCloseButtonProp,
+  onClose: onCloseProp,
   theme: customTheme
 }) => {
   const theme: DrawerTheme = useComponentTheme('drawer', customTheme);
+  const context = useOptionalDrawerContext();
+
+  // Use props if provided, otherwise fall back to context values
+  const showCloseButton =
+    showCloseButtonProp ?? context?.showCloseButton ?? true;
+  const onClose = onCloseProp ?? context?.onClose;
 
   return (
     <header className={twMerge(theme.header.base, className)}>
-      <div>
+      <div className="flex-1">
         {typeof children === 'string' ? (
           <h1 className={theme.header.text}>{children}</h1>
         ) : (
           children
         )}
       </div>
-      {showCloseButton && (
+      {showCloseButton && onClose && (
         <button
           type="button"
           className={theme.closeButton.base}
@@ -61,3 +72,6 @@ export const DrawerHeader: FC<DrawerHeaderProps> = ({
     </header>
   );
 };
+
+// Mark this component as a Drawer slot for detection
+DrawerHeader.displayName = 'DrawerHeader';

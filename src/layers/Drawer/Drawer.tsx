@@ -1,4 +1,13 @@
-import React, { FC, ReactElement, useState } from 'react';
+'use client';
+
+import React, {
+  FC,
+  ReactElement,
+  ReactNode,
+  Children,
+  isValidElement,
+  useMemo
+} from 'react';
 import FocusTrap from 'focus-trap-react';
 import { useId, CloneElement } from '@/utils';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
@@ -12,6 +21,9 @@ import {
 } from 'motion/react';
 import { variants } from './variants';
 import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
+import { DrawerContent } from './DrawerContent';
+import { DrawerFooter } from './DrawerFooter';
+import { DrawerContext, DrawerContextValue } from './DrawerContext';
 import { twMerge } from 'tailwind-merge';
 import { DrawerTheme } from './DrawerTheme';
 import { useComponentTheme } from '@/utils';
@@ -45,29 +57,41 @@ export interface DrawerProps
   backdropClassName?: string;
 
   /**
-   * Whether the drawer has a backdrop.
+   * Whether to disable padding for the drawer content.
    */
   disablePadding?: boolean;
 
   /**
-   * Whether the drawer has a backdrop.
+   * The header of the drawer.
+   * @deprecated Use DrawerHeader slot component instead.
+   * @example
+   * // Instead of:
+   * <Drawer header="My Title">...</Drawer>
+   *
+   * // Use:
+   * <Drawer>
+   *   <DrawerHeader>My Title</DrawerHeader>
+   *   <DrawerContent>...</DrawerContent>
+   * </Drawer>
    */
-  header?: any;
+  header?: ReactNode;
 
   /**
-   * Whether the drawer has a backdrop.
+   * Whether to show the close button.
    */
   showCloseButton?: boolean;
 
   /**
    * The content of the drawer.
+   * Supports slot-based approach with DrawerHeader, DrawerContent, and DrawerFooter.
    */
-  children?: any;
+  children?: ReactNode;
 
   /**
    * The React element for the drawer header.
+   * @deprecated Use DrawerHeader slot component instead.
    */
-  headerElement: ReactElement<DrawerHeaderProps, typeof DrawerHeader> | null;
+  headerElement?: ReactElement<DrawerHeaderProps, typeof DrawerHeader> | null;
 
   /**
    * Theme for the Drawer.
@@ -100,6 +124,75 @@ export interface DrawerProps
   animation?: MotionNodeAnimationOptions;
 }
 
+// Slot component display names for detection
+const SLOT_NAMES = ['DrawerHeader', 'DrawerContent', 'DrawerFooter'];
+
+/**
+ * Check if children contain any slot components
+ */
+function hasSlotComponents(children: ReactNode): boolean {
+  let hasSlots = false;
+
+  Children.forEach(children, child => {
+    if (isValidElement(child)) {
+      const displayName =
+        (child.type as any)?.displayName || (child.type as any)?.name || '';
+      if (SLOT_NAMES.includes(displayName)) {
+        hasSlots = true;
+      }
+    }
+  });
+
+  return hasSlots;
+}
+
+/**
+ * Extract slot components from children
+ */
+function extractSlots(children: ReactNode): {
+  header: ReactNode;
+  content: ReactNode;
+  footer: ReactNode;
+  other: ReactNode[];
+} {
+  const slots: {
+    header: ReactNode;
+    content: ReactNode;
+    footer: ReactNode;
+    other: ReactNode[];
+  } = {
+    header: null,
+    content: null,
+    footer: null,
+    other: []
+  };
+
+  Children.forEach(children, child => {
+    if (isValidElement(child)) {
+      const displayName =
+        (child.type as any)?.displayName || (child.type as any)?.name || '';
+
+      switch (displayName) {
+        case 'DrawerHeader':
+          slots.header = child;
+          break;
+        case 'DrawerContent':
+          slots.content = child;
+          break;
+        case 'DrawerFooter':
+          slots.footer = child;
+          break;
+        default:
+          slots.other.push(child);
+      }
+    } else if (child != null) {
+      slots.other.push(child);
+    }
+  });
+
+  return slots;
+}
+
 export const Drawer: FC<Partial<DrawerProps>> = ({
   className,
   contentClassName,
@@ -129,6 +222,67 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
   };
 
   const theme: DrawerTheme = useComponentTheme('drawer', customTheme);
+
+  // Detect if using slot-based approach
+  const useSlots = useMemo(() => hasSlotComponents(children), [children]);
+
+  // Extract slots if using slot-based approach
+  const slots = useMemo(
+    () => (useSlots ? extractSlots(children) : null),
+    [useSlots, children]
+  );
+
+  // Context value for slot components
+  const contextValue: DrawerContextValue = useMemo(
+    () => ({
+      onClose,
+      showCloseButton,
+      disablePadding
+    }),
+    [onClose, showCloseButton, disablePadding]
+  );
+
+  // Render slot-based content
+  const renderSlotContent = () => (
+    <>
+      {slots?.header}
+      {slots?.content}
+      {slots?.other.length > 0 && slots.other}
+      {slots?.footer}
+    </>
+  );
+
+  // Render legacy props-based content
+  const renderLegacyContent = () => (
+    <>
+      {(header !== undefined || headerElement) && (
+        <CloneElement<DrawerHeaderProps>
+          element={headerElement}
+          showCloseButton={showCloseButton}
+          onClose={onClose}
+        >
+          {header}
+        </CloneElement>
+      )}
+      {!header && !headerElement && showCloseButton && (
+        <button
+          type="button"
+          className={twMerge(
+            theme.closeButton.base,
+            theme.closeButton.headerless
+          )}
+          onClick={onClose}
+        >
+          ✕
+        </button>
+      )}
+      <div className={twMerge(theme.content, contentClassName)}>
+        {typeof children === 'function'
+          ? (children as () => ReactNode)()
+          : children}
+      </div>
+    </>
+  );
 
   return (
     <GlobalOverlay
@@ -163,6 +317,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                 theme.base,
                 theme.positions[position],
                 disablePadding && theme.disablePadding,
+                useSlots && 'flex flex-col',
                 className
               )}
               {...(animation ? animation : rest)}
@@ -173,30 +328,9 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                 window.dispatchEvent(new Event('resize'));
               }}
             >
-              {(header || headerElement) && (
-                <CloneElement<DrawerHeaderProps>
-                  element={headerElement}
-                  showCloseButton={showCloseButton}
-                  onClose={onClose}
-                >
-                  {header}
-                </CloneElement>
-              )}
-              {!header && !headerElement && showCloseButton && (
-                <button
-                  type="button"
-                  className={twMerge(
-                    theme.closeButton.base,
-                    theme.closeButton.headerless
-                  )}
-                  onClick={onClose}
-                >
-                  ✕
-                </button>
-              )}
-              <div className={twMerge(theme.content, contentClassName)}>
-                {typeof children === 'function' ? children() : children}
-              </div>
+              <DrawerContext.Provider value={contextValue}>
+                {useSlots ? renderSlotContent() : renderLegacyContent()}
+              </DrawerContext.Provider>
             </motion.div>
           </div>
         </FocusTrap>
