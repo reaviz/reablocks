@@ -1,6 +1,6 @@
 'use client';
 
-import React, { FC, ReactNode, forwardRef, HTMLAttributes } from 'react';
+import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
