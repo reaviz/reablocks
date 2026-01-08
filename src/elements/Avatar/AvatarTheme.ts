@@ -1,22 +1,20 @@
 export interface AvatarTheme {
   base: string;
+  clickable: string;
   rounded: string;
 }
 
-const baseTheme: AvatarTheme = {
-  base: 'flex justify-center items-center bg-cover bg-center font-bold',
-  rounded: 'rounded-[50%]'
-};
-
 export const avatarTheme: AvatarTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-white'].join(' ')
-};
-
-export const legacyAvatarTheme: AvatarTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    'text-[var(--avatar-initials-color)] [border:_var(--avatar-border)]'
-  ].join(' ')
+  base: `
+    relative flex justify-center items-center bg-cover bg-center font-bold transition-colors
+    after:absolute after:inset-0 after:border
+    bg-avatar-colors-background-container-resting 
+    after:border-avatar-colors-stroke-container-resting
+  `,
+  clickable: `
+    hover:bg-avatar-colors-background-container-hover hover:after:border-avatar-colors-stroke-container-hover
+    focus-visible:bg-avatar-colors-background-container-hover focus-visible:after:border-avatar-colors-stroke-container-hover
+    cursor-pointer
+  `,
+  rounded: 'rounded-full after:rounded-full'
 };

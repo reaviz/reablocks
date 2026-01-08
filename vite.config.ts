@@ -38,6 +38,14 @@ export default defineConfig(({ mode }) =>
             {
               src: 'docs/blocks/**/*.story.tsx',
               dest: 'blocks/'
+            },
+            {
+              src: 'src/assets/css/*.css',
+              dest: 'styles'
+            },
+            {
+              src: 'src/assets/css/tailwind/*.css',
+              dest: 'styles/tailwind'
             }
           ]
         })

@@ -1,8 +1,11 @@
-import React, { FC, PropsWithChildren } from 'react';
-import { Button } from '@/elements/Button';
-import { TabsTheme } from './TabsTheme';
-import { useComponentTheme, cn } from '@/utils';
 import { motion } from 'motion/react';
+import type { FC, PropsWithChildren, ReactElement } from 'react';
+import React from 'react';
+
+import { Button } from '@/elements/Button';
+import { cn, useComponentTheme } from '@/utils';
+
+import type { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';
 
 export interface TabProps extends PropsWithChildren {
   /**
@@ -47,7 +50,23 @@ export interface TabProps extends PropsWithChildren {
    *
    * @private
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof TabSizeTheme;
+
+  /**
+   * The variant of the tab.
+   * @private
+   */
+  variant?: keyof TabVariantTheme;
+
+  /**
+   * Element to display before the Button content.
+   */
+  start?: ReactElement;
+
+  /**
+   * Element to display after the Button content.
+   */
+  end?: ReactElement;
 
   /**
    * Theme for the Tabs.
@@ -62,23 +81,31 @@ export const Tab: FC<TabProps> = ({
   containerClassName,
   className,
   disabled,
-  onSelect,
   size = 'medium',
+  variant = 'primary',
+  start,
+  end,
+  onSelect,
   theme: customTheme
 }) => {
-  const theme: TabsTheme = useComponentTheme('tabs', customTheme);
+  const tabTheme: TabsTheme = useComponentTheme('tabs', customTheme);
 
   return (
-    <span className={cn(theme.list.tab.base, containerClassName)}>
+    <span className={cn(tabTheme.list.tab.base, containerClassName)}>
       <Button
+        startAdornment={start}
+        endAdornment={end}
         className={cn(
-          theme.list.tab.button,
+          tabTheme.list.tab.button,
+          tabTheme.list.variant?.[variant]?.button,
           className,
           {
-            [theme.list.tab.disabled]: disabled,
-            [theme.list.tab.selected]: selected
+            [tabTheme.list.tab.disabled]: disabled,
+            [tabTheme.list.tab.selected]: selected,
+            [tabTheme.list.variant?.[variant]?.selected]: selected,
+            [tabTheme.list.variant?.[variant]?.disabled]: disabled
           },
-          theme.list.tab.size?.[size]
+          tabTheme.list.tab.size?.[size]
         )}
         disabled={disabled}
         role="tab"
@@ -96,8 +123,9 @@ export const Tab: FC<TabProps> = ({
       {selected && (
         <motion.div
           className={cn(
-            theme.list.indicator?.base,
-            theme.list.indicator?.size?.[size]
+            tabTheme.list.indicator?.base,
+            tabTheme.list.indicator?.size?.[size],
+            tabTheme.list.variant?.[variant]?.indicator
           )}
           layoutId={`${id}-tabs-underline`}
         />

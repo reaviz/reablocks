@@ -1,10 +1,11 @@
 import React, { Fragment, useState } from 'react';
-import { Drawer } from './Drawer';
-import { DrawerHeader } from './DrawerHeader';
-import { DrawerContent } from './DrawerContent';
-import { DrawerFooter } from './DrawerFooter';
+
 import { Button } from '../../elements';
 import { Stack } from '../../layout';
+import { Drawer } from './Drawer';
+import { DrawerContent } from './DrawerContent';
+import { DrawerFooter } from './DrawerFooter';
+import { DrawerHeader } from './DrawerHeader';
 
 export default {
   title: 'Components/Layers/Drawer',

@@ -1,12 +1,11 @@
+import type { ReactNode, RefObject } from 'react';
 import {
   Children,
   cloneElement,
   isValidElement,
-  ReactNode,
-  RefObject,
+  useEffect,
   useRef,
-  useState,
-  useEffect
+  useState
 } from 'react';
 
 export const DATA_ATTRIBUTE_INDEX = 'keyboard_index';
@@ -35,7 +34,7 @@ export const useFlattenedTree = (
 
     Children.forEach(nodes, (child: ReactNode, index) => {
       if (isValidElement(child)) {
-        // @ts-ignore
+        // @ts-expect-error unexpected displayName
         if (child.type.displayName === 'CommandPaletteSection') {
           result.push(
             cloneElement(child, {
@@ -43,7 +42,7 @@ export const useFlattenedTree = (
               index
             })
           );
-          // @ts-ignore
+          // @ts-expect-error unexpected displayName
         } else if (child.type.displayName === 'CommandPaletteItem') {
           const index = itemsRef.current.length;
 

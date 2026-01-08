@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Ellipsis } from './Ellipsis';
 
 export default {

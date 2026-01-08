@@ -1,8 +1,10 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
+
 import { Button } from '@/elements';
+import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { monthNames } from '@/form/Calendar/utils';
 import { cn, useComponentTheme } from '@/utils';
-import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 
 export interface CalendarMonthsProps {
   /**
@@ -34,7 +36,7 @@ export const CalendarMonths: FC<CalendarMonthsProps> = ({
         <Button
           key={month}
           className={cn(months.month, { [months.selected]: value === i })}
-          color={value === i ? 'primary' : 'default'}
+          color={value === i ? 'primary' : 'secondary'}
           variant={value === i ? 'filled' : 'text'}
           disableMargins
           title={month}

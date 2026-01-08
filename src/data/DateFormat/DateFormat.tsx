@@ -1,16 +1,18 @@
+import type { FC } from 'react';
 import React, {
-  FC,
-  useState,
   useCallback,
   useEffect,
+  useMemo,
   useRef,
-  useMemo
+  useState
 } from 'react';
-import { formatRelative, getInterval } from './relative';
-import { safeFormat } from './formatting';
-import { twMerge } from 'tailwind-merge';
-import { DateFormatTheme } from './DateFormatTheme';
+
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
+
+import type { DateFormatTheme } from './DateFormatTheme';
+import { safeFormat } from './formatting';
+import { formatRelative, getInterval } from './relative';
 
 export interface DateFormatProps {
   /**
@@ -78,7 +80,7 @@ export const DateFormat: FC<DateFormatProps> = ({
 }) => {
   const [cache, setCache] = useState<string | null>(
     typeof window !== 'undefined'
-      ? window.localStorage.getItem(`DATES_${cacheKey}`) ?? null
+      ? (window.localStorage.getItem(`DATES_${cacheKey}`) ?? null)
       : null
   );
 

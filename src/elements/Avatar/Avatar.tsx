@@ -1,8 +1,11 @@
-import React, { FC, LegacyRef, forwardRef, useMemo } from 'react';
 import getInitials from 'name-initials';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme, generateColor } from '@/utils';
-import { AvatarTheme } from './AvatarTheme';
+import type { FC, LegacyRef } from 'react';
+import React, { forwardRef, useMemo } from 'react';
+
+import { generateColor, twMerge } from '@/utils';
+import { useComponentTheme } from '@/utils';
+
+import type { AvatarTheme } from './AvatarTheme';
 
 export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -97,7 +100,12 @@ export const Avatar: FC<AvatarProps> & AvatarRef = forwardRef<
     return (
       <div
         {...rest}
-        className={twMerge(theme.base, rounded && theme.rounded, className)}
+        className={twMerge(
+          theme.base,
+          rounded && theme.rounded,
+          rest.onClick && theme.clickable,
+          className
+        )}
         style={{
           width: `${size}px`,
           height: `${size}px`,

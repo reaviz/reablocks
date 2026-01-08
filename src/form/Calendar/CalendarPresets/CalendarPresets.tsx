@@ -1,8 +1,10 @@
-import React, { FC, Fragment } from 'react';
-import { cn, useComponentTheme } from '@/utils';
-import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
-import { List, ListHeader, ListItem } from '@/layout';
+import type { FC } from 'react';
+import React, { Fragment } from 'react';
+
+import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { isPresetActive } from '@/form/Calendar/utils';
+import { List, ListHeader, ListItem } from '@/layout';
+import { cn, useComponentTheme } from '@/utils';
 
 const DEFAULT_GROUP_NAME = 'Other';
 

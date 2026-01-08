@@ -1,10 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Select } from './Select';
-import { SelectOption } from './SelectOption';
-import { SelectMenu } from './SelectMenu';
-import { SelectInput, SelectInputChip } from './SelectInput';
 
 import CheckIcon from '@/assets/icons/check_circle.svg?react';
+
+import { Select } from './Select';
+import { SelectInput, SelectInputChip } from './SelectInput';
+import { SelectMenu } from './SelectMenu';
+import { SelectOption } from './SelectOption';
 
 export default {
   title: 'Components/Form/Select/Multi',

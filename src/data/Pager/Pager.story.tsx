@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { Pager } from './Pager';
-import { pagerTheme } from './PagerTheme';
+
+import { Pager } from '@/data';
+import { pagerTheme } from '@/data';
 
 export default {
   title: 'Components/Data/Pager',
@@ -16,7 +17,9 @@ export const ShowPages = () => {
       size={10}
       total={100}
       onPageChange={setPage}
-      displayMode="pages"
+      displayMode="all"
+      startArrow={null}
+      endArrow={null}
     />
   );
 };
@@ -45,6 +48,23 @@ export const ShowAll = () => {
       total={100}
       onPageChange={setPage}
       displayMode="all"
+    />
+  );
+};
+
+export const CustomPageCount = () => {
+  const [page, setPage] = useState<number>(0);
+
+  return (
+    <Pager
+      page={page}
+      size={10}
+      total={100}
+      onPageChange={setPage}
+      displayMode="all"
+      startArrow={null}
+      endArrow={null}
+      pageCountToShow={2}
     />
   );
 };

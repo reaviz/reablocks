@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Drawer, DrawerProps } from './Drawer';
+
+import type { DrawerProps } from './Drawer';
+import { Drawer } from './Drawer';
 
 type DrawerOptions =
   | {

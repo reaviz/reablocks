@@ -1,5 +1,7 @@
-import React, { useState, useCallback, ReactNode } from 'react';
-import { ConfirmDialog, ConfirmDialogProps } from './ConfirmDialog';
+import React, { useCallback, useState } from 'react';
+
+import type { ConfirmDialogProps } from './ConfirmDialog';
+import { ConfirmDialog } from './ConfirmDialog';
 
 export type OpenConfirmDialogProps = Omit<ConfirmDialogProps, 'open'>;
 

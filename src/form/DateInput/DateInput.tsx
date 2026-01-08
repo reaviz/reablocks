@@ -1,27 +1,20 @@
-import React, {
-  ChangeEvent,
-  FocusEvent,
-  FC,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useRef,
-  useState
-} from 'react';
 import { format as formatDate, isValid, parse } from 'date-fns';
-
-import { IconButton } from '@/elements/IconButton';
-import { Menu } from '@/layers/Menu';
-import { Card } from '@/layout/Card';
-import { Placement } from '@/utils/Position';
-import { Calendar, PresetOption } from '@/form/Calendar';
-import { Input, InputProps, InputRef } from '@/form/Input';
+import type { ChangeEvent, FC, FocusEvent, ReactElement } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 import CalendarIcon from '@/assets/icons/calendar.svg?react';
-import { List, ListItem } from '@/layout';
-import { cn, useComponentTheme } from '@/utils';
+import { IconButton } from '@/elements/IconButton';
+import type { DateInputTheme } from '@/form';
+import type { PresetOption } from '@/form/Calendar';
+import { Calendar } from '@/form/Calendar';
 import { isPresetActive } from '@/form/Calendar/utils';
-import { DateInputTheme } from './DateInputTheme';
+import type { InputProps, InputRef } from '@/form/Input';
+import { Input } from '@/form/Input';
+import { Menu } from '@/layers/Menu';
+import { List, ListItem } from '@/layout';
+import { Card } from '@/layout/Card';
+import { cn, useComponentTheme } from '@/utils';
+import type { Placement } from '@/utils/Position';
 
 export type DateInputProps = Omit<InputProps, 'value' | 'onChange'> & {
   /**
@@ -176,7 +169,7 @@ export const DateInput: FC<DateInputProps> = ({
         theme={theme.input}
         endAdornment={
           <IconButton
-            className="px-0"
+            className="p-0"
             variant="text"
             onClick={() => setOpen(true)}
           >
@@ -202,7 +195,7 @@ export const DateInput: FC<DateInputProps> = ({
       >
         {() =>
           isCalendarView ? (
-            <Card>
+            <Card className={theme.card}>
               <Calendar
                 disabled={disabled}
                 value={value}

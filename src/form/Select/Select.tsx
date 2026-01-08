@@ -1,6 +1,7 @@
+import { useFuzzy } from '@reaviz/react-use-fuzzy';
+import type Fuse from 'fuse.js';
+import type { FC, ReactElement } from 'react';
 import React, {
-  FC,
-  ReactElement,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -8,19 +9,18 @@ import React, {
   useRef,
   useState
 } from 'react';
-import Fuse from 'fuse.js';
-import {
-  ConnectedOverlay,
-  ConnectedOverlayContentRef,
-  Placement
-} from '@/utils';
-import { CloneElement, useId } from '@/utils';
-import { SelectInput, SelectInputProps, SelectInputRef } from './SelectInput';
-import { SelectMenu, SelectMenuProps } from './SelectMenu';
-import { SelectOptionProps, SelectValue } from './SelectOption';
-import { useFuzzy } from '@reaviz/react-use-fuzzy';
-import { createOptions, getGroups, useWidth, keyNameToCode } from './utils';
 import isEqual from 'react-fast-compare';
+
+import type { ConnectedOverlayContentRef, Placement } from '@/utils';
+import { ConnectedOverlay } from '@/utils';
+import { CloneElement, useId } from '@/utils';
+
+import type { SelectInputProps, SelectInputRef } from './SelectInput';
+import { SelectInput } from './SelectInput';
+import type { SelectMenuProps } from './SelectMenu';
+import { SelectMenu } from './SelectMenu';
+import type { SelectOptionProps, SelectValue } from './SelectOption';
+import { createOptions, getGroups, keyNameToCode, useWidth } from './utils';
 
 export interface SelectProps {
   /**

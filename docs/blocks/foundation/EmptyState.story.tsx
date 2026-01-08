@@ -1,8 +1,9 @@
-import React from 'react';
 import { motion } from 'motion/react';
-import { Card, Divider } from '../../../src/layout';
+import React from 'react';
+
 import { Button } from '../../../src/elements/Button';
 import { Input } from '../../../src/form/Input';
+import { Card } from '../../../src/layout';
 
 export default {
   title: 'Blocks/Foundation/Empty State'
@@ -16,17 +17,18 @@ export const NoResults = () => (
   >
     <Card className="w-full px-12 md:px-24 py-12">
       <div className="w-full flex-col flex items-center text-center mb-8">
-        <span className="text-3xl font-bold">No Results Found</span>
-        <span className="text-text-secondary text-base">
+        <span className="text-2xl font-bold">No Results Found</span>
+        <span className="text-content-text-neutral-2 text-sm">
           There are no results matching your search criteria. Try adjusting your
-          filters or search terms to find what you're looking for.
+          filters or search terms to find what you&apos;re looking for.
         </span>
       </div>
       <motion.div
+        className="transition-colors p-6 rounded-md hover:bg-background-brand-4 border border-transparent hover:border-stroke-brand-base"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
       >
-        <a className="flex gap-4 py-4 cursor-pointer hover:underline">
+        <a className="flex gap-4 cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -39,7 +41,7 @@ export const NoResults = () => (
           <div className="flex flex-col gap-1 flex-1">
             <span className="font-bold">Documentation</span>
             <div>
-              <span className="text-base text-text-secondary inline-block">
+              <span className="text-sm text-content-text-neutral-2 inline-block">
                 Learn how to integrate our tools with your app.
               </span>
             </div>
@@ -55,14 +57,14 @@ export const NoResults = () => (
             <path d="M9.70504 6L8.29504 7.41L12.875 12L8.29504 16.59L9.70504 18L15.705 12L9.70504 6Z" />
           </svg>
         </a>
-        <Divider variant="secondary" />
       </motion.div>
       <motion.div
+        className="transition-colors p-6 rounded-md hover:bg-background-brand-4 border border-transparent hover:border-stroke-brand-base"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.1 }}
       >
-        <a className="flex gap-4 py-4 cursor-pointer hover:underline">
+        <a className="flex gap-4 cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -73,9 +75,9 @@ export const NoResults = () => (
             <path d="M4.6875 3.4375C3.65344 3.4375 2.8125 4.27844 2.8125 5.3125V14.6875C2.8125 15.7216 3.65344 16.5625 4.6875 16.5625H15.3125C16.3466 16.5625 17.1875 15.7216 17.1875 14.6875V5.3125C17.1875 4.27844 16.3466 3.4375 15.3125 3.4375H4.6875ZM4.0625 7.1875H15.9375V14.6875C15.9375 15.0322 15.6572 15.3125 15.3125 15.3125H4.6875C4.34281 15.3125 4.0625 15.0322 4.0625 14.6875V7.1875ZM6.875 9.0625C6.52969 9.0625 6.25 9.34219 6.25 9.6875C6.25 10.0328 6.52969 10.3125 6.875 10.3125C7.22031 10.3125 7.5 10.0328 7.5 9.6875C7.5 9.34219 7.22031 9.0625 6.875 9.0625ZM9.6875 9.0625C9.3425 9.0625 9.0625 9.3425 9.0625 9.6875C9.0625 10.0325 9.3425 10.3125 9.6875 10.3125H13.125C13.47 10.3125 13.75 10.0325 13.75 9.6875C13.75 9.3425 13.47 9.0625 13.125 9.0625H9.6875ZM6.875 11.875C6.52969 11.875 6.25 12.1547 6.25 12.5C6.25 12.8453 6.52969 13.125 6.875 13.125C7.22031 13.125 7.5 12.8453 7.5 12.5C7.5 12.1547 7.22031 11.875 6.875 11.875ZM9.6875 11.875C9.3425 11.875 9.0625 12.155 9.0625 12.5C9.0625 12.845 9.3425 13.125 9.6875 13.125H13.125C13.47 13.125 13.75 12.845 13.75 12.5C13.75 12.155 13.47 11.875 13.125 11.875H9.6875Z" />
           </svg>
           <div className="flex flex-col gap-1 flex-1">
-            <span className="font-bold">API's</span>
+            <span className="font-bold">API&apos;s</span>
             <div className="">
-              <span className="text-base text-text-secondary inline-block">
+              <span className="text-sm text-content-text-neutral-2 inline-block">
                 Explore all API references.
               </span>
             </div>
@@ -91,14 +93,14 @@ export const NoResults = () => (
             <path d="M9.70504 6L8.29504 7.41L12.875 12L8.29504 16.59L9.70504 18L15.705 12L9.70504 6Z" />
           </svg>
         </a>
-        <Divider variant="secondary" />
       </motion.div>
       <motion.div
+        className="transition-colors p-6 rounded-md hover:bg-background-brand-4 border border-transparent hover:border-stroke-brand-base"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.2 }}
       >
-        <a className="flex gap-4 py-4 cursor-pointer hover:underline">
+        <a className="flex gap-4 cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -111,7 +113,7 @@ export const NoResults = () => (
           <div className="flex flex-col gap-1 flex-1">
             <span className="font-bold">Guide</span>
             <div className="">
-              <span className="text-base text-text-secondary inline-block">
+              <span className="text-sm text-content-text-neutral-2 inline-block">
                 Easy-to-follow installation guides.
               </span>
             </div>
@@ -127,14 +129,14 @@ export const NoResults = () => (
             <path d="M9.70504 6L8.29504 7.41L12.875 12L8.29504 16.59L9.70504 18L15.705 12L9.70504 6Z" />
           </svg>
         </a>
-        <Divider variant="secondary" />
       </motion.div>
       <motion.div
+        className="transition-colors p-6 rounded-md hover:bg-background-brand-4 border border-transparent hover:border-stroke-brand-base"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ delay: 0.3 }}
       >
-        <a className="flex gap-4 py-4 cursor-pointer hover:underline">
+        <a className="flex gap-4 cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -147,7 +149,7 @@ export const NoResults = () => (
           <div className="flex flex-col gap-1 flex-1">
             <span className="font-bold">Blog</span>
             <div className="">
-              <span className="text-base text-text-secondary inline-block">
+              <span className="text-sm text-content-text-neutral-2 inline-block">
                 Read our latest news.
               </span>
             </div>
@@ -178,8 +180,8 @@ export const MissingInfo = () => (
       className="w-full px-12 md:px-24 py-12 md:py-28"
       contentClassName="flex flex-col gap-2 items-center text-center"
     >
-      <span className="text-3xl font-bold">Missing Info</span>
-      <span className="text-text-secondary text-base">
+      <span className="text-2xl font-bold">Missing Info</span>
+      <span className="text-content-text-neutral-2 text-sm">
         Oops! It seems like something is missing. Try adjusting your search
         criteria or check back later.
       </span>
@@ -200,7 +202,8 @@ export const MissingInfo = () => (
         placeholder="Search our site..."
       />
       <Button
-        className="mt-6 w-fit font-semibold px-4 py-2 border-none bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+        size="large"
+        className="mt-6 w-fit"
         startAdornment={
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -241,13 +244,14 @@ export const NothingToDisplay = () => (
       >
         <path d="M19.4533 10.6666L16 14.12L12.5466 10.6666L10.6666 12.5466L14.12 16L10.6666 19.4533L12.5466 21.3333L16 17.88L19.4533 21.3333L21.3333 19.4533L17.88 16L21.3333 12.5466L19.4533 10.6666ZM16 2.66663C8.62663 2.66663 2.66663 8.62663 2.66663 16C2.66663 23.3733 8.62663 29.3333 16 29.3333C23.3733 29.3333 29.3333 23.3733 29.3333 16C29.3333 8.62663 23.3733 2.66663 16 2.66663ZM16 26.6666C10.12 26.6666 5.33329 21.88 5.33329 16C5.33329 10.12 10.12 5.33329 16 5.33329C21.88 5.33329 26.6666 10.12 26.6666 16C26.6666 21.88 21.88 26.6666 16 26.6666Z" />
       </svg>
-      <span className="text-xl font-bold">Nothing to display</span>
-      <span className="text-text-secondary text-base">
-        We couldn't find any data to show here. Try refining your search or come
-        back later to see if there's anything new.
+      <span className="text-lg font-bold">Nothing to display</span>
+      <span className="text-content-text-neutral-2 text-sm">
+        We couldn&apos;t find any data to show here. Try refining your search or
+        come back later to see if there&apos;s anything new.
       </span>
       <Button
-        className="mt-6 w-fit font-semibold px-4 py-2 border-none bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+        size="large"
+        className="mt-6 w-fit"
         startAdornment={
           <svg
             xmlns="http://www.w3.org/2000/svg"

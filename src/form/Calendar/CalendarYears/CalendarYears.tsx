@@ -1,13 +1,11 @@
-import React, { FC, useMemo } from 'react';
-import {
-  AnimatePresence,
-  motion,
-  MotionNodeAnimationOptions
-} from 'motion/react';
+import type { MotionNodeAnimationOptions } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
+import type { FC } from 'react';
+import React, { useMemo } from 'react';
+
 import { Button } from '@/elements';
+import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { cn, useComponentTheme } from '@/utils';
-import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
-import { twMerge } from 'tailwind-merge';
 
 export interface CalendarYearsProps {
   /**
@@ -97,7 +95,7 @@ export const CalendarYears: FC<CalendarYearsProps> = ({
           <Button
             key={year}
             className={cn(years.year, { [years.selected]: value === year })}
-            color={value === year ? 'primary' : 'default'}
+            color={value === year ? 'primary' : 'secondary'}
             variant={value === year ? 'filled' : 'text'}
             disableMargins
             title={year}

@@ -1,7 +1,14 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
+
 import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
-import { DividerTheme } from './DividerTheme';
+import { twMerge } from '@/utils';
+
+import type {
+  DividerOrientationTheme,
+  DividerTheme,
+  DividerVariantTheme
+} from './DividerTheme';
 
 export interface DividerProps {
   /**
@@ -18,7 +25,7 @@ export interface DividerProps {
   /**
    * Orientation of the divider.
    */
-  orientation?: 'horizontal' | 'vertical';
+  orientation?: keyof DividerOrientationTheme;
 
   /**
    * Additional style attributes. Recommend to use css classes over this.
@@ -33,7 +40,7 @@ export interface DividerProps {
   /**
    * Variant of the divider.
    */
-  variant?: 'primary' | 'secondary';
+  variant?: keyof DividerVariantTheme;
 }
 
 export const Divider: FC<DividerProps> = ({

@@ -1,25 +1,25 @@
-import { useState } from 'react';
-import { Card } from '../../layout/Card';
-import { Calendar } from './Calendar';
-import { CalendarRange } from './CalendarRange';
 import {
   add,
   addMonths,
   endOfMonth,
   format,
   startOfMonth,
-  sub,
-  subDays
+  sub
 } from 'date-fns';
-import { Divider } from '../../layout/Divider';
-import { Stack } from '../../layout/Stack';
+import { useState } from 'react';
+
+import { Calendar } from '@/form';
+import { CalendarRange } from '@/form';
 import {
   COMBINED_PRESETS,
   FUTURE_PRESETS,
   FUTURE_RANGE_PRESETS,
   PAST_PRESETS,
   PAST_RANGE_PRESETS
-} from './CalendarPresets';
+} from '@/form';
+import { Card } from '@/layout';
+import { Divider } from '@/layout';
+import { Stack } from '@/layout';
 
 const FOUR_DAYS_AGO = sub(new Date(), { days: 4 });
 const FIVE_DAYS_FROM_NOW = add(new Date(), { days: 5 });
@@ -109,6 +109,7 @@ export const Disabled = () => {
   return (
     <Card>
       <Calendar
+        showTime
         value={date}
         disabled
         onChange={(date: Date) => setDate(date)}
@@ -547,6 +548,7 @@ export const RangeWithDatePastPresets = () => {
           onChange={(newDate: [Date, Date]) => setRange(newDate)}
           showDayOfWeek
           showToday
+          showTime
           isRange
           preset={PAST_RANGE_PRESETS}
         />

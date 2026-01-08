@@ -1,4 +1,5 @@
-import { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/react';
+
 import { OverlayTrigger } from './OverlayTrigger';
 
 const meta: Meta<typeof OverlayTrigger> = {

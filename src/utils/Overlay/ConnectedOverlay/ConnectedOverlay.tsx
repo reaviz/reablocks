@@ -1,21 +1,20 @@
-import React, {
-  FC,
-  useRef,
-  useEffect,
-  Fragment,
-  forwardRef,
-  LegacyRef,
-  useImperativeHandle,
-  useMemo
-} from 'react';
-import { TriggerTypes, OverlayTrigger } from '@/utils/Overlay/OverlayTrigger';
-import { Modifiers, Placement, ReferenceProp } from '@/utils/Position';
 import { AnimatePresence } from 'motion/react';
+import React, {
+  forwardRef,
+  Fragment,
+  useEffect,
+  useImperativeHandle,
+  useMemo,
+  useRef
+} from 'react';
+
 import { OverlayContext } from '@/utils/Overlay/OverlayContext';
-import {
-  ConnectedOverlayContent,
-  ConnectedOverlayContentRef
-} from './ConnectedOverlayContent';
+import type { TriggerTypes } from '@/utils/Overlay/OverlayTrigger';
+import { OverlayTrigger } from '@/utils/Overlay/OverlayTrigger';
+import type { Modifiers, Placement, ReferenceProp } from '@/utils/Position';
+
+import type { ConnectedOverlayContentRef } from './ConnectedOverlayContent';
+import { ConnectedOverlayContent } from './ConnectedOverlayContent';
 
 export interface OverlayEvent {
   /**
@@ -116,11 +115,10 @@ export interface ConnectedOverlayProps {
   onClose?: (event?: any) => void;
 }
 
-export const ConnectedOverlay: FC<
-  ConnectedOverlayProps & {
-    ref?: LegacyRef<ConnectedOverlayContentRef>;
-  }
-> = forwardRef(
+export const ConnectedOverlay = forwardRef<
+  ConnectedOverlayContentRef,
+  ConnectedOverlayProps
+>(
   (
     {
       reference,

@@ -1,8 +1,8 @@
-import React, { FC, useMemo } from 'react';
-import {
-  ButtonGroupContext,
-  ButtonGroupContextProps
-} from './ButtonGroupContext';
+import type { FC } from 'react';
+import React, { useMemo } from 'react';
+
+import type { ButtonGroupContextProps } from './ButtonGroupContext';
+import { ButtonGroupContext } from './ButtonGroupContext';
 
 export interface ButtonGroupProps extends ButtonGroupContextProps {
   /**

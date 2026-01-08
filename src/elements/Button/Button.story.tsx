@@ -1,10 +1,10 @@
-import { Button } from './Button';
-import {
-  extendTheme,
-  PartialReablocksTheme
-} from '../../utils/Theme/themes/extendTheme';
+import { cn } from '@/utils';
+
 import { ThemeProvider } from '../../utils/Theme/ThemeProvider';
+import type { PartialReablocksTheme } from '../../utils/Theme/themes/extendTheme';
+import { extendTheme } from '../../utils/Theme/themes/extendTheme';
 import { theme } from '../../utils/Theme/themes/theme';
+import { Button } from './Button';
 
 export default {
   title: 'Components/Elements/Button',
@@ -12,76 +12,193 @@ export default {
 };
 
 export const Variants = () => (
-  <div style={{ display: 'flex', gap: 10 }}>
-    <Button variant="filled">Filled</Button>
-    <Button variant="outline">Outline</Button>
-    <Button variant="text">Text</Button>
+  <div className="flex items-center gap-2">
+    <Button variant="filled" color="primary">
+      Filled
+    </Button>
+    <Button variant="outline" color="primary">
+      Outline
+    </Button>
+    <Button variant="text" color="primary">
+      Text
+    </Button>
+    <Button variant="ghost" color="primary">
+      Ghost
+    </Button>
   </div>
 );
 
 export const Colors = () => (
-  <div className="light:bg-white p-24" style={{ display: 'flex', gap: 10 }}>
-    <Button>Default</Button>
-    <Button color="primary">Primary</Button>
-    <Button color="secondary">Secondary</Button>
-    <Button color="success">Success</Button>
-    <Button color="warning">Warning</Button>
-    <Button color="error">Error</Button>
-    <Button disabled>Disabled</Button>
-  </div>
-);
-
-export const TextColors = () => (
-  <div style={{ display: 'flex', gap: 10 }}>
-    <Button variant="text">Default</Button>
-    <Button variant="text" color="primary">
+  <div className="grid grid-cols-4 gap-2">
+    <div>Filled</div>
+    <Button color="primary" variant="filled" startAdornment={<BellIcon />}>
       Primary
     </Button>
-    <Button variant="text" color="secondary">
+    <Button color="secondary" variant="filled" startAdornment={<BellIcon />}>
       Secondary
     </Button>
-    <Button variant="text" color="success">
-      Success
+    <Button color="destructive" variant="filled" startAdornment={<BellIcon />}>
+      Destructive
     </Button>
-    <Button variant="text" color="warning">
-      Warning
+    <div>Outlined</div>
+    <Button color="primary" variant="outline" startAdornment={<BellIcon />}>
+      Primary
     </Button>
-    <Button variant="text" color="error">
-      Error
+    <Button color="secondary" variant="outline" startAdornment={<BellIcon />}>
+      Secondary
     </Button>
-    <Button variant="text" disabled>
-      Disabled
+    <Button color="destructive" variant="outline" startAdornment={<BellIcon />}>
+      Destructive
+    </Button>
+    <div>Text</div>
+    <Button color="primary" variant="text" startAdornment={<BellIcon />}>
+      Primary
+    </Button>
+    <Button color="secondary" variant="text" startAdornment={<BellIcon />}>
+      Secondary
+    </Button>
+    <Button color="destructive" variant="text" startAdornment={<BellIcon />}>
+      Destructive
+    </Button>
+    <div>Ghost</div>
+    <Button color="primary" variant="ghost" startAdornment={<BellIcon />}>
+      Primary
+    </Button>
+    <Button color="secondary" variant="ghost" startAdornment={<BellIcon />}>
+      Secondary
+    </Button>
+    <Button color="destructive" variant="ghost" startAdornment={<BellIcon />}>
+      Destructive
     </Button>
   </div>
 );
 
 export const Disabled = () => (
-  <div style={{ display: 'flex', gap: 10 }}>
-    <Button variant="filled" disabled>
-      Filled
-    </Button>
-    <Button variant="outline" disabled>
-      Outline
-    </Button>
-    <Button variant="text" disabled>
-      Text
-    </Button>
+  <div className="p-24 flex gap-2 flex-row">
+    <div className="flex flex-col gap-2">
+      <Button
+        disabled
+        color="primary"
+        variant="filled"
+        startAdornment={<BellIcon />}
+      >
+        Primary
+      </Button>
+      <Button
+        disabled
+        color="primary"
+        variant="outline"
+        startAdornment={<BellIcon />}
+      >
+        Primary
+      </Button>
+      <Button
+        disabled
+        color="primary"
+        variant="text"
+        startAdornment={<BellIcon />}
+      >
+        Primary
+      </Button>
+      <Button
+        disabled
+        color="primary"
+        variant="ghost"
+        startAdornment={<BellIcon />}
+      >
+        Primary
+      </Button>
+    </div>
+    <div className="flex flex-col gap-2">
+      <Button
+        disabled
+        color="secondary"
+        variant="filled"
+        startAdornment={<BellIcon />}
+      >
+        Secondary
+      </Button>
+      <Button
+        disabled
+        color="secondary"
+        variant="outline"
+        startAdornment={<BellIcon />}
+      >
+        Secondary
+      </Button>
+      <Button
+        disabled
+        color="secondary"
+        variant="text"
+        startAdornment={<BellIcon />}
+      >
+        Secondary
+      </Button>
+      <Button
+        disabled
+        color="secondary"
+        variant="ghost"
+        startAdornment={<BellIcon />}
+      >
+        Secondary
+      </Button>
+    </div>
+    <div className="flex flex-col gap-2">
+      <Button
+        disabled
+        color="destructive"
+        variant="filled"
+        startAdornment={<BellIcon />}
+      >
+        Destructive
+      </Button>
+      <Button
+        disabled
+        color="destructive"
+        variant="outline"
+        startAdornment={<BellIcon />}
+      >
+        Destructive
+      </Button>
+      <Button
+        disabled
+        color="destructive"
+        variant="text"
+        startAdornment={<BellIcon />}
+      >
+        Destructive
+      </Button>
+      <Button
+        disabled
+        color="destructive"
+        variant="ghost"
+        startAdornment={<BellIcon />}
+      >
+        Destructive
+      </Button>
+    </div>
   </div>
 );
 
 export const Sizes = () => (
   <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-    <Button size="small">Small</Button>
-    <Button size="medium">Medium</Button>
-    <Button size="large">Large</Button>
+    <Button color="primary" size="small" startAdornment={<BellIcon />}>
+      Small
+    </Button>
+    <Button color="primary" size="medium" startAdornment={<BellIcon />}>
+      Medium
+    </Button>
+    <Button color="primary" size="large" startAdornment={<BellIcon />}>
+      Large
+    </Button>
   </div>
 );
 
 export const FullWidth = () => (
-  <div
-    style={{ display: 'flex', width: '400px', alignItems: 'center', gap: 10 }}
-  >
-    <Button fullWidth>Full Width</Button>
+  <div className="flex w-[400px] items-center gap-2">
+    <Button color="primary" fullWidth>
+      Full Width
+    </Button>
   </div>
 );
 
@@ -124,17 +241,17 @@ export const CustomTheme = () => {
   const customTheme: PartialReablocksTheme = {
     components: {
       button: {
-        base: 'bg-lime-600 text-gray-300',
+        base: 'transition-colors text-neutrals-pure-white-dnt-900',
         sizes: {
           small: 'p-2',
           medium: 'p-3',
           large: 'p-4'
         },
         colors: {
-          default: {
-            filled: 'bg-lime-600 hover:bg-lime-700',
-            outline: 'border-lime-600',
-            text: 'text-gray-300'
+          primary: {
+            filled: 'bg-green-ion-sprout-500 hover:bg-green-ion-sprout-700',
+            outline: 'border-green-ion-sprout-600',
+            text: 'text-neutrals-pure-white-dnt-900'
           }
         }
       }
@@ -142,7 +259,14 @@ export const CustomTheme = () => {
   };
 
   return (
-    <ThemeProvider theme={extendTheme(theme, customTheme)}>
+    <ThemeProvider
+      theme={extendTheme(theme, customTheme, (source, target) => {
+        if (typeof source === 'string' && typeof target === 'string') {
+          return cn(source, target);
+        }
+        return undefined;
+      })}
+    >
       <div style={{ display: 'flex', gap: 10 }}>
         <Button variant="filled">Filled</Button>
         <Button variant="outline">Outline</Button>
@@ -164,7 +288,8 @@ export const CustomColor = () => {
       button: {
         colors: {
           gradient: {
-            filled: 'bg-linear-to-r from-cyan-500 to-blue-500'
+            filled:
+              'bg-linear-to-r from-blue-skybolt-a-500 to-blue-hyperstream-500'
           }
         }
       }
@@ -186,12 +311,13 @@ export const CustomVariant = () => {
           gradient: 'border rounded-lg'
         },
         colors: {
-          default: {
-            gradient: 'bg-linear-to-r from-cyan-500 to-blue-500 border-blue-500'
-          },
           primary: {
             gradient:
-              'bg-linear-to-r from-violet-500 to-fuchsia-500 border-violet-500'
+              'bg-linear-to-r from-blue-skybolt-a-500 to-blue-hyperstream-500 border-blue-hyperstream-500'
+          },
+          secondary: {
+            gradient:
+              'bg-linear-to-r from-pink-plasma-circuit-500 to-purple-fuchsia-a-500 border-pink-plasma-circuit-500'
           }
         }
       }
@@ -201,8 +327,10 @@ export const CustomVariant = () => {
   return (
     <ThemeProvider theme={extendTheme(theme, customTheme)}>
       <div style={{ display: 'flex', gap: 10 }}>
-        <Button variant="gradient">Gradient - Default</Button>
         <Button variant="gradient" color="primary">
+          Gradient - Default
+        </Button>
+        <Button variant="gradient" color="secondary">
           Gradient - Primary
         </Button>
       </div>
@@ -215,8 +343,8 @@ export const CustomSize = () => {
     components: {
       button: {
         sizes: {
-          xsmall: 'text-xs px-1 py-0.5',
-          xlarge: 'text-2xl px-6 py-3'
+          xsmall: 'text-xxs px-1 py-0.5',
+          xlarge: 'text-xl px-6 py-3'
         }
       }
     }

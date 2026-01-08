@@ -1,7 +1,10 @@
-import React, { FC } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { RangeTheme } from './RangeTheme';
+import type { FC } from 'react';
+import React from 'react';
+
 import { useComponentTheme } from '@/utils';
+
+import type { RangeTheme } from './RangeTheme';
 
 export interface RangeProps<Value> {
   /**

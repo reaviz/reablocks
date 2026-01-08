@@ -1,5 +1,8 @@
-import React, { FC } from 'react';
-import { formatDuration, DurationFormatTypes } from './utils';
+import type { FC } from 'react';
+import React from 'react';
+
+import type { DurationFormatTypes } from './utils';
+import { formatDuration } from './utils';
 
 export interface DurationProps {
   /**

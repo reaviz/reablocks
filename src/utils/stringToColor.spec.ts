@@ -1,5 +1,6 @@
-import { describe, test, expect } from 'vitest';
-import { generateColor, ColorOptions } from './stringToColor';
+import { describe, expect, test } from 'vitest';
+
+import { generateColor } from './stringToColor';
 
 describe('generateColor', () => {
   describe('consistency', () => {

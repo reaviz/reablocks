@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Dialog } from './Dialog';
-import { DialogHeader } from './DialogHeader';
-import { DialogContent } from './DialogContent';
-import { DialogFooter } from './DialogFooter';
+
 import { Button } from '../../elements';
 import { Stack } from '../../layout';
+import { Dialog } from './Dialog';
+import { DialogContent } from './DialogContent';
+import { DialogFooter } from './DialogFooter';
+import { DialogHeader } from './DialogHeader';
 
 export default {
   title: 'Components/Layers/Dialog',

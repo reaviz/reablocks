@@ -1,3 +1,5 @@
+import classNames from 'classnames';
+import type { MotionNodeAnimationOptions } from 'motion';
 import React, {
   forwardRef,
   Fragment,
@@ -6,11 +8,11 @@ import React, {
   useRef,
   useState
 } from 'react';
-import { OverlayEvent } from '@/utils/Overlay';
-import { Placement } from '@/utils/Position';
+
+import type { OverlayEvent } from '@/utils/Overlay';
+import type { Placement } from '@/utils/Position';
+
 import { Menu } from './Menu';
-import classNames from 'classnames';
-import { MotionNodeAnimationOptions } from 'motion';
 
 export interface NestedMenuRef {
   /**

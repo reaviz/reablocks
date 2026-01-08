@@ -1,4 +1,5 @@
-import { Children, isValidElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
+import { Children, isValidElement } from 'react';
 
 /**
  * Check if children contain any components with matching display names

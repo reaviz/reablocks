@@ -1,11 +1,14 @@
-import React, { FC, useCallback, useMemo } from 'react';
-import { TreeNode } from '@/layout/Tree/TreeNode';
-import { JsonTreeData } from './utils';
-import { useComponentTheme } from '@/utils/Theme/hooks';
-import { JsonTreeTheme } from './JsonTreeTheme';
-import { twMerge } from 'tailwind-merge';
+import type { FC } from 'react';
+import React, { useCallback, useMemo } from 'react';
+
 import { Ellipsis } from '@/data/Ellipsis';
 import { useInfinityList } from '@/data/InfinityList';
+import { TreeNode } from '@/layout/Tree/TreeNode';
+import { twMerge } from '@/utils';
+import { useComponentTheme } from '@/utils/Theme/hooks';
+
+import type { JsonTreeTheme } from './JsonTreeTheme';
+import type { JsonTreeData } from './utils';
 
 export interface JsonTreeNodeProps {
   /**

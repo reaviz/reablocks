@@ -3,8 +3,8 @@ import {
   BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
-  BreadcrumbSeparator,
-  Breadcrumbs
+  Breadcrumbs,
+  BreadcrumbSeparator
 } from './';
 
 export default {

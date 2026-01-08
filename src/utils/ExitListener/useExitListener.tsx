@@ -1,4 +1,5 @@
-import { MutableRefObject, RefObject, useEffect } from 'react';
+import type { MutableRefObject, RefObject } from 'react';
+import { useEffect } from 'react';
 
 interface ExitListenerOptions {
   /**

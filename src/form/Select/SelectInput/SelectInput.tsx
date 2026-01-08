@@ -1,23 +1,27 @@
+import type { FC, ReactElement, Ref, RefObject } from 'react';
 import React, {
-  FC,
-  ReactElement,
-  Ref,
-  RefObject,
   useCallback,
   useImperativeHandle,
   useMemo,
   useRef
 } from 'react';
-import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
-import { InlineInput } from '@/form/Input';
-import { DownArrowIcon } from '@/form/Select/icons/DownArrowIcon';
-import { CloseIcon } from '@/form/Select/icons/CloseIcon';
+
 import { DotsLoader } from '@/elements/Loader/DotsLoader';
+import { InlineInput } from '@/form/Input';
+import { CloseIcon } from '@/form/Select/icons/CloseIcon';
+import { DownArrowIcon } from '@/form/Select/icons/DownArrowIcon';
 import { RefreshIcon } from '@/form/Select/icons/RefreshIcon';
-import { SelectInputChip, SelectInputChipProps } from './SelectInputChip';
+import type {
+  SelectOptionProps,
+  SelectValue
+} from '@/form/Select/SelectOption';
+import type { SelectTheme } from '@/form/Select/SelectTheme';
 import { cn, useComponentTheme } from '@/utils';
-import { SelectTheme } from '@/form/Select/SelectTheme';
 import { CloneElement } from '@/utils';
+
+import type { SelectInputChipProps } from './SelectInputChip';
+import { SelectInputChip } from './SelectInputChip';
+import type { SelectInputSizeTheme } from './SelectInputTheme';
 
 export interface SelectInputProps {
   /**
@@ -133,7 +137,7 @@ export interface SelectInputProps {
   /**
    * The size of the select input.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof SelectInputSizeTheme;
 
   /**
    * The theme of the select input.

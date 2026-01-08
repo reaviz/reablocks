@@ -1,10 +1,13 @@
 'use client';
 
-import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
+
 import { useComponentTheme } from '@/utils';
-import { DrawerTheme } from './DrawerTheme';
+
 import { useDrawerContext } from './DrawerContext';
+import type { DrawerTheme } from './DrawerTheme';
 
 export interface DrawerContentProps extends HTMLAttributes<HTMLDivElement> {
   /**

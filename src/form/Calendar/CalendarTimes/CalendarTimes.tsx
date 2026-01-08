@@ -1,5 +1,3 @@
-import React, { FC, useCallback, useMemo, useState } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
 import {
   getHours,
   getMinutes,
@@ -12,10 +10,15 @@ import {
   setMinutes,
   setSeconds
 } from 'date-fns';
-import { TimeColumn } from './TimeColumn';
+import { AnimatePresence, motion } from 'motion/react';
+import type { FC } from 'react';
+import React, { useCallback, useMemo } from 'react';
+
 import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { Divider } from '@/layout';
 import { cn } from '@/utils';
+
+import { TimeColumn } from './TimeColumn';
 
 export type AmPm = 'AM' | 'PM';
 
@@ -24,6 +27,11 @@ export interface CalendarTimesProps {
    * The current date time value.
    */
   value: Date;
+
+  /**
+   * Whether the time is disabled.
+   */
+  disabled?: boolean;
 
   /**
    * The minimum selectable date for the calendar.
@@ -65,6 +73,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
   value,
   min,
   max,
+  disabled,
   onChange,
   theme: timeTheme,
   showDayOfWeek = false,
@@ -158,7 +167,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
 
   const hours = useMemo(() => {
     if (!value) return undefined;
-    let dayHours = getHours(safeDate);
+    const dayHours = getHours(safeDate);
 
     return is12HourCycle ? dayHours % 12 || 12 : dayHours;
   }, [value, safeDate, is12HourCycle]);
@@ -201,6 +210,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
             })}
           >
             <TimeColumn
+              disabled={disabled}
               theme={timeTheme}
               options={is12HourCycle ? HOURS_12 : HOURS_24}
               min={isSameDayWithMin ? getHours(min) : undefined}
@@ -215,6 +225,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
               className={timeTheme?.items.divider}
             />
             <TimeColumn
+              disabled={disabled}
               theme={timeTheme}
               options={MINUTES}
               min={
@@ -237,6 +248,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
               className={timeTheme?.items.divider}
             />
             <TimeColumn
+              disabled={disabled}
               theme={timeTheme}
               options={SECONDS}
               min={
@@ -261,6 +273,7 @@ export const CalendarTimes: FC<CalendarTimesProps> = ({
                   className={timeTheme?.items.divider}
                 />
                 <TimeColumn
+                  disabled={disabled}
                   theme={timeTheme}
                   options={['AM', 'PM']}
                   min={isSameDayWithMin ? getHours(min) : undefined}

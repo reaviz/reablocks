@@ -1,19 +1,16 @@
-import {
-  useLayoutEffect,
-  RefObject,
-  useCallback,
-  useEffect,
-  useMemo
-} from 'react';
-import {
-  useFloating,
-  Placement as FloatingUIPlacement,
+import type {
   Middleware,
+  Placement as FloatingUIPlacement
+} from '@floating-ui/react';
+import {
+  autoUpdate,
   flip,
   limitShift,
   shift,
-  autoUpdate
+  useFloating
 } from '@floating-ui/react';
+import type { RefObject } from 'react';
+import { useCallback, useEffect, useLayoutEffect, useMemo } from 'react';
 
 export type Placement = FloatingUIPlacement;
 export type Modifiers = Middleware[];

@@ -1,7 +1,11 @@
-import { Meta, StoryObj } from '@storybook/react';
-import React, { useState, useRef } from 'react';
-import { ConnectedOverlay } from './ConnectedOverlay';
+/* eslint-disable react-hooks/rules-of-hooks */
+
+import type { Meta, StoryObj } from '@storybook/react';
 import { motion } from 'motion/react';
+import type { FC, PropsWithChildren } from 'react';
+import React, { useRef, useState } from 'react';
+
+import { ConnectedOverlay } from './ConnectedOverlay';
 
 const meta: Meta<typeof ConnectedOverlay> = {
   title: 'Components/Utils/Overlay/Connected Overlay',
@@ -80,7 +84,10 @@ export const DefaultOpen: Story = {
   }
 };
 
-const Tooltip = ({ children, content }) => {
+const Tooltip: FC<PropsWithChildren & { content?: string }> = ({
+  children,
+  content
+}) => {
   const timeout = React.useRef<any>();
   const [open, setOpen] = React.useState(false);
 
@@ -258,7 +265,10 @@ export const MenuInMenuExample: Story = {
   }
 };
 
-const ContextMenu = ({ children, content }) => {
+const ContextMenu: FC<PropsWithChildren<{ content: any }>> = ({
+  children,
+  content
+}) => {
   const timeout = React.useRef<any>();
   const [open, setOpen] = React.useState(false);
 

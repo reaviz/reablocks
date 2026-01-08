@@ -1,8 +1,9 @@
+import { useState } from 'react';
+
 import { DateFormat } from '../../data/DateFormat';
 import { Stack } from '../../layout/Stack';
-import { useState } from 'react';
-import { DateInput } from './DateInput';
 import { COMBINED_PRESETS, PAST_RANGE_PRESETS } from '../Calendar';
+import { DateInput } from './DateInput';
 
 export default {
   title: 'Components/Form/Date Input',

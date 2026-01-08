@@ -1,4 +1,5 @@
-import React, { FC, Suspense } from 'react';
+import type { FC } from 'react';
+import React, { Suspense } from 'react';
 
 export interface IconBlockProps {
   name: string;

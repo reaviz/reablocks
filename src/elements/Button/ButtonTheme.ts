@@ -1,3 +1,25 @@
+export interface ButtonVariantTheme {
+  filled: string;
+  outline: string;
+  text: string;
+  ghost: string;
+  [key: string]: string;
+}
+
+export interface ButtonSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
+
+export interface ButtonColorTheme {
+  primary: ButtonVariantTheme;
+  secondary: ButtonVariantTheme;
+  destructive: ButtonVariantTheme;
+  [key: string]: ButtonVariantTheme;
+}
+
 export interface ButtonTheme {
   base: string;
   disabled: string;
@@ -6,82 +28,25 @@ export interface ButtonTheme {
   groupText: string;
   adornment: {
     base: string;
-    start: string;
-    end: string;
-    sizes: {
-      small: string;
-      medium: string;
-      large: string;
-      [key: string]: string;
-    };
+    start: ButtonSizeTheme;
+    end: ButtonSizeTheme;
+    sizes: ButtonSizeTheme;
   };
-  variants: {
-    filled: string;
-    outline: string;
-    text: string;
-    [key: string]: string;
-  };
-  colors: {
-    default: {
-      filled: string;
-      outline: string;
-      text: string;
-      [key: string]: string;
-    };
-    primary: {
-      filled: string;
-      outline: string;
-      text: string;
-      [key: string]: string;
-    };
-    secondary: {
-      filled: string;
-      outline: string;
-      text: string;
-      [key: string]: string;
-    };
-    success: {
-      filled: string;
-      outline: string;
-      text: string;
-      [key: string]: string;
-    };
-    warning: {
-      filled: string;
-      outline: string;
-      text: string;
-      [key: string]: string;
-    };
-    error: {
-      filled: string;
-      outline: string;
-      text: string;
-      [key: string]: string;
-    };
-    [key: string]: {
-      filled: string;
-      outline: string;
-      text: string;
-      [key: string]: string;
-    };
-  };
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
-  iconSizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  variants: ButtonVariantTheme;
+  colors: ButtonColorTheme;
+  sizes: ButtonSizeTheme;
+  iconSizes: ButtonSizeTheme;
 }
 
-const baseTheme: Partial<ButtonTheme> = {
-  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-xs font-sans cursor-pointer',
-  disabled: 'disabled:cursor-not-allowed',
+export const buttonTheme: ButtonTheme = {
+  base: `
+    inline-flex items-center justify-center font-sans 
+    cursor-pointer font-semibold whitespace-nowrap 
+    rounded-(--buttons-details-corner-radius-base) font-semibold cursor-pointer select-none transition-colors [&_svg]:transition-all focus-visible:outline-none
+  `,
+  disabled: `
+    disabled:opacity-40 disabled:cursor-not-allowed 
+  `,
   fullWidth: 'flex w-full',
   group:
     'rounded-none first:rounded-s last:rounded-e border-s-0 first:border-s',
@@ -89,165 +54,121 @@ const baseTheme: Partial<ButtonTheme> = {
     'border border-y-transparent border-l-transparent last:border-r-transparent hover:bg-initial',
   adornment: {
     base: 'flex',
-    start: 'pr-1',
-    end: 'pl-1',
+    start: {
+      small: 'pr-(--buttons-details-space-between-horizontal-sm)',
+      medium: 'pr-(--buttons-details-space-between-horizontal-md)',
+      large: 'pr-(--buttons-details-space-between-horizontal-lg)'
+    },
+    end: {
+      small: 'pl-(--buttons-details-space-between-horizontal-sm)',
+      medium: 'pl-(--buttons-details-space-between-horizontal-md)',
+      large: 'pl-(--buttons-details-space-between-horizontal-lg)'
+    },
     sizes: {
-      small: '[&>svg]:w-3 [&>svg]:h-3',
-      medium: '[&>svg]:w-4 [&>svg]:h-4',
-      large: '[&>svg]:w-5 [&>svg]:h-5'
+      small: '[&>svg]:size-(--buttons-details-asset-size-sm)',
+      medium: '[&>svg]:size-(--buttons-details-asset-size-md)',
+      large: '[&>svg]:size-(--buttons-details-asset-size-lg)'
     }
   },
   sizes: {
-    small: 'text-sm px-2 py-1 leading-[normal]',
-    medium: 'text-base px-4 py-2 leading-[normal]',
-    large: 'text-xl px-5 py-2.5 leading-[normal]'
+    small:
+      'h-(--buttons-details-height-core-icon-sm) text-xs px-(--buttons-details-horizontal-padding-sm)',
+    medium:
+      'h-(--buttons-details-height-core-icon-md) text-sm px-(--buttons-details-horizontal-padding-md)',
+    large:
+      'h-(--buttons-details-height-core-icon-lg) text-base px-(--buttons-details-horizontal-padding-lg)'
   },
   iconSizes: {
-    small: 'px-2 py-1',
-    medium: 'px-4 py-2',
-    large: 'px-5 py-2.5'
-  }
-};
-
-export const buttonTheme: ButtonTheme = {
-  base: [baseTheme.base, 'text-text-primary font-semibold'].join(' '),
-  disabled: [
-    baseTheme.disabled,
-    'data-[variant=filled]:disabled:bg-gray-600 disabled:text-gray-400 border-gray-500'
-  ].join(' '),
-  fullWidth: baseTheme.fullWidth,
-  group: baseTheme.group,
-  groupText: baseTheme.groupText,
-  adornment: baseTheme.adornment,
-  sizes: baseTheme.sizes,
-  iconSizes: baseTheme.iconSizes,
-  variants: {
-    filled:
-      'bg-secondary hover:bg-border-secondary-hover border-secondary light:text-gray-100',
-    outline: 'border-grey border',
-    text: 'border-0'
-  },
-  colors: {
-    default: {
-      filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
-      outline: 'border-secondary border',
-      text: 'text-text-primary'
-    },
-    primary: {
-      filled:
-        'bg-primary hover:bg-primary-hover border-primary text-text-primary',
-      outline: 'border border-primary',
-      text: 'text-primary hover:text-primary-hover'
-    },
-    secondary: {
-      filled: 'bg-secondary hover:bg-secondary-hover text-text-primary!',
-      outline: 'border border-secondary',
-      text: 'text-secondary hover:text-secondary-hover'
-    },
-    success: {
-      filled:
-        'bg-success hover:bg-success-hover border-success text-text-primary',
-      outline: 'border border-success',
-      text: 'text-success hover:text-success-hover'
-    },
-    warning: {
-      filled:
-        'bg-warning hover:bg-warning-hover border-warning text-text-primary',
-      outline: 'border border-warning',
-      text: 'text-warning hover:text-warning-hover'
-    },
-    error: {
-      filled: 'bg-error hover:bg-error-hover border-error text-text-primary',
-      outline: 'border border-error',
-      text: 'text-error hover:text-error-hover'
-    }
-  }
-};
-
-export const legacyButtonTheme: ButtonTheme = {
-  base: [
-    baseTheme.base,
-    '[border:_var(--button-border)] rounded-[var(--button-border)] [font-family:_var(--button-font-family)] [font-weight:_var(--button-font-weight)]'
-  ].join(' '),
-  disabled: [
-    baseTheme.disabled,
-    'data-[variant=filled]:disabled:bg-[var(--disabled-background)] disabled:text-[var(--button-disabled-color-on-background)] border-[var(--disabled-background)]'
-  ].join(' '),
-  fullWidth: baseTheme.fullWidth,
-  group: baseTheme.group,
-  groupText: baseTheme.groupText,
-  sizes: {
-    small: '[font-size:_var(--font-size-sm)] p-[var(--button-spacing-sm)]',
-    medium: '[font-size:_var(--font-size-md)] p-[var(--button-spacing-md)]',
-    large: '[font-size:_var(--font-size-lg)] p-[var(--button-spacing-lg)]'
-  },
-  iconSizes: {
-    small: '[font-size:_var(--font-size-sm)] p-[var(--button-spacing-sm)]',
-    medium: '[font-size:_var(--font-size-md)] p-[var(--button-spacing-md)]',
-    large: '[font-size:_var(--font-size-lg)] p-[var(--button-spacing-lg)]'
-  },
-  adornment: {
-    ...baseTheme.adornment,
-    start: [
-      baseTheme.adornment.start,
-      '[padding-right:_calc(var(--list-item-spacing)_/_2)]'
-    ].join(' '),
-    end: [
-      baseTheme.adornment.start,
-      '[padding-left:_calc(var(--list-item-spacing)_/_2)]'
-    ].join(' '),
-    sizes: {
-      small:
-        '[&>svg]:w-[var(--button-adornment-size-sm)] [&>svg]:h-[var(--button-adornment-size-sm)]',
-      medium:
-        '[&>svg]:w-[var(--button-adornment-size-md)] [&>svg]:h-[var(--button-adornment-size-md)]',
-      large:
-        '[&>svg]:w-[var(--button-adornment-size-lg)] [&>svg]:h-[var(--button-adornment-size-lg)]'
-    }
+    xsmall:
+      'size-(--buttons-details-height-core-icon-xs) [&>svg]:size-(--buttons-details-asset-size-xs) px-0 py-0',
+    small:
+      'size-(--buttons-details-height-core-icon-sm) [&>svg]:size-(--buttons-details-asset-size-sm) px-0 py-0',
+    medium:
+      'size-(--buttons-details-height-core-icon-md) [&>svg]:size-(--buttons-details-asset-size-md) px-0 py-0',
+    large:
+      'size-(--buttons-details-height-core-icon-lg) [&>svg]:size-(--buttons-details-asset-size-lg) px-0 py-0'
   },
   variants: {
-    filled:
-      'bg-[var(--button-background)] text-[var(--button-color-on-background)] hover:bg-[var(--button-background-hover)] border-[var(--button-background)] hover:border-[var(--button-background-hover)]',
-    outline:
-      'border-[var(--button-background)] hover:border-[var(--button-background-hover)] text-[var(--button-color)] hover:text-[var(--button-color-hover)] border',
-    text: 'border-0'
+    filled: 'bg-secondary hover:bg-border-secondary-hover',
+    outline: 'border',
+    text: 'border-0',
+    ghost: ''
   },
   colors: {
-    default: {
-      filled:
-        'bg-[var(--button-background)] text-[var(--button-color-on-background)] hover:bg-[var(--button-background-hover)] border-[var(--button-background)] hover:border-[var(--button-background-hover)]',
-      outline: '',
-      text: 'text-[var(--button-color)] hover:text-[var(--button-color-hover)]'
-    },
     primary: {
-      filled:
-        'bg-[var(--primary-background)] hover:bg-[var(--primary-background-hover)] border-[var(--primary-background)] border-[var(--primary-background-hover)] text-[var(--button-color-on-background)]',
-      outline: '',
-      text: 'text-[var(--primary-color)] hover:text-[var(--primary-color-hover)]'
+      filled: `
+        bg-buttons-colors-core-icon-primary-background-resting border-buttons-colors-core-icon-primary-stroke-resting text-buttons-colors-core-icon-primary-text-resting [&_svg]:fill-buttons-colors-core-icon-primary-assets-resting
+        hover:bg-buttons-colors-core-icon-primary-background-hover hover:border-buttons-colors-core-icon-primary-stroke-hover hover:text-buttons-colors-core-icon-primary-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-primary-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-primary-background-selected focus-visible:border-buttons-colors-core-icon-primary-stroke-selected focus-visible:text-buttons-colors-core-icon-primary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-primary-assets-selected
+        disabled:bg-buttons-colors-core-icon-primary-background-resting disabled:border-buttons-colors-core-icon-primary-stroke-resting disabled:text-buttons-colors-core-icon-primary-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-primary-assets-resting
+      `,
+      outline: `
+        bg-buttons-colors-core-icon-outline-background-resting border-buttons-colors-core-icon-outline-stroke-resting text-buttons-colors-core-icon-outline-text-resting [&_svg]:fill-buttons-colors-core-icon-outline-assets-resting
+        hover:bg-buttons-colors-core-icon-outline-background-hover hover:border-buttons-colors-core-icon-outline-stroke-hover hover:text-buttons-colors-core-icon-outline-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-outline-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-outline-background-selected focus-visible:border-buttons-colors-core-icon-outline-stroke-selected focus-visible:text-buttons-colors-core-icon-outline-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-outline-assets-selected
+        disabled:bg-buttons-colors-core-icon-outline-background-resting disabled:border-buttons-colors-core-icon-outline-stroke-resting disabled:text-buttons-colors-core-icon-outline-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-outline-assets-resting
+      `,
+      text: `
+        text-buttons-colors-link-primary-text-resting hover:text-buttons-colors-link-primary-text-hover focus-visible:text-buttons-colors-link-primary-text-selected
+        [&_svg]:fill-buttons-colors-link-primary-assets-resting hover:[&_svg]:fill-buttons-colors-link-primary-assets-hover focus-visible:[&_svg]:fill-buttons-colors-link-primary-assets-selected
+        disabled:text-buttons-colors-link-primary-text-resting disabled:[&_svg]:fill-buttons-colors-link-primary-assets-resting
+      `,
+      ghost: `
+        bg-buttons-colors-core-icon-ghost-background-resting border-buttons-colors-core-icon-ghost-stroke-resting text-buttons-colors-core-icon-ghost-text-resting [&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
+        hover:bg-buttons-colors-core-icon-ghost-background-hover hover:border-buttons-colors-core-icon-ghost-stroke-hover hover:text-buttons-colors-core-icon-ghost-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-ghost-background-selected focus-visible:border-buttons-colors-core-icon-ghost-stroke-selected focus-visible:text-buttons-colors-core-icon-ghost-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-selected
+        disabled:bg-buttons-colors-core-icon-ghost-background-resting disabled:border-buttons-colors-core-icon-ghost-stroke-resting disabled:text-buttons-colors-core-icon-ghost-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
+      `
     },
     secondary: {
-      filled:
-        'bg-[var(--secondary-background)] hover:bg-[var(--secondary-background-hover)] border-[var(--secondary-background)] hover:border-[var(--secondary-background-hover)] text-[var(--button-color-on-background)]',
-      outline: '',
-      text: 'text-[var(--secondary-color)] hover:text-[var(--secondary-color-hover)]'
+      filled: `
+        bg-buttons-colors-core-icon-secondary-background-resting border-buttons-colors-core-icon-secondary-stroke-resting text-buttons-colors-core-icon-secondary-text-resting [&_svg]:fill-buttons-colors-core-icon-secondary-assets-resting
+        hover:bg-buttons-colors-core-icon-secondary-background-hover hover:border-buttons-colors-core-icon-secondary-stroke-hover hover:text-buttons-colors-core-icon-secondary-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-secondary-background-selected focus-visible:border-buttons-colors-core-icon-secondary-stroke-selected focus-visible:text-buttons-colors-core-icon-secondary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-selected
+        disabled:bg-buttons-colors-core-icon-secondary-background-resting disabled:border-buttons-colors-core-icon-secondary-stroke-resting disabled:text-buttons-colors-core-icon-secondary-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-resting
+      `,
+      outline: `
+        border-buttons-colors-core-icon-secondary-background-resting text-buttons-colors-core-icon-secondary-text-resting [&_svg]:fill-buttons-colors-core-icon-secondary-assets-resting
+        hover:border-buttons-colors-core-icon-secondary-background-hover hover:text-buttons-colors-core-icon-secondary-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-hover
+        focus-visible:border-buttons-colors-core-icon-secondary-background-selected focus-visible:text-buttons-colors-core-icon-secondary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-selected
+        disabled:border-buttons-colors-core-icon-secondary-background-resting disabled:text-buttons-colors-core-icon-secondary-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-secondary-assets-resting
+      `,
+      text: `
+        text-buttons-colors-link-secondary-text-resting hover:text-buttons-colors-link-secondary-text-hover focus-visible:text-buttons-colors-link-secondary-text-selected
+        [&_svg]:fill-buttons-colors-link-secondary-assets-resting hover:[&_svg]:fill-buttons-colors-link-secondary-assets-hover focus-visible:[&_svg]:fill-buttons-colors-link-secondary-assets-selected
+        disabled:text-buttons-colors-link-secondary-text-resting disabled:[&_svg]:fill-buttons-colors-link-secondary-assets-resting
+      `,
+      ghost: `
+        bg-buttons-colors-core-icon-ghost-background-resting border-buttons-colors-core-icon-ghost-stroke-resting text-buttons-colors-core-icon-ghost-text-resting [&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
+        hover:bg-buttons-colors-core-icon-secondary-background-hover hover:border-buttons-colors-core-icon-ghost-stroke-hover hover:text-buttons-colors-core-icon-secondary-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-secondary-background-selected focus-visible:border-buttons-colors-core-icon-secondary-stroke-selected focus-visible:-buttons-colors-core-icon-secondary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-selected
+        disabled:bg-buttons-colors-core-icon-ghost-background-resting disabled:border-buttons-colors-core-icon-ghost-stroke-resting disabled:text-buttons-colors-core-icon-secondary-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
+      `
     },
-    success: {
-      filled:
-        'bg-[var(--success-background)] hover:bg-[var(--success-background-hover)] border-[var(--success-background)] hover:border-[var(--success-background-hover)] text-[var(--button-color-on-background)]',
-      outline: '',
-      text: 'text-[var(--success-color)] hover:text-[var(--success-color-hover)]'
-    },
-    warning: {
-      filled:
-        'bg-[var(--warning-background)] hover:bg-[var(--warning-background-hover)] border-[var(--warning-background)] hover:border-[var(--warning-background-hover)] text-[var(--button-color-on-background)]',
-      outline: '',
-      text: 'text-[var(--warning-color)] hover:text-[var(--warning-color-hover)]'
-    },
-    error: {
-      filled:
-        'bg-[var(--error-background)] hover:bg-[var(--error-background-hover)] border-[var(--error-background)] hover:border-[var(--error-background-hover)] text-[var(--button-color-on-background)]',
-      outline: '',
-      text: 'text-[var(--error-color)] hover:text-[var(--warning-error-hover)]'
+    destructive: {
+      filled: `
+        bg-buttons-colors-core-icon-destructive-background-resting border-buttons-colors-core-icon-destructive-stroke-resting text-buttons-colors-core-icon-destructive-text-resting [&_svg]:fill-buttons-colors-core-icon-destructive-assets-resting
+        hover:bg-buttons-colors-core-icon-destructive-background-hover hover:border-buttons-colors-core-icon-destructive-stroke-hover hover:text-buttons-colors-core-icon-destructive-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-destructive-background-selected focus-visible:border-buttons-colors-core-icon-destructive-stroke-selected focus-visible:text-buttons-colors-core-icon-primary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-selected
+        disabled:bg-buttons-colors-core-icon-destructive-background-resting disabled:border-buttons-colors-core-icon-destructive-stroke-resting disabled:text-buttons-colors-core-icon-destructive-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-resting
+      `,
+      outline: `
+        border-buttons-colors-core-icon-destructive-stroke-resting text-buttons-colors-link-destructive-text-resting [&_svg]:fill-buttons-colors-link-destructive-assets-resting
+        hover:border-buttons-colors-core-icon-destructive-stroke-hover hover:text-buttons-colors-link-destructive-text-hover hover:[&_svg]:fill-buttons-colors-link-destructive-assets-hover
+        focus-visible:border-buttons-colors-core-icon-destructive-stroke-selected focus-visible:text-buttons-colors-link-destructive-text-selected focus-visible:[&_svg]:fill-buttons-colors-link-destructive-assets-selected
+        disabled:border-buttons-colors-core-icon-destructive-stroke-resting disabled:text-buttons-colors-link-destructive-text-resting disabled:[&_svg]:fill-buttons-colors-link-destructive-assets-resting
+      `,
+      text: `
+        text-buttons-colors-link-destructive-text-resting hover:text-buttons-colors-link-destructive-text-hover focus-visible:text-buttons-colors-link-destructive-text-selected
+        [&_svg]:fill-buttons-colors-link-destructive-assets-resting hover:[&_svg]:fill-buttons-colors-link-destructive-assets-hover focus-visible:[&_svg]:fill-buttons-colors-link-destructive-assets-selected
+        disabled:text-buttons-colors-link-destructive-text-resting disabled:[&_svg]:fill-buttons-colors-link-destructive-assets-resting
+      `,
+      ghost: `
+        bg-buttons-colors-core-icon-ghost-background-resting border-buttons-colors-core-icon-ghost-stroke-resting text-buttons-colors-core-icon-ghost-text-resting [&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
+        hover:bg-buttons-colors-core-icon-destructive-background-hover hover:border-buttons-colors-core-icon-ghost-stroke-hover hover:text-buttons-colors-core-icon-ghost-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-hover
+        focus-visible:bg-buttons-colors-core-icon-destructive-background-selected focus-visible:border-buttons-colors-core-icon-destructive-stroke-selected focus-visible:text-buttons-colors-core-icon-ghost-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-selected
+        disabled:bg-buttons-colors-core-icon-ghost-background-resting disabled:border-buttons-colors-core-icon-ghost-stroke-resting disabled:text-buttons-colors-core-icon-ghost-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
+      `
     }
   }
 };

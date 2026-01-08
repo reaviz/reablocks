@@ -1,7 +1,10 @@
-import React from 'react';
-import { useExitListener } from './useExitListener';
-import { useRef, useState } from 'react';
+/* eslint-disable react-hooks/rules-of-hooks */
+
 import type { Meta, StoryObj } from '@storybook/react';
+import React from 'react';
+import { useRef, useState } from 'react';
+
+import { useExitListener } from './useExitListener';
 
 const meta: Meta = {
   title: 'Components/Utils/Exit Listener'

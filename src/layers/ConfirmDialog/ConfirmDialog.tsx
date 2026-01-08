@@ -1,7 +1,9 @@
 // ConfirmDialog.tsx
-import React, { ReactNode } from 'react';
-import { Dialog } from '@/layers/Dialog';
+import type { ReactNode } from 'react';
+import React from 'react';
+
 import { Button } from '@/elements/Button';
+import { Dialog } from '@/layers/Dialog';
 
 export interface ConfirmDialogProps {
   /**

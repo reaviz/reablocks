@@ -1,30 +1,35 @@
-'use client';
-
-import React, { FC, ReactElement, ReactNode, useMemo } from 'react';
 import FocusTrap from 'focus-trap-react';
-import {
-  useId,
-  CloneElement,
-  hasSlotComponents,
-  extractSlots,
-  useComponentTheme
-} from '@/utils';
-import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
-import {
-  motion,
+import type {
   MotionNodeAnimationOptions,
   MotionProps,
   TargetAndTransition,
   Transition,
   VariantLabels
 } from 'motion/react';
-import { variants } from './variants';
-import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
-import { DrawerContext, DrawerContextValue } from './DrawerContext';
-import { twMerge } from 'tailwind-merge';
-import { DrawerTheme } from './DrawerTheme';
-import { DrawerFooter } from './DrawerFooter';
+import { motion } from 'motion/react';
+import type { FC, ReactElement, ReactNode } from 'react';
+import { useMemo } from 'react';
+import React from 'react';
+
+import {
+  CloneElement,
+  extractSlots,
+  hasSlotComponents,
+  useComponentTheme,
+  useId
+} from '@/utils';
+import { twMerge } from '@/utils';
+import type { GlobalOverlayProps } from '@/utils/Overlay';
+import { GlobalOverlay } from '@/utils/Overlay';
+
 import { DrawerContent } from './DrawerContent';
+import type { DrawerContextValue } from './DrawerContext';
+import { DrawerContext } from './DrawerContext';
+import { DrawerFooter } from './DrawerFooter';
+import type { DrawerHeaderProps } from './DrawerHeader';
+import { DrawerHeader } from './DrawerHeader';
+import type { DrawerTheme } from './DrawerTheme';
+import { variants } from './variants';
 
 export interface DrawerProps
   extends Omit<GlobalOverlayProps, 'children'>,

@@ -1,21 +1,25 @@
-import React, { FC, Fragment, useCallback, useMemo, useState } from 'react';
 import {
   add,
   addMonths,
-  min as minDate,
+  format,
   max as maxDate,
-  sub,
-  format
+  min as minDate,
+  sub
 } from 'date-fns';
 import { AnimatePresence, motion } from 'motion/react';
+import type { FC } from 'react';
+import React, { Fragment, useCallback, useMemo, useState } from 'react';
+
 import { Button } from '@/elements';
-import { CalendarProps } from './Calendar';
-import { CalendarDays } from './CalendarDays';
-import { SmallHeading } from '@/typography';
 import { Divider, Stack } from '@/layout';
+import { SmallHeading } from '@/typography';
 import { useComponentTheme } from '@/utils';
-import { CalendarRangeTheme } from './CalendarRangeTheme';
-import { CalendarPresets, PresetOption } from './CalendarPresets';
+
+import type { CalendarProps } from './Calendar';
+import { CalendarDays } from './CalendarDays';
+import type { PresetOption } from './CalendarPresets';
+import { CalendarPresets } from './CalendarPresets';
+import type { CalendarRangeTheme } from './CalendarRangeTheme';
 
 export interface CalendarRangeProps
   extends Omit<

@@ -1,18 +1,14 @@
-import React, { createContext } from 'react';
+import type React from 'react';
+import { createContext } from 'react';
 
-export type NotificationVariants =
-  | 'default'
-  | 'success'
-  | 'warning'
-  | 'error'
-  | 'info';
+import type { NotificationVariantTheme } from '@/layers';
 
 export interface NotificationOptions {
   title?: string | React.JSX.Element | React.JSX.Element[];
   body?: string | React.JSX.Element | React.JSX.Element[];
   timeout?: number;
   showClose?: boolean;
-  variant?: NotificationVariants;
+  variant?: keyof NotificationVariantTheme;
   className?: string;
   icon?: string | React.JSX.Element | React.JSX.Element[];
   action?: string | React.JSX.Element | React.JSX.Element[];

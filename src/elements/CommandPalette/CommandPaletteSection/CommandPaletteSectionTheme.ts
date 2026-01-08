@@ -10,10 +10,5 @@ const baseTheme: CommandPaletteSectionTheme = {
 
 export const commandPaletteSectionTheme: CommandPaletteSectionTheme = {
   ...baseTheme,
-  base: [baseTheme.base, 'bg-panel'].join(' ')
-};
-
-export const cssVarsCommandPaletteSectionTheme: CommandPaletteSectionTheme = {
-  ...baseTheme,
-  first: 'pt-[var(--spacing-md)]'
+  base: [baseTheme.base, 'bg-background-neutral-inverse-raised-1'].join(' ')
 };

@@ -1,6 +1,10 @@
 import React from 'react';
 
-export const ShadowBlocks = ({ shadows }) => (
+export const ShadowBlocks = ({
+  shadows
+}: {
+  shadows: { [key: string]: string };
+}) => (
   <div
     style={{
       padding: '4px 8px',

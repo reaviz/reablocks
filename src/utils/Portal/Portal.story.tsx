@@ -1,5 +1,8 @@
-import { Meta, StoryObj } from '@storybook/react';
-import React, { useState, useRef } from 'react';
+/* eslint-disable react-hooks/rules-of-hooks */
+
+import type { Meta, StoryObj } from '@storybook/react';
+import React, { useRef, useState } from 'react';
+
 import { Portal } from './Portal';
 
 const meta: Meta<typeof Portal> = {

@@ -1,14 +1,16 @@
+import type { RefObject } from 'react';
 import React, {
   forwardRef,
-  RefObject,
   useImperativeHandle,
   useLayoutEffect,
   useRef,
   useState
 } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { InputTheme } from './InputTheme';
+
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
+
+import type { InputSizeTheme, InputTheme } from './InputTheme';
 
 export interface InputProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
@@ -35,7 +37,7 @@ export interface InputProps
   /**
    * Size of the input.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof InputSizeTheme;
 
   /**
    * Content to display before the input.

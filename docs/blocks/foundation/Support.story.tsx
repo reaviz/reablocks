@@ -1,10 +1,10 @@
-import React from 'react';
 import { motion } from 'motion/react';
+import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import { Block, Card } from '../../../src/layout';
-import { Input, Textarea } from '../../../src/form';
 import { Button } from '../../../src/elements/Button';
+import { Input, Textarea } from '../../../src/form';
+import { Block, Card } from '../../../src/layout';
 
 export default {
   title: 'Blocks/Foundation/Support'
@@ -23,16 +23,19 @@ export const Support = () => {
       animate={{ y: 0, opacity: 1 }}
       className="mt-10 sm:mx-auto sm:w-full md:w-[500px]"
     >
-      <Card className="w-full">
+      <Card className="p-7 w-full">
         <div className="flex flex-col items-center justify-center pt-2 pb-5 text-center">
-          <h1 className="mt-2 mb-0 text-2xl font-sans font-bold">
+          <h1 className="mt-2 mb-0 text-xl font-sans font-bold">
             Report an issue
           </h1>
-          <div className="text-text-secondary text-base">
+          <div className="text-content-text-neutral-2 text-sm">
             Found a bug? Please let us know so we can fix it.
           </div>
         </div>
-        <form onSubmit={handleSubmit(values => console.log('values', values))}>
+        <form
+          className="flex flex-col gap-4"
+          onSubmit={handleSubmit(values => console.log('values', values))}
+        >
           <Block label="Title">
             <Controller
               name="title"
@@ -82,11 +85,12 @@ export const Support = () => {
             />
           </Block>
           <Button
+            size="large"
             type="submit"
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-5 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-none focus:outline-hidden transition-colors"
+            className="mt-2"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Sending Report...' : 'Send Report →'}

@@ -1,8 +1,10 @@
-import { describe, test, expect } from 'vitest';
-import React, { ReactNode } from 'react';
-import { DrawerHeader } from './DrawerHeader';
+import type { ReactNode } from 'react';
+import React from 'react';
+import { describe, expect, test } from 'vitest';
+
 import { DrawerContent } from './DrawerContent';
 import { DrawerFooter } from './DrawerFooter';
+import { DrawerHeader } from './DrawerHeader';
 
 // Test that displayNames are set correctly for slot detection
 describe('Drawer Slot Components', () => {

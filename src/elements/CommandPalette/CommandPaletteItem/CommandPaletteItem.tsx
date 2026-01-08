@@ -1,10 +1,12 @@
 import React, { forwardRef } from 'react';
-import { ListItem, ListItemProps } from '@/layout';
-import { MotionItem } from '@/layout';
+
+import type { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 import { Kbd } from '@/elements/Kbd';
-import { twMerge } from 'tailwind-merge';
+import type { ListItemProps } from '@/layout';
+import { ListItem } from '@/layout';
+import { MotionItem } from '@/layout';
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 
 export interface CommandPaletteItemProps extends Omit<ListItemProps, 'theme'> {
   hotkey?: string;

@@ -1,24 +1,15 @@
-import React, {
-  FC,
-  useState,
-  PropsWithChildren,
-  useEffect,
-  KeyboardEvent,
-  Children,
-  useRef,
-  ReactNode
-} from 'react';
-import { CommandPaletteInput } from './CommandPaletteInput';
-import {
-  DATA_ATTRIBUTE_INDEX,
-  HotkeyIem,
-  useFlattenedTree
-} from './useFlattenedTree';
-import { List, ListItem } from '@/layout/List';
+import type { FC, KeyboardEvent, PropsWithChildren, ReactNode } from 'react';
+import React, { Children, useEffect, useRef, useState } from 'react';
+
 import { Card } from '@/layout/Card';
+import { List, ListItem } from '@/layout/List';
 import { MotionGroup } from '@/layout/Motion';
 import { useComponentTheme } from '@/utils';
-import { CommandPaletteTheme } from './CommandPaletteTheme';
+
+import { CommandPaletteInput } from './CommandPaletteInput';
+import type { CommandPaletteTheme } from './CommandPaletteTheme';
+import type { HotkeyIem } from './useFlattenedTree';
+import { DATA_ATTRIBUTE_INDEX, useFlattenedTree } from './useFlattenedTree';
 
 export interface CommandPaletteProps extends PropsWithChildren {
   /**

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const SpacingBlocks = ({ spacings }) => {
+export const SpacingBlocks = ({ spacings }: any) => {
   const steps = Array.from({ length: 20 }, (_, index) => index + 1);
   steps.unshift(0.5);
   steps.push(...[24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 72, 80, 96]);

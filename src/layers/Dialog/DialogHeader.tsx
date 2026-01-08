@@ -1,10 +1,13 @@
 'use client';
 
-import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
-import { twMerge } from 'tailwind-merge';
+import type { HTMLAttributes, ReactNode } from 'react';
+import React, { forwardRef } from 'react';
+
+import { twMerge } from '@/utils';
 import { useComponentTheme } from '@/utils';
-import { DialogTheme } from './DialogTheme';
+
 import { useDialogContext } from './DialogContext';
+import type { DialogTheme } from './DialogTheme';
 
 export interface DialogHeaderProps extends HTMLAttributes<HTMLElement> {
   /**

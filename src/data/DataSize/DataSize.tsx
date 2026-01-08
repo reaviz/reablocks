@@ -1,5 +1,8 @@
-import React, { FC } from 'react';
-import { formatSize, FormatSizeTypes } from './utils';
+import type { FC } from 'react';
+import React from 'react';
+
+import type { FormatSizeTypes } from './utils';
+import { formatSize } from './utils';
 
 export interface DataSizeProps {
   /**

@@ -1,30 +1,30 @@
 import {
   addDays,
+  differenceInMinutes,
+  differenceInSeconds,
+  endOfDay,
   format,
+  getDate,
   getDay,
   getDaysInMonth,
-  getDate,
-  getISODay,
-  isAfter,
-  isBefore,
-  isValid,
-  isSameDay,
-  isSameMonth,
-  startOfMonth,
-  min,
-  max,
-  subDays,
-  isWithinInterval,
-  endOfDay,
-  startOfDay,
   getHours,
+  getISODay,
   getMinutes,
   getSeconds,
-  setMinutes,
+  isAfter,
+  isBefore,
+  isSameDay,
+  isSameMonth,
+  isValid,
+  isWithinInterval,
+  max,
+  min,
   setHours,
+  setMinutes,
   setSeconds,
-  differenceInSeconds,
-  differenceInMinutes
+  startOfDay,
+  startOfMonth,
+  subDays
 } from 'date-fns';
 
 /**
@@ -99,10 +99,7 @@ export function getWeeks(
   let offset = getDay(day);
   const numOfWeeks = Math.ceil((daysInMonth + offset) / 7);
 
-  // @ts-ignore
-  const weeks: Day[][] = Array.apply(null, {
-    length: numOfWeeks
-  }).map(() => []);
+  const weeks: Day[][] = Array.from({ length: numOfWeeks }, () => []);
 
   const current = new Date();
 
@@ -259,8 +256,8 @@ export function updateDateTime(
       if (!isRange) {
         // For single date, inherit time from previous value
         const originalTimeSource = Array.isArray(currentDate)
-          ? currentDate[0] ?? new Date()
-          : currentDate ?? new Date();
+          ? (currentDate[0] ?? new Date())
+          : (currentDate ?? new Date());
         finalDate = setSeconds(
           setMinutes(
             setHours(newDate, getHours(originalTimeSource)),
@@ -272,8 +269,8 @@ export function updateDateTime(
         // For range, only inherit time for first date
         if (!rangeStart) {
           const originalTimeSource = Array.isArray(currentDate)
-            ? currentDate[0] ?? new Date()
-            : currentDate ?? new Date();
+            ? (currentDate[0] ?? new Date())
+            : (currentDate ?? new Date());
           finalDate = setSeconds(
             setMinutes(
               setHours(newDate, getHours(originalTimeSource)),

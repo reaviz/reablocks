@@ -1,5 +1,6 @@
-import { Meta } from '@storybook/react';
-import React, { useRef, useState } from 'react';
+import type { Meta } from '@storybook/react';
+import React, { useState } from 'react';
+
 import { usePosition } from './usePosition';
 
 const meta: Meta = {
