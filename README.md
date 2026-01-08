@@ -196,7 +196,7 @@ For detailed migration guidance and token mappings, see [v9 to Unify Token Mappi
 
 ## 🔭 Development
 
-If you want to run reablocks locally, its super easy!
+If you want to run reablocks locally, it's super easy!
 
 - Clone the repository
 - `npm i`

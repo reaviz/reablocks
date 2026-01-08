@@ -1,3 +1,24 @@
+# 10.0.0 - 1/12/2026
+
+## Features
+- [feature] Add **Unify Design System theme** as opt-in alternative to v9 theme
+- [feature] Three CSS variants available:
+- `index.css` - v9 theme (default, ~145KB / 19KB gzipped)
+- `unify.css` - Unify Design System theme (~310KB / 35KB gzipped)
+- `unify-compat.css` - Unify theme with Tailwind palette mapping
+- [feature] Lazy-load Unify theme to reduce initial bundle size for v9 users
+- [feature] Improved ThemeProvider SSR safety and race condition fixes
+
+## Requirements
+- **Note for advanced users**: If customizing Reablocks theme tokens in your Tailwind config, Tailwind CSS v4.0+ is now required (uses `@theme` directive and custom variants)
+- Most users importing pre-built CSS are unaffected
+
+## Migration
+- **v9 theme remains the default** - no changes required for existing users
+- CSS is pre-built - no Tailwind installation required for basic usage
+- To opt into Unify theme: `import 'reablocks/unify.css'` and set `variant="unify"`
+- See migration guide: [docs/migration/v9-to-unify-token-mapping.md](docs/migration/v9-to-unify-token-mapping.md)
+
 # 9.3.0 - 10/22/25
 - [chore] Skeleton loading component with theme support, animation, and predefined variants
 
