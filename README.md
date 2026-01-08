@@ -49,7 +49,7 @@ npm install reablocks
 
 ### Migrating from Alpha (v10.0.0-alpha.x)
 
-If you've been using the `unify-ds` branch alpha releases, please see the [Alpha to v10.0.0 Migration Guide](docs/migration/alpha-to-v10-migration.md) for required changes. Key changes:
+If you've been using the `unify-ds` branch alpha releases, please note key changes:
 - CSS import changed from `index.css` to `unify.css`
 - ThemeProvider now requires `variant="unify"` prop
 - `theme` prop is now optional (for custom overrides only)

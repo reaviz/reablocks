@@ -1,26 +1,30 @@
+import { navigationTheme } from '@/elements/Navigation/NavigationTheme';
+import { typographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
+
 import type { ReablocksTheme } from './theme';
 
 /**
- * UDS (Unify Design System) theme.
+ * Unify Design System theme.
  *
  * This theme uses Unify Design System tokens and styling.
  * Enable it via ThemeProvider's variant prop:
  *
  * @example
  * ```tsx
- * <ThemeProvider variant="uds">
+ * <ThemeProvider variant="unify">
  *   <App />
  * </ThemeProvider>
  * ```
  *
- * NOTE: This theme relies on UDS CSS custom properties being defined.
- * Make sure to import the UDS CSS tokens in your application.
+ * NOTE: This theme relies on Unify CSS custom properties being defined.
+ * Make sure to import the Unify CSS tokens in your application.
  */
-export const themeUDS: ReablocksTheme = {
+export const themeUnify: ReablocksTheme = {
   components: {
     avatar: {
       base: 'flex justify-center items-center bg-cover bg-center font-bold text-avatar-colors-text-resting bg-avatar-colors-background-container-resting border border-avatar-colors-stroke-container-resting hover:bg-avatar-colors-background-container-hover hover:border-avatar-colors-stroke-container-hover hover:text-avatar-colors-text-hover',
-      rounded: 'rounded-[50%]'
+      rounded: 'rounded-[50%]',
+      clickable: 'cursor-pointer'
     },
     avatarGroup: {
       base: 'flex items-center text-avatar-colors-text-resting',
@@ -103,8 +107,16 @@ export const themeUDS: ReablocksTheme = {
         'border border-y-transparent border-l-transparent last:border-r-transparent hover:bg-initial',
       adornment: {
         base: 'flex',
-        start: 'pr-(--buttons-details-space-between-horizontal-md)',
-        end: 'pl-(--buttons-details-space-between-horizontal-md)',
+        start: {
+          small: 'pr-(--buttons-details-space-between-horizontal-sm)',
+          medium: 'pr-(--buttons-details-space-between-horizontal-md)',
+          large: 'pr-(--buttons-details-space-between-horizontal-lg)'
+        },
+        end: {
+          small: 'pl-(--buttons-details-space-between-horizontal-sm)',
+          medium: 'pl-(--buttons-details-space-between-horizontal-md)',
+          large: 'pl-(--buttons-details-space-between-horizontal-lg)'
+        },
         sizes: {
           small: '[&>svg]:size-(--buttons-details-asset-size-sm)',
           medium: '[&>svg]:size-(--buttons-details-asset-size-md)',
@@ -166,35 +178,48 @@ export const themeUDS: ReablocksTheme = {
             'bg-success border-success text-text-primary hover:bg-success-hover hover:border-success-hover focus-visible:bg-success-active focus-visible:border-success-active',
           outline:
             'border-success text-success hover:bg-success-background hover:border-success-hover focus-visible:bg-success-background focus-visible:border-success-active',
-          text: 'text-success hover:text-success-hover focus-visible:text-success-active'
+          text: 'text-success hover:text-success-hover focus-visible:text-success-active',
+          ghost: 'text-success hover:bg-success/10 focus-visible:bg-success/20'
         },
         warning: {
           filled:
             'bg-warning border-warning text-text-primary hover:bg-warning-hover hover:border-warning-hover focus-visible:bg-warning-active focus-visible:border-warning-active',
           outline:
             'border-warning text-warning hover:bg-warning-background hover:border-warning-hover focus-visible:bg-warning-background focus-visible:border-warning-active',
-          text: 'text-warning hover:text-warning-hover focus-visible:text-warning-active'
+          text: 'text-warning hover:text-warning-hover focus-visible:text-warning-active',
+          ghost: 'text-warning hover:bg-warning/10 focus-visible:bg-warning/20'
         },
         error: {
           filled:
             'bg-buttons-colors-core-icon-destructive-background-resting border-buttons-colors-core-icon-destructive-stroke-resting text-buttons-colors-core-icon-destructive-text-resting [&_svg]:fill-buttons-colors-core-icon-destructive-assets-resting hover:bg-buttons-colors-core-icon-destructive-background-hover hover:border-buttons-colors-core-icon-destructive-stroke-hover hover:text-buttons-colors-core-icon-destructive-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-hover focus-visible:bg-buttons-colors-core-icon-destructive-background-selected focus-visible:border-buttons-colors-core-icon-destructive-stroke-selected focus-visible:text-buttons-colors-core-icon-primary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-selected',
           outline:
             'border-buttons-colors-core-icon-destructive-stroke-resting text-buttons-colors-link-destructive-text-resting [&_svg]:fill-buttons-colors-link-destructive-assets-resting hover:border-buttons-colors-core-icon-destructive-stroke-hover hover:text-buttons-colors-link-destructive-text-hover hover:[&_svg]:fill-buttons-colors-link-destructive-assets-hover focus-visible:border-buttons-colors-core-icon-destructive-stroke-selected focus-visible:text-buttons-colors-link-destructive-text-selected focus-visible:[&_svg]:fill-buttons-colors-link-destructive-assets-selected',
-          text: 'text-buttons-colors-link-destructive-text-resting hover:text-buttons-colors-link-destructive-text-hover focus-visible:text-buttons-colors-link-destructive-text-selected [&_svg]:fill-buttons-colors-link-destructive-assets-resting hover:[&_svg]:fill-buttons-colors-link-destructive-assets-hover focus-visible:[&_svg]:fill-buttons-colors-link-destructive-assets-selected'
+          text: 'text-buttons-colors-link-destructive-text-resting hover:text-buttons-colors-link-destructive-text-hover focus-visible:text-buttons-colors-link-destructive-text-selected [&_svg]:fill-buttons-colors-link-destructive-assets-resting hover:[&_svg]:fill-buttons-colors-link-destructive-assets-hover focus-visible:[&_svg]:fill-buttons-colors-link-destructive-assets-selected',
+          ghost:
+            'text-buttons-colors-core-icon-destructive-text-resting hover:bg-buttons-colors-core-icon-destructive-background-hover/10 focus-visible:bg-buttons-colors-core-icon-destructive-background-selected/20'
+        },
+        destructive: {
+          filled:
+            'bg-buttons-colors-core-icon-destructive-background-resting border-buttons-colors-core-icon-destructive-stroke-resting text-buttons-colors-core-icon-destructive-text-resting [&_svg]:fill-buttons-colors-core-icon-destructive-assets-resting hover:bg-buttons-colors-core-icon-destructive-background-hover hover:border-buttons-colors-core-icon-destructive-stroke-hover hover:text-buttons-colors-core-icon-destructive-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-hover focus-visible:bg-buttons-colors-core-icon-destructive-background-selected focus-visible:border-buttons-colors-core-icon-destructive-stroke-selected focus-visible:text-buttons-colors-core-icon-primary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-selected',
+          outline:
+            'border-buttons-colors-core-icon-destructive-stroke-resting text-buttons-colors-link-destructive-text-resting [&_svg]:fill-buttons-colors-link-destructive-assets-resting hover:border-buttons-colors-core-icon-destructive-stroke-hover hover:text-buttons-colors-link-destructive-text-hover hover:[&_svg]:fill-buttons-colors-link-destructive-assets-hover focus-visible:border-buttons-colors-core-icon-destructive-stroke-selected focus-visible:text-buttons-colors-link-destructive-text-selected focus-visible:[&_svg]:fill-buttons-colors-link-destructive-assets-selected',
+          text: 'text-buttons-colors-link-destructive-text-resting hover:text-buttons-colors-link-destructive-text-hover focus-visible:text-buttons-colors-link-destructive-text-selected [&_svg]:fill-buttons-colors-link-destructive-assets-resting hover:[&_svg]:fill-buttons-colors-link-destructive-assets-hover focus-visible:[&_svg]:fill-buttons-colors-link-destructive-assets-selected',
+          ghost:
+            'text-buttons-colors-core-icon-destructive-text-resting hover:bg-buttons-colors-core-icon-destructive-background-hover/10 focus-visible:bg-buttons-colors-core-icon-destructive-background-selected/20'
         }
       }
     },
     /**
-     * UDS Component Token Mapping Strategy:
+     * Unify Component Token Mapping Strategy:
      *
      * Components below use one of two approaches:
-     * 1. UDS Component Tokens - Where UDS provides component-specific tokens
+     * 1. Unify Component Tokens - Where Unify provides component-specific tokens
      *    (e.g., calendar-colors-*, inputs-colors-*, navigation-colors-*)
-     * 2. Semantic Token Layer - Where UDS doesn't provide component tokens
+     * 2. Semantic Token Layer - Where Unify doesn't provide component tokens
      *    (e.g., bg-panel → var(--background-neutral-raised-base))
      *
-     * This two-tier approach ensures all components render with UDS design system
-     * colors while using authentic UDS tokens where they exist.
+     * This two-tier approach ensures all components render with Unify design system
+     * colors while using authentic Unify tokens where they exist.
      */
     calendar: {
       base: 'relative overflow-hidden bg-calendar-colors-container-background-default',
@@ -206,6 +231,7 @@ export const themeUDS: ReablocksTheme = {
       },
       title: 'font-semibold leading-[normal]',
       content: 'flex',
+      contentContainer: '',
       days: {
         header:
           'text-center grid grid-cols-7 mb-1 pt-2 font-medium text-calendar-colors-label-text-default',
@@ -289,6 +315,7 @@ export const themeUDS: ReablocksTheme = {
       },
       title: 'font-semibold flex grow justify-around',
       content: 'flex gap-4',
+      contentContainer: '',
       days: {
         header:
           'text-center grid grid-cols-7 mb-1 pt-2 font-medium text-calendar-colors-label-text-default',
@@ -438,94 +465,154 @@ export const themeUDS: ReablocksTheme = {
       }
     },
     chip: {
-      base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5 rounded-xs leading-none transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium',
-      adornment: {
-        base: 'flex items-center justify-center [&>svg]:fill-tags-colors-neutral-assets-lead-icon-base',
-        start: 'mr-1',
-        end: 'ml-1',
-        sizes: {
-          small: '[&>svg]:w-3 [&>svg]:h-3',
-          medium: '[&>svg]:w-4 [&>svg]:h-4',
-          large: '[&>svg]:w-5 [&>svg]:h-5'
+      types: {
+        badge: {
+          base: 'inline-flex whitespace-nowrap border font-medium select-none items-center justify-center rounded-(--badges-details-corner-radius-corner-radius) transition-colors',
+          label: '',
+          adornment: {
+            base: 'flex items-center justify-center',
+            start: '',
+            end: '',
+            sizes: {
+              small: '[&>svg]:size-(--badges-details-asset-size-sm)',
+              medium: '[&>svg]:size-(--badges-details-asset-size-md)',
+              large: '[&>svg]:size-(--badges-details-asset-size-lg)'
+            }
+          },
+          sizes: {
+            small:
+              'h-(--badges-details-height-sm) text-xs gap-(--badges-details-space-between-sm) px-(--badges-details-horizontal-padding-sm)',
+            medium:
+              'h-(--badges-details-height-md) text-xs gap-(--badges-details-space-between-md) px-(--badges-details-horizontal-padding-md)',
+            large:
+              'h-(--badges-details-height-lg) text-md gap-(--badges-details-space-between-lg) px-(--badges-details-horizontal-padding-lg)'
+          },
+          variants: {
+            filled: '',
+            outline: '',
+            subtle: ''
+          },
+          colors: {
+            default: {
+              variants: {
+                filled: {
+                  base: 'bg-badges-colors-solid-neutral-background-standard border-badges-colors-solid-neutral-stroke-default text-badges-colors-solid-neutral-text-default'
+                },
+                outline: {
+                  base: 'bg-badges-colors-outline-neutral-background-standard border-badges-colors-outline-neutral-stroke-default text-badges-colors-outline-neutral-text-default'
+                },
+                subtle: {
+                  base: 'bg-badges-colors-subtle-neutral-background-standard border-badges-colors-subtle-neutral-stroke-default text-badges-colors-subtle-neutral-text-default'
+                }
+              }
+            }
+          }
+        },
+        tag: {
+          base: 'inline-flex whitespace-nowrap border font-medium select-none items-center justify-center rounded-(--tags-details-corner-radius-base) transition-colors outline-none',
+          label: '',
+          adornment: {
+            base: 'flex items-center justify-center [&>svg]:fill-tags-colors-neutral-assets-lead-icon-base',
+            start: 'mr-1',
+            end: 'ml-1',
+            sizes: {
+              small: '[&>svg]:w-3 [&>svg]:h-3',
+              medium: '[&>svg]:w-4 [&>svg]:h-4',
+              large: '[&>svg]:w-5 [&>svg]:h-5'
+            }
+          },
+          sizes: {
+            small: 'text-[10px] leading-[inherit] px-1 py-0.5',
+            medium: 'text-sm leading-[inherit] px-2 py-0.5',
+            large: 'text-base leading-[inherit] px-3 py-0.5'
+          },
+          variants: {
+            filled: 'border box-border',
+            outline: 'bg-transparent border hover:bg-transparent'
+          },
+          colors: {
+            default: {
+              variants: {
+                filled: {
+                  base: 'bg-tags-colors-neutral-background-resting border-tags-colors-neutral-stroke-resting text-tags-colors-neutral-text-label-base hover:bg-tags-colors-neutral-background-hover hover:border-tags-colors-neutral-stroke-hover'
+                },
+                outline: {
+                  base: 'text-tags-colors-neutral-text-label-base border-tags-colors-neutral-stroke-resting hover:bg-tags-colors-neutral-background-hover hover:border-tags-colors-neutral-stroke-hover'
+                }
+              }
+            },
+            primary: {
+              variants: {
+                filled: {
+                  base: 'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
+                },
+                outline: {
+                  base: 'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
+                }
+              }
+            },
+            secondary: {
+              variants: {
+                filled: {
+                  base: 'bg-tags-colors-neutral-background-resting border-tags-colors-neutral-stroke-resting text-tags-colors-neutral-text-label-base hover:bg-tags-colors-neutral-background-hover hover:border-tags-colors-neutral-stroke-hover'
+                },
+                outline: {
+                  base: 'text-tags-colors-neutral-text-label-base border-tags-colors-neutral-stroke-resting hover:bg-tags-colors-neutral-background-hover hover:border-tags-colors-neutral-stroke-hover'
+                }
+              }
+            },
+            success: {
+              variants: {
+                filled: {
+                  base: 'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
+                },
+                outline: {
+                  base: 'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
+                }
+              }
+            },
+            warning: {
+              variants: {
+                filled: {
+                  base: 'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
+                },
+                outline: {
+                  base: 'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
+                }
+              }
+            },
+            error: {
+              variants: {
+                filled: {
+                  base: 'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
+                },
+                outline: {
+                  base: 'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
+                }
+              }
+            },
+            info: {
+              variants: {
+                filled: {
+                  base: 'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
+                },
+                outline: {
+                  base: 'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
+                }
+              }
+            }
+          },
+          closeButton: {
+            base: 'text-tags-colors-neutral-assets-close-base',
+            sizes: {
+              small: 'leading-[10px] max-h-2.5',
+              medium: 'leading-3 max-h-3',
+              large: 'leading-[14px] max-h-3.5'
+            }
+          },
+          disabled: 'opacity-50 cursor-not-allowed'
         }
-      },
-      sizes: {
-        small: 'text-[10px] leading-[inherit] px-1 py-0.5',
-        medium: 'text-sm leading-[inherit] px-2 py-0.5',
-        large: 'text-base leading-[inherit] px-3 py-0.5'
-      },
-      variants: {
-        filled: 'border box-border',
-        outline: 'bg-transparent border hover:bg-transparent'
-      },
-      colors: {
-        default: {
-          variants: {
-            filled:
-              'bg-tags-colors-neutral-background-resting border-tags-colors-neutral-stroke-resting text-tags-colors-neutral-text-label-base hover:bg-tags-colors-neutral-background-hover hover:border-tags-colors-neutral-stroke-hover',
-            outline:
-              'text-tags-colors-neutral-text-label-base border-tags-colors-neutral-stroke-resting hover:bg-tags-colors-neutral-background-hover hover:border-tags-colors-neutral-stroke-hover'
-          }
-        },
-        primary: {
-          variants: {
-            filled:
-              'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover',
-            outline:
-              'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
-          }
-        },
-        secondary: {
-          variants: {
-            filled:
-              'bg-tags-colors-neutral-background-resting border-tags-colors-neutral-stroke-resting text-tags-colors-neutral-text-label-base hover:bg-tags-colors-neutral-background-hover hover:border-tags-colors-neutral-stroke-hover',
-            outline:
-              'text-tags-colors-neutral-text-label-base border-tags-colors-neutral-stroke-resting hover:bg-tags-colors-neutral-background-hover hover:border-tags-colors-neutral-stroke-hover'
-          }
-        },
-        success: {
-          variants: {
-            filled:
-              'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover',
-            outline:
-              'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
-          }
-        },
-        warning: {
-          variants: {
-            filled:
-              'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover',
-            outline:
-              'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
-          }
-        },
-        error: {
-          variants: {
-            filled:
-              'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover',
-            outline:
-              'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
-          }
-        },
-        info: {
-          variants: {
-            filled:
-              'bg-tags-colors-brand-background-resting border-tags-colors-brand-stroke-resting text-tags-colors-brand-text-label-base hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover',
-            outline:
-              'text-tags-colors-brand-text-label-base border-tags-colors-brand-stroke-resting hover:bg-tags-colors-brand-background-hover hover:border-tags-colors-brand-stroke-hover'
-          }
-        }
-      },
-      focus: '',
-      deleteButton: {
-        base: 'text-tags-colors-neutral-assets-close-base',
-        sizes: {
-          small: 'leading-[10px] max-h-2.5',
-          medium: 'leading-3 max-h-3',
-          large: 'leading-[14px] max-h-3.5'
-        }
-      },
-      disabled: 'opacity-50 cursor-not-allowed'
+      }
     },
     contextMenu: {
       enabled: 'cursor-context-menu'
@@ -559,6 +646,7 @@ export const themeUDS: ReablocksTheme = {
       interactive: 'cursor-pointer hover:underline'
     },
     dateInput: {
+      card: '',
       input: {
         base: 'flex relative flex-row items-center flex-nowrap box-border transition-colors rounded-xs bg-inputs-colors-normal-background-resting border border-inputs-colors-normal-stroke-resting text-inputs-colors-normal-text-input-text-resting hover:border-inputs-colors-normal-stroke-hover',
         focused:
@@ -592,6 +680,7 @@ export const themeUDS: ReablocksTheme = {
         },
         title: 'font-semibold leading-[normal]',
         content: 'flex',
+        contentContainer: '',
         days: {
           header:
             'text-center grid grid-cols-7 mb-1 pt-2 font-medium text-calendar-colors-label-text-default',
@@ -717,6 +806,7 @@ export const themeUDS: ReablocksTheme = {
       },
       content: 'px-8 py-5',
       disablePadding: 'p-0',
+      footer: '',
       closeButton: {
         base: 'opacity-80 h-auto w-auto min-w-[auto] min-h-[auto] cursor-pointer text-base p-0 border-0 focus:outline-hidden',
         headerless: 'absolute right-5 top-5'
@@ -768,7 +858,7 @@ export const themeUDS: ReablocksTheme = {
       pager: 'opacity-50 cursor-pointer pl-4'
     },
     kbd: {
-      base: 'inline-flex gap-1 items-center',
+      base: '',
       chip: 'whitespace-nowrap rounded-sm font-mono'
     },
     list: {
@@ -803,6 +893,7 @@ export const themeUDS: ReablocksTheme = {
       base: 'relative min-w-[112px] max-w-[500px] p-px bg-navigation-colors-background-container-base border border-navigation-colors-stroke-container-base',
       inner: 'focus:outline-hidden text-navigation-colors-text-resting'
     },
+    navigation: navigationTheme,
     notification: {
       container: '',
       positions:
@@ -810,6 +901,10 @@ export const themeUDS: ReablocksTheme = {
       notification: {
         base: 'flex relative text-base min-w-[400px] rounded-xs mb-2.5 py-2 px-4 bg-notifications-colors-background-neutral-resting text-notifications-colors-text-normal-resting border-notifications-colors-stroke-neutral-resting border hover:bg-notifications-colors-background-neutral-hover hover:border-notifications-colors-stroke-neutral-hover',
         variants: {
+          default: {
+            base: 'bg-notifications-colors-background-neutral-resting border border-notifications-colors-stroke-neutral-resting text-notifications-colors-text-normal-resting hover:bg-notifications-colors-background-neutral-hover hover:border-notifications-colors-stroke-neutral-hover',
+            icon: 'text-notifications-colors-assets-neutral-resting h-4 w-4'
+          },
           success: {
             base: 'bg-notifications-colors-background-success-resting border border-notifications-colors-stroke-success-resting hover:bg-notifications-colors-background-success-hover hover:border-notifications-colors-stroke-success-hover',
             icon: 'text-notifications-colors-assets-success-resting h-4 w-4'
@@ -840,7 +935,7 @@ export const themeUDS: ReablocksTheme = {
     pager: {
       base: 'items-center flex user-select-none',
       pages: {
-        base: 'inline-flex',
+        base: '',
         page: {
           base: 'py-1 text-slate-500',
           active: 'font-bold text-text-primary!'
@@ -865,7 +960,7 @@ export const themeUDS: ReablocksTheme = {
     radio: {
       base: 'box-border leading-none group',
       radio: {
-        base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-[100%] bg-selectors-colors-radio-not-selected-background-resting border cursor-pointer border-selectors-colors-radio-not-selected-stroke-resting group-hover:border-selectors-colors-radio-not-selected-stroke-hover hover:bg-selectors-colors-radio-not-selected-background-hover',
+        base: '',
         disabled: 'cursor-not-allowed opacity-40',
         checked:
           'border-selectors-colors-radio-selected-stroke-resting bg-selectors-colors-radio-selected-background-resting group-hover:border-selectors-colors-radio-selected-stroke-hover group-hover:bg-selectors-colors-radio-selected-background-hover'
@@ -1031,11 +1126,19 @@ export const themeUDS: ReablocksTheme = {
     stepper: {
       base: 'grid grid-cols-[min-content_1fr] gap-x-3',
       step: {
-        base: 'border-l border-solid border-panel-accent translate-x-1/2',
+        base: {
+          common: 'border-l border-solid border-panel-accent translate-x-1/2',
+          dot: '',
+          circle: ''
+        },
         marker: {
           base: 'rounded-full w-[9px] h-[9px] bg-surface',
-          container:
-            'w-max pt-1 pb-0.5 backdrop-blur-md -translate-x-[calc(50%+0.5px)]',
+          container: {
+            common:
+              'w-max pt-1 pb-0.5 backdrop-blur-md -translate-x-[calc(50%+0.5px)]',
+            dot: '',
+            circle: ''
+          },
           active: 'bg-info',
           label: {
             base: 'flex flex-row items-center gap-1 border border-solid border-surface px-3 py-1 rounded-[20px]',
@@ -1148,7 +1251,7 @@ export const themeUDS: ReablocksTheme = {
     },
     typography: {
       base: '',
-      colors: {
+      color: {
         primary: 'text-primary',
         secondary: 'text-secondary',
         success: 'text-success',
@@ -1156,20 +1259,14 @@ export const themeUDS: ReablocksTheme = {
         error: 'text-error',
         info: 'text-info'
       },
-      text: {
+      weight: {
         thin: 'font-thin',
-        bold: 'font-semibold',
-        extraBold: 'font-extrabold',
-        italic: 'italic'
+        semibold: 'font-semibold',
+        extrabold: 'font-extrabold'
       },
-      variant: {},
-      sub: 'text-sm font-semibold mb-0.5',
-      smallHeading: 'text-base font-normal mb-1',
-      secondaryHeading: 'text-3xl font-normal mb-1',
-      primaryHeading: 'text-3xl font-extrabold mb-1',
-      pageTitle: 'text-[40px] font-semibold mb-5',
-      disableMargins: 'm-0'
+      variant: {}
     },
+    typography_deprecated: typographyThemeDeprecated,
     verticalSpacer: {
       base: '',
       size: {

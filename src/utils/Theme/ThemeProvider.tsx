@@ -1,15 +1,12 @@
 'use client';
 
-import React, {
-  createContext,
-  FC,
-  PropsWithChildren,
-  useEffect,
-  useRef,
-  useState
-} from 'react';
+import type { FC, PropsWithChildren } from 'react';
+import React, { createContext, useEffect, useRef, useState } from 'react';
+import isEqual from 'react-fast-compare';
+
 import { getThemeVariables, mergeDeep, observeThemeSwitcher } from './helpers';
-import { ReablocksTheme, theme as defaultTheme } from './themes/theme';
+import type { ReablocksTheme } from './themes/theme';
+import { theme as defaultTheme } from './themes/theme';
 
 export type ThemeVariant = 'v9' | 'unify';
 
@@ -108,8 +105,15 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     setActiveTheme(merged);
   }, [baseTheme, theme]);
 
-  // Update tokens when active theme changes
+  // Extract CSS variables on mount, when variant changes, and when DOM theme class changes
+  // Note: We don't depend on activeTheme because CSS variables are in the DOM,
+  // not in the JS theme object. They change when:
+  // 1. Component mounts (isClient becomes true)
+  // 2. Variant changes (different CSS files loaded)
+  // 3. DOM class changes (theme-light vs theme-dark) - handled by observer
   useEffect(() => {
+    if (!isClient) return;
+
     setTokens(getThemeVariables());
 
     const themeObserver = observeThemeSwitcher(() =>
@@ -117,10 +121,13 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     );
 
     return () => themeObserver.disconnect();
-  }, [activeTheme]);
+  }, [isClient, variant]);
 
   const updateTheme = (newTheme: ReablocksTheme) => {
-    setActiveTheme({ ...activeTheme, ...newTheme });
+    setActiveTheme(prev => {
+      const next = { ...prev, ...newTheme };
+      return isEqual(prev, next) ? prev : next;
+    });
   };
 
   return (
