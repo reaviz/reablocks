@@ -76,10 +76,10 @@ export const Notifications: FC<NotificationsProps> = ({
         notifications.filter(n => {
           // Clear by internal ID (number)
           if (typeof id === 'number') {
-            return n.internalId !== id;
+            return n.id !== id;
           }
           // Clear by user-provided ID (string or number)
-          return n.id !== id;
+          return n.customId !== id;
         })
       ),
     []
@@ -100,8 +100,8 @@ export const Notifications: FC<NotificationsProps> = ({
 
         const obj = {
           title,
-          internalId,
-          id: options.id !== undefined ? options.id : internalId,
+          id: internalId,
+          customId: options.id,
           variant: 'default',
           timeout,
           icon: icons?.default,
@@ -200,16 +200,15 @@ export const Notifications: FC<NotificationsProps> = ({
                     return (
                       <Notification
                         {...n}
-                        id={n.internalId}
                         component={
                           <CustomNotification
                             message={n.title}
                             variant={n.variant}
-                            onClose={() => clearNotification(n.internalId)}
+                            onClose={() => clearNotification(n.id)}
                           />
                         }
                         showClose={false}
-                        key={n.internalId}
+                        key={n.id}
                         onClose={clearNotification}
                       />
                     );
@@ -218,8 +217,7 @@ export const Notifications: FC<NotificationsProps> = ({
                   return (
                     <Notification
                       {...n}
-                      id={n.internalId}
-                      key={n.internalId}
+                      key={n.id}
                       className={twMerge(className, n.className)}
                       onClose={clearNotification}
                     />
