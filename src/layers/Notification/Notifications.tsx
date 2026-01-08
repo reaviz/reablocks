@@ -71,8 +71,18 @@ export const Notifications: FC<NotificationsProps> = ({
   const [notifications, setNotifications] = useState<any[]>([]);
 
   const clearNotification = useCallback(
-    (id: number) => setNotifications(notifications.filter(n => n.id !== id)),
-    [notifications]
+    (id: string | number) =>
+      setNotifications(notifications =>
+        notifications.filter(n => {
+          // Clear by internal ID (number)
+          if (typeof id === 'number') {
+            return n.id !== id;
+          }
+          // Clear by user-provided ID (string or number)
+          return n.customId !== id;
+        })
+      ),
+    []
   );
 
   const clearAllNotifications = useCallback(() => setNotifications([]), []);
@@ -86,11 +96,12 @@ export const Notifications: FC<NotificationsProps> = ({
           return notifications;
         }
 
-        const id = nextId++;
+        const internalId = nextId++;
 
         const obj = {
           title,
-          id,
+          id: internalId,
+          customId: options.id,
           variant: 'default',
           timeout,
           icon: icons?.default,

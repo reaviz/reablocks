@@ -309,3 +309,108 @@ export const WithAction = () => (
     </NotificationsContext.Consumer>
   </Notifications>
 );
+
+export const CustomIds = () => (
+  <Notifications>
+    <NotificationsContext.Consumer>
+      {({ notify, notifySuccess, notifyError, clearNotification }) => (
+        <Fragment>
+          <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+            <Button
+              onClick={() => {
+                notify('Loading started...', {
+                  id: 'loading',
+                  variant: 'info',
+                  timeout: 300000
+                });
+              }}
+            >
+              Show Loading (id: "loading")
+            </Button>
+            <Button
+              color="success"
+              onClick={() => {
+                clearNotification('loading');
+                notifySuccess('Loading complete!', {
+                  id: 'loading-result',
+                  timeout: 3000
+                });
+              }}
+            >
+              Complete Loading
+            </Button>
+            <Button
+              color="error"
+              onClick={() => {
+                clearNotification('loading');
+                notifyError('Loading failed!', {
+                  id: 'loading-result',
+                  timeout: 3000
+                });
+              }}
+            >
+              Fail Loading
+            </Button>
+          </div>
+          <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
+            <Button
+              onClick={() => {
+                notify('Group Message 1', {
+                  id: 'group-notification',
+                  timeout: 300000
+                });
+                notify('Group Message 2', {
+                  id: 'group-notification',
+                  timeout: 300000
+                });
+                notify('Group Message 3', {
+                  id: 'group-notification',
+                  timeout: 300000
+                });
+              }}
+            >
+              Show Group (shared id: "group-notification")
+            </Button>
+            <Button
+              onClick={() => {
+                clearNotification('group-notification');
+              }}
+            >
+              Clear Entire Group
+            </Button>
+          </div>
+          <div style={{ display: 'flex', gap: '10px' }}>
+            <Button
+              onClick={() => {
+                notify('Specific Message', {
+                  id: 'specific-1',
+                  timeout: 300000
+                });
+                notify('Another Message', {
+                  id: 'specific-2',
+                  timeout: 300000
+                });
+              }}
+            >
+              Show Multiple
+            </Button>
+            <Button
+              onClick={() => {
+                clearNotification('specific-1');
+              }}
+            >
+              Clear First
+            </Button>
+            <Button
+              onClick={() => {
+                clearNotification('specific-2');
+              }}
+            >
+              Clear Second
+            </Button>
+          </div>
+        </Fragment>
+      )}
+    </NotificationsContext.Consumer>
+  </Notifications>
+);
