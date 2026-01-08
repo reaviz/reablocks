@@ -6,7 +6,10 @@
     "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run build:docs",
     "build-storybook": "storybook build",
     "build:js": "vite build --mode library",
-    "build:styles": "npx @tailwindcss/cli -i src/assets/css/index.css -o ./dist/index.css",
+    "build:styles": "npm run build:styles:v9 && npm run build:styles:unify && npm run build:styles:unify-compat",
+    "build:styles:v9": "npx @tailwindcss/cli -i ./src/index.css -o ./dist/index.css",
+    "build:styles:unify": "npx @tailwindcss/cli -i ./src/unify.css -o ./dist/unify.css",
+    "build:styles:unify-compat": "npx @tailwindcss/cli -i ./src/unify-compat.css -o ./dist/unify-compat.css",
     "build:docs": "node scripts/docs.js",
     "rewrite:stories": "node scripts/stories.mjs",
     "lint": "eslint .",
@@ -30,6 +33,8 @@
       "require": "./dist/index.umd.cjs"
     },
     "./index.css": "./dist/index.css",
+    "./unify.css": "./dist/unify.css",
+    "./unify-compat.css": "./dist/unify-compat.css",
     "./stories/*": "./dist/stories/*",
     "./blocks/*": "./dist/blocks/*"
   },

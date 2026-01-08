@@ -1,0 +1,69 @@
+/**
+ * Semantic Token Mappings
+ *
+ * Maps v9 semantic tokens to UDS design tokens for backwards compatibility.
+ * This allows themeUDS.ts to use simpler token names while leveraging
+ * the full UDS design system underneath.
+ */
+
+:root,
+:host {
+  /* Primary colors - map to UDS brand colors */
+  --primary: var(--background-brand-base);
+  --primary-active: var(--background-brand-base);
+  --primary-hover: var(--background-brand-1);
+  --primary-inactive: var(--background-brand-5);
+
+  /* Secondary colors - map to UDS neutral colors */
+  --secondary: var(--background-neutral-raised-1);
+  --secondary-active: var(--background-neutral-raised-1);
+  --secondary-hover: var(--background-neutral-raised-2);
+  --secondary-inactive: var(--background-neutral-raised-3);
+
+  /* Success colors - map to UDS semantic colors */
+  --success: var(--background-semantic-success-base);
+  --success-active: var(--background-semantic-success-base);
+  --success-hover: var(--background-semantic-success-1);
+  --success-background: var(--background-semantic-success-5);
+
+  /* Error colors */
+  --error: var(--background-semantic-error-base);
+  --error-active: var(--background-semantic-error-base);
+  --error-hover: var(--background-semantic-error-1);
+  --error-background: var(--background-semantic-error-5);
+
+  /* Warning colors */
+  --warning: var(--background-semantic-warning-base);
+  --warning-active: var(--background-semantic-warning-base);
+  --warning-hover: var(--background-semantic-warning-1);
+  --warning-background: var(--background-semantic-warning-5);
+
+  /* Info colors */
+  --info: var(--background-semantic-info-base);
+  --info-active: var(--background-semantic-info-base);
+  --info-hover: var(--background-semantic-info-1);
+  --info-background: var(--background-semantic-info-5);
+
+  /* Panel colors - map to UDS neutral raised surfaces */
+  --panel: var(--background-neutral-raised-base);
+  --panel-accent: var(--background-neutral-raised-1);
+  --panel-border: var(--stroke-neutral-base);
+
+  /* Surface colors */
+  --surface: var(--background-neutral-canvas-base);
+  --surface-accent: var(--background-brand-base);
+
+  /* Text colors - map to UDS content text tokens */
+  --text-primary: var(--content-text-neutral-base);
+  --text-secondary: var(--content-text-neutral-3);
+
+  /* Border colors */
+  --border-secondary-hover: var(--stroke-neutral-1);
+
+  &.theme-light,
+  &.light {
+    /* Override for light mode if needed */
+    --text-primary: var(--content-text-neutral-base);
+    --text-secondary: var(--content-text-neutral-3);
+  }
+}
