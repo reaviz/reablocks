@@ -8,3 +8,4 @@ export * from './CloneElement';
 export * from './useUserSelect';
 export * from './useCursor';
 export * from './stringToColor';
+export * from './slots';

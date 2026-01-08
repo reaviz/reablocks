@@ -1,6 +1,14 @@
-import React, { FC, ReactElement } from 'react';
+'use client';
+
+import React, { FC, ReactElement, ReactNode, useMemo } from 'react';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
-import { useId, CloneElement, cn } from '@/utils';
+import {
+  useId,
+  CloneElement,
+  cn,
+  hasSlotComponents,
+  extractSlots
+} from '@/utils';
 import FocusTrap from 'focus-trap-react';
 import {
   motion,
@@ -11,12 +19,15 @@ import {
   VariantLabels
 } from 'motion/react';
 import { DialogHeader, DialogHeaderProps } from './DialogHeader';
+import { DialogContext, DialogContextValue } from './DialogContext';
 import { useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
+import { DialogContent } from './DialogContent';
+import { DialogFooter } from './DialogFooter';
 
 export interface DialogProps
   extends Omit<GlobalOverlayProps, 'children'>,
-    MotionProps {
+    Omit<MotionProps, 'children'> {
   /**
    * The CSS class name for the root element of the component.
    */
@@ -44,8 +55,9 @@ export interface DialogProps
 
   /**
    * The content of the dialog.
+   * Supports slot-based approach with DialogHeader, DialogContent, and DialogFooter.
    */
-  children?: any | (() => any);
+  children?: ReactNode | (() => ReactNode);
 
   /**
    * Whether to disable padding for the dialog content.
@@ -54,16 +66,37 @@ export interface DialogProps
 
   /**
    * The footer of the dialog.
+   * @deprecated Use DialogFooter slot component instead.
+   * @example
+   * // Instead of:
+   * <Dialog footer={<Button>Save</Button>}>...</Dialog>
+   *
+   * // Use:
+   * <Dialog>
+   *   <DialogContent>...</DialogContent>
+   *   <DialogFooter><Button>Save</Button></DialogFooter>
+   * </Dialog>
    */
-  footer?: any;
+  footer?: ReactNode;
 
   /**
    * The header of the dialog.
+   * @deprecated Use DialogHeader slot component instead.
+   * @example
+   * // Instead of:
+   * <Dialog header="My Title">...</Dialog>
+   *
+   * // Use:
+   * <Dialog>
+   *   <DialogHeader>My Title</DialogHeader>
+   *   <DialogContent>...</DialogContent>
+   * </Dialog>
    */
-  header?: any;
+  header?: ReactNode;
 
   /**
    * The React element for the dialog header.
+   * @deprecated Use DialogHeader slot component instead.
    */
   headerElement?: ReactElement<DialogHeaderProps, typeof DialogHeader> | null;
 
@@ -98,6 +131,25 @@ export interface DialogProps
   animation?: MotionNodeAnimationOptions;
 }
 
+// Slot component display names for detection
+const DIALOG_SLOT_NAMES = [
+  DialogHeader.displayName,
+  DialogContent.displayName,
+  DialogFooter.displayName
+];
+
+const DIALOG_SLOT_MAP = {
+  [DialogHeader.displayName]: 'header',
+  [DialogContent.displayName]: 'content',
+  [DialogFooter.displayName]: 'footer'
+} as const;
+
+type DialogSlots = {
+  header: ReactNode;
+  content: ReactNode;
+  footer: ReactNode;
+};
+
 export const Dialog: FC<DialogProps> = ({
   children,
   open,
@@ -120,6 +172,71 @@ export const Dialog: FC<DialogProps> = ({
 }) => {
   const id = useId();
   const theme: DialogTheme = useComponentTheme('dialog', customTheme);
+
+  // Resolve children if it's a function
+  const resolvedChildren =
+    typeof children === 'function' ? children() : children;
+
+  // Detect if using slot-based approach
+  const useSlots = useMemo(
+    () => hasSlotComponents(resolvedChildren, DIALOG_SLOT_NAMES),
+    [resolvedChildren]
+  );
+
+  // Extract slots if using slot-based approach
+  const slots = useMemo(
+    () =>
+      useSlots
+        ? extractSlots<DialogSlots>(resolvedChildren, DIALOG_SLOT_MAP)
+        : null,
+    [useSlots, resolvedChildren]
+  );
+
+  // Context value for slot components
+  const contextValue: DialogContextValue = useMemo(
+    () => ({
+      onClose,
+      showCloseButton,
+      disablePadding
+    }),
+    [onClose, showCloseButton, disablePadding]
+  );
+
+  // Render slot-based content
+  const renderSlotContent = () => (
+    <>
+      {slots?.header}
+      {slots?.content}
+      {slots?.other.length > 0 && slots.other}
+      {slots?.footer}
+    </>
+  );
+
+  // Render legacy props-based content
+  const renderLegacyContent = () => (
+    <>
+      {(header !== undefined || headerElement) && (
+        <CloneElement<DialogHeaderProps>
+          element={headerElement}
+          showCloseButton={showCloseButton}
+          disablePadding={disablePadding}
+          onClose={onClose}
+        >
+          {header}
+        </CloneElement>
+      )}
+      <section
+        id={`${id}-content`}
+        className={cn(theme.content, contentClassName, {
+          'p-[20px]': header === undefined,
+          'pt-0 pb-0 pl-0 pr-0': disablePadding
+        })}
+      >
+        {resolvedChildren}
+      </section>
+      {footer && <footer className={theme.footer}>{footer}</footer>}
+    </>
+  );
 
   return (
     <GlobalOverlay
@@ -151,26 +268,9 @@ export const Dialog: FC<DialogProps> = ({
                 className={cn(theme.inner, innerClassName)}
                 style={{ width: size }}
               >
-                {(header || headerElement) && (
-                  <CloneElement<DialogHeaderProps>
-                    element={headerElement}
-                    showCloseButton={showCloseButton}
-                    disablePadding={disablePadding}
-                    onClose={onClose}
-                  >
-                    {header}
-                  </CloneElement>
-                )}
-                <section
-                  id={`${id}-content`}
-                  className={cn(theme.content, contentClassName, {
-                    'p-[20px]': !header,
-                    'pt-0 pb-0 pl-0 pr-0': disablePadding
-                  })}
-                >
-                  {typeof children === 'function' ? children() : children}
-                </section>
-                {footer && <footer className={theme.footer}>{footer}</footer>}
+                <DialogContext.Provider value={contextValue}>
+                  {useSlots ? renderSlotContent() : renderLegacyContent()}
+                </DialogContext.Provider>
               </div>
             </motion.div>
           </div>
