@@ -4,7 +4,7 @@ import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { DrawerTheme } from './DrawerTheme';
-import { useOptionalDrawerContext } from './DrawerContext';
+import { useDrawerContext } from './DrawerContext';
 
 export interface DrawerContentProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -41,7 +41,7 @@ export const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>(
     ref
   ) => {
     const theme = useComponentTheme<DrawerTheme>('drawer', customTheme);
-    const context = useOptionalDrawerContext();
+    const context = useDrawerContext();
 
     // Use prop if provided, otherwise use context value
     const disablePadding =

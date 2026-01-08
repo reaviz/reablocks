@@ -4,7 +4,7 @@ import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
-import { useOptionalDialogContext } from './DialogContext';
+import { useDialogContext } from './DialogContext';
 
 export interface DialogContentProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -41,7 +41,7 @@ export const DialogContent = forwardRef<HTMLDivElement, DialogContentProps>(
     ref
   ) => {
     const theme = useComponentTheme<DialogTheme>('dialog', customTheme);
-    const context = useOptionalDialogContext();
+    const context = useDialogContext();
 
     // Use prop if provided, otherwise use context value
     const disablePadding =

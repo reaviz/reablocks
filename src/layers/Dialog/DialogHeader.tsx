@@ -4,7 +4,7 @@ import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
-import { useOptionalDialogContext } from './DialogContext';
+import { useDialogContext } from './DialogContext';
 
 export interface DialogHeaderProps extends HTMLAttributes<HTMLElement> {
   /**
@@ -55,7 +55,7 @@ export const DialogHeader = forwardRef<HTMLElement, DialogHeaderProps>(
     ref
   ) => {
     const theme = useComponentTheme<DialogTheme>('dialog', customTheme);
-    const context = useOptionalDialogContext();
+    const context = useDialogContext();
 
     // Use props if provided, otherwise fall back to context values
     const showCloseButton =

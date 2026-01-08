@@ -4,7 +4,7 @@ import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { useComponentTheme } from '@/utils';
 import { DrawerTheme } from './DrawerTheme';
-import { useOptionalDrawerContext } from './DrawerContext';
+import { useDrawerContext } from './DrawerContext';
 
 export interface DrawerHeaderProps extends HTMLAttributes<HTMLElement> {
   /**
@@ -48,7 +48,7 @@ export const DrawerHeader = forwardRef<HTMLElement, DrawerHeaderProps>(
     ref
   ) => {
     const theme: DrawerTheme = useComponentTheme('drawer', customTheme);
-    const context = useOptionalDrawerContext();
+    const context = useDrawerContext();
 
     // Use props if provided, otherwise fall back to context values
     const showCloseButton =

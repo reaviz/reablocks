@@ -34,9 +34,3 @@ export const useDialogContext = () => {
   }
   return context;
 };
-
-/**
- * Hook to optionally access the Dialog context.
- * Returns null if not within a Dialog component.
- */
-export const useOptionalDialogContext = () => useContext(DialogContext);

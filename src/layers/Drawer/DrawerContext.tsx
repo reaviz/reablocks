@@ -34,9 +34,3 @@ export const useDrawerContext = () => {
   }
   return context;
 };
-
-/**
- * Hook to optionally access the Drawer context.
- * Returns null if not within a Drawer component.
- */
-export const useOptionalDrawerContext = () => useContext(DrawerContext);

@@ -23,6 +23,8 @@ import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
 import { DrawerContext, DrawerContextValue } from './DrawerContext';
 import { twMerge } from 'tailwind-merge';
 import { DrawerTheme } from './DrawerTheme';
+import { DrawerFooter } from './DrawerFooter';
+import { DrawerContent } from './DrawerContent';
 
 export interface DrawerProps
   extends Omit<GlobalOverlayProps, 'children'>,
@@ -123,9 +125,9 @@ export interface DrawerProps
 // Slot component display names for detection
 const DRAWER_SLOT_NAMES = ['DrawerHeader', 'DrawerContent', 'DrawerFooter'];
 const DRAWER_SLOT_MAP = {
-  DrawerHeader: 'header',
-  DrawerContent: 'content',
-  DrawerFooter: 'footer'
+  DrawerHeader: DrawerHeader.displayName,
+  DrawerContent: DrawerContent.displayName,
+  DrawerFooter: DrawerFooter.displayName
 } as const;
 
 type DrawerSlots = {
@@ -173,7 +175,12 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
   // Extract slots if using slot-based approach
   const slots = useMemo(
     () =>
-      useSlots ? extractSlots<DrawerSlots>(children, DRAWER_SLOT_MAP) : null,
+      useSlots
+        ? extractSlots<DrawerSlots>(
+            children,
+            DRAWER_SLOT_MAP as Record<string, keyof DrawerSlots>
+          )
+        : null,
     [useSlots, children]
   );
 
