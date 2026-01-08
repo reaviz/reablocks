@@ -20,7 +20,7 @@ export interface DrawerTheme {
 }
 
 export const drawerTheme: DrawerTheme = {
-  base: 'fixed overflow-y-auto overflow-x-hidden',
+  base: 'fixed overflow-y-auto overflow-x-hidden bg-background-neutral-raised-5/70',
   header: {
     base: 'flex items-center justify-between px-8 py-5 text-2xl font-bold',
     text: 'flex-1 m-0'
