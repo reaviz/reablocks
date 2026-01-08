@@ -5,6 +5,7 @@ import React, {
   FC,
   PropsWithChildren,
   useEffect,
+  useRef,
   useState
 } from 'react';
 import { getThemeVariables, mergeDeep, observeThemeSwitcher } from './helpers';
@@ -52,8 +53,29 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   const [baseTheme, setBaseTheme] = useState<ReablocksTheme>(defaultTheme);
   const [activeTheme, setActiveTheme] = useState<ReablocksTheme>(defaultTheme);
   const [tokens, setTokens] = useState<Record<string, string>>({});
+  const [isClient, setIsClient] = useState(false);
+  const variantRef = useRef(variant);
 
+  // Detect client-side mount (SSR-safe)
   useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Warn if variant changes at runtime (and update ref to prevent infinite warnings)
+  useEffect(() => {
+    if (variantRef.current !== variant) {
+      console.warn(
+        '[ThemeProvider] Changing variant at runtime is not supported and may cause styling issues. ' +
+          `Attempted to change from "${variantRef.current}" to "${variant}".`
+      );
+      variantRef.current = variant;
+    }
+  }, [variant]);
+
+  // Load base theme when variant changes (client-side only)
+  useEffect(() => {
+    if (!isClient) return;
+
     let isCancelled = false;
 
     if (variant === 'unify') {
@@ -62,8 +84,13 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
           if (isCancelled) return;
           setBaseTheme(module.themeUnify);
         })
-        .catch(() => {
+        .catch(error => {
           if (isCancelled) return;
+          console.error(
+            '[ThemeProvider] Failed to load Unify theme. Falling back to v9 theme. ' +
+              'Make sure you have imported "reablocks/unify.css" in your application.',
+            error
+          );
           setBaseTheme(defaultTheme);
         });
     } else {
@@ -73,14 +100,16 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     return () => {
       isCancelled = true;
     };
-  }, [variant]);
+  }, [variant, isClient]);
 
+  // Merge custom theme with base theme whenever either changes
   useEffect(() => {
-    if (theme) {
-      setActiveTheme(mergeDeep(baseTheme, theme));
-    } else {
-      setActiveTheme(baseTheme);
-    }
+    const merged = theme ? mergeDeep(baseTheme, theme) : baseTheme;
+    setActiveTheme(merged);
+  }, [baseTheme, theme]);
+
+  // Update tokens when active theme changes
+  useEffect(() => {
     setTokens(getThemeVariables());
 
     const themeObserver = observeThemeSwitcher(() =>
@@ -88,7 +117,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     );
 
     return () => themeObserver.disconnect();
-  }, [theme, baseTheme]);
+  }, [activeTheme]);
 
   const updateTheme = (newTheme: ReablocksTheme) => {
     setActiveTheme({ ...activeTheme, ...newTheme });
