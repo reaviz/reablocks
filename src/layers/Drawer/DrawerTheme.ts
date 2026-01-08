@@ -5,6 +5,7 @@ export interface DrawerTheme {
     text: string;
   };
   content: string;
+  footer: string;
   disablePadding: string;
   closeButton: {
     base: string;
@@ -24,7 +25,8 @@ export const drawerTheme: DrawerTheme = {
     base: 'flex items-center justify-between px-8 py-5 text-2xl font-bold',
     text: 'flex-1 m-0'
   },
-  content: 'px-8 py-5',
+  content: 'px-8 py-5 flex-1 overflow-auto',
+  footer: 'flex px-8 py-5 mt-auto',
   disablePadding: 'p-0',
   closeButton: {
     base: 'opacity-80 h-auto w-auto min-w-[auto] min-h-[auto] cursor-pointer text-sm p-0 border-0 focus:outline-hidden',
