@@ -23,7 +23,7 @@ describe('Notifications ID handling', () => {
     });
 
     test('should allow ID to be optional', () => {
-      const options = {
+      const options: { variant: 'warning'; id?: string | number } = {
         variant: 'warning' as const
       };
 
