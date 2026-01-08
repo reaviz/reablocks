@@ -11,7 +11,7 @@ This guide provides a best-effort mapping of v9 theme tokens to Unify (Unify Des
 
 ## Important: Tailwind Palette Utilities When Opting Into Unify
 
-The Unify CSS (`reablocks/Unify.css`) intentionally disables Tailwind’s default palette tokens (e.g., `gray-*`, `slate-*`, `blue-*`, `neutral-*`). If your application still uses raw palette utilities like `text-gray-700` or `bg-blue-500`, those usages may not render as expected when you opt into the Unify variant.
+The Unify CSS (`reablocks/unify.css`) intentionally disables Tailwind’s default palette tokens (e.g., `gray-*`, `slate-*`, `blue-*`, `neutral-*`). If your application still uses raw palette utilities like `text-gray-700` or `bg-blue-500`, those usages may not render as expected when you opt into the Unify variant.
 
 ### Recommended Migration Approach
 
@@ -23,7 +23,7 @@ The Unify CSS (`reablocks/Unify.css`) intentionally disables Tailwind’s defaul
 If you need a smoother adoption path (e.g., you have lots of legacy `text-gray-*` usage), you can temporarily use the compatibility build:
 
 ```javascript
-import 'reablocks/Unify-compat.css';
+import 'reablocks/unify-compat.css';
 ```
 
 This provides a limited set of palette aliases (e.g., `gray-*`, `slate-*`, `blue-500`) mapped to approximate Unify neutrals/brand. This is an approximation and should be treated as transitional.
@@ -92,7 +92,7 @@ import 'reablocks/index.css';
 
 ### Unify
 ```javascript
-import 'reablocks/Unify.css';
+import 'reablocks/unify.css';
 ```
 
 ## ThemeProvider Configuration
@@ -455,7 +455,7 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 The Unify variant includes a semantic token layer (`semantic-tokens.css`) that maps v9 tokens to Unify design tokens. This allows both token systems to coexist and provides a migration path.
 
-**Note**: These mappings are automatically included when you import `reablocks/Unify.css`.
+**Note**: These mappings are automatically included when you import `reablocks/unify.css`.
 
 #### Primary Colors
 - `--primary` → `--background-brand-base`
@@ -525,7 +525,7 @@ The semantic token layer provides:
 3. No breaking changes for existing users
 
 ### Approach 2: Full Migration to Unify
-1. Import Unify CSS: `import 'reablocks/Unify.css'`
+1. Import Unify CSS: `import 'reablocks/unify.css'`
 2. Update ThemeProvider: `<ThemeProvider variant="Unify">`
 3. Custom theme overrides will automatically use Unify tokens
 4. Review and update any custom component styles that reference v9 tokens
@@ -544,7 +544,7 @@ The `variant` prop should be **set once at app initialization** and **not change
 ```jsx
 // Import BOTH CSS files (not recommended for production)
 import 'reablocks/index.css';
-import 'reablocks/Unify.css';
+import 'reablocks/unify.css';
 
 // Then you can switch at runtime
 <ThemeProvider variant={userSelectedVariant}>
@@ -555,7 +555,7 @@ import 'reablocks/Unify.css';
 **Recommended pattern** (set once):
 ```jsx
 // Choose one CSS file based on your variant
-import 'reablocks/Unify.css';
+import 'reablocks/unify.css';
 
 // Set variant once at root
 <ThemeProvider variant="Unify">
