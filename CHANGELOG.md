@@ -1,3 +1,6 @@
+# 9.4.0 - 1/8/26
+- [feature] Add Dialog/Drawer header/content/footer slots for better compat
+
 # 9.3.0 - 10/22/25
 - [chore] Skeleton loading component with theme support, animation, and predefined variants
 
