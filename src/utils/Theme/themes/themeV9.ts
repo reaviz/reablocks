@@ -855,6 +855,7 @@ export const themeV9: ReablocksTheme = {
         base: 'flex items-center justify-between px-8 py-5 text-3xl font-bold',
         text: 'flex-1 m-0'
       },
+      footer: '',
       content: 'px-8 py-5',
       disablePadding: 'p-0',
       closeButton: {
