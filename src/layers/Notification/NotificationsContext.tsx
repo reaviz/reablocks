@@ -8,6 +8,7 @@ export type NotificationVariants =
   | 'info';
 
 export interface NotificationOptions {
+  id?: string | number;
   title?: string | React.JSX.Element | React.JSX.Element[];
   body?: string | React.JSX.Element | React.JSX.Element[];
   timeout?: number;
@@ -45,9 +46,10 @@ export interface NotificationsContextValue {
   notifyInfo(title: string, options?: NotificationOptions): void;
 
   /**
-   * Clear a specific notification.
+   * Clear a specific notification by internal ID or user-provided ID.
+   * If a user-provided ID is used and matches multiple notifications, all will be cleared.
    */
-  clearNotification(id: number): void;
+  clearNotification(id: string | number): void;
 
   /**
    * Clear all notifications.
