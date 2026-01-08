@@ -130,7 +130,7 @@ export interface DialogProps
 }
 
 // Slot component display names for detection
-const DIALOG_SLOT_NAMES = ['DialogHeader', 'DialogContent', 'DialogFooter'];
+const DIALOG_SLOT_NAMES = [DialogHeader.displayName, DialogContent.displayName, DialogFooter.displayName];
 const DIALOG_SLOT_MAP = {
   DialogHeader: 'header',
   DialogContent: 'content',
