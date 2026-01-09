@@ -3,8 +3,8 @@ import React from 'react';
 import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
 
 import { ThemeContext, ThemeProvider } from './ThemeProvider';
-import type { ReablocksTheme } from './themes/theme';
-import { theme as defaultTheme } from './themes/theme';
+import type { ReablocksTheme } from './themes/default';
+import { theme as defaultTheme } from './themes/default';
 
 describe('ThemeProvider', () => {
   const originalConsoleWarn = console.warn;
@@ -35,7 +35,7 @@ describe('ThemeProvider', () => {
       expect(container.textContent).toContain('Test Content');
     });
 
-    test('should use v9 theme by default', () => {
+    test('should use default theme by default', () => {
       let contextValue: any = null;
 
       render(
@@ -50,7 +50,7 @@ describe('ThemeProvider', () => {
       );
 
       expect(contextValue).toBeTruthy();
-      expect(contextValue.variant).toBe('v9');
+      expect(contextValue.variant).toBe('default');
       expect(contextValue.theme).toEqual(defaultTheme);
     });
 
@@ -76,11 +76,11 @@ describe('ThemeProvider', () => {
   });
 
   describe('variant prop', () => {
-    test('should accept v9 variant', () => {
+    test('should accept default variant', () => {
       let contextValue: any = null;
 
       render(
-        <ThemeProvider variant="v9">
+        <ThemeProvider variant="default">
           <ThemeContext.Consumer>
             {value => {
               contextValue = value;
@@ -90,12 +90,12 @@ describe('ThemeProvider', () => {
         </ThemeProvider>
       );
 
-      expect(contextValue.variant).toBe('v9');
+      expect(contextValue.variant).toBe('default');
     });
 
     test('should warn when variant changes at runtime', async () => {
       const { rerender } = render(
-        <ThemeProvider variant="v9">
+        <ThemeProvider variant="default">
           <div>Test</div>
         </ThemeProvider>
       );
@@ -117,7 +117,7 @@ describe('ThemeProvider', () => {
 
     test('should only warn once per variant change', async () => {
       const { rerender } = render(
-        <ThemeProvider variant="v9">
+        <ThemeProvider variant="default">
           <div>Test</div>
         </ThemeProvider>
       );
@@ -160,11 +160,11 @@ describe('ThemeProvider', () => {
       expect(contextValue.variant).toBe('unify');
     });
 
-    test('should use v9 theme when variant is v9', () => {
+    test('should use default theme when variant is default', () => {
       let contextValue: any = null;
 
       render(
-        <ThemeProvider variant="v9">
+        <ThemeProvider variant="default">
           <ThemeContext.Consumer>
             {value => {
               contextValue = value;
@@ -174,7 +174,7 @@ describe('ThemeProvider', () => {
         </ThemeProvider>
       );
 
-      expect(contextValue.variant).toBe('v9');
+      expect(contextValue.variant).toBe('default');
       expect(contextValue.theme).toEqual(defaultTheme);
     });
   });

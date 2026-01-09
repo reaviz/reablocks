@@ -3,4 +3,4 @@
 @import './dimensions.css';
 @import './theme-light.css';
 @import './theme-dark.css';
-@import './semantic-tokens.css';
+@import '../semantic-tokens.css';

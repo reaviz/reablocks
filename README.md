@@ -45,7 +45,7 @@ npm install reablocks
 
   > **Note**: Reablocks ships pre-built CSS. You do **not** need to install Tailwind CSS to use Reablocks - simply import the CSS file.
   >
-  > **Advanced users**: If you want to customize Reablocks design tokens in your own Tailwind config, you'll need **Tailwind CSS ≥ 4.0.0** (the v9 and Unify themes use v4 features like `@theme` blocks and `@custom-variant` directives).
+  > **Advanced users**: If you want to customize Reablocks design tokens in your own Tailwind config, you'll need **Tailwind CSS ≥ 4.0.0** (the default and Unify themes use v4 features like `@theme` blocks and `@custom-variant` directives).
 
 ### Migrating from Alpha (v10.0.0-alpha.x)
 
@@ -58,7 +58,7 @@ If you've been using the `unify-ds` branch alpha releases, please note key chang
 
 Reablocks v10 offers two theme variants to suit different design needs:
 
-### v9 Theme (Default)
+### Default Theme
 Simplified, semantic design tokens optimized for developer experience and quick prototyping.
 
 ```tsx
@@ -127,7 +127,7 @@ function App() {
 
 ### Choosing a Variant
 
-| Feature | v9 Theme | Unify Theme |
+| Feature | Default Theme | Unify Theme |
 |---------|----------|-------------|
 | **CSS Bundle Size** | Smaller (~145 KB / 19 KB gzipped in v10.0) | Larger (~310 KB / 35 KB gzipped in v10.0) |
 | **Token Style** | Semantic (`bg-primary`) | Component-specific (`bg-buttons-colors-core-icon-primary-background-resting`) |
@@ -135,11 +135,11 @@ function App() {
 | **Setup** | Minimal | More configuration |
 | **Migration Required** | No (default) | Opt-in |
 
-**Bundle Size Impact**: The Unify theme includes more comprehensive design tokens and is typically larger than the v9 theme. Actual sizes vary between versions as design tokens evolve—run `npm run build:styles` to see exact sizes for your version.
+**Bundle Size Impact**: The Unify theme includes more comprehensive design tokens and is typically larger than the default theme. Actual sizes vary between versions as design tokens evolve—run `npm run build:styles` to see exact sizes for your version.
 
 **Important**: CSS files are pre-built and shipped in the package. You download the full stylesheet regardless of which components you use (no tree-shaking). This keeps setup simple (no Tailwind build required) but means the bundle size is fixed.
 
-**Recommendation**: Use Unify for design-system-heavy enterprise applications where the extra 16 KB is negligible compared to features gained. For marketing sites or lightweight apps, the v9 theme may be more appropriate.
+**Recommendation**: Use Unify for design-system-heavy enterprise applications where the extra 16 KB is negligible compared to features gained. For marketing sites or lightweight apps, the default theme may be more appropriate.
 
 ### Light and Dark Mode
 
@@ -160,7 +160,7 @@ document.documentElement.setAttribute('data-theme', 'dark');
 document.documentElement.setAttribute('data-theme', 'light');
 ```
 
-The ThemeProvider automatically observes these changes and updates component styling accordingly. Both v9 and Unify themes include pre-configured light and dark color palettes.
+The ThemeProvider automatically observes these changes and updates component styling accordingly. Both the default and Unify themes include pre-configured light and dark color palettes.
 
 ### Important Notes
 
@@ -176,7 +176,7 @@ Both variants support custom theme overrides:
 
 ```tsx
 <ThemeProvider
-  variant="v9"  // or "unify"
+  variant="default"  // or "unify"
   theme={{
     components: {
       button: {
@@ -193,7 +193,7 @@ Both variants support custom theme overrides:
 </ThemeProvider>
 ```
 
-For detailed migration guidance and token mappings, see [v9 to Unify Token Mapping](docs/migration/v9-to-unify-token-mapping.md).
+For detailed migration guidance and token mappings, see [Default to Unify Token Mapping](docs/migration/default-to-unify-token-mapping.md).
 
 ## 🎁 Other Projects
 

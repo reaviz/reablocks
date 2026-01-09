@@ -1,7 +1,7 @@
 import { navigationTheme } from '@/elements/Navigation/NavigationTheme';
 import { typographyThemeDeprecated } from '@/typography/TypographyThemeDeprecated';
 
-import type { ReablocksTheme } from './theme';
+import type { ReablocksTheme } from './default';
 
 /**
  * Unify Design System theme.

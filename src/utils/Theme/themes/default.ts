@@ -1,6 +1,117 @@
-import type { ReablocksTheme } from '@/utils';
+import type {
+  DateFormatTheme,
+  EllipsisTheme,
+  PagerTheme,
+  RedactTheme,
+  SortTheme
+} from '@/data';
+import type { SkeletonTheme } from '@/elements';
+import type {
+  ArrowTheme,
+  AvatarGroupTheme,
+  AvatarTheme,
+  BadgeTheme,
+  ButtonTheme,
+  ChipTheme,
+  CommandPaletteTheme,
+  DotsLoaderTheme,
+  KbdTheme,
+  NavigationTheme
+} from '@/elements';
+import type {
+  CalendarRangeTheme,
+  CalendarTheme,
+  CheckboxTheme,
+  DateInputTheme,
+  InputTheme,
+  RadioTheme,
+  RangeTheme,
+  SelectTheme,
+  TextareaTheme,
+  ToggleTheme
+} from '@/form';
+import type {
+  BackdropTheme,
+  CalloutTheme,
+  ContextMenuTheme,
+  DialogTheme,
+  DrawerTheme,
+  MenuTheme,
+  NotificationTheme,
+  PopoverTheme,
+  TooltipTheme
+} from '@/layers';
+import type {
+  BlockTheme,
+  BreadcrumbsTheme,
+  CardTheme,
+  CollapseTheme,
+  DividerTheme,
+  JsonTreeTheme,
+  ListTheme,
+  StackTheme,
+  StepperTheme,
+  TabsTheme,
+  TreeTheme,
+  VerticalSpacerTheme
+} from '@/layout';
+import type { TypographyTheme, TypographyThemeDeprecated } from '@/typography';
 
-export const themeV9: ReablocksTheme = {
+export interface ReablocksTheme {
+  components: {
+    avatar: AvatarTheme;
+    avatarGroup: AvatarGroupTheme;
+    arrow: ArrowTheme;
+    badge: BadgeTheme;
+    button: ButtonTheme;
+    block: BlockTheme;
+    chip: ChipTheme;
+    contextMenu: ContextMenuTheme;
+    checkbox: CheckboxTheme;
+    dateFormat: DateFormatTheme;
+    dialog: DialogTheme;
+    divider: DividerTheme;
+    dotsLoader: DotsLoaderTheme;
+    drawer: DrawerTheme;
+    ellipsis: EllipsisTheme;
+    select: SelectTheme;
+    list: ListTheme;
+    menu: MenuTheme;
+    sort: SortTheme;
+    stack: StackTheme;
+    card: CardTheme;
+    kbd: KbdTheme;
+    verticalSpacer: VerticalSpacerTheme;
+    notification: NotificationTheme;
+    input: InputTheme;
+    dateInput: DateInputTheme;
+    calendar: CalendarTheme;
+    calendarRange: CalendarRangeTheme;
+    commandPalette: CommandPaletteTheme;
+    collapse: CollapseTheme;
+    textarea: TextareaTheme;
+    typography_deprecated: TypographyThemeDeprecated;
+    typography: TypographyTheme;
+    radio: RadioTheme;
+    range: RangeTheme;
+    redact: RedactTheme;
+    toggle: ToggleTheme;
+    tooltip: TooltipTheme;
+    tree: TreeTheme;
+    jsonTree: JsonTreeTheme;
+    popover: PopoverTheme;
+    pager: PagerTheme;
+    tabs: TabsTheme;
+    breadcrumbs: BreadcrumbsTheme;
+    stepper: StepperTheme;
+    callout: CalloutTheme;
+    backdrop: BackdropTheme;
+    navigation: NavigationTheme;
+    skeleton: SkeletonTheme;
+  };
+}
+
+export const theme: ReablocksTheme = {
   components: {
     avatar: {
       base: 'flex justify-center items-center bg-cover bg-center font-bold text-white',

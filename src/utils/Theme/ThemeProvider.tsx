@@ -5,10 +5,10 @@ import React, { createContext, useEffect, useRef, useState } from 'react';
 import isEqual from 'react-fast-compare';
 
 import { getThemeVariables, mergeDeep, observeThemeSwitcher } from './helpers';
-import type { ReablocksTheme } from './themes/theme';
-import { theme as defaultTheme } from './themes/theme';
+import type { ReablocksTheme } from './themes/default';
+import { theme as defaultTheme } from './themes/default';
 
-export type ThemeVariant = 'v9' | 'unify';
+export type ThemeVariant = 'default' | 'unify';
 
 export interface ThemeContextProps {
   theme: ReablocksTheme;
@@ -28,12 +28,12 @@ export interface ThemeProviderProps extends PropsWithChildren {
 
   /**
    * Theme variant to use as the base.
-   * - 'v9': Standard v9 theme (default)
+   * - 'default': Standard theme (default)
    * - 'unify': Unify Design System theme (opt-in)
    *
    * **Important**: This prop should be set once at app initialization and not changed at runtime.
    * Changing variants requires the corresponding CSS file to be imported:
-   * - v9: `import 'reablocks/index.css'`
+   * - default: `import 'reablocks/index.css'`
    * - unify: `import 'reablocks/unify.css'`
    *
    * Runtime switching is not recommended as it may require loading multiple CSS bundles
@@ -45,7 +45,7 @@ export interface ThemeProviderProps extends PropsWithChildren {
 export const ThemeProvider: FC<ThemeProviderProps> = ({
   children,
   theme,
-  variant = 'v9'
+  variant = 'default'
 }) => {
   const [baseTheme, setBaseTheme] = useState<ReablocksTheme>(defaultTheme);
   const [activeTheme, setActiveTheme] = useState<ReablocksTheme>(defaultTheme);
@@ -84,7 +84,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
         .catch(error => {
           if (isCancelled) return;
           console.error(
-            '[ThemeProvider] Failed to load Unify theme. Falling back to v9 theme. ' +
+            '[ThemeProvider] Failed to load Unify theme. Falling back to default theme. ' +
               'Make sure you have imported "reablocks/unify.css" in your application.',
             error
           );

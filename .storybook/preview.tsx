@@ -7,7 +7,7 @@ import type { Preview } from '@storybook/react';
 import React from 'react';
 
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
-import { theme as reablocksTheme } from '../src/utils/Theme/themes/theme';
+import { theme as reablocksTheme } from '../src/utils/Theme/themes/default';
 import theme from './theme';
 
 const withProvider = (Story, context) => (

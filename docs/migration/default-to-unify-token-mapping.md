@@ -1,13 +1,13 @@
-# v9 to Unify Token Mapping
+# Default to Unify Token Mapping
 
-This guide provides a best-effort mapping of v9 theme tokens to Unify (Unify Design System) tokens for migration purposes.
+This guide provides a best-effort mapping of Default theme tokens to Unify (Unify Design System) tokens for migration purposes.
 
 ## Overview
 
-- **v9 Theme**: Uses simplified Tailwind utilities and semantic color tokens (e.g., `bg-primary`, `text-text-secondary`)
+- **Default Theme**: Uses simplified Tailwind utilities and semantic color tokens (e.g., `bg-primary`, `text-text-secondary`)
 - **Unify Theme**: Uses a two-tier approach:
   1. **Unify Component Tokens**: Component-specific tokens from the Unify Design System (e.g., `bg-buttons-colors-core-icon-primary-background-resting`)
-  2. **Semantic Token Layer**: v9-style tokens mapped to Unify design tokens for components without Unify component equivalents (e.g., `bg-panel` → `var(--background-neutral-raised-base)`)
+  2. **Semantic Token Layer**: Default-style tokens mapped to Unify design tokens for components without Unify component equivalents (e.g., `bg-panel` → `var(--background-neutral-raised-base)`)
 
 ## Migration Strategy
 
@@ -42,7 +42,7 @@ The following components use Unify component-specific tokens (documented in deta
 *Note: Success/warning button variants use semantic tokens because Unify doesn't provide component tokens for these variants.*
 
 ### Components Using Semantic Token Layer
-The following components use the semantic token layer (v9-style tokens mapped to Unify design tokens) **because Unify does not provide component-specific tokens for them**:
+The following components use the semantic token layer (Default-style tokens mapped to Unify design tokens) **because Unify does not provide component-specific tokens for them**:
 - Card
 - Callout
 - Dialog
@@ -59,11 +59,11 @@ The following components use the semantic token layer (v9-style tokens mapped to
 - Tree
 - Typography
 
-These components use v9-style semantic tokens (`bg-panel`, `text-text-primary`) which map to Unify's design tokens. This works correctly but doesn't provide component-level customization granularity. See [Semantic Color Tokens](#semantic-color-tokens) for mappings.
+These components use Default-style semantic tokens (`bg-panel`, `text-text-primary`) which map to Unify's design tokens. This works correctly but doesn't provide component-level customization granularity. See [Semantic Color Tokens](#semantic-color-tokens) for mappings.
 
 ## CSS Import
 
-### v9 (Default)
+### Default
 ```javascript
 import 'reablocks/index.css';
 ```
@@ -75,7 +75,7 @@ import 'reablocks/unify.css';
 
 ## ThemeProvider Configuration
 
-### v9 (Default)
+### Default (Default)
 ```jsx
 import { ThemeProvider } from 'reablocks';
 
@@ -97,37 +97,37 @@ import { ThemeProvider } from 'reablocks';
 
 ### Button
 
-#### v9 → Unify Primary Button (Filled)
+#### Default → Unify Primary Button (Filled)
 - **Background (Resting)**: `bg-primary` → `bg-buttons-colors-core-icon-primary-background-resting`
 - **Background (Hover)**: `hover:bg-primary-hover` → `hover:bg-buttons-colors-core-icon-primary-background-hover`
 - **Border**: `border-primary` → `border-buttons-colors-core-icon-primary-stroke-resting`
 - **Text**: `text-text-primary` → `text-buttons-colors-core-icon-primary-text-resting`
 
-#### v9 → Unify Secondary Button (Filled)
+#### Default → Unify Secondary Button (Filled)
 - **Background (Resting)**: `bg-secondary` → `bg-buttons-colors-core-icon-secondary-background-resting`
 - **Background (Hover)**: `hover:bg-secondary-hover` → `hover:bg-buttons-colors-core-icon-secondary-background-hover`
 - **Border**: `border-secondary` → `border-buttons-colors-core-icon-secondary-stroke-resting`
 - **Text**: `text-text-primary` → `text-buttons-colors-core-icon-secondary-text-resting`
 
-#### v9 → Unify Success Button (via Semantic Tokens)
+#### Default → Unify Success Button (via Semantic Tokens)
 
-**Note**: Unify does not have `success` button variant. Success buttons use the [semantic token layer](#semantic-color-tokens) to maintain semantic parity with v9.
+**Note**: Unify does not have `success` button variant. Success buttons use the [semantic token layer](#semantic-color-tokens) to maintain semantic parity with Default.
 
 - **Background (Resting)**: `bg-success` → `bg-success` (mapped to `var(--background-semantic-success-base)`)
 - **Background (Hover)**: `hover:bg-success-hover` → `hover:bg-success-hover` (mapped to `var(--background-semantic-success-1)`)
 - **Border**: `border-success` → `border-success` (mapped to `var(--background-semantic-success-base)`)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
-#### v9 → Unify Warning Button (via Semantic Tokens)
+#### Default → Unify Warning Button (via Semantic Tokens)
 
-**Note**: Unify does not have `warning` button variant. Warning buttons use the [semantic token layer](#semantic-color-tokens) to maintain semantic parity with v9.
+**Note**: Unify does not have `warning` button variant. Warning buttons use the [semantic token layer](#semantic-color-tokens) to maintain semantic parity with Default.
 
 - **Background (Resting)**: `bg-warning` → `bg-warning` (mapped to `var(--background-semantic-warning-base)`)
 - **Background (Hover)**: `hover:bg-warning-hover` → `hover:bg-warning-hover` (mapped to `var(--background-semantic-warning-1)`)
 - **Border**: `border-warning` → `border-warning` (mapped to `var(--background-semantic-warning-base)`)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
-#### v9 → Unify Error Button (Filled)
+#### Default → Unify Error Button (Filled)
 - **Background (Resting)**: `bg-error` → `bg-buttons-colors-core-icon-destructive-background-resting`
 - **Background (Hover)**: `hover:bg-error-hover` → `hover:bg-buttons-colors-core-icon-destructive-background-hover`
 - **Border**: `border-error` → `border-buttons-colors-core-icon-destructive-stroke-resting`
@@ -135,7 +135,7 @@ import { ThemeProvider } from 'reablocks';
 
 ### Input
 
-#### v9 → Unify Input Field
+#### Default → Unify Input Field
 - **Background**: `bg-panel` → `bg-inputs-colors-normal-background-resting`
 - **Border**: `border-panel-accent` → `border-inputs-colors-normal-stroke-resting`
 - **Border (Hover)**: `hover:border-primary` → `hover:border-inputs-colors-normal-stroke-hover`
@@ -143,7 +143,7 @@ import { ThemeProvider } from 'reablocks';
 - **Text**: `text-text-primary` → `text-inputs-colors-normal-text-input-text-resting`
 - **Icon**: `text-text-secondary` → `[&>svg]:fill-inputs-colors-normal-assets-input-resting`
 
-#### v9 → Unify Error State
+#### Default → Unify Error State
 - **Background**: `bg-error-background` → `bg-inputs-colors-error-background-resting`
 - **Border**: `border-error` → `border-inputs-colors-error-stroke-resting`
 - **Border (Hover)**: `hover:border-error` → `hover:border-inputs-colors-error-stroke-hover`
@@ -151,7 +151,7 @@ import { ThemeProvider } from 'reablocks';
 
 ### Checkbox
 
-#### v9 → Unify Checkbox
+#### Default → Unify Checkbox
 - **Background (Not Selected)**: `bg-panel` → `bg-selectors-colors-checkbox-not-selected-background-resting`
 - **Background (Selected)**: `checked:bg-primary` → `checked:bg-selectors-colors-checkbox-selected-background-resting`
 - **Border (Not Selected)**: `border-panel-accent` → `border-selectors-colors-checkbox-not-selected-stroke-resting`
@@ -160,7 +160,7 @@ import { ThemeProvider } from 'reablocks';
 
 ### Radio
 
-#### v9 → Unify Radio Button
+#### Default → Unify Radio Button
 - **Background (Not Selected)**: `bg-transparent` → `bg-selectors-colors-radio-not-selected-background-resting`
 - **Background (Selected)**: `checked:bg-primary` → `checked:bg-selectors-colors-radio-selected-background-resting`
 - **Border (Not Selected)**: `border-panel-accent` → `border-selectors-colors-radio-not-selected-stroke-resting`
@@ -169,7 +169,7 @@ import { ThemeProvider } from 'reablocks';
 
 ### Toggle (Switch)
 
-#### v9 → Unify Toggle
+#### Default → Unify Toggle
 - **Background (Off)**: `bg-surface` → `bg-selectors-colors-toggle-off-background-resting`
 - **Background (On)**: `checked:bg-primary` → `checked:bg-selectors-colors-toggle-on-background-resting`
 - **Border (Off)**: `border-panel-accent` → `border-selectors-colors-toggle-off-stroke-resting`
@@ -179,7 +179,7 @@ import { ThemeProvider } from 'reablocks';
 
 ### Select
 
-#### v9 → Unify Select
+#### Default → Unify Select
 - **Background**: `bg-panel` → `bg-inputs-colors-normal-background-resting`
 - **Border**: `border-panel-accent` → `border-inputs-colors-normal-stroke-resting`
 - **Border (Hover)**: `hover:border-primary` → `hover:border-inputs-colors-normal-stroke-hover`
@@ -188,20 +188,20 @@ import { ThemeProvider } from 'reablocks';
 
 ### Chip
 
-#### v9 → Unify Chip (Filled)
+#### Default → Unify Chip (Filled)
 - **Background**: `bg-primary` → `bg-tags-colors-brand-background-resting`
 - **Background (Hover)**: `hover:bg-primary-hover` → `hover:bg-tags-colors-brand-background-hover`
 - **Border**: `border-primary` → `border-tags-colors-brand-stroke-resting`
 - **Text**: `text-panel` → `text-tags-colors-brand-text-label-base`
 
-#### v9 → Unify Chip (Selectable)
+#### Default → Unify Chip (Selectable)
 - **Background (Selected)**: `bg-primary` → `bg-tags-colors-brand-background-selected`
 - **Border (Selected)**: `border-primary` → `border-tags-colors-brand-stroke-selected`
 - **Text (Selected)**: `text-panel` → `text-tags-colors-brand-text-label-base`
 
 ### Badge
 
-#### v9 → Unify Badge
+#### Default → Unify Badge
 - **Background**: `bg-primary` → `bg-badges-colors-solid-brand-background-standard`
 - **Border**: `border-primary` → `border-badges-colors-solid-brand-stroke-default`
 - **Text**: `text-white` → `text-badges-colors-solid-brand-text-default`
@@ -210,18 +210,18 @@ import { ThemeProvider } from 'reablocks';
 
 **Note**: Card does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Card (via Semantic Tokens)
+#### Default → Unify Card (via Semantic Tokens)
 - **Background**: `bg-panel` → `bg-panel` (mapped to `var(--background-neutral-raised-base)`)
 - **Border**: `border-panel-accent` → `border-panel-accent` (mapped to `var(--background-neutral-raised-1)`)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
-The Card component continues to use v9-style semantic tokens which are automatically mapped to Unify design tokens through the semantic token layer. No code changes are required when switching to the Unify variant.
+The Card component continues to use Default-style semantic tokens which are automatically mapped to Unify design tokens through the semantic token layer. No code changes are required when switching to the Unify variant.
 
 ### Callout
 
 **Note**: Callout does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Callout (via Semantic Tokens)
+#### Default → Unify Callout (via Semantic Tokens)
 - **Default Background**: `bg-panel-background` → `bg-panel-background` (mapped to `var(--background-neutral-raised-base)`)
 - **Default Border**: `border-panel-accent` → `border-panel-accent` (mapped to `var(--background-neutral-raised-1)`)
 - **Success Background**: `bg-success-background` → `bg-success-background` (mapped to `var(--background-semantic-success-5)`)
@@ -239,7 +239,7 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 ### Calendar
 
-#### v9 → Unify Calendar
+#### Default → Unify Calendar
 - **Container Background**: `bg-transparent` → `bg-calendar-colors-container-background-default`
 - **Header Text**: `text-text-secondary` → `text-calendar-colors-header-text-default`
 - **Label Text**: `text-text-secondary` → `text-calendar-colors-label-text-default`
@@ -254,28 +254,28 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 ### Notification/Toast
 
-#### v9 → Unify Notification (Neutral/Default)
+#### Default → Unify Notification (Neutral/Default)
 - **Background**: `bg-panel` → `bg-notifications-colors-background-neutral-resting`
 - **Border**: `border-panel-accent` → `border-notifications-colors-stroke-neutral-resting`
 - **Text**: `text-text-primary` → `text-notifications-colors-text-normal-resting`
 - **Title**: `text-text-primary` → `text-notifications-colors-text-title-resting`
 
-#### v9 → Unify Notification (Success)
+#### Default → Unify Notification (Success)
 - **Background**: `bg-success-background` → `bg-notifications-colors-background-success-resting`
 - **Border**: `border-success` → `border-notifications-colors-stroke-success-resting`
 - **Icon**: `text-success` → `text-notifications-colors-assets-success-resting`
 
-#### v9 → Unify Notification (Error)
+#### Default → Unify Notification (Error)
 - **Background**: `bg-error-background` → `bg-notifications-colors-background-error-resting`
 - **Border**: `border-error` → `border-notifications-colors-stroke-error-resting`
 - **Icon**: `text-error` → `text-notifications-colors-assets-destructive-resting`
 
-#### v9 → Unify Notification (Warning)
+#### Default → Unify Notification (Warning)
 - **Background**: `bg-warning-background` → `bg-notifications-colors-background-neutral-resting`
 - **Border**: `border-warning` → `border-notifications-colors-stroke-warning-resting`
 - **Icon**: `text-warning` → `text-notifications-colors-assets-normal-resting`
 
-#### v9 → Unify Notification (Info)
+#### Default → Unify Notification (Info)
 - **Background**: `bg-info-background` → `bg-notifications-colors-background-neutral-resting`
 - **Border**: `border-info` → `border-notifications-colors-stroke-info-resting`
 - **Icon**: `text-info` → `text-notifications-colors-assets-normal-resting`
@@ -284,7 +284,7 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 **Note**: Dialog does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Dialog (via Semantic Tokens)
+#### Default → Unify Dialog (via Semantic Tokens)
 - **Background**: `bg-panel` → `bg-panel` (mapped to `var(--background-neutral-raised-base)`)
 - **Border**: `border-panel-accent` → `border-panel-accent` (mapped to `var(--background-neutral-raised-1)`)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
@@ -294,7 +294,7 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 **Note**: Divider does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Divider (via Semantic Tokens)
+#### Default → Unify Divider (via Semantic Tokens)
 - **Primary Variant**: `bg-surface` → `bg-surface` (mapped to `var(--background-neutral-canvas-base)`)
 - **Secondary Variant**: Uses gradient with `via-blue-500` (custom styling, not mapped)
 
@@ -302,13 +302,13 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 **Note**: Drawer does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Drawer (via Semantic Tokens)
+#### Default → Unify Drawer (via Semantic Tokens)
 - **Background**: `bg-panel` → `bg-panel` (mapped to `var(--background-neutral-raised-base)`)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
 ### List
 
-#### v9 → Unify List (using navigation-colors-*)
+#### Default → Unify List (using navigation-colors-*)
 - **Base Text**: `text-text-primary` → `text-navigation-colors-text-resting`
 - **Header Text**: `text-text-primary` → `text-navigation-colors-text-static`
 - **Item Background (Resting)**: N/A → `bg-navigation-colors-background-row-items-resting`
@@ -324,7 +324,7 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 ### Menu
 
-#### v9 → Unify Menu (using navigation-colors-*)
+#### Default → Unify Menu (using navigation-colors-*)
 - **Container Background**: N/A → `bg-navigation-colors-background-container-base`
 - **Container Border**: N/A → `border-navigation-colors-stroke-container-base`
 - **Text**: `text-text-primary` → `text-navigation-colors-text-resting`
@@ -333,7 +333,7 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 **Note**: Pager does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Pager (via Semantic Tokens)
+#### Default → Unify Pager (via Semantic Tokens)
 - **Active Page**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 - **Inactive Page**: `text-slate-500` (custom styling, not mapped to Unify design tokens)
 
@@ -341,7 +341,7 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 **Note**: Popover does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Popover (via Semantic Tokens)
+#### Default → Unify Popover (via Semantic Tokens)
 - **Background**: `bg-panel` → `bg-panel` (mapped to `var(--background-neutral-raised-base)`)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
@@ -349,7 +349,7 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 **Note**: Range does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Range (via Semantic Tokens)
+#### Default → Unify Range (via Semantic Tokens)
 - **Base Background**: `bg-surface` → `bg-surface` (mapped to `var(--background-neutral-canvas-base)`)
 - **Active Background**: `bg-primary-active` → `bg-primary-active` (mapped to `var(--background-brand-base)`)
 - **Hover Background**: `hover:bg-primary-hover` → `hover:bg-primary-hover` (mapped to `var(--background-brand-1)`)
@@ -361,14 +361,14 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 **Note**: Redact does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Redact (via Semantic Tokens)
+#### Default → Unify Redact (via Semantic Tokens)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
 ### Sort
 
 **Note**: Sort does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Sort (via Semantic Tokens)
+#### Default → Unify Sort (via Semantic Tokens)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 - **Icon**: `fill-current` (inherits text color)
 
@@ -376,14 +376,14 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 **Note**: Stack does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Stack (via Semantic Tokens)
+#### Default → Unify Stack (via Semantic Tokens)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 
 ### Stepper
 
 **Note**: Stepper does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Stepper (via Semantic Tokens)
+#### Default → Unify Stepper (via Semantic Tokens)
 - **Border**: `border-panel-accent` → `border-panel-accent` (mapped to `var(--background-neutral-raised-1)`)
 - **Marker Background**: `bg-surface` → `bg-surface` (mapped to `var(--background-neutral-canvas-base)`)
 - **Active Marker**: `bg-info` → `bg-info` (mapped to `var(--background-semantic-info-base)`)
@@ -396,7 +396,7 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 **Note**: Textarea uses the same Unify tokens as Input. See [Input](#input) for token mappings.
 
-#### v9 → Unify Textarea
+#### Default → Unify Textarea
 - Same token mappings as Input component
 - **Background**: `bg-inputs-colors-normal-background-resting`
 - **Border**: `border-inputs-colors-normal-stroke-resting`
@@ -410,7 +410,7 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 **Note**: Tree does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Tree (via Semantic Tokens)
+#### Default → Unify Tree (via Semantic Tokens)
 - **Text**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
 - **Arrow Icon**: `fill-text-primary` → `fill-text-primary` (uses `var(--content-text-neutral-base)`)
 - **Button Icon**: `fill-text-primary` → `fill-text-primary` (uses `var(--content-text-neutral-base)`)
@@ -419,7 +419,7 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 **Note**: Typography does not have Unify component-specific tokens and uses the [semantic token layer](#semantic-color-tokens).
 
-#### v9 → Unify Typography (via Semantic Tokens)
+#### Default → Unify Typography (via Semantic Tokens)
 - **Primary**: `text-primary` → `text-primary` (mapped to `var(--background-brand-base)`)
 - **Secondary**: `text-secondary` → `text-secondary` (mapped to `var(--background-neutral-raised-1)`)
 - **Success**: `text-success` → `text-success` (mapped to `var(--background-semantic-success-base)`)
@@ -429,11 +429,11 @@ The Card component continues to use v9-style semantic tokens which are automatic
 
 ## Semantic Color Tokens
 
-### v9 → Unify Semantic Mappings
+### Default → Unify Semantic Mappings
 
-The Unify variant includes a semantic token layer (`semantic-tokens.css`) that maps v9 tokens to Unify design tokens. This allows both token systems to coexist and provides a migration path.
+Both default and unify themes include a semantic token layer (`semantic-tokens.css`) that maps semantic tokens (like `--color-primary`, `--color-secondary`) to design system tokens (like `--background-brand-base`, `--background-neutral-raised-base`). This allows both token systems to coexist and provides a migration path. The same file works for both themes because they use the same variable names, with values coming from their respective theme files.
 
-**Note**: These mappings are automatically included when you import `reablocks/unify.css`.
+**Note**: These mappings are automatically included when you import `reablocks/index.css` (default theme) or `reablocks/unify.css` (unify theme).
 
 #### Primary Colors
 - `--primary` → `--background-brand-base`

@@ -219,7 +219,7 @@ import { ThemeProvider, theme } from 'reablocks';
 
 function App() {
   return (
-    <ThemeProvider> // v9 default or pass variant="unify"
+    <ThemeProvider> // without variant prop: default theme
       {/* Your app */}
     </ThemeProvider>
   );
