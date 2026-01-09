@@ -631,7 +631,7 @@ export const themeUnify: ReablocksTheme = {
         base: 'transition-colors ease-in-out duration-200',
         active: 'bg-primary text-text-primary',
         clickable:
-          'cursor-pointer hover:bg-primary-hover/70 dark:hover:bg-primary-hover dark:hover:text-white'
+          'cursor-pointer hover:bg-primary-hover/70 hover:text-text-primary'
       },
       section: {
         base: 'bg-panel',
@@ -791,7 +791,7 @@ export const themeUnify: ReablocksTheme = {
     },
     dotsLoader: {
       base: 'flex',
-      dot: 'rounded-[50%] bg-neutral-900 light:bg-neutral-900 dark:bg-neutral-100',
+      dot: 'rounded-[50%] bg-neutral-900',
       sizes: {
         small: 'w-1 h-1 m-1',
         medium: 'w-1.5 h-1.5 m-1.5',
@@ -849,7 +849,7 @@ export const themeUnify: ReablocksTheme = {
     },
     jsonTree: {
       node: {
-        label: 'font-mono text-anakiwa light:text-blue-500',
+        label: 'font-mono text-anakiwa text-primary',
         delimiter: 'pr-1',
         symbol: 'px-1 opacity-50 font-mono',
         value: '',
@@ -947,7 +947,7 @@ export const themeUnify: ReablocksTheme = {
       showPageRange: '',
       totalCount: '',
       control:
-        '[&>svg]:w-5 [&>svg]:h-5 text-slate-200 light:text-slate-400 disabled:light:text-slate-300',
+        '[&>svg]:w-5 [&>svg]:h-5 text-text-secondary disabled:text-disabled',
       firstPage: '',
       prevPage: '',
       lastPage: '',
@@ -1279,9 +1279,9 @@ export const themeUnify: ReablocksTheme = {
       }
     },
     skeleton: {
-      base: 'rounded-md bg-neutral-200 light:bg-neutral-200 dark:bg-neutral-700',
+      base: 'rounded-md bg-neutral-200',
       animated:
-        'animate-[pulse_1.5s_ease-in-out_infinite] light:bg-gradient-to-r light:from-neutral-200 light:via-neutral-300 light:to-neutral-200 dark:bg-gradient-to-r dark:from-neutral-700 dark:via-neutral-600 dark:to-neutral-700 bg-[length:200%_100%]',
+        'animate-[pulse_1.5s_ease-in-out_infinite] bg-gradient-to-r from-neutral-200 via-neutral-300 to-neutral-200 bg-[length:200%_100%]',
       variants: {
         text: 'h-4 w-full',
         rounded: 'rounded-full w-10 h-10',
