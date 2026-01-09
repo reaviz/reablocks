@@ -18,6 +18,22 @@ This guide provides a best-effort mapping of Default theme tokens to Unify (Unif
 
 **Need legacy palette support?** Use `reablocks/unify-compat.css` to map `gray-*`, `slate-*`, etc. to Unify colors. This is transitional - migrate to semantic/component tokens when possible.
 
+### Light and Dark Mode
+
+**Important**: Semantic tokens automatically adapt to light and dark mode. You no longer need to use `dark:` or `light:` Tailwind variants in theme files.
+
+- **Before**: `dark:text-gray-400 light:text-gray-700` (explicit variants for each mode)
+- **After**: `text-text-secondary` (automatically adapts based on active theme class)
+
+The theme system uses CSS variables that switch values based on the `.theme-dark` or `.theme-light` class on the document element. Semantic tokens like `text-text-primary`, `bg-panel`, and `border-panel-accent` automatically pick up the correct values for the active theme mode.
+
+**How it works:**
+1. Theme CSS files (`theme-dark.css`, `theme-light.css`) define design system tokens conditionally
+2. Semantic tokens (`semantic-tokens.css`) map to these design system tokens
+3. Components use semantic tokens, which automatically resolve to the correct color for the active theme
+
+This means you can use the same semantic token in both light and dark modes, and it will automatically use the appropriate color value.
+
 ## Component Coverage
 
 ### Components with Full Unify Component Token Mappings
@@ -335,7 +351,7 @@ The Card component continues to use Default-style semantic tokens which are auto
 
 #### Default → Unify Pager (via Semantic Tokens)
 - **Active Page**: `text-text-primary` → `text-text-primary` (mapped to `var(--content-text-neutral-base)`)
-- **Inactive Page**: `text-slate-500` (custom styling, not mapped to Unify design tokens)
+- **Inactive Page**: `text-text-secondary` → `text-text-secondary` (mapped to `var(--content-text-neutral-3)`)
 
 ### Popover
 
@@ -435,6 +451,8 @@ Both default and unify themes include a semantic token layer (`semantic-tokens.c
 
 **Note**: These mappings are automatically included when you import `reablocks/index.css` (default theme) or `reablocks/unify.css` (unify theme).
 
+**Light/Dark Mode Support**: All semantic tokens automatically adapt to light and dark mode. The theme CSS files (`theme-dark.css`, `theme-light.css`) define the same variable names with different values based on the active theme class (`.theme-dark` or `.theme-light`). This means you don't need to use `dark:` or `light:` Tailwind variants - semantic tokens handle the mode switching automatically.
+
 #### Primary Colors
 - `--primary` → `--background-brand-base`
 - `--primary-hover` → `--background-brand-1`
@@ -481,8 +499,11 @@ Both default and unify themes include a semantic token layer (`semantic-tokens.c
 - `--surface-accent` → `--background-brand-base`
 
 #### Text Colors
-- `--text-primary` → `--content-text-neutral-base`
-- `--text-secondary` → `--content-text-neutral-3`
+- `--text-primary` → `--content-text-neutral-base` (automatically adapts to light/dark mode)
+- `--text-secondary` → `--content-text-neutral-3` (automatically adapts to light/dark mode)
+- `--disabled` → `--content-text-neutral-5` (automatically adapts to light/dark mode)
+- `--mystic` → `--content-text-neutral-2` (automatically adapts to light/dark mode)
+- `--waterloo` → `--content-text-neutral-4` (automatically adapts to light/dark mode)
 
 #### Border Colors
 - `--border-secondary-hover` → `--stroke-neutral-1`

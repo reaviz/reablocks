@@ -937,12 +937,12 @@ export const themeUnify: ReablocksTheme = {
       pages: {
         base: '',
         page: {
-          base: 'py-1 text-slate-500',
+          base: 'py-1 text-text-secondary',
           active: 'font-bold text-text-primary!'
         }
       },
       ellipsis: 'cursor-pointer',
-      pagerDisplayItems: 'mr-1.5 text-slate-500',
+      pagerDisplayItems: 'mr-1.5 text-text-secondary',
       itemsDisplay: '',
       showPageRange: '',
       totalCount: '',

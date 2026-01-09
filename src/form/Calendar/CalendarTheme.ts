@@ -141,7 +141,7 @@ export const calendarTheme: CalendarTheme = {
     column: {
       base: 'w-6',
       wrapper: 'overflow-y-auto h-52',
-      label: 'text-center text-xs text-gray-500',
+      label: 'text-center text-xs text-text-secondary',
       list: 'p-0 m-0 list-none',
       scrollbar: ''
     },
