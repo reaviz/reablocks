@@ -1,0 +1,27 @@
+@theme {
+  --color-gray-50: var(--background-neutral-raised-6);
+  --color-gray-100: var(--background-neutral-raised-5);
+  --color-gray-200: var(--background-neutral-raised-4);
+  --color-gray-300: var(--background-neutral-raised-3);
+  --color-gray-400: var(--content-text-neutral-5);
+  --color-gray-500: var(--content-text-neutral-4);
+  --color-gray-600: var(--content-text-neutral-3);
+  --color-gray-700: var(--content-text-neutral-2);
+  --color-gray-800: var(--content-text-neutral-1);
+  --color-gray-900: var(--content-text-neutral-base);
+  --color-gray-950: var(--content-text-neutral-base);
+
+  --color-slate-50: var(--background-neutral-raised-6);
+  --color-slate-100: var(--background-neutral-raised-5);
+  --color-slate-200: var(--background-neutral-raised-4);
+  --color-slate-300: var(--background-neutral-raised-3);
+  --color-slate-400: var(--content-text-neutral-5);
+  --color-slate-500: var(--content-text-neutral-4);
+  --color-slate-600: var(--content-text-neutral-3);
+  --color-slate-700: var(--content-text-neutral-2);
+  --color-slate-800: var(--content-text-neutral-1);
+  --color-slate-900: var(--content-text-neutral-base);
+  --color-slate-950: var(--content-text-neutral-base);
+
+  --color-blue-500: var(--background-brand-base);
+}

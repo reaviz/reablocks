@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 
-import { twMerge } from '@/utils';
+import { twMerge } from './twMerge';
 
 /**
  * Classnames and tailwind merge helper function.

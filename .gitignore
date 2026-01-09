@@ -68,3 +68,4 @@ src/**/*.scss.d.ts
 src/**/*.css.d.ts
 
 .idea
+.cursor

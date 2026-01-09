@@ -1,10 +1,6 @@
 @import './tailwind/main.css';
 @import './colors.css';
 @import './dimensions.css';
-@import './theme-dark.css';
 @import './theme-light.css';
-@import './semantic-tokens.css';
-
-body {
-  line-height: inherit;
-}
+@import './theme-dark.css';
+@import '../semantic-tokens.css';

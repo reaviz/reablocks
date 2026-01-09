@@ -219,7 +219,7 @@ import { ThemeProvider, theme } from 'reablocks';
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider> // without variant prop: default theme
       {/* Your app */}
     </ThemeProvider>
   );

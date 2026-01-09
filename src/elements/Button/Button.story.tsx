@@ -1,9 +1,9 @@
 import { cn } from '@/utils';
 
 import { ThemeProvider } from '../../utils/Theme/ThemeProvider';
+import { theme } from '../../utils/Theme/themes/default';
 import type { PartialReablocksTheme } from '../../utils/Theme/themes/extendTheme';
 import { extendTheme } from '../../utils/Theme/themes/extendTheme';
-import { theme } from '../../utils/Theme/themes/theme';
 import { Button } from './Button';
 
 export default {
