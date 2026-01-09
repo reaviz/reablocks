@@ -1,4 +1,4 @@
-export * from './theme';
-export * from './extendTheme';
 export * from './extendCoponentTheme';
+export * from './extendTheme';
 export * from './extractTheme';
+export * from './theme';

@@ -1,9 +1,10 @@
-import React from 'react';
-import { describe, test, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, waitFor } from '@testing-library/react';
-import { ThemeProvider, ThemeContext } from './ThemeProvider';
-import { theme as defaultTheme } from './themes/theme';
+import React from 'react';
+import { afterEach, beforeEach, describe, expect, test, vi } from 'vitest';
+
+import { ThemeContext, ThemeProvider } from './ThemeProvider';
 import type { ReablocksTheme } from './themes/theme';
+import { theme as defaultTheme } from './themes/theme';
 
 describe('ThemeProvider', () => {
   const originalConsoleWarn = console.warn;
