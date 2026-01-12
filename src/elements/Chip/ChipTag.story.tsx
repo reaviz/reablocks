@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import type { ChipTheme } from '@/elements';
-import { Button, chipTheme } from '@/elements';
+import { Button, defaultChipTheme } from '@/elements';
 import { Stack } from '@/layout';
 import { cn, extendComponentTheme } from '@/utils';
 
@@ -338,7 +338,7 @@ const DemoIcon = () => (
 
 export const CustomTheme = () => {
   const customTheme = extendComponentTheme<ChipTheme>(
-    chipTheme,
+    defaultChipTheme,
     {
       types: {
         tag: {

@@ -1,5 +1,5 @@
 import type { ChipTheme } from '@/elements';
-import { chipTheme } from '@/elements';
+import { defaultChipTheme } from '@/elements';
 import { Stack } from '@/layout';
 import { cn, extendComponentTheme } from '@/utils';
 
@@ -134,7 +134,7 @@ const DemoIcon = () => (
 
 export const CustomTheme = () => {
   const customTheme = extendComponentTheme<ChipTheme>(
-    chipTheme,
+    defaultChipTheme,
     {
       types: {
         badge: {

@@ -6,6 +6,48 @@ import { ThemeContext, ThemeProvider } from './ThemeProvider';
 import type { ReablocksTheme } from './themes/default';
 import { theme as defaultTheme } from './themes/default';
 
+const createMinimalCompleteTheme = (): ReablocksTheme => ({
+  components: {
+    ...defaultTheme.components,
+    button: {
+      base: 'fully-custom-button',
+      disabled: 'fully-custom-disabled',
+      fullWidth: 'fully-custom-fullwidth',
+      group: '',
+      groupText: '',
+      adornment: {
+        base: '',
+        start: { small: '', medium: '', large: '' },
+        end: { small: '', medium: '', large: '' },
+        sizes: { small: '', medium: '', large: '' }
+      },
+      sizes: { small: '', medium: '', large: '' },
+      iconSizes: { small: '', medium: '', large: '' },
+      variants: { filled: '', outline: '', text: '', ghost: '' },
+      colors: {
+        primary: {
+          filled: '',
+          outline: '',
+          text: '',
+          ghost: ''
+        },
+        secondary: {
+          filled: '',
+          outline: '',
+          text: '',
+          ghost: ''
+        },
+        destructive: {
+          filled: '',
+          outline: '',
+          text: '',
+          ghost: ''
+        }
+      }
+    }
+  }
+});
+
 describe('ThemeProvider', () => {
   const originalConsoleWarn = console.warn;
   const originalConsoleError = console.error;
@@ -237,6 +279,75 @@ describe('ThemeProvider', () => {
       expect(buttonTheme?.base).toBe('custom-button-base');
       expect(buttonTheme?.fullWidth).toBeDefined();
       expect(buttonTheme?.sizes).toBeDefined();
+    });
+
+    test('should fully replace theme when replaceTheme is true', () => {
+      const customCompleteTheme = createMinimalCompleteTheme();
+
+      let contextValue: any = null;
+
+      render(
+        <ThemeProvider theme={customCompleteTheme} replaceTheme>
+          <ThemeContext.Consumer>
+            {value => {
+              contextValue = value;
+              return null;
+            }}
+          </ThemeContext.Consumer>
+        </ThemeProvider>
+      );
+
+      const buttonTheme = contextValue.theme.components?.button;
+      expect(buttonTheme?.base).toBe('fully-custom-button');
+      expect(buttonTheme?.disabled).toBe('fully-custom-disabled');
+      expect(buttonTheme?.fullWidth).toBe('fully-custom-fullwidth');
+    });
+
+    test('should use provided theme when replaceTheme is true even if incomplete', () => {
+      const incompleteTheme = {
+        components: {
+          button: {
+            base: 'incomplete-button'
+          }
+        }
+      } as unknown as ReablocksTheme;
+
+      let contextValue: any = null;
+
+      render(
+        <ThemeProvider theme={incompleteTheme} replaceTheme>
+          <ThemeContext.Consumer>
+            {value => {
+              contextValue = value;
+              return null;
+            }}
+          </ThemeContext.Consumer>
+        </ThemeProvider>
+      );
+
+      expect(contextValue.theme.components?.button?.base).toBe(
+        'incomplete-button'
+      );
+    });
+
+    test('should ignore variant when replaceTheme is true', () => {
+      let contextValue: any = null;
+
+      render(
+        <ThemeProvider theme={defaultTheme} replaceTheme variant="unify">
+          <ThemeContext.Consumer>
+            {value => {
+              contextValue = value;
+              return null;
+            }}
+          </ThemeContext.Consumer>
+        </ThemeProvider>
+      );
+
+      expect(contextValue.theme).toEqual(defaultTheme);
+      expect(mockWarn).not.toHaveBeenCalledWith(
+        expect.stringContaining('variant')
+      );
     });
 
     test('should update theme when custom theme prop changes', () => {

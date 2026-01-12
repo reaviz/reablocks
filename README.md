@@ -168,11 +168,11 @@ The ThemeProvider automatically observes these changes and updates component sty
 - **Match CSS import**: Always import the CSS file that matches your variant
 - **No runtime switching**: Changing variants at runtime requires loading both CSS files and may cause styling issues
 - **Import only one CSS file**: Do not import both `index.css` and `unify.css` in the same application. The last import wins, which can cause unexpected styling and increased bundle size. Choose one based on your `variant` prop.
-- **Tailwind palette utilities**: The pre-built CSS includes standard Tailwind palette utilities (e.g., `text-gray-700`, `bg-blue-500`) so they work without installing Tailwind. For tighter integration with Unify tokens, consider migrating to semantic tokens or Unify component tokens. See the migration guide for details.
+- **Tailwind palette utilities**: The pre-built CSS includes standard Tailwind palette utilities (e.g., `text-gray-700`, `bg-blue-500`) so they work without installing Tailwind. For tighter integration with Unify tokens, consider migrating to Unify component tokens or direct design system tokens. See the migration guide for details.
 
 ### Custom Theme Overrides
 
-Both variants support custom theme overrides:
+Both variants support custom theme overrides. By default, custom themes are merged with the base theme:
 
 ```tsx
 <ThemeProvider
@@ -192,6 +192,31 @@ Both variants support custom theme overrides:
   <App />
 </ThemeProvider>
 ```
+
+### Fully Replacing the Theme
+
+To fully replace the base theme instead of merging, use the `replaceTheme` prop:
+
+```tsx
+import { ThemeProvider } from 'reablocks';
+import { theme as myCompleteTheme } from './my-custom-theme';
+
+<ThemeProvider theme={myCompleteTheme} replaceTheme>
+  <App />
+</ThemeProvider>
+```
+
+**When to use `replaceTheme`:**
+- Building a completely custom theme from scratch
+- Replacing the entire theme structure
+- When you don't want any base theme properties
+
+**When to use default merging:**
+- Overriding specific component styles
+- Extending the default or Unify theme
+- Making targeted customizations
+
+**Note**: When `replaceTheme={true}`, the `variant` prop is ignored since no base theme is loaded.
 
 For detailed migration guidance and token mappings, see [Default to Unify Token Mapping](docs/migration/default-to-unify-token-mapping.md).
 

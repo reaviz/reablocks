@@ -22,29 +22,17 @@ export const ThemeContext = createContext<ThemeContextProps>(null);
 
 export interface ThemeProviderProps extends PropsWithChildren {
   /**
-   * Custom theme overrides to merge with the base theme.
+   * Custom theme overrides to merge with the base theme, or a complete theme to replace the base theme.
    */
-  theme?: Partial<ReablocksTheme>;
-
-  /**
-   * Theme variant to use as the base.
-   * - 'default': Standard theme (default)
-   * - 'unify': Unify Design System theme (opt-in)
-   *
-   * **Important**: This prop should be set once at app initialization and not changed at runtime.
-   * Changing variants requires the corresponding CSS file to be imported:
-   * - default: `import 'reablocks/index.css'`
-   * - unify: `import 'reablocks/unify.css'`
-   *
-   * Runtime switching is not recommended as it may require loading multiple CSS bundles
-   * and can cause a flash of unstyled content.
-   */
+  theme?: Partial<ReablocksTheme> | ReablocksTheme;
+  replaceTheme?: boolean;
   variant?: ThemeVariant;
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({
   children,
   theme,
+  replaceTheme = false,
   variant = 'default'
 }) => {
   const [baseTheme, setBaseTheme] = useState<ReablocksTheme>(defaultTheme);
@@ -58,8 +46,9 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     setIsClient(true);
   }, []);
 
-  // Warn if variant changes at runtime (and update ref to prevent infinite warnings)
   useEffect(() => {
+    if (replaceTheme) return;
+
     if (variantRef.current !== variant) {
       console.warn(
         '[ThemeProvider] Changing variant at runtime is not supported and may cause styling issues. ' +
@@ -67,11 +56,10 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
       );
       variantRef.current = variant;
     }
-  }, [variant]);
+  }, [variant, replaceTheme]);
 
-  // Load base theme when variant changes (client-side only)
   useEffect(() => {
-    if (!isClient) return;
+    if (!isClient || replaceTheme) return;
 
     let isCancelled = false;
 
@@ -97,20 +85,37 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     return () => {
       isCancelled = true;
     };
-  }, [variant, isClient]);
+  }, [variant, isClient, replaceTheme]);
 
-  // Merge custom theme with base theme whenever either changes
+  // Handle theme: merge with base theme or replace entirely if replaceTheme is true
   useEffect(() => {
-    const merged = theme ? mergeDeep(baseTheme, theme) : baseTheme;
-    setActiveTheme(merged);
-  }, [baseTheme, theme]);
+    if (replaceTheme) {
+      if (
+        theme &&
+        'components' in theme &&
+        theme.components &&
+        typeof theme.components === 'object'
+      ) {
+        setActiveTheme(theme as ReablocksTheme);
+      } else if (!theme) {
+        console.warn(
+          '[ThemeProvider] `replaceTheme` is true but `theme` is missing.' +
+            'Falling back to default theme. Provide a complete `ReablocksTheme` object to fully replace the base theme.'
+        );
+        setActiveTheme(defaultTheme);
+      } else {
+        console.warn(
+          '[ThemeProvider] `replaceTheme` is true but `theme` is not a complete theme. ' +
+            'Using default theme. Provide a complete `ReablocksTheme` object to fully replace the base theme.'
+        );
+        setActiveTheme(defaultTheme);
+      }
+    } else {
+      const merged = theme ? mergeDeep(baseTheme, theme) : baseTheme;
+      setActiveTheme(merged);
+    }
+  }, [baseTheme, theme, replaceTheme]);
 
-  // Extract CSS variables on mount, when variant changes, and when DOM theme class changes
-  // Note: We don't depend on activeTheme because CSS variables are in the DOM,
-  // not in the JS theme object. They change when:
-  // 1. Component mounts (isClient becomes true)
-  // 2. Variant changes (different CSS files loaded)
-  // 3. DOM class changes (theme-light vs theme-dark) - handled by observer
   useEffect(() => {
     if (!isClient) return;
 
