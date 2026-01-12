@@ -1,7 +1,4 @@
 @import 'tailwindcss';
 @import './assets/css/unify/index.css';
-@import './assets/css/unify/palette-compat.css';
-
-@custom-variant dark (&:where(.theme-dark, .theme-dark *, [data-theme=dark], [data-theme=dark] *));
-@custom-variant light (&:where(.theme-light, .theme-light *, [data-theme=light], [data-theme=light] *));
-@custom-variant disabled-within (&:has(input:is(:disabled), textarea:is(:disabled), button:is(:disabled)));
+@import './assets/css/palette-compat.css';
+@import './assets/css/variants.css';
