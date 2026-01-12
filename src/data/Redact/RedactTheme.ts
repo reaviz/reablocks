@@ -3,7 +3,12 @@ export interface RedactTheme {
   interactive: string;
 }
 
-export const redactTheme: RedactTheme = {
+export const unifyRedactTheme: RedactTheme = {
   base: 'cursor-text',
+  interactive: 'cursor-pointer hover:underline'
+};
+
+export const defaultRedactTheme: RedactTheme = {
+  base: 'cursor-text text-text-primary',
   interactive: 'cursor-pointer hover:underline'
 };

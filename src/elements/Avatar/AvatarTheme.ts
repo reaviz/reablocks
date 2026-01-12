@@ -4,7 +4,7 @@ export interface AvatarTheme {
   rounded: string;
 }
 
-export const avatarTheme: AvatarTheme = {
+export const unifyAvatarTheme: AvatarTheme = {
   base: `
     relative flex justify-center items-center bg-cover bg-center font-bold transition-colors
     after:absolute after:inset-0 after:border
@@ -17,4 +17,10 @@ export const avatarTheme: AvatarTheme = {
     cursor-pointer
   `,
   rounded: 'rounded-full after:rounded-full'
+};
+
+export const defaultAvatarTheme: AvatarTheme = {
+  base: 'flex justify-center items-center bg-cover bg-center font-bold text-white',
+  clickable: '',
+  rounded: 'rounded-[50%]'
 };

@@ -72,7 +72,90 @@ export interface CalendarTheme {
   };
 }
 
-export const calendarTheme: CalendarTheme = {
+export const defaultCalendarTheme: CalendarTheme = {
+  base: 'relative overflow-hidden',
+  header: {
+    base: 'flex text-center justify-between mb-2 items-center text-text-secondary',
+    prev: 'text-xl leading-4',
+    mid: '',
+    next: 'text-xl leading-4'
+  },
+  title: 'font-semibold leading-[normal]',
+  content: 'flex',
+  contentContainer: '',
+  days: {
+    header:
+      'text-center grid grid-cols-7 mb-1 pt-2 font-medium text-text-secondary',
+    dayOfWeek: 'text-center font-medium',
+    week: 'grid grid-cols-7',
+    day: 'font-normal flex p-2 border border-transparent text-text-secondary opacity-90 hover:bg-primary-hover hover:disabled:bg-transparent! hover:text-black disabled:text-text-secondary/60',
+    outside: ' opacity-40 text-text-secondary',
+    startRangeDate: 'rounded-tl-md rounded-tr-none rounded-br-none',
+    cornerStartDateBottom: 'rounded-bl-none',
+    endRangeDate: 'rounded-br-md rounded-bl-none rounded-tl-none',
+    cornerEndDateTop: 'rounded-tr-none',
+    range: 'rounded-none',
+    selected:
+      'text-black border-transparent light:text-white light:border-transparent opacity-100',
+    hover:
+      'bg-primary-active text-black border-transparent light:text-white opacity-100',
+    today: 'rounded-sm border border-panel-accent text-text-primary'
+  },
+  months: {
+    root: 'grid grid-cols-4 gap-2',
+    month: [
+      'p-1.5',
+      'hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white'
+    ].join(' '),
+    selected: ['border-transparent text-black light:text-white'].join(' ')
+  },
+  years: {
+    root: 'grid grid-cols-4 gap-2',
+    year: [
+      'p-1.5',
+      'hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white'
+    ].join(' '),
+    selected: ['border-transparent text-black light:text-white'].join(' ')
+  },
+  time: {
+    base: 'flex flex-col h-full gap-0',
+    wrapper: 'mt-4 bg-panel z-10 flex flex-row',
+    dividerTop: 'w-full',
+    dividerLeft: 'h-auto mt-2.5 mx-1 bg-surface z-10',
+    header: 'flex gap-4 px-0.5 pb-2.5 mb-2',
+    column: {
+      base: 'w-6',
+      wrapper: 'overflow-y-auto h-52',
+      label: 'text-center text-xs text-gray-500',
+      list: 'p-0 m-0 list-none',
+      scrollbar:
+        'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500'
+    },
+    items: {
+      wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
+      container: 'h-full',
+      list: 'relative h-full p-0 m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
+      divider: 'mx-0',
+      item: {
+        base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150',
+        selected: '',
+        disabled: 'cursor-not-allowed'
+      }
+    }
+  },
+  presets: {
+    wrapper: 'bg-panel z-10',
+    divider: 'mx-1 h-[calc(100%-26px)] self-end',
+    base: 'relative h-59 max-w-52 pr-1 overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y space-y-0',
+    group: 'text-sm font-medium my-1 !pr-0 !pl-0',
+    item: {
+      base: 'text-sm p-1.5 my-0.5 duration-0',
+      active: ''
+    }
+  }
+};
+
+export const unifyCalendarTheme: CalendarTheme = {
   base: 'bg-calendar-colors-container-background-default relative overflow-hidden border rounded-(--calendar-details-corner-radius-default) border-calendar-colors-container-stroke-default [&>hr]:bg-calendar-colors-container-stroke-default',
   header: {
     base: 'flex gap-(--calendar-details-space-between-default) text-center justify-between py-(--calendar-details-vertical-padding-default) px-(--calendar-details-horizontal-padding-header) items-center',

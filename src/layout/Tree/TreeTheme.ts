@@ -17,7 +17,26 @@ export interface TreeTheme {
   subtree: string;
 }
 
-export const treeTheme: TreeTheme = {
+export const defaultTreeTheme: TreeTheme = {
+  base: 'relative m-0 p-0 list-none',
+  tree: 'border pt-1 pb-1 px-3 border-solid border-transparent',
+  arrow: 'w-3 h-3 fill-text-primary',
+  node: {
+    base: 'pt-0.5 m-0 list-style-none first:pt-0 last:pb-0 text-text-primary',
+    collapsed: '-rotate-90',
+    disabled: 'opacity-60',
+    leaf: 'pl-4',
+    label: '',
+    button: {
+      base: 'min-w-[auto] min-h-[auto] w-auto h-auto transition-transform duration-100 ease-in-out ml-0 mr-1 my-0 p-0',
+      icon: 'align-middle block h-2 w-2 m-0.5 fill-text-primary'
+    }
+  },
+  nodeBlock: 'flex items-center',
+  subtree: 'relative ml-5 mr-0 mt-1 mb-0 p-0'
+};
+
+export const unifyTreeTheme: TreeTheme = {
   base: 'relative m-0 p-0 list-none',
   tree: 'border pt-1 pb-1 px-3 border-solid border-transparent',
   arrow:

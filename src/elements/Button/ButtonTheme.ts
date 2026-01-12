@@ -38,7 +38,80 @@ export interface ButtonTheme {
   iconSizes: ButtonSizeTheme;
 }
 
-export const buttonTheme: ButtonTheme = {
+export const defaultButtonTheme: ButtonTheme = {
+  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-xs font-sans cursor-pointer text-text-primary font-semibold',
+  disabled:
+    'disabled:cursor-not-allowed data-[variant=filled]:disabled:bg-gray-600 disabled:text-gray-400 border-gray-500',
+  fullWidth: 'flex w-full',
+  group:
+    'rounded-none first:rounded-s last:rounded-e border-s-0 first:border-s',
+  groupText:
+    'border border-y-transparent border-l-transparent last:border-r-transparent hover:bg-initial',
+  adornment: {
+    base: 'flex',
+    start: {
+      small: 'pr-1',
+      medium: 'pr-1',
+      large: 'pr-1'
+    },
+    end: {
+      small: 'pl-1',
+      medium: 'pl-1',
+      large: 'pl-1'
+    },
+    sizes: {
+      small: '[&>svg]:w-3 [&>svg]:h-3',
+      medium: '[&>svg]:w-4 [&>svg]:h-4',
+      large: '[&>svg]:w-5 [&>svg]:h-5'
+    }
+  },
+  sizes: {
+    small: 'text-sm px-2 py-1 leading-[normal]',
+    medium: 'text-base px-4 py-2 leading-[normal]',
+    large: 'text-xl px-5 py-2.5 leading-[normal]'
+  },
+  iconSizes: {
+    small: 'px-2 py-1',
+    medium: 'px-4 py-2',
+    large: 'px-5 py-2.5'
+  },
+  variants: {
+    filled:
+      'bg-secondary hover:bg-border-secondary-hover border-secondary light:text-gray-100',
+    outline: 'border-grey border',
+    text: 'border-0',
+    ghost: ''
+  },
+  colors: {
+    default: {
+      filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
+      outline: 'border border-secondary',
+      text: 'text-text-primary',
+      ghost: ''
+    },
+    primary: {
+      filled:
+        'bg-primary hover:bg-primary-hover border-primary text-text-primary',
+      outline: 'border border-primary',
+      text: 'text-primary hover:text-primary-hover',
+      ghost: ''
+    },
+    secondary: {
+      filled: 'bg-secondary hover:bg-secondary-hover text-text-primary!',
+      outline: 'border border-secondary',
+      text: 'text-secondary hover:text-secondary-hover',
+      ghost: ''
+    },
+    destructive: {
+      filled: 'bg-error hover:bg-error-hover border-error text-text-primary',
+      outline: 'border border-error',
+      text: 'text-error hover:text-error-hover',
+      ghost: ''
+    }
+  }
+};
+
+export const unifyButtonTheme: ButtonTheme = {
   base: `
     inline-flex items-center justify-center font-sans 
     cursor-pointer font-semibold whitespace-nowrap 

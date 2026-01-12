@@ -14,7 +14,7 @@ export interface BlockTheme {
   };
 }
 
-export const blockTheme: BlockTheme = {
+export const unifyBlockTheme: BlockTheme = {
   base: '',
   disableMargin: 'm-0',
   label: 'text-xs leading-none font-semibold text-content-text-neutral-3',
@@ -27,5 +27,21 @@ export const blockTheme: BlockTheme = {
   vertical: {
     base: 'block',
     label: 'block mb-2'
+  }
+};
+
+export const defaultBlockTheme: BlockTheme = {
+  base: 'mb-2.5',
+  disableMargin: 'mb-0',
+  label: 'text-sm',
+  centerAlign: 'items-center',
+  endAlign: 'items-end',
+  horizontal: {
+    base: 'flex flex-row items-baseline',
+    label: 'mr-0.5 whitespace-nowrap'
+  },
+  vertical: {
+    base: 'block',
+    label: 'block mb-0.5'
   }
 };

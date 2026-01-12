@@ -19,7 +19,30 @@ export interface ToggleTheme {
   sizes: ToggleSizeTheme;
 }
 
-export const toggleTheme: ToggleTheme = {
+export const defaultToggleTheme: ToggleTheme = {
+  base: 'flex items-center justify-start cursor-pointer bg-surface box-border border border-panel-accent rounded-full hover:bg-primary-hover transition-[background-color] ease-in-out duration-300',
+  disabled: 'cursor-not-allowed bg-transparent hover:bg-transparent',
+  checked: 'justify-end bg-primary',
+  disabledAndChecked:
+    'bg-secondary-inactive hover:bg-secondary-inactive light:bg-gray-400 light:hover:bg-gray-400',
+  handle: {
+    base: 'rounded-full bg-panel',
+    sizes: {
+      small: 'w-3 h-full',
+      medium: 'w-5 h-full',
+      large: 'w-6 h-full'
+    },
+    disabled: 'bg-secondary-inactive light:bg-gray-400',
+    disabledAndChecked: 'bg-black light:bg-white'
+  },
+  sizes: {
+    small: 'w-8 h-4 p-px',
+    medium: 'w-12 h-6 p-px',
+    large: 'w-16 h-7 p-px'
+  }
+};
+
+export const unifyToggleTheme: ToggleTheme = {
   base: 'group flex items-center justify-start cursor-pointer bg-selectors-colors-toggle-off-background-resting box-border border border-selectors-colors-toggle-off-stroke-resting rounded-full hover:bg-selectors-colors-toggle-off-background-hover focus-visible:bg-selectors-colors-toggle-off-background-hover transition-colors ease-in-out duration-300 focus-visible:outline-none',
   disabled:
     'cursor-not-allowed opacity-40 focus-visible:bg-selectors-colors-toggle-off-background-resting',
