@@ -1,2 +1,2 @@
 export * from './Skeleton';
-export * from './SkeletonTheme';
+export type * from './SkeletonTheme';

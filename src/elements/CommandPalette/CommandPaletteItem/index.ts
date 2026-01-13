@@ -1,2 +1,2 @@
 export * from './CommandPaletteItem';
-export * from './CommandPaletteItemTheme';
+export type { CommandPaletteItemTheme } from './CommandPaletteItemTheme';

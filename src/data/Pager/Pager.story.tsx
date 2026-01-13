@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
 import { Pager } from '@/data';
-import { defaultPagerTheme } from '@/data';
+
+import { defaultPagerTheme } from './PagerTheme';
 
 export default {
   title: 'Components/Data/Pager',

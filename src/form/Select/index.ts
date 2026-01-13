@@ -3,5 +3,4 @@ export * from './Select';
 export * from './SelectInput';
 export * from './SelectMenu';
 export * from './SelectOption';
-export * from './SelectTheme';
 export * from './utils';

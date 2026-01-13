@@ -1,2 +1,2 @@
 export * from './Redact';
-export * from './RedactTheme';
+export type * from './RedactTheme';

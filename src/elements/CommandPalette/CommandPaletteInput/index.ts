@@ -1,2 +1,2 @@
 export * from './CommandPaletteInput';
-export * from './CommandPaletteInputTheme';
+export type { CommandPaletteInputTheme } from './CommandPaletteInputTheme';

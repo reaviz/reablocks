@@ -14,20 +14,20 @@ import {
 import { defaultSortTheme, type SortTheme } from '@/data/Sort/SortTheme';
 import {
   type ArrowTheme,
-  type AvatarGroupTheme,
+  defaultArrowTheme
+} from '@/elements/Arrow/ArrowTheme';
+import {
   type AvatarTheme,
+  defaultAvatarTheme
+} from '@/elements/Avatar/AvatarTheme';
+import {
+  type AvatarGroupTheme,
+  defaultAvatarGroupTheme
+} from '@/elements/AvatarGroup/AvatarGroupTheme';
+import {
   type BadgeTheme,
-  defaultArrowTheme,
-  defaultAvatarGroupTheme,
-  defaultAvatarTheme,
-  defaultBadgeTheme,
-  defaultDotsLoaderTheme,
-  defaultKbdTheme,
-  defaultSkeletonTheme,
-  type DotsLoaderTheme,
-  type KbdTheme,
-  type SkeletonTheme
-} from '@/elements';
+  defaultBadgeTheme
+} from '@/elements/Badge/BadgeTheme';
 import {
   type ButtonTheme,
   defaultButtonTheme
@@ -37,11 +37,19 @@ import {
   type CommandPaletteTheme,
   defaultCommandPaletteTheme
 } from '@/elements/CommandPalette/CommandPaletteTheme';
+import { defaultKbdTheme, type KbdTheme } from '@/elements/Kbd/KbdTheme';
+import {
+  defaultDotsLoaderTheme,
+  type DotsLoaderTheme
+} from '@/elements/Loader/DotsLoaderTheme';
 import {
   defaultNavigationTheme,
   type NavigationTheme
 } from '@/elements/Navigation/NavigationTheme';
-import type { DateInputTheme, TextareaTheme } from '@/form';
+import {
+  defaultSkeletonTheme,
+  type SkeletonTheme
+} from '@/elements/Skeleton/SkeletonTheme';
 import {
   type CalendarRangeTheme,
   defaultCalendarRangeTheme
@@ -54,6 +62,7 @@ import {
   type CheckboxTheme,
   defaultCheckboxTheme
 } from '@/form/Checkbox/CheckboxTheme';
+import type { DateInputTheme } from '@/form/DateInput/DateInputTheme';
 import { defaultDateInputTheme } from '@/form/DateInput/DateInputTheme';
 import { defaultInputTheme, type InputTheme } from '@/form/Input/InputTheme';
 import { defaultRadioTheme, type RadioTheme } from '@/form/Radio/RadioTheme';
@@ -62,13 +71,16 @@ import {
   defaultSelectTheme,
   type SelectTheme
 } from '@/form/Select/SelectTheme';
+import type { TextareaTheme } from '@/form/Textarea/TextareaTheme';
 import { defaultTextareaTheme } from '@/form/Textarea/TextareaTheme';
 import {
   defaultToggleTheme,
   type ToggleTheme
 } from '@/form/Toggle/ToggleTheme';
-import type { BackdropTheme } from '@/layers';
-import { defaultBackdropTheme } from '@/layers/Backdrop/BackdropTheme';
+import {
+  type BackdropTheme,
+  defaultBackdropTheme
+} from '@/layers/Backdrop/BackdropTheme';
 import {
   type CalloutTheme,
   defaultCalloutTheme
@@ -98,24 +110,22 @@ import {
   defaultTooltipTheme,
   type TooltipTheme
 } from '@/layers/Tooltip/TooltipTheme';
-import type {
-  BlockTheme,
-  BreadcrumbsTheme,
-  DividerTheme,
-  ListTheme,
-  StackTheme,
-  VerticalSpacerTheme
-} from '@/layout';
-import { defaultBlockTheme } from '@/layout/Block/BlockTheme';
-import { defaultBreadcrumbsTheme } from '@/layout/Breadcrumbs/BreadcrumbsTheme';
+import { type BlockTheme, defaultBlockTheme } from '@/layout/Block/BlockTheme';
+import {
+  type BreadcrumbsTheme,
+  defaultBreadcrumbsTheme
+} from '@/layout/Breadcrumbs/BreadcrumbsTheme';
 import { type CardTheme, defaultCardTheme } from '@/layout/Card/CardTheme';
 import {
   type CollapseTheme,
   defaultCollapseTheme
 } from '@/layout/Collapse/CollapseTheme';
-import { defaultDividerTheme } from '@/layout/Divider/DividerTheme';
-import { defaultListTheme } from '@/layout/List/ListTheme';
-import { defaultStackTheme } from '@/layout/Stack/StackTheme';
+import {
+  defaultDividerTheme,
+  type DividerTheme
+} from '@/layout/Divider/DividerTheme';
+import { defaultListTheme, type ListTheme } from '@/layout/List/ListTheme';
+import { defaultStackTheme, type StackTheme } from '@/layout/Stack/StackTheme';
 import {
   defaultStepperTheme,
   type StepperTheme
@@ -126,8 +136,10 @@ import {
   type JsonTreeTheme
 } from '@/layout/Tree/JsonTree/JsonTreeTheme';
 import { defaultTreeTheme, type TreeTheme } from '@/layout/Tree/TreeTheme';
-import { defaultVerticalSpacerTheme } from '@/layout/VerticalSpacer/VerticalSpacerTheme';
-import type {} from '@/typography';
+import {
+  defaultVerticalSpacerTheme,
+  type VerticalSpacerTheme
+} from '@/layout/VerticalSpacer/VerticalSpacerTheme';
 import {
   defaultTypographyTheme,
   type TypographyTheme

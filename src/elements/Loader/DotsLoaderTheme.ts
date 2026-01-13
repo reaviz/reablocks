@@ -13,7 +13,7 @@ export interface DotsLoaderTheme {
 
 export const defaultDotsLoaderTheme: DotsLoaderTheme = {
   base: 'flex',
-  dot: 'rounded-[50%] light:bg-gray-900 dark:bg-gray-100',
+  dot: 'rounded-[50%] bg-content-text-neutral-base',
   sizes: {
     small: 'w-1 h-1 m-1',
     medium: 'w-1.5 h-1.5 m-1.5',

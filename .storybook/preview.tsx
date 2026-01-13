@@ -1,4 +1,4 @@
-import '../src/assets/css/index.css';
+import '../src/index.css';
 import './fonts.css';
 
 import { DocsContainer } from '@storybook/addon-docs/blocks';
@@ -7,11 +7,10 @@ import type { Preview } from '@storybook/react';
 import React from 'react';
 
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
-import { theme as reablocksTheme } from '../src/utils/Theme/themes/default';
 import theme from './theme';
 
 const withProvider = (Story, context) => (
-  <ThemeProvider theme={reablocksTheme}>
+  <ThemeProvider>
     <Story {...context} />
   </ThemeProvider>
 );
@@ -41,7 +40,7 @@ const preview: Preview = {
 
         return (
           <DocsContainer {...props}>
-            <ThemeProvider theme={reablocksTheme}>
+            <ThemeProvider>
               <div className={isLight ? 'theme-light' : 'theme-dark'}>
                 {children}
               </div>
