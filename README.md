@@ -218,7 +218,7 @@ import { theme as myCompleteTheme } from './my-custom-theme';
 
 **Note**: When `replaceTheme={true}`, the `variant` prop is ignored since no base theme is loaded.
 
-For detailed migration guidance and token mappings, see [Default to Unify Token Mapping](docs/migration/default-to-unify-token-mapping.md).
+For detailed migration guidance and token mappings, see the [Default to Unify Token Mapping](https://reablocks.dev/docs/getting-started/migration/default-to-unify-token-mapping) guide on the website.
 
 ## 🎁 Other Projects
 
