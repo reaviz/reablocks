@@ -135,6 +135,52 @@ describe('ThemeProvider', () => {
       expect(contextValue.variant).toBe('default');
     });
 
+    test('should accept custom variant', () => {
+      let contextValue: any = null;
+
+      render(
+        <ThemeProvider variant="custom">
+          <ThemeContext.Consumer>
+            {value => {
+              contextValue = value;
+              return null;
+            }}
+          </ThemeContext.Consumer>
+        </ThemeProvider>
+      );
+
+      expect(contextValue.variant).toBe('custom');
+      expect(contextValue.theme).toEqual(defaultTheme);
+    });
+
+    test('should accept custom variant with custom theme', () => {
+      const customTheme = {
+        components: {
+          button: {
+            base: 'custom-button-base'
+          }
+        }
+      } as Partial<ReablocksTheme>;
+
+      let contextValue: any = null;
+
+      render(
+        <ThemeProvider variant="custom" theme={customTheme}>
+          <ThemeContext.Consumer>
+            {value => {
+              contextValue = value;
+              return null;
+            }}
+          </ThemeContext.Consumer>
+        </ThemeProvider>
+      );
+
+      expect(contextValue.variant).toBe('custom');
+      expect(contextValue.theme.components?.button?.base).toBe(
+        'custom-button-base'
+      );
+    });
+
     test('should warn when variant changes at runtime', async () => {
       const { rerender } = render(
         <ThemeProvider variant="default">

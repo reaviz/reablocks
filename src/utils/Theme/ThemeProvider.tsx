@@ -8,7 +8,7 @@ import { getThemeVariables, mergeDeep, observeThemeSwitcher } from './helpers';
 import type { ReablocksTheme } from './themes/default';
 import { theme as defaultTheme } from './themes/default';
 
-export type ThemeVariant = 'default' | 'unify';
+export type ThemeVariant = 'default' | 'unify' | 'custom';
 
 export interface ThemeContextProps {
   theme: ReablocksTheme;
@@ -26,6 +26,12 @@ export interface ThemeProviderProps extends PropsWithChildren {
    */
   theme?: Partial<ReablocksTheme> | ReablocksTheme;
   replaceTheme?: boolean;
+  /**
+   * Theme variant to use.
+   * - 'default': Uses default theme with 'reablocks/index.css'
+   * - 'unify': Uses Unify theme with 'reablocks/unify.css'
+   * - 'custom': Uses default theme structure with your own CSS file (no reablocks CSS imported)
+   */
   variant?: ThemeVariant;
 }
 

@@ -40,7 +40,7 @@
 npm install reablocks
 ```
 
- ### Requirements
+### Requirements
   - **React** ≥ 16.0.0
 
   > **Note**: Reablocks ships pre-built CSS. You do **not** need to install Tailwind CSS to use Reablocks - simply import the CSS file.
@@ -56,7 +56,7 @@ If you've been using the `unify-ds` branch alpha releases, please note key chang
 
 ## 🎨 Theme Variants
 
-Reablocks v10 offers two theme variants to suit different design needs:
+Reablocks v10 offers three theme variants to suit different design needs:
 
 ### Default Theme
 Simplified, semantic design tokens optimized for developer experience and quick prototyping.
@@ -125,25 +125,85 @@ function App() {
 
 **Use this when**: You have existing code with palette utilities and want them to match your Unify design system colors. Otherwise, use the standard `unify.css` and migrate to semantic/component tokens over time.
 
+### Custom Theme (Bring Your Own CSS)
+For maximum customization, use the `custom` variant to provide your own CSS file with custom design tokens while using Reablocks components:
+
+```tsx
+import { ThemeProvider } from 'reablocks';
+import './my-custom-tokens.css'; // Your own CSS with custom variables
+
+function App() {
+  return (
+    <ThemeProvider variant="custom">
+      <Button>Click me</Button>
+    </ThemeProvider>
+  );
+}
+```
+
+**Best for:**
+- Complete design system control
+- Custom CSS variables and tokens
+- Integration with existing design systems
+- Advanced Tailwind customization
+
+**How it works:**
+- No Reablocks CSS is loaded (don't import `index.css` or `unify.css`)
+- Uses default theme structure (Tailwind class names)
+- Optionally provide a custom theme object via the `theme` prop
+- Your CSS defines the design tokens/variables that the theme classes reference
+
+> **Why use custom variant instead of theme overrides?** The `theme` prop on default/unify variants still uses Reablocks CSS files (~19-35 KB gzipped). Use `variant="custom"` when you want zero Reablocks CSS in your bundle, such as when integrating with an existing design system or implementing custom Tailwind configuration with your own design tokens.
+
+**Example with custom theme object:**
+```tsx
+import { ThemeProvider } from 'reablocks';
+import { myCustomTheme } from './my-theme';
+import './my-custom-styles.css';
+
+function App() {
+  return (
+    <ThemeProvider variant="custom" theme={myCustomTheme}>
+      <Button>Click me</Button>
+    </ThemeProvider>
+  );
+}
+```
+
 ### Choosing a Variant
 
-| Feature | Default Theme | Unify Theme |
-|---------|----------|-------------|
-| **CSS Bundle Size** | Smaller (~145 KB / 19 KB gzipped in v10.0) | Larger (~310 KB / 35 KB gzipped in v10.0) |
-| **Token Style** | Semantic (`bg-primary`) | Component-specific (`bg-buttons-colors-core-icon-primary-background-resting`) |
-| **Customization** | Simple overrides | Granular control |
-| **Setup** | Minimal | More configuration |
-| **Migration Required** | No (default) | Opt-in |
+**CSS Bundle Size**
+- **Default Theme**: Smaller (~145 KB / 19 KB gzipped in v10.0)
+- **Unify Theme**: Larger (~310 KB / 35 KB gzipped in v10.0)
+- **Custom Theme**: You control (your own CSS)
+
+**Token Style**
+- **Default Theme**: Semantic tokens (e.g., `bg-primary`)
+- **Unify Theme**: Component-specific tokens (e.g., `bg-buttons-colors-core-icon-primary-background-resting`)
+- **Custom Theme**: Your own design tokens
+
+**Customization**
+- **Default Theme**: Simple overrides
+- **Unify Theme**: Granular control
+- **Custom Theme**: Complete control
+
+**Setup**
+- **Default Theme**: Minimal (no configuration needed)
+- **Unify Theme**: More configuration (requires `variant="unify"` and `unify.css` import)
+- **Custom Theme**: Advanced (requires `variant="custom"`, your own CSS, and optional theme object)
 
 **Bundle Size Impact**: The Unify theme includes more comprehensive design tokens and is typically larger than the default theme. Actual sizes vary between versions as design tokens evolve—run `npm run build:styles` to see exact sizes for your version.
 
 **Important**: CSS files are pre-built and shipped in the package. You download the full stylesheet regardless of which components you use (no tree-shaking). This keeps setup simple (no Tailwind build required) but means the bundle size is fixed.
 
-**Recommendation**: Use Unify for design-system-heavy enterprise applications where the extra 16 KB is negligible compared to features gained. For marketing sites or lightweight apps, the default theme may be more appropriate.
+**Recommendation**: Choose based on your needs and preferences:
+- **Visual preference**: The themes have slightly different visual styles; compare them in [Storybook](https://storybook.reablocks.dev) to see which you prefer
+- **Design system needs**: Use Unify for enterprise applications requiring granular design token control
+- **Bundle size**: For marketing sites or lightweight apps where every KB matters, the default theme may be more appropriate (~16KB gzipped difference)
 
 ### Light and Dark Mode
 
-Both themes support light and dark modes out of the box. Toggle between modes by applying theme classes:
+The default and Unify themes support light and dark modes out of the box. Toggle between modes by applying theme classes:
 
 ```tsx
 // Toggle to dark mode
@@ -162,17 +222,22 @@ document.documentElement.setAttribute('data-theme', 'light');
 
 The ThemeProvider automatically observes these changes and updates component styling accordingly. Both the default and Unify themes include pre-configured light and dark color palettes.
 
+> **Note**: When using `variant="custom"`, you're responsible for implementing light/dark mode support in your own CSS by targeting the `.theme-dark`, `.theme-light`, `[data-theme="dark"]`, or `[data-theme="light"]` selectors. The ThemeProvider will still observe theme changes, but your CSS must define the color values for each mode.
+
 ### Important Notes
 
 - **Set variant once**: The `variant` prop should be set at app initialization and not changed at runtime
 - **Match CSS import**: Always import the CSS file that matches your variant
+  - `variant="default"` → import `'reablocks/index.css'`
+  - `variant="unify"` → import `'reablocks/unify.css'` or `'reablocks/unify-compat.css'`
+  - `variant="custom"` → import your own CSS file (do not import any Reablocks CSS)
 - **No runtime switching**: Changing variants at runtime requires loading both CSS files and may cause styling issues
 - **Import only one CSS file**: Do not import both `index.css` and `unify.css` in the same application. The last import wins, which can cause unexpected styling and increased bundle size. Choose one based on your `variant` prop.
 - **Tailwind palette utilities**: The pre-built CSS includes standard Tailwind palette utilities (e.g., `text-gray-700`, `bg-blue-500`) so they work without installing Tailwind. For tighter integration with Unify tokens, consider migrating to Unify component tokens or direct design system tokens. See the migration guide for details.
 
-### Custom Theme Overrides
+### Custom Theme Overrides for Default and Unify Variants
 
-Both variants support custom theme overrides. By default, custom themes are merged with the base theme:
+The default and Unify variants support custom theme overrides. By default, custom themes are merged with the base theme:
 
 ```tsx
 <ThemeProvider
@@ -216,7 +281,10 @@ import { theme as myCompleteTheme } from './my-custom-theme';
 - Extending the default or Unify theme
 - Making targeted customizations
 
-**Note**: When `replaceTheme={true}`, the `variant` prop is ignored since no base theme is loaded.
+**Important notes:**
+- When `replaceTheme={true}`, the `variant` prop is ignored since no base theme is loaded. You're replacing the theme object entirely, not selecting a variant.
+- The `replaceTheme` prop affects the theme object (JavaScript/TypeScript), not the CSS file. Even with `replaceTheme={true}`, you still need to import a CSS file (either `index.css`, `unify.css`, or your own custom CSS).
+- If you want both a custom theme object AND custom CSS with no Reablocks styles, use `variant="custom"` with `theme` prop (no need for `replaceTheme` since custom variant uses your theme as-is or merges with default structure).
 
 For detailed migration guidance and token mappings, see the [Default to Unify Token Mapping](https://reablocks.dev/docs/getting-started/migration/default-to-unify-token-mapping) guide on the website.
 
