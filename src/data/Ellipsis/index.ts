@@ -1,2 +1,2 @@
 export * from './Ellipsis';
-export * from './EllipsisTheme';
+export type * from './EllipsisTheme';

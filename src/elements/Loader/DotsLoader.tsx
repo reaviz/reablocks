@@ -37,12 +37,15 @@ export const DotsLoader: FC<DotsLoaderProps> = ({
 }) => {
   const theme: DotsLoaderTheme = useComponentTheme('dotsLoader', customTheme);
 
+  const dotClasses = [theme.dot, theme.sizes?.[size]].filter(Boolean);
+
   return (
     <motion.div className={twMerge(theme.base, className)}>
       {[...Array(3)].map((_, i) => (
         <motion.div
           key={i}
-          className={twMerge(theme.dot, theme.sizes[size])}
+          className={twMerge(...dotClasses)}
+          initial={{ opacity: 0, scale: 1 }}
           animate={{
             opacity: [0, 1, 0],
             scale: [1, 2, 2, 1, 1]

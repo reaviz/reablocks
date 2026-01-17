@@ -2,6 +2,10 @@ export interface CollapseTheme {
   base: string;
 }
 
-export const collapseTheme: CollapseTheme = {
+const baseCollapseTheme: CollapseTheme = {
   base: 'will-change-[height,opacity] overflow-hidden'
 };
+
+export const defaultCollapseTheme: CollapseTheme = baseCollapseTheme;
+
+export const unifyCollapseTheme: CollapseTheme = baseCollapseTheme;

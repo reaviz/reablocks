@@ -1,6 +1,6 @@
 import { mergeDeep } from '@/utils/Theme/helpers';
 
-import type { ReablocksTheme } from './theme';
+import type { ReablocksTheme } from './default';
 
 export type DeepPartial<T> = {
   [P in keyof T]?: DeepPartial<T[P]>;

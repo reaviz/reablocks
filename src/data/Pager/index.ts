@@ -1,3 +1,4 @@
 export * from './Pager';
-export * from './PagerTheme';
+export type * from './PagerTheme';
+export type { PagerTheme } from './PagerTheme';
 export * from './utils';

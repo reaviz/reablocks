@@ -19,7 +19,29 @@ export interface PagerTheme {
   nextPage: string;
 }
 
-export const pagerTheme: PagerTheme = {
+export const defaultPagerTheme: PagerTheme = {
+  base: 'items-center flex user-select-none',
+  pages: {
+    base: 'inline-flex',
+    page: {
+      base: 'py-1 text-slate-500',
+      active: 'font-bold text-text-primary!'
+    }
+  },
+  ellipsis: 'cursor-pointer',
+  pagerDisplayItems: 'mr-1.5 text-slate-500',
+  itemsDisplay: '',
+  showPageRange: '',
+  totalCount: '',
+  control:
+    '[&>svg]:w-5 [&>svg]:h-5 text-slate-200 light:text-slate-400 disabled:light:text-slate-300',
+  firstPage: '',
+  prevPage: '',
+  lastPage: '',
+  nextPage: ''
+};
+
+export const unifyPagerTheme: PagerTheme = {
   base: 'items-center flex user-select-none gap-5',
   pages: {
     base: 'inline-flex gap-1 text-sm',
@@ -42,7 +64,7 @@ export const pagerTheme: PagerTheme = {
   control: `
     min-size-8 p-2 [&>svg]:size-4 text-buttons-colors-core-icon-secondary-assets-resting transition-colors border
     bg-buttons-colors-core-icon-secondary-background-resting hover:bg-buttons-colors-core-icon-secondary-background-hover focus-visible:bg-buttons-colors-core-icon-secondary-background-hover disabled:bg-buttons-colors-core-icon-secondary-background-resting
-    border-buttons-colors-core-icon-secondary-stroke-resting hover:buttons-colors-core-icon-secondary-stroke-hover focus-visible:buttons-colors-core-icon-secondary-stroke-hover disabled:border-buttons-colors-core-icon-secondary-stroke-resting
+    border-buttons-colors-core-icon-secondary-stroke-resting hover:border-buttons-colors-core-icon-secondary-stroke-hover focus-visible:border-buttons-colors-core-icon-secondary-stroke-hover disabled:border-buttons-colors-core-icon-secondary-stroke-resting
   `,
   firstPage: '',
   prevPage: '',

@@ -1,3 +1,10 @@
 export * from './Chip';
-export * from './ChipTheme';
+export type {
+  ChipColorTheme,
+  ChipSizeTheme,
+  ChipTheme,
+  ChipTypeTheme,
+  ChipVariantTheme,
+  TagTypeThemeConfig
+} from './ChipTheme';
 export * from './DeletableChip';

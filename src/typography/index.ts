@@ -5,5 +5,4 @@ export * from './SmallHeading';
 export * from './Sub';
 export * from './Text';
 export * from './Typography';
-export * from './TypographyTheme';
 export * from './TypographyThemeDeprecated';

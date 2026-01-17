@@ -1,2 +1,2 @@
 export * from './Badge';
-export * from './BadgeTheme';
+export type * from './BadgeTheme';

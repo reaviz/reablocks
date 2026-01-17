@@ -8,9 +8,7 @@
     --background-basic-black: var(--color-neutrals-pure-black-dnt-1000);
     --background-basic-white: var(--color-neutrals-pure-white-dnt-1000);
     --background-neutral-canvas-base: var(--color-neutrals-darth-abyss-a-1000);
-    --background-neutral-raised-base: var(
-      --color-neutrals-kyber-crystal-a-1000
-    );
+    --background-neutral-raised-base: var(--color-neutrals-darth-abyss-a-1000);
     --background-neutral-inverse-raised-base: var(
       --color-neutrals-darth-abyss-a-1000
     );

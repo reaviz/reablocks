@@ -92,7 +92,7 @@ export const TabList: FC<TabListProps> = ({
         </Tab>
       ))}
       <hr
-        className={cn(theme.list.divider, theme.list.variant[variant].divider)}
+        className={cn(theme.list.divider, theme.list.variant[variant]?.divider)}
       />
     </nav>
   );

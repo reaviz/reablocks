@@ -1,2 +1,2 @@
 export * from './DotsLoader';
-export * from './DotsLoaderTheme';
+export type * from './DotsLoaderTheme';

@@ -1,4 +1,4 @@
-import type { ReablocksTheme } from '@/utils/Theme/themes/theme';
+import type { ReablocksTheme } from '@/utils/Theme/themes/default';
 
 import { useTheme } from './useTheme';
 

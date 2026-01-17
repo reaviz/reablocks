@@ -1,3 +1,3 @@
 export * from './Kbd';
-export * from './KbdTheme';
+export type * from './KbdTheme';
 export * from './utils';

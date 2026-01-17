@@ -1,11 +1,12 @@
 import { useState } from 'react';
 
 import type { ChipTheme } from '@/elements';
-import { Button, chipTheme } from '@/elements';
+import { Button } from '@/elements';
 import { Stack } from '@/layout';
 import { cn, extendComponentTheme } from '@/utils';
 
 import { Chip } from './Chip';
+import { defaultChipTheme } from './ChipTheme';
 
 export default {
   title: 'Components/Elements/Chip/Tag type',
@@ -338,7 +339,7 @@ const DemoIcon = () => (
 
 export const CustomTheme = () => {
   const customTheme = extendComponentTheme<ChipTheme>(
-    chipTheme,
+    defaultChipTheme,
     {
       types: {
         tag: {

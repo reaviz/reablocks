@@ -1,0 +1,4 @@
+@import 'tailwindcss';
+@import './assets/css/unify/index.css';
+@import './assets/css/palette-compat.css';
+@import './assets/css/variants.css';
