@@ -48,11 +48,11 @@ export const defaultSelectMenuTheme: SelectMenuTheme = {
 };
 
 export const unifySelectMenuTheme: SelectMenuTheme = {
-  base: 'border border-select-menu-items-color-item-stroke-container-resting rounded-md mt-2 bg-select-menu-items-color-item-background-container-base backdrop-blur-md min-w-[112px] max-h-[300px] overflow-y-auto text-left box-border [&>div]:gap-0.5',
+  base: 'border border-select-menu-items-color-item-stroke-container-resting rounded-md mt-(--spacing-space-between-xs) bg-select-menu-items-color-item-background-container-base backdrop-blur-md min-w-[112px] max-h-[300px] overflow-y-auto text-left box-border [&>div]:gap-0.5',
   groupItem: {
     base: 'p-0',
     title:
-      'px-1 py-2 border rounded-md border-select-menu-items-color-item-stroke-header-resting text-select-menu-items-color-item-text-header-resting bg-select-menu-items-color-item-background-header-resting text-xxs font-semibold',
+      'px-(--select-menu-items-details-horizontal-padding-header) py-(--select-menu-items-details-vertical-padding-base) border rounded-md border-select-menu-items-color-item-stroke-header-resting text-select-menu-items-color-item-text-header-resting bg-select-menu-items-color-item-background-header-resting text-xxs font-semibold',
     size: { small: '', medium: '', large: '' }
   },
   option: {
@@ -69,8 +69,11 @@ export const unifySelectMenuTheme: SelectMenuTheme = {
     content: 'flex flex-row justify-between'
   },
   size: {
-    small: 'text-xs px-2 py-2',
-    medium: 'text-xs px-3 py-2',
-    large: 'text-sm px-3 py-2'
+    small:
+      'text-xs px-(--spacing-padding-xs) py-(--select-menu-items-details-vertical-padding-base)',
+    medium:
+      'text-xs px-(--select-menu-items-details-horizontal-padding-row) py-(--select-menu-items-details-vertical-padding-base)',
+    large:
+      'text-sm px-(--select-menu-items-details-horizontal-padding-row) py-(--select-menu-items-details-vertical-padding-base)'
   }
 };

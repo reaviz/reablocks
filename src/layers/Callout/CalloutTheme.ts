@@ -45,7 +45,7 @@ export const defaultCalloutTheme: CalloutTheme = {
 
 export const unifyCalloutTheme: CalloutTheme = {
   base: {
-    common: 'px-4 py-3 border-b',
+    common: 'px-(--spacing-padding-base) py-(--spacing-padding-sm) border-b',
     variant: {
       default:
         'bg-notifications-colors-background-neutral-resting border-notifications-colors-stroke-neutral-resting',

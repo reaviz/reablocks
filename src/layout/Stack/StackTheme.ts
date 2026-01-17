@@ -22,8 +22,8 @@ export interface StackTheme {
   };
 }
 
-export const unifyStackTheme: StackTheme = {
-  base: 'flex items-center gap-2.5',
+export const defaultStackTheme: StackTheme = {
+  base: 'flex items-center gap-2.5 text-text-primary',
   dense: 'gap-1',
   inline: 'inline-flex',
   direction: {
@@ -46,8 +46,8 @@ export const unifyStackTheme: StackTheme = {
   }
 };
 
-export const defaultStackTheme: StackTheme = {
-  base: 'flex items-center gap-2.5 text-text-primary',
+export const unifyStackTheme: StackTheme = {
+  base: 'flex items-center gap-2.5',
   dense: 'gap-1',
   inline: 'inline-flex',
   direction: {

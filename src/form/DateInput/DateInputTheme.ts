@@ -19,6 +19,18 @@ export interface DateInputTheme {
   };
 }
 
+export const defaultDateInputTheme: DateInputTheme = {
+  input: defaultInputTheme,
+  calendar: defaultCalendarTheme,
+  preset: {
+    list: 'w-full border border-panel-accent',
+    option: {
+      base: 'hover:bg-vulcan hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-secondary',
+      active: 'bg-vulcan hover:text-mystic'
+    }
+  }
+};
+
 export const unifyDateInputTheme: DateInputTheme = {
   input: unifyInputTheme,
   calendar: unifyCalendarTheme,
@@ -28,18 +40,6 @@ export const unifyDateInputTheme: DateInputTheme = {
     option: {
       base: '',
       active: ''
-    }
-  }
-};
-
-export const defaultDateInputTheme: DateInputTheme = {
-  input: defaultInputTheme,
-  calendar: defaultCalendarTheme,
-  preset: {
-    list: 'w-full border border-panel-accent',
-    option: {
-      base: 'hover:bg-vulcan hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-secondary',
-      active: 'bg-vulcan hover:text-mystic'
     }
   }
 };

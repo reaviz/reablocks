@@ -27,31 +27,6 @@ export interface TypographyThemeDeprecated {
   disableMargins?: string;
 }
 
-export const unifyTypographyThemeDeprecated: TypographyThemeDeprecated = {
-  base: '',
-  text: {
-    thin: 'font-thin',
-    bold: 'font-semibold',
-    extraBold: 'font-extrabold',
-    italic: 'italic'
-  },
-  variant: {},
-  colors: {
-    primary: 'text-primary',
-    secondary: 'text-secondary',
-    success: 'text-success',
-    warning: 'text-warning',
-    error: 'text-error',
-    info: 'text-info'
-  },
-  sub: 'text-sm font-semibold mb-0.5',
-  smallHeading: 'text-sm font-normal mb-1',
-  secondaryHeading: 'text-2xl font-normal mb-1',
-  primaryHeading: 'text-2xl font-extrabold mb-1',
-  pageTitle: 'text-[40px] font-semibold mb-5',
-  disableMargins: 'm-0'
-};
-
 export const defaultTypographyThemeDeprecated: TypographyThemeDeprecated = {
   base: '',
   text: {
@@ -76,6 +51,31 @@ export const defaultTypographyThemeDeprecated: TypographyThemeDeprecated = {
   smallHeading: 'text-base font-normal mb-1',
   secondaryHeading: 'text-3xl font-normal mb-1',
   primaryHeading: 'text-3xl font-extrabold mb-1',
+  pageTitle: 'text-[40px] font-semibold mb-5',
+  disableMargins: 'm-0'
+};
+
+export const unifyTypographyThemeDeprecated: TypographyThemeDeprecated = {
+  base: '',
+  text: {
+    thin: 'font-thin',
+    bold: 'font-semibold',
+    extraBold: 'font-extrabold',
+    italic: 'italic'
+  },
+  variant: {},
+  colors: {
+    primary: 'text-content-text-on-color-light-dark',
+    secondary: 'text-content-text-neutral-base',
+    success: 'text-content-text-success-base',
+    warning: 'text-content-text-warning-base',
+    error: 'text-content-text-destructive-base',
+    info: 'text-content-text-info-base'
+  },
+  sub: 'text-sm font-semibold mb-0.5',
+  smallHeading: 'text-sm font-normal mb-1',
+  secondaryHeading: 'text-2xl font-normal mb-1',
+  primaryHeading: 'text-2xl font-extrabold mb-1',
   pageTitle: 'text-[40px] font-semibold mb-5',
   disableMargins: 'm-0'
 };

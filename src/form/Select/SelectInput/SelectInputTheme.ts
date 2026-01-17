@@ -99,13 +99,14 @@ export const defaultSelectInputTheme: SelectInputTheme = {
 };
 
 export const unifySelectInputTheme: SelectInputTheme = {
-  base: 'flex flex-nowrap items-center box-border border rounded-md border-inputs-colors-normal-stroke-resting',
+  base: 'flex flex-nowrap items-center box-border border rounded-md border-inputs-colors-normal-stroke-resting bg-inputs-colors-normal-background-resting hover:border-inputs-colors-normal-stroke-hover focus-within:border-inputs-colors-normal-stroke-selected focus-within:bg-inputs-colors-normal-background-selected',
   container: 'relative',
   inputContainer:
     'flex-wrap flex items-center overflow-hidden flex-1 max-w-full [&>div]:max-w-full [&_.invisible]:text-ellipsis [&_.invisible]:overflow-hidden [&_.invisible]:invisible',
   input:
-    'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-hidden disabled:text-disabled',
-  placeholder: '',
+    'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-hidden disabled:text-content-text-neutral-5 text-inputs-colors-normal-text-input-text-resting',
+  placeholder:
+    'placeholder:text-inputs-colors-normal-text-input-text-resting focus:placeholder:text-inputs-colors-normal-text-input-text-selected',
   prefix: 'overflow-hidden whitespace-nowrap text-ellipsis flex flex-wrap',
   suffix: {
     container: 'flex items-center justify-center',
@@ -120,7 +121,7 @@ export const unifySelectInputTheme: SelectInputTheme = {
       '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:text-inputs-colors-normal-assets-input-resting'
   },
   disabled:
-    'cursor-not-allowed text-disabled hover:after:content-none opacity-40',
+    'cursor-not-allowed text-content-text-neutral-5 hover:after:content-none opacity-40',
   unfilterable: 'caret-transparent',
   error: `
     border-inputs-colors-error-stroke-resting bg-inputs-colors-error-background-resting [&>input]:text-inputs-colors-error-text-input-filled [&>input]:placeholder:text-inputs-colors-error-text-input-text-resting
@@ -138,18 +139,19 @@ export const unifySelectInputTheme: SelectInputTheme = {
     inputContainer: 'flex-wrap'
   },
   chip: {
-    base: 'cursor-pointer flex text-xs leading-none box-border mr-1 px-1 py-1 rounded-sm border-solid border-transparent',
+    base: 'cursor-pointer flex text-xs leading-none box-border mr-(--spacing-space-between-2xs) px-(--spacing-padding-3xs) py-(--spacing-padding-3xs) rounded-sm border-solid border-transparent',
     hover: '',
     focused: 'focused:border-transparent focused:outline-none',
     disabled: 'disabled:cursor-not-allowed',
     removeButton:
-      'cursor-pointer leading-0 ml-1 p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none'
+      'cursor-pointer leading-0 ml-(--spacing-space-between-2xs) p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none'
   },
   size: {
     small:
-      '[&_input]:text-xs [&_input]:leading-4 [&_svg]:size-4 px-2 py-[5px] gap-2',
+      '[&_input]:text-xs [&_input]:leading-4 [&_svg]:size-4 px-(--inputs-details-horizontal-padding-left-sm) py-(--spacing-padding-2xs) gap-(--inputs-details-space-between-horizontal-sm)',
     medium:
-      '[&_input]:text-sm [&_input]:leading-4 [&_svg]:size-4 px-3 py-[7px] gap-2',
-    large: '[&_input]:text-base [&_svg]:size-4.5 px-3 py-[7px] gap-2'
+      '[&_input]:text-sm [&_input]:leading-4 [&_svg]:size-4 px-(--inputs-details-horizontal-padding-left-md) py-(--inputs-details-vertical-padding-inside) gap-(--inputs-details-space-between-horizontal-md)',
+    large:
+      '[&_input]:text-base [&_svg]:size-4.5 px-(--inputs-details-horizontal-padding-left-lg) py-(--inputs-details-vertical-padding-inside) gap-(--inputs-details-space-between-horizontal-lg)'
   }
 };

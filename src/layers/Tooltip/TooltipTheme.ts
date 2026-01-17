@@ -9,6 +9,6 @@ export const defaultTooltipTheme: TooltipTheme = {
 };
 
 export const unifyTooltipTheme: TooltipTheme = {
-  base: 'whitespace-nowrap text-center will-change-[transform,opacity] p-1.5 rounded-sm bg-tooltip-colors-neutral-background-default text-tooltip-colors-neutral-text-default',
+  base: 'whitespace-nowrap text-center will-change-[transform,opacity] p-(--tooltip-details-horizontal-padding-sm) rounded-sm bg-tooltip-colors-neutral-background-default text-tooltip-colors-neutral-text-default',
   disablePointer: 'pointer-events-none'
 };

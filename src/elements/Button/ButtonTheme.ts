@@ -113,12 +113,12 @@ export const defaultButtonTheme: ButtonTheme = {
 
 export const unifyButtonTheme: ButtonTheme = {
   base: `
-    inline-flex items-center justify-center font-sans 
-    cursor-pointer font-semibold whitespace-nowrap 
+    inline-flex items-center justify-center font-sans
+    cursor-pointer font-semibold whitespace-nowrap
     rounded-(--buttons-details-corner-radius-base) font-semibold cursor-pointer select-none transition-colors [&_svg]:transition-all focus-visible:outline-none
   `,
   disabled: `
-    disabled:opacity-40 disabled:cursor-not-allowed 
+    disabled:opacity-40 disabled:cursor-not-allowed
   `,
   fullWidth: 'flex w-full',
   group:
@@ -162,7 +162,8 @@ export const unifyButtonTheme: ButtonTheme = {
       'size-(--buttons-details-height-core-icon-lg) [&>svg]:size-(--buttons-details-asset-size-lg) px-0 py-0'
   },
   variants: {
-    filled: 'bg-secondary hover:bg-border-secondary-hover',
+    filled:
+      'bg-buttons-colors-core-icon-secondary-background-resting hover:bg-buttons-colors-core-icon-secondary-background-hover',
     outline: 'border',
     text: 'border-0',
     ghost: ''
@@ -214,7 +215,7 @@ export const unifyButtonTheme: ButtonTheme = {
       ghost: `
         bg-buttons-colors-core-icon-ghost-background-resting border-buttons-colors-core-icon-ghost-stroke-resting text-buttons-colors-core-icon-ghost-text-resting [&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
         hover:bg-buttons-colors-core-icon-secondary-background-hover hover:border-buttons-colors-core-icon-ghost-stroke-hover hover:text-buttons-colors-core-icon-secondary-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-hover
-        focus-visible:bg-buttons-colors-core-icon-secondary-background-selected focus-visible:border-buttons-colors-core-icon-secondary-stroke-selected focus-visible:-buttons-colors-core-icon-secondary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-selected
+        focus-visible:bg-buttons-colors-core-icon-secondary-background-selected focus-visible:border-buttons-colors-core-icon-secondary-stroke-selected focus-visible:text-buttons-colors-core-icon-secondary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-selected
         disabled:bg-buttons-colors-core-icon-ghost-background-resting disabled:border-buttons-colors-core-icon-ghost-stroke-resting disabled:text-buttons-colors-core-icon-secondary-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-ghost-assets-resting
       `
     },
@@ -222,7 +223,7 @@ export const unifyButtonTheme: ButtonTheme = {
       filled: `
         bg-buttons-colors-core-icon-destructive-background-resting border-buttons-colors-core-icon-destructive-stroke-resting text-buttons-colors-core-icon-destructive-text-resting [&_svg]:fill-buttons-colors-core-icon-destructive-assets-resting
         hover:bg-buttons-colors-core-icon-destructive-background-hover hover:border-buttons-colors-core-icon-destructive-stroke-hover hover:text-buttons-colors-core-icon-destructive-text-hover hover:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-hover
-        focus-visible:bg-buttons-colors-core-icon-destructive-background-selected focus-visible:border-buttons-colors-core-icon-destructive-stroke-selected focus-visible:text-buttons-colors-core-icon-primary-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-selected
+        focus-visible:bg-buttons-colors-core-icon-destructive-background-selected focus-visible:border-buttons-colors-core-icon-destructive-stroke-selected focus-visible:text-buttons-colors-core-icon-destructive-text-selected focus-visible:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-selected
         disabled:bg-buttons-colors-core-icon-destructive-background-resting disabled:border-buttons-colors-core-icon-destructive-stroke-resting disabled:text-buttons-colors-core-icon-destructive-text-resting disabled:[&_svg]:fill-buttons-colors-core-icon-destructive-assets-resting
       `,
       outline: `

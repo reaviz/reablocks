@@ -14,30 +14,6 @@ export interface TextareaTheme {
   sizes: TextareaSizeTheme;
 }
 
-export const unifyTextareaTheme: TextareaTheme = {
-  base: `
-    flex items-center transition-colors rounded-md border
-    border-inputs-colors-normal-stroke-resting bg-inputs-colors-normal-background-resting
-    hover:border-inputs-colors-normal-stroke-hover hover:bg-inputs-colors-normal-background-hover
-    focus-within:border-inputs-colors-normal-stroke-selected focus-within:bg-inputs-colors-normal-background-selected
-    disabled-within:hover:border-inputs-colors-normal-stroke-resting disabled-within:hover:bg-inputs-colors-normal-background-resting
-  `,
-  input: 'border-0 resize-none read-only:cursor-not-allowed outline-hidden',
-  fullWidth: 'w-full',
-  error: `
-    border-inputs-colors-error-stroke-resting bg-inputs-colors-error-background-resting
-    hover:border-inputs-colors-error-stroke-hover hover:bg-inputs-colors-error-background-hover
-    focus-within:border-inputs-colors-error-stroke-selected focus-within:bg-inputs-colors-error-background-selected
-    disabled-within:hover:border-inputs-colors-error-stroke-resting disabled-within:hover:bg-inputs-colors-error-background-resting
-  `,
-  disabled: 'cursor-not-allowed opacity-40',
-  sizes: {
-    small: 'text-xs px-2 py-[3px]',
-    medium: 'text-sm px-3 py-[7px]',
-    large: 'text-base px-3 py-[7px]'
-  }
-} as TextareaTheme;
-
 export const defaultTextareaTheme: TextareaTheme = {
   base: ' flex relative flex-row items-center flex-nowrap box-border transition-colors rounded-xs bg-panel border border-panel-accent text-text-primary hover:border-panel-accent hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#242433_100%)] hover:after:content-[""] hover:after:absolute hover:after:mx-1 hover:after:h-px after:z-2 hover:after:rounded-sm hover:after:-bottom-[1px] hover:after:inset-x-0.5 disabled-within:hover:after:content-none',
   input:
@@ -51,4 +27,33 @@ export const defaultTextareaTheme: TextareaTheme = {
     medium: '[&>input]:text-base px-2.5 py-1.5 text-base',
     large: '[&>input]:text-lg p-5 text-lg'
   }
-} as TextareaTheme;
+};
+
+export const unifyTextareaTheme: TextareaTheme = {
+  base: `
+    flex items-center transition-colors rounded-md border
+    border-inputs-colors-normal-stroke-resting bg-inputs-colors-normal-background-resting
+    hover:border-inputs-colors-normal-stroke-hover hover:bg-inputs-colors-normal-background-hover
+    focus-within:border-inputs-colors-normal-stroke-selected focus-within:bg-inputs-colors-normal-background-selected
+    disabled-within:hover:border-inputs-colors-normal-stroke-resting disabled-within:hover:bg-inputs-colors-normal-background-resting
+  `,
+  input: `
+    border-0 resize-none read-only:cursor-not-allowed outline-hidden transition-colors
+    text-inputs-colors-normal-text-input-text-resting
+    placeholder:text-inputs-colors-normal-text-input-text-resting focus:placeholder:text-inputs-colors-normal-text-input-text-selected
+  `,
+  fullWidth: 'w-full',
+  error: `
+    border-inputs-colors-error-stroke-resting bg-inputs-colors-error-background-resting
+    hover:border-inputs-colors-error-stroke-hover hover:bg-inputs-colors-error-background-hover
+    focus-within:border-inputs-colors-error-stroke-selected focus-within:bg-inputs-colors-error-background-selected
+    disabled-within:hover:border-inputs-colors-error-stroke-resting disabled-within:hover:bg-inputs-colors-error-background-resting
+    [&>textarea]:text-inputs-colors-error-text-input-filled [&>textarea]:placeholder:text-inputs-colors-error-text-input-text-resting
+  `,
+  disabled: 'cursor-not-allowed opacity-40',
+  sizes: {
+    small: 'text-xs px-2 py-[3px]',
+    medium: 'text-sm px-3 py-[7px]',
+    large: 'text-base px-3 py-[7px]'
+  }
+};

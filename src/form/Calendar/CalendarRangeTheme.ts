@@ -30,20 +30,6 @@ const baseUnifyTheme: Partial<CalendarRangeTheme> = {
   content: 'flex gap-4'
 };
 
-export const unifyCalendarRangeTheme: CalendarRangeTheme = {
-  base: baseUnifyTheme.base!,
-  header: baseUnifyTheme.header!,
-  title: baseUnifyTheme.title!,
-  content: baseUnifyTheme.content!,
-  contentContainer: baseUnifyTheme.contentContainer || '',
-  days: unifyCalendarTheme.days,
-  time: unifyCalendarTheme.time,
-  presets: {
-    ...unifyCalendarTheme.presets,
-    divider: 'mx-1 h-[calc(100%-30px)] self-end'
-  }
-};
-
 export const defaultCalendarRangeTheme: CalendarRangeTheme = {
   base: baseDefaultTheme.base!,
   header: baseDefaultTheme.header!,
@@ -54,6 +40,20 @@ export const defaultCalendarRangeTheme: CalendarRangeTheme = {
   time: defaultCalendarTheme.time,
   presets: {
     ...defaultCalendarTheme.presets,
+    divider: 'mx-1 h-[calc(100%-30px)] self-end'
+  }
+};
+
+export const unifyCalendarRangeTheme: CalendarRangeTheme = {
+  base: baseUnifyTheme.base!,
+  header: baseUnifyTheme.header!,
+  title: baseUnifyTheme.title!,
+  content: baseUnifyTheme.content!,
+  contentContainer: baseUnifyTheme.contentContainer || '',
+  days: unifyCalendarTheme.days,
+  time: unifyCalendarTheme.time,
+  presets: {
+    ...unifyCalendarTheme.presets,
     divider: 'mx-1 h-[calc(100%-30px)] self-end'
   }
 };

@@ -23,15 +23,6 @@ export interface CommandPaletteTheme {
   section: CommandPaletteSectionTheme;
 }
 
-export const unifyCommandPaletteTheme: CommandPaletteTheme = {
-  base: 'w-full border border-stroke-neutral-1',
-  inner: 'max-h-[80vh] overflow-y-auto border-0',
-  emptyContainer: '',
-  input: unifyCommandPaletteInputTheme,
-  item: unifyCommandPaletteItemTheme,
-  section: unifyCommandPaletteSectionTheme
-};
-
 export const defaultCommandPaletteTheme: CommandPaletteTheme = {
   base: 'w-full border border-panel-accent',
   inner: 'max-h-[80vh] overflow-y-auto bg-panel border-0',
@@ -39,4 +30,13 @@ export const defaultCommandPaletteTheme: CommandPaletteTheme = {
   input: defaultCommandPaletteInputTheme,
   item: defaultCommandPaletteItemTheme,
   section: defaultCommandPaletteSectionTheme
+};
+
+export const unifyCommandPaletteTheme: CommandPaletteTheme = {
+  base: 'w-full border border-stroke-neutral-1',
+  inner: 'max-h-[80vh] overflow-y-auto border-0',
+  emptyContainer: '',
+  input: unifyCommandPaletteInputTheme,
+  item: unifyCommandPaletteItemTheme,
+  section: unifyCommandPaletteSectionTheme
 };

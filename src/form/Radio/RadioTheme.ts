@@ -79,15 +79,18 @@ export const unifyRadioTheme: RadioTheme = {
     }
   },
   label: {
-    base: 'w-full align-middle ml-3 text-selectors-colors-text-label-not-selected',
+    base: 'w-full align-middle ml-(--selectors-details-space-between-horizontal-sm) text-selectors-colors-text-label-not-selected',
     clickable:
       'cursor-pointer group-hover:text-selectors-colors-text-label-selected group-focus-within:text-selectors-colors-text-label-selected',
     disabled: 'cursor-not-allowed opacity-40',
     checked: 'text-selectors-colors-text-label-selected'
   },
   sizes: {
-    small: 'size-(--selectors-details-width-radio-checkbox-sm) p-0.5',
-    medium: 'size-(--selectors-details-width-radio-checkbox-sm) p-0.5',
-    large: 'size-(--selectors-details-width-radio-checkbox-lg) p-0.5'
+    small:
+      'size-(--selectors-details-width-radio-checkbox-sm) p-(--selectors-details-vertical-padding-lg)',
+    medium:
+      'size-(--selectors-details-width-radio-checkbox-sm) p-(--selectors-details-vertical-padding-lg)',
+    large:
+      'size-(--selectors-details-width-radio-checkbox-lg) p-(--selectors-details-vertical-padding-lg)'
   }
 };

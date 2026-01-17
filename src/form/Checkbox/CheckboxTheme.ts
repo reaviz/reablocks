@@ -112,7 +112,7 @@ export const defaultCheckboxTheme: CheckboxTheme = {
 export const unifyCheckboxTheme: CheckboxTheme = {
   base: 'inline-flex items-center w-full group',
   label: {
-    base: 'ml-3 w-full text-selectors-colors-text-description-not-selected whitespace-nowrap',
+    base: 'ml-(--selectors-details-space-between-horizontal-sm) w-full text-selectors-colors-text-description-not-selected whitespace-nowrap',
     checked: 'checked text-selectors-colors-text-description-selected',
     disabled: 'cursor-not-allowed opacity-40',
     clickable: `

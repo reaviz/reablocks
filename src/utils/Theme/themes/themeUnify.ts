@@ -76,18 +76,6 @@ export const themeUnify: ReablocksTheme = {
     block: unifyBlockTheme,
     breadcrumbs: unifyBreadcrumbsTheme,
     button: unifyButtonTheme,
-    /**
-     * Unify Component Token Mapping Strategy:
-     *
-     * Components below use one of two approaches:
-     * 1. Unify Component Tokens - Where Unify provides component-specific tokens
-     *    (e.g., calendar-colors-*, inputs-colors-*, navigation-colors-*)
-     * 2. Semantic Token Layer - Where Unify doesn't provide component tokens
-     *    (e.g., bg-panel → var(--background-neutral-raised-base))
-     *
-     * This two-tier approach ensures all components render with Unify design system
-     * colors while using authentic Unify tokens where they exist.
-     */
     calendar: unifyCalendarTheme,
     calendarRange: unifyCalendarRangeTheme,
     card: unifyCardTheme,

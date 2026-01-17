@@ -62,10 +62,10 @@ export const unifyToggleTheme: ToggleTheme = {
   },
   sizes: {
     small:
-      'w-(--selectors-details-width-toggle-sm) h-(--selectors-details-height-sm) p-0.5',
+      'w-(--selectors-details-width-toggle-sm) h-(--selectors-details-height-sm) p-(--selectors-details-vertical-padding-lg)',
     medium:
-      'w-(--selectors-details-width-toggle-sm) h-(--selectors-details-height-sm) p-0.5',
+      'w-(--selectors-details-width-toggle-sm) h-(--selectors-details-height-sm) p-(--selectors-details-vertical-padding-lg)',
     large:
-      'w-(--selectors-details-width-toggle-lg) h-(--selectors-details-height-lg) p-0.5'
+      'w-(--selectors-details-width-toggle-lg) h-(--selectors-details-height-lg) p-(--selectors-details-vertical-padding-lg)'
   }
 };

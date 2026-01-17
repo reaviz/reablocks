@@ -50,7 +50,7 @@ export const unifyBadgeTheme: BadgeTheme = {
   base: 'relative inline-flex align-middle shrink-0 mx-2 my-0',
   disableMargins: 'm-0',
   badge: `flex flex-row flex-wrap justify-center content-center items-center absolute box-border
-   leading-none text-xs p-1.5 w-[18px] h-[18px] z-1 rounded-[50%] pointer-events-none `,
+   leading-none text-xs p-(--badges-details-horizontal-padding-sm) size-(--badges-details-height-sm) z-1 rounded-[50%] pointer-events-none `,
   position: 'translate-x-2/4 -translate-y-2/4 origin-[100%_0%] right-0 top-0',
   positions: {
     'top-start':
@@ -69,4 +69,3 @@ export const unifyBadgeTheme: BadgeTheme = {
     error: 'bg-background-semantic-error-base text-content-text-inverse-base'
   }
 };
-export const badgeTheme = defaultBadgeTheme;
