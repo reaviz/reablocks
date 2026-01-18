@@ -52,8 +52,20 @@ export const unifyTextareaTheme: TextareaTheme = {
   `,
   disabled: 'cursor-not-allowed opacity-40',
   sizes: {
-    small: 'text-xs px-2 py-[3px]',
-    medium: 'text-sm px-3 py-[7px]',
-    large: 'text-base px-3 py-[7px]'
+    small: `
+      text-xs
+      pl-(--inputs-details-horizontal-padding-left-sm) pr-(--inputs-details-horizontal-padding-right-sm)
+      py-[3px]
+    `,
+    medium: `
+      text-sm
+      pl-(--inputs-details-horizontal-padding-left-md) pr-(--inputs-details-horizontal-padding-right-md)
+      py-[7px]
+    `,
+    large: `
+      text-base
+      pl-(--inputs-details-horizontal-padding-left-lg) pr-(--inputs-details-horizontal-padding-right-lg)
+      py-[7px]
+    `
   }
 };
