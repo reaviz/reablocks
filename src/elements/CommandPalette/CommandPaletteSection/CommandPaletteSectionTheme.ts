@@ -3,12 +3,12 @@ export interface CommandPaletteSectionTheme {
   first: string;
 }
 
-const baseTheme: CommandPaletteSectionTheme = {
-  base: '',
+export const defaultCommandPaletteSectionTheme: CommandPaletteSectionTheme = {
+  base: 'bg-panel',
   first: 'pt-2.5'
 };
 
-export const commandPaletteSectionTheme: CommandPaletteSectionTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-background-neutral-inverse-raised-1'].join(' ')
+export const unifyCommandPaletteSectionTheme: CommandPaletteSectionTheme = {
+  base: 'bg-background-neutral-inverse-raised-1',
+  first: 'pt-2.5'
 };

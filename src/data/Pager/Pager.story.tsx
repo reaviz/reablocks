@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
 import { Pager } from '@/data';
-import { pagerTheme } from '@/data';
+
+import { defaultPagerTheme } from './PagerTheme';
 
 export default {
   title: 'Components/Data/Pager',
@@ -71,7 +72,7 @@ export const CustomPageCount = () => {
 
 export const CustomTheme = () => {
   const [page, setPage] = useState<number>(0);
-  const customTheme = pagerTheme;
+  const customTheme = defaultPagerTheme;
   customTheme.itemsDisplay = 'text-slate-500';
   customTheme.showPageRange =
     "text-blue-400 font-bold before:content-['Showing_'] before:text-slate-500 before:font-normal";

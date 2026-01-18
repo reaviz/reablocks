@@ -151,8 +151,6 @@ export const TypographyBlocks = ({
   sizes: Record<string, string>;
   weights: Record<string, string>;
 }) => {
-  console.log('[log] TypographyBlocks', weights);
-
   return (
     <div
       style={{

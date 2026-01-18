@@ -26,8 +26,6 @@ import { useComponentTheme } from '@/utils';
 import type { GlobalOverlayProps } from '@/utils/Overlay';
 import { GlobalOverlay } from '@/utils/Overlay';
 
-import { DialogContent } from './DialogContent';
-import { DialogFooter } from './DialogFooter';
 import type { DialogHeaderProps } from './DialogHeader';
 import { DialogHeader } from './DialogHeader';
 import type { DialogTheme } from './DialogTheme';
@@ -139,16 +137,12 @@ export interface DialogProps
 }
 
 // Slot component display names for detection
-const DIALOG_SLOT_NAMES = [
-  DialogHeader.displayName,
-  DialogContent.displayName,
-  DialogFooter.displayName
-];
+const DIALOG_SLOT_NAMES = ['DialogHeader', 'DialogContent', 'DialogFooter'];
 
 const DIALOG_SLOT_MAP = {
-  [DialogHeader.displayName]: 'header',
-  [DialogContent.displayName]: 'content',
-  [DialogFooter.displayName]: 'footer'
+  DialogHeader: 'header',
+  DialogContent: 'content',
+  DialogFooter: 'footer'
 } as const;
 
 type DialogSlots = {

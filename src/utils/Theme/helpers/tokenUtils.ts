@@ -92,7 +92,14 @@ export const getThemeVariables = (): Record<string, string> => {
       try {
         return getMatchingStyleRules(styleSheet.cssRules);
       } catch (error) {
-        // In case of cross-origin issues, ignore this stylesheet
+        // Log CORS issues to help debugging
+        if (styleSheet.href) {
+          console.warn(
+            `[reablocks] Cannot access stylesheet: ${styleSheet.href}. ` +
+              'This is usually due to CORS restrictions when loading CSS from a different origin. ' +
+              'Ensure the stylesheet is served with appropriate CORS headers, or host it on the same domain.'
+          );
+        }
         return [];
       }
     }

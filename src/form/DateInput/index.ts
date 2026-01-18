@@ -1,2 +1,2 @@
 export * from './DateInput';
-export * from './DateInputTheme';
+export type { DateInputTheme } from './DateInputTheme';

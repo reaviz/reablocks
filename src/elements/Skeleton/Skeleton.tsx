@@ -1,8 +1,7 @@
 import type { FC } from 'react';
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
 
-import { useComponentTheme } from '@/utils';
+import { twMerge, useComponentTheme } from '@/utils';
 
 import type { SkeletonTheme } from './SkeletonTheme';
 
@@ -48,14 +47,16 @@ export const Skeleton: FC<SkeletonProps> = ({
 }) => {
   const theme: SkeletonTheme = useComponentTheme('skeleton', customTheme);
 
+  const classes = [
+    theme.base,
+    animated && theme.animated,
+    variant && theme.variants?.[variant],
+    className
+  ].filter(Boolean);
+
   return (
     <div
-      className={twMerge(
-        theme.base,
-        animated && theme.animated,
-        variant && theme.variants[variant],
-        className
-      )}
+      className={twMerge(...classes)}
       style={style}
       aria-busy="true"
       aria-live="polite"

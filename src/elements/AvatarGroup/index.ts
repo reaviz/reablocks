@@ -1,2 +1,2 @@
 export * from './AvatarGroup';
-export * from './AvatarGroupTheme';
+export type * from './AvatarGroupTheme';

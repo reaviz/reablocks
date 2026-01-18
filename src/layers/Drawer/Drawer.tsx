@@ -22,10 +22,8 @@ import { twMerge } from '@/utils';
 import type { GlobalOverlayProps } from '@/utils/Overlay';
 import { GlobalOverlay } from '@/utils/Overlay';
 
-import { DrawerContent } from './DrawerContent';
 import type { DrawerContextValue } from './DrawerContext';
 import { DrawerContext } from './DrawerContext';
-import { DrawerFooter } from './DrawerFooter';
 import type { DrawerHeaderProps } from './DrawerHeader';
 import { DrawerHeader } from './DrawerHeader';
 import type { DrawerTheme } from './DrawerTheme';
@@ -130,9 +128,9 @@ export interface DrawerProps
 // Slot component display names for detection
 const DRAWER_SLOT_NAMES = ['DrawerHeader', 'DrawerContent', 'DrawerFooter'];
 const DRAWER_SLOT_MAP = {
-  DrawerHeader: DrawerHeader.displayName,
-  DrawerContent: DrawerContent.displayName,
-  DrawerFooter: DrawerFooter.displayName
+  DrawerHeader: 'header',
+  DrawerContent: 'content',
+  DrawerFooter: 'footer'
 } as const;
 
 type DrawerSlots = {

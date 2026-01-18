@@ -1,15 +1,9 @@
-@import 'tailwindcss';
-
 @import './tailwind/main.css';
 @import './colors.css';
 @import './dimensions.css';
 @import './theme-dark.css';
 @import './theme-light.css';
-
-/* Custom variants */
-@custom-variant dark (&:where(.theme-dark, .theme-dark *, [data-theme=dark], [data-theme=dark] *, .dark, .dark *));
-@custom-variant light (&:where(.theme-light, .theme-light *, [data-theme=light], [data-theme=light] *, .light, .light *));
-@custom-variant disabled-within (&:has(input:is(:disabled), textarea:is(:disabled), button:is(:disabled)));
+@import './semantic-tokens.css';
 
 body {
   line-height: inherit;

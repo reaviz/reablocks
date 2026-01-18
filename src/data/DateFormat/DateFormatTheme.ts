@@ -3,7 +3,12 @@ export interface DateFormatTheme {
   interactive: string;
 }
 
-export const dateFormatTheme: DateFormatTheme = {
+export const defaultDateFormatTheme: DateFormatTheme = {
+  base: '',
+  interactive: 'cursor-pointer hover:underline'
+};
+
+export const unifyDateFormatTheme: DateFormatTheme = {
   base: 'cursor-text',
   interactive: 'cursor-pointer hover:underline'
 };

@@ -1,9 +1,18 @@
 import type { CommandPaletteInputTheme } from './CommandPaletteInput';
-import { commandPaletteInputTheme } from './CommandPaletteInput/CommandPaletteInputTheme';
+import {
+  defaultCommandPaletteInputTheme,
+  unifyCommandPaletteInputTheme
+} from './CommandPaletteInput/CommandPaletteInputTheme';
 import type { CommandPaletteItemTheme } from './CommandPaletteItem';
-import { commandPaletteItemTheme } from './CommandPaletteItem/CommandPaletteItemTheme';
+import {
+  defaultCommandPaletteItemTheme,
+  unifyCommandPaletteItemTheme
+} from './CommandPaletteItem/CommandPaletteItemTheme';
 import type { CommandPaletteSectionTheme } from './CommandPaletteSection';
-import { commandPaletteSectionTheme } from './CommandPaletteSection/CommandPaletteSectionTheme';
+import {
+  defaultCommandPaletteSectionTheme,
+  unifyCommandPaletteSectionTheme
+} from './CommandPaletteSection/CommandPaletteSectionTheme';
 
 export interface CommandPaletteTheme {
   base: string;
@@ -14,11 +23,20 @@ export interface CommandPaletteTheme {
   section: CommandPaletteSectionTheme;
 }
 
-export const commandPaletteTheme: CommandPaletteTheme = {
+export const defaultCommandPaletteTheme: CommandPaletteTheme = {
+  base: 'w-full border border-panel-accent',
+  inner: 'max-h-[80vh] overflow-y-auto bg-panel border-0',
+  emptyContainer: 'bg-panel',
+  input: defaultCommandPaletteInputTheme,
+  item: defaultCommandPaletteItemTheme,
+  section: defaultCommandPaletteSectionTheme
+};
+
+export const unifyCommandPaletteTheme: CommandPaletteTheme = {
   base: 'w-full border border-stroke-neutral-1',
   inner: 'max-h-[80vh] overflow-y-auto border-0',
   emptyContainer: '',
-  input: commandPaletteInputTheme,
-  item: commandPaletteItemTheme,
-  section: commandPaletteSectionTheme
+  input: unifyCommandPaletteInputTheme,
+  item: unifyCommandPaletteItemTheme,
+  section: unifyCommandPaletteSectionTheme
 };

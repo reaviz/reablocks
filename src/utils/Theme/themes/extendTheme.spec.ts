@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { cn } from '@/utils/Theme/helpers';
-import type { ReablocksTheme } from '@/utils/Theme/themes/theme';
+import type { ReablocksTheme } from '@/utils/Theme/themes/default';
 
 import type { PartialReablocksTheme } from './extendTheme';
 import { extendTheme } from './extendTheme';

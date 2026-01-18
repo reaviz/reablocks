@@ -1,3 +1,3 @@
 export * from './Step';
 export * from './Stepper';
-export * from './StepperTheme';
+export type { StepperTheme } from './StepperTheme';
