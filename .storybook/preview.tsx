@@ -44,7 +44,8 @@ const ThemeWrapper: React.FC<{
   context: { globals?: { themeVariant?: 'default' | 'unify' | 'custom' } };
 }> = ({ Story, context }) => {
   const variant =
-    (context.globals?.themeVariant as 'default' | 'unify' | 'custom') || 'default';
+    (context.globals?.themeVariant as 'default' | 'unify' | 'custom') ||
+    'default';
   const loadedRef = useRef(false);
 
   useEffect(() => {
