@@ -11,10 +11,14 @@ import theme from './theme';
 
 let currentCssLink: HTMLLinkElement | null = null;
 
-const loadCss = (variant: 'default' | 'unify') => {
+const loadCss = (variant: 'default' | 'unify' | 'custom') => {
   if (currentCssLink) {
     currentCssLink.remove();
     currentCssLink = null;
+  }
+
+  if (variant === 'custom') {
+    return;
   }
 
   const link = document.createElement('link');
@@ -37,10 +41,10 @@ const loadCss = (variant: 'default' | 'unify') => {
 
 const ThemeWrapper: React.FC<{
   Story: React.ComponentType;
-  context: { globals?: { themeVariant?: 'default' | 'unify' } };
+  context: { globals?: { themeVariant?: 'default' | 'unify' | 'custom' } };
 }> = ({ Story, context }) => {
   const variant =
-    (context.globals?.themeVariant as 'default' | 'unify') || 'default';
+    (context.globals?.themeVariant as 'default' | 'unify' | 'custom') || 'default';
   const loadedRef = useRef(false);
 
   useEffect(() => {
@@ -61,7 +65,7 @@ const ThemeWrapper: React.FC<{
 
 const withProvider = (
   Story: React.ComponentType,
-  context: { globals?: { themeVariant?: 'default' | 'unify' } }
+  context: { globals?: { themeVariant?: 'default' | 'unify' | 'custom' } }
 ) => <ThemeWrapper Story={Story} context={context} />;
 
 const preview: Preview = {
@@ -105,7 +109,8 @@ const preview: Preview = {
           const variant =
             (props.context?.store?.globals?.globals?.themeVariant as
               | 'default'
-              | 'unify') || 'default';
+              | 'unify'
+              | 'custom') || 'default';
 
           useEffect(() => {
             loadCss(variant);
