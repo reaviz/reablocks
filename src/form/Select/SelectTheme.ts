@@ -1,14 +1,25 @@
-import type { SelectInputTheme } from '@/form/Select/SelectInput';
-import { selectInputTheme } from '@/form/Select/SelectInput';
-import type { SelectMenuTheme } from '@/form/Select/SelectMenu';
-import { selectMenuTheme } from '@/form/Select/SelectMenu';
+import type { SelectInputTheme } from '@/form/Select/SelectInput/SelectInputTheme';
+import {
+  defaultSelectInputTheme,
+  unifySelectInputTheme
+} from '@/form/Select/SelectInput/SelectInputTheme';
+import type { SelectMenuTheme } from '@/form/Select/SelectMenu/SelectMenuTheme';
+import {
+  defaultSelectMenuTheme,
+  unifySelectMenuTheme
+} from '@/form/Select/SelectMenu/SelectMenuTheme';
 
 export interface SelectTheme {
   selectInput: SelectInputTheme;
   selectMenu: SelectMenuTheme;
 }
 
-export const selectTheme: SelectTheme = {
-  selectInput: selectInputTheme,
-  selectMenu: selectMenuTheme
+export const defaultSelectTheme: SelectTheme = {
+  selectInput: defaultSelectInputTheme,
+  selectMenu: defaultSelectMenuTheme
+};
+
+export const unifySelectTheme: SelectTheme = {
+  selectInput: unifySelectInputTheme,
+  selectMenu: unifySelectMenuTheme
 };

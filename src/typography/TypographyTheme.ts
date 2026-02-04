@@ -48,11 +48,11 @@ export interface TypographyTheme {
   };
 }
 
-export const typographyTheme: TypographyTheme = {
+export const defaultTypographyTheme: TypographyTheme = {
   base: '',
   color: {
-    primary: 'text-content-text-neutral-base',
-    secondary: 'text-content-text-neutral-2'
+    primary: 'text-primary',
+    secondary: 'text-secondary'
   },
   weight: {
     thin: 'font-thin',
@@ -67,46 +67,113 @@ export const typographyTheme: TypographyTheme = {
   },
   variant: {
     h1: {
-      base: 'font-sans text-8xl font-normal'
+      base: 'font-sans text-5xl font-normal leading-12'
     },
     h2: {
-      base: 'font-sans text-6xl font-normal'
+      base: 'font-sans text-4xl font-normal leading-9'
     },
     h3: {
-      base: 'font-sans text-4xl font-normal'
+      base: 'font-sans text-3xl font-normal leading-8'
     },
     h4: {
-      base: 'font-sans text-2xl font-normal'
+      base: 'font-sans text-2xl font-normal leading-7'
     },
     h5: {
-      base: 'font-sans text-lg font-normal'
+      base: 'font-sans text-xl font-normal leading-6'
     },
     h6: {
-      base: 'font-sans text-base font-normal'
+      base: 'font-sans text-lg font-normal leading-6'
     },
     body: {
-      base: 'font-serif text-sm font-normal',
+      base: 'font-serif text-base font-normal leading-4.5',
       size: {
-        large: 'text-base leading-6',
-        small: 'text-xs leading-3.5'
+        large: 'text-lg leading-6',
+        small: 'text-sm leading-3.5'
       }
     },
     button: {
-      base: 'font-serif text-sm font-semibold',
+      base: 'font-serif text-base font-semibold leading-4.5',
       size: {
-        large: 'text-base',
-        small: 'text-xs'
+        large: 'text-lg leading-6',
+        small: 'text-sm leading-3.5'
       }
     },
     label: {
-      base: 'font-serif text-xs font-semibold',
+      base: 'font-serif text-sm font-semibold leading-3',
       size: {
-        large: 'text-sm',
-        small: 'text-xxs'
+        large: 'text-md leading-3.5',
+        small: 'text-xs'
       }
     },
     monospace: {
-      base: 'font-mono font-medium text-xxs'
+      base: 'font-mono font-medium text-xs leading-3'
+    }
+  }
+};
+
+export const unifyTypographyTheme: TypographyTheme = {
+  base: '',
+  color: {
+    primary: 'text-content-text-on-color-light-dark',
+    secondary: 'text-content-text-neutral-base',
+    success: 'text-content-text-success-base',
+    warning: 'text-content-text-warning-base',
+    error: 'text-content-text-destructive-base',
+    info: 'text-content-text-info-base'
+  },
+  weight: {
+    thin: 'font-thin',
+    extralight: 'font-extralight',
+    light: 'font-light',
+    regular: 'font-normal',
+    medium: 'font-medium',
+    semibold: 'font-semibold',
+    bold: 'font-bold',
+    extrabold: 'font-extrabold',
+    black: 'font-black'
+  },
+  variant: {
+    h1: {
+      base: 'font-sans text-5xl font-normal leading-12'
+    },
+    h2: {
+      base: 'font-sans text-4xl font-normal leading-9'
+    },
+    h3: {
+      base: 'font-sans text-3xl font-normal leading-8'
+    },
+    h4: {
+      base: 'font-sans text-2xl font-normal leading-7'
+    },
+    h5: {
+      base: 'font-sans text-xl font-normal leading-6'
+    },
+    h6: {
+      base: 'font-sans text-lg font-normal leading-6'
+    },
+    body: {
+      base: 'font-serif text-base font-normal leading-4.5',
+      size: {
+        large: 'text-lg leading-6',
+        small: 'text-sm leading-3.5'
+      }
+    },
+    button: {
+      base: 'font-serif text-base font-semibold leading-4.5',
+      size: {
+        large: 'text-lg leading-6',
+        small: 'text-sm leading-3.5'
+      }
+    },
+    label: {
+      base: 'font-serif text-sm font-semibold leading-3',
+      size: {
+        large: 'text-md leading-3.5',
+        small: 'text-xs'
+      }
+    },
+    monospace: {
+      base: 'font-mono font-medium text-xs leading-3'
     }
   }
 };

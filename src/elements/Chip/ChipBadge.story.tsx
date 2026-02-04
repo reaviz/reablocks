@@ -1,9 +1,9 @@
 import type { ChipTheme } from '@/elements';
-import { chipTheme } from '@/elements';
 import { Stack } from '@/layout';
 import { cn, extendComponentTheme } from '@/utils';
 
 import { Chip } from './Chip';
+import { defaultChipTheme } from './ChipTheme';
 
 export default {
   title: 'Components/Elements/Chip/Badge type',
@@ -134,7 +134,7 @@ const DemoIcon = () => (
 
 export const CustomTheme = () => {
   const customTheme = extendComponentTheme<ChipTheme>(
-    chipTheme,
+    defaultChipTheme,
     {
       types: {
         badge: {

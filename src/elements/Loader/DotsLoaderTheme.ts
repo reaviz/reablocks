@@ -11,7 +11,17 @@ export interface DotsLoaderTheme {
   sizes: DotsLoaderSizeTheme;
 }
 
-export const dotsLoaderTheme: DotsLoaderTheme = {
+export const defaultDotsLoaderTheme: DotsLoaderTheme = {
+  base: 'flex',
+  dot: 'rounded-[50%] bg-content-text-neutral-base',
+  sizes: {
+    small: 'w-1 h-1 m-1',
+    medium: 'w-1.5 h-1.5 m-1.5',
+    large: 'w-2 h-2 m-2'
+  }
+};
+
+export const unifyDotsLoaderTheme: DotsLoaderTheme = {
   base: 'flex',
   dot: 'rounded-[50%] bg-background-brand-base',
   sizes: {

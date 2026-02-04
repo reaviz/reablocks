@@ -1,2 +1,2 @@
 export * from './CommandPaletteSection';
-export * from './CommandPaletteSectionTheme';
+export type { CommandPaletteSectionTheme } from './CommandPaletteSectionTheme';

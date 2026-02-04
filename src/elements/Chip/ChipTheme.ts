@@ -92,7 +92,277 @@ export interface ChipTheme {
   types: ChipTypeTheme;
 }
 
-export const chipTheme: ChipTheme = {
+export const defaultChipTheme: ChipTheme = {
+  types: {
+    badge: {
+      base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5 rounded-xs leading-none text-white transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium',
+      adornment: {
+        base: 'flex items-center justify-center',
+        start: 'mr-1',
+        end: 'ml-1',
+        sizes: {
+          small: '[&>svg]:w-3 [&>svg]:h-3',
+          medium: '[&>svg]:w-4 [&>svg]:h-4',
+          large: '[&>svg]:w-5 [&>svg]:h-5'
+        }
+      },
+      sizes: {
+        small: 'text-[10px] leading-[inherit] px-1 py-0.5',
+        medium: 'text-sm leading-[inherit] px-2 py-0.5',
+        large: 'text-base leading-[inherit] px-3 py-0.5'
+      },
+      variants: {
+        filled: 'border border-transparent box-border',
+        outline: 'bg-transparent border hover:bg-transparent'
+      },
+      colors: {
+        default: {
+          variants: {
+            filled: {
+              base: 'bg-panel border-panel text-text-primary',
+              selectable:
+                'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+              selected: 'bg-primary text-panel'
+            },
+            outline: {
+              base: 'text-text-primary dark:border-gray-100 light:border-gray-900',
+              selected: 'border-panel-accent text-primary',
+              selectable: 'hover:text-primary-hover hover:border-panel-accent'
+            }
+          }
+        },
+        primary: {
+          variants: {
+            filled: {
+              base: 'bg-primary border-primary text-panel',
+              selectable:
+                'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+              selected: 'bg-primary-hover'
+            },
+            outline: {
+              base: 'text-primary border-panel-accent',
+              selectable: 'hover:text-primary-hover hover:border-primary',
+              selected: 'border-primary'
+            }
+          }
+        },
+        secondary: {
+          variants: {
+            filled: {
+              base: 'bg-secondary border-secondary text-text-primary',
+              selectable:
+                'hover:bg-secondary-hover hover:border-secondary-hover hover:text-panel',
+              selected: 'bg-secondary-hover text-panel'
+            },
+            outline: {
+              base: 'text-secondary border-panel-accent',
+              selectable: 'hover:text-secondary-hover hover:border-secondary',
+              selected: 'border-secondary'
+            }
+          }
+        },
+        success: {
+          variants: {
+            filled: {
+              base: 'bg-success border-success text-panel',
+              selected: 'bg-success-hover',
+              selectable: 'hover:bg-success-hover hover:border-success-hover'
+            },
+            outline: {
+              base: 'text-success border-panel-accent',
+              selected: 'border-success',
+              selectable: 'hover:text-success-hover hover:border-success'
+            }
+          }
+        },
+        warning: {
+          variants: {
+            filled: {
+              base: 'bg-warning border-warning text-panel',
+              selectable:
+                'hover:bg-warning-hover hover:border-warning-hover hover:text-panel',
+              selected: 'bg-warning-hover'
+            },
+            outline: {
+              base: 'text-warning border-panel-accent',
+              selectable: 'hover:text-warning-hover hover:border-warning',
+              selected: 'border-warning'
+            }
+          }
+        },
+        error: {
+          variants: {
+            filled: {
+              base: 'bg-error border-error text-panel',
+              selectable:
+                'hover:bg-error-hover hover:border-error-hover hover:text-panel',
+              selected: 'bg-error-hover'
+            },
+            outline: {
+              base: 'text-error border-panel-accent',
+              selectable: 'hover:text-error-hover hover:border-error',
+              selected: 'border-error'
+            }
+          }
+        },
+        info: {
+          variants: {
+            filled: {
+              base: 'bg-info border-info text-panel',
+              selectable:
+                'hover:bg-info-hover hover:border-info-hover hover:text-panel',
+              selected: 'bg-info-hover'
+            },
+            outline: {
+              base: 'text-info border-panel-accent',
+              selectable: 'hover:text-info-hover hover:border-info',
+              selected: 'border-info'
+            }
+          }
+        }
+      }
+    },
+    tag: {
+      base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5 rounded-xs leading-none text-white transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium',
+      adornment: {
+        base: 'flex items-center justify-center',
+        start: 'mr-1',
+        end: 'ml-1',
+        sizes: {
+          small: '[&>svg]:w-3 [&>svg]:h-3',
+          medium: '[&>svg]:w-4 [&>svg]:h-4',
+          large: '[&>svg]:w-5 [&>svg]:h-5'
+        }
+      },
+      sizes: {
+        small: 'text-[10px] leading-[inherit] px-1 py-0.5',
+        medium: 'text-sm leading-[inherit] px-2 py-0.5',
+        large: 'text-base leading-[inherit] px-3 py-0.5'
+      },
+      variants: {
+        filled: 'border border-transparent box-border',
+        outline: 'bg-transparent border hover:bg-transparent'
+      },
+      colors: {
+        default: {
+          variants: {
+            filled: {
+              base: 'bg-panel border-panel text-text-primary',
+              selectable:
+                'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+              selected: 'bg-primary text-panel'
+            },
+            outline: {
+              base: 'text-text-primary border-panel-accent',
+              selectable: 'hover:text-primary-hover hover:border-panel-accent',
+              selected: 'border-panel-accent text-primary'
+            }
+          }
+        },
+        primary: {
+          variants: {
+            outline: {
+              base: 'text-primary border-panel-accent',
+              selectable:
+                'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+              selected: 'bg-primary-hover'
+            },
+            filled: {
+              base: 'bg-primary border-primary text-panel',
+              selectable: 'hover:text-primary-hover hover:border-primary',
+              selected: 'border-primary'
+            }
+          }
+        },
+        secondary: {
+          variants: {
+            filled: {
+              base: 'bg-secondary border-secondary text-text-primary',
+              selectable:
+                'hover:bg-secondary-hover hover:border-secondary-hover hover:text-panel',
+              selected: 'bg-secondary-hover text-panel'
+            },
+            outline: {
+              base: 'text-secondary border-panel-accent',
+              selectable: 'hover:text-secondary-hover hover:border-secondary',
+              selected: 'border-secondary'
+            }
+          }
+        },
+        success: {
+          variants: {
+            filled: {
+              base: 'bg-success border-success text-panel',
+              selectable: 'hover:bg-success-hover hover:border-success-hover',
+              selected: 'bg-success-hover'
+            },
+            outline: {
+              base: 'text-success border-panel-accent',
+              selectable: 'hover:text-success-hover hover:border-success',
+              selected: 'border-success'
+            }
+          }
+        },
+        warning: {
+          variants: {
+            filled: {
+              base: 'bg-warning border-warning text-panel',
+              selectable:
+                'hover:bg-warning-hover hover:border-warning-hover hover:text-panel',
+              selected: 'bg-warning-hover'
+            },
+            outline: {
+              base: 'text-warning border-panel-accent',
+              selectable: 'hover:text-warning-hover hover:border-warning',
+              selected: 'border-warning'
+            }
+          }
+        },
+        error: {
+          variants: {
+            filled: {
+              base: 'bg-error border-error text-panel',
+              selectable:
+                'hover:bg-error-hover hover:border-error-hover hover:text-panel',
+              selected: 'bg-error-hover'
+            },
+            outline: {
+              base: 'text-error border-panel-accent',
+              selectable: 'hover:text-error-hover hover:border-error',
+              selected: 'border-error'
+            }
+          }
+        },
+        info: {
+          variants: {
+            filled: {
+              base: 'bg-info border-info text-panel',
+              selectable:
+                'hover:bg-info-hover hover:border-info-hover hover:text-panel',
+              selected: 'bg-info-hover'
+            },
+            outline: {
+              base: 'text-info border-panel-accent',
+              selectable: 'hover:text-info-hover hover:border-info',
+              selected: 'border-info'
+            }
+          }
+        }
+      },
+      closeButton: {
+        base: 'text-inherit',
+        sizes: {
+          small: 'leading-[10px] max-h-2.5',
+          medium: 'leading-3 max-h-3',
+          large: 'leading-[14px] max-h-3.5'
+        }
+      },
+      disabled: 'opacity-50 cursor-not-allowed'
+    }
+  }
+};
+
+export const unifyChipTheme: ChipTheme = {
   types: {
     badge: {
       base: 'inline-flex whitespace-nowrap border font-medium select-none items-center justify-center rounded-(--badges-details-corner-radius-corner-radius) transition-colors',

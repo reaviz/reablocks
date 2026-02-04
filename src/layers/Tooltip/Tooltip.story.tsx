@@ -4,7 +4,7 @@ import { Button } from '../../elements';
 import { extendComponentTheme } from '../../utils';
 import { Tooltip } from './Tooltip';
 import type { TooltipTheme } from './TooltipTheme';
-import { tooltipTheme } from './TooltipTheme';
+import { defaultTooltipTheme } from './TooltipTheme';
 
 export default { title: 'Components/Layers/Tooltip', component: Tooltip };
 
@@ -97,7 +97,7 @@ export const CustomAnimation = () => {
 };
 
 export const CustomTheme = () => {
-  const customTheme = extendComponentTheme<TooltipTheme>(tooltipTheme, {
+  const customTheme = extendComponentTheme<TooltipTheme>(defaultTooltipTheme, {
     base: 'rounded-sm bg-green-800 text-white font-bold p-3 text-sm'
   });
 

@@ -1,2 +1,2 @@
 export * from './Arrow';
-export * from './ArrowTheme';
+export type * from './ArrowTheme';

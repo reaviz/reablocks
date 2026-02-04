@@ -1,3 +1,3 @@
 export * from './NavigationBar';
 export * from './NavigationButton';
-export * from './NavigationTheme';
+export type * from './NavigationTheme';
