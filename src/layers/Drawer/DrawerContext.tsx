@@ -17,6 +17,11 @@ export interface DrawerContextValue {
    * Whether padding is disabled.
    */
   disablePadding?: boolean;
+
+  /**
+   * ID for the heading element, used for aria-labelledby.
+   */
+  headingId?: string;
 }
 
 export const DrawerContext = createContext<DrawerContextValue | null>(null);

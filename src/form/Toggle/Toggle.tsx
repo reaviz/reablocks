@@ -82,7 +82,7 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
       <div
         {...rest}
         ref={ref}
-        tabIndex={0}
+        tabIndex={disabled ? -1 : 0}
         role="switch"
         aria-checked={checked}
         aria-disabled={disabled || undefined}

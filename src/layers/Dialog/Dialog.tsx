@@ -192,14 +192,17 @@ export const Dialog: FC<DialogProps> = ({
     [useSlots, resolvedChildren]
   );
 
+  const headingId = `${id}-heading`;
+
   // Context value for slot components
   const contextValue: DialogContextValue = useMemo(
     () => ({
       onClose,
       showCloseButton,
-      disablePadding
+      disablePadding,
+      headingId
     }),
-    [onClose, showCloseButton, disablePadding]
+    [onClose, showCloseButton, disablePadding, headingId]
   );
 
   // Render slot-based content
@@ -258,6 +261,7 @@ export const Dialog: FC<DialogProps> = ({
             <motion.div
               role="dialog"
               aria-modal="true"
+              aria-labelledby={headingId}
               initial={{ opacity: 0, y: '-20%' }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: '20%' }}

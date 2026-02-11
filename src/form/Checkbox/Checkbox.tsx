@@ -1,4 +1,4 @@
-import { useComponentTheme } from '@/utils';
+import { useComponentTheme, useId } from '@/utils';
 import { motion, useMotionValue, useTransform } from 'motion/react';
 import React, {
   FC,
@@ -120,6 +120,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
     ref
   ) => {
     const theme: CheckboxTheme = useComponentTheme('checkbox', customTheme);
+    const labelId = useId();
     const pathLength = useMotionValue(0);
     const opacity = useTransform(pathLength, [0.05, 0.15], [0, 1]);
 
@@ -155,6 +156,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
       >
         {labelPosition === 'start' && label && (
           <CheckboxLabel
+            id={labelId}
             label={label}
             size={size}
             checked={checked}
@@ -170,6 +172,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           role="checkbox"
           aria-checked={intermediate ? 'mixed' : checked}
           aria-disabled={disabled || undefined}
+          aria-labelledby={label ? labelId : undefined}
           tabIndex={disabled ? -1 : 0}
           className={twMerge(
             theme.checkbox.base,
@@ -237,6 +240,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
         </motion.div>
         {labelPosition === 'end' && label && (
           <CheckboxLabel
+            id={labelId}
             label={label}
             size={size}
             checked={checked}

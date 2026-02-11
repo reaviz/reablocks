@@ -501,10 +501,6 @@ export const SelectInput: FC<SelectInputProps> = ({
     <div className={cn(theme.container)}>
       <div
         ref={containerRef}
-        role="combobox"
-        aria-expanded={menuOpen}
-        aria-haspopup="listbox"
-        aria-disabled={disabled || undefined}
         className={cn(
           theme.base,
           theme.size[size],
@@ -530,6 +526,10 @@ export const SelectInput: FC<SelectInputProps> = ({
             ref={inputRef}
             id={id}
             name={name}
+            role="combobox"
+            aria-expanded={menuOpen}
+            aria-haspopup="listbox"
+            aria-autocomplete="list"
             disabled={disabled}
             required={required}
             autoFocus={autoFocus}

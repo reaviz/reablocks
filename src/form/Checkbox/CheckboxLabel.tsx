@@ -3,6 +3,7 @@ import { twMerge } from 'tailwind-merge';
 import { CheckboxTheme } from './CheckboxTheme';
 
 interface CheckboxLabelProps {
+  id?: string;
   label: string | ReactNode;
   size: 'small' | 'medium' | 'large' | string;
   disabled?: boolean;
@@ -13,6 +14,7 @@ interface CheckboxLabelProps {
 }
 
 export const CheckboxLabel: FC<CheckboxLabelProps> = ({
+  id,
   label,
   size,
   disabled,
@@ -21,7 +23,8 @@ export const CheckboxLabel: FC<CheckboxLabelProps> = ({
   labelClassName,
   theme
 }) => (
-  <label
+  <span
+    id={id}
     className={twMerge(
       theme.label.base,
       theme.label.sizes[size],
@@ -30,13 +33,12 @@ export const CheckboxLabel: FC<CheckboxLabelProps> = ({
       !disabled && onChange && theme.label.clickable,
       labelClassName
     )}
-    onClick={e => {
-      e.preventDefault();
+    onClick={() => {
       if (!disabled && onChange) {
         onChange();
       }
     }}
   >
     {label}
-  </label>
+  </span>
 );

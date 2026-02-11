@@ -208,7 +208,6 @@ export const SelectMenu: FC<SelectMenuProps> = ({
 
   return (
     <motion.div
-      role="listbox"
       style={style}
       className={cn(theme.base, className, 'select-menu')}
       initial={{
