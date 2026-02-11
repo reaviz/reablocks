@@ -17,6 +17,11 @@ export interface DialogContextValue {
    * Whether padding is disabled.
    */
   disablePadding?: boolean;
+
+  /**
+   * ID for the heading element, used for aria-labelledby.
+   */
+  headingId?: string;
 }
 
 export const DialogContext = createContext<DialogContextValue | null>(null);

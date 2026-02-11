@@ -63,6 +63,7 @@ export const DialogHeader = forwardRef<HTMLElement, DialogHeaderProps>(
     const disablePadding =
       disablePaddingProp ?? context?.disablePadding ?? false;
     const onClose = onCloseProp ?? context?.onClose;
+    const headingId = context?.headingId;
 
     return (
       <header
@@ -74,7 +75,7 @@ export const DialogHeader = forwardRef<HTMLElement, DialogHeaderProps>(
         )}
         {...props}
       >
-        <div className="flex-1">
+        <div id={headingId} className="flex-1">
           {typeof children === 'string' ? (
             <h1 className={theme.header.text}>{children}</h1>
           ) : (

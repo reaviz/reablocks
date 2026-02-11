@@ -54,6 +54,7 @@ export const DrawerHeader = forwardRef<HTMLElement, DrawerHeaderProps>(
     const showCloseButton =
       showCloseButtonProp ?? context?.showCloseButton ?? true;
     const onClose = onCloseProp ?? context?.onClose;
+    const headingId = context?.headingId;
 
     return (
       <header
@@ -61,7 +62,7 @@ export const DrawerHeader = forwardRef<HTMLElement, DrawerHeaderProps>(
         className={twMerge(theme.header.base, className)}
         {...props}
       >
-        <div className="flex-1">
+        <div id={headingId} className="flex-1">
           {typeof children === 'string' ? (
             <h1 className={theme.header.text}>{children}</h1>
           ) : (

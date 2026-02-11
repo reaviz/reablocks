@@ -106,6 +106,7 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
       >
         <TextareaAutosize
           ref={textareaRef}
+          aria-invalid={error || undefined}
           className={twMerge(
             theme.input,
             fullWidth && theme.fullWidth,

@@ -184,14 +184,17 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
     [useSlots, children]
   );
 
+  const headingId = `${id}-heading`;
+
   // Context value for slot components
   const contextValue: DrawerContextValue = useMemo(
     () => ({
       onClose,
       showCloseButton,
-      disablePadding
+      disablePadding,
+      headingId
     }),
-    [onClose, showCloseButton, disablePadding]
+    [onClose, showCloseButton, disablePadding, headingId]
   );
 
   // Render slot-based content
@@ -224,6 +227,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
             theme.closeButton.headerless
           )}
           onClick={onClose}
+          aria-label="Close"
         >
           ✕
         </button>
@@ -255,6 +259,9 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
         >
           <div id={id} tabIndex={-1}>
             <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby={headingId}
               initial="initial"
               animate="animate"
               exit="initial"
