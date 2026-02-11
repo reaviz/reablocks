@@ -256,6 +256,8 @@ export const Dialog: FC<DialogProps> = ({
         >
           <div id={id} tabIndex={-1}>
             <motion.div
+              role="dialog"
+              aria-modal="true"
               initial={{ opacity: 0, y: '-20%' }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: '20%' }}

@@ -84,6 +84,8 @@ export const Toggle: FC<ToggleProps & ToggleRef> = forwardRef<
         ref={ref}
         tabIndex={0}
         role="switch"
+        aria-checked={checked}
+        aria-disabled={disabled || undefined}
         className={cn(
           theme.base,
           theme.sizes[size],

@@ -167,6 +167,9 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
         <motion.div
           {...rest}
           ref={ref}
+          role="checkbox"
+          aria-checked={intermediate ? 'mixed' : checked}
+          aria-disabled={disabled || undefined}
           tabIndex={disabled ? -1 : 0}
           className={twMerge(
             theme.checkbox.base,

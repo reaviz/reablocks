@@ -224,6 +224,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
             theme.closeButton.headerless
           )}
           onClick={onClose}
+          aria-label="Close"
         >
           ✕
         </button>
@@ -255,6 +256,8 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
         >
           <div id={id} tabIndex={-1}>
             <motion.div
+              role="dialog"
+              aria-modal="true"
               initial="initial"
               animate="animate"
               exit="initial"

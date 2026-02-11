@@ -21,7 +21,7 @@ export const CheckboxLabel: FC<CheckboxLabelProps> = ({
   labelClassName,
   theme
 }) => (
-  <span
+  <label
     className={twMerge(
       theme.label.base,
       theme.label.sizes[size],
@@ -30,12 +30,13 @@ export const CheckboxLabel: FC<CheckboxLabelProps> = ({
       !disabled && onChange && theme.label.clickable,
       labelClassName
     )}
-    onClick={() => {
+    onClick={e => {
+      e.preventDefault();
       if (!disabled && onChange) {
         onChange();
       }
     }}
   >
     {label}
-  </span>
+  </label>
 );

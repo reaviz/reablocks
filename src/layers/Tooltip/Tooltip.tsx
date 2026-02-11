@@ -207,6 +207,7 @@ export const Tooltip: FC<TooltipProps> = ({
 
         return (
           <motion.div
+            role={isPopover ? undefined : 'tooltip'}
             className={twMerge(theme.base, className)}
             {...(animation
               ? animation

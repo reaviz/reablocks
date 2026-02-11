@@ -111,6 +111,9 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
         <div
           {...rest}
           ref={ref}
+          role="radio"
+          aria-checked={checked}
+          aria-disabled={disabled || undefined}
           tabIndex={0}
           className={cn(theme.radio.base, theme.sizes[size], {
             [theme.radio.checked]: checked,
@@ -139,20 +142,21 @@ export const Radio: FC<RadioProps & RadioRef> = forwardRef(
           />
         </div>
         {label && (
-          <span
+          <label
             className={cn(theme.label.base, {
               [theme.label.checked]: checked,
               [theme.label.disabled]: disabled,
               [theme.label.clickable]: !disabled
             })}
-            onClick={() => {
+            onClick={e => {
+              e.preventDefault();
               if (!disabled) {
                 onValueChange(!checked);
               }
             }}
           >
             {label}
-          </span>
+          </label>
         )}
       </div>
     );

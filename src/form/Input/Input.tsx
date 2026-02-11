@@ -168,6 +168,7 @@ export const Input = forwardRef<InputRef, InputProps>(
           ref={inputRef}
           value={value}
           disabled={disabled}
+          aria-invalid={error || undefined}
           className={twMerge(theme.input, className)}
           onFocus={event => {
             if (selectOnFocus) {
