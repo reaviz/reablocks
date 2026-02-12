@@ -53,11 +53,10 @@ export interface CheckboxTheme {
 export const defaultCheckboxTheme: CheckboxTheme = {
   base: 'inline-flex items-center w-full group/checkbox',
   label: {
-    base: 'text-text-primary dark:group-hover/checkbox:text-blue-300 light:group-hover/checkbox:text-blue-400 ml-2.5 w-full dark:text-gray-400 light:text-gray-700',
-    checked:
-      'checked group-hover/checkbox:text-gray-100 dark:text-gray-100 light:text-gray-900',
+    base: 'ml-2.5 w-full text-text-secondary',
+    checked: 'checked group-hover/checkbox:text-text-primary text-text-primary',
     disabled:
-      'cursor-not-allowed light:group-hover/checkbox:text-gray-400 dark:group-hover/checkbox:text-gray-600 dark:text-gray-600 light:text-gray-400',
+      'cursor-not-allowed group-hover/checkbox:text-secondary-inactive text-secondary-inactive',
     clickable: 'cursor-pointer',
     sizes: {
       small: 'text-sm',
@@ -72,15 +71,15 @@ export const defaultCheckboxTheme: CheckboxTheme = {
       'cursor-not-allowed stroke-black light:stroke-white group-hover/checkbox:stroke-black '
   },
   border: {
-    base: 'stroke-gray-400 light:stroke-gray-700 dark:group-hover/checkbox:stroke-blue-300 light:group-hover/checkbox:stroke-blue-600',
-    checked: 'stroke-blue-500',
+    base: 'stroke-panel-accent group-hover/checkbox:stroke-primary-hover',
+    checked: 'stroke-primary',
     disabled:
-      'cursor-not-allowed stroke-gray-500 dark:group-hover/checkbox:stroke-gray-500 light:group-hover/checkbox:stroke-gray-400'
+      'cursor-not-allowed stroke-secondary-inactive group-hover/checkbox:stroke-secondary-inactive'
   },
   checkbox: {
-    base: 'fill-transparent flex items-center justify-center cursor-pointer focus-visible:outline-hidden border border-surface [&.checked.disabled]:fill-gray-400',
+    base: 'fill-transparent flex items-center justify-center cursor-pointer focus-visible:outline-hidden border border-surface [&.checked.disabled]:fill-secondary-inactive',
     checked:
-      'fill-blue-500 checked group-hover/checkbox:fill-blue-400 light:group-hover/checkbox:fill-blue-600 light:group-hover/checkbox:[&.disabled]:fill-gray-400',
+      'fill-primary checked group-hover/checkbox:fill-primary-hover group-hover/checkbox:[&.disabled]:fill-secondary-inactive',
     disabled:
       'fill-transparent disabled group-hover/checkbox:transparent light:group-hover/checkbox:transparent'
   },

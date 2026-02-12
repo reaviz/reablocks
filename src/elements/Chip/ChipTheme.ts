@@ -125,7 +125,7 @@ export const defaultChipTheme: ChipTheme = {
               selected: 'bg-primary text-panel'
             },
             outline: {
-              base: 'text-text-primary dark:border-gray-100 light:border-gray-900',
+              base: 'text-text-primary border-panel-accent',
               selected: 'border-panel-accent text-primary',
               selectable: 'hover:text-primary-hover hover:border-panel-accent'
             }

@@ -43,7 +43,7 @@ export const defaultRadioTheme: RadioTheme = {
   },
   label: {
     base: 'w-full align-middle ml-2.5 text-text-secondary',
-    clickable: 'cursor-pointer hover:text-blue-300',
+    clickable: 'cursor-pointer hover:text-primary-hover',
     disabled: 'cursor-not-allowed text-secondary-inactive/40!',
     checked: 'text-text-primary'
   },

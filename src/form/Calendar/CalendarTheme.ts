@@ -138,7 +138,7 @@ export const defaultCalendarTheme: CalendarTheme = {
       divider: 'mx-0',
       item: {
         base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150',
-        selected: '',
+        selected: 'bg-primary text-text-primary',
         disabled: 'cursor-not-allowed'
       }
     }

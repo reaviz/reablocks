@@ -11,7 +11,7 @@ export interface JsonTreeTheme {
 
 export const defaultJsonTreeTheme: JsonTreeTheme = {
   node: {
-    label: 'font-mono text-anakiwa light:text-blue-500',
+    label: 'font-mono text-primary',
     delimiter: 'pr-1',
     symbol: 'px-1 opacity-50 font-mono',
     value: '',

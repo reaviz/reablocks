@@ -15,7 +15,7 @@ export interface RangeTheme {
 }
 
 export const defaultRangeTheme: RangeTheme = {
-  base: 'relative box-border w-full h-0.5 bg-surface light:bg-gray-200',
+  base: 'relative box-border w-full h-0.5 bg-surface',
   drag: 'absolute w-4 h-4 -left-2 -top-2 rounded-full',
   inputWrapper: {
     base: 'cursor-pointer inline-block relative h-full w-full rounded-full bg-primary-active hover:bg-primary-hover shadow-[0px_4px_4px_0px_rgba(0,0,0,0.20)]',

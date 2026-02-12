@@ -41,7 +41,7 @@ export interface ButtonTheme {
 export const defaultButtonTheme: ButtonTheme = {
   base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-xs font-sans cursor-pointer text-text-primary font-semibold',
   disabled:
-    'disabled:cursor-not-allowed data-[variant=filled]:disabled:bg-gray-600 disabled:text-gray-400 border-gray-500',
+    'disabled:cursor-not-allowed data-[variant=filled]:disabled:bg-secondary-inactive disabled:text-secondary-inactive border-secondary-inactive',
   fullWidth: 'flex w-full',
   group:
     'rounded-none first:rounded-s last:rounded-e border-s-0 first:border-s',
@@ -77,14 +77,14 @@ export const defaultButtonTheme: ButtonTheme = {
   },
   variants: {
     filled:
-      'bg-secondary hover:bg-border-secondary-hover border-secondary light:text-gray-100',
-    outline: 'border-grey border',
+      'bg-panel-accent hover:bg-secondary-hover border-panel-accent text-text-primary',
+    outline: 'border-gray border',
     text: 'border-0',
     ghost: ''
   },
   colors: {
     default: {
-      filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
+      filled: 'bg-panel-accent hover:bg-secondary-hover border-panel-accent',
       outline: 'border border-secondary',
       text: 'text-text-primary',
       ghost: ''

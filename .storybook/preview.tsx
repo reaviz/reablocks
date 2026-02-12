@@ -4,14 +4,15 @@ import './fonts.css';
 import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
+import type { ThemeVariant } from '../src/utils/Theme/ThemeProvider';
 import theme from './theme';
 
 let currentCssLink: HTMLLinkElement | null = null;
 
-const loadCss = (variant: 'default' | 'unify' | 'custom') => {
+const loadCss = (variant: ThemeVariant) => {
   if (currentCssLink) {
     currentCssLink.remove();
     currentCssLink = null;
@@ -39,22 +40,12 @@ const loadCss = (variant: 'default' | 'unify' | 'custom') => {
   currentCssLink = link;
 };
 
-const ThemeWrapper: React.FC<{
-  Story: React.ComponentType;
-  context: { globals?: { themeVariant?: 'default' | 'unify' | 'custom' } };
-}> = ({ Story, context }) => {
+const withVariant = (Story, context) => {
   const variant =
-    (context.globals?.themeVariant as 'default' | 'unify' | 'custom') ||
-    'default';
-  const loadedRef = useRef(false);
+    (context.globals?.themeVariant as ThemeVariant) || 'default';
 
   useEffect(() => {
-    if (!loadedRef.current) {
-      loadCss(variant);
-      loadedRef.current = true;
-    } else {
-      loadCss(variant);
-    }
+    loadCss(variant);
   }, [variant]);
 
   return (
@@ -64,14 +55,9 @@ const ThemeWrapper: React.FC<{
   );
 };
 
-const withProvider = (
-  Story: React.ComponentType,
-  context: { globals?: { themeVariant?: 'default' | 'unify' | 'custom' } }
-) => <ThemeWrapper Story={Story} context={context} />;
-
 const preview: Preview = {
   decorators: [
-    withProvider,
+    withVariant,
     withThemeByClassName({
       themes: {
         light: 'theme-light',
@@ -80,20 +66,8 @@ const preview: Preview = {
       defaultTheme: 'dark'
     })
   ],
-  globalTypes: {
-    themeVariant: {
-      description: 'Theme variant',
-      defaultValue: 'default',
-      toolbar: {
-        title: 'Theme Variant',
-        icon: 'paintbrush',
-        items: [
-          { value: 'default', title: 'Default' },
-          { value: 'unify', title: 'Unify' }
-        ],
-        dynamicTitle: true
-      }
-    }
+  initialGlobals: {
+    themeVariant: 'default'
   },
   parameters: {
     layout: 'centered',
@@ -102,8 +76,6 @@ const preview: Preview = {
     docs: {
       theme,
       container: ({ children, ...props }) => {
-        // For whatever reason the theme is not getting applied to docs
-        // This is a workaround to apply the theme to the docs
         const DocsThemeWrapper: React.FC = () => {
           const isLight =
             props.context?.store?.globals?.globals?.theme === 'light';
