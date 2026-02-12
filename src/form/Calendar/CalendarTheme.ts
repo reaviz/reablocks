@@ -160,12 +160,12 @@ export const unifyCalendarTheme: CalendarTheme = {
   header: {
     base: 'flex gap-(--calendar-details-space-between-default) text-center justify-between py-(--calendar-details-vertical-padding-default) px-(--calendar-details-horizontal-padding-header) items-center text-calendar-colors-header-text-default',
     prev: 'text-lg leading-4 min-w-8 text-center text-buttons-colors-core-icon-ghost-assets-resting hover:text-buttons-colors-core-icon-ghost-assets-hover focus-visible:text-buttons-colors-core-icon-ghost-assets-hover',
-    mid: 'group',
+    mid: 'group/calendar',
     next: 'text-lg leading-4 min-w-8 text-center text-buttons-colors-core-icon-ghost-assets-resting hover:text-buttons-colors-core-icon-ghost-assets-hover focus-visible:text-buttons-colors-core-icon-ghost-assets-hover',
     divider: 'm-0 bg-calendar-colors-container-stroke-default'
   },
   title:
-    'font-semibold text-base leading-8 text-calendar-colors-date-text-today group-hover:text-buttons-colors-core-icon-ghost-text-hover group-focus-visible:text-buttons-colors-core-icon-ghost-text-hover',
+    'font-semibold text-base leading-8 text-calendar-colors-date-text-today group-hover/calendar:text-buttons-colors-core-icon-ghost-text-hover group-focus-visible/calendar:text-buttons-colors-core-icon-ghost-text-hover',
   content: 'flex pt-(--calendar-details-vertical-padding-inside)',
   contentContainer: 'relative flex h-full max-h-80',
   days: {

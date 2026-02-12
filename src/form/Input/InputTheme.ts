@@ -51,7 +51,7 @@ export const defaultInputTheme: InputTheme = {
 };
 
 export const unifyInputTheme: InputTheme = {
-  base: 'group flex relative flex-row items-center flex-nowrap transition-colors rounded-(--inputs-details-corner-radius-primary) bg-inputs-colors-normal-background-resting border border-inputs-colors-normal-stroke-resting hover:border-inputs-colors-normal-stroke-hover',
+  base: 'group/input flex relative flex-row items-center flex-nowrap transition-colors rounded-(--inputs-details-corner-radius-primary) bg-inputs-colors-normal-background-resting border border-inputs-colors-normal-stroke-resting hover:border-inputs-colors-normal-stroke-hover',
   focused:
     'border-inputs-colors-normal-stroke-selected bg-inputs-colors-normal-background-selected [&_svg]:fill-inputs-colors-normal-assets-input-selected!',
   input: `
@@ -90,7 +90,7 @@ export const unifyInputTheme: InputTheme = {
   adornment: {
     base: `
       flex items-center justify-center transition-colors
-      [&>svg]:fill-inputs-colors-normal-assets-input-resting group-hover:[&>svg]:fill-inputs-colors-normal-assets-input-hover
+      [&>svg]:fill-inputs-colors-normal-assets-input-resting group-hover/input:[&>svg]:fill-inputs-colors-normal-assets-input-hover
     `,
     start: '',
     end: ''
