@@ -43,7 +43,7 @@ export const defaultToggleTheme: ToggleTheme = {
 };
 
 export const unifyToggleTheme: ToggleTheme = {
-  base: 'group flex items-center justify-start cursor-pointer bg-selectors-colors-toggle-off-background-resting box-border border border-selectors-colors-toggle-off-stroke-resting rounded-full hover:bg-selectors-colors-toggle-off-background-hover focus-visible:bg-selectors-colors-toggle-off-background-hover transition-colors ease-in-out duration-300 focus-visible:outline-none',
+  base: 'group/toggle flex items-center justify-start cursor-pointer bg-selectors-colors-toggle-off-background-resting box-border border border-selectors-colors-toggle-off-stroke-resting rounded-full hover:bg-selectors-colors-toggle-off-background-hover focus-visible:bg-selectors-colors-toggle-off-background-hover transition-colors ease-in-out duration-300 focus-visible:outline-none',
   disabled:
     'cursor-not-allowed opacity-40 focus-visible:bg-selectors-colors-toggle-off-background-resting',
   checked:
@@ -51,7 +51,7 @@ export const unifyToggleTheme: ToggleTheme = {
   disabledAndChecked:
     'focus-visible:bg-selectors-colors-toggle-on-background-resting',
   handle: {
-    base: 'rounded-full bg-selectors-colors-toggle-off-assets-resting group-hover:bg-selectors-colors-toggle-off-assets-hover',
+    base: 'rounded-full bg-selectors-colors-toggle-off-assets-resting group-hover/toggle:bg-selectors-colors-toggle-off-assets-hover',
     sizes: {
       small: 'size-(--selectors-details-asset-size-toggle-sm)',
       medium: 'size-(--selectors-details-asset-size-toggle-sm)',

@@ -112,7 +112,7 @@ export const unifyTabsTheme: TabsTheme = {
       },
       secondary: {
         indicator:
-          'bg-tabs-colors-underline-stroke-selected group-hover:bg-tabs-colors-underline-stroke-selected-hover absolute bottom-0 left-0 right-0',
+          'bg-tabs-colors-underline-stroke-selected group-hover/tab:bg-tabs-colors-underline-stroke-selected-hover absolute bottom-0 left-0 right-0',
         button: `
           text-tabs-colors-underline-text-resting border-tabs-colors-underline-background-resting border-b rounded-none
           hover:border-tabs-colors-underline-background-hover hover:text-tabs-colors-underline-text-hover
@@ -120,7 +120,7 @@ export const unifyTabsTheme: TabsTheme = {
           [&_svg]:text-tabs-colors-underline-assets-resting hover:[&_svg]:text-tabs-colors-underline-assets-hover focus-visible:[&_svg]:text-tabs-colors-underline-assets-hover
         `,
         selected:
-          'text-tabs-colors-underline-text-selected group-hover:text-tabs-colors-underline-text-selected-hover [&_svg]:text-tabs-colors-underline-assets-selected',
+          'text-tabs-colors-underline-text-selected group-hover/tab:text-tabs-colors-underline-text-selected-hover [&_svg]:text-tabs-colors-underline-assets-selected',
         disabled:
           'disabled:text-tabs-colors-underline-text-resting hover:text-tabs-colors-underline-text-resting disabled:[&_svg]:text-tabs-colors-underline-assets-resting'
       },
@@ -160,7 +160,7 @@ export const unifyTabsTheme: TabsTheme = {
       }
     },
     tab: {
-      base: 'group relative',
+      base: 'group/tab relative',
       button: 'transition-colors [&_svg]:transition-colors',
       selected: '',
       disabled: 'cursor-not-allowed opacity-40',
