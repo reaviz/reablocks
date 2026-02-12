@@ -6,8 +6,8 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
 import React, { useEffect } from 'react';
 
-import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
 import type { ThemeVariant } from '../src/utils/Theme/ThemeProvider';
+import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
 import theme from './theme';
 
 let currentCssLink: HTMLLinkElement | null = null;
@@ -40,9 +40,8 @@ const loadCss = (variant: ThemeVariant) => {
   currentCssLink = link;
 };
 
-const withVariant = (Story, context) => {
-  const variant =
-    (context.globals?.themeVariant as ThemeVariant) || 'default';
+const WithVariant = (Story, context) => {
+  const variant = (context.globals?.themeVariant as ThemeVariant) || 'default';
 
   useEffect(() => {
     loadCss(variant);
@@ -57,7 +56,7 @@ const withVariant = (Story, context) => {
 
 const preview: Preview = {
   decorators: [
-    withVariant,
+    WithVariant,
     withThemeByClassName({
       themes: {
         light: 'theme-light',

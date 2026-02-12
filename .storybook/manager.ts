@@ -1,8 +1,8 @@
-import { addons, types, useGlobals } from 'storybook/manager-api';
-import { IconButton } from 'storybook/internal/components';
 import { PaintBrushIcon } from '@storybook/icons';
-import { styled } from 'storybook/theming';
 import React from 'react';
+import { IconButton } from 'storybook/internal/components';
+import { addons, types, useGlobals } from 'storybook/manager-api';
+import { styled } from 'storybook/theming';
 
 import theme from './theme';
 
