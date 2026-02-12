@@ -2,7 +2,7 @@ import { motion, useMotionValue, useTransform } from 'motion/react';
 import type { LegacyRef, ReactNode } from 'react';
 import React, { forwardRef, useCallback, useEffect, useState } from 'react';
 
-import { useComponentTheme } from '@/utils';
+import { useComponentTheme, useId } from '@/utils';
 import { twMerge } from '@/utils';
 
 import { CheckboxLabel } from './CheckboxLabel';
@@ -115,6 +115,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
     ref
   ) => {
     const theme: CheckboxTheme = useComponentTheme('checkbox', customTheme);
+    const labelId = useId();
     const pathLength = useMotionValue(0);
     const opacity = useTransform(pathLength, [0.05, 0.15], [0, 1]);
 
@@ -150,6 +151,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
       >
         {labelPosition === 'start' && label && (
           <CheckboxLabel
+            id={labelId}
             label={label}
             size={size}
             checked={checked}
@@ -162,6 +164,10 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
         <motion.div
           {...rest}
           ref={ref}
+          role="checkbox"
+          aria-checked={intermediate ? 'mixed' : checked}
+          aria-disabled={disabled || undefined}
+          aria-labelledby={label ? labelId : undefined}
           tabIndex={disabled ? -1 : 0}
           className={twMerge(
             theme.checkbox.base,
@@ -229,6 +235,7 @@ export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
         </motion.div>
         {labelPosition === 'end' && label && (
           <CheckboxLabel
+            id={labelId}
             label={label}
             size={size}
             checked={checked}

@@ -6,6 +6,7 @@ import { twMerge } from '@/utils';
 import type { CheckboxSizeTheme, CheckboxTheme } from './CheckboxTheme';
 
 interface CheckboxLabelProps {
+  id?: string;
   label: string | ReactNode;
   size: keyof CheckboxSizeTheme;
   disabled?: boolean;
@@ -16,6 +17,7 @@ interface CheckboxLabelProps {
 }
 
 export const CheckboxLabel: FC<CheckboxLabelProps> = ({
+  id,
   label,
   size,
   disabled,
@@ -25,6 +27,7 @@ export const CheckboxLabel: FC<CheckboxLabelProps> = ({
   theme
 }) => (
   <span
+    id={id}
     className={twMerge(
       theme.label.base,
       theme.label.sizes[size],

@@ -75,6 +75,8 @@ export const Notification: FC<NotificationProps> = ({
       {component}
       {!component && (
         <div
+          role="alert"
+          aria-live="assertive"
           className={twMerge(
             theme.notification?.base,
             theme.notification?.variants?.[variant]?.base,
@@ -111,6 +113,7 @@ export const Notification: FC<NotificationProps> = ({
                 type="button"
                 className={theme.notification?.closeButton}
                 onClick={() => onClose?.(id)}
+                aria-label="Close"
               >
                 ✕
               </button>

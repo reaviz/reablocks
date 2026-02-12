@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import type { LegacyRef, ReactNode } from 'react';
 import React, { forwardRef, useContext, useMemo } from 'react';
 
-import { cn, useComponentTheme } from '@/utils';
+import { cn, useComponentTheme, useId } from '@/utils';
 
 import { RadioGroupContext } from './RadioGroupContext';
 import type { RadioSizeTheme, RadioTheme } from './RadioTheme';
@@ -101,13 +101,18 @@ export const Radio = forwardRef<HTMLDivElement, RadioProps>(
     };
 
     const theme: RadioTheme = useComponentTheme('radio', customTheme);
+    const labelId = useId();
 
     return (
       <div className={cn(theme.base, className)}>
         <div
           {...rest}
           ref={ref}
-          tabIndex={0}
+          role="radio"
+          aria-checked={checked}
+          aria-disabled={disabled || undefined}
+          aria-labelledby={label ? labelId : undefined}
+          tabIndex={disabled ? -1 : 0}
           className={cn(theme.radio.base, theme.sizes[size], {
             [theme.radio.checked]: checked,
             [theme.radio.disabled]: disabled
@@ -136,6 +141,7 @@ export const Radio = forwardRef<HTMLDivElement, RadioProps>(
         </div>
         {label && (
           <span
+            id={labelId}
             className={cn(theme.label.base, {
               [theme.label.checked]: checked,
               [theme.label.disabled]: disabled,
