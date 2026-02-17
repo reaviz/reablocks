@@ -1,3 +1,6 @@
+# 9.4.1 - 2/17/26
+- [fix] Improve accessibility across form, layer, and overlay components
+
 # 9.4.0 - 1/8/26
 - [feature] Add Dialog/Drawer header/content/footer slots for better compat
 
