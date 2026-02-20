@@ -368,7 +368,7 @@ export const Calendar: FC<CalendarProps> = ({
               {nextArrow}
             </Button>
           </header>
-          <Divider />
+          <Divider disableMargins />
           <AnimatePresence initial={false} mode="wait">
             <motion.div
               className={twMerge(theme.content)}

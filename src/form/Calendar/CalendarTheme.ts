@@ -231,7 +231,7 @@ export const unifyCalendarTheme: CalendarTheme = {
     },
     items: {
       wrapper:
-        'flex flex-row flex-auto gap-0.25 h-full pt-(--calendar-details-vertical-padding-inside)',
+        'flex flex-row flex-auto gap-0.25 h-full pt-(--calendar-details-vertical-padding-inside) h-46',
       container: 'h-full',
       list: 'relative h-full m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
       divider: 'mx-0 bg-calendar-colors-container-stroke-default',
@@ -249,7 +249,7 @@ export const unifyCalendarTheme: CalendarTheme = {
       'z-10 pl-(--calendar-details-vertical-padding-inside) py-(--calendar-details-space-between-content) items-start',
     divider:
       'mx-(--calendar-details-space-between-content) self-end bg-calendar-colors-container-stroke-default',
-    base: 'relative max-w-52 pr-(--calendar-details-space-between-content) overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y space-y-0 h-full',
+    base: 'relative max-w-52 pr-(--calendar-details-space-between-content) overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y space-y-0 max-h-60',
     group:
       'text-xs font-medium my-(--calendar-details-space-between-content) !pr-0 !pl-0',
     item: {

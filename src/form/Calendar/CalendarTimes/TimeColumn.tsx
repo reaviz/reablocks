@@ -92,26 +92,30 @@ export const TimeColumn: FC<TimeColumnProps> = ({
   );
 
   useEffect(() => {
-    if (containerRef.current && selectedRef.current) {
-      const container = containerRef.current;
-      const selected = selectedRef.current;
+    const timeoutId = setTimeout(() => {
+      if (containerRef.current && selectedRef.current) {
+        const container = containerRef.current;
+        const selected = selectedRef.current;
 
-      const containerHeight = container.clientHeight;
-      const itemOffsetTop = selected.offsetTop;
-      const itemHeight = selected.offsetHeight;
-      let scrollTop = 0;
-      if (is12HourCycle) {
-        scrollTop = itemOffsetTop;
-      } else {
-        // Calculate scrollTop so that the selected item is centered
-        scrollTop = itemOffsetTop - containerHeight / 2 + itemHeight / 2;
+        const containerHeight = container.clientHeight;
+        const itemOffsetTop = selected.offsetTop;
+        const itemHeight = selected.offsetHeight;
+        let scrollTop = 0;
+        if (is12HourCycle) {
+          scrollTop = itemOffsetTop;
+        } else {
+          // Calculate scrollTop so that the selected item is centered
+          scrollTop = itemOffsetTop - containerHeight / 2 + itemHeight / 2;
+        }
+
+        container.scrollTo({
+          top: scrollTop,
+          behavior: 'smooth'
+        });
       }
+    }, 100);
 
-      container.scrollTo({
-        top: scrollTop,
-        behavior: 'smooth'
-      });
-    }
+    return () => clearTimeout(timeoutId);
   }, [value, is12HourCycle]);
 
   return (
