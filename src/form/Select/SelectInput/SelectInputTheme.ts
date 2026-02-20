@@ -148,10 +148,10 @@ export const unifySelectInputTheme: SelectInputTheme = {
   },
   size: {
     small:
-      '[&_input]:text-xs [&_input]:leading-4 [&_svg]:size-4 px-(--inputs-details-horizontal-padding-left-sm) py-(--spacing-padding-2xs) gap-(--inputs-details-space-between-horizontal-sm)',
+      'text-xs [&_input]:leading-4 [&_svg]:size-4 px-(--inputs-details-horizontal-padding-left-sm) min-h-(--inputs-details-height-input-sm) gap-(--inputs-details-space-between-horizontal-sm)',
     medium:
-      '[&_input]:text-sm [&_input]:leading-4 [&_svg]:size-4 px-(--inputs-details-horizontal-padding-left-md) py-(--inputs-details-vertical-padding-inside) gap-(--inputs-details-space-between-horizontal-md)',
+      'text-sm [&_input]:leading-4 [&_svg]:size-4 px-(--inputs-details-horizontal-padding-left-md) min-h-(--inputs-details-height-input-md) gap-(--inputs-details-space-between-horizontal-md)',
     large:
-      '[&_input]:text-base [&_svg]:size-4.5 px-(--inputs-details-horizontal-padding-left-lg) py-(--inputs-details-vertical-padding-inside) gap-(--inputs-details-space-between-horizontal-lg)'
+      'text-base [&_svg]:size-4.5 px-(--inputs-details-horizontal-padding-left-lg) min-h-(--inputs-details-height-input-lg) gap-(--inputs-details-space-between-horizontal-lg)'
   }
 };
