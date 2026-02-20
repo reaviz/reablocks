@@ -43,7 +43,9 @@ export const WithFooter = () => {
         </DialogContent>
         <DialogFooter>
           <Stack justifyContent="end" className="w-full">
-            <Button onClick={() => setOpen(false)}>Cancel</Button>
+            <Button color="secondary" onClick={() => setOpen(false)}>
+              Cancel
+            </Button>
             <Button color="primary">Save</Button>
           </Stack>
         </DialogFooter>
@@ -89,7 +91,11 @@ export const WithForm = () => {
           </DialogContent>
           <DialogFooter>
             <Stack justifyContent="end" className="w-full">
-              <Button type="button" onClick={() => setOpen(false)}>
+              <Button
+                type="button"
+                color="secondary"
+                onClick={() => setOpen(false)}
+              >
                 Cancel
               </Button>
               <Button type="submit" color="primary">
@@ -119,7 +125,9 @@ export const NoCloseButton = () => {
           <p>This dialog has no close button in the header.</p>
         </DialogContent>
         <DialogFooter>
-          <Button onClick={() => setOpen(false)}>Close</Button>
+          <Button color="secondary" onClick={() => setOpen(false)}>
+            Close
+          </Button>
         </DialogFooter>
       </Dialog>
     </div>
