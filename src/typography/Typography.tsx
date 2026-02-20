@@ -38,6 +38,11 @@ export interface TypographyProps
   theme?: TypographyTheme;
 }
 
+/**
+ * @deprecated Use semantic HTML elements directly instead:
+ * `<h1>`, `<h2>`, `<h3>`, `<h4>`, `<h5>`, `<h6>`, `<p>`, `<label>`, `<caption>`, `<span>`.
+ * Apply Tailwind utility classes or your theme tokens for styling.
+ */
 export const Typography: FC<TypographyProps> = ({
   children,
   color = 'primary',

@@ -5,6 +5,9 @@ import type { TypographyThemeDeprecated } from '@/typography/TypographyThemeDepr
 import { useComponentTheme } from '@/utils';
 import { twMerge } from '@/utils';
 
+/**
+ * @deprecated
+ */
 export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
   /**
    * Color variation of the text.
@@ -32,6 +35,9 @@ export interface TextProps extends React.HTMLAttributes<HTMLSpanElement> {
   theme?: TypographyThemeDeprecated;
 }
 
+/**
+ * @deprecated
+ */
 export interface TextRef {
   /**
    * Reference to the HTML heading element.
@@ -39,6 +45,9 @@ export interface TextRef {
   ref?: LegacyRef<HTMLSpanElement>;
 }
 
+/**
+ * @deprecated Use `<p>` or `<span>` directly with Tailwind utility classes instead.
+ */
 export const Text: FC<TextProps & TextRef> = forwardRef(
   (
     {

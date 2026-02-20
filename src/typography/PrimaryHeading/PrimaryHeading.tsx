@@ -50,7 +50,7 @@ export interface PrimaryHeadingRef {
 }
 
 /**
- * @deprecated
+ * @deprecated Use `<h2>` directly with Tailwind utility classes instead.
  */
 export const PrimaryHeading: FC<PrimaryHeadingProps & PrimaryHeadingRef> =
   forwardRef(

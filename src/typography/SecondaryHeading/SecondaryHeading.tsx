@@ -50,7 +50,7 @@ export interface SecondaryHeadingRef {
 }
 
 /**
- * @deprecated
+ * @deprecated Use `<h3>` directly with Tailwind utility classes instead.
  */
 export const SecondaryHeading: FC<SecondaryHeadingProps & SecondaryHeadingRef> =
   forwardRef(

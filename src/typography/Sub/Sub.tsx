@@ -49,7 +49,7 @@ export interface SubRef {
 }
 
 /**
- * @deprecated
+ * @deprecated Use `<h6>` directly with Tailwind utility classes instead.
  */
 export const Sub: FC<SubProps & SubRef> = forwardRef(
   (

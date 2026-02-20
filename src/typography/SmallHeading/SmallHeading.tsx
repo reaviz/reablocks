@@ -52,7 +52,7 @@ export interface SmallHeadingRef {
 }
 
 /**
- * @deprecated
+ * @deprecated Use `<h5>` directly with Tailwind utility classes instead.
  */
 export const SmallHeading: FC<SmallHeadingProps & SmallHeadingRef> = forwardRef(
   (

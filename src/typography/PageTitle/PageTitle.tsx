@@ -50,7 +50,7 @@ export interface PageTitleRef {
 }
 
 /**
- * @deprecated
+ * @deprecated Use `<h1>` directly with Tailwind utility classes instead.
  */
 export const PageTitle: FC<PageTitleProps & PageTitleRef> = forwardRef(
   (
