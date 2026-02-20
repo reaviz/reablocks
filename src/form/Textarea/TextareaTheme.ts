@@ -15,7 +15,7 @@ export interface TextareaTheme {
 }
 
 export const defaultTextareaTheme: TextareaTheme = {
-  base: 'flex relative flex-row items-center flex-nowrap box-border transition-colors rounded-xs bg-panel border border-panel-accent text-text-primary hover:border-primary-hover hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_transparent_100%)] hover:after:content-[""] hover:after:absolute hover:after:mx-1 hover:after:h-px after:z-2 hover:after:rounded-sm hover:after:-bottom-[1px] hover:after:inset-x-0.5 disabled-within:hover:after:content-none',
+  base: 'flex relative flex-row items-center flex-nowrap box-border transition-colors rounded-xs bg-panel border border-panel-accent text-text-primary hover:border-primary-hover',
   input:
     'resize-none read-only:cursor-not-allowed flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-hidden px-0.5 disabled:cursor-not-allowed disabled:text-disabled placeholder-accent',
   disabled:
