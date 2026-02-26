@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { Input } from '@/form/Input';
+
 import { Button } from '../../elements';
 import { Stack } from '../../layout';
 import { Dialog } from './Dialog';
@@ -68,24 +70,16 @@ export const WithForm = () => {
             setOpen(false);
           }}
         >
-          <DialogHeader>Edit Profile</DialogHeader>
+          <DialogHeader showCloseButton={false}>Edit Profile</DialogHeader>
           <DialogContent>
             <div className="flex flex-col gap-4">
               <label className="flex flex-col gap-1">
                 <span className="text-sm text-text-secondary">Name</span>
-                <input
-                  type="text"
-                  className="px-3 py-2 border border-panel-accent rounded bg-panel"
-                  placeholder="Enter your name"
-                />
+                <Input type="text" placeholder="Enter your name" />
               </label>
               <label className="flex flex-col gap-1">
                 <span className="text-sm text-text-secondary">Email</span>
-                <input
-                  type="email"
-                  className="px-3 py-2 border border-panel-accent rounded bg-panel"
-                  placeholder="Enter your email"
-                />
+                <Input type="email" placeholder="Enter your email" />
               </label>
             </div>
           </DialogContent>
