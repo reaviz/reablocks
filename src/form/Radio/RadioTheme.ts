@@ -58,7 +58,7 @@ export const unifyRadioTheme: RadioTheme = {
   base: 'box-border leading-none group',
   radio: {
     base: `
-          inline-flex justify-center items-center align-middle rounded-full box-content cursor-pointer transition-colors border focus-visible:outline-none
+          inline-flex justify-center items-center align-middle rounded-full cursor-pointer transition-colors border focus-visible:outline-none
           bg-selectors-colors-radio-not-selected-background-resting group-hover:bg-selectors-colors-radio-not-selected-background-hover group-focus-within:bg-selectors-colors-radio-not-selected-background-hover
           border-selectors-colors-radio-not-selected-stroke-resting group-hover:border-selectors-colors-radio-not-selected-stroke-hover group-focus-within:border-selectors-colors-radio-not-selected-stroke-hover
         `,
@@ -86,10 +86,8 @@ export const unifyRadioTheme: RadioTheme = {
     checked: 'text-selectors-colors-text-label-selected'
   },
   sizes: {
-    small:
-      'size-(--selectors-details-width-radio-checkbox-sm) p-(--selectors-details-vertical-padding-lg)',
-    medium:
-      'size-(--selectors-details-width-radio-checkbox-sm) p-(--selectors-details-vertical-padding-lg)',
+    small: 'size-(--selectors-details-width-radio-checkbox-sm)',
+    medium: 'size-(--selectors-details-width-radio-checkbox-sm)',
     large:
       'size-(--selectors-details-width-radio-checkbox-lg) p-(--selectors-details-vertical-padding-lg)'
   }

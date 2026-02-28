@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import { Fragment, useState } from 'react';
 
 import { Radio } from './Radio';
 
@@ -32,17 +32,10 @@ export const Sizes = () => {
   return (
     <Fragment>
       <Radio
-        checked={selectedSize === 'small'}
-        onChange={() => handleSizeChange('small')}
-        size="small"
-        label="Small"
-      />
-      <br />
-      <Radio
         checked={selectedSize === 'medium'}
         onChange={() => handleSizeChange('medium')}
         size="medium"
-        label="Medium"
+        label="Medium (Default)"
       />
       <br />
       <Radio
