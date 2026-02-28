@@ -32,6 +32,13 @@ export const Sizes = () => {
   return (
     <Fragment>
       <Radio
+        checked={selectedSize === 'small'}
+        onChange={() => handleSizeChange('small')}
+        size="small"
+        label="Small"
+      />
+      <br />
+      <Radio
         checked={selectedSize === 'medium'}
         onChange={() => handleSizeChange('medium')}
         size="medium"
