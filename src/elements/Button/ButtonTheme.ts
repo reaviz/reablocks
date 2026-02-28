@@ -121,8 +121,7 @@ export const unifyButtonTheme: ButtonTheme = {
     disabled:opacity-40 disabled:cursor-not-allowed
   `,
   fullWidth: 'flex w-full',
-  group:
-    'rounded-none first:rounded-s last:rounded-e border-s-0 first:border-s',
+  group: 'rounded-none first:rounded-s last:rounded-e border-x-0.5',
   groupText:
     'border border-y-transparent border-l-transparent last:border-r-transparent hover:bg-initial',
   adornment: {
@@ -165,7 +164,7 @@ export const unifyButtonTheme: ButtonTheme = {
     filled:
       'bg-buttons-colors-core-icon-secondary-background-resting hover:bg-buttons-colors-core-icon-secondary-background-hover',
     outline: 'border',
-    text: 'border-0',
+    text: 'border-0!',
     ghost: ''
   },
   colors: {
