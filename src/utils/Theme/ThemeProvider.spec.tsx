@@ -464,7 +464,7 @@ describe('ThemeProvider', () => {
   });
 
   describe('SSR safety', () => {
-    test('should use default theme initially before client-side mount', () => {
+    test('should render with default theme initially then load unify theme async', async () => {
       let contextValue: any = null;
 
       render(
@@ -478,7 +478,12 @@ describe('ThemeProvider', () => {
         </ThemeProvider>
       );
 
+      expect(contextValue.variant).toBe('unify');
       expect(contextValue.theme).toEqual(defaultTheme);
+
+      await waitFor(() => {
+        expect(contextValue.theme).not.toEqual(defaultTheme);
+      });
     });
   });
 

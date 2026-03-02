@@ -4,46 +4,42 @@ import './fonts.css';
 import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 
 import type { ThemeVariant } from '../src/utils/Theme/ThemeProvider';
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
 import theme from './theme';
 
-let currentCssLink: HTMLLinkElement | null = null;
+const CSS_PATHS: Record<Exclude<ThemeVariant, 'custom'>, string> = {
+  default: '/src/index.css',
+  unify: '/src/unify.css'
+};
+
+let currentVariant: ThemeVariant = 'default';
+
+const getThemeLink = () =>
+  document.getElementById('reablocks-theme-style') as HTMLLinkElement | null;
 
 const loadCss = (variant: ThemeVariant) => {
-  if (currentCssLink) {
-    currentCssLink.remove();
-    currentCssLink = null;
-  }
+  if (variant === currentVariant) return;
+  currentVariant = variant;
+
+  const link = getThemeLink();
+  if (!link) return;
 
   if (variant === 'custom') {
+    link.disabled = true;
     return;
   }
 
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.id = 'reablocks-theme-style';
-
-  if (variant === 'unify') {
-    // @ts-expect-error - CSS imports are handled by Storybook's build system
-    import('../src/unify.css');
-    link.href = '/src/unify.css';
-  } else {
-    // @ts-expect-error - CSS imports are handled by Storybook's build system
-    import('../src/index.css');
-    link.href = '/src/index.css';
-  }
-
-  document.head.appendChild(link);
-  currentCssLink = link;
+  link.href = CSS_PATHS[variant];
+  link.disabled = false;
 };
 
 const WithVariant = (Story, context) => {
   const variant = (context.globals?.themeVariant as ThemeVariant) || 'default';
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     loadCss(variant);
   }, [variant]);
 
@@ -84,7 +80,7 @@ const preview: Preview = {
               | 'unify'
               | 'custom') || 'default';
 
-          useEffect(() => {
+          useLayoutEffect(() => {
             loadCss(variant);
           }, [variant]);
 

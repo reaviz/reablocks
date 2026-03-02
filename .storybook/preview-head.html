@@ -1,8 +1,19 @@
 <title>reablocks</title>
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var globals = params.get('globals') || '';
+    var match = globals.match(/theme:([^;&]+)/);
+    var theme = match ? match[1] : 'dark';
+    document.documentElement.classList.add('theme-' + theme);
+    document.documentElement.style.colorScheme = theme !== 'light' ? 'dark' : 'light';
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/src/index.css" id="reablocks-theme-style">
 <style>
   body {
     font-weight: 400;
@@ -10,23 +21,26 @@
     line-height: 1.4;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: #11111F;
+    color: #F7F7FA;
 
     --icon-block-color: #fff;
     --icon-block-background: #000;
     --border-color: #2b2f31;
     --color-layer-transparent: rgba(0, 0, 0, 0.5);
+    --body-color: #F7F7FA;
+  }
 
-    &.theme-light {
-      background: #E6E6F0;
-      color: #000000;
-      --body-color: #000000;
-    }
+  .theme-light body {
+    background: #E6E6F0;
+    color: #000000;
+    --body-color: #000000;
+  }
 
-    &.theme-dark {
-      background: #11111F;
-      color: #F7F7FA;
-      --body-color: #F7F7FA;
-    }
+  .theme-dark body {
+    background: #11111F;
+    color: #F7F7FA;
+    --body-color: #F7F7FA;
   }
 
   .highlighter {
@@ -39,6 +53,16 @@
   .highlighter code .token {
     font-size: 12px;
     font-family: ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,Courier New,monospace !important;
+  }
+
+  .theme-dark .sb-preparing-story,
+  .theme-dark .sb-preparing-docs {
+    background-color: #11111F;
+  }
+
+  .theme-light .sb-preparing-story,
+  .theme-light .sb-preparing-docs {
+    background-color: #E6E6F0;
   }
 
   .theme-light .sb-show-main.sb-main-centered {
