@@ -1,45 +1,31 @@
 /* eslint-disable react/prop-types */
 import './fonts.css';
+import '../src/index.css';
 
 import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
-import React, { useLayoutEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import type { ThemeVariant } from '../src/utils/Theme/ThemeProvider';
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
 import theme from './theme';
 
-const CSS_PATHS: Record<Exclude<ThemeVariant, 'custom'>, string> = {
-  default: '/src/index.css',
-  unify: '/src/unify.css'
-};
-
 let currentVariant: ThemeVariant = 'default';
-
-const getThemeLink = () =>
-  document.getElementById('reablocks-theme-style') as HTMLLinkElement | null;
 
 const loadCss = (variant: ThemeVariant) => {
   if (variant === currentVariant) return;
   currentVariant = variant;
 
-  const link = getThemeLink();
-  if (!link) return;
-
-  if (variant === 'custom') {
-    link.disabled = true;
-    return;
+  if (variant === 'unify') {
+    import('../src/unify.css');
   }
-
-  link.href = CSS_PATHS[variant];
-  link.disabled = false;
 };
 
 const WithVariant = (Story, context) => {
   const variant = (context.globals?.themeVariant as ThemeVariant) || 'default';
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     loadCss(variant);
   }, [variant]);
 
@@ -80,7 +66,7 @@ const preview: Preview = {
               | 'unify'
               | 'custom') || 'default';
 
-          useLayoutEffect(() => {
+          useEffect(() => {
             loadCss(variant);
           }, [variant]);
 
