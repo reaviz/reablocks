@@ -3,7 +3,7 @@ export interface EllipsisTheme {
 }
 
 export const defaultEllipsisTheme: EllipsisTheme = {
-  dots: ''
+  dots: 'cursor-pointer opacity-50 text-[unset] p-0 border-[none] outline-hidden'
 };
 
 export const unifyEllipsisTheme: EllipsisTheme = {
