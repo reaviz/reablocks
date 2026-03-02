@@ -44,7 +44,7 @@ export const defaultPagerTheme: PagerTheme = {
 export const unifyPagerTheme: PagerTheme = {
   base: 'items-center flex user-select-none gap-5',
   pages: {
-    base: 'inline-flex gap-1 text-sm',
+    base: 'inline-flex items-center gap-1 text-sm',
     page: {
       base: `
         text-xs text-buttons-colors-core-icon-ghost-text-resting py-2 min-w-8 transition-colors border
