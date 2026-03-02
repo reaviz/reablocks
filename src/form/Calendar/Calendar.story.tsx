@@ -43,7 +43,7 @@ export const Simple = () => {
   );
 };
 
-export const WithTime = () => {
+export const With24HourTime = () => {
   const [date, setDate] = useState<Date>();
 
   return (
@@ -63,7 +63,7 @@ export const WithTime = () => {
   );
 };
 
-export const WithTime12HourCycle = () => {
+export const With12HourTime = () => {
   const [date, setDate] = useState<Date>();
 
   return (
@@ -248,7 +248,7 @@ export const MinMax = () => {
   );
 };
 
-export const MinMaxWithTime = () => {
+export const MinMaxWith24HourTime = () => {
   const [date, setDate] = useState<Date>(new Date());
 
   return (
@@ -329,7 +329,7 @@ export const Range = () => {
   );
 };
 
-export const RangeWithTime = () => {
+export const RangeWith24HourTime = () => {
   const [range, setRange] = useState<[Date, Date]>();
 
   return (

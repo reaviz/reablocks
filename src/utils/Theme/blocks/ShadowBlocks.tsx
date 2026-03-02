@@ -1,9 +1,11 @@
 import React from 'react';
 
 export const ShadowBlocks = ({
-  shadows
+  shadows,
+  theme = 'dark'
 }: {
   shadows: { [key: string]: string };
+  theme?: string;
 }) => (
   <div
     style={{
@@ -57,13 +59,18 @@ export const ShadowBlocks = ({
             >
               <div
                 style={{
-                  backgroundColor: '#191919',
-                  padding: '12px',
+                  backgroundColor:
+                    'var(--color-layer-transparent, rgba(0,0,0,0.1))',
+                  padding: '20px 24px',
                   fontSize: '16px',
-                  boxShadow: shadows[key]
+                  borderRadius: '6px',
+                  boxShadow:
+                    theme === 'light'
+                      ? `0 ${shadows[key]} calc(${shadows[key]} * 2) rgba(0, 0, 0, 0.4), 0 calc(${shadows[key]} / 2) ${shadows[key]} rgba(0, 0, 0, 0.3)`
+                      : `0 ${shadows[key]} calc(${shadows[key]} * 2) rgba(255, 255, 255, 0.15), 0 calc(${shadows[key]} / 2) ${shadows[key]} rgba(255, 255, 255, 0.1)`
                 }}
               >
-                Content
+                {key}
               </div>
             </div>
           </div>

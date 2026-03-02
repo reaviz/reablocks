@@ -8,7 +8,7 @@ export interface ArrowTheme {
 
 export const defaultArrowTheme: ArrowTheme = {
   base: 'text-text-primary',
-  up: 'rotate-x180',
+  up: 'rotate-180',
   down: '',
   left: 'rotate-90',
   right: '-rotate-90'

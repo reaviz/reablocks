@@ -12,6 +12,6 @@ export const defaultAvatarGroupTheme: AvatarGroupTheme = {
 
 export const unifyAvatarGroupTheme: AvatarGroupTheme = {
   base: 'flex items-center text-avatar-colors-text-resting',
-  avatar: '-ml-2.5',
+  avatar: '-ml-2.5 [&>*]:after:hidden',
   overflow: 'ml-[5px]'
 };

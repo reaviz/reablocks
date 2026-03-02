@@ -42,7 +42,7 @@ export const Simple: Story = {
             </div>
           )}
         >
-          <button type="button">HiOOO!!!</button>
+          <button type="button">Click me</button>
         </ConnectedOverlay>
       </div>
     );
@@ -70,6 +70,7 @@ export const DefaultOpen: Story = {
             <div
               style={{
                 background: 'black',
+                color: 'white',
                 padding: 15
               }}
             >
@@ -77,7 +78,7 @@ export const DefaultOpen: Story = {
             </div>
           )}
         >
-          <button type="button">HiOOO!!!</button>
+          <button type="button">Click me</button>
         </ConnectedOverlay>
       </div>
     );
@@ -158,8 +159,9 @@ const Menu = ({ children, open, reference, onClose }: any) => (
     content={() => (
       <motion.div
         style={{
-          padding: '5px 20px 5px 0',
+          padding: '5px 20px',
           background: 'rgba(0, 0, 0, .5)',
+          backdropFilter: 'blur(8px)',
           color: 'white',
           borderRadius: 5
         }}
@@ -275,13 +277,13 @@ const ContextMenu: FC<PropsWithChildren<{ content: any }>> = ({
   return (
     <ConnectedOverlay
       trigger="contextmenu"
-      placement="bottom"
+      placement="bottom-start"
       triggerElement="div"
       open={open}
       content={() => (
         <motion.div
           style={{
-            padding: 5,
+            padding: '5px 20px',
             background: 'rgba(0, 0, 0, .5)',
             color: 'white',
             borderRadius: 5

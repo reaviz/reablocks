@@ -37,7 +37,7 @@ export const Outline: StoryObj<typeof Avatar> = {
 
 export const RoundedWithImage: StoryObj<typeof Avatar> = {
   args: {
-    src: 'https://i.pravatar.cc/128',
+    src: 'https://avatars.githubusercontent.com/u/227909?s=96&v=4',
     size: 50,
     rounded: true
   }

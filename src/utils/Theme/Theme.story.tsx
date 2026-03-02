@@ -70,8 +70,25 @@ export const Borders = (_: unknown, { borderRadius }) => (
   <BorderBlocks borders={borderRadius} />
 );
 
-export const Shadows = (_: unknown, { boxShadow }) => (
-  <ShadowBlocks shadows={boxShadow} />
+const dropShadows: Record<string, string> = {
+  'drop-shadow-0': '0rem',
+  'drop-shadow-1': '0.0625rem',
+  'drop-shadow-2': '0.125rem',
+  'drop-shadow-4': '0.25rem',
+  'drop-shadow-6': '0.375rem',
+  'drop-shadow-8': '0.5rem',
+  'drop-shadow-10': '0.625rem',
+  'drop-shadow-12': '0.75rem',
+  'drop-shadow-14': '0.875rem',
+  'drop-shadow-16': '1rem',
+  'drop-shadow-18': '1.125rem',
+  'drop-shadow-20': '1.25rem',
+  'drop-shadow-40': '2.5rem',
+  'drop-shadow-60': '3.75rem'
+};
+
+export const Shadows = (_: unknown, { theme }) => (
+  <ShadowBlocks shadows={dropShadows} theme={theme} />
 );
 
 export const Components = () => {
