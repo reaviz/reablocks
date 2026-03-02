@@ -7,18 +7,24 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
 import React, { useEffect } from 'react';
 
+import unifyCss from '../src/unify.css?inline';
 import type { ThemeVariant } from '../src/utils/Theme/ThemeProvider';
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
 import theme from './theme';
 
-let currentVariant: ThemeVariant = 'default';
+const UNIFY_STYLE_ID = 'reablocks-unify-css';
 
-const loadCss = (variant: ThemeVariant) => {
-  if (variant === currentVariant) return;
-  currentVariant = variant;
-
+const applyVariantCss = (variant: ThemeVariant) => {
+  const existing = document.getElementById(UNIFY_STYLE_ID);
   if (variant === 'unify') {
-    import('../src/unify.css');
+    if (!existing) {
+      const style = document.createElement('style');
+      style.id = UNIFY_STYLE_ID;
+      style.textContent = unifyCss;
+      document.head.appendChild(style);
+    }
+  } else {
+    existing?.remove();
   }
 };
 
@@ -26,7 +32,7 @@ const WithVariant = (Story, context) => {
   const variant = (context.globals?.themeVariant as ThemeVariant) || 'default';
 
   useEffect(() => {
-    loadCss(variant);
+    applyVariantCss(variant);
   }, [variant]);
 
   return (
@@ -67,7 +73,7 @@ const preview: Preview = {
               | 'custom') || 'default';
 
           useEffect(() => {
-            loadCss(variant);
+            applyVariantCss(variant);
           }, [variant]);
 
           return (

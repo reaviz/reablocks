@@ -7,8 +7,12 @@ import isEqual from 'react-fast-compare';
 import { getThemeVariables, mergeDeep, observeThemeSwitcher } from './helpers';
 import type { ReablocksTheme } from './themes/default';
 import { theme as defaultTheme } from './themes/default';
+import { themeUnify } from './themes/themeUnify';
 
 export type ThemeVariant = 'default' | 'unify' | 'custom';
+
+const getBaseTheme = (variant: ThemeVariant): ReablocksTheme =>
+  variant === 'unify' ? themeUnify : defaultTheme;
 
 export interface ThemeContextProps {
   theme: ReablocksTheme;
@@ -63,9 +67,11 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   replaceTheme = false,
   variant = 'default'
 }) => {
-  const [baseTheme, setBaseTheme] = useState<ReablocksTheme>(defaultTheme);
+  const [baseTheme, setBaseTheme] = useState<ReablocksTheme>(() =>
+    getBaseTheme(variant)
+  );
   const [activeTheme, setActiveTheme] = useState<ReablocksTheme>(() =>
-    resolveActiveTheme(defaultTheme, theme, replaceTheme)
+    resolveActiveTheme(getBaseTheme(variant), theme, replaceTheme)
   );
   const [tokens, setTokens] = useState<Record<string, string>>({});
   const variantRef = useRef(variant);
@@ -80,35 +86,8 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
       );
       variantRef.current = variant;
     }
-  }, [variant, replaceTheme]);
 
-  useEffect(() => {
-    if (replaceTheme) return () => undefined;
-
-    let isCancelled = false;
-
-    if (variant === 'unify') {
-      import('./themes/themeUnify')
-        .then(module => {
-          if (isCancelled) return;
-          setBaseTheme(module.themeUnify);
-        })
-        .catch(error => {
-          if (isCancelled) return;
-          console.error(
-            '[ThemeProvider] Failed to load Unify theme. Falling back to default theme. ' +
-              'Make sure you have imported "reablocks/unify.css" in your application.',
-            error
-          );
-          setBaseTheme(defaultTheme);
-        });
-    } else {
-      setBaseTheme(defaultTheme);
-    }
-
-    return () => {
-      isCancelled = true;
-    };
+    setBaseTheme(getBaseTheme(variant));
   }, [variant, replaceTheme]);
 
   useEffect(() => {
