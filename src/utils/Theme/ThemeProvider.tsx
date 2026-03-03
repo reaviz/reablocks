@@ -7,8 +7,12 @@ import isEqual from 'react-fast-compare';
 import { getThemeVariables, mergeDeep, observeThemeSwitcher } from './helpers';
 import type { ReablocksTheme } from './themes/default';
 import { theme as defaultTheme } from './themes/default';
+import { themeUnify } from './themes/themeUnify';
 
 export type ThemeVariant = 'default' | 'unify' | 'custom';
+
+const getBaseTheme = (variant: ThemeVariant): ReablocksTheme =>
+  variant === 'unify' ? themeUnify : defaultTheme;
 
 export interface ThemeContextProps {
   theme: ReablocksTheme;
@@ -31,9 +35,31 @@ export interface ThemeProviderProps extends PropsWithChildren {
    * - 'default': Uses default theme with 'reablocks/index.css'
    * - 'unify': Uses Unify theme with 'reablocks/unify.css'
    * - 'custom': Uses default theme structure with your own CSS file (no reablocks CSS imported)
+   *
+   * Users must manually import the corresponding CSS file in their application:
+   * - default: `import 'reablocks/index.css'`
+   * - unify: `import 'reablocks/unify.css'`
    */
   variant?: ThemeVariant;
 }
+
+const isCompleteTheme = (t: unknown): t is ReablocksTheme =>
+  !!t &&
+  typeof t === 'object' &&
+  'components' in t &&
+  !!t.components &&
+  typeof t.components === 'object';
+
+const resolveActiveTheme = (
+  baseTheme: ReablocksTheme,
+  theme: ThemeProviderProps['theme'],
+  replaceTheme: boolean
+): ReablocksTheme => {
+  if (replaceTheme) {
+    return isCompleteTheme(theme) ? theme : defaultTheme;
+  }
+  return theme ? mergeDeep(baseTheme, theme) : baseTheme;
+};
 
 export const ThemeProvider: FC<ThemeProviderProps> = ({
   children,
@@ -41,16 +67,14 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   replaceTheme = false,
   variant = 'default'
 }) => {
-  const [baseTheme, setBaseTheme] = useState<ReablocksTheme>(defaultTheme);
-  const [activeTheme, setActiveTheme] = useState<ReablocksTheme>(defaultTheme);
+  const [baseTheme, setBaseTheme] = useState<ReablocksTheme>(() =>
+    getBaseTheme(variant)
+  );
+  const [activeTheme, setActiveTheme] = useState<ReablocksTheme>(() =>
+    resolveActiveTheme(getBaseTheme(variant), theme, replaceTheme)
+  );
   const [tokens, setTokens] = useState<Record<string, string>>({});
-  const [isClient, setIsClient] = useState(false);
   const variantRef = useRef(variant);
-
-  // Detect client-side mount (SSR-safe)
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
 
   useEffect(() => {
     if (replaceTheme) return;
@@ -62,69 +86,24 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
       );
       variantRef.current = variant;
     }
+
+    setBaseTheme(getBaseTheme(variant));
   }, [variant, replaceTheme]);
 
   useEffect(() => {
-    if (!isClient || replaceTheme) return;
+    const next = resolveActiveTheme(baseTheme, theme, replaceTheme);
+    setActiveTheme(next);
 
-    let isCancelled = false;
-
-    if (variant === 'unify') {
-      import('./themes/themeUnify')
-        .then(module => {
-          if (isCancelled) return;
-          setBaseTheme(module.themeUnify);
-        })
-        .catch(error => {
-          if (isCancelled) return;
-          console.error(
-            '[ThemeProvider] Failed to load Unify theme. Falling back to default theme. ' +
-              'Make sure you have imported "reablocks/unify.css" in your application.',
-            error
-          );
-          setBaseTheme(defaultTheme);
-        });
-    } else {
-      setBaseTheme(defaultTheme);
-    }
-
-    return () => {
-      isCancelled = true;
-    };
-  }, [variant, isClient, replaceTheme]);
-
-  // Handle theme: merge with base theme or replace entirely if replaceTheme is true
-  useEffect(() => {
-    if (replaceTheme) {
-      if (
-        theme &&
-        'components' in theme &&
-        theme.components &&
-        typeof theme.components === 'object'
-      ) {
-        setActiveTheme(theme as ReablocksTheme);
-      } else if (!theme) {
-        console.warn(
-          '[ThemeProvider] `replaceTheme` is true but `theme` is missing.' +
-            'Falling back to default theme. Provide a complete `ReablocksTheme` object to fully replace the base theme.'
-        );
-        setActiveTheme(defaultTheme);
-      } else {
-        console.warn(
-          '[ThemeProvider] `replaceTheme` is true but `theme` is not a complete theme. ' +
-            'Using default theme. Provide a complete `ReablocksTheme` object to fully replace the base theme.'
-        );
-        setActiveTheme(defaultTheme);
-      }
-    } else {
-      const merged = theme ? mergeDeep(baseTheme, theme) : baseTheme;
-      setActiveTheme(merged);
+    if (replaceTheme && !isCompleteTheme(theme)) {
+      const reason = !theme ? 'missing' : 'not a complete theme';
+      console.warn(
+        `[ThemeProvider] \`replaceTheme\` is true but \`theme\` is ${reason}. ` +
+          'Falling back to default theme. Provide a complete `ReablocksTheme` object to fully replace the base theme.'
+      );
     }
   }, [baseTheme, theme, replaceTheme]);
 
   useEffect(() => {
-    if (!isClient) return;
-
     setTokens(getThemeVariables());
 
     const themeObserver = observeThemeSwitcher(() =>
@@ -132,7 +111,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     );
 
     return () => themeObserver.disconnect();
-  }, [isClient, variant]);
+  }, [variant]);
 
   const updateTheme = (newTheme: ReablocksTheme) => {
     setActiveTheme(prev => {
