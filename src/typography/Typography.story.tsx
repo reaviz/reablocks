@@ -12,7 +12,7 @@ export const Heading = () => (
   <div className="grid grid-cols-[50px_250px_1fr] gap-4 auto-rows-[40px] justify-center items-center">
     <Typography variant="h1">H1</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Regular | 40 / 48 / 0
+      Inter | Regular | 40 / 48 / 0
     </Typography>
     <Typography variant="h1" className="truncate">
       Quantum flux stabilizer online protocol
@@ -21,7 +21,7 @@ export const Heading = () => (
       H1
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Medium | 40 / 48 / 0
+      Inter | Medium | 40 / 48 / 0
     </Typography>
     <Typography variant="h1" size="medium" weight="medium" className="truncate">
       Quantum flux stabilizer online protocol
@@ -30,7 +30,7 @@ export const Heading = () => (
       H1
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Bold | 40 / 48 / 0
+      Inter | Bold | 40 / 48 / 0
     </Typography>
     <Typography variant="h1" size="medium" weight="bold" className="truncate">
       Quantum flux stabilizer online protocol
@@ -40,7 +40,7 @@ export const Heading = () => (
     <Divider />
     <Typography variant="h2">H2</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Regular | 32 / 36 / 0
+      Inter | Regular | 32 / 36 / 0
     </Typography>
     <Typography variant="h2" className="truncate">
       Quantum flux stabilizer online protocol
@@ -49,7 +49,7 @@ export const Heading = () => (
       H2
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Medium | 32 / 36 / 0
+      Inter | Medium | 32 / 36 / 0
     </Typography>
     <Typography variant="h2" size="medium" weight="medium" className="truncate">
       Quantum flux stabilizer online protocol
@@ -58,7 +58,7 @@ export const Heading = () => (
       H2
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Bold | 32 / 36 / 0
+      Inter | Bold | 32 / 36 / 0
     </Typography>
     <Typography variant="h2" size="medium" weight="bold" className="truncate">
       Quantum flux stabilizer online protocol
@@ -68,7 +68,7 @@ export const Heading = () => (
     <Divider />
     <Typography variant="h3">H3</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Regular | 28 / 32 / 0
+      Inter | Regular | 28 / 32 / 0
     </Typography>
     <Typography variant="h3" className="truncate">
       Quantum flux stabilizer online protocol
@@ -77,7 +77,7 @@ export const Heading = () => (
       H3
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Medium | 28 / 32 / 0
+      Inter | Medium | 28 / 32 / 0
     </Typography>
     <Typography variant="h3" size="medium" weight="medium" className="truncate">
       Quantum flux stabilizer online protocol
@@ -86,7 +86,7 @@ export const Heading = () => (
       H3
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Bold | 28 / 32 / 0
+      Inter | Bold | 28 / 32 / 0
     </Typography>
     <Typography variant="h3" size="medium" weight="bold" className="truncate">
       Quantum flux stabilizer online protocol
@@ -96,7 +96,7 @@ export const Heading = () => (
     <Divider />
     <Typography variant="h4">H4</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Regular | 24 / 28 / 0
+      Inter | Regular | 24 / 28 / 0
     </Typography>
     <Typography variant="h4" className="truncate">
       Quantum flux stabilizer online protocol
@@ -105,7 +105,7 @@ export const Heading = () => (
       H4
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Medium | 24 / 28 / 0
+      Inter | Medium | 24 / 28 / 0
     </Typography>
     <Typography variant="h4" size="medium" weight="medium" className="truncate">
       Quantum flux stabilizer online protocol
@@ -114,7 +114,7 @@ export const Heading = () => (
       H4
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Bold | 24 / 28 / 0
+      Inter | Bold | 24 / 28 / 0
     </Typography>
     <Typography variant="h4" size="medium" weight="bold" className="truncate">
       Quantum flux stabilizer online protocol
@@ -124,7 +124,7 @@ export const Heading = () => (
     <Divider />
     <Typography variant="h5">H5</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Regular | 20 / 24 / 0
+      Inter | Regular | 20 / 24 / 0
     </Typography>
     <Typography variant="h5" className="truncate">
       Quantum flux stabilizer online protocol
@@ -133,7 +133,7 @@ export const Heading = () => (
       H5
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Medium | 20 / 24 / 0
+      Inter | Medium | 20 / 24 / 0
     </Typography>
     <Typography variant="h5" size="medium" weight="medium" className="truncate">
       Quantum flux stabilizer online protocol
@@ -142,7 +142,7 @@ export const Heading = () => (
       H5
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Bold | 20 / 24 / 0
+      Inter | Bold | 20 / 24 / 0
     </Typography>
     <Typography variant="h5" size="medium" weight="bold" className="truncate">
       Quantum flux stabilizer online protocol
@@ -152,7 +152,7 @@ export const Heading = () => (
     <Divider />
     <Typography variant="h6">H6</Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Regular | 16 / 24 / 0
+      Inter | Regular | 16 / 24 / 0
     </Typography>
     <Typography variant="h6" className="truncate">
       Quantum flux stabilizer online protocol
@@ -161,7 +161,7 @@ export const Heading = () => (
       H6
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Medium | 16 / 24 / 0
+      Inter | Medium | 16 / 24 / 0
     </Typography>
     <Typography variant="h6" size="medium" weight="medium" className="truncate">
       Quantum flux stabilizer online protocol
@@ -170,7 +170,7 @@ export const Heading = () => (
       H6
     </Typography>
     <Typography variant="label" size="medium" weight="bold" color="secondary">
-      Proxima Nova | Bold | 16 / 24 / 0
+      Inter | Bold | 16 / 24 / 0
     </Typography>
     <Typography variant="h6" size="medium" weight="bold" className="truncate">
       Quantum flux stabilizer online protocol

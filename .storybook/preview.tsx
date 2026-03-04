@@ -1,6 +1,3 @@
-/* eslint-disable react/prop-types */
-import './fonts.css';
-
 import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
