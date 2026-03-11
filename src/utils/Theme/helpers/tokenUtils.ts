@@ -76,7 +76,9 @@ export const getThemeVariables = (): Record<string, string> => {
     return Array.from(cssRules).reduce((acc, rule) => {
       if (
         rule instanceof CSSStyleRule &&
-        rule.selectorText === ':root, :host'
+        (rule.selectorText === ':root, :host' ||
+          rule.selectorText === ':root' ||
+          rule.selectorText === ':host')
       ) {
         acc.push(rule);
       }
