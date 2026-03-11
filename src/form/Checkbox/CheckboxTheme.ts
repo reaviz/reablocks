@@ -54,7 +54,7 @@ export interface CheckboxTheme {
 }
 
 const baseTheme: Partial<CheckboxTheme> = {
-  base: 'inline-flex items-center w-full group',
+  base: 'inline-flex items-center w-full group/checkbox',
   label: {
     base: 'dark:text-gray-400 light:text-gray-700 ml-2.5 w-full',
     checked: 'checked dark:text-gray-100 light:text-gray-900',
@@ -98,51 +98,54 @@ export const checkboxTheme: CheckboxTheme = {
     ].join(' '),
     checked: [
       baseTheme.checkbox.checked,
-      'group-hover:fill-blue-400',
-      'light:group-hover:fill-blue-600',
-      'light:group-hover:[&.disabled]:fill-gray-400'
+      'group-hover/checkbox:fill-blue-400',
+      'light:group-hover/checkbox:fill-blue-600',
+      'light:group-hover/checkbox:[&.disabled]:fill-gray-400'
     ].join(' '),
     disabled: [
       baseTheme.checkbox.disabled,
-      'group-hover:transparent',
-      'light:group-hover:transparent'
+      'group-hover/checkbox:transparent',
+      'light:group-hover/checkbox:transparent'
     ].join(' ')
   },
   check: {
     ...baseTheme.check,
     base: [
       baseTheme.check.base,
-      'group-hover:stroke-black light:group-hover:stroke-white'
+      'group-hover/checkbox:stroke-black light:group-hover/checkbox:stroke-white'
     ].join(' '),
     disabled: [
       baseTheme.check.disabled,
-      'stroke-black light:stroke-white group-hover:stroke-black '
+      'stroke-black light:stroke-white group-hover/checkbox:stroke-black '
     ].join(' ')
   },
   border: {
     ...baseTheme.border,
     base: [
       baseTheme.border.base,
-      'dark:group-hover:stroke-blue-300',
-      'light:group-hover:stroke-blue-600'
+      'dark:group-hover/checkbox:stroke-blue-300',
+      'light:group-hover/checkbox:stroke-blue-600'
     ].join(' '),
     disabled: [
       baseTheme.border.disabled,
-      'dark:group-hover:stroke-gray-500',
-      'light:group-hover:stroke-gray-400'
+      'dark:group-hover/checkbox:stroke-gray-500',
+      'light:group-hover/checkbox:stroke-gray-400'
     ].join(' ')
   },
   label: {
     ...baseTheme.label,
     base: [
       baseTheme.label.base,
-      'text-text-primary dark:group-hover:text-blue-300 light:group-hover:text-blue-400'
+      'text-text-primary dark:group-hover/checkbox:text-blue-300 light:group-hover/checkbox:text-blue-400'
     ].join(' '),
-    checked: [baseTheme.label.checked, 'group-hover:text-gray-100'].join(' '),
+    checked: [
+      baseTheme.label.checked,
+      'group-hover/checkbox:text-gray-100'
+    ].join(' '),
     disabled: [
       baseTheme.label.disabled,
-      'light:group-hover:text-gray-400',
-      'dark:group-hover:text-gray-600'
+      'light:group-hover/checkbox:text-gray-400',
+      'dark:group-hover/checkbox:text-gray-600'
     ].join(' ')
   },
   boxVariants: {
