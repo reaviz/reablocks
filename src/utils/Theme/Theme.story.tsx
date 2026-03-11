@@ -13,64 +13,62 @@ import { useTheme } from './hooks/useTheme';
 import { extractTheme } from './themes/extractTheme';
 
 export default {
-  title: 'Components/Theme',
-  decorators: [
-    Story => {
-      const { tokens } = useTheme();
-
-      const {
-        colors,
-        borderRadius,
-        boxShadow,
-        spacing,
-        fontFamily,
-        fontSize,
-        fontWeight
-      } = extractTheme(tokens);
-
-      return (
-        <div style={{ width: '95vw' }}>
-          <Story
-            colors={colors}
-            borderRadius={borderRadius}
-            boxShadow={boxShadow}
-            spacing={spacing}
-            fontFamily={fontFamily}
-            fontSize={fontSize}
-            fontWeight={fontWeight}
-          />
-        </div>
-      );
-    }
-  ]
+  title: 'Components/Theme'
 };
 
-export const Colors = (_: unknown, { colors }) => {
-  return <ColorBlocks colors={colors} />;
+export const Colors = () => {
+  const { tokens } = useTheme();
+  const { colors } = extractTheme(tokens);
+  return (
+    <div style={{ width: '95vw' }}>
+      <ColorBlocks colors={colors} />
+    </div>
+  );
 };
 
-export const Typography = (
-  __: unknown,
-  { fontFamily, fontSize, fontWeight }
-) => (
-  <TypographyBlocks
-    families={fontFamily}
-    sizes={fontSize}
-    weights={fontWeight}
-  />
-);
+export const Typography = () => {
+  const { tokens } = useTheme();
+  const { fontFamily, fontSize, fontWeight } = extractTheme(tokens);
+  return (
+    <div style={{ width: '95vw' }}>
+      <TypographyBlocks
+        families={fontFamily}
+        sizes={fontSize}
+        weights={fontWeight}
+      />
+    </div>
+  );
+};
 
-export const Spacings = (__: unknown, { spacing }) => (
-  <SpacingBlocks spacings={spacing} />
-);
+export const Spacings = () => {
+  const { tokens } = useTheme();
+  const { spacing } = extractTheme(tokens);
+  return (
+    <div style={{ width: '95vw' }}>
+      <SpacingBlocks spacings={spacing} />
+    </div>
+  );
+};
 
-export const Borders = (_: unknown, { borderRadius }) => (
-  <BorderBlocks borders={borderRadius} />
-);
+export const Borders = () => {
+  const { tokens } = useTheme();
+  const { borderRadius } = extractTheme(tokens);
+  return (
+    <div style={{ width: '95vw' }}>
+      <BorderBlocks borders={borderRadius} />
+    </div>
+  );
+};
 
-export const Shadows = (_: unknown, { boxShadow }) => (
-  <ShadowBlocks shadows={boxShadow} />
-);
+export const Shadows = () => {
+  const { tokens } = useTheme();
+  const { boxShadow } = extractTheme(tokens);
+  return (
+    <div style={{ width: '95vw' }}>
+      <ShadowBlocks shadows={boxShadow} />
+    </div>
+  );
+};
 
 export const Components = () => {
   const { theme } = useTheme();
