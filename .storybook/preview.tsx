@@ -1,6 +1,4 @@
-
 /* eslint-disable react/prop-types */
-import './fonts.css';
 import '../src/index.css';
 
 import { DocsContainer } from '@storybook/addon-docs/blocks';
