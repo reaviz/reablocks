@@ -1,47 +1,39 @@
+
+/* eslint-disable react/prop-types */
+import './fonts.css';
+import '../src/index.css';
+
 import { DocsContainer } from '@storybook/addon-docs/blocks';
 import { withThemeByClassName } from '@storybook/addon-themes';
 import type { Preview } from '@storybook/react';
 import React, { useEffect } from 'react';
 
+import unifyCss from '../src/unify.css?inline';
 import type { ThemeVariant } from '../src/utils/Theme/ThemeProvider';
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
 import theme from './theme';
 
-let currentCssLink: HTMLLinkElement | null = null;
+const UNIFY_STYLE_ID = 'reablocks-unify-css';
 
-const loadCss = (variant: ThemeVariant) => {
-  if (currentCssLink) {
-    currentCssLink.remove();
-    currentCssLink = null;
-  }
-
-  if (variant === 'custom') {
-    return;
-  }
-
-  const link = document.createElement('link');
-  link.rel = 'stylesheet';
-  link.id = 'reablocks-theme-style';
-
+const applyVariantCss = (variant: ThemeVariant) => {
+  const existing = document.getElementById(UNIFY_STYLE_ID);
   if (variant === 'unify') {
-    // @ts-expect-error - CSS imports are handled by Storybook's build system
-    import('../src/unify.css');
-    link.href = '/src/unify.css';
+    if (!existing) {
+      const style = document.createElement('style');
+      style.id = UNIFY_STYLE_ID;
+      style.textContent = unifyCss;
+      document.head.appendChild(style);
+    }
   } else {
-    // @ts-expect-error - CSS imports are handled by Storybook's build system
-    import('../src/index.css');
-    link.href = '/src/index.css';
+    existing?.remove();
   }
-
-  document.head.appendChild(link);
-  currentCssLink = link;
 };
 
 const WithVariant = (Story, context) => {
   const variant = (context.globals?.themeVariant as ThemeVariant) || 'default';
 
   useEffect(() => {
-    loadCss(variant);
+    applyVariantCss(variant);
   }, [variant]);
 
   return (
@@ -82,7 +74,7 @@ const preview: Preview = {
               | 'custom') || 'default';
 
           useEffect(() => {
-            loadCss(variant);
+            applyVariantCss(variant);
           }, [variant]);
 
           return (
