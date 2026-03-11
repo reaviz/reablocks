@@ -1,6 +1,5 @@
 import { Fragment } from 'react';
 import { Notifications, NotificationsContext } from '../../layers';
-import { Text } from '../../typography';
 import { Button } from '../Button';
 import { Badge } from './Badge';
 

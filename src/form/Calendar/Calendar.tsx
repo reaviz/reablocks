@@ -29,7 +29,6 @@ import {
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
-import { SmallHeading } from '@/typography';
 import { twMerge } from 'tailwind-merge';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from './CalendarTheme';
@@ -350,7 +349,7 @@ export const Calendar: FC<CalendarProps> = ({
               disablePadding
               fullWidth
             >
-              <SmallHeading disableMargins className={theme.title}>
+              <span className={theme.title}>
                 {view === 'days' && format(viewValue, 'MMMM')}
                 {view === 'months' && <>{yearValue}</>}
                 {view === 'years' && (
@@ -358,7 +357,7 @@ export const Calendar: FC<CalendarProps> = ({
                     {decadeStart.getFullYear()}-{decadeEnd.getFullYear()}
                   </>
                 )}
-              </SmallHeading>
+              </span>
             </Button>
             <Button
               variant="text"

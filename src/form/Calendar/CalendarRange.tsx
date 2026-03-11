@@ -11,17 +11,15 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Button } from '@/elements';
 import { CalendarProps } from './Calendar';
 import { CalendarDays } from './CalendarDays';
-import { SmallHeading } from '@/typography';
 import { Divider, Stack } from '@/layout';
 import { useComponentTheme } from '@/utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
 import { CalendarPresets, PresetOption } from './CalendarPresets';
 
-export interface CalendarRangeProps
-  extends Omit<
-    CalendarProps,
-    'value' | 'isRange' | 'onViewChange' | 'theme' | 'showTime'
-  > {
+export interface CalendarRangeProps extends Omit<
+  CalendarProps,
+  'value' | 'isRange' | 'onViewChange' | 'theme' | 'showTime'
+> {
   /**
    * The selected date(s) for the calendar.
    */
@@ -204,7 +202,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 {previousArrow}
               </Button>
             </Stack>
-            <SmallHeading className={theme.title} disableMargins>
+            <span className={theme.title}>
               {displayMonths.map(i => (
                 <span
                   key={addMonths(viewValue, showPast ? -i : i).toDateString()}
@@ -215,7 +213,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                   )}
                 </span>
               ))}
-            </SmallHeading>
+            </span>
             <Stack>
               <Button
                 variant="text"

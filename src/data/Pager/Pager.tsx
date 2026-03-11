@@ -1,7 +1,6 @@
 import React, { FC, Fragment, ReactNode, useCallback } from 'react';
 import { Button } from '@/elements';
 import { Stack } from '@/layout';
-import { Text } from '@/typography';
 import { Pluralize } from '@/data/Pluralize';
 import EndArrow from './assets/arrow-end.svg?react';
 import NextArrow from './assets/arrow-next.svg?react';
@@ -128,23 +127,23 @@ export const Pager: FC<PagerProps> = ({
       {(displayMode === 'items' || displayMode === 'all') && (
         <div className={theme.pagerDisplayItems}>
           {pageCount === 1 && total > 0 && (
-            <Text>
+            <span>
               Showing {total === 1 ? total : `all ${total.toLocaleString()}`}{' '}
               <Pluralize count={total} singular="item" showCount={false} />
-            </Text>
+            </span>
           )}
           {pageCount > 1 && (
             <Stack className={theme.itemsDisplay} dense>
-              <Text>
-                <Text className={theme.showPageRange}>
+              <span>
+                <span className={theme.showPageRange}>
                   {startItem.toLocaleString()}-{endItem.toLocaleString()}
-                </Text>{' '}
+                </span>{' '}
                 of{' '}
-                <Text className={theme.totalCount}>
+                <span className={theme.totalCount}>
                   {total.toLocaleString()}
-                </Text>{' '}
+                </span>{' '}
                 <Pluralize count={total} singular="item" showCount={false} />
-              </Text>
+              </span>
             </Stack>
           )}
         </div>

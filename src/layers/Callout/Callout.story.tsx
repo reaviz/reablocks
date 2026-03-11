@@ -1,6 +1,5 @@
 import React from 'react';
 import { Stack } from '@/layout';
-import { Text } from '@/typography';
 
 import {
   Callout,
@@ -47,13 +46,11 @@ export const CustomText = () => (
     <InfoCallout
       variant="info"
       text={
-        <Text>
+        <span>
           You will need{' '}
-          <Text fontStyle="bold" color="warning">
-            admin
-          </Text>{' '}
-          privileges to install and access this application.
-        </Text>
+          <span className="font-semibold text-warning">admin</span> privileges
+          to install and access this application.
+        </span>
       }
     />
   </div>

@@ -78,7 +78,7 @@ const baseTheme: CalendarTheme = {
     mid: '',
     next: 'text-xl leading-4'
   },
-  title: 'font-semibold leading-[normal]',
+  title: 'text-base font-semibold leading-[normal]',
   content: 'flex',
 
   days: {

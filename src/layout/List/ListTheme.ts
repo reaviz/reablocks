@@ -26,7 +26,7 @@ export interface ListTheme {
 
 const baseTheme: ListTheme = {
   base: 'flex flex-col',
-  header: 'pl-2 pr-2',
+  header: 'pl-2 pr-2 text-sm font-semibold mb-0.5',
   listItem: {
     base: 'items-center flex p-2.5 relative rounded-none',
     disabled: 'cursor-not-allowed pointer-events-none',

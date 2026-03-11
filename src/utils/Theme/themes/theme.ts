@@ -134,12 +134,6 @@ import {
 } from '@/layout';
 
 import {
-  legacyTypographyTheme,
-  typographyTheme,
-  TypographyTheme
-} from '@/typography';
-
-import {
   ellipsisTheme,
   EllipsisTheme,
   PagerTheme,
@@ -190,7 +184,6 @@ export interface ReablocksTheme {
     commandPalette: CommandPaletteTheme;
     collapse: CollapseTheme;
     textarea: TextareaTheme;
-    typography: TypographyTheme;
     radio: RadioTheme;
     range: RangeTheme;
     redact: RedactTheme;
@@ -242,7 +235,6 @@ export const theme: ReablocksTheme = {
     commandPalette: commandPaletteTheme,
     collapse: collapseTheme,
     textarea: textareaTheme,
-    typography: typographyTheme,
     radio: radioTheme,
     range: rangeTheme,
     redact: redactTheme,
@@ -294,7 +286,6 @@ export const legacyThemeVars: ReablocksTheme = {
     commandPalette: legacyCommandPaletteTheme,
     collapse: legacyCollapseTheme,
     textarea: legacyTextareaTheme,
-    typography: legacyTypographyTheme,
     radio: legacyRadioTheme,
     range: legacyRangeTheme,
     redact: legacyRedactTheme,
