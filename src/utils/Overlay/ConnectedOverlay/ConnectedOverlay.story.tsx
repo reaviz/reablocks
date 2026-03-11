@@ -81,7 +81,7 @@ export const DefaultOpen: Story = {
 };
 
 const Tooltip = ({ children, content }) => {
-  const timeout = React.useRef<any>();
+  const timeout = React.useRef<any>(null);
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -259,7 +259,7 @@ export const MenuInMenuExample: Story = {
 };
 
 const ContextMenu = ({ children, content }) => {
-  const timeout = React.useRef<any>();
+  const timeout = React.useRef<any>(null);
   const [open, setOpen] = React.useState(false);
 
   return (

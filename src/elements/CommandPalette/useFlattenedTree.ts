@@ -35,26 +35,27 @@ export const useFlattenedTree = (
 
     Children.forEach(nodes, (child: ReactNode, index) => {
       if (isValidElement(child)) {
-        // @ts-ignore
-        if (child.type.displayName === 'CommandPaletteSection') {
+        const childProps = child.props as Record<string, any>;
+        const childType = child.type as any;
+
+        if (childType.displayName === 'CommandPaletteSection') {
           result.push(
-            cloneElement(child, {
-              children: flattenChildren(child.props.children),
+            cloneElement(child as any, {
+              children: flattenChildren(childProps.children),
               index
             })
           );
-          // @ts-ignore
-        } else if (child.type.displayName === 'CommandPaletteItem') {
+        } else if (childType.displayName === 'CommandPaletteItem') {
           const index = itemsRef.current.length;
 
-          if (child.props.hotkey) {
+          if (childProps.hotkey) {
             hotkeyRef.current.push({
-              hotkey: child.props.hotkey,
+              hotkey: childProps.hotkey,
               index
             });
           }
 
-          const clone = cloneElement(child, {
+          const clone = cloneElement(child as any, {
             // NOTE: This isn't working for some reason
             ref: (ref: HTMLElement | null) => (itemsRef.current[index] = ref),
             active: index === selectedIndex,

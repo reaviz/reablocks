@@ -26,8 +26,7 @@ import { DialogContent } from './DialogContent';
 import { DialogFooter } from './DialogFooter';
 
 export interface DialogProps
-  extends Omit<GlobalOverlayProps, 'children'>,
-    Omit<MotionProps, 'children'> {
+  extends Omit<GlobalOverlayProps, 'children'>, Omit<MotionProps, 'children'> {
   /**
    * The CSS class name for the root element of the component.
    */
@@ -132,16 +131,12 @@ export interface DialogProps
 }
 
 // Slot component display names for detection
-const DIALOG_SLOT_NAMES = [
-  DialogHeader.displayName,
-  DialogContent.displayName,
-  DialogFooter.displayName
-];
+const DIALOG_SLOT_NAMES = ['DialogHeader', 'DialogContent', 'DialogFooter'];
 
 const DIALOG_SLOT_MAP = {
-  [DialogHeader.displayName]: 'header',
-  [DialogContent.displayName]: 'content',
-  [DialogFooter.displayName]: 'footer'
+  DialogHeader: 'header',
+  DialogContent: 'content',
+  DialogFooter: 'footer'
 } as const;
 
 type DialogSlots = {

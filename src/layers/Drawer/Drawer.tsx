@@ -27,8 +27,7 @@ import { DrawerFooter } from './DrawerFooter';
 import { DrawerContent } from './DrawerContent';
 
 export interface DrawerProps
-  extends Omit<GlobalOverlayProps, 'children'>,
-    MotionProps {
+  extends Omit<GlobalOverlayProps, 'children'>, MotionProps {
   /**
    * Position of the drawer.
    */
@@ -125,9 +124,9 @@ export interface DrawerProps
 // Slot component display names for detection
 const DRAWER_SLOT_NAMES = ['DrawerHeader', 'DrawerContent', 'DrawerFooter'];
 const DRAWER_SLOT_MAP = {
-  DrawerHeader: DrawerHeader.displayName,
-  DrawerContent: DrawerContent.displayName,
-  DrawerFooter: DrawerFooter.displayName
+  DrawerHeader: 'header',
+  DrawerContent: 'content',
+  DrawerFooter: 'footer'
 } as const;
 
 type DrawerSlots = {
