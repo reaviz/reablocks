@@ -132,7 +132,7 @@ export const Pager: FC<PagerProps> = ({
             </Small>
           )}
           {pageCount > 1 && (
-            <div className={cn('flex items-center gap-1', theme.itemsDisplay)}>
+            <div className={theme.itemsDisplay}>
               <Small>
                 <span className={theme.showPageRange}>
                   {startItem.toLocaleString()}-{endItem.toLocaleString()}

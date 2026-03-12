@@ -30,7 +30,7 @@ const baseTheme: PagerTheme = {
   },
   ellipsis: 'cursor-pointer',
   pagerDisplayItems: 'mr-1.5',
-  itemsDisplay: '',
+  itemsDisplay: 'flex items-center gap-1',
   showPageRange: '',
   totalCount: '',
   control: '[&>svg]:w-5 [&>svg]:h-5',
