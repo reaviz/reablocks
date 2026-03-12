@@ -68,3 +68,9 @@ src/**/*.scss.d.ts
 src/**/*.css.d.ts
 
 .idea
+
+# Visual regression testing
+visual-tests/test-results/
+visual-tests/results.json
+visual-tests/report.html
+visual-tests/stories.json
