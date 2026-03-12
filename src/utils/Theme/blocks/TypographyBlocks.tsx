@@ -205,8 +205,7 @@ export const TypographyComponentsBlock: FC = () => (
       }}
     >
       <BlockQuote>
-        "After all," he said, "everyone enjoys a good joke, so it's only fair
-        that they should pay for the privilege."
+        {'"After all," he said, "everyone enjoys a good joke, so it\'s only fair that they should pay for the privilege."'}
       </BlockQuote>
     </div>
     <div
