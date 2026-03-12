@@ -72,6 +72,4 @@ src/**/*.css.d.ts
 # Visual regression testing
 visual-tests/screenshots/
 visual-tests/test-results/
-visual-tests/results.json
-visual-tests/report.html
-visual-tests/stories.json
+playwright-report/

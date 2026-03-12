@@ -16,9 +16,9 @@
     "start": "storybook dev -p 9009",
     "test": "vitest --passWithNoTests",
     "test:coverage": "vitest run --coverage --passWithNoTests",
-    "test:visual": "bash visual-tests/run.sh",
-    "test:visual:update": "bash visual-tests/run.sh --update",
-    "test:visual:generate": "npx tsx visual-tests/generate-report.ts",
+    "test:visual": "npm run test:visual:extract && playwright test",
+    "test:visual:update": "npm run test:visual:extract && playwright test --update-snapshots",
+    "test:visual:extract": "node --input-type=module -e \"const r=await fetch('http://localhost:6006/index.json');const d=await r.json();const s=Object.values(d.entries).filter(e=>e.type==='story').map(({id,title,name})=>({id,title,name}));(await import('fs')).writeFileSync('visual-tests/stories.json',JSON.stringify(s,null,2));console.log(s.length+' stories extracted')\"",
     "prepare": "husky"
   },
   "type": "module",

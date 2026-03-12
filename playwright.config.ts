@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: './visual-tests',
   outputDir: './visual-tests/test-results',
   snapshotDir: './visual-tests/screenshots',
-  snapshotPathTemplate: '{snapshotDir}/{testFileDir}/{arg}{ext}',
+  snapshotPathTemplate: '{snapshotDir}/{arg}{ext}',
   timeout: 30_000,
   expect: {
     toHaveScreenshot: {
@@ -16,10 +16,9 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : undefined,
-  reporter: [
-    ['list'],
-    ['json', { outputFile: './visual-tests/results.json' }]
-  ],
+  reporter: process.env.CI
+    ? 'github'
+    : [['html', { open: 'never' }]],
   use: {
     baseURL: 'http://localhost:6006',
     screenshot: 'only-on-failure',
@@ -33,5 +32,11 @@ export default defineConfig({
         viewport: { width: 1280, height: 720 }
       }
     }
-  ]
+  ],
+  webServer: {
+    command: 'npx storybook dev -p 6006 --no-open',
+    url: 'http://localhost:6006',
+    timeout: 120_000,
+    reuseExistingServer: !process.env.CI
+  }
 });
