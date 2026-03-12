@@ -18,7 +18,7 @@
     "test:coverage": "vitest run --coverage --passWithNoTests",
     "test:visual": "npm run test:visual:extract && playwright test",
     "test:visual:update": "npm run test:visual:extract && playwright test --update-snapshots",
-    "test:visual:extract": "node --input-type=module -e \"const r=await fetch('http://localhost:6006/index.json');const d=await r.json();const s=Object.values(d.entries).filter(e=>e.type==='story').map(({id,title,name})=>({id,title,name}));(await import('fs')).writeFileSync('visual-tests/stories.json',JSON.stringify(s,null,2));console.log(s.length+' stories extracted')\"",
+    "test:visual:extract": "node visual-tests/extract-stories.mjs",
     "prepare": "husky"
   },
   "type": "module",
