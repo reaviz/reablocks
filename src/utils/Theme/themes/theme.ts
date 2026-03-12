@@ -107,14 +107,11 @@ import {
   TreeTheme,
   legacyBlockTheme,
   legacyListTheme,
-  verticalSpacerTheme,
-  VerticalSpacerTheme,
   CardTheme,
   cardTheme,
   listTheme,
   ListTheme,
   legacyCardTheme,
-  legacyVerticalSpacerTheme,
   legacyCollapseTheme,
   legacyTreeTheme,
   legacyTabsTheme,
@@ -177,7 +174,6 @@ export interface ReablocksTheme {
     sort: SortTheme;
     card: CardTheme;
     kbd: KbdTheme;
-    verticalSpacer: VerticalSpacerTheme;
     notification: NotificationTheme;
     input: InputTheme;
     dateInput: DateInputTheme;
@@ -228,7 +224,6 @@ export const theme: ReablocksTheme = {
     sort: sortTheme,
     card: cardTheme,
     kbd: kbdTheme,
-    verticalSpacer: verticalSpacerTheme,
     notification: notificationTheme,
     input: inputTheme,
     dateInput: dateInputTheme,
@@ -279,7 +274,6 @@ export const legacyThemeVars: ReablocksTheme = {
     sort: legacySortTheme,
     card: legacyCardTheme,
     kbd: legacyKbdTheme,
-    verticalSpacer: legacyVerticalSpacerTheme,
     notification: legacyNotificationTheme,
     input: legacyInputTheme,
     dateInput: legacyDateInputTheme,

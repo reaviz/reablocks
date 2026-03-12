@@ -10,8 +10,7 @@ import {
   List,
   ListItem,
   MotionGroup,
-  MotionItem,
-  VerticalSpacer
+  MotionItem
 } from '../../../src/layout';
 import { Chip } from '../../../src/elements/Chip';
 import { cn } from '../../../src/utils/Theme/helpers';
@@ -378,7 +377,7 @@ export const PricingFull = () => {
             <span className="dark:text-waterloo light:text-charade text-sm">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
-            <VerticalSpacer space="md" />
+            <div className="h-2.5" />
             <div className="dark:bg-charade/40 light:bg-blue-200/40 py-2 px-4 rounded-xs flex gap-2 items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -401,7 +400,7 @@ export const PricingFull = () => {
             <span className="dark:text-waterloo light:text-charade text-sm">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
-            <VerticalSpacer space="md" />
+            <div className="h-2.5" />
             <Button
               color="primary"
               className="px-4 py-2 text-lg gap-2 bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
@@ -428,7 +427,7 @@ export const PricingFull = () => {
             <span className="dark:text-waterloo light:text-charade text-sm">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
-            <VerticalSpacer space="md" />
+            <div className="h-2.5" />
             <Button variant="outline" className="text-lg py-2 gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
