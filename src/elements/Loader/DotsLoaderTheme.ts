@@ -24,7 +24,7 @@ export const dotsLoaderTheme: DotsLoaderTheme = {
   dot: [baseTheme.dot, 'light:bg-gray-900 dark:bg-gray-100'].join(' ')
 };
 
-export const legacyLoaderTheme: DotsLoaderTheme = {
+export const legacyDotsLoaderTheme: DotsLoaderTheme = {
   ...baseTheme,
   dot: [baseTheme.dot, 'bg-[var(--loader-background)]'].join(' '),
   sizes: {

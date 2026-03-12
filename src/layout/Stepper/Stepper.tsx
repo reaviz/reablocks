@@ -1,4 +1,5 @@
-import { MotionGroup, MotionItem, StepperTheme } from '@/layout';
+import { MotionGroup, MotionItem } from '@/layout';
+import { StepperTheme } from './StepperTheme';
 import { cn, useComponentTheme } from '@/utils';
 import React, { Children, FC, Fragment, PropsWithChildren } from 'react';
 import { MotionNodeAnimationOptions } from 'motion';

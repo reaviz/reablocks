@@ -530,6 +530,7 @@ export const SelectInput: FC<SelectInputProps> = ({
             aria-expanded={menuOpen}
             aria-haspopup="listbox"
             aria-autocomplete="list"
+            aria-controls={menuOpen ? `${id}-menu` : undefined}
             disabled={disabled}
             required={required}
             autoFocus={autoFocus}

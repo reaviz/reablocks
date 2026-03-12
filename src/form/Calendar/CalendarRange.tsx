@@ -190,6 +190,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 onClick={previousYearClickHandler}
                 className={theme.header.prev}
                 disablePadding
+                aria-label="Previous year"
               >
                 {previousYearArrow}
               </Button>
@@ -199,6 +200,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 onClick={previousClickHandler}
                 className={theme.header.prev}
                 disablePadding
+                aria-label="Previous month"
               >
                 {previousArrow}
               </Button>
@@ -222,6 +224,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 onClick={nextClickHandler}
                 className={theme.header.next}
                 disablePadding
+                aria-label="Next month"
               >
                 {nextArrow}
               </Button>
@@ -231,6 +234,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 onClick={nextYearClickHandler}
                 className={theme.header.next}
                 disablePadding
+                aria-label="Next year"
               >
                 {nextYearArrow}
               </Button>

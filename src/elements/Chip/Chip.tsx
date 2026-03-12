@@ -91,7 +91,18 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
         {...rest}
         ref={ref}
         tabIndex={onClick ? 0 : -1}
+        role={onClick ? 'button' : undefined}
         onClick={!disabled ? onClick : undefined}
+        onKeyDown={
+          onClick && !disabled
+            ? e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onClick(e as unknown as React.MouseEvent<HTMLDivElement>);
+                }
+              }
+            : undefined
+        }
         className={twMerge(
           theme.base,
           theme.variants[variant],

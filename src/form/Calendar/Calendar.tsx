@@ -316,7 +316,12 @@ export const Calendar: FC<CalendarProps> = ({
       <div className="relative flex">
         {preset && (
           <>
-            <div className={twMerge('flex items-center gap-1', theme.presets.wrapper)}>
+            <div
+              className={twMerge(
+                'flex items-center gap-1',
+                theme.presets.wrapper
+              )}
+            >
               <CalendarPresets
                 options={preset}
                 value={value as Date | [Date, Date]}
@@ -338,6 +343,7 @@ export const Calendar: FC<CalendarProps> = ({
               onClick={previousClickHandler}
               className={theme.header.prev}
               disablePadding
+              aria-label="Previous"
             >
               {previousArrow}
             </Button>
@@ -365,6 +371,7 @@ export const Calendar: FC<CalendarProps> = ({
               onClick={nextClickHandler}
               className={theme.header.next}
               disablePadding
+              aria-label="Next"
             >
               {nextArrow}
             </Button>
