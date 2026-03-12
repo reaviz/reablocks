@@ -4,7 +4,6 @@ export * from './Divider';
 export * from './List';
 export * from './Block';
 export * from './Card';
-export * from './Stack';
 export * from './Tree';
 export * from './VerticalSpacer';
 export * from './Tabs';

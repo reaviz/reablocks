@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Block, Card, Divider, Stack } from '../../../src/layout';
+import { Block, Card, Divider } from '../../../src/layout';
 import { Input } from '../../../src/form';
 import { Button } from '../../../src/elements/Button';
 
@@ -205,7 +205,7 @@ export const ForgotPasswordFull = () => {
                 )}
               />
             </Block>
-            <Stack direction="column">
+            <div className="flex items-center gap-2.5 flex-col">
               <Button
                 type="submit"
                 fullWidth
@@ -232,7 +232,7 @@ export const ForgotPasswordFull = () => {
               <a href="#" className="text-primary text-lg font-semibold">
                 Return to login
               </a>
-            </Stack>
+            </div>
           </form>
         </div>
       </motion.div>
@@ -317,14 +317,14 @@ export const ForgotPasswordMinimal = () => {
             </svg>
             {isSubmitting ? 'Sending...' : 'Get Link'}
           </Button>
-          <Stack className="w-full" justifyContent="center">
+          <div className="flex items-center gap-2.5 justify-center w-full">
             <span className="text-sm text-text-secondary">
               Remember password?
             </span>
             <a href="#" className="text-primary text-lg font-semibold">
               Log in
             </a>
-          </Stack>
+          </div>
         </form>
       </Card>
     </motion.div>
@@ -348,12 +348,12 @@ export const ResetPassword = () => {
         className="w-full h-full grow p-12"
         contentClassName="w-full h-full grow flex flex-col"
       >
-        <Stack justifyContent="spaceBetween">
+        <div className="flex items-center gap-2.5 justify-between">
           <LogoIcon className="h-11 w-auto" />
           <a href="#" className="text-lg text-primary font-semibold">
             Create an account
           </a>
-        </Stack>
+        </div>
         <div className="w-full flex flex-col grow items-center justify-center text-center pt-2 mb-14">
           <div className="p-3 border border-secondary-inactive rounded-sm mb-3">
             <svg
@@ -422,11 +422,7 @@ export const ResetPassword = () => {
               </svg>
               {isSubmitting ? 'Resetting...' : 'Reset Password'}
             </Button>
-            <Stack
-              className="w-full text-primary"
-              justifyContent="center"
-              dense
-            >
+            <div className="flex items-center gap-1 justify-center w-full text-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -442,15 +438,15 @@ export const ResetPassword = () => {
               >
                 Back to log in
               </a>
-            </Stack>
+            </div>
           </form>
         </div>
-        <Stack justifyContent="center">
+        <div className="flex items-center gap-2.5 justify-center">
           <div className="h-[4px] w-[60px] bg-primary rounded-sm" />
           <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded-sm" />
           <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded-sm" />
           <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded-sm" />
-        </Stack>
+        </div>
       </Card>
     </motion.div>
   );
@@ -536,7 +532,7 @@ export const ResetPasswordMinimal = () => {
             </svg>
             {isSubmitting ? 'Sending...' : 'Reset Password'}
           </Button>
-          <Stack className="w-full" justifyContent="center">
+          <div className="flex items-center gap-2.5 justify-center w-full">
             <span className="text-sm text-text-secondary">
               Remember your password?
             </span>
@@ -555,7 +551,7 @@ export const ResetPasswordMinimal = () => {
               </svg>{' '}
               Go back
             </a>
-          </Stack>
+          </div>
         </form>
       </Card>
     </motion.div>

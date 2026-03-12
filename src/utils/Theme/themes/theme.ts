@@ -113,9 +113,6 @@ import {
   cardTheme,
   listTheme,
   ListTheme,
-  stackTheme,
-  StackTheme,
-  legacyStackTheme,
   legacyCardTheme,
   legacyVerticalSpacerTheme,
   legacyCollapseTheme,
@@ -178,7 +175,6 @@ export interface ReablocksTheme {
     list: ListTheme;
     menu: MenuTheme;
     sort: SortTheme;
-    stack: StackTheme;
     card: CardTheme;
     kbd: KbdTheme;
     verticalSpacer: VerticalSpacerTheme;
@@ -230,7 +226,6 @@ export const theme: ReablocksTheme = {
     list: listTheme,
     menu: menuTheme,
     sort: sortTheme,
-    stack: stackTheme,
     card: cardTheme,
     kbd: kbdTheme,
     verticalSpacer: verticalSpacerTheme,
@@ -282,7 +277,6 @@ export const legacyThemeVars: ReablocksTheme = {
     list: legacyListTheme,
     menu: legacyMenuTheme,
     sort: legacySortTheme,
-    stack: legacyStackTheme,
     card: legacyCardTheme,
     kbd: legacyKbdTheme,
     verticalSpacer: legacyVerticalSpacerTheme,

@@ -5,7 +5,7 @@ import { useForm, Controller } from 'react-hook-form';
 import { Block } from '../../../src/layout/Block';
 import { Button } from '../../../src/elements/Button';
 import { Card } from '../../../src/layout/Card';
-import { Divider, Stack } from '../../../src/layout';
+import { Divider } from '../../../src/layout';
 import { Input } from '../../../src/form/Input';
 import { Radio, radioTheme } from '../../../src/form/Radio';
 import { cn } from '../../../src/utils';
@@ -322,16 +322,16 @@ export const RegisterFull = () => {
               )}
               onClick={() => setSelection('starter')}
             >
-              <Stack justifyContent="spaceBetween">
+              <div className="flex items-center gap-2.5 justify-between">
                 <h6 className="text-lg font-bold">Starter</h6>
                 <Radio
                   size="small"
                   checked={selection === 'starter'}
                   theme={RadioTheme}
                 />
-              </Stack>
-              <Stack direction="column" alignItems="start" dense>
-                <Stack dense>
+              </div>
+              <div className="flex items-start gap-1 flex-col">
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -344,8 +344,8 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Community support
                   </span>
-                </Stack>
-                <Stack dense>
+                </div>
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -358,8 +358,8 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Integration support
                   </span>
-                </Stack>
-                <Stack dense>
+                </div>
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -372,9 +372,9 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Figmas support
                   </span>
-                </Stack>
+                </div>
                 <h6 className="text-lg font-bold mt-2.5">Free</h6>
-              </Stack>
+              </div>
             </Card>
             <Card
               className={cn(
@@ -386,16 +386,16 @@ export const RegisterFull = () => {
               )}
               onClick={() => setSelection('premium')}
             >
-              <Stack justifyContent="spaceBetween">
+              <div className="flex items-center gap-2.5 justify-between">
                 <h6 className="text-lg font-bold">Premium</h6>
                 <Radio
                   size="small"
                   checked={selection === 'premium'}
                   theme={RadioTheme}
                 />
-              </Stack>
-              <Stack direction="column" alignItems="start" dense>
-                <Stack dense>
+              </div>
+              <div className="flex items-start gap-1 flex-col">
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -408,8 +408,8 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Community support
                   </span>
-                </Stack>
-                <Stack dense>
+                </div>
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -422,8 +422,8 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Integration support
                   </span>
-                </Stack>
-                <Stack dense>
+                </div>
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -436,9 +436,9 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Figmas support
                   </span>
-                </Stack>
+                </div>
                 <h6 className="text-lg font-bold mt-2.5">$1000/Month</h6>
-              </Stack>
+              </div>
             </Card>
             <Card
               className={cn(
@@ -450,16 +450,16 @@ export const RegisterFull = () => {
               )}
               onClick={() => setSelection('enterprise')}
             >
-              <Stack justifyContent="spaceBetween">
+              <div className="flex items-center gap-2.5 justify-between">
                 <h6 className="text-lg font-bold">Enterprise</h6>
                 <Radio
                   size="small"
                   checked={selection === 'enterprise'}
                   theme={RadioTheme}
                 />
-              </Stack>
-              <Stack direction="column" alignItems="start" dense>
-                <Stack dense>
+              </div>
+              <div className="flex items-start gap-1 flex-col">
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -472,8 +472,8 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Community support
                   </span>
-                </Stack>
-                <Stack dense>
+                </div>
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -486,8 +486,8 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Integration support
                   </span>
-                </Stack>
-                <Stack dense>
+                </div>
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -500,9 +500,9 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Figmas support
                   </span>
-                </Stack>
+                </div>
                 <h6 className="text-lg font-bold mt-2.5">Email for Price</h6>
-              </Stack>
+              </div>
             </Card>
           </div>
           <Divider variant="secondary" className="mt-4" />
@@ -738,11 +738,11 @@ export const RegisterWithSocial = () => {
               </svg>
             </Button>
           </div>
-          <Stack className="w-full my-7">
+          <div className="flex items-center gap-2.5 w-full my-7">
             <Divider variant="secondary" />
             or
             <Divider variant="secondary" />
-          </Stack>
+          </div>
         </div>
         <form
           className="text-sm"

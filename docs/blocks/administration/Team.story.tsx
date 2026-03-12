@@ -11,7 +11,6 @@ import {
   CheckboxTheme,
   checkboxTheme as defaultCheckboxTheme
 } from '../../../src/form/Checkbox';
-import { Stack } from '../../../src/layout/Stack';
 import { Divider } from '../../../src/layout';
 import { Input } from '../../../src/form/Input';
 
@@ -219,7 +218,7 @@ export const TeamGeneral = () => {
               <span className="text-text-secondary text-sm">
                 Showing 10 of 25
               </span>
-              <Stack>
+              <div className="flex items-center gap-2.5">
                 <IconButton variant="outline" className="w-10 h-10">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -231,7 +230,7 @@ export const TeamGeneral = () => {
                     <path d="M13.3334 7.33335H5.22002L8.94669 3.60669L8.00002 2.66669L2.66669 8.00002L8.00002 13.3334L8.94002 12.3934L5.22002 8.66669H13.3334V7.33335Z" />
                   </svg>
                 </IconButton>
-                <Stack dense>
+                <div className="flex items-center gap-1">
                   <IconButton
                     color="primary"
                     variant="outline"
@@ -245,7 +244,7 @@ export const TeamGeneral = () => {
                   <IconButton color="secondary" className="w-10 h-10">
                     3
                   </IconButton>
-                </Stack>
+                </div>
                 <IconButton variant="outline" className="w-10 h-10">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -257,7 +256,7 @@ export const TeamGeneral = () => {
                     <path d="M8.00002 2.66669L7.06002 3.60669L10.78 7.33335H2.66669V8.66669H10.78L7.06002 12.3934L8.00002 13.3334L13.3334 8.00002L8.00002 2.66669Z" />
                   </svg>
                 </IconButton>
-              </Stack>
+              </div>
             </div>
           </TabPanel>
         </div>
@@ -392,10 +391,10 @@ export const TeamMinimal = () => {
                           </div>
                         </td>
                         <td className="py-6 px-4 flex justify-end">
-                          <Stack dense>
+                          <div className="flex items-center gap-1">
                             <Button color="error">Delete</Button>
                             <Button color="secondary">Edit</Button>
-                          </Stack>
+                          </div>
                         </td>
                       </tr>
                     </>
@@ -407,7 +406,7 @@ export const TeamMinimal = () => {
             <span className="text-text-secondary text-sm">
               Showing 10 of 25
             </span>
-            <Stack>
+            <div className="flex items-center gap-2.5">
               <IconButton variant="outline" className="w-10 h-10">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -419,7 +418,7 @@ export const TeamMinimal = () => {
                   <path d="M13.3334 7.33335H5.22002L8.94669 3.60669L8.00002 2.66669L2.66669 8.00002L8.00002 13.3334L8.94002 12.3934L5.22002 8.66669H13.3334V7.33335Z" />
                 </svg>
               </IconButton>
-              <Stack dense>
+              <div className="flex items-center gap-1">
                 <IconButton
                   color="primary"
                   variant="outline"
@@ -433,7 +432,7 @@ export const TeamMinimal = () => {
                 <IconButton color="secondary" className="w-10 h-10">
                   3
                 </IconButton>
-              </Stack>
+              </div>
               <IconButton variant="outline" className="w-10 h-10">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -445,7 +444,7 @@ export const TeamMinimal = () => {
                   <path d="M8.00002 2.66669L7.06002 3.60669L10.78 7.33335H2.66669V8.66669H10.78L7.06002 12.3934L8.00002 13.3334L13.3334 8.00002L8.00002 2.66669Z" />
                 </svg>
               </IconButton>
-            </Stack>
+            </div>
           </div>
         </TabPanel>
       </Card>
@@ -609,7 +608,7 @@ export const TeamRoles = () => {
                             </div>
                           </td>
                           <td className="py-6 pl-4">
-                            <Stack dense>
+                            <div className="flex items-center gap-1">
                               <IconButton variant="text">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -632,7 +631,7 @@ export const TeamRoles = () => {
                                   <path d="M1.86328 11.6366V14.1366H4.36328L11.7366 6.76328L9.23662 4.26328L1.86328 11.6366ZM14.1366 4.36328L11.6366 1.86328L9.94995 3.55661L12.4499 6.05661L14.1366 4.36328Z" />
                                 </svg>
                               </IconButton>
-                            </Stack>
+                            </div>
                           </td>
                         </tr>
                       </>
@@ -744,7 +743,7 @@ export const TeamRoles = () => {
                             </div>
                           </td>
                           <td className="py-6 pl-4">
-                            <Stack dense>
+                            <div className="flex items-center gap-1">
                               <IconButton variant="text">
                                 <svg
                                   xmlns="http://www.w3.org/2000/svg"
@@ -767,7 +766,7 @@ export const TeamRoles = () => {
                                   <path d="M1.86328 11.6366V14.1366H4.36328L11.7366 6.76328L9.23662 4.26328L1.86328 11.6366ZM14.1366 4.36328L11.6366 1.86328L9.94995 3.55661L12.4499 6.05661L14.1366 4.36328Z" />
                                 </svg>
                               </IconButton>
-                            </Stack>
+                            </div>
                           </td>
                         </tr>
                       </>

@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Chip } from './Chip';
-import { Stack } from '../../layout';
 import { ChipTheme, chipTheme } from './ChipTheme';
 
 export default {
@@ -60,7 +59,7 @@ export const Selectable = () => {
   const [isOutlineSelected, setIsOutlineSelected] = useState(false);
 
   return (
-    <Stack>
+    <div className="flex items-center gap-2.5">
       <Chip
         onClick={() => setIsFilledSelected(!IsFilledSelected)}
         selected={IsFilledSelected}
@@ -74,17 +73,17 @@ export const Selectable = () => {
       >
         Selectable
       </Chip>
-    </Stack>
+    </div>
   );
 };
 
 export const Disabled = () => (
-  <Stack>
+  <div className="flex items-center gap-2.5">
     <Chip disabled>Selectable</Chip>
     <Chip variant="outline" disabled>
       Selectable
     </Chip>
-  </Stack>
+  </div>
 );
 
 const DemoIcon = () => (
@@ -149,7 +148,7 @@ export const CustomTheme = () => {
   };
 
   return (
-    <Stack>
+    <div className="flex items-center gap-2.5">
       <Chip theme={customTheme}>Default</Chip>
       <Chip theme={customTheme} color="primary">
         Primary
@@ -169,6 +168,6 @@ export const CustomTheme = () => {
       <Chip theme={customTheme} color="info">
         Info
       </Chip>
-    </Stack>
+    </div>
   );
 };

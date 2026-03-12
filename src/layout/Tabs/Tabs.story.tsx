@@ -3,7 +3,6 @@ import { Tabs } from './Tabs';
 import { TabList } from './TabList';
 import { Tab } from './Tab';
 import { TabPanel } from './TabPanel';
-import { Stack } from '../Stack';
 
 export default {
   title: 'Components/Layout/Tabs',

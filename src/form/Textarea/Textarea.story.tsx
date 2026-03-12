@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { Stack } from '../../layout/Stack';
 import { Textarea } from './Textarea';
 import { Button } from '@/elements';
 
@@ -27,20 +26,20 @@ export const FullWidth = () => (
 export const Placeholder = () => <Textarea placeholder="Type your text here" />;
 
 export const Sizes = () => (
-  <Stack direction="column">
+  <div className="flex items-center gap-2.5 flex-col">
     <Textarea value="Small" size="small" />
     <Textarea value="Medium" size="medium" />
     <Textarea value="Large" size="large" />
-  </Stack>
+  </div>
 );
 
 export const OutsideFocus = () => {
   const inputRef = useRef(null);
 
   return (
-    <Stack direction="column">
+    <div className="flex items-center gap-2.5 flex-col">
       <Button onClick={() => inputRef?.current.focus()}>Click to focus</Button>
       <Textarea ref={inputRef} />
-    </Stack>
+    </div>
   );
 };

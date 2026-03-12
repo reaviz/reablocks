@@ -1,5 +1,4 @@
 import React from 'react';
-import { Stack } from '@/layout';
 import { Small } from '@/typography';
 
 import {
@@ -24,13 +23,13 @@ export const Simple = () => (
 );
 
 export const Variants = () => (
-  <Stack direction="column" className="w-full">
+  <div className="flex items-center gap-2.5 flex-col w-full">
     <Callout text="You will need admin privileges to install and access this application." />
     <SuccessCallout text="You will need admin privileges to install and access this application." />
     <WarningCallout text="You will need admin privileges to install and access this application." />
     <ErrorCallout text="You will need admin privileges to install and access this application." />
     <InfoCallout text="You will need admin privileges to install and access this application." />
-  </Stack>
+  </div>
 );
 
 export const CustomIcon = () => (

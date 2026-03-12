@@ -1,6 +1,5 @@
 import React, { FC, Fragment, ReactNode, useCallback } from 'react';
 import { Button } from '@/elements';
-import { Stack } from '@/layout';
 import { Small } from '@/typography';
 import { Pluralize } from '@/data/Pluralize';
 import EndArrow from './assets/arrow-end.svg?react';
@@ -134,7 +133,7 @@ export const Pager: FC<PagerProps> = ({
             </Small>
           )}
           {pageCount > 1 && (
-            <Stack className={theme.itemsDisplay} dense>
+            <div className={twMerge('flex items-center gap-1', theme.itemsDisplay)}>
               <Small>
                 <span className={theme.showPageRange}>
                   {startItem.toLocaleString()}-{endItem.toLocaleString()}
@@ -145,7 +144,7 @@ export const Pager: FC<PagerProps> = ({
                 </span>{' '}
                 <Pluralize count={total} singular="item" showCount={false} />
               </Small>
-            </Stack>
+            </div>
           )}
         </div>
       )}

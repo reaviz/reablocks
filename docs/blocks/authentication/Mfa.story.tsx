@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import { Block } from '../../../src/layout/Block';
 import { Button } from '../../../src/elements/Button';
 import { Card } from '../../../src/layout/Card';
-import { Divider, Stack } from '../../../src/layout';
+import { Divider } from '../../../src/layout';
 import { Input } from '../../../src/form/Input';
 import { useForm, Controller } from 'react-hook-form';
 
@@ -1097,12 +1097,12 @@ export const MfaLogin = () => {
       className="mt-10 sm:mx-auto sm:w-full md:w-[600px]"
     >
       <Card className="w-full p-[50px]">
-        <Stack justifyContent="spaceBetween">
+        <div className="flex items-center gap-2.5 justify-between">
           <LogoIcon className="h-[30px] w-auto" />
           <a href="#" className="text-lg text-primary font-semibold">
             New to Reablocks?
           </a>
-        </Stack>
+        </div>
         <div className="flex flex-col items-center justify-center pb-5 mt-[190px] text-center">
           <div className="p-3 bg-primary rounded-sm mb-3">
             <svg
@@ -1145,7 +1145,7 @@ export const MfaLogin = () => {
               )}
             />
           </Block>
-          <Stack justifyContent="spaceBetween" className="mb-[190px]">
+          <div className="flex items-center gap-2.5 justify-between mb-[190px]">
             <div className="text-center text-text-secondary text-base">
               Didn't receive a email?
             </div>
@@ -1164,7 +1164,7 @@ export const MfaLogin = () => {
                 <path d="M13.1667 5.33335L10.5 8.00002H12.5C12.5 10.2067 10.7067 12 8.50002 12C7.82669 12 7.18669 11.8334 6.63335 11.5334L5.66002 12.5067C6.48002 13.0267 7.45335 13.3334 8.50002 13.3334C11.4467 13.3334 13.8334 10.9467 13.8334 8.00002H15.8334L13.1667 5.33335ZM4.50002 8.00002C4.50002 5.79335 6.29335 4.00002 8.50002 4.00002C9.17335 4.00002 9.81335 4.16669 10.3667 4.46669L11.34 3.49335C10.52 2.97335 9.54669 2.66669 8.50002 2.66669C5.55335 2.66669 3.16669 5.05335 3.16669 8.00002H1.16669L3.83335 10.6667L6.50002 8.00002H4.50002Z" />
               </svg>
             </a>
-          </Stack>
+          </div>
           <Button
             type="submit"
             fullWidth

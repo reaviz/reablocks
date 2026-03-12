@@ -5,7 +5,6 @@ import {
   Card,
   Divider,
   IconButton,
-  Stack,
   Step,
   Stepper,
   Textarea
@@ -79,7 +78,7 @@ export const ActivityTimeline = () => (
                 variant="secondary"
                 orientation="horizontal"
               />
-              <Stack>
+              <div className="flex items-center gap-2.5">
                 <Textarea
                   fullWidth
                   placeholder="Leave a reply..."
@@ -92,7 +91,7 @@ export const ActivityTimeline = () => (
                     <path id="Vector" d="M0.666748 6.00002L1.60675 6.94002L5.33342 3.22002V11.3334H6.66675V3.22002L10.3867 6.94669L11.3334 6.00002L6.00008 0.666687L0.666748 6.00002Z" fill="currentColor"/>
                   </svg>
                 </IconButton>
-              </Stack>
+              </div>
             </div>
           </div>
         </Step>
@@ -119,7 +118,7 @@ export const ActivityTimeline = () => (
       </Stepper>
 
       <div className="mt-2 px-4 py-2 border border-solid border-surface bg-vulcan light:bg-athens-gray rounded-md">
-        <Stack>
+        <div className="flex items-center gap-2.5">
           <Textarea
             fullWidth
             placeholder="Leave a comment..."
@@ -132,7 +131,7 @@ export const ActivityTimeline = () => (
               <path id="Vector" d="M0.666748 6.00002L1.60675 6.94002L5.33342 3.22002V11.3334H6.66675V3.22002L10.3867 6.94669L11.3334 6.00002L6.00008 0.666687L0.666748 6.00002Z" fill="currentColor"/>
             </svg>
           </IconButton>
-        </Stack>
+        </div>
       </div>
     </Card>
   </motion.div>
@@ -157,64 +156,64 @@ export const VersionHistory = () => (
         <div className="bg-panel p-3 rounded-md">
           <Stepper activeStep={1} animated>
             <Step label="v6.0">
-              <Stack direction="column" alignItems="start" dense>
+              <div className="flex flex-col items-start gap-1">
                 <span className="font-medium text-base">
                   New custom statuses for projects
                 </span>
                 <span className="font-normal text-sm text-waterloo light:text-gray-600">
                   Austin McDaniel • 1 hour ago
                 </span>
-              </Stack>
+              </div>
             </Step>
             <Step label="v5.0">
-              <Stack direction="column" alignItems="start" dense>
+              <div className="flex flex-col items-start gap-1">
                 <span className="font-medium text-base">
                   Timeline UI overhaul
                 </span>
                 <span className="font-normal text-sm text-waterloo light:text-gray-600">
                   Austin McDaniel • March 22, 2024
                 </span>
-              </Stack>
+              </div>
             </Step>
             <Step label="v4.0">
-              <Stack direction="column" alignItems="start" dense>
+              <div className="flex flex-col items-start gap-1">
                 <span className="font-medium text-base">
                   Google calendar integration
                 </span>
                 <span className="font-normal text-sm text-waterloo light:text-gray-600">
                   Austin McDaniel • March 21, 2024
                 </span>
-              </Stack>
+              </div>
             </Step>
             <Step>
-              <Stack direction="column" alignItems="start" dense>
+              <div className="flex flex-col items-start gap-1">
                 <span className="font-medium text-base">
                   Branch-specific workflow automations
                 </span>
                 <span className="font-normal text-sm text-waterloo light:text-gray-600">
                   Austin McDaniel • February 28, 2024
                 </span>
-              </Stack>
+              </div>
             </Step>
             <Step>
-              <Stack direction="column" alignItems="start" dense>
+              <div className="flex flex-col items-start gap-1">
                 <span className="font-medium text-base">
                   Project time frames
                 </span>
                 <span className="font-normal text-sm text-waterloo light:text-gray-600">
                   Austin McDaniel • February 15, 2024
                 </span>
-              </Stack>
+              </div>
             </Step>
             <Step label="v3.0">
-              <Stack direction="column" alignItems="start" dense>
+              <div className="flex flex-col items-start gap-1">
                 <span className="font-medium text-base">
                   GitHub Issues Sync
                 </span>
                 <span className="font-normal text-sm text-waterloo light:text-gray-600">
                   Austin McDaniel • February 10, 2024
                 </span>
-              </Stack>
+              </div>
             </Step>
           </Stepper>
         </div>
@@ -230,7 +229,7 @@ export const WorkspaceHistory = () => (
     className="mt-10 sm:mx-auto sm:w-full md:w-[650px]"
   >
     <Card className="w-full p-12">
-      <Stack direction="column" alignItems="start">
+      <div className="flex flex-col items-start gap-2.5">
         <div className="w-full flex-row flex justify-between items-center text-center">
           <span className="text-xl font-bold">Workspace History</span>
           <IconButton variant="text">
@@ -240,10 +239,10 @@ export const WorkspaceHistory = () => (
           </IconButton>
         </div>
         <span className="text-waterloo">Workspace History</span>
-      </Stack>
+      </div>
       <Stepper className="mt-8" animated>
         <Step>
-          <Stack direction="row" className="relative -top-1.5">
+          <div className="flex items-center gap-2.5 relative -top-1.5">
             <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Austin{' '}
@@ -251,10 +250,10 @@ export const WorkspaceHistory = () => (
                 created workspace • 5 hour ago
               </span>
             </span>
-          </Stack>
+          </div>
         </Step>
         <Step>
-          <Stack direction="row" className="relative -top-1.5">
+          <div className="flex items-center gap-2.5 relative -top-1.5">
             <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Kyle{' '}
@@ -266,10 +265,10 @@ export const WorkspaceHistory = () => (
                 • 5 hour ago
               </span>
             </span>
-          </Stack>
+          </div>
         </Step>
         <Step>
-          <Stack direction="row" className="relative -top-1.5">
+          <div className="flex items-center gap-2.5 relative -top-1.5">
             <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Laura{' '}
@@ -281,10 +280,10 @@ export const WorkspaceHistory = () => (
                 database • March 22, 2024
               </span>
             </span>
-          </Stack>
+          </div>
         </Step>
         <Step>
-          <Stack direction="row" className="relative -top-1.5">
+          <div className="flex items-center gap-2.5 relative -top-1.5">
             <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Lisa{' '}
@@ -296,10 +295,10 @@ export const WorkspaceHistory = () => (
                 • February 28, 2024
               </span>
             </span>
-          </Stack>
+          </div>
         </Step>
         <Step>
-          <Stack direction="row" className="relative -top-1.5">
+          <div className="flex items-center gap-2.5 relative -top-1.5">
             <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Kenneth{' '}
@@ -311,10 +310,10 @@ export const WorkspaceHistory = () => (
                 database • February 15, 2024
               </span>
             </span>
-          </Stack>
+          </div>
         </Step>
         <Step>
-          <Stack direction="row" className="relative -top-1.5">
+          <div className="flex items-center gap-2.5 relative -top-1.5">
             <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Carrington{' '}
@@ -326,7 +325,7 @@ export const WorkspaceHistory = () => (
                 February 10, 2024
               </span>
             </span>
-          </Stack>
+          </div>
         </Step>
       </Stepper>
     </Card>

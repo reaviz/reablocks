@@ -3,7 +3,6 @@ import { Select } from './Select';
 import { SelectOption } from './SelectOption';
 import { SelectMenu } from './SelectMenu';
 import { SelectInput, SelectInputChip } from './SelectInput';
-import { Stack } from '../../layout/Stack';
 import { ListItem } from '../../layout/List/ListItem';
 
 export default {
@@ -49,8 +48,8 @@ export const Sizes = () => {
   const [value, setValue] = useState<string | null>(null);
   return (
     <div style={{ width: 500 }}>
-      <Stack className="w-full" direction="column">
-        <Stack className="w-full">
+      <div className="flex items-center gap-2.5 flex-col w-full">
+        <div className="flex items-center gap-2.5 w-full">
           <label className="w-[50px]">Small: </label>
           <Select
             placeholder="Select a category"
@@ -66,8 +65,8 @@ export const Sizes = () => {
             <SelectOption value="twitter">twitter</SelectOption>
             <SelectOption value="twitch">twitch</SelectOption>
           </Select>
-        </Stack>
-        <Stack className="w-full">
+        </div>
+        <div className="flex items-center gap-2.5 w-full">
           <label className="w-[50px]">Medium: </label>
           <Select
             placeholder="Select a category"
@@ -82,8 +81,8 @@ export const Sizes = () => {
             <SelectOption value="twitter">twitter</SelectOption>
             <SelectOption value="twitch">twitch</SelectOption>
           </Select>
-        </Stack>
-        <Stack className="w-full">
+        </div>
+        <div className="flex items-center gap-2.5 w-full">
           <label className="w-[50px]">Large: </label>
           <Select
             placeholder="Select a category"
@@ -99,8 +98,8 @@ export const Sizes = () => {
             <SelectOption value="twitter">twitter</SelectOption>
             <SelectOption value="twitch">twitch</SelectOption>
           </Select>
-        </Stack>
-      </Stack>
+        </div>
+      </div>
     </div>
   );
 };

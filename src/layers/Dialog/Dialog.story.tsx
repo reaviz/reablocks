@@ -4,7 +4,6 @@ import { DialogHeader } from './DialogHeader';
 import { DialogContent } from './DialogContent';
 import { DialogFooter } from './DialogFooter';
 import { Button } from '../../elements';
-import { Stack } from '../../layout';
 
 export default {
   title: 'Components/Layers/Dialog',
@@ -41,10 +40,10 @@ export const WithFooter = () => {
           </p>
         </DialogContent>
         <DialogFooter>
-          <Stack justifyContent="end" className="w-full">
+          <div className="flex items-center gap-2.5 justify-end w-full">
             <Button onClick={() => setOpen(false)}>Cancel</Button>
             <Button color="primary">Save</Button>
-          </Stack>
+          </div>
         </DialogFooter>
       </Dialog>
     </div>
@@ -87,14 +86,14 @@ export const WithForm = () => {
             </div>
           </DialogContent>
           <DialogFooter>
-            <Stack justifyContent="end" className="w-full">
+            <div className="flex items-center gap-2.5 justify-end w-full">
               <Button type="button" onClick={() => setOpen(false)}>
                 Cancel
               </Button>
               <Button type="submit" color="primary">
                 Save Changes
               </Button>
-            </Stack>
+            </div>
           </DialogFooter>
         </form>
       </Dialog>
