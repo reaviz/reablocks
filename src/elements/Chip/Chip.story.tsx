@@ -55,14 +55,14 @@ export const Variants = () => (
 );
 
 export const Selectable = () => {
-  const [IsFilledSelected, setIsFilledSelected] = useState(false);
+  const [isFilledSelected, setisFilledSelected] = useState(false);
   const [isOutlineSelected, setIsOutlineSelected] = useState(false);
 
   return (
     <div className="flex items-center gap-2.5">
       <Chip
-        onClick={() => setIsFilledSelected(!IsFilledSelected)}
-        selected={IsFilledSelected}
+        onClick={() => setisFilledSelected(!isFilledSelected)}
+        selected={isFilledSelected}
       >
         Selectable
       </Chip>
