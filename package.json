@@ -15,7 +15,8 @@
     "prettier": "prettier --loglevel warn --write 'src/**/*.{ts,tsx,js,jsx}'",
     "start": "storybook dev -p 9009",
     "test": "vitest --passWithNoTests",
-    "test:coverage": "vitest run --coverage --passWithNoTests"
+    "test:coverage": "vitest run --coverage --passWithNoTests",
+    "prepare": "husky"
   },
   "type": "module",
   "types": "dist/index.d.ts",
@@ -111,6 +112,7 @@
     "eslint-plugin-storybook": "^10.2.17",
     "fast-glob": "^3.3.3",
     "globals": "^17.4.0",
+    "husky": "^9.1.7",
     "jsdom": "^28.1.0",
     "lint-staged": "^16.1.6",
     "postcss-nested": "^7.0.2",
