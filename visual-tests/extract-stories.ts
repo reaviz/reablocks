@@ -4,7 +4,6 @@
  *
  * Usage: npx tsx visual-tests/extract-stories.ts [storybook-url]
  */
-import { chromium } from 'playwright';
 import { writeFileSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -21,16 +20,12 @@ interface StoryIndex {
 }
 
 async function main() {
-  console.log(`Connecting to Storybook at ${STORYBOOK_URL}...`);
+  console.log(`Fetching story index from ${STORYBOOK_URL}...`);
 
-  const browser = await chromium.launch();
-  const page = await browser.newPage();
-
-  // Storybook serves its story index at /index.json
-  const response = await page.goto(`${STORYBOOK_URL}/index.json`);
-  if (!response || !response.ok()) {
+  const response = await fetch(`${STORYBOOK_URL}/index.json`);
+  if (!response.ok) {
     throw new Error(
-      `Failed to fetch story index: ${response?.status()} ${response?.statusText()}`
+      `Failed to fetch story index: ${response.status} ${response.statusText}`
     );
   }
 
@@ -41,8 +36,6 @@ async function main() {
 
   writeFileSync(OUTPUT, JSON.stringify(stories, null, 2));
   console.log(`Extracted ${stories.length} stories → ${OUTPUT}`);
-
-  await browser.close();
 }
 
 main().catch(err => {

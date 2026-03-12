@@ -5,7 +5,6 @@ set -euo pipefail
 # Usage:
 #   ./visual-tests/run.sh              # Run tests (compare against baselines)
 #   ./visual-tests/run.sh --update     # Update baseline screenshots
-#   ./visual-tests/run.sh --baseline   # Create initial baselines
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
@@ -13,7 +12,7 @@ UPDATE_FLAG=""
 
 for arg in "$@"; do
   case "$arg" in
-    --update|--baseline) UPDATE_FLAG="--update-snapshots" ;;
+    --update) UPDATE_FLAG="--update-snapshots" ;;
   esac
 done
 
@@ -30,7 +29,7 @@ cleanup() {
 }
 trap cleanup EXIT
 
-# Wait for Storybook to be ready
+# Wait for Storybook to be ready (60 iterations x 2s = ~120s timeout)
 echo "==> Waiting for Storybook..."
 for i in $(seq 1 60); do
   if curl -s http://localhost:6006/index.json > /dev/null 2>&1; then
@@ -38,7 +37,7 @@ for i in $(seq 1 60); do
     break
   fi
   if [ "$i" -eq 60 ]; then
-    echo "ERROR: Storybook did not start within 60s"
+    echo "ERROR: Storybook did not start within 120s"
     exit 1
   fi
   sleep 2
@@ -51,10 +50,12 @@ STORY_COUNT=$(node -e "console.log(require('./visual-tests/stories.json').length
 echo "==> Found $STORY_COUNT stories"
 
 echo "==> Running visual tests... $UPDATE_FLAG"
-npx playwright test $UPDATE_FLAG || true
+TEST_EXIT=0
+npx playwright test $UPDATE_FLAG || TEST_EXIT=$?
 
 echo "==> Generating report..."
 npx tsx visual-tests/generate-report.ts
 
 echo ""
 echo "Done! Open visual-tests/report.html to see results."
+exit $TEST_EXIT

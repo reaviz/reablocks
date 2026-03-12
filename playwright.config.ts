@@ -4,8 +4,7 @@ export default defineConfig({
   testDir: './visual-tests',
   outputDir: './visual-tests/test-results',
   snapshotDir: './visual-tests/screenshots',
-  snapshotPathTemplate:
-    '{snapshotDir}/{testFileDir}/{arg}{ext}',
+  snapshotPathTemplate: '{snapshotDir}/{testFileDir}/{arg}{ext}',
   timeout: 30_000,
   expect: {
     toHaveScreenshot: {
@@ -34,11 +33,5 @@ export default defineConfig({
         viewport: { width: 1280, height: 720 }
       }
     }
-  ],
-  webServer: {
-    command: 'npx storybook dev -p 6006 --no-open',
-    port: 6006,
-    timeout: 120_000,
-    reuseExistingServer: !process.env.CI
-  }
+  ]
 });

@@ -56,6 +56,19 @@ interface FlatResult {
   error?: string;
 }
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
+function toPosixPath(p: string): string {
+  return p.split('\\').join('/');
+}
+
 function collectResults(suites: Suite[]): FlatResult[] {
   const results: FlatResult[] = [];
   for (const suite of suites) {
@@ -97,22 +110,22 @@ function findDiffImages(): Map<
         walk(full);
       } else if (entry.name.endsWith('-actual.png')) {
         const key = entry.name.replace('-actual.png', '');
-        const relDir = relative(__dirname, dir);
+        const relPath = toPosixPath(relative(__dirname, dir));
         if (!diffs.has(key))
           diffs.set(key, { actual: '', expected: '', diff: '' });
-        diffs.get(key)!.actual = `${relDir}/${entry.name}`;
+        diffs.get(key)!.actual = `${relPath}/${entry.name}`;
       } else if (entry.name.endsWith('-expected.png')) {
         const key = entry.name.replace('-expected.png', '');
-        const relDir = relative(__dirname, dir);
+        const relPath = toPosixPath(relative(__dirname, dir));
         if (!diffs.has(key))
           diffs.set(key, { actual: '', expected: '', diff: '' });
-        diffs.get(key)!.expected = `${relDir}/${entry.name}`;
+        diffs.get(key)!.expected = `${relPath}/${entry.name}`;
       } else if (entry.name.endsWith('-diff.png')) {
         const key = entry.name.replace('-diff.png', '');
-        const relDir = relative(__dirname, dir);
+        const relPath = toPosixPath(relative(__dirname, dir));
         if (!diffs.has(key))
           diffs.set(key, { actual: '', expected: '', diff: '' });
-        diffs.get(key)!.diff = `${relDir}/${entry.name}`;
+        diffs.get(key)!.diff = `${relPath}/${entry.name}`;
       }
     }
   }
@@ -158,10 +171,10 @@ function main() {
     .map(
       ([key, imgs]) => `
       <tr class="diff-row">
-        <td>${key}</td>
-        <td>${imgs.expected ? `<img src="${imgs.expected}" class="thumb" onclick="showModal(this.src)">` : '&mdash;'}</td>
-        <td>${imgs.actual ? `<img src="${imgs.actual}" class="thumb" onclick="showModal(this.src)">` : '&mdash;'}</td>
-        <td>${imgs.diff ? `<img src="${imgs.diff}" class="thumb" onclick="showModal(this.src)">` : '&mdash;'}</td>
+        <td>${escapeHtml(key)}</td>
+        <td>${imgs.expected ? `<img src="${escapeHtml(imgs.expected)}" class="thumb" onclick="showModal(this.src)">` : '&mdash;'}</td>
+        <td>${imgs.actual ? `<img src="${escapeHtml(imgs.actual)}" class="thumb" onclick="showModal(this.src)">` : '&mdash;'}</td>
+        <td>${imgs.diff ? `<img src="${escapeHtml(imgs.diff)}" class="thumb" onclick="showModal(this.src)">` : '&mdash;'}</td>
       </tr>`
     )
     .join('\n');
@@ -171,8 +184,8 @@ function main() {
     .map(
       s => `
       <tr>
-        <td class="fail-name">${s.title}</td>
-        <td><code>${s.error?.slice(0, 200) || 'Unknown error'}</code></td>
+        <td class="fail-name">${escapeHtml(s.title)}</td>
+        <td><code>${escapeHtml(s.error?.slice(0, 200) || 'Unknown error')}</code></td>
       </tr>`
     )
     .join('\n');
@@ -222,7 +235,7 @@ function main() {
 </head>
 <body>
   <h1>Visual Regression Report</h1>
-  <p class="subtitle">Generated ${new Date().toLocaleString()} &mdash; ${duration}s total</p>
+  <p class="subtitle">Generated ${escapeHtml(new Date().toLocaleString())} &mdash; ${duration}s total</p>
 
   <div class="stats">
     <div class="stat">
