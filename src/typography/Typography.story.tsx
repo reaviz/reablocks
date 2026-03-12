@@ -2,6 +2,8 @@ import { H1 } from './H1';
 import { H2 } from './H2';
 import { H3 } from './H3';
 import { H4 } from './H4';
+import { H5 } from './H5';
+import { H6 } from './H6';
 import { P } from './P';
 import { BlockQuote } from './BlockQuote';
 import { Lead } from './Lead';
@@ -20,6 +22,8 @@ export const Headings = () => (
     <H2>This is an H2 Heading</H2>
     <H3>This is an H3 Heading</H3>
     <H4>This is an H4 Heading</H4>
+    <H5>This is an H5 Heading</H5>
+    <H6>This is an H6 Heading</H6>
   </div>
 );
 
@@ -79,6 +83,8 @@ export const All = () => (
       the tax would be thrown into the dungeon.
     </P>
     <H4>People stopped telling jokes</H4>
+    <H5>A smaller subsection heading</H5>
+    <H6>The smallest heading level</H6>
     <P>
       The people of the kingdom realized that the joke tax was not just unfair,
       but it was also very poorly thought out. After all, what constitutes a
@@ -86,8 +92,8 @@ export const All = () => (
     </P>
     <Large>Are you absolutely sure?</Large>
     <P>
-      This action cannot be undone. This will permanently delete your account and
-      remove your data from our servers.
+      This action cannot be undone. This will permanently delete your account
+      and remove your data from our servers.
     </P>
     <Small>Email address</Small>
     <Muted>Enter your email address.</Muted>

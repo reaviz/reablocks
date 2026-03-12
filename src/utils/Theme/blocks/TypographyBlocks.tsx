@@ -4,6 +4,8 @@ import {
   H2,
   H3,
   H4,
+  H5,
+  H6,
   P,
   BlockQuote,
   Lead,
@@ -176,6 +178,8 @@ export const TypographyComponentsBlock: FC = () => (
       <Muted>text-2xl font-semibold tracking-tight</Muted>
       <div style={{ height: '16px' }} />
       <H4>H4: The quick brown fox</H4>
+      <H5>H5: The quick brown fox</H5>
+      <H6>H6: The quick brown fox</H6>
       <Muted>text-xl font-semibold tracking-tight</Muted>
     </div>
     <div
@@ -205,7 +209,9 @@ export const TypographyComponentsBlock: FC = () => (
       }}
     >
       <BlockQuote>
-        {'"After all," he said, "everyone enjoys a good joke, so it\'s only fair that they should pay for the privilege."'}
+        {
+          '"After all," he said, "everyone enjoys a good joke, so it\'s only fair that they should pay for the privilege."'
+        }
       </BlockQuote>
     </div>
     <div
