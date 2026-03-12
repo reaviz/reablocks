@@ -89,6 +89,8 @@ module.exports = defineConfig([{
 }, globalIgnores([
   'eslint.config.ts',
   'vite.config.ts',
+  'playwright.config.ts',
+  'visual-tests/',
   'dist/',
   'storybook-static/',
   'types/',

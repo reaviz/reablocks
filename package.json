@@ -16,6 +16,9 @@
     "start": "storybook dev -p 9009",
     "test": "vitest --passWithNoTests",
     "test:coverage": "vitest run --coverage --passWithNoTests",
+    "test:visual": "npm run test:visual:extract && playwright test",
+    "test:visual:update": "npm run test:visual:extract && playwright test --update-snapshots",
+    "test:visual:extract": "node visual-tests/extract-stories.mjs",
     "prepare": "husky"
   },
   "type": "module",
@@ -88,6 +91,7 @@
     "@eslint/compat": "^2.0.3",
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.35.0",
+    "@playwright/test": "^1.52.0",
     "@storybook/addon-docs": "^10.2.17",
     "@storybook/addon-themes": "^10.2.17",
     "@storybook/react": "^10.2.17",
