@@ -1,8 +1,7 @@
 'use client';
 
 import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { DrawerTheme } from './DrawerTheme';
 
 export interface DrawerFooterProps extends HTMLAttributes<HTMLElement> {
@@ -27,7 +26,7 @@ export const DrawerFooter = forwardRef<HTMLElement, DrawerFooterProps>(
     const theme = useComponentTheme<DrawerTheme>('drawer', customTheme);
 
     return (
-      <footer ref={ref} className={twMerge(theme.footer, className)} {...props}>
+      <footer ref={ref} className={cn(theme.footer, className)} {...props}>
         {children}
       </footer>
     );

@@ -7,7 +7,6 @@ import {
 import { Button } from '@/elements';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from '@/form/Calendar/CalendarTheme';
-import { twMerge } from 'tailwind-merge';
 
 export interface CalendarYearsProps {
   /**

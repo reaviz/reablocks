@@ -1,8 +1,7 @@
 'use client';
 
 import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { DrawerTheme } from './DrawerTheme';
 import { useDrawerContext } from './DrawerContext';
 
@@ -57,11 +56,7 @@ export const DrawerHeader = forwardRef<HTMLElement, DrawerHeaderProps>(
     const headingId = context?.headingId;
 
     return (
-      <header
-        ref={ref}
-        className={twMerge(theme.header.base, className)}
-        {...props}
-      >
+      <header ref={ref} className={cn(theme.header.base, className)} {...props}>
         <div id={headingId} className="flex-1">
           {typeof children === 'string' ? (
             <h1 className={theme.header.text}>{children}</h1>

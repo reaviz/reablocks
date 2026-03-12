@@ -9,7 +9,6 @@ import React, {
 } from 'react';
 import { motion, useMotionValue } from 'motion/react';
 import { RangeProps, RangeTooltip } from './RangeTooltip';
-import { twMerge } from 'tailwind-merge';
 import { cn, useComponentTheme } from '@/utils';
 import { RangeTheme } from './RangeTheme';
 
@@ -144,10 +143,10 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
     <div
       style={style}
       ref={range}
-      className={twMerge(theme.base, disabled && theme.disabled, className)}
+      className={cn(theme.base, disabled && theme.disabled, className)}
     >
       <motion.div
-        className={twMerge(theme.drag, handleClassName)}
+        className={cn(theme.drag, handleClassName)}
         drag={!disabled ? 'x' : null}
         dragMomentum={false}
         style={{ x: minX }}
@@ -166,7 +165,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
         dragElastic={false}
       >
         <div
-          className={twMerge(
+          className={cn(
             theme.inputWrapper.base,
             disabled && theme.inputWrapper.disabled
           )}
@@ -192,7 +191,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
         )}
       </motion.div>
       <motion.div
-        className={twMerge(theme.drag)}
+        className={cn(theme.drag)}
         drag={!disabled ? 'x' : null}
         dragMomentum={false}
         style={{ x: maxX }}
@@ -211,7 +210,7 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
         dragElastic={false}
       >
         <div
-          className={twMerge(
+          className={cn(
             theme.inputWrapper.base,
             disabled && theme.inputWrapper.disabled
           )}

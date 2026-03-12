@@ -4,9 +4,8 @@ import { ConnectedOverlay, ConnectedOverlayProps } from '@/utils';
 import { useId } from '@/utils';
 import FocusTrap from 'focus-trap-react';
 import creteGlobalStateHook from 'create-global-state-hook';
-import { twMerge } from 'tailwind-merge';
 import { ContextMenuTheme } from './ContextMenuTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 const useGlobalMenuState = creteGlobalStateHook<any[]>([]);
 
@@ -111,7 +110,7 @@ export const ContextMenu: FC<ContextMenuProps> = ({
       closeOnEscape={closeOnEscape}
       closeOnBodyClick={closeOnBodyClick}
       {...rest}
-      triggerClassName={twMerge(
+      triggerClassName={cn(
         triggerClassName,
         !disabled && theme.enabled,
         open && triggerOpenClassName

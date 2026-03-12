@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { FieldTheme } from './FieldTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface FieldProps extends React.HTMLAttributes<HTMLElement> {
   /**
@@ -75,7 +74,7 @@ export const Field: FC<FieldProps> = ({
   return (
     <section
       {...rest}
-      className={twMerge(
+      className={cn(
         theme.base,
         disableMargin && theme.disableMargin,
         direction === 'horizontal' && theme.horizontal.base,
@@ -87,7 +86,7 @@ export const Field: FC<FieldProps> = ({
     >
       {label && (
         <label
-          className={twMerge(
+          className={cn(
             theme.label,
             direction === 'horizontal' && theme.horizontal.label,
             direction === 'vertical' && theme.vertical.label,

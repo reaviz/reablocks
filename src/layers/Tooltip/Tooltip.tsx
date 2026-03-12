@@ -2,10 +2,9 @@ import React, { FC, useState, useRef, useEffect, ReactNode } from 'react';
 import { ConnectedOverlay, TriggerTypes } from '@/utils/Overlay';
 import { Modifiers, Placement, ReferenceObject } from '@/utils/Position';
 import { motion, MotionNodeAnimationOptions } from 'motion/react';
-import { twMerge } from 'tailwind-merge';
 import { useTooltipState } from './useTooltipState';
 import { TooltipTheme } from './TooltipTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface TooltipProps {
   /**
@@ -208,7 +207,7 @@ export const Tooltip: FC<TooltipProps> = ({
         return (
           <motion.div
             role={isPopover ? undefined : 'tooltip'}
-            className={twMerge(theme.base, className)}
+            className={cn(theme.base, className)}
             {...(animation
               ? animation
               : {

@@ -6,12 +6,13 @@ import React, {
   useRef,
   useState
 } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { InputTheme } from './InputTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
-export interface InputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+export interface InputProps extends Omit<
+  React.InputHTMLAttributes<HTMLInputElement>,
+  'size'
+> {
   /**
    * If true, the input will take up the full width of its container.
    */
@@ -147,7 +148,7 @@ export const Input = forwardRef<InputRef, InputProps>(
 
     return (
       <div
-        className={twMerge(
+        className={cn(
           theme.base,
           focused && theme.focused,
           fullWidth && theme.fullWidth,
@@ -159,7 +160,7 @@ export const Input = forwardRef<InputRef, InputProps>(
         ref={containerRef}
       >
         {(start || startAdornment) && (
-          <div className={twMerge(theme.adornment.base, theme.adornment.start)}>
+          <div className={cn(theme.adornment.base, theme.adornment.start)}>
             {start ?? startAdornment}
           </div>
         )}
@@ -169,7 +170,7 @@ export const Input = forwardRef<InputRef, InputProps>(
           value={value}
           disabled={disabled}
           aria-invalid={error || undefined}
-          className={twMerge(theme.input, className)}
+          className={cn(theme.input, className)}
           onFocus={event => {
             if (selectOnFocus) {
               event.target.select();
@@ -187,7 +188,7 @@ export const Input = forwardRef<InputRef, InputProps>(
           }}
         />
         {(end || endAdornment) && (
-          <div className={twMerge(theme.adornment.base, theme.adornment.end)}>
+          <div className={cn(theme.adornment.base, theme.adornment.end)}>
             {end ?? endAdornment}
           </div>
         )}

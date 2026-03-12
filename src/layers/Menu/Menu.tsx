@@ -5,9 +5,8 @@ import { ConnectedOverlay, OverlayEvent } from '@/utils/Overlay';
 import { Modifiers, Placement } from '@/utils/Position';
 import { useId } from '@/utils';
 import { motion, MotionNodeAnimationOptions } from 'motion/react';
-import { twMerge } from 'tailwind-merge';
 import { MenuTheme } from './MenuTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface MenuProps {
   /**
@@ -217,7 +216,7 @@ export const Menu: FC<MenuProps & MenuRef> = forwardRef<
                   animate: { opacity: 1, y: 0 },
                   exit: { opacity: 0, y: -10 }
                 })}
-            className={twMerge(theme.base, className)}
+            className={cn(theme.base, className)}
             style={style}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}

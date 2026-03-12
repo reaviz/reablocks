@@ -1,6 +1,5 @@
 import React, { FC, forwardRef, InputHTMLAttributes, LegacyRef } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { ListTheme } from './ListTheme';
 
 export type ListProps = InputHTMLAttributes<HTMLDivElement> & {
@@ -23,12 +22,7 @@ export const List: FC<ListProps & ListRef> = forwardRef<
 >(({ className, children, theme: customTheme, ...rest }, ref) => {
   const theme: ListTheme = useComponentTheme('list', customTheme);
   return (
-    <div
-      {...rest}
-      ref={ref}
-      role="list"
-      className={twMerge(theme.base, className)}
-    >
+    <div {...rest} ref={ref} role="list" className={cn(theme.base, className)}>
       {children}
     </div>
   );

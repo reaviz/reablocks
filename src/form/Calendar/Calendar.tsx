@@ -29,7 +29,6 @@ import {
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
-import { twMerge } from 'tailwind-merge';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from './CalendarTheme';
 import { Divider } from '@/layout/Divider';
@@ -312,15 +311,12 @@ export const Calendar: FC<CalendarProps> = ({
   );
 
   return (
-    <div className={twMerge(theme.base)}>
+    <div className={cn(theme.base)}>
       <div className="relative flex">
         {preset && (
           <>
             <div
-              className={twMerge(
-                'flex items-center gap-1',
-                theme.presets.wrapper
-              )}
+              className={cn('flex items-center gap-1', theme.presets.wrapper)}
             >
               <CalendarPresets
                 options={preset}
@@ -336,7 +332,7 @@ export const Calendar: FC<CalendarProps> = ({
         )}
 
         <div className="flex-1">
-          <header className={twMerge(theme.header.base)}>
+          <header className={cn(theme.header.base)}>
             <Button
               variant="text"
               disabled={disabled}
@@ -379,7 +375,7 @@ export const Calendar: FC<CalendarProps> = ({
           <Divider />
           <AnimatePresence initial={false} mode="wait">
             <motion.div
-              className={twMerge(theme.content)}
+              className={cn(theme.content)}
               key={view}
               {...(animationViewChange
                 ? animationViewChange

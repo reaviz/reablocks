@@ -7,8 +7,7 @@ import React, {
   useMemo,
   useState
 } from 'react';
-import { useId } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useId } from '@/utils';
 import { AnimatePresence } from 'motion/react';
 import { useComponentTheme } from '@/utils/Theme/hooks';
 import { TabsTheme } from './TabsTheme';
@@ -102,7 +101,7 @@ export const Tabs: FC<TabsProps> = ({
   }, [children]);
 
   return (
-    <div className={twMerge(theme.base, className)} style={style}>
+    <div className={cn(theme.base, className)} style={style}>
       <TabList
         {...tabList}
         variant={variant}

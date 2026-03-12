@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 import { TypographyTheme } from './TypographyTheme';
 
 export interface SmallProps extends React.HTMLAttributes<HTMLElement> {
@@ -12,13 +11,10 @@ export interface SmallProps extends React.HTMLAttributes<HTMLElement> {
 
 export const Small = forwardRef<HTMLElement, SmallProps>(
   ({ className, theme: customTheme, children, ...rest }, ref) => {
-    const theme: TypographyTheme = useComponentTheme(
-      'typography',
-      customTheme
-    );
+    const theme: TypographyTheme = useComponentTheme('typography', customTheme);
 
     return (
-      <small ref={ref} className={twMerge(theme.small, className)} {...rest}>
+      <small ref={ref} className={cn(theme.small, className)} {...rest}>
         {children}
       </small>
     );

@@ -7,7 +7,8 @@ import {
   CloneElement,
   hasSlotComponents,
   extractSlots,
-  useComponentTheme
+  useComponentTheme,
+  cn
 } from '@/utils';
 import { GlobalOverlay, GlobalOverlayProps } from '@/utils/Overlay';
 import {
@@ -21,7 +22,6 @@ import {
 import { variants } from './variants';
 import { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
 import { DrawerContext, DrawerContextValue } from './DrawerContext';
-import { twMerge } from 'tailwind-merge';
 import { DrawerTheme } from './DrawerTheme';
 import { DrawerFooter } from './DrawerFooter';
 import { DrawerContent } from './DrawerContent';
@@ -221,17 +221,14 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
       {!header && !headerElement && showCloseButton && (
         <button
           type="button"
-          className={twMerge(
-            theme.closeButton.base,
-            theme.closeButton.headerless
-          )}
+          className={cn(theme.closeButton.base, theme.closeButton.headerless)}
           onClick={onClose}
           aria-label="Close"
         >
           ✕
         </button>
       )}
-      <div className={twMerge(theme.content, contentClassName)}>
+      <div className={cn(theme.content, contentClassName)}>
         {typeof children === 'function'
           ? (children as () => ReactNode)()
           : children}
@@ -271,7 +268,7 @@ export const Drawer: FC<Partial<DrawerProps>> = ({
                 when: 'beforeChildren'
               }}
               style={{ ...style, zIndex: overlayIndex }}
-              className={twMerge(
+              className={cn(
                 theme.base,
                 theme.positions[position],
                 disablePadding && theme.disablePadding,

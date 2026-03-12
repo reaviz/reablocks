@@ -1,10 +1,8 @@
 import React, { forwardRef } from 'react';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 import { TypographyTheme } from './TypographyTheme';
 
-export interface BlockQuoteProps
-  extends React.BlockquoteHTMLAttributes<HTMLQuoteElement> {
+export interface BlockQuoteProps extends React.BlockquoteHTMLAttributes<HTMLQuoteElement> {
   /**
    * Theme for Typography.
    */
@@ -13,15 +11,12 @@ export interface BlockQuoteProps
 
 export const BlockQuote = forwardRef<HTMLQuoteElement, BlockQuoteProps>(
   ({ className, theme: customTheme, children, ...rest }, ref) => {
-    const theme: TypographyTheme = useComponentTheme(
-      'typography',
-      customTheme
-    );
+    const theme: TypographyTheme = useComponentTheme('typography', customTheme);
 
     return (
       <blockquote
         ref={ref}
-        className={twMerge(theme.blockquote, className)}
+        className={cn(theme.blockquote, className)}
         {...rest}
       >
         {children}

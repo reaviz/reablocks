@@ -5,8 +5,7 @@ import {
   MotionNodeAnimationOptions
 } from 'motion/react';
 import { CollapseTheme } from './CollapseTheme';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 
 const VARIANTS = {
   open: { opacity: 1, height: 'auto' },
@@ -19,8 +18,10 @@ const TRANSITION = {
   when: 'beforeChildren'
 };
 
-export interface CollapseProps
-  extends Omit<Partial<HTMLDivElement>, 'children'> {
+export interface CollapseProps extends Omit<
+  Partial<HTMLDivElement>,
+  'children'
+> {
   /**
    * Whether the collapse is expanded or not.
    */
@@ -64,7 +65,7 @@ export const Collapse: FC<CollapseProps> = ({
       {expanded && (
         <motion.section
           {...(rest as any)}
-          className={twMerge(theme.base, className)}
+          className={cn(theme.base, className)}
           key="content"
           {...(animation
             ? animation

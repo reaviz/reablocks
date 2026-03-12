@@ -1,10 +1,9 @@
 import React, { FC, forwardRef, ReactElement } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { Button } from '@/elements/Button';
 import { Chip, ChipProps, ChipRef } from './Chip';
 import { CloseIcon } from '@/form';
 import { ChipTheme } from './ChipTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
   /**
@@ -51,10 +50,7 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
             tabIndex={0}
             variant="text"
             size={size}
-            className={twMerge(
-              theme.deleteButton.base,
-              theme.deleteButton[size]
-            )}
+            className={cn(theme.deleteButton.base, theme.deleteButton[size])}
             onClick={event => {
               if (!disabled) {
                 event.stopPropagation();

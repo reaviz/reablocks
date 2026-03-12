@@ -1,6 +1,5 @@
 import React, { FC } from 'react';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 import { DividerTheme } from './DividerTheme';
 
 export interface DividerProps {
@@ -49,7 +48,7 @@ export const Divider: FC<DividerProps> = ({
   return (
     <hr
       {...rest}
-      className={twMerge(
+      className={cn(
         theme.base,
         theme.variant[variant],
         theme.orientation[orientation],

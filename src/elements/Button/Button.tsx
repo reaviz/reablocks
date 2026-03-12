@@ -1,15 +1,13 @@
 import React, { FC, forwardRef, LegacyRef, useContext } from 'react';
 import { motion } from 'motion/react';
 import { ButtonGroupContext } from './ButtonGroupContext';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 import { ButtonTheme } from './ButtonTheme';
 
-export interface ButtonProps
-  extends Omit<
-    React.ButtonHTMLAttributes<HTMLButtonElement>,
-    'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag'
-  > {
+export interface ButtonProps extends Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag'
+> {
   /**
    * Color variation of the button.
    */
@@ -111,7 +109,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         ref={ref}
         whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
         data-variant={groupVariant || variant}
-        className={twMerge(
+        className={cn(
           theme.base,
           theme.disabled,
           fullWidth && theme.fullWidth,
@@ -127,7 +125,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
       >
         {startAdornment && (
           <div
-            className={twMerge(
+            className={cn(
               theme.adornment.base,
               theme.adornment.start,
               theme.adornment.sizes[size]
@@ -139,7 +137,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         {children}
         {endAdornment && (
           <div
-            className={twMerge(
+            className={cn(
               theme.adornment.base,
               theme.adornment.end,
               theme.adornment.sizes[size]

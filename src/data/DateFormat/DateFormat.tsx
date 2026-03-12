@@ -8,9 +8,8 @@ import React, {
 } from 'react';
 import { formatRelative, getInterval } from './relative';
 import { safeFormat } from './formatting';
-import { twMerge } from 'tailwind-merge';
 import { DateFormatTheme } from './DateFormatTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface DateFormatProps {
   /**
@@ -78,7 +77,7 @@ export const DateFormat: FC<DateFormatProps> = ({
 }) => {
   const [cache, setCache] = useState<string | null>(
     typeof window !== 'undefined'
-      ? window.localStorage.getItem(`DATES_${cacheKey}`) ?? null
+      ? (window.localStorage.getItem(`DATES_${cacheKey}`) ?? null)
       : null
   );
 
@@ -152,11 +151,7 @@ export const DateFormat: FC<DateFormatProps> = ({
     <time
       title={allowToggle ? 'Toggle relative / absolute time' : undefined}
       role="button"
-      className={twMerge(
-        theme.base,
-        allowToggle && theme.interactive,
-        className
-      )}
+      className={cn(theme.base, allowToggle && theme.interactive, className)}
       onClick={onToggle}
     >
       {isRelative ? curRelative : formatted}

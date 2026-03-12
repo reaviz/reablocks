@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 import { TypographyTheme } from './TypographyTheme';
 
 export interface H1Props extends React.HTMLAttributes<HTMLHeadingElement> {
@@ -12,13 +11,10 @@ export interface H1Props extends React.HTMLAttributes<HTMLHeadingElement> {
 
 export const H1 = forwardRef<HTMLHeadingElement, H1Props>(
   ({ className, theme: customTheme, children, ...rest }, ref) => {
-    const theme: TypographyTheme = useComponentTheme(
-      'typography',
-      customTheme
-    );
+    const theme: TypographyTheme = useComponentTheme('typography', customTheme);
 
     return (
-      <h1 ref={ref} className={twMerge(theme.h1, className)} {...rest}>
+      <h1 ref={ref} className={cn(theme.h1, className)} {...rest}>
         {children}
       </h1>
     );

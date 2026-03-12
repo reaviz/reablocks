@@ -1,7 +1,6 @@
 import React, { forwardRef, LegacyRef, FC, PropsWithChildren } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { CardTheme } from './CardTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface CardProps extends React.DOMAttributes<any> {
   /**
@@ -63,14 +62,14 @@ export const Card: FC<CardRefProps> = forwardRef(
       <section
         {...rest}
         ref={ref}
-        className={twMerge(
+        className={cn(
           theme.base,
           disablePadding && theme.disablePadding,
           className
         )}
       >
         {header && (
-          <header className={twMerge(theme.header, headerClassName)}>
+          <header className={cn(theme.header, headerClassName)}>
             {header && typeof header === 'string' ? (
               <h3 className={theme.headerText}>{header}</h3>
             ) : (
@@ -78,9 +77,7 @@ export const Card: FC<CardRefProps> = forwardRef(
             )}
           </header>
         )}
-        <div className={twMerge(theme.content, contentClassName)}>
-          {children}
-        </div>
+        <div className={cn(theme.content, contentClassName)}>{children}</div>
       </section>
     );
   }

@@ -3,7 +3,7 @@ import { TreeNode } from '@/layout/Tree/TreeNode';
 import { JsonTreeData } from './utils';
 import { useComponentTheme } from '@/utils/Theme/hooks';
 import { JsonTreeTheme } from './JsonTreeTheme';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/utils';
 import { Ellipsis } from '@/data/Ellipsis';
 import { useInfinityList } from '@/data/InfinityList';
 
@@ -97,10 +97,10 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
 
     return (
       <>
-        <span className={twMerge(theme.node.label)}>{data.label}</span>
-        <span className={twMerge(theme.node.symbol)}>{symbol}</span>
+        <span className={cn(theme.node.label)}>{data.label}</span>
+        <span className={cn(theme.node.symbol)}>{symbol}</span>
         {showCount && (
-          <span className={twMerge(theme.node.count)}>
+          <span className={cn(theme.node.count)}>
             {`(${data.data.length.toLocaleString()} ${label})`}
           </span>
         )}
@@ -128,11 +128,9 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
 
     return (
       <>
-        <span className={twMerge(theme.node.label)}>{data.label}</span>
-        {showDelimeter && (
-          <span className={twMerge(theme.node.delimiter)}>:</span>
-        )}
-        <span className={twMerge(theme.node.value)}>
+        <span className={cn(theme.node.label)}>{data.label}</span>
+        {showDelimeter && <span className={cn(theme.node.delimiter)}>:</span>}
+        <span className={cn(theme.node.value)}>
           {ellipsis && !isEmptyString ? (
             <Ellipsis
               value={data.data}
@@ -196,7 +194,7 @@ export const JsonTreeNode: FC<JsonTreeNodeProps> = ({
         </>
       )}
       {isList && hasMore && (
-        <span className={twMerge(theme.pager)} onClick={() => showNext()}>
+        <span className={cn(theme.pager)} onClick={() => showNext()}>
           Show all
         </span>
       )}

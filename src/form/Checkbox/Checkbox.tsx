@@ -1,4 +1,4 @@
-import { useComponentTheme, useId } from '@/utils';
+import { cn, useComponentTheme, useId } from '@/utils';
 import { motion, useMotionValue, useTransform } from 'motion/react';
 import React, {
   FC,
@@ -9,7 +9,6 @@ import React, {
   useEffect,
   useState
 } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { CheckboxLabel } from './CheckboxLabel';
 import { CheckboxTheme } from './CheckboxTheme';
 
@@ -147,13 +146,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
     }, [disabled, onChange, checked]);
 
     return (
-      <div
-        className={twMerge(
-          theme.base,
-          containerClassName,
-          checked && 'checked'
-        )}
-      >
+      <div className={cn(theme.base, containerClassName, checked && 'checked')}>
         {labelPosition === 'start' && label && (
           <CheckboxLabel
             id={labelId}
@@ -162,7 +155,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             checked={checked}
             disabled={disabled}
             onChange={handleOnChange}
-            labelClassName={twMerge('mr-2.5', labelClassName)}
+            labelClassName={cn('mr-2.5', labelClassName)}
             theme={theme}
           />
         )}
@@ -174,7 +167,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
           aria-disabled={disabled || undefined}
           aria-labelledby={label ? labelId : undefined}
           tabIndex={disabled ? -1 : 0}
-          className={twMerge(
+          className={cn(
             theme.checkbox.base,
             checked && theme.checkbox.checked,
             disabled && theme.checkbox.disabled,
@@ -203,7 +196,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             height={16}
           >
             <motion.path
-              className={twMerge(
+              className={cn(
                 theme.border.base,
                 checked && theme.border.checked,
                 disabled && theme.border.disabled
@@ -226,7 +219,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
                 d={checkedPath}
                 fill="transparent"
                 strokeWidth="1"
-                className={twMerge(
+                className={cn(
                   theme.check.base,
                   disabled && theme.check.disabled,
                   checked && theme.check.checked
@@ -246,7 +239,7 @@ export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
             checked={checked}
             disabled={disabled}
             onChange={handleOnChange}
-            labelClassName={twMerge('ml-2.5', labelClassName)}
+            labelClassName={cn('ml-2.5', labelClassName)}
             theme={theme}
           />
         )}

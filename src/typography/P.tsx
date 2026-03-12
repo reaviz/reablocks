@@ -1,6 +1,5 @@
 import React, { forwardRef } from 'react';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 import { TypographyTheme } from './TypographyTheme';
 
 export interface PProps extends React.HTMLAttributes<HTMLParagraphElement> {
@@ -12,13 +11,10 @@ export interface PProps extends React.HTMLAttributes<HTMLParagraphElement> {
 
 export const P = forwardRef<HTMLParagraphElement, PProps>(
   ({ className, theme: customTheme, children, ...rest }, ref) => {
-    const theme: TypographyTheme = useComponentTheme(
-      'typography',
-      customTheme
-    );
+    const theme: TypographyTheme = useComponentTheme('typography', customTheme);
 
     return (
-      <p ref={ref} className={twMerge(theme.p, className)} {...rest}>
+      <p ref={ref} className={cn(theme.p, className)} {...rest}>
         {children}
       </p>
     );
