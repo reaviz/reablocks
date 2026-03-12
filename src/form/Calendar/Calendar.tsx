@@ -33,10 +33,10 @@ import { twMerge } from 'tailwind-merge';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from './CalendarTheme';
 import { Divider } from '@/layout/Divider';
+import { H4 } from '@/typography';
 import { CalendarTimes } from './CalendarTimes';
 import { updateDateTime } from './utils';
 import { CalendarPresets, PresetOption } from './CalendarPresets';
-import { Stack } from '@/layout';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -316,7 +316,7 @@ export const Calendar: FC<CalendarProps> = ({
       <div className="relative flex">
         {preset && (
           <>
-            <Stack dense direction="row" className={theme.presets.wrapper}>
+            <div className={twMerge('flex items-center gap-1', theme.presets.wrapper)}>
               <CalendarPresets
                 options={preset}
                 value={value as Date | [Date, Date]}
@@ -326,7 +326,7 @@ export const Calendar: FC<CalendarProps> = ({
                 orientation="vertical"
                 className={theme.presets.divider}
               />
-            </Stack>
+            </div>
           </>
         )}
 
@@ -349,7 +349,7 @@ export const Calendar: FC<CalendarProps> = ({
               disablePadding
               fullWidth
             >
-              <span className={theme.title}>
+              <H4 className={theme.title}>
                 {view === 'days' && format(viewValue, 'MMMM')}
                 {view === 'months' && <>{yearValue}</>}
                 {view === 'years' && (
@@ -357,7 +357,7 @@ export const Calendar: FC<CalendarProps> = ({
                     {decadeStart.getFullYear()}-{decadeEnd.getFullYear()}
                   </>
                 )}
-              </span>
+              </H4>
             </Button>
             <Button
               variant="text"

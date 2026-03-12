@@ -151,6 +151,12 @@ import {
   legacyPagerTheme
 } from '@/data';
 
+import {
+  TypographyTheme,
+  typographyTheme,
+  legacyTypographyTheme
+} from '@/typography';
+
 export interface ReablocksTheme {
   components: {
     avatar: AvatarTheme;
@@ -199,6 +205,7 @@ export interface ReablocksTheme {
     callout: CalloutTheme;
     backdrop: BackdropTheme;
     skeleton: SkeletonTheme;
+    typography: TypographyTheme;
   };
 }
 
@@ -249,7 +256,8 @@ export const theme: ReablocksTheme = {
     stepper: stepperTheme,
     callout: calloutTheme,
     backdrop: backdropTheme,
-    skeleton: skeletonTheme
+    skeleton: skeletonTheme,
+    typography: typographyTheme
   }
 };
 
@@ -300,6 +308,7 @@ export const legacyThemeVars: ReablocksTheme = {
     stepper: legacyStepperTheme,
     callout: legacyCalloutTheme,
     backdrop: legacyBackdropTheme,
-    skeleton: legacySkeletonTheme
+    skeleton: legacySkeletonTheme,
+    typography: legacyTypographyTheme
   }
 };

@@ -10,6 +10,7 @@ import { Button } from '../../../src/elements/Button';
 import { Input } from '../../../src/form/Input';
 
 import { Chip } from '../../../src/elements/Chip';
+import { H1 } from '../../../src/typography';
 
 export default {
   title: 'Blocks/Foundation/Not Found'
@@ -958,9 +959,9 @@ export const DoesNotExist = () => (
         >
           404
         </Chip>
-        <h1 className="font-bold my-3 dark:text-athens-gray">
+        <H1 className="font-bold my-3 dark:text-athens-gray">
           This page does not exist
-        </h1>
+        </H1>
         <span className="dark:text-waterloo light:text-charade">
           Sorry, we couldn't find the page you're looking for.
         </span>

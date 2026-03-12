@@ -2,6 +2,7 @@ import React, { FC, InputHTMLAttributes } from 'react';
 import { ListTheme } from '@/layout/List/ListTheme';
 import { useComponentTheme } from '@/utils';
 import { twMerge } from 'tailwind-merge';
+import { Small } from '@/typography';
 
 export type ListHeaderProps = InputHTMLAttributes<HTMLDivElement> & {
   /**
@@ -18,8 +19,8 @@ export const ListHeader: FC<ListHeaderProps> = ({
 }) => {
   const theme: ListTheme = useComponentTheme('list', customTheme);
   return (
-    <h6 {...(rest as any)} className={twMerge(theme.header, className)}>
+    <Small {...(rest as any)} className={twMerge(theme.header, className)}>
       {children}
-    </h6>
+    </Small>
   );
 };

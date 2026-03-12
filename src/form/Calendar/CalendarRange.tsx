@@ -12,6 +12,7 @@ import { Button } from '@/elements';
 import { CalendarProps } from './Calendar';
 import { CalendarDays } from './CalendarDays';
 import { Divider, Stack } from '@/layout';
+import { H4 } from '@/typography';
 import { useComponentTheme } from '@/utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
 import { CalendarPresets, PresetOption } from './CalendarPresets';
@@ -202,7 +203,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 {previousArrow}
               </Button>
             </Stack>
-            <span className={theme.title}>
+            <H4 className={theme.title}>
               {displayMonths.map(i => (
                 <span
                   key={addMonths(viewValue, showPast ? -i : i).toDateString()}
@@ -213,7 +214,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                   )}
                 </span>
               ))}
-            </span>
+            </H4>
             <Stack>
               <Button
                 variant="text"
