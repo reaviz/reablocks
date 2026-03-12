@@ -50,6 +50,22 @@ If you want to run reablocks locally, its super easy!
 - `npm start`
 - Browser opens to Storybook page
 
+## 🧪 Visual Regression Testing
+
+This project uses [Playwright](https://playwright.dev/) to screenshot every Storybook story and catch unintended visual changes.
+
+**Prerequisites:** Storybook must be running on `localhost:6006` (or Playwright will start it automatically).
+
+```bash
+# Run visual tests against existing baseline screenshots
+npm run test:visual
+
+# Update baseline screenshots (after intentional visual changes)
+npm run test:visual:update
+```
+
+`test:visual:extract` runs automatically as part of both commands — it fetches the story list from Storybook so Playwright knows what to screenshot.
+
 ## ❤️ Contributors & Credits
 
 Thanks to Netlify for hosting!
