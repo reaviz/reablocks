@@ -54,7 +54,7 @@ If you want to run reablocks locally, its super easy!
 
 This project uses [Playwright](https://playwright.dev/) to screenshot every Storybook story and catch unintended visual changes.
 
-**Prerequisites:** Storybook must be running on `localhost:6006` (or Playwright will start it automatically).
+**Prerequisites:** Storybook must be running on `localhost:9009` (or Playwright will start it automatically).
 
 ```bash
 # Run visual tests against existing baseline screenshots

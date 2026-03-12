@@ -1,6 +1,6 @@
 import { writeFileSync } from 'fs';
 
-const res = await fetch('http://localhost:6006/index.json');
+const res = await fetch('http://localhost:9009/index.json');
 const data = await res.json();
 const stories = Object.values(data.entries)
   .filter(e => e.type === 'story')

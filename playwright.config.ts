@@ -20,7 +20,7 @@ export default defineConfig({
     ? 'github'
     : [['html', { open: 'never' }]],
   use: {
-    baseURL: 'http://localhost:6006',
+    baseURL: 'http://localhost:9009',
     screenshot: 'only-on-failure',
     trace: 'on-first-retry'
   },
@@ -35,7 +35,7 @@ export default defineConfig({
   ],
   webServer: {
     command: 'npx storybook dev -p 6006 --no-open',
-    url: 'http://localhost:6006',
+    url: 'http://localhost:9009',
     timeout: 120_000,
     reuseExistingServer: !process.env.CI
   }
