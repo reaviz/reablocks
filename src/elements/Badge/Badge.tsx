@@ -1,8 +1,7 @@
 import React, { FC, forwardRef, LegacyRef } from 'react';
 import { motion } from 'motion/react';
 import { BadgeTheme } from './BadgeTheme';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 
 export type BadgeColor = 'default' | 'primary' | 'secondary' | 'error';
 
@@ -12,8 +11,10 @@ export type BadgePlacement =
   | 'bottom-end'
   | 'bottom-start';
 
-export interface BadgeProps
-  extends Omit<React.HTMLAttributes<HTMLSpanElement>, 'content'> {
+export interface BadgeProps extends Omit<
+  React.HTMLAttributes<HTMLSpanElement>,
+  'content'
+> {
   /**
    * The content of the badge.
    */
@@ -70,9 +71,7 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
     const theme: BadgeTheme = useComponentTheme('badge', customTheme);
 
     return (
-      <span
-        className={twMerge(theme.base, disableMargins && theme.disableMargins)}
-      >
+      <span className={cn(theme.base, disableMargins && theme.disableMargins)}>
         {children}
         {!hidden && (
           <motion.span
@@ -83,7 +82,7 @@ export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(
             <span
               {...rest}
               ref={ref}
-              className={twMerge(
+              className={cn(
                 theme.badge,
                 theme.position,
                 theme.colors[color],

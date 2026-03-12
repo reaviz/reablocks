@@ -1,8 +1,7 @@
 import React, { PropsWithChildren, forwardRef } from 'react';
 import { List, ListHeader } from '@/layout';
 import { MotionGroup, MotionItem } from '@/layout';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 
 export interface CommandPaletteSectionProps extends PropsWithChildren {
@@ -41,7 +40,7 @@ export const CommandPaletteSection = forwardRef<
       <List
         ref={ref}
         {...rest}
-        className={twMerge(
+        className={cn(
           sectionTheme.base,
           index === 0 && sectionTheme.first,
           className

@@ -11,9 +11,8 @@ import React, {
 import { Button } from '@/elements/Button';
 import { Collapse } from '@/layout/Collapse';
 import { TreeContext } from './TreeContext';
-import { twMerge } from 'tailwind-merge';
 import { TreeTheme } from './TreeTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface TreeNodeProps extends PropsWithChildren {
   /**
@@ -86,7 +85,7 @@ export const TreeNode: FC<TreeNodeProps> = ({
   const theme: TreeTheme = useComponentTheme('tree', customTheme);
 
   return (
-    <li className={twMerge(theme.node.base, className)}>
+    <li className={cn(theme.node.base, className)}>
       <div className={theme.nodeBlock}>
         {hasChildren && (
           <Button
@@ -94,7 +93,7 @@ export const TreeNode: FC<TreeNodeProps> = ({
             disabled={disabled}
             variant="text"
             title={expanded ? 'Collapse' : 'Expand'}
-            className={twMerge(
+            className={cn(
               theme.node.button.base,
               disabled && theme.node.disabled
             )}
@@ -104,7 +103,7 @@ export const TreeNode: FC<TreeNodeProps> = ({
           </Button>
         )}
         <span
-          className={twMerge(
+          className={cn(
             theme.node.label,
             !hasChildren && theme.node.leaf,
             disabled && theme.node.disabled

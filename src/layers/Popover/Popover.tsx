@@ -2,9 +2,8 @@ import React, { FC } from 'react';
 import { TooltipProps, Tooltip } from '@/layers/Tooltip';
 import FocusTrap from 'focus-trap-react';
 import { useId } from '@/utils';
-import { twMerge } from 'tailwind-merge';
 import { PopoverTheme } from './PopoverTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 type FocusTargetValueOrFalse = HTMLElement | SVGElement | string | false;
 
@@ -65,7 +64,7 @@ export const Popover: FC<PopoverProps> = ({
       pointerEvents="initial"
       leaveDelay={leaveDelay}
       isPopover
-      className={twMerge(
+      className={cn(
         theme.base,
         disablePadding && theme.disablePadding,
         className

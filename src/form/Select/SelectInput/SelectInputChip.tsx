@@ -2,8 +2,7 @@ import React, { FC } from 'react';
 import { SelectOptionProps } from '@/form/Select/SelectOption';
 import ellipsize from 'ellipsize';
 import { CloseIcon } from '@/form/Select/icons';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { SelectTheme } from '@/form/Select/SelectTheme';
 
 export interface SelectInputChipProps {
@@ -78,7 +77,7 @@ export const SelectInputChip: FC<SelectInputChipProps> = ({
 
   return (
     <span
-      className={twMerge(
+      className={cn(
         theme.chip.base,
         theme.chip.hover,
         theme.chip.focused,
@@ -95,7 +94,7 @@ export const SelectInputChip: FC<SelectInputChipProps> = ({
         <button
           type="button"
           onClick={() => onSelectedChange(option)}
-          className={twMerge(theme.chip.removeButton)}
+          className={cn(theme.chip.removeButton)}
         >
           {closeIcon}
         </button>

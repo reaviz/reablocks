@@ -1,7 +1,6 @@
 import React, { FC, PropsWithChildren } from 'react';
-import { twMerge } from 'tailwind-merge';
 import { TabsTheme } from './TabsTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface TabPanelProps extends PropsWithChildren {
   /**
@@ -22,7 +21,7 @@ export const TabPanel: FC<TabPanelProps> = ({
 }) => {
   const theme: TabsTheme = useComponentTheme('tabs', customTheme);
   return (
-    <section role="tabpanel" className={twMerge(theme.panel, className)}>
+    <section role="tabpanel" className={cn(theme.panel, className)}>
       {children}
     </section>
   );

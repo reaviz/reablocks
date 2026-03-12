@@ -14,4 +14,4 @@ export const breadcrumbsTheme: BreadcrumbsTheme = {
   activePage: 'text-primary pointer-events-none'
 };
 
-export const legacyBreadcrumbTheme: BreadcrumbsTheme = breadcrumbsTheme;
+export const legacyBreadcrumbsTheme: BreadcrumbsTheme = breadcrumbsTheme;

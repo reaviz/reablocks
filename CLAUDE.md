@@ -27,8 +27,8 @@ src/
 ├── elements/       # Basic UI elements (Avatar, Badge, Button, Chip, CommandPalette, IconButton, Kbd, Loader, Skeleton)
 ├── form/           # Form components (Calendar, Checkbox, DateInput, Input, Radio, Range, Select, Textarea, Toggle)
 ├── layers/         # Overlay components (Backdrop, Callout, ConfirmDialog, ContextMenu, Dialog, Drawer, Menu, Notification, Popover, Tooltip)
-├── layout/         # Layout components (Block, Breadcrumbs, Card, Collapse, Divider, List, Motion, Stack, Stepper, Tabs, Tree, VerticalSpacer)
-├── typography/     # Typography components (PageTitle, PrimaryHeading, SecondaryHeading, SmallHeading, Sub, Text)
+├── layout/         # Layout components (Breadcrumbs, Card, Collapse, Divider, Field, List, Motion, Stepper, Tabs, Tree)
+├── typography/     # Typography components (H1, H2, H3, H4, P, BlockQuote, Lead, Large, Small, Muted)
 ├── utils/          # Utilities (ExitListener, Overlay, Portal, Position, Theme system, hooks)
 ├── assets/         # SVG icons and assets
 └── index.ts        # Main export file

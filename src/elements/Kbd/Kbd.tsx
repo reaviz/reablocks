@@ -1,9 +1,8 @@
 import React, { FC } from 'react';
 import { Chip, ChipProps } from '@/elements/Chip';
 import { getHotkeyText } from './utils';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { KbdTheme } from './KbdTheme';
-import { twMerge } from 'tailwind-merge';
 
 export interface KbdProps extends Omit<ChipProps, 'children' | 'theme'> {
   /**
@@ -29,7 +28,7 @@ export const Kbd: FC<KbdProps> = ({
   return (
     <span className={theme.base}>
       {split?.map((key, index) => (
-        <Chip key={index} {...rest} className={twMerge(theme.chip, className)}>
+        <Chip key={index} {...rest} className={cn(theme.chip, className)}>
           <kbd>{key}</kbd>
         </Chip>
       ))}

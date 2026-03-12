@@ -8,9 +8,8 @@ import React, {
 import TextareaAutosize, {
   TextareaAutosizeProps
 } from 'react-textarea-autosize';
-import { twMerge } from 'tailwind-merge';
 import { TextareaTheme } from './TextareaTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface TextareaProps extends TextareaAutosizeProps {
   /**
@@ -96,7 +95,7 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
 
     return (
       <div
-        className={twMerge(
+        className={cn(
           theme.base,
           fullWidth && theme.fullWidth,
           error && theme.error,
@@ -107,7 +106,7 @@ export const Textarea = forwardRef<TextAreaRef, TextareaProps>(
         <TextareaAutosize
           ref={textareaRef}
           aria-invalid={error || undefined}
-          className={twMerge(
+          className={cn(
             theme.input,
             fullWidth && theme.fullWidth,
             rest.disabled && theme.disabled,

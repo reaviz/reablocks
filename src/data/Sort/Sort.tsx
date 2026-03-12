@@ -2,9 +2,8 @@ import React, { FC, PropsWithChildren, useCallback } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { DownArrowIcon } from './DownArrowIcon';
 import { getNextDirection, SortDirection } from './utils';
-import { twMerge } from 'tailwind-merge';
 import { SortTheme } from './SortTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface SortProps extends PropsWithChildren {
   /**
@@ -84,7 +83,7 @@ export const Sort: FC<SortProps> = ({
 
   return (
     <div
-      className={twMerge(
+      className={cn(
         theme.base,
         disabled && theme.disabled,
         disabled &&
@@ -108,7 +107,7 @@ export const Sort: FC<SortProps> = ({
             exit={{ opacity: 0, y: 10, transition: { duration: 0.05 } }}
           >
             <Icon
-              className={twMerge(
+              className={cn(
                 theme.icon.base,
                 theme.icon.ascending,
                 iconClassName
@@ -123,7 +122,7 @@ export const Sort: FC<SortProps> = ({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 10, transition: { duration: 0.05 } }}
           >
-            <Icon className={twMerge(theme.icon.base, iconClassName)} />
+            <Icon className={cn(theme.icon.base, iconClassName)} />
           </motion.div>
         )}
         {!!NeutralIcon && !direction && (
@@ -134,7 +133,7 @@ export const Sort: FC<SortProps> = ({
             exit={{ opacity: 0, y: 10, transition: { duration: 0.05 } }}
           >
             <NeutralIcon
-              className={twMerge(theme.icon.base, neutralIconClassName)}
+              className={cn(theme.icon.base, neutralIconClassName)}
             />
           </motion.div>
         )}

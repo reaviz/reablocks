@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Block, Card, Divider, Stack } from '../../../src/layout';
+import { Field, Card, Divider } from '../../../src/layout';
 import { Input } from '../../../src/form';
 import { Button } from '../../../src/elements/Button';
 
@@ -66,7 +66,7 @@ export const ForgotPassword = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block
+          <Field
             className="mb-7"
             labelClassName="text-sm font-medium mb-1"
             label="Email"
@@ -86,8 +86,8 @@ export const ForgotPassword = () => {
                 />
               )}
             />
-          </Block>
-          <Block
+          </Field>
+          <Field
             className="mb-7"
             labelClassName="text-sm font-medium mb-1"
             label="Password"
@@ -107,8 +107,8 @@ export const ForgotPassword = () => {
                 />
               )}
             />
-          </Block>
-          <Block
+          </Field>
+          <Field
             className="mb-7"
             labelClassName="text-sm font-medium mb-1"
             label="Confirm Password"
@@ -128,7 +128,7 @@ export const ForgotPassword = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Divider variant="secondary" />
           <Button
             type="submit"
@@ -188,7 +188,7 @@ export const ForgotPasswordFull = () => {
             className="my-7"
             onSubmit={handleSubmit(values => console.log('values', values))}
           >
-            <Block labelClassName="text-sm font-medium mb-1" label="Email">
+            <Field labelClassName="text-sm font-medium mb-1" label="Email">
               <Controller
                 name="email"
                 control={control}
@@ -204,8 +204,8 @@ export const ForgotPasswordFull = () => {
                   />
                 )}
               />
-            </Block>
-            <Stack direction="column">
+            </Field>
+            <div className="flex items-center gap-2.5 flex-col">
               <Button
                 type="submit"
                 fullWidth
@@ -232,7 +232,7 @@ export const ForgotPasswordFull = () => {
               <a href="#" className="text-primary text-lg font-semibold">
                 Return to login
               </a>
-            </Stack>
+            </div>
           </form>
         </div>
       </motion.div>
@@ -267,7 +267,7 @@ export const ForgotPasswordMinimal = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block>
+          <Field>
             <Controller
               name="email"
               control={control}
@@ -294,7 +294,7 @@ export const ForgotPasswordMinimal = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             variant="filled"
@@ -317,14 +317,14 @@ export const ForgotPasswordMinimal = () => {
             </svg>
             {isSubmitting ? 'Sending...' : 'Get Link'}
           </Button>
-          <Stack className="w-full" justifyContent="center">
+          <div className="flex items-center gap-2.5 justify-center w-full">
             <span className="text-sm text-text-secondary">
               Remember password?
             </span>
             <a href="#" className="text-primary text-lg font-semibold">
               Log in
             </a>
-          </Stack>
+          </div>
         </form>
       </Card>
     </motion.div>
@@ -348,12 +348,12 @@ export const ResetPassword = () => {
         className="w-full h-full grow p-12"
         contentClassName="w-full h-full grow flex flex-col"
       >
-        <Stack justifyContent="spaceBetween">
+        <div className="flex items-center gap-2.5 justify-between">
           <LogoIcon className="h-11 w-auto" />
           <a href="#" className="text-lg text-primary font-semibold">
             Create an account
           </a>
-        </Stack>
+        </div>
         <div className="w-full flex flex-col grow items-center justify-center text-center pt-2 mb-14">
           <div className="p-3 border border-secondary-inactive rounded-sm mb-3">
             <svg
@@ -375,7 +375,7 @@ export const ResetPassword = () => {
             onSubmit={handleSubmit(values => console.log('values', values))}
             className="w-full text-left mt-7"
           >
-            <Block labelClassName="text-sm font-medium mb-1" label="Email">
+            <Field labelClassName="text-sm font-medium mb-1" label="Email">
               <Controller
                 name="email"
                 control={control}
@@ -402,7 +402,7 @@ export const ResetPassword = () => {
                   />
                 )}
               />
-            </Block>
+            </Field>
             <Button
               type="submit"
               variant="filled"
@@ -422,11 +422,7 @@ export const ResetPassword = () => {
               </svg>
               {isSubmitting ? 'Resetting...' : 'Reset Password'}
             </Button>
-            <Stack
-              className="w-full text-primary"
-              justifyContent="center"
-              dense
-            >
+            <div className="flex items-center gap-1 justify-center w-full text-primary">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -442,15 +438,15 @@ export const ResetPassword = () => {
               >
                 Back to log in
               </a>
-            </Stack>
+            </div>
           </form>
         </div>
-        <Stack justifyContent="center">
+        <div className="flex items-center gap-2.5 justify-center">
           <div className="h-[4px] w-[60px] bg-primary rounded-sm" />
           <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded-sm" />
           <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded-sm" />
           <div className="h-[4px] w-[60px] dark:bg-gray-800 light:bg-gray-300 rounded-sm" />
-        </Stack>
+        </div>
       </Card>
     </motion.div>
   );
@@ -489,7 +485,7 @@ export const ResetPasswordMinimal = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block labelClassName="text-sm font-medium mb-1" label="Email">
+          <Field labelClassName="text-sm font-medium mb-1" label="Email">
             <Controller
               name="email"
               control={control}
@@ -516,7 +512,7 @@ export const ResetPasswordMinimal = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             variant="filled"
@@ -536,7 +532,7 @@ export const ResetPasswordMinimal = () => {
             </svg>
             {isSubmitting ? 'Sending...' : 'Reset Password'}
           </Button>
-          <Stack className="w-full" justifyContent="center">
+          <div className="flex items-center gap-2.5 justify-center w-full">
             <span className="text-sm text-text-secondary">
               Remember your password?
             </span>
@@ -555,7 +551,7 @@ export const ResetPasswordMinimal = () => {
               </svg>{' '}
               Go back
             </a>
-          </Stack>
+          </div>
         </form>
       </Card>
     </motion.div>

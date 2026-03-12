@@ -1,9 +1,8 @@
 import React, { FC, ReactNode, useCallback, useEffect, useRef } from 'react';
 import { NotificationOptions } from './NotificationsContext';
 import { motion } from 'motion/react';
-import { twMerge } from 'tailwind-merge';
 import { NotificationTheme } from './NotificationTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface NotificationProps extends NotificationOptions {
   /**
@@ -74,7 +73,7 @@ export const Notification: FC<NotificationProps> = ({
         <div
           role="alert"
           aria-live="assertive"
-          className={twMerge(
+          className={cn(
             theme.notification?.base,
             theme.notification?.variants?.[variant]?.base,
             className

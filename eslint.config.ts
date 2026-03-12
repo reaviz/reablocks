@@ -72,6 +72,11 @@ module.exports = defineConfig([{
     }],
 
     'arrow-body-style': ['warn', 'as-needed'],
+
+    // Disable new react-hooks v7 rules that are too strict for React 18
+    'react-hooks/set-state-in-effect': 'off',
+    'react-hooks/refs': 'off',
+    'react-hooks/immutability': 'off',
   },
 }, {
   files: ['**/*.test.*'],

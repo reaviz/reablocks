@@ -1,4 +1,4 @@
-import { create } from '@storybook/theming/create';
+import { create } from 'storybook/theming/create';
 import ReablocksLogo from '../docs/assets/logo.svg';
 
 export default create({

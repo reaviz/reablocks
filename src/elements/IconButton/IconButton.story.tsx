@@ -1,5 +1,4 @@
 import { IconButton } from './IconButton';
-import { Stack } from '../../layout';
 import {
   extendTheme,
   PartialReablocksTheme
@@ -25,7 +24,7 @@ const BellIcon = () => (
 );
 
 export const Sizes = () => (
-  <Stack>
+  <div className="flex items-center gap-2.5">
     <IconButton size="small">
       <BellIcon />
     </IconButton>
@@ -35,7 +34,7 @@ export const Sizes = () => (
     <IconButton size="large">
       <BellIcon />
     </IconButton>
-  </Stack>
+  </div>
 );
 
 export const ColorsBackground = () => (
@@ -144,7 +143,7 @@ export const Square = () => {
   };
   return (
     <ThemeProvider theme={extendTheme(theme, iconTheme)}>
-      <Stack>
+      <div className="flex items-center gap-2.5">
         <IconButton size="small">
           <BellIcon />
         </IconButton>
@@ -154,7 +153,7 @@ export const Square = () => {
         <IconButton size="large">
           <BellIcon />
         </IconButton>
-      </Stack>
+      </div>
     </ThemeProvider>
   );
 };

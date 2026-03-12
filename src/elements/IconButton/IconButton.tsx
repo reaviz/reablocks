@@ -1,10 +1,11 @@
 import React, { FC, forwardRef, Ref } from 'react';
 import { Button, ButtonProps, ButtonRef } from '@/elements/Button';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
-export interface IconButtonProps
-  extends Omit<ButtonProps, 'fullWidth' | 'startAdornment' | 'endAdornment'> {}
+export interface IconButtonProps extends Omit<
+  ButtonProps,
+  'fullWidth' | 'startAdornment' | 'endAdornment'
+> {}
 
 export const IconButton: FC<IconButtonProps & ButtonRef> = forwardRef(
   (
@@ -21,7 +22,7 @@ export const IconButton: FC<IconButtonProps & ButtonRef> = forwardRef(
 
     return (
       <Button
-        className={twMerge(theme.iconSizes[size], className)}
+        className={cn(theme.iconSizes[size], className)}
         size={size}
         {...rest}
         ref={ref}

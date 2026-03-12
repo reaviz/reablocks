@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { ArrowTheme } from './ArrowTheme';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface ArrowProps {
   /**
@@ -29,7 +28,7 @@ export const Arrow: FC<ArrowProps> = ({
 
   return (
     <svg
-      className={twMerge(theme.base, theme[direction], className)}
+      className={cn(theme.base, theme[direction], className)}
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
       y="0px"

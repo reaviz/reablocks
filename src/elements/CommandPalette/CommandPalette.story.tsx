@@ -2,7 +2,6 @@ import { CommandPalette } from './CommandPalette';
 import { Dialog } from '../../layers/Dialog';
 import { Chip } from '../Chip';
 import { Divider } from '../../layout/Divider';
-import { Stack } from '../../layout/Stack';
 import { CommandPaletteSection } from './CommandPaletteSection';
 import { CommandPaletteItem } from './CommandPaletteItem';
 
@@ -36,11 +35,11 @@ export const Sections = () => (
   <div style={{ width: 400 }}>
     <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection key="shorts">
-        <Stack className="px-2">
+        <div className="flex items-center gap-2.5 px-2">
           <Chip>Dashboards</Chip>
           <Chip>Integrations</Chip>
           <Chip>Rules</Chip>
-        </Stack>
+        </div>
       </CommandPaletteSection>
       <Divider />
       <CommandPaletteSection title="Recently Used" key="recent">

@@ -1,8 +1,7 @@
 import React, { Children, forwardRef, Ref } from 'react';
 import { useInfinityList } from '@/data';
 import { AvatarGroupTheme } from './AvatarGroupTheme';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -50,7 +49,7 @@ export const AvatarGroup = forwardRef<HTMLDivElement, AvatarGroupProps>(
     );
 
     return (
-      <div {...rest} ref={ref} className={twMerge(theme.base, className)}>
+      <div {...rest} ref={ref} className={cn(theme.base, className)}>
         {data.map((child, index) => (
           <div key={index} className={theme.avatar}>
             {child}

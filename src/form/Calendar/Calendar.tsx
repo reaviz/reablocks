@@ -29,15 +29,13 @@ import {
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
 import { CalendarYears } from './CalendarYears';
-import { SmallHeading } from '@/typography';
-import { twMerge } from 'tailwind-merge';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from './CalendarTheme';
 import { Divider } from '@/layout/Divider';
+import { H4 } from '@/typography';
 import { CalendarTimes } from './CalendarTimes';
 import { updateDateTime } from './utils';
 import { CalendarPresets, PresetOption } from './CalendarPresets';
-import { Stack } from '@/layout';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -313,11 +311,13 @@ export const Calendar: FC<CalendarProps> = ({
   );
 
   return (
-    <div className={twMerge(theme.base)}>
+    <div className={cn(theme.base)}>
       <div className="relative flex">
         {preset && (
           <>
-            <Stack dense direction="row" className={theme.presets.wrapper}>
+            <div
+              className={cn('flex items-center gap-1', theme.presets.wrapper)}
+            >
               <CalendarPresets
                 options={preset}
                 value={value as Date | [Date, Date]}
@@ -327,18 +327,19 @@ export const Calendar: FC<CalendarProps> = ({
                 orientation="vertical"
                 className={theme.presets.divider}
               />
-            </Stack>
+            </div>
           </>
         )}
 
         <div className="flex-1">
-          <header className={twMerge(theme.header.base)}>
+          <header className={cn(theme.header.base)}>
             <Button
               variant="text"
               disabled={disabled}
               onClick={previousClickHandler}
               className={theme.header.prev}
               disablePadding
+              aria-label="Previous"
             >
               {previousArrow}
             </Button>
@@ -350,7 +351,7 @@ export const Calendar: FC<CalendarProps> = ({
               disablePadding
               fullWidth
             >
-              <SmallHeading disableMargins className={theme.title}>
+              <H4 className={theme.title}>
                 {view === 'days' && format(viewValue, 'MMMM')}
                 {view === 'months' && <>{yearValue}</>}
                 {view === 'years' && (
@@ -358,7 +359,7 @@ export const Calendar: FC<CalendarProps> = ({
                     {decadeStart.getFullYear()}-{decadeEnd.getFullYear()}
                   </>
                 )}
-              </SmallHeading>
+              </H4>
             </Button>
             <Button
               variant="text"
@@ -366,6 +367,7 @@ export const Calendar: FC<CalendarProps> = ({
               onClick={nextClickHandler}
               className={theme.header.next}
               disablePadding
+              aria-label="Next"
             >
               {nextArrow}
             </Button>
@@ -373,7 +375,7 @@ export const Calendar: FC<CalendarProps> = ({
           <Divider />
           <AnimatePresence initial={false} mode="wait">
             <motion.div
-              className={twMerge(theme.content)}
+              className={cn(theme.content)}
               key={view}
               {...(animationViewChange
                 ? animationViewChange

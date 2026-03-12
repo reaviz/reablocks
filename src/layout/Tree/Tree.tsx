@@ -2,8 +2,7 @@ import React, { FC, PropsWithChildren, useMemo } from 'react';
 import { Arrow } from '@/elements/Arrow';
 import { TreeContext, TreeContextProps } from './TreeContext';
 import { TreeTheme } from './TreeTheme';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 
 export type TreeProps = {
   /**
@@ -50,7 +49,7 @@ export const Tree: FC<TreeProps> = ({
 
   return (
     <TreeContext.Provider value={values}>
-      <div className={twMerge(theme.tree, className)} {...rest}>
+      <div className={cn(theme.tree, className)} {...rest}>
         <ul className={theme.base}>{children}</ul>
       </div>
     </TreeContext.Provider>

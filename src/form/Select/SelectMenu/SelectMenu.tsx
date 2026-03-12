@@ -109,6 +109,7 @@ export interface SelectMenuProps {
 }
 
 export const SelectMenu: FC<SelectMenuProps> = ({
+  id,
   style,
   disabled,
   createable,
@@ -127,7 +128,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
   onSelectedChange,
   theme: customTheme
 }) => {
-  const trimmedText = inputSearchText.trim();
+  const trimmedText = (inputSearchText ?? '').trim();
 
   const checkOptionSelected = useCallback(
     (option: SelectOptionProps) => {
@@ -230,7 +231,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
         transition: { duration: 0.3, ease: 'anticipate' }
       }}
     >
-      <List>
+      <List role="listbox" id={id}>
         {options?.length === 0 &&
           createable &&
           trimmedText &&

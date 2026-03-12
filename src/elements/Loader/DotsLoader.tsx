@@ -1,8 +1,7 @@
 import React, { FC } from 'react';
 import { motion } from 'motion/react';
 import { DotsLoaderTheme } from './DotsLoaderTheme';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface DotsLoaderProps {
   /**
@@ -35,11 +34,11 @@ export const DotsLoader: FC<DotsLoaderProps> = ({
   const theme: DotsLoaderTheme = useComponentTheme('dotsLoader', customTheme);
 
   return (
-    <motion.div className={twMerge(theme.base, className)}>
+    <motion.div className={cn(theme.base, className)}>
       {[...Array(3)].map((_, i) => (
         <motion.div
           key={i}
-          className={twMerge(theme.dot, theme.sizes[size])}
+          className={cn(theme.dot, theme.sizes[size])}
           animate={{
             opacity: [0, 1, 0],
             scale: [1, 2, 2, 1, 1]

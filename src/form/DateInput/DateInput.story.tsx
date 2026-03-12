@@ -1,5 +1,4 @@
 import { DateFormat } from '../../data/DateFormat';
-import { Stack } from '../../layout/Stack';
 import { useState } from 'react';
 import { DateInput } from './DateInput';
 import { COMBINED_PRESETS, PAST_RANGE_PRESETS } from '../Calendar';
@@ -13,10 +12,10 @@ export const Simple = () => {
   const [date, setDate] = useState<Date>(new Date());
 
   return (
-    <Stack direction="column">
+    <div className="flex items-center gap-2.5 flex-col">
       <DateFormat date={date} format="MM/dd/yyyy" />
       <DateInput value={date} onChange={setDate} />
-    </Stack>
+    </div>
   );
 };
 
@@ -101,18 +100,18 @@ export const Range = () => {
   const [date, setDate] = useState<[Date, Date]>([new Date(), new Date()]);
 
   return (
-    <Stack className="w-[300px]" direction="column">
-      <Stack>
+    <div className="flex items-center gap-2.5 flex-col w-[300px]">
+      <div className="flex items-center gap-2.5">
         <DateFormat date={date[0]} format="MM/dd/yyyy" /> -{' '}
         <DateFormat date={date[1]} format="MM/dd/yyyy" />
-      </Stack>
+      </div>
       <DateInput
         fullWidth
         isRange
         value={date}
         onChange={(value: [Date, Date]) => setDate(value)}
       />
-    </Stack>
+    </div>
   );
 };
 
@@ -120,11 +119,11 @@ export const RangePreset = () => {
   const [date, setDate] = useState<[Date, Date]>([new Date(), new Date()]);
 
   return (
-    <Stack className="w-[300px]" direction="column">
-      <Stack>
+    <div className="flex items-center gap-2.5 flex-col w-[300px]">
+      <div className="flex items-center gap-2.5">
         <DateFormat date={date[0]} format="MM/dd/yyyy" /> -{' '}
         <DateFormat date={date[1]} format="MM/dd/yyyy" />
-      </Stack>
+      </div>
       <DateInput
         fullWidth
         isRange
@@ -132,7 +131,7 @@ export const RangePreset = () => {
         onChange={(value: [Date, Date]) => setDate(value)}
         preset={PAST_RANGE_PRESETS}
       />
-    </Stack>
+    </div>
   );
 };
 

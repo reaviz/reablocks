@@ -586,10 +586,10 @@ export const Select: FC<SelectProps> = ({
         // Add new item if menu not disabled or item not presents in the list otherwise just clear input
         if (
           newSelection &&
-          (!menuDisabled || !value.includes(newSelection.value))
+          (!menuDisabled || !value?.includes(newSelection.value))
         ) {
           toggleSelectedOption(newSelection);
-        } else if (menuDisabled && value.includes(newSelection.value)) {
+        } else if (menuDisabled && value?.includes(newSelection.value)) {
           resetInput();
         }
       }

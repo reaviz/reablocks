@@ -12,7 +12,6 @@ import {
   subDays
 } from 'date-fns';
 import { Divider } from '../../layout/Divider';
-import { Stack } from '../../layout/Stack';
 import {
   COMBINED_PRESETS,
   FUTURE_PRESETS,
@@ -36,9 +35,9 @@ export const Simple = () => {
     <Card>
       <Calendar value={date} onChange={(date: Date) => setDate(date)} />
       <Divider />
-      <Stack inline={false} justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -56,9 +55,9 @@ export const WithTime = () => {
         onChange={(date: Date) => setDate(date)}
       />
       <Divider />
-      <Stack inline={false} justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {date?.toLocaleString() ?? 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -77,9 +76,9 @@ export const WithTime12HourCycle = () => {
         onChange={(date: Date) => setDate(date)}
       />
       <Divider />
-      <Stack inline={false} justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {date?.toLocaleString() ?? 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -96,9 +95,9 @@ export const Today = () => {
         onChange={(date: Date) => setDate(date)}
       />
       <Divider />
-      <Stack inline={false} justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -128,9 +127,9 @@ export const NoAnimation = () => {
         onChange={(date: Date) => setDate(date)}
       />
       <Divider />
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -204,9 +203,9 @@ export const CustomAnimation = () => {
         onChange={(date: Date) => setDate(date)}
       />
       <Divider />
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -218,9 +217,9 @@ export const DefaultValue = () => {
     <Card>
       <Calendar value={date} onChange={(date: Date) => setDate(date)} />
       <Divider />
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -240,9 +239,9 @@ export const MinMax = () => {
         onChange={(date: Date) => setDate(date)}
       />
       <Divider />
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -260,9 +259,9 @@ export const MinMaxWithTime = () => {
         onChange={(date: Date) => setDate(date)}
       />
       <Divider />
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {date?.toLocaleString() ?? 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -281,9 +280,9 @@ export const MinMaxWith12HourCycle = () => {
         onChange={(date: Date) => setDate(date)}
       />
       <Divider />
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {date?.toLocaleString() ?? 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -299,9 +298,9 @@ export const WithLabels = () => {
         showDayOfWeek
       />
       <Divider />
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {date?.toLocaleDateString() ?? 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -319,11 +318,11 @@ export const Range = () => {
         showToday
       />
       <Divider />
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
           : 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -342,11 +341,11 @@ export const RangeWithTime = () => {
         showTime
       />
       <Divider />
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {range
           ? `${range[0]?.toLocaleString()}-${range[1]?.toLocaleString()}`
           : 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -367,11 +366,11 @@ export const CurrentMonth = () => {
         showToday
       />
       <Divider />
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
           : 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -388,11 +387,11 @@ export const Multiview = () => {
         headerDateFormat="MMMM yyyy"
       />
       <Divider />
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
           : 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -409,11 +408,11 @@ export const MultiviewPast = () => {
         showDayOfWeek
       />
       <Divider />
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
           : 'No date selected'}
-      </Stack>
+      </div>
     </Card>
   );
 };
@@ -433,9 +432,9 @@ export const WithDatePresets = () => {
           preset={COMBINED_PRESETS}
         />
       </Card>
-      <Stack justifyContent="center" className="mt-4">
+      <div className="flex items-center gap-2.5 justify-center mt-4">
         {date ? format(date, 'yyyy-MM-dd') : 'No date selected'}
-      </Stack>
+      </div>
     </>
   );
 };
@@ -487,9 +486,9 @@ export const WithCustomDatePresets = () => {
           ]}
         />
       </Card>
-      <Stack justifyContent="center" className="mt-4">
+      <div className="flex items-center gap-2.5 justify-center mt-4">
         {date ? format(date, 'yyyy-MM-dd') : 'No date selected'}
-      </Stack>
+      </div>
     </>
   );
 };
@@ -508,9 +507,9 @@ export const WithDatePastPresets = () => {
           preset={PAST_PRESETS}
         />
       </Card>
-      <Stack justifyContent="center" className="mt-4">
+      <div className="flex items-center gap-2.5 justify-center mt-4">
         {date ? format(date, 'yyyy-MM-dd') : 'No date selected'}
-      </Stack>
+      </div>
     </>
   );
 };
@@ -529,9 +528,9 @@ export const WithDateFuturePresets = () => {
           preset={FUTURE_PRESETS}
         />
       </Card>
-      <Stack justifyContent="center" className="mt-4">
+      <div className="flex items-center gap-2.5 justify-center mt-4">
         {date ? format(date, 'yyyy-MM-dd') : 'No date selected'}
-      </Stack>
+      </div>
     </>
   );
 };
@@ -551,11 +550,11 @@ export const RangeWithDatePastPresets = () => {
           preset={PAST_RANGE_PRESETS}
         />
       </Card>
-      <Stack justifyContent="center">
+      <div className="flex items-center gap-2.5 justify-center">
         {range
           ? `${range[0]?.toLocaleDateString()}-${range[1]?.toLocaleDateString()}`
           : 'No date selected'}
-      </Stack>
+      </div>
     </>
   );
 };
@@ -575,11 +574,11 @@ export const MultiviewWithFuturePresets = () => {
           preset={FUTURE_RANGE_PRESETS}
         />
       </Card>
-      <Stack justifyContent="center" className="mt-4">
+      <div className="flex items-center gap-2.5 justify-center mt-4">
         {range
           ? `${range[0]?.toLocaleDateString()} - ${range[1]?.toLocaleDateString()}`
           : 'No date selected'}
-      </Stack>
+      </div>
     </>
   );
 };

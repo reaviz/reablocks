@@ -11,17 +11,16 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Button } from '@/elements';
 import { CalendarProps } from './Calendar';
 import { CalendarDays } from './CalendarDays';
-import { SmallHeading } from '@/typography';
-import { Divider, Stack } from '@/layout';
+import { Divider } from '@/layout';
+import { H4 } from '@/typography';
 import { useComponentTheme } from '@/utils';
 import { CalendarRangeTheme } from './CalendarRangeTheme';
 import { CalendarPresets, PresetOption } from './CalendarPresets';
 
-export interface CalendarRangeProps
-  extends Omit<
-    CalendarProps,
-    'value' | 'isRange' | 'onViewChange' | 'theme' | 'showTime'
-  > {
+export interface CalendarRangeProps extends Omit<
+  CalendarProps,
+  'value' | 'isRange' | 'onViewChange' | 'theme' | 'showTime'
+> {
   /**
    * The selected date(s) for the calendar.
    */
@@ -167,7 +166,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     <div className={theme.base}>
       <div className="relative flex">
         {preset && (
-          <Stack dense direction="row" className={theme.presets.wrapper}>
+          <div className={`flex items-center gap-1 ${theme.presets.wrapper}`}>
             <CalendarPresets
               options={preset}
               showTime={false}
@@ -180,17 +179,18 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
               onChange={handlePresetChange}
             />
             <Divider orientation="vertical" className={theme.presets.divider} />
-          </Stack>
+          </div>
         )}
         <div className="flex-1">
           <header className={theme.header.base}>
-            <Stack>
+            <div className="flex items-center gap-2.5">
               <Button
                 variant="text"
                 disabled={disabled}
                 onClick={previousYearClickHandler}
                 className={theme.header.prev}
                 disablePadding
+                aria-label="Previous year"
               >
                 {previousYearArrow}
               </Button>
@@ -200,11 +200,12 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 onClick={previousClickHandler}
                 className={theme.header.prev}
                 disablePadding
+                aria-label="Previous month"
               >
                 {previousArrow}
               </Button>
-            </Stack>
-            <SmallHeading className={theme.title} disableMargins>
+            </div>
+            <H4 className={theme.title}>
               {displayMonths.map(i => (
                 <span
                   key={addMonths(viewValue, showPast ? -i : i).toDateString()}
@@ -215,14 +216,15 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                   )}
                 </span>
               ))}
-            </SmallHeading>
-            <Stack>
+            </H4>
+            <div className="flex items-center gap-2.5">
               <Button
                 variant="text"
                 disabled={disabled}
                 onClick={nextClickHandler}
                 className={theme.header.next}
                 disablePadding
+                aria-label="Next month"
               >
                 {nextArrow}
               </Button>
@@ -232,10 +234,11 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 onClick={nextYearClickHandler}
                 className={theme.header.next}
                 disablePadding
+                aria-label="Next year"
               >
                 {nextYearArrow}
               </Button>
-            </Stack>
+            </div>
           </header>
           <Divider />
           <AnimatePresence initial={false} mode="wait">

@@ -4,7 +4,6 @@ import { motion } from 'motion/react';
 import { Card } from '../../../src/layout/Card';
 import {
   Divider,
-  Stack,
   Tab,
   TabList,
   TabPanel,
@@ -55,7 +54,7 @@ export const BillingFull = () => (
                 className="light:bg-athens-gray flex-1"
                 contentClassName="flex flex-col gap-6"
               >
-                <Stack justifyContent="spaceBetween">
+                <div className="flex items-center gap-2.5 justify-between">
                   <span className="font-bold">Premium</span>
                   <Chip
                     className="border-panel-accent rounded-full border"
@@ -63,7 +62,7 @@ export const BillingFull = () => (
                   >
                     Annual
                   </Chip>
-                </Stack>
+                </div>
                 <div className="flex items-center gap-2">
                   <span className="font-bold">$1000</span>
                   <span className="text-text-secondary text-sm">
@@ -205,7 +204,7 @@ export const PayAndBilling = () => {
                 Manage your plan and payments
               </p>
             </div>
-            <Stack>
+            <div className="flex items-center gap-2.5">
               <Button
                 className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                 variant="outline"
@@ -240,7 +239,7 @@ export const PayAndBilling = () => {
               >
                 Manage Payments
               </Button>
-            </Stack>
+            </div>
           </div>
           <Divider />
           <div className="flex items-center justify-between">
@@ -263,7 +262,7 @@ export const PayAndBilling = () => {
                   </span>
                 </div>
               </div>
-              <Stack>
+              <div className="flex items-center gap-2.5">
                 <Chip
                   theme={chipTheme}
                   start={
@@ -285,7 +284,7 @@ export const PayAndBilling = () => {
                 <Chip theme={chipTheme} color="success">
                   Active
                 </Chip>
-              </Stack>
+              </div>
             </Card>
             <Card className="flex-1">
               <div className="flex flex-col">
@@ -446,7 +445,7 @@ export const BillingSubscription = () => (
       <div className="flex flex-col gap-4">
         <div className="flex items-center justify-between">
           <h2 className="text-2xl font-bold">Billing</h2>
-          <Stack>
+          <div className="flex items-center gap-2.5">
             <Button
               className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
               endAdornment={
@@ -480,7 +479,7 @@ export const BillingSubscription = () => (
             >
               Change
             </Button>
-          </Stack>
+          </div>
         </div>
         <Divider />
         <div className="flex flex-col">

@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { SkeletonTheme } from './SkeletonTheme';
-import { useComponentTheme } from '@/utils';
-import { twMerge } from 'tailwind-merge';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -47,7 +46,7 @@ export const Skeleton: FC<SkeletonProps> = ({
 
   return (
     <div
-      className={twMerge(
+      className={cn(
         theme.base,
         animated && theme.animated,
         variant && theme.variants[variant],

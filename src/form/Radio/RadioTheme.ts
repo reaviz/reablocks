@@ -30,7 +30,7 @@ export interface RadioTheme {
 }
 
 const baseTheme: RadioTheme = {
-  base: 'box-border leading-none group',
+  base: 'box-border leading-none group/radio',
   radio: {
     base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-[100%] bg-transparent border cursor-pointer',
     disabled: 'cursor-not-allowed',
@@ -72,11 +72,11 @@ export const radioTheme: RadioTheme = {
     ...baseTheme.radio,
     base: [
       baseTheme.radio.base,
-      'border-surface group-hover:border-primary-hover hover:border-primary-hover'
+      'border-surface group-hover/radio:border-primary-hover hover:border-primary-hover'
     ].join(' '),
     checked: [
       baseTheme.radio.checked,
-      'border-primary-active group-hover:border-primary-hover'
+      'border-primary-active group-hover/radio:border-primary-hover'
     ].join(' '),
     disabled: [baseTheme.radio.disabled, 'border-secondary-inactive!'].join(' ')
   },
@@ -84,7 +84,7 @@ export const radioTheme: RadioTheme = {
     ...baseTheme.indicator,
     base: [
       baseTheme.indicator.base,
-      'bg-primary group-hover:bg-primary-hover'
+      'bg-primary group-hover/radio:bg-primary-hover'
     ].join(' '),
     disabled: [baseTheme.indicator.disabled, 'bg-secondary-inactive!'].join(' ')
   }

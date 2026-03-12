@@ -32,6 +32,7 @@ const preview: Preview = {
     controls: { hideNoControlsWarning: true },
     docs: {
       theme,
+
       container: ({ children, ...props }: any) => {
         // For whatever reason the theme is not getting applied to docs
         // This is a workaround to apply the theme to the docs
@@ -46,7 +47,9 @@ const preview: Preview = {
             </ThemeProvider>
           </DocsContainer>
         );
-      }
+      },
+
+      codePanel: true
     },
     options: {
       storySort: {

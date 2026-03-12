@@ -1,8 +1,7 @@
 'use client';
 
 import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
 
 export interface DialogFooterProps extends HTMLAttributes<HTMLElement> {
@@ -27,7 +26,7 @@ export const DialogFooter = forwardRef<HTMLElement, DialogFooterProps>(
     const theme = useComponentTheme<DialogTheme>('dialog', customTheme);
 
     return (
-      <footer ref={ref} className={twMerge(theme.footer, className)} {...props}>
+      <footer ref={ref} className={cn(theme.footer, className)} {...props}>
         {children}
       </footer>
     );

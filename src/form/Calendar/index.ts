@@ -3,3 +3,7 @@ export * from './CalendarRange';
 export * from './CalendarTheme';
 export * from './CalendarRangeTheme';
 export * from './CalendarPresets';
+export * from './CalendarDays';
+export * from './CalendarMonths';
+export * from './CalendarYears';
+export * from './CalendarTimes';

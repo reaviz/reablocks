@@ -8,8 +8,6 @@ import React, {
   JSXElementConstructor
 } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { twMerge } from 'tailwind-merge';
-
 import { Notification } from './Notification';
 import {
   NotificationOptions,
@@ -17,7 +15,7 @@ import {
   NotificationVariants
 } from './NotificationsContext';
 import { NotificationTheme } from './NotificationTheme';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import InfoIcon from '@/assets/icons/info.svg?react';
 import CheckCircleIcon from '@/assets/icons/check_circle.svg?react';
 import WarningIcon from '@/assets/icons/warning.svg?react';
@@ -207,7 +205,7 @@ export const Notifications: FC<NotificationsProps> = ({
                     <Notification
                       {...n}
                       key={n.id}
-                      className={twMerge(className, n.className)}
+                      className={cn(className, n.className)}
                       onClose={clearNotification}
                     />
                   );

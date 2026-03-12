@@ -10,9 +10,7 @@ import {
   List,
   ListItem,
   MotionGroup,
-  MotionItem,
-  Stack,
-  VerticalSpacer
+  MotionItem
 } from '../../../src/layout';
 import { Chip } from '../../../src/elements/Chip';
 import { cn } from '../../../src/utils/Theme/helpers';
@@ -77,8 +75,8 @@ export const Pricing = () => {
           })}
           contentClassName="w-full h-full"
         >
-          <Stack direction="column" alignItems="start" className="h-full">
-            <Stack justifyContent="spaceBetween" className="w-full">
+          <div className="flex flex-col items-start gap-2.5 h-full">
+            <div className="flex items-center gap-2.5 justify-between w-full">
               <h6 className="text-lg font-semibold">Free</h6>
               <Chip
                 color="primary"
@@ -86,18 +84,18 @@ export const Pricing = () => {
               >
                 Current Plan
               </Chip>
-            </Stack>
+            </div>
             <span className="dark:text-waterloo light:text-charade">
               For small teams
             </span>
-            <Stack>
+            <div className="flex items-center gap-2.5">
               <h1 className="text-3xl font-semibold">$0</h1>
               <span className="font-bold dark:text-waterloo light:text-charade">
                 /Month
               </span>
-            </Stack>
+            </div>
             <Divider className="mt-0" variant="secondary" />
-            <Stack direction="column" alignItems="start" className="grow">
+            <div className="flex flex-col items-start gap-2.5 grow">
               <List>
                 <ListItem
                   start={<CheckIcon />}
@@ -118,7 +116,7 @@ export const Pricing = () => {
                   Figma support
                 </ListItem>
               </List>
-            </Stack>
+            </div>
             <Button
               variant={selected === 'free' ? 'filled' : 'outline'}
               color={selected === 'free' ? 'primary' : 'default'}
@@ -145,7 +143,7 @@ export const Pricing = () => {
                 <path d="M8.66667 2.66669L7.72667 3.60669L11.4467 7.33335H3.33334V8.66669H11.4467L7.72667 12.3934L8.66667 13.3334L14 8.00002L8.66667 2.66669Z" />
               </svg>
             </Button>
-          </Stack>
+          </div>
         </Card>
       </MotionItem>
       <MotionItem>
@@ -157,8 +155,8 @@ export const Pricing = () => {
           })}
           contentClassName="w-full h-full"
         >
-          <Stack direction="column" alignItems="start" className="h-full">
-            <Stack justifyContent="spaceBetween" className="w-full">
+          <div className="flex flex-col items-start gap-2.5 h-full">
+            <div className="flex items-center gap-2.5 justify-between w-full">
               <h6 className="text-lg font-semibold">Starter</h6>
               <Chip
                 color="success"
@@ -166,18 +164,18 @@ export const Pricing = () => {
               >
                 Recommended
               </Chip>
-            </Stack>
+            </div>
             <span className="dark:text-waterloo light:text-charade">
               For a broad set of teams
             </span>
-            <Stack>
+            <div className="flex items-center gap-2.5">
               <h1 className="text-3xl font-semibold">$1,000</h1>
               <span className="font-bold dark:text-waterloo light:text-charade">
                 /Month
               </span>
-            </Stack>
+            </div>
             <Divider className="mt-0" variant="secondary" />
-            <Stack direction="column" alignItems="start" className="grow">
+            <div className="flex flex-col items-start gap-2.5 grow">
               <List>
                 <ListItem
                   start={<CheckIcon />}
@@ -204,7 +202,7 @@ export const Pricing = () => {
                   Storybook support
                 </ListItem>
               </List>
-            </Stack>
+            </div>
             <Button
               variant={selected === 'starter' ? 'filled' : 'outline'}
               color={selected === 'starter' ? 'primary' : 'default'}
@@ -231,7 +229,7 @@ export const Pricing = () => {
                 <path d="M8.66667 2.66669L7.72667 3.60669L11.4467 7.33335H3.33334V8.66669H11.4467L7.72667 12.3934L8.66667 13.3334L14 8.00002L8.66667 2.66669Z" />
               </svg>
             </Button>
-          </Stack>
+          </div>
         </Card>
       </MotionItem>
       <MotionItem>
@@ -243,14 +241,14 @@ export const Pricing = () => {
           })}
           contentClassName="w-full h-full"
         >
-          <Stack direction="column" alignItems="start" className="h-full">
+          <div className="flex flex-col items-start gap-2.5 h-full">
             <h6 className="text-lg font-semibold leading-[31px]">Enterprise</h6>
             <span className="dark:text-waterloo light:text-charade">
               For all custom needs
             </span>
             <h1 className="text-3xl font-semibold">Custom</h1>
             <Divider className="mt-0" variant="secondary" />
-            <Stack direction="column" alignItems="start" className="grow">
+            <div className="flex flex-col items-start gap-2.5 grow">
               <List>
                 <ListItem
                   start={<CheckIcon />}
@@ -283,7 +281,7 @@ export const Pricing = () => {
                   Everything else
                 </ListItem>
               </List>
-            </Stack>
+            </div>
             <Button
               variant={selected === 'custom' ? 'filled' : 'outline'}
               color={selected === 'custom' ? 'primary' : 'default'}
@@ -310,7 +308,7 @@ export const Pricing = () => {
                 <path d="M13.6666 11.4466L12.8866 10.6666H2.9999V2.66665H13.6666V11.4466ZM13.6666 1.33331H2.9999C2.26656 1.33331 1.66656 1.93331 1.66656 2.66665V10.6666C1.66656 11.4 2.26656 12 2.9999 12H12.3332L14.9999 14.6666V2.66665C14.9999 1.93331 14.3999 1.33331 13.6666 1.33331Z" />
               </svg>
             </Button>
-          </Stack>
+          </div>
         </Card>
       </MotionItem>
     </MotionGroup>
@@ -322,8 +320,8 @@ export const PricingFull = () => {
 
   return (
     <Card className="w-full transition-colors" contentClassName="w-full h-full">
-      <Stack justifyContent="spaceBetween">
-        <Stack>
+      <div className="flex items-center gap-2.5 justify-between">
+        <div className="flex items-center gap-2.5">
           <div className="dark:bg-charade/40 light:bg-blue-200/40 rounded-xs p-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -347,8 +345,8 @@ export const PricingFull = () => {
           <a href="#" className="text-primary">
             Back to billing
           </a>
-        </Stack>
-        <Stack className="dark:bg-vulcan light:bg-mystic rounded-sm p-1" dense>
+        </div>
+        <div className="flex items-center gap-1 dark:bg-vulcan light:bg-mystic rounded-sm p-1">
           {['Monthly', 'Yearly'].map(type => (
             <Button
               key={type}
@@ -362,8 +360,8 @@ export const PricingFull = () => {
               {type}
             </Button>
           ))}
-        </Stack>
-      </Stack>
+        </div>
+      </div>
       <h4 className="text-[24px] font-bold">Plans</h4>
       <span className="dark:text-waterloo light:text-charade text-base">
         Change your current workspace plan
@@ -379,7 +377,7 @@ export const PricingFull = () => {
             <span className="dark:text-waterloo light:text-charade text-sm">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
-            <VerticalSpacer space="md" />
+            <div className="h-2.5" />
             <div className="dark:bg-charade/40 light:bg-blue-200/40 py-2 px-4 rounded-xs flex gap-2 items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -402,7 +400,7 @@ export const PricingFull = () => {
             <span className="dark:text-waterloo light:text-charade text-sm">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
-            <VerticalSpacer space="md" />
+            <div className="h-2.5" />
             <Button
               color="primary"
               className="px-4 py-2 text-lg gap-2 bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
@@ -429,7 +427,7 @@ export const PricingFull = () => {
             <span className="dark:text-waterloo light:text-charade text-sm">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
-            <VerticalSpacer space="md" />
+            <div className="h-2.5" />
             <Button variant="outline" className="text-lg py-2 gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -625,7 +623,7 @@ export const PricingMinimal = () => {
         className="transition-colors"
         headerClassName="border-b dark:border-waterloo/40 light:border-mystic px-7 pt-7 pb-2"
         header={
-          <Stack className="w-full" justifyContent="spaceBetween">
+          <div className="flex items-center gap-2.5 justify-between w-full">
             <div>
               <h2 className="text-2xl font-bold">Change your plan</h2>
               <span className="text-sm dark:text-waterloo light:text-charade">
@@ -643,12 +641,12 @@ export const PricingMinimal = () => {
                 <path d="M12.6666 4.27325L11.7266 3.33325L7.99998 7.05992L4.27331 3.33325L3.33331 4.27325L7.05998 7.99992L3.33331 11.7266L4.27331 12.6666L7.99998 8.93992L11.7266 12.6666L12.6666 11.7266L8.93998 7.99992L12.6666 4.27325Z" />
               </svg>
             </Button>
-          </Stack>
+          </div>
         }
         disablePadding
       >
         <div className="p-7">
-          <Stack>
+          <div className="flex items-center gap-2.5">
             <Toggle
               checked={isAnnual}
               onChange={setIsAnnual}
@@ -664,7 +662,7 @@ export const PricingMinimal = () => {
             >
               Save 16%
             </Chip>
-          </Stack>
+          </div>
           <MotionGroup className="grid grid-cols-2 gap-4 mt-4">
             <MotionItem>
               <Card
@@ -673,7 +671,7 @@ export const PricingMinimal = () => {
                     isFree
                 })}
               >
-                <Stack>
+                <div className="flex items-center gap-2.5">
                   <h6 className="grow text-lg font-bold whitespace-nowrap">
                     FREE account
                   </h6>
@@ -683,13 +681,13 @@ export const PricingMinimal = () => {
                     checked={isFree}
                     onChange={selected => setIsFree(selected)}
                   />
-                </Stack>
-                <Stack>
+                </div>
+                <div className="flex items-center gap-2.5">
                   <h2 className="text-[32px] font-bold">$0</h2>
                   <h6 className="dark:text-waterloo light:text-charade text-lg font-bold">
                     {isAnnual ? '/Year' : '/Month'}
                   </h6>
-                </Stack>
+                </div>
                 <Divider />
                 <List>
                   <ListItem
@@ -720,7 +718,7 @@ export const PricingMinimal = () => {
                     !isFree
                 })}
               >
-                <Stack>
+                <div className="flex items-center gap-2.5">
                   <h6 className="grow text-lg font-bold whitespace-nowrap">
                     PRO account
                   </h6>
@@ -730,15 +728,15 @@ export const PricingMinimal = () => {
                     checked={!isFree}
                     onChange={selected => setIsFree(!selected)}
                   />
-                </Stack>
-                <Stack>
+                </div>
+                <div className="flex items-center gap-2.5">
                   <h2 className="text-[32px] font-bold">
                     {isAnnual ? '$222' : '$25'}
                   </h2>
                   <h6 className="dark:text-waterloo light:text-charade text-lg font-bold">
                     {isAnnual ? '/Year' : '/Month'}
                   </h6>
-                </Stack>
+                </div>
                 <Divider />
                 <List>
                   <ListItem
@@ -765,7 +763,7 @@ export const PricingMinimal = () => {
           </MotionGroup>
         </div>
         <div className="border-t dark:border-waterloo/40 light:border-mystic p-7">
-          <Stack direction="rowReverse">
+          <div className="flex flex-row-reverse items-center gap-2.5">
             <Button
               color="primary"
               className="px-4 py-2 text-lg bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
@@ -821,7 +819,7 @@ export const PricingMinimal = () => {
                 Chat with us
               </Button>
             </div>
-          </Stack>
+          </div>
         </div>
       </Card>
     </motion.div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { motion } from 'motion/react';
 
-import { Block, Card, Divider, Stack } from '../../../src/layout';
+import { Field, Card, Divider } from '../../../src/layout';
 import { Checkbox, Input } from '../../../src/form';
 import { Button } from '../../../src/elements/Button';
 
@@ -67,7 +67,7 @@ export const Login = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block className="mb-5">
+          <Field className="mb-5">
             <Controller
               name="email"
               control={control}
@@ -80,7 +80,7 @@ export const Login = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             variant="filled"
@@ -175,7 +175,7 @@ export const LoginBasic = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block label="Email" className="mb-5">
+          <Field label="Email" className="mb-5">
             <Controller
               name="email"
               control={control}
@@ -188,7 +188,7 @@ export const LoginBasic = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             variant="filled"
@@ -288,7 +288,7 @@ export const LoginFull = () => {
             className="my-14"
             onSubmit={handleSubmit(values => console.log('values', values))}
           >
-            <Block labelClassName="text-sm font-medium mb-1" label="Email">
+            <Field labelClassName="text-sm font-medium mb-1" label="Email">
               <Controller
                 name="email"
                 control={control}
@@ -304,8 +304,8 @@ export const LoginFull = () => {
                   />
                 )}
               />
-            </Block>
-            <Stack direction="column">
+            </Field>
+            <div className="flex items-center gap-2.5 flex-col">
               <Button
                 type="submit"
                 variant="filled"
@@ -328,14 +328,14 @@ export const LoginFull = () => {
                 </svg>
                 {isSubmitting ? 'Logging in...' : 'Login'}
               </Button>
-            </Stack>
-            <Stack className="my-7">
+            </div>
+            <div className="flex items-center gap-2.5 my-7">
               <Divider variant="secondary" />
               <span className="whitespace-nowrap text-sm dark:text-waterloo light:text-charade">
                 or with
               </span>
               <Divider variant="secondary" />
-            </Stack>
+            </div>
             <div className="flex flex-col w-full gap-4">
               <Button
                 className="px-4 py-2 font-semibold dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-hidden transition-colors"
@@ -440,7 +440,7 @@ export const LoginPassword = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block className="mb-5">
+          <Field className="mb-5">
             <Controller
               name="email"
               control={control}
@@ -453,8 +453,8 @@ export const LoginPassword = () => {
                 />
               )}
             />
-          </Block>
-          <Block>
+          </Field>
+          <Field>
             <Controller
               name="password"
               control={control}
@@ -467,8 +467,8 @@ export const LoginPassword = () => {
                 />
               )}
             />
-          </Block>
-          <Stack justifyContent="spaceBetween">
+          </Field>
+          <div className="flex items-center gap-2.5 justify-between">
             <Controller
               name="remember"
               control={control}
@@ -490,7 +490,7 @@ export const LoginPassword = () => {
             >
               Forgot your password?
             </a>
-          </Stack>
+          </div>
           <Divider className="my-7" variant="secondary" />
           <Button
             type="submit"
@@ -561,7 +561,7 @@ export const LoginSocial = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block label="Email" className="mb-5">
+          <Field label="Email" className="mb-5">
             <Controller
               name="email"
               control={control}
@@ -574,7 +574,7 @@ export const LoginSocial = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             variant="filled"
@@ -605,13 +605,13 @@ export const LoginSocial = () => {
           >
             {isSubmitting ? 'Logging in...' : 'Login'}
           </Button>
-          <Stack className="my-7">
+          <div className="flex items-center gap-2.5 my-7">
             <Divider variant="secondary" />
             <span className="whitespace-nowrap text-sm dark:text-waterloo light:text-charade">
               or with
             </span>
             <Divider variant="secondary" />
-          </Stack>
+          </div>
           <div className="flex flex-col w-full gap-4">
             <Button
               variant="outline"

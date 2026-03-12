@@ -178,6 +178,7 @@ export const DateInput: FC<DateInputProps> = ({
           <IconButton
             className="px-0"
             variant="text"
+            aria-label="Open calendar"
             onClick={() => setOpen(true)}
           >
             {icon}

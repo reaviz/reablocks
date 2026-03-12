@@ -1,8 +1,7 @@
 'use client';
 
 import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { DialogTheme } from './DialogTheme';
 import { useDialogContext } from './DialogContext';
 
@@ -68,11 +67,7 @@ export const DialogHeader = forwardRef<HTMLElement, DialogHeaderProps>(
     return (
       <header
         ref={ref}
-        className={twMerge(
-          theme.header.base,
-          disablePadding && 'p-0',
-          className
-        )}
+        className={cn(theme.header.base, disablePadding && 'p-0', className)}
         {...props}
       >
         <div id={headingId} className="flex-1">

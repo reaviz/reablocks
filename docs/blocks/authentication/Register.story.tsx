@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import { useForm, Controller } from 'react-hook-form';
 
-import { Block } from '../../../src/layout/Block';
+import { Field } from '../../../src/layout';
 import { Button } from '../../../src/elements/Button';
 import { Card } from '../../../src/layout/Card';
-import { Divider, Stack } from '../../../src/layout';
+import { Divider } from '../../../src/layout';
 import { Input } from '../../../src/form/Input';
 import { Radio, radioTheme } from '../../../src/form/Radio';
 import { cn } from '../../../src/utils';
@@ -87,7 +87,7 @@ export const Register = () => {
           className="text-sm"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
-          <Block label="Name">
+          <Field label="Name">
             <Controller
               name="name"
               control={control}
@@ -103,8 +103,8 @@ export const Register = () => {
                 />
               )}
             />
-          </Block>
-          <Block label="Email">
+          </Field>
+          <Field label="Email">
             <Controller
               name="email"
               control={control}
@@ -120,8 +120,8 @@ export const Register = () => {
                 />
               )}
             />
-          </Block>
-          <Block label="Password">
+          </Field>
+          <Field label="Password">
             <Controller
               name="password"
               control={control}
@@ -137,8 +137,8 @@ export const Register = () => {
                 />
               )}
             />
-          </Block>
-          <Block label="Confirm Password">
+          </Field>
+          <Field label="Confirm Password">
             <Controller
               name="confirmPassword"
               control={control}
@@ -154,7 +154,7 @@ export const Register = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             fullWidth
@@ -232,7 +232,7 @@ export const RegisterFull = () => {
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
           <div className="grid grid-cols-2 gap-4">
-            <Block label="First Name">
+            <Field label="First Name">
               <Controller
                 name="firstName"
                 control={control}
@@ -245,8 +245,8 @@ export const RegisterFull = () => {
                   />
                 )}
               />
-            </Block>
-            <Block label="Last Name">
+            </Field>
+            <Field label="Last Name">
               <Controller
                 name="lastName"
                 control={control}
@@ -259,9 +259,9 @@ export const RegisterFull = () => {
                   />
                 )}
               />
-            </Block>
+            </Field>
           </div>
-          <Block label="Email">
+          <Field label="Email">
             <Controller
               name="email"
               control={control}
@@ -274,9 +274,9 @@ export const RegisterFull = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <div className="grid grid-cols-2 gap-4">
-            <Block label="Company Name">
+            <Field label="Company Name">
               <Controller
                 name="companyName"
                 control={control}
@@ -289,8 +289,8 @@ export const RegisterFull = () => {
                   />
                 )}
               />
-            </Block>
-            <Block label="Company Size">
+            </Field>
+            <Field label="Company Size">
               <Controller
                 name="companySize"
                 control={control}
@@ -308,7 +308,7 @@ export const RegisterFull = () => {
                   </Select>
                 )}
               />
-            </Block>
+            </Field>
           </div>
           <h6 className="text-lg font-bold mb-4">Select a package</h6>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -322,16 +322,16 @@ export const RegisterFull = () => {
               )}
               onClick={() => setSelection('starter')}
             >
-              <Stack justifyContent="spaceBetween">
+              <div className="flex items-center gap-2.5 justify-between">
                 <h6 className="text-lg font-bold">Starter</h6>
                 <Radio
                   size="small"
                   checked={selection === 'starter'}
                   theme={RadioTheme}
                 />
-              </Stack>
-              <Stack direction="column" alignItems="start" dense>
-                <Stack dense>
+              </div>
+              <div className="flex items-start gap-1 flex-col">
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -344,8 +344,8 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Community support
                   </span>
-                </Stack>
-                <Stack dense>
+                </div>
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -358,8 +358,8 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Integration support
                   </span>
-                </Stack>
-                <Stack dense>
+                </div>
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -372,9 +372,9 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Figmas support
                   </span>
-                </Stack>
+                </div>
                 <h6 className="text-lg font-bold mt-2.5">Free</h6>
-              </Stack>
+              </div>
             </Card>
             <Card
               className={cn(
@@ -386,16 +386,16 @@ export const RegisterFull = () => {
               )}
               onClick={() => setSelection('premium')}
             >
-              <Stack justifyContent="spaceBetween">
+              <div className="flex items-center gap-2.5 justify-between">
                 <h6 className="text-lg font-bold">Premium</h6>
                 <Radio
                   size="small"
                   checked={selection === 'premium'}
                   theme={RadioTheme}
                 />
-              </Stack>
-              <Stack direction="column" alignItems="start" dense>
-                <Stack dense>
+              </div>
+              <div className="flex items-start gap-1 flex-col">
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -408,8 +408,8 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Community support
                   </span>
-                </Stack>
-                <Stack dense>
+                </div>
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -422,8 +422,8 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Integration support
                   </span>
-                </Stack>
-                <Stack dense>
+                </div>
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -436,9 +436,9 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Figmas support
                   </span>
-                </Stack>
+                </div>
                 <h6 className="text-lg font-bold mt-2.5">$1000/Month</h6>
-              </Stack>
+              </div>
             </Card>
             <Card
               className={cn(
@@ -450,16 +450,16 @@ export const RegisterFull = () => {
               )}
               onClick={() => setSelection('enterprise')}
             >
-              <Stack justifyContent="spaceBetween">
+              <div className="flex items-center gap-2.5 justify-between">
                 <h6 className="text-lg font-bold">Enterprise</h6>
                 <Radio
                   size="small"
                   checked={selection === 'enterprise'}
                   theme={RadioTheme}
                 />
-              </Stack>
-              <Stack direction="column" alignItems="start" dense>
-                <Stack dense>
+              </div>
+              <div className="flex items-start gap-1 flex-col">
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -472,8 +472,8 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Community support
                   </span>
-                </Stack>
-                <Stack dense>
+                </div>
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -486,8 +486,8 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Integration support
                   </span>
-                </Stack>
-                <Stack dense>
+                </div>
+                <div className="flex items-center gap-1">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -500,9 +500,9 @@ export const RegisterFull = () => {
                   <span className="dark:text-waterloo light:text-charade">
                     Figmas support
                   </span>
-                </Stack>
+                </div>
                 <h6 className="text-lg font-bold mt-2.5">Email for Price</h6>
-              </Stack>
+              </div>
             </Card>
           </div>
           <Divider variant="secondary" className="mt-4" />
@@ -564,7 +564,7 @@ export const RegisterV2 = () => {
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
           <div className="grid grid-cols-2 gap-2.5">
-            <Block label="First Name">
+            <Field label="First Name">
               <Controller
                 name="firstName"
                 control={control}
@@ -581,8 +581,8 @@ export const RegisterV2 = () => {
                   />
                 )}
               />
-            </Block>
-            <Block label="Last Name">
+            </Field>
+            <Field label="Last Name">
               <Controller
                 name="lastName"
                 control={control}
@@ -599,9 +599,9 @@ export const RegisterV2 = () => {
                   />
                 )}
               />
-            </Block>
+            </Field>
           </div>
-          <Block label="Email">
+          <Field label="Email">
             <Controller
               name="email"
               control={control}
@@ -617,8 +617,8 @@ export const RegisterV2 = () => {
                 />
               )}
             />
-          </Block>
-          <Block label="Password">
+          </Field>
+          <Field label="Password">
             <Controller
               name="password"
               control={control}
@@ -634,8 +634,8 @@ export const RegisterV2 = () => {
                 />
               )}
             />
-          </Block>
-          <Block label="Confirm Password">
+          </Field>
+          <Field label="Confirm Password">
             <Controller
               name="confirmPassword"
               control={control}
@@ -651,7 +651,7 @@ export const RegisterV2 = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             fullWidth
@@ -738,17 +738,17 @@ export const RegisterWithSocial = () => {
               </svg>
             </Button>
           </div>
-          <Stack className="w-full my-7">
+          <div className="flex items-center gap-2.5 w-full my-7">
             <Divider variant="secondary" />
             or
             <Divider variant="secondary" />
-          </Stack>
+          </div>
         </div>
         <form
           className="text-sm"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
-          <Block className="mb-7">
+          <Field className="mb-7">
             <Controller
               name="email"
               control={control}
@@ -764,8 +764,8 @@ export const RegisterWithSocial = () => {
                 />
               )}
             />
-          </Block>
-          <Block className="mb-7">
+          </Field>
+          <Field className="mb-7">
             <Controller
               name="password"
               control={control}
@@ -798,8 +798,8 @@ export const RegisterWithSocial = () => {
                 />
               )}
             />
-          </Block>
-          <Block className="mb-1">
+          </Field>
+          <Field className="mb-1">
             <Controller
               name="confirmPassword"
               control={control}
@@ -832,7 +832,7 @@ export const RegisterWithSocial = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <div className="text-right">
             <a
               href="#"

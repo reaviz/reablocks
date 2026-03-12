@@ -25,7 +25,7 @@ import {
   legacyBadgeTheme,
   legacyButtonTheme,
   legacyChipTheme,
-  legacyLoaderTheme,
+  legacyDotsLoaderTheme,
   legacyKbdTheme,
   legacyCommandPaletteTheme,
   legacySkeletonTheme
@@ -95,9 +95,9 @@ import {
 } from '@/layers';
 
 import {
-  BlockTheme,
+  FieldTheme,
   CollapseTheme,
-  blockTheme,
+  fieldTheme,
   collapseTheme,
   dividerTheme,
   treeTheme,
@@ -105,19 +105,13 @@ import {
   TabsTheme,
   tabsTheme,
   TreeTheme,
-  legacyBlockTheme,
+  legacyFieldTheme,
   legacyListTheme,
-  verticalSpacerTheme,
-  VerticalSpacerTheme,
   CardTheme,
   cardTheme,
   listTheme,
   ListTheme,
-  stackTheme,
-  StackTheme,
-  legacyStackTheme,
   legacyCardTheme,
-  legacyVerticalSpacerTheme,
   legacyCollapseTheme,
   legacyTreeTheme,
   legacyTabsTheme,
@@ -127,17 +121,11 @@ import {
   legacyJsonTreeTheme,
   breadcrumbsTheme,
   BreadcrumbsTheme,
-  legacyBreadcrumbTheme,
+  legacyBreadcrumbsTheme,
   StepperTheme,
   stepperTheme,
   legacyStepperTheme
 } from '@/layout';
-
-import {
-  legacyTypographyTheme,
-  typographyTheme,
-  TypographyTheme
-} from '@/typography';
 
 import {
   ellipsisTheme,
@@ -157,6 +145,12 @@ import {
   legacyPagerTheme
 } from '@/data';
 
+import {
+  TypographyTheme,
+  typographyTheme,
+  legacyTypographyTheme
+} from '@/typography';
+
 export interface ReablocksTheme {
   components: {
     avatar: AvatarTheme;
@@ -164,7 +158,7 @@ export interface ReablocksTheme {
     arrow: ArrowTheme;
     badge: BadgeTheme;
     button: ButtonTheme;
-    block: BlockTheme;
+    field: FieldTheme;
     chip: ChipTheme;
     contextMenu: ContextMenuTheme;
     checkbox: CheckboxTheme;
@@ -178,10 +172,8 @@ export interface ReablocksTheme {
     list: ListTheme;
     menu: MenuTheme;
     sort: SortTheme;
-    stack: StackTheme;
     card: CardTheme;
     kbd: KbdTheme;
-    verticalSpacer: VerticalSpacerTheme;
     notification: NotificationTheme;
     input: InputTheme;
     dateInput: DateInputTheme;
@@ -190,7 +182,6 @@ export interface ReablocksTheme {
     commandPalette: CommandPaletteTheme;
     collapse: CollapseTheme;
     textarea: TextareaTheme;
-    typography: TypographyTheme;
     radio: RadioTheme;
     range: RangeTheme;
     redact: RedactTheme;
@@ -206,6 +197,7 @@ export interface ReablocksTheme {
     callout: CalloutTheme;
     backdrop: BackdropTheme;
     skeleton: SkeletonTheme;
+    typography: TypographyTheme;
   };
 }
 
@@ -216,7 +208,7 @@ export const theme: ReablocksTheme = {
     arrow: arrowTheme,
     badge: badgeTheme,
     button: buttonTheme,
-    block: blockTheme,
+    field: fieldTheme,
     chip: chipTheme,
     contextMenu: contextMenuTheme,
     checkbox: checkboxTheme,
@@ -230,10 +222,8 @@ export const theme: ReablocksTheme = {
     list: listTheme,
     menu: menuTheme,
     sort: sortTheme,
-    stack: stackTheme,
     card: cardTheme,
     kbd: kbdTheme,
-    verticalSpacer: verticalSpacerTheme,
     notification: notificationTheme,
     input: inputTheme,
     dateInput: dateInputTheme,
@@ -242,7 +232,6 @@ export const theme: ReablocksTheme = {
     commandPalette: commandPaletteTheme,
     collapse: collapseTheme,
     textarea: textareaTheme,
-    typography: typographyTheme,
     radio: radioTheme,
     range: rangeTheme,
     redact: redactTheme,
@@ -257,7 +246,8 @@ export const theme: ReablocksTheme = {
     stepper: stepperTheme,
     callout: calloutTheme,
     backdrop: backdropTheme,
-    skeleton: skeletonTheme
+    skeleton: skeletonTheme,
+    typography: typographyTheme
   }
 };
 
@@ -268,24 +258,22 @@ export const legacyThemeVars: ReablocksTheme = {
     arrow: legacyArrowTheme,
     badge: legacyBadgeTheme,
     button: legacyButtonTheme,
-    block: legacyBlockTheme,
+    field: legacyFieldTheme,
     chip: legacyChipTheme,
     contextMenu: legacyContextMenuTheme,
     checkbox: legacyCheckboxTheme,
     dateFormat: legacyDateFormatTheme,
     dialog: legacyDialogTheme,
     divider: legacyDividerTheme,
-    dotsLoader: legacyLoaderTheme,
+    dotsLoader: legacyDotsLoaderTheme,
     drawer: legacyDrawerTheme,
     ellipsis: legacyEllipsisTheme,
     select: legacySelectTheme,
     list: legacyListTheme,
     menu: legacyMenuTheme,
     sort: legacySortTheme,
-    stack: legacyStackTheme,
     card: legacyCardTheme,
     kbd: legacyKbdTheme,
-    verticalSpacer: legacyVerticalSpacerTheme,
     notification: legacyNotificationTheme,
     input: legacyInputTheme,
     dateInput: legacyDateInputTheme,
@@ -294,7 +282,6 @@ export const legacyThemeVars: ReablocksTheme = {
     commandPalette: legacyCommandPaletteTheme,
     collapse: legacyCollapseTheme,
     textarea: legacyTextareaTheme,
-    typography: legacyTypographyTheme,
     radio: legacyRadioTheme,
     range: legacyRangeTheme,
     redact: legacyRedactTheme,
@@ -305,10 +292,11 @@ export const legacyThemeVars: ReablocksTheme = {
     pager: legacyPagerTheme,
     tabs: legacyTabsTheme,
     jsonTree: legacyJsonTreeTheme,
-    breadcrumbs: legacyBreadcrumbTheme,
+    breadcrumbs: legacyBreadcrumbsTheme,
     stepper: legacyStepperTheme,
     callout: legacyCalloutTheme,
     backdrop: legacyBackdropTheme,
-    skeleton: legacySkeletonTheme
+    skeleton: legacySkeletonTheme,
+    typography: legacyTypographyTheme
   }
 };

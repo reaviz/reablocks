@@ -1,6 +1,5 @@
 import React, { FC, forwardRef, LegacyRef, ReactElement } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { ChipTheme } from './ChipTheme';
 
 export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -91,8 +90,19 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
         {...rest}
         ref={ref}
         tabIndex={onClick ? 0 : -1}
+        role={onClick ? 'button' : undefined}
         onClick={!disabled ? onClick : undefined}
-        className={twMerge(
+        onKeyDown={
+          onClick && !disabled
+            ? e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onClick(e as unknown as React.MouseEvent<HTMLDivElement>);
+                }
+              }
+            : undefined
+        }
+        className={cn(
           theme.base,
           theme.variants[variant],
           theme.colors[color]?.base,
@@ -114,7 +124,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       >
         {start && (
           <div
-            className={twMerge(
+            className={cn(
               theme.adornment.base,
               theme.adornment.start,
               theme.adornment.sizes[size]
@@ -126,7 +136,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
         <div className={'flex items-center'}>{children}</div>
         {end && (
           <div
-            className={twMerge(
+            className={cn(
               theme.adornment.base,
               theme.adornment.end,
               theme.adornment.sizes[size]

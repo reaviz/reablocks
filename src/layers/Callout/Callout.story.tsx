@@ -1,6 +1,5 @@
 import React from 'react';
-import { Stack } from '@/layout';
-import { Text } from '@/typography';
+import { Small } from '@/typography';
 
 import {
   Callout,
@@ -24,13 +23,13 @@ export const Simple = () => (
 );
 
 export const Variants = () => (
-  <Stack direction="column" className="w-full">
+  <div className="flex items-center gap-2.5 flex-col w-full">
     <Callout text="You will need admin privileges to install and access this application." />
     <SuccessCallout text="You will need admin privileges to install and access this application." />
     <WarningCallout text="You will need admin privileges to install and access this application." />
     <ErrorCallout text="You will need admin privileges to install and access this application." />
     <InfoCallout text="You will need admin privileges to install and access this application." />
-  </Stack>
+  </div>
 );
 
 export const CustomIcon = () => (
@@ -47,13 +46,11 @@ export const CustomText = () => (
     <InfoCallout
       variant="info"
       text={
-        <Text>
+        <Small>
           You will need{' '}
-          <Text fontStyle="bold" color="warning">
-            admin
-          </Text>{' '}
-          privileges to install and access this application.
-        </Text>
+          <span className="font-semibold text-warning">admin</span> privileges
+          to install and access this application.
+        </Small>
       }
     />
   </div>

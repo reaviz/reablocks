@@ -1,8 +1,7 @@
 'use client';
 
 import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
-import { twMerge } from 'tailwind-merge';
-import { useComponentTheme } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 import { DrawerTheme } from './DrawerTheme';
 import { useDrawerContext } from './DrawerContext';
 
@@ -50,7 +49,7 @@ export const DrawerContent = forwardRef<HTMLDivElement, DrawerContentProps>(
     return (
       <div
         ref={ref}
-        className={twMerge(theme.content, disablePadding && 'p-0', className)}
+        className={cn(theme.content, disablePadding && 'p-0', className)}
         {...props}
       >
         {children}
