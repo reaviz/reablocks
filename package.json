@@ -18,7 +18,7 @@
     "test:coverage": "vitest run --coverage --passWithNoTests",
     "test:visual": "bash visual-tests/run.sh",
     "test:visual:update": "bash visual-tests/run.sh --update",
-    "test:visual:report": "npx tsx visual-tests/generate-report.ts",
+    "test:visual:generate": "npx tsx visual-tests/generate-report.ts",
     "prepare": "husky"
   },
   "type": "module",
