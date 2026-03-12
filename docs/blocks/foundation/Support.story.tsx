@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { Controller, useForm } from 'react-hook-form';
 
-import { Block, Card } from '../../../src/layout';
+import { Field, Card } from '../../../src/layout';
 import { Input, Textarea } from '../../../src/form';
 import { Button } from '../../../src/elements/Button';
 
@@ -33,7 +33,7 @@ export const Support = () => {
           </div>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block label="Title">
+          <Field label="Title">
             <Controller
               name="title"
               control={control}
@@ -48,8 +48,8 @@ export const Support = () => {
                 />
               )}
             />
-          </Block>
-          <Block label="Version">
+          </Field>
+          <Field label="Version">
             <Controller
               name="version"
               control={control}
@@ -64,8 +64,8 @@ export const Support = () => {
                 />
               )}
             />
-          </Block>
-          <Block label="Description">
+          </Field>
+          <Field label="Description">
             <Controller
               name="description"
               control={control}
@@ -80,7 +80,7 @@ export const Support = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             fullWidth

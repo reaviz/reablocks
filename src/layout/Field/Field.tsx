@@ -1,16 +1,16 @@
 import React, { FC } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { BlockTheme } from './BlockTheme';
+import { FieldTheme } from './FieldTheme';
 import { useComponentTheme } from '@/utils';
 
-export interface BlockProps extends React.HTMLAttributes<HTMLElement> {
+export interface FieldProps extends React.HTMLAttributes<HTMLElement> {
   /**
-   * Label to display on the block.
+   * Label to display on the field.
    */
   label?: React.ReactNode | string;
 
   /**
-   * Disable block bottom margin.
+   * Disable field bottom margin.
    */
   disableMargin?: boolean;
 
@@ -30,12 +30,12 @@ export interface BlockProps extends React.HTMLAttributes<HTMLElement> {
   labelClassName?: string;
 
   /**
-   * Additional classname to apply to the block.
+   * Additional classname to apply to the field.
    */
   className?: string;
 
   /**
-   * Direction of the block.
+   * Direction of the field.
    */
   direction?: 'vertical' | 'horizontal';
 
@@ -52,12 +52,12 @@ export interface BlockProps extends React.HTMLAttributes<HTMLElement> {
   ) => void;
 
   /**
-   * Theme for the Block.
+   * Theme for the Field.
    */
-  theme?: BlockTheme;
+  theme?: FieldTheme;
 }
 
-export const Block: FC<BlockProps> = ({
+export const Field: FC<FieldProps> = ({
   label,
   children,
   disableMargin,
@@ -70,7 +70,7 @@ export const Block: FC<BlockProps> = ({
   theme: customTheme,
   ...rest
 }) => {
-  const theme: BlockTheme = useComponentTheme('block', customTheme);
+  const theme: FieldTheme = useComponentTheme('field', customTheme);
 
   return (
     <section

@@ -95,9 +95,9 @@ import {
 } from '@/layers';
 
 import {
-  BlockTheme,
+  FieldTheme,
   CollapseTheme,
-  blockTheme,
+  fieldTheme,
   collapseTheme,
   dividerTheme,
   treeTheme,
@@ -105,7 +105,7 @@ import {
   TabsTheme,
   tabsTheme,
   TreeTheme,
-  legacyBlockTheme,
+  legacyFieldTheme,
   legacyListTheme,
   CardTheme,
   cardTheme,
@@ -158,7 +158,7 @@ export interface ReablocksTheme {
     arrow: ArrowTheme;
     badge: BadgeTheme;
     button: ButtonTheme;
-    block: BlockTheme;
+    field: FieldTheme;
     chip: ChipTheme;
     contextMenu: ContextMenuTheme;
     checkbox: CheckboxTheme;
@@ -208,7 +208,7 @@ export const theme: ReablocksTheme = {
     arrow: arrowTheme,
     badge: badgeTheme,
     button: buttonTheme,
-    block: blockTheme,
+    field: fieldTheme,
     chip: chipTheme,
     contextMenu: contextMenuTheme,
     checkbox: checkboxTheme,
@@ -258,7 +258,7 @@ export const legacyThemeVars: ReablocksTheme = {
     arrow: legacyArrowTheme,
     badge: legacyBadgeTheme,
     button: legacyButtonTheme,
-    block: legacyBlockTheme,
+    field: legacyFieldTheme,
     chip: legacyChipTheme,
     contextMenu: legacyContextMenuTheme,
     checkbox: legacyCheckboxTheme,

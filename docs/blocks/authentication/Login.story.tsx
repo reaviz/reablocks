@@ -2,7 +2,7 @@ import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { motion } from 'motion/react';
 
-import { Block, Card, Divider } from '../../../src/layout';
+import { Field, Card, Divider } from '../../../src/layout';
 import { Checkbox, Input } from '../../../src/form';
 import { Button } from '../../../src/elements/Button';
 
@@ -67,7 +67,7 @@ export const Login = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block className="mb-5">
+          <Field className="mb-5">
             <Controller
               name="email"
               control={control}
@@ -80,7 +80,7 @@ export const Login = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             variant="filled"
@@ -175,7 +175,7 @@ export const LoginBasic = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block label="Email" className="mb-5">
+          <Field label="Email" className="mb-5">
             <Controller
               name="email"
               control={control}
@@ -188,7 +188,7 @@ export const LoginBasic = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             variant="filled"
@@ -288,7 +288,7 @@ export const LoginFull = () => {
             className="my-14"
             onSubmit={handleSubmit(values => console.log('values', values))}
           >
-            <Block labelClassName="text-sm font-medium mb-1" label="Email">
+            <Field labelClassName="text-sm font-medium mb-1" label="Email">
               <Controller
                 name="email"
                 control={control}
@@ -304,7 +304,7 @@ export const LoginFull = () => {
                   />
                 )}
               />
-            </Block>
+            </Field>
             <div className="flex items-center gap-2.5 flex-col">
               <Button
                 type="submit"
@@ -440,7 +440,7 @@ export const LoginPassword = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block className="mb-5">
+          <Field className="mb-5">
             <Controller
               name="email"
               control={control}
@@ -453,8 +453,8 @@ export const LoginPassword = () => {
                 />
               )}
             />
-          </Block>
-          <Block>
+          </Field>
+          <Field>
             <Controller
               name="password"
               control={control}
@@ -467,7 +467,7 @@ export const LoginPassword = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <div className="flex items-center gap-2.5 justify-between">
             <Controller
               name="remember"
@@ -561,7 +561,7 @@ export const LoginSocial = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block label="Email" className="mb-5">
+          <Field label="Email" className="mb-5">
             <Controller
               name="email"
               control={control}
@@ -574,7 +574,7 @@ export const LoginSocial = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             variant="filled"

@@ -1,4 +1,4 @@
-export interface BlockTheme {
+export interface FieldTheme {
   base: string;
   disableMargin: string;
   label: string;
@@ -14,7 +14,7 @@ export interface BlockTheme {
   };
 }
 
-const baseTheme: BlockTheme = {
+const baseTheme: FieldTheme = {
   base: 'mb-2.5',
   disableMargin: 'mb-0',
   label: 'text-sm',
@@ -30,11 +30,11 @@ const baseTheme: BlockTheme = {
   }
 };
 
-export const blockTheme: BlockTheme = {
+export const fieldTheme: FieldTheme = {
   ...baseTheme
 };
 
-export const legacyBlockTheme: BlockTheme = {
+export const legacyFieldTheme: FieldTheme = {
   ...baseTheme,
   base: 'mb-[var(--block-spacing)]',
   label: [

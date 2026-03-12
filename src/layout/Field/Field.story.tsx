@@ -1,47 +1,47 @@
-import { Block } from './Block';
+import { Field } from './Field';
 import React from 'react';
 
 export default {
-  title: 'Components/Layout/Block',
-  component: Block
+  title: 'Components/Layout/Field',
+  component: Field
 };
 
 export const Labelless = () => (
   <>
-    <Block>
+    <Field>
       Haxx0r ipsum else break headers private dereference bin race condition bit
       continue emacs public todo buffer ip mailbomb void strlen leapfrog.
-    </Block>
-    <Block>
+    </Field>
+    <Field>
       Haxx0r ipsum else break headers private dereference bin race condition bit
       continue emacs public todo buffer ip mailbomb void strlen leapfrog.
-    </Block>
+    </Field>
   </>
 );
 
 export const Label = () => (
   <>
-    <Block label="Haxor">
+    <Field label="Haxor">
       Haxx0r ipsum else break headers private dereference bin race condition bit
       continue emacs public todo buffer ip mailbomb void strlen leapfrog.
-    </Block>
-    <Block label="Manifest">
+    </Field>
+    <Field label="Manifest">
       Haxx0r ipsum else break headers private dereference bin race condition bit
       continue emacs public todo buffer ip mailbomb void strlen leapfrog.
-    </Block>
+    </Field>
   </>
 );
 
 export const Required = () => (
-  <Block label="Name" required={true}>
+  <Field label="Name" required={true}>
     Haxx0r ipsum else break headers private dereference.
-  </Block>
+  </Field>
 );
 
 export const Alignment = () => (
   <>
     <h2>Start</h2>
-    <Block
+    <Field
       label="Name"
       required={true}
       alignment="start"
@@ -55,9 +55,9 @@ export const Alignment = () => (
       dereference. Haxx0r ipsum else break headers private dereference. Haxx0r
       ipsum else break headers private dereference. Haxx0r ipsum else break
       headers private dereference.
-    </Block>
+    </Field>
     <h2>Center</h2>
-    <Block
+    <Field
       label="Name"
       required={true}
       alignment="center"
@@ -71,9 +71,9 @@ export const Alignment = () => (
       dereference. Haxx0r ipsum else break headers private dereference. Haxx0r
       ipsum else break headers private dereference. Haxx0r ipsum else break
       headers private dereference.
-    </Block>
+    </Field>
     <h2>End</h2>
-    <Block label="Name" required={true} alignment="end" direction="horizontal">
+    <Field label="Name" required={true} alignment="end" direction="horizontal">
       Haxx0r ipsum else break headers private dereference. Haxx0r ipsum else
       break headers private dereference. Haxx0r ipsum else break headers private
       dereference. Haxx0r ipsum else break headers private dereference. Haxx0r
@@ -82,12 +82,12 @@ export const Alignment = () => (
       dereference. Haxx0r ipsum else break headers private dereference. Haxx0r
       ipsum else break headers private dereference. Haxx0r ipsum else break
       headers private dereference.
-    </Block>
+    </Field>
   </>
 );
 
 export const Horizontal = () => (
-  <Block label="Name" direction="horizontal" required={true}>
+  <Field label="Name" direction="horizontal" required={true}>
     Haxx0r ipsum else break headers private dereference.
-  </Block>
+  </Field>
 );

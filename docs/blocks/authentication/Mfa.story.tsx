@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 
-import { Block } from '../../../src/layout/Block';
+import { Field } from '../../../src/layout';
 import { Button } from '../../../src/elements/Button';
 import { Card } from '../../../src/layout/Card';
 import { Divider } from '../../../src/layout';
@@ -998,7 +998,7 @@ export const Mfa = () => {
           </div>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block>
+          <Field>
             <Controller
               name="pin"
               control={control}
@@ -1016,7 +1016,7 @@ export const Mfa = () => {
                 </div>
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             fullWidth
@@ -1126,7 +1126,7 @@ export const MfaLogin = () => {
           </div>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block>
+          <Field>
             <Controller
               name="pin"
               control={control}
@@ -1144,7 +1144,7 @@ export const MfaLogin = () => {
                 </div>
               )}
             />
-          </Block>
+          </Field>
           <div className="flex items-center gap-2.5 justify-between mb-[190px]">
             <div className="text-center text-text-secondary text-base">
               Didn't receive a email?
@@ -1218,7 +1218,7 @@ export const MfaAuthenticator = () => {
           </div>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block label="Verification code">
+          <Field label="Verification code">
             <Controller
               name="pin"
               control={control}
@@ -1238,7 +1238,7 @@ export const MfaAuthenticator = () => {
                 </div>
               )}
             />
-          </Block>
+          </Field>
           <div className="grid grid-cols-2 gap-4">
             <Button
               variant="outline"

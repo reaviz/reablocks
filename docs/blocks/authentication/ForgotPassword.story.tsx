@@ -1,7 +1,7 @@
 import { motion } from 'motion/react';
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import { Block, Card, Divider } from '../../../src/layout';
+import { Field, Card, Divider } from '../../../src/layout';
 import { Input } from '../../../src/form';
 import { Button } from '../../../src/elements/Button';
 
@@ -66,7 +66,7 @@ export const ForgotPassword = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block
+          <Field
             className="mb-7"
             labelClassName="text-sm font-medium mb-1"
             label="Email"
@@ -86,8 +86,8 @@ export const ForgotPassword = () => {
                 />
               )}
             />
-          </Block>
-          <Block
+          </Field>
+          <Field
             className="mb-7"
             labelClassName="text-sm font-medium mb-1"
             label="Password"
@@ -107,8 +107,8 @@ export const ForgotPassword = () => {
                 />
               )}
             />
-          </Block>
-          <Block
+          </Field>
+          <Field
             className="mb-7"
             labelClassName="text-sm font-medium mb-1"
             label="Confirm Password"
@@ -128,7 +128,7 @@ export const ForgotPassword = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Divider variant="secondary" />
           <Button
             type="submit"
@@ -188,7 +188,7 @@ export const ForgotPasswordFull = () => {
             className="my-7"
             onSubmit={handleSubmit(values => console.log('values', values))}
           >
-            <Block labelClassName="text-sm font-medium mb-1" label="Email">
+            <Field labelClassName="text-sm font-medium mb-1" label="Email">
               <Controller
                 name="email"
                 control={control}
@@ -204,7 +204,7 @@ export const ForgotPasswordFull = () => {
                   />
                 )}
               />
-            </Block>
+            </Field>
             <div className="flex items-center gap-2.5 flex-col">
               <Button
                 type="submit"
@@ -267,7 +267,7 @@ export const ForgotPasswordMinimal = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block>
+          <Field>
             <Controller
               name="email"
               control={control}
@@ -294,7 +294,7 @@ export const ForgotPasswordMinimal = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             variant="filled"
@@ -375,7 +375,7 @@ export const ResetPassword = () => {
             onSubmit={handleSubmit(values => console.log('values', values))}
             className="w-full text-left mt-7"
           >
-            <Block labelClassName="text-sm font-medium mb-1" label="Email">
+            <Field labelClassName="text-sm font-medium mb-1" label="Email">
               <Controller
                 name="email"
                 control={control}
@@ -402,7 +402,7 @@ export const ResetPassword = () => {
                   />
                 )}
               />
-            </Block>
+            </Field>
             <Button
               type="submit"
               variant="filled"
@@ -485,7 +485,7 @@ export const ResetPasswordMinimal = () => {
           </span>
         </div>
         <form onSubmit={handleSubmit(values => console.log('values', values))}>
-          <Block labelClassName="text-sm font-medium mb-1" label="Email">
+          <Field labelClassName="text-sm font-medium mb-1" label="Email">
             <Controller
               name="email"
               control={control}
@@ -512,7 +512,7 @@ export const ResetPasswordMinimal = () => {
                 />
               )}
             />
-          </Block>
+          </Field>
           <Button
             type="submit"
             variant="filled"
