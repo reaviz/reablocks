@@ -21,7 +21,7 @@ for (const story of stories) {
 
     const root = page.locator('#storybook-root');
     await root.waitFor({ state: 'visible', timeout: 10_000 });
-    await page.waitForTimeout(500);
+    await page.waitForLoadState('networkidle');
 
     // Freeze animations for deterministic screenshots
     await page.addStyleTag({
