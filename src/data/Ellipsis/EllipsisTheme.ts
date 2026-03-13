@@ -9,7 +9,3 @@ const baseTheme: EllipsisTheme = {
 export const ellipsisTheme: EllipsisTheme = {
   ...baseTheme
 };
-
-export const legacyEllipsisTheme: EllipsisTheme = {
-  ...baseTheme
-};

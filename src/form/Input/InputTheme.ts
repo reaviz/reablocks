@@ -63,30 +63,3 @@ export const inputTheme: InputTheme = {
     base: [baseTheme.adornment.base, 'text-text-primary'].join(' ')
   }
 };
-
-export const legacyInputTheme: InputTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    'bg-[var(--input-background)] rounded-[var(--input-border-radius)] [border:_var(--input-border)] focus-within:border-[var(--input-border-focus)]'
-  ].join(' '),
-  error: [baseTheme.error, 'border-[var(--error-background)]'].join(' '),
-  sizes: {
-    small: '[padding:_var(--input-spacing-sm)]',
-    medium: '[padding:_var(--input-spacing-md)]',
-    large: 'padding:_var(--input-spacing-lg)'
-  },
-  adornment: {
-    base: [
-      baseTheme.adornment.base,
-      '[&>svg]:w-[var(--input-adornment-size)] [&>svg]:h-[var(--input-adornment-size)] [&>svg]:fill-[var(--input-adornment-fill)]'
-    ].join(' '),
-    start: '[padding-right:_calc(var(--list-item-spacing)_/_2)]',
-    end: '[padding-left:_calc(var(--list-item-spacing)_/_2)]'
-  },
-  input: [
-    baseTheme.input,
-    'placeholder-[var(--input-color-placeholder)] '
-  ].join(' '),
-  disabled: [baseTheme.disabled, 'text-[var(--disabled-color)]'].join(' ')
-};

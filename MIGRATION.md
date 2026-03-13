@@ -1,8 +1,69 @@
-# Unify Design System Migration Guide
+# Reablocks Migration Guide
 
-This guide explains how to integrate the [Unify design system](https://www.figma.com) tokens with reablocks components using the adapter pattern.
+## Breaking Changes
 
-## Overview
+### Legacy theme system removed
+
+The `legacyXxxTheme` exports and `legacyThemeVars` have been removed entirely. These were CSS-variable-based theme objects (e.g., `legacyButtonTheme`, `legacyInputTheme`) that used inline `var(--xxx)` references instead of Tailwind utility classes.
+
+**What was removed:**
+- All `legacyXxxTheme` exports from component theme files (e.g., `legacyButtonTheme`, `legacyDialogTheme`, etc.)
+- The `legacyThemeVars` export from `reablocks` (the combined legacy theme object)
+
+**Who is affected:**
+- If you were importing `legacyThemeVars` and passing it to `ThemeProvider`
+- If you were importing individual `legacyXxxTheme` objects for component-level overrides
+
+**How to migrate:**
+
+If you were using the legacy theme system:
+
+```tsx
+// Before (no longer works)
+import { ThemeProvider, legacyThemeVars } from 'reablocks';
+
+<ThemeProvider theme={legacyThemeVars}>
+  <App />
+</ThemeProvider>
+```
+
+Switch to the modern Tailwind-based theme (which is now the only theme):
+
+```tsx
+// After
+import { ThemeProvider, theme } from 'reablocks';
+
+<ThemeProvider theme={theme}>
+  <App />
+</ThemeProvider>
+```
+
+If you had individual legacy component overrides:
+
+```tsx
+// Before (no longer works)
+import { legacyButtonTheme } from 'reablocks';
+
+// After — use the default theme or extendTheme for customization
+import { theme, extendTheme } from 'reablocks';
+
+const customTheme = extendTheme(theme, {
+  components: {
+    button: {
+      base: 'your-custom-classes',
+      // ...
+    }
+  }
+});
+```
+
+---
+
+## Unify Design System Adapter
+
+This section explains how to integrate the [Unify design system](https://www.figma.com) tokens with reablocks components using the adapter pattern.
+
+### Overview
 
 Reablocks now ships a **CSS adapter** that maps Unify design tokens to the CSS custom properties that reablocks components already consume. This means:
 

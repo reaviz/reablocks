@@ -23,13 +23,3 @@ export const dotsLoaderTheme: DotsLoaderTheme = {
   ...baseTheme,
   dot: [baseTheme.dot, 'light:bg-gray-900 dark:bg-gray-100'].join(' ')
 };
-
-export const legacyDotsLoaderTheme: DotsLoaderTheme = {
-  ...baseTheme,
-  dot: [baseTheme.dot, 'bg-[var(--loader-background)]'].join(' '),
-  sizes: {
-    small: 'w-1 h-1 ml-[var(--spacing-sm)]',
-    medium: 'w-1.5 h-1.5 ml-[var(--spacing-md)]',
-    large: 'w-2 h-2 ml-[var(--spacing-lg)]'
-  }
-};

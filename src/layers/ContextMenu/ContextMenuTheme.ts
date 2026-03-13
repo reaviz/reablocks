@@ -9,7 +9,3 @@ const baseTheme: ContextMenuTheme = {
 export const contextMenuTheme: ContextMenuTheme = {
   ...baseTheme
 };
-
-export const legacyContextMenuTheme: ContextMenuTheme = {
-  ...baseTheme
-};

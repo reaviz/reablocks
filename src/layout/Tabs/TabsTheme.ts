@@ -74,5 +74,3 @@ const baseTheme: TabsTheme = {
 };
 
 export const tabsTheme = baseTheme;
-
-export const legacyTabsTheme: TabsTheme = baseTheme;

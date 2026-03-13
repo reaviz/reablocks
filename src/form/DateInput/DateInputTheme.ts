@@ -24,5 +24,3 @@ export const dateInputTheme: DateInputTheme = {
     }
   }
 };
-
-export const legacyDateInputTheme: DateInputTheme = dateInputTheme;

@@ -13,5 +13,3 @@ export const breadcrumbsTheme: BreadcrumbsTheme = {
   link: 'hover:text-text-primary text-text-secondary transition-colors',
   activePage: 'text-primary pointer-events-none'
 };
-
-export const legacyBreadcrumbsTheme: BreadcrumbsTheme = breadcrumbsTheme;

@@ -1,16 +1,13 @@
 import {
   CommandPaletteInputTheme,
-  cssVarsCommandPaletteInputTheme,
   commandPaletteInputTheme
 } from './CommandPaletteInput';
 import {
   CommandPaletteItemTheme,
-  cssVarsCommandPaletteItemTheme,
   commandPaletteItemTheme
 } from './CommandPaletteItem';
 import {
   CommandPaletteSectionTheme,
-  cssVarsCommandPaletteSectionTheme,
   commandPaletteSectionTheme
 } from './CommandPaletteSection';
 
@@ -35,13 +32,4 @@ export const commandPaletteTheme: CommandPaletteTheme = {
   input: commandPaletteInputTheme,
   item: commandPaletteItemTheme,
   section: commandPaletteSectionTheme
-};
-
-export const legacyCommandPaletteTheme: CommandPaletteTheme = {
-  base: [baseTheme.base, 'border-panel-accent'].join(' '),
-  inner: baseTheme.inner,
-  emptyContainer: '',
-  input: cssVarsCommandPaletteInputTheme,
-  item: cssVarsCommandPaletteItemTheme,
-  section: cssVarsCommandPaletteSectionTheme
 };

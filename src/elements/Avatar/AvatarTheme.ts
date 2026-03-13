@@ -12,11 +12,3 @@ export const avatarTheme: AvatarTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'text-white'].join(' ')
 };
-
-export const legacyAvatarTheme: AvatarTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    'text-[var(--avatar-initials-color)] [border:_var(--avatar-border)]'
-  ].join(' ')
-};

@@ -47,5 +47,3 @@ export const calloutTheme: CalloutTheme = {
   },
   text: 'text-base'
 };
-
-export const legacyCalloutTheme: CalloutTheme = calloutTheme;
