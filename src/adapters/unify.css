@@ -1,0 +1,199 @@
+/*
+ * Reablocks Unify Adapter
+ *
+ * Maps Unify design system semantic tokens to reablocks CSS custom properties.
+ *
+ * Usage:
+ *   1. Load your Unify token CSS files (root.css, dark.css or light.css, components.css)
+ *   2. Import this adapter after your Unify tokens
+ *   3. Import reablocks CSS
+ *
+ * Example:
+ *   @import './unify-tokens/root.css';    (Unify primitive tokens, wrap in :root)
+ *   @import './unify-tokens/dark.css';    (Unify semantic tokens, wrap in :root)
+ *   @import 'reablocks/index.css';
+ *   @import 'reablocks/adapters/unify.css';
+ *
+ * The Unify token files provide the raw variables. This adapter bridges
+ * them to the semantic variables that reablocks components consume via Tailwind.
+ */
+
+:root,
+:host {
+  /* ===== Primary Colors ===== */
+  --primary: var(--color-background-brand-base);
+  --primary-active: var(--color-background-brand-1);
+  --primary-hover: var(--color-background-brand-1);
+  --primary-inactive: var(--color-background-brand-3);
+
+  /* ===== Secondary Colors ===== */
+  --secondary: var(--color-background-neutral-raised-2);
+  --secondary-active: var(--color-background-neutral-raised-2);
+  --secondary-hover: var(--color-background-neutral-raised-1);
+  --secondary-inactive: var(--color-background-neutral-raised-4);
+
+  /* ===== Success Colors ===== */
+  --success: var(--color-background-semantic-success-base);
+  --success-active: var(--color-background-semantic-success-base);
+  --success-hover: var(--color-background-semantic-success-1);
+  --success-background: var(--color-background-semantic-success-5);
+
+  /* ===== Error Colors ===== */
+  --error: var(--color-background-semantic-error-base);
+  --error-active: var(--color-background-semantic-error-base);
+  --error-hover: var(--color-background-semantic-error-1);
+  --error-background: var(--color-background-semantic-error-5);
+
+  /* ===== Warning Colors ===== */
+  --warning: var(--color-background-semantic-warning-base);
+  --warning-active: var(--color-background-semantic-warning-base);
+  --warning-hover: var(--color-background-semantic-warning-1);
+  --warning-background: var(--color-background-semantic-warning-5);
+
+  /* ===== Info Colors ===== */
+  --info: var(--color-background-semantic-info-base);
+  --info-active: var(--color-background-semantic-info-base);
+  --info-hover: var(--color-background-semantic-info-1);
+  --info-background: var(--color-background-semantic-info-5);
+
+  /* ===== Panel Colors ===== */
+  --panel: var(--color-background-neutral-canvas-base);
+  --panel-accent: var(--color-background-neutral-raised-base);
+
+  /* ===== Surface Colors ===== */
+  --surface: var(--color-background-neutral-raised-2);
+  --surface-accent: var(--color-background-brand-base);
+
+  /* ===== Text Colors ===== */
+  --text-primary: var(--color-content-text-neutral-base);
+  --text-secondary: var(--color-content-text-neutral-3);
+
+  /* ===== Named Colors (mapped to Unify neutrals) ===== */
+  --color-black-pearl: var(--color-neutrals-force-dusk-900, #02020f);
+  --color-athens-gray: var(--color-neutrals-force-dusk-50, #f7f7fa);
+  --color-mystic: var(--color-neutrals-force-dusk-100, #e6e6f0);
+  --color-vulcan: var(--color-neutrals-force-dusk-800, #11111f);
+  --color-charade: var(--color-neutrals-force-dusk-600, #242433);
+  --color-waterloo: var(--color-neutrals-force-dusk-300, #77778c);
+
+  /* ===== Gray Scale (Unify force-dusk) ===== */
+  --color-gray-100: var(--color-neutrals-force-dusk-50, #f7f7fa);
+  --color-gray-200: var(--color-neutrals-force-dusk-100, #e6e6f0);
+  --color-gray-300: var(--color-neutrals-force-dusk-200, #c9c9d6);
+  --color-gray-400: var(--color-neutrals-force-dusk-300, #77778c);
+  --color-gray-500: var(--color-neutrals-force-dusk-400, #5c5c73);
+  --color-gray-600: var(--color-neutrals-force-dusk-500, #3a3a4d);
+  --color-gray-700: var(--color-neutrals-force-dusk-600, #242433);
+  --color-gray-800: var(--color-neutrals-force-dusk-700, #191927);
+  --color-gray-900: var(--color-neutrals-force-dusk-800, #11111f);
+  --color-gray-950: var(--color-neutrals-force-dusk-900, #02020f);
+
+  /* ===== Blue Scale (Unify hyperstream) ===== */
+  --color-blue-100: var(--color-color-blue-hyperstream-50, #e7efff);
+  --color-blue-200: var(--color-color-blue-hyperstream-100, #c3d7ff);
+  --color-blue-300: var(--color-color-blue-hyperstream-200, #9fbfff);
+  --color-blue-400: var(--color-color-blue-hyperstream-400, #588eff);
+  --color-blue-500: var(--color-color-blue-hyperstream-600, #105eff);
+  --color-blue-600: var(--color-color-blue-hyperstream-700, #0c44b7);
+  --color-blue-700: var(--color-color-blue-hyperstream-800, #0a3793);
+  --color-blue-800: var(--color-color-blue-hyperstream-900, #082a70);
+  --color-blue-900: var(--color-color-blue-hyperstream-950, #061d4c);
+  --color-blue-950: var(--color-color-blue-hyperstream-1000, #041028);
+
+  /* ===== Red Scale (Unify crimson-wrath) ===== */
+  --color-red-100: var(--color-color-red-crimson-wrath-50, #fce5e6);
+  --color-red-200: var(--color-color-red-crimson-wrath-100, #f7bfc1);
+  --color-red-300: var(--color-color-red-crimson-wrath-200, #f08083);
+  --color-red-400: var(--color-color-red-crimson-wrath-300, #e84045);
+  --color-red-500: var(--color-color-red-crimson-wrath-400, #e00007);
+  --color-red-600: var(--color-color-red-crimson-wrath-500, #b70006);
+  --color-red-700: var(--color-color-red-crimson-wrath-600, #8e0005);
+  --color-red-800: var(--color-color-red-crimson-wrath-700, #660104);
+  --color-red-900: var(--color-color-red-crimson-wrath-800, #3d0103);
+  --color-red-950: var(--color-color-red-crimson-wrath-900, #200204);
+
+  /* ===== Green Scale (Unify verdant-flux) ===== */
+  --color-green-100: var(--color-color-green-verdant-flux-50, #eef8e9);
+  --color-green-200: var(--color-color-green-verdant-flux-100, #d5efc8);
+  --color-green-300: var(--color-color-green-verdant-flux-200, #aadf91);
+  --color-green-400: var(--color-color-green-verdant-flux-300, #80ce5b);
+  --color-green-500: var(--color-color-green-verdant-flux-400, #55be24);
+  --color-green-600: var(--color-color-green-verdant-flux-500, #469d1d);
+  --color-green-700: var(--color-color-green-verdant-flux-600, #377c16);
+  --color-green-800: var(--color-color-green-verdant-flux-700, #275c10);
+  --color-green-900: var(--color-color-green-verdant-flux-800, #183b09);
+  --color-green-950: var(--color-color-green-verdant-flux-900, #091a02);
+
+  /* ===== Orange Scale (Unify sunstreak) ===== */
+  --color-orange-100: var(--color-color-orange-sunstreak-50, #fef3e5);
+  --color-orange-200: var(--color-color-orange-sunstreak-100, #fde1bf);
+  --color-orange-300: var(--color-color-orange-sunstreak-200, #fbc280);
+  --color-orange-400: var(--color-color-orange-sunstreak-300, #f8a340);
+  --color-orange-500: var(--color-color-orange-sunstreak-400, #f68500);
+  --color-orange-600: var(--color-color-orange-sunstreak-500, #cb6e00);
+  --color-orange-700: var(--color-color-orange-sunstreak-600, #9f5701);
+  --color-orange-800: var(--color-color-orange-sunstreak-700, #743f01);
+  --color-orange-900: var(--color-color-orange-sunstreak-800, #482802);
+  --color-orange-950: var(--color-color-orange-sunstreak-900, #251602);
+
+  /* ===== Yellow Scale (Unify twin-sunlight) ===== */
+  --color-yellow-100: var(--color-color-yellow-twin-sunlight-50, #fff9e5);
+  --color-yellow-200: var(--color-color-yellow-twin-sunlight-100, #fff1bf);
+  --color-yellow-300: var(--color-color-yellow-twin-sunlight-200, #ffe380);
+  --color-yellow-400: var(--color-color-yellow-twin-sunlight-300, #ffd440);
+  --color-yellow-500: var(--color-color-yellow-twin-sunlight-400, #ffc600);
+  --color-yellow-600: var(--color-color-yellow-twin-sunlight-500, #d2a300);
+  --color-yellow-700: var(--color-color-yellow-twin-sunlight-600, #a58001);
+  --color-yellow-800: var(--color-color-yellow-twin-sunlight-700, #785e01);
+  --color-yellow-900: var(--color-color-yellow-twin-sunlight-800, #4b3b02);
+  --color-yellow-950: var(--color-color-yellow-twin-sunlight-900, #261f03);
+
+  /* ===== Pink Scale (Unify plasma-circuit) ===== */
+  --color-pink-100: var(--color-color-pink-plasma-circuit-50, #fde5f1);
+  --color-pink-200: var(--color-color-pink-plasma-circuit-100, #f9bfdb);
+  --color-pink-300: var(--color-color-pink-plasma-circuit-200, #f480b7);
+  --color-pink-400: var(--color-color-pink-plasma-circuit-300, #ee4094);
+  --color-pink-500: var(--color-color-pink-plasma-circuit-400, #de006b);
+  --color-pink-600: var(--color-color-pink-plasma-circuit-500, #bb015a);
+  --color-pink-700: var(--color-color-pink-plasma-circuit-600, #98014a);
+  --color-pink-800: var(--color-color-pink-plasma-circuit-700, #740239);
+  --color-pink-900: var(--color-color-pink-plasma-circuit-800, #510229);
+  --color-pink-950: var(--color-color-pink-plasma-circuit-900, #2e0318);
+
+  /* ===== Violet Scale (Unify nexus) ===== */
+  --color-violet-100: var(--color-color-purple-nexus-100, #dac5f9);
+  --color-violet-200: var(--color-color-purple-nexus-200, #b58bf3);
+  --color-violet-300: var(--color-color-purple-nexus-300, #9152ee);
+  --color-violet-400: var(--color-color-purple-nexus-400, #6c18e8);
+  --color-violet-500: var(--color-color-purple-nexus-500, #5b14c5);
+  --color-violet-600: var(--color-color-purple-nexus-600, #4b10a1);
+  --color-violet-700: var(--color-color-purple-nexus-700, #3a0d7e);
+  --color-violet-800: var(--color-color-purple-nexus-800, #2a095b);
+  --color-violet-900: var(--color-color-purple-nexus-900, #190537);
+  --color-violet-950: var(--color-color-purple-nexus-950, #0e031f);
+
+  /* ===== Teal Scale (Unify sunspark-oasis) ===== */
+  --color-teal-100: var(--color-color-teal-sunspark-oasis-50, #e5fbf9);
+  --color-teal-200: var(--color-color-teal-sunspark-oasis-100, #bff6f0);
+  --color-teal-300: var(--color-color-teal-sunspark-oasis-200, #80ede0);
+  --color-teal-400: var(--color-color-teal-sunspark-oasis-300, #40e5d1);
+  --color-teal-500: var(--color-color-teal-sunspark-oasis-400, #00dcc2);
+  --color-teal-600: var(--color-color-teal-sunspark-oasis-500, #00c2ab);
+  --color-teal-700: var(--color-color-teal-sunspark-oasis-600, #019a88);
+  --color-teal-800: var(--color-color-teal-sunspark-oasis-700, #017365);
+  --color-teal-900: var(--color-color-teal-sunspark-oasis-800, #024b42);
+  --color-teal-950: var(--color-color-teal-sunspark-oasis-900, #02231f);
+
+  /* ===== Spacing (Unify spacing tokens) ===== */
+  --spacing-xs: var(--spacing-padding-xs, 8px);
+  --spacing-sm: var(--spacing-padding-sm, 12px);
+  --spacing-md: var(--spacing-padding-base, 16px);
+  --spacing-lg: var(--spacing-padding-lg, 20px);
+  --spacing-xl: var(--spacing-padding-xl, 24px);
+
+  /* ===== Border Radius (Unify corner-radius) ===== */
+  --radius-sm: var(--corner-radius-sm, 2px);
+  --radius-md: var(--corner-radius-primary, 4px);
+  --radius-lg: var(--corner-radius-lg, 12px);
+  --radius-pill: var(--corner-radius-pill, 100px);
+}
