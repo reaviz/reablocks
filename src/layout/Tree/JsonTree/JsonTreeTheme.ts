@@ -19,7 +19,3 @@ export const jsonTreeTheme: JsonTreeTheme = {
   },
   pager: 'opacity-50 cursor-pointer pl-4'
 };
-
-export const legacyJsonTreeTheme: JsonTreeTheme = {
-  ...jsonTreeTheme
-};

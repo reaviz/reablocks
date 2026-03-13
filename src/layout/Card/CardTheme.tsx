@@ -21,12 +21,3 @@ export const cardTheme: CardTheme = {
     'bg-panel border border-panel-accent text-text-primary'
   ].join(' ')
 };
-
-export const legacyCardTheme: CardTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    '[padding:_var(--card-spacing)] bg-[var(--card-background)] text-[var(--card-color)] [border:_var(--card-border)] rounded-[var(--card-border-radius)]'
-  ].join(' '),
-  headerText: [baseTheme.headerText, 'mb-[var(--spacing-md)]'].join(' ')
-};

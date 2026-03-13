@@ -22,11 +22,3 @@ export const sortTheme: SortTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'text-text-primary'].join(' ')
 };
-
-export const legacySortTheme: SortTheme = {
-  ...baseTheme,
-  icon: {
-    ...baseTheme.icon,
-    base: 'h-[var(--sort-icon-size)] w-[var(--sort-icon-size)] mx-[var(--spacing-sm)] fill-[var(--sort-icon-color)]'
-  }
-};

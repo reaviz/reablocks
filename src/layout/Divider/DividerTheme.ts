@@ -27,18 +27,3 @@ const baseTheme: DividerTheme = {
 export const dividerTheme = {
   ...baseTheme
 };
-
-export const legacyDividerTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-[var(--divider-background)]'].join(' '),
-  orientation: {
-    horizontal: [
-      baseTheme.orientation.horizontal,
-      'my-[var(--divider-spacing)]'
-    ].join(' '),
-    vertical: [
-      baseTheme.orientation.vertical,
-      ' mx-[var(--divider-spacing)]'
-    ].join(' ')
-  }
-};

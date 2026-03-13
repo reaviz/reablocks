@@ -12,7 +12,3 @@ export const menuTheme: MenuTheme = {
   ...baseTheme,
   inner: [baseTheme.inner, 'text-text-primary bg-panel'].join(' ')
 };
-
-export const legacyMenuTheme: MenuTheme = {
-  ...baseTheme
-};

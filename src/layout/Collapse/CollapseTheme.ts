@@ -9,7 +9,3 @@ const baseTheme: CollapseTheme = {
 export const collapseTheme: CollapseTheme = {
   ...baseTheme
 };
-
-export const legacyCollapseTheme: CollapseTheme = {
-  ...baseTheme
-};

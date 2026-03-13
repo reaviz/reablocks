@@ -38,6 +38,10 @@ export default defineConfig(({ mode }) =>
             {
               src: 'docs/blocks/**/*.story.tsx',
               dest: 'blocks/'
+            },
+            {
+              src: 'src/adapters/unify.css',
+              dest: 'adapters/'
             }
           ]
         })

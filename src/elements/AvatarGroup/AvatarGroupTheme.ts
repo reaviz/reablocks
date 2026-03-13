@@ -14,11 +14,3 @@ export const avatarGroupTheme: AvatarGroupTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'text-text-primary'].join(' ')
 };
-
-export const legacyAvatarGroupTheme: AvatarGroupTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    'text-[var(--avatar-initials-color)] border-[var(--avatar-border)]'
-  ].join(' ')
-};
