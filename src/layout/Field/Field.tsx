@@ -95,6 +95,7 @@ export const Field: FC<FieldProps> = ({
         direction === 'vertical' && theme.vertical.base,
         alignment === 'end' && theme.endAlign,
         alignment === 'center' && theme.centerAlign,
+        error && theme.errorState,
         className
       )}
     >
@@ -114,7 +115,9 @@ export const Field: FC<FieldProps> = ({
       )}
       {children}
       {hasErrorMessage ? (
-        <span className={theme.error}>{error}</span>
+        <span className={theme.error} role="alert">
+          {error}
+        </span>
       ) : (
         hint && <span className={theme.hint}>{hint}</span>
       )}

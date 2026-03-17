@@ -1,4 +1,5 @@
 import { Field } from './Field';
+import { Input } from '../../form/Input';
 import React from 'react';
 
 export default {
@@ -94,21 +95,13 @@ export const Horizontal = () => (
 
 export const Hint = () => (
   <Field label="Email" hint="We'll never share your email.">
-    <input
-      type="email"
-      placeholder="you@example.com"
-      className="w-full rounded border border-surface px-3 py-2 text-sm bg-transparent text-text-primary"
-    />
+    <Input type="email" placeholder="you@example.com" />
   </Field>
 );
 
 export const ErrorMessage = () => (
   <Field label="Email" error="Please enter a valid email address.">
-    <input
-      type="email"
-      placeholder="you@example.com"
-      className="w-full rounded border border-error px-3 py-2 text-sm bg-transparent text-text-primary"
-    />
+    <Input type="email" placeholder="you@example.com" error />
   </Field>
 );
 
@@ -118,29 +111,24 @@ export const ErrorReplacesHint = () => (
     hint="We'll never share your email."
     error="Please enter a valid email address."
   >
-    <input
-      type="email"
-      placeholder="you@example.com"
-      className="w-full rounded border border-error px-3 py-2 text-sm bg-transparent text-text-primary"
-    />
+    <Input type="email" placeholder="you@example.com" error />
   </Field>
 );
 
 export const ErrorBooleanOnly = () => (
   <Field label="Email" error={true}>
-    <input
-      type="email"
-      placeholder="you@example.com"
-      className="w-full rounded border border-error px-3 py-2 text-sm bg-transparent text-text-primary"
-    />
+    <Input type="email" placeholder="you@example.com" error />
+  </Field>
+);
+
+export const ErrorBooleanWithHint = () => (
+  <Field label="Email" error={true} hint="We'll never share your email.">
+    <Input type="email" placeholder="you@example.com" error />
   </Field>
 );
 
 export const HintWithRequired = () => (
   <Field label="Password" required hint="Must be at least 8 characters.">
-    <input
-      type="password"
-      className="w-full rounded border border-surface px-3 py-2 text-sm bg-transparent text-text-primary"
-    />
+    <Input type="password" />
   </Field>
 );

@@ -14,6 +14,7 @@ export interface FieldTheme {
   };
   hint: string;
   error: string;
+  errorState: string;
 }
 
 const baseTheme: FieldTheme = {
@@ -31,7 +32,8 @@ const baseTheme: FieldTheme = {
     label: 'block mb-0.5'
   },
   hint: 'text-xs text-text-secondary mt-1',
-  error: 'text-xs text-error mt-1'
+  error: 'text-xs text-error mt-1',
+  errorState: ''
 };
 
 export const fieldTheme: FieldTheme = {
