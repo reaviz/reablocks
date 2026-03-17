@@ -1,3 +1,186 @@
+# 10.0.0-beta.1 - 3/17/26
+
+## Breaking Changes
+
+### Typography: Complete Rewrite
+The old typography components have been removed and replaced with semantic HTML wrappers.
+
+**Removed components:**
+- `PageTitle` — use `H1` instead
+- `PrimaryHeading` — use `H2` instead
+- `SecondaryHeading` — use `H3` instead
+- `SmallHeading` — use `H4` instead
+- `Sub` — use `H5` instead
+- `Text` — use `P`, `Small`, or `Muted` instead
+
+**New components:** `H1`, `H2`, `H3`, `H4`, `H5`, `H6`, `P`, `BlockQuote`, `Lead`, `Large`, `Small`, `Muted`
+
+**Theme shape changed:**
+```
+// Before
+typography: { base, text: { thin, bold, ... }, variant: { default, mono }, colors: { ... }, sub, smallHeading, ... }
+
+// After
+typography: { h1, h2, h3, h4, h5, h6, p, blockquote, lead, large, small, muted }
+```
+
+The old props `color`, `variant`, `fontStyle`, and `disableMargins` are gone — use `className` or theme customization.
+
+### Layout: Block renamed to Field, Stack and VerticalSpacer removed
+- `Block` → renamed to `Field`. Update all imports: `BlockProps` → `FieldProps`, `BlockTheme` → `FieldTheme`, `blockTheme` → `fieldTheme`
+- `Stack` — removed entirely. Replace with `<div className="flex items-center gap-2.5">` or similar Tailwind flex classes
+- `VerticalSpacer` — removed entirely. Replace with `<div className="h-2.5">` or equivalent Tailwind spacing
+
+The `block` key in `ReablocksTheme.components` is now `field`.
+
+### Legacy Themes: All Removed
+All `legacy*Theme` exports and the `legacyThemeVars` object have been removed. If you were using CSS variable-based theming via `legacyThemeVars`, you must migrate to the Tailwind-based `theme` export.
+
+Removed exports include: `legacyFieldTheme`, `legacyButtonTheme`, `legacyInputTheme`, `legacySelectTheme`, `legacyDialogTheme`, `legacyDrawerTheme`, `legacyTooltipTheme`, `legacyCalendarTheme`, `legacyCheckboxTheme`, `legacyRadioTheme`, `legacyToggleTheme`, `legacyCardTheme`, `legacyTabsTheme`, `legacyTreeTheme`, `legacyListTheme`, `legacyMenuTheme`, `legacyNotificationTheme`, `legacyPopoverTheme`, `legacyTypographyTheme`, and all others.
+
+### Button: Adornment Props Renamed
+- `startAdornment` → `start`
+- `endAdornment` → `end`
+
+Types narrowed from `any` to `React.ReactNode`.
+
+### Input: Deprecated Adornment Props Removed
+- `startAdornment` and `endAdornment` props removed (were already deprecated)
+- Use `start` and `end` props instead
+
+### Select: Theme Restructured
+- `SelectInputTheme.prefix` → `selectedValue`
+- `SelectInputTheme.suffix` → `actions` (with sub-keys: `container`, `button`, `refresh`, `close`, `expand`, `loader`)
+- `SelectInputTheme.single.prefix` → `single.selectedValue`
+- `SelectInputTheme.multiple.prefix` → `multiple.selectedValue`
+- `inputPrefix` prop removed from `SelectOption`
+
+### DotsLoader/Breadcrumbs: Theme Export Renames
+- `legacyLoaderTheme` → `legacyDotsLoaderTheme` (removed with legacy cleanup)
+- `legacyBreadcrumbTheme` → `legacyBreadcrumbsTheme` (removed with legacy cleanup)
+
+## New Features
+
+### Field: Hint and Error Support
+- [feature] New `hint` prop — displays guidance text below the input
+- [feature] New `error` prop (`boolean | ReactNode`) — displays error message below input, replaces hint when present
+- [feature] New theme keys: `hint`, `error`, `errorState`, `horizontal.content`
+- [feature] Error messages include `role="alert"` for accessibility
+- [feature] Horizontal layout correctly stacks input + hint/error beneath the label
+
+### Select: Start/End Adornments
+- [feature] `Select` and `SelectInput` now support `start` and `end` props for prefix/suffix adornments
+- [feature] New `adornment: { start, end }` keys in `SelectInputTheme`
+
+### Utilities
+- [feature] New `cn()` utility — combines `classnames` + `tailwind-merge` in one call, exported publicly
+- [feature] `H5` and `H6` heading components added
+
+### Infrastructure
+- [chore] Playwright visual regression testing for Storybook components
+- [chore] Improved Calendar accessibility with `aria-label` on navigation buttons
+- [chore] Calendar sub-components (`CalendarDays`, `CalendarMonths`, `CalendarYears`, `CalendarTimes`) now exported
+
+## Bug Fixes
+- [fix] Calendar exports corrected
+- [fix] Shadow token extraction for themes
+- [fix] Group hover classes added to Tailwind config
+- [fix] Pager theme now includes `flex items-center gap-1` in `itemsDisplay`
+- [fix] Duplicate CommandPalette export removed
+
+## Migration Guide
+
+### Step 1: Typography
+```tsx
+// Before
+import { PageTitle, PrimaryHeading, SecondaryHeading, SmallHeading, Text } from 'reablocks';
+<PageTitle>Title</PageTitle>
+<PrimaryHeading>Heading</PrimaryHeading>
+<Text fontStyle="bold" color="primary">Bold text</Text>
+
+// After
+import { H1, H2, P, Small, Muted } from 'reablocks';
+<H1>Title</H1>
+<H2>Heading</H2>
+<P className="font-bold text-primary">Bold text</P>
+```
+
+### Step 2: Layout
+```tsx
+// Before
+import { Block, Stack, VerticalSpacer } from 'reablocks';
+<Block label="Name"><Input /></Block>
+<Stack direction="row"><Button /><Button /></Stack>
+<VerticalSpacer space="md" />
+
+// After
+import { Field } from 'reablocks';
+<Field label="Name"><Input /></Field>
+<div className="flex flex-row items-center gap-2.5"><Button /><Button /></div>
+<div className="h-2.5" />
+```
+
+### Step 3: Button Adornments
+```tsx
+// Before
+<Button startAdornment={<Icon />}>Click</Button>
+
+// After
+<Button start={<Icon />}>Click</Button>
+```
+
+### Step 4: Input Adornments
+```tsx
+// Before
+<Input startAdornment={<Icon />} endAdornment={<Icon />} />
+
+// After
+<Input start={<Icon />} end={<Icon />} />
+```
+
+### Step 5: Legacy Themes
+```tsx
+// Before
+import { ThemeProvider, legacyThemeVars } from 'reablocks';
+<ThemeProvider theme={legacyThemeVars}>...</ThemeProvider>
+
+// After — use the Tailwind-based theme
+import { ThemeProvider, theme } from 'reablocks';
+<ThemeProvider theme={theme}>...</ThemeProvider>
+```
+
+### Step 6: Theme Customization
+```tsx
+// Before
+const custom = {
+  components: {
+    block: { ... },
+    stack: { ... },
+  }
+};
+
+// After
+const custom = {
+  components: {
+    field: { ... },
+    // stack removed — no theme needed, use Tailwind classes directly
+  }
+};
+```
+
+### Step 7: Select Theme
+```tsx
+// Before — custom select theme
+const selectTheme = {
+  input: { prefix: '...', suffix: '...' }
+};
+
+// After
+const selectTheme = {
+  input: { selectedValue: '...', actions: { container: '...', button: '...' } }
+};
+```
+
 # 9.4.1 - 2/17/26
 - [fix] Improve accessibility across form, layer, and overlay components
 
