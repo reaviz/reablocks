@@ -850,7 +850,7 @@ export const NotFound = () => (
           placeholder="Search our site..."
           fullWidth
           className="z-10"
-          startAdornment={
+          start={
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"

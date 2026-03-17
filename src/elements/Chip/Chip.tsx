@@ -47,7 +47,7 @@ export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
   start?: ReactElement | string;
 
   /**
-   * Content to display before the chip label.
+   * Content to display after the chip label.
    */
   end?: ReactElement | string;
 

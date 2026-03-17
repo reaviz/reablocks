@@ -103,7 +103,7 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
             className={cn(
               theme.listItem.adornment.base,
               theme.listItem.adornment.start,
-              { [theme.listItem.dense.startAdornment]: dense }
+              { [theme.listItem.dense.start]: dense }
             )}
           >
             {start}
@@ -125,7 +125,7 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
             className={cn(
               theme.listItem.adornment.base,
               theme.listItem.adornment.end,
-              { [theme.listItem.dense.endAdornment]: dense }
+              { [theme.listItem.dense.end]: dense }
             )}
           >
             {end}

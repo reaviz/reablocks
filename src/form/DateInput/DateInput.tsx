@@ -174,7 +174,7 @@ export const DateInput: FC<DateInputProps> = ({
         ref={ref}
         disabled={disabled}
         theme={theme.input}
-        endAdornment={
+        end={
           <IconButton
             className="px-0"
             variant="text"

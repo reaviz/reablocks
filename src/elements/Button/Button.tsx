@@ -53,12 +53,12 @@ export interface ButtonProps extends Omit<
   /**
    * Element to display before the Button content.
    */
-  startAdornment?: any;
+  start?: React.ReactNode;
 
   /**
    * Element to display after the Button content.
    */
-  endAdornment?: any;
+  end?: React.ReactNode;
 
   /**
    * Theme for the Button.
@@ -86,8 +86,8 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
       disableMargins,
       disablePadding,
       disabled,
-      startAdornment,
-      endAdornment,
+      start,
+      end,
       theme: customTheme,
       type = 'button',
       ...rest
@@ -123,7 +123,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
           className
         )}
       >
-        {startAdornment && (
+        {start && (
           <div
             className={cn(
               theme.adornment.base,
@@ -131,11 +131,11 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
               theme.adornment.sizes[size]
             )}
           >
-            {startAdornment}
+            {start}
           </div>
         )}
         {children}
-        {endAdornment && (
+        {end && (
           <div
             className={cn(
               theme.adornment.base,
@@ -143,7 +143,7 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
               theme.adornment.sizes[size]
             )}
           >
-            {endAdornment}
+            {end}
           </div>
         )}
       </motion.button>

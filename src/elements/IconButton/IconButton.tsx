@@ -4,7 +4,7 @@ import { cn, useComponentTheme } from '@/utils';
 
 export interface IconButtonProps extends Omit<
   ButtonProps,
-  'fullWidth' | 'startAdornment' | 'endAdornment'
+  'fullWidth' | 'start' | 'end'
 > {}
 
 export const IconButton: FC<IconButtonProps & ButtonRef> = forwardRef(
