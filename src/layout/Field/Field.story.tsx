@@ -1,4 +1,5 @@
 import { Field } from './Field';
+import { Input } from '../../form/Input';
 import React from 'react';
 
 export default {
@@ -89,5 +90,65 @@ export const Alignment = () => (
 export const Horizontal = () => (
   <Field label="Name" direction="horizontal" required={true}>
     Haxx0r ipsum else break headers private dereference.
+  </Field>
+);
+
+export const Hint = () => (
+  <Field label="Email" hint="We'll never share your email.">
+    <Input type="email" placeholder="you@example.com" />
+  </Field>
+);
+
+export const ErrorMessage = () => (
+  <Field label="Email" error="Please enter a valid email address.">
+    <Input type="email" placeholder="you@example.com" error />
+  </Field>
+);
+
+export const ErrorReplacesHint = () => (
+  <Field
+    label="Email"
+    hint="We'll never share your email."
+    error="Please enter a valid email address."
+  >
+    <Input type="email" placeholder="you@example.com" error />
+  </Field>
+);
+
+export const ErrorBooleanOnly = () => (
+  <Field label="Email" error={true}>
+    <Input type="email" placeholder="you@example.com" error />
+  </Field>
+);
+
+export const ErrorBooleanWithHint = () => (
+  <Field label="Email" error={true} hint="We'll never share your email.">
+    <Input type="email" placeholder="you@example.com" error />
+  </Field>
+);
+
+export const HintWithRequired = () => (
+  <Field label="Password" required hint="Must be at least 8 characters.">
+    <Input type="password" />
+  </Field>
+);
+
+export const HorizontalWithError = () => (
+  <Field
+    label="Email"
+    direction="horizontal"
+    error="Please enter a valid email address."
+  >
+    <Input type="email" placeholder="you@example.com" error />
+  </Field>
+);
+
+export const HorizontalWithHint = () => (
+  <Field
+    label="Email"
+    direction="horizontal"
+    hint="We'll never share your email."
+  >
+    <Input type="email" placeholder="you@example.com" />
   </Field>
 );
