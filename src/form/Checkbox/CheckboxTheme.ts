@@ -155,20 +155,3 @@ export const checkboxTheme: CheckboxTheme = {
     pressed: { scale: 0.95 }
   }
 } as CheckboxTheme;
-
-export const legacyCheckboxTheme: CheckboxTheme = {
-  ...baseTheme,
-  checkbox: { base: [baseTheme.checkbox, 'fill-transparent'].join(' ') },
-  check: {
-    base: [baseTheme.check.base, 'stroke-[var(--checkbox-check-stroke)]'].join(
-      ' '
-    )
-  },
-  label: {
-    ...baseTheme.label,
-    base: [
-      baseTheme.label.base,
-      'text-[var(--checkbox-label-color)] ml-[var(--spacing-md)]'
-    ].join(' ')
-  }
-} as CheckboxTheme;

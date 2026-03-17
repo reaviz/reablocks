@@ -1,7 +1,9 @@
 import { CalendarTheme, calendarTheme } from './CalendarTheme';
 
-export interface CalendarRangeTheme
-  extends Omit<CalendarTheme, 'months' | 'years'> {}
+export interface CalendarRangeTheme extends Omit<
+  CalendarTheme,
+  'months' | 'years'
+> {}
 
 const baseTheme: Partial<CalendarRangeTheme> = {
   base: 'relative overflow-hidden',
@@ -25,12 +27,4 @@ export const calendarRangeTheme: CalendarRangeTheme = {
     ...calendarTheme.presets,
     divider: 'mx-1 h-[calc(100%-30px)] self-end'
   }
-};
-
-export const legacyCalendarRangeTheme: CalendarRangeTheme = {
-  base: baseTheme.base,
-  header: baseTheme.header,
-  title: baseTheme.title,
-  content: baseTheme.content,
-  days: calendarTheme.days
 };

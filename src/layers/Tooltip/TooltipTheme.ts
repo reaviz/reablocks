@@ -12,11 +12,3 @@ export const tooltipTheme: TooltipTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-panel-accent text-text-primary'].join(' ')
 };
-
-export const legacyTooltipTheme: TooltipTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    'text-[color:var(--tooltip-color)] rounded-[var(--tooltip-border-radius)] border-[length:var(--tooltip-border)] pt-[var(--tooltip-spacing)] pr-[var(--tooltip-spacing)] pb-[var(--tooltip-spacing)] pl-[var(--tooltip-spacing)] bg-[var(--tooltip-background)]'
-  ].join(' ')
-};

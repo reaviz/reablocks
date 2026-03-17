@@ -234,19 +234,3 @@ export const calendarTheme: CalendarTheme = {
     }
   }
 };
-
-export const legacyCalendarTheme: CalendarTheme = {
-  ...baseTheme,
-  header: {
-    ...baseTheme.header,
-    base: [
-      baseTheme.header.base,
-      'mb-[var(--spacing-sm)] mb-[var(--calendar-gap)]'
-    ].join(' ')
-  },
-  days: {
-    ...baseTheme.days,
-    header: [baseTheme.days.header, 'gap-[var(--calendar-gap)]'].join(' '),
-    outside: [baseTheme.days.outside, 'text-gray-100/60'].join(' ')
-  }
-};

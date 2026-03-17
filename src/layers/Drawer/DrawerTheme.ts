@@ -44,15 +44,3 @@ export const drawerTheme: DrawerTheme = {
   ...baseTheme,
   base: [baseTheme.base, 'bg-panel text-text-primary'].join(' ')
 };
-
-export const legacyDrawerTheme: DrawerTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    'bg-[var(--drawer-background)] text-[var(--drawer-color)]'
-  ].join(' '),
-  closeButton: {
-    ...baseTheme.closeButton,
-    base: [baseTheme.closeButton.base, 'text-[var(--drawer-color)]'].join(' ')
-  }
-};

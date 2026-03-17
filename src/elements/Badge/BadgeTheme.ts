@@ -49,24 +49,3 @@ export const badgeTheme: BadgeTheme = {
     error: 'bg-error text-text-primary'
   }
 };
-
-export const legacyBadgeTheme: BadgeTheme = {
-  base: baseTheme.base,
-  disableMargins: baseTheme.disableMargins,
-  badge: [
-    baseTheme.badge,
-    'p-[var(--spacing-xs)] rounded-[var(--badge-border-radius)] text-[var(--font-size-sm)]'
-  ].join(' '),
-  position: baseTheme.position,
-  positions: baseTheme.positions,
-  colors: {
-    default:
-      'bg-[var(--badge-color-background-default)] text-[var(--badge-color-default)]',
-    primary:
-      'bg-[var(--badge-color-background-primary)] text-[var(--badge-color-primary)]',
-    secondary:
-      'bg-[var(--badge-color-background-secondary)] text-[var(--badge-color-secondary)]',
-    error:
-      'bg-[var(--badge-color-background-error)] text-[var(--badge-color-error)]'
-  }
-};

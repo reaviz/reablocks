@@ -48,14 +48,3 @@ export const treeTheme: TreeTheme = {
     }
   }
 };
-
-export const legacyTreeTheme: TreeTheme = {
-  ...baseTheme,
-  node: {
-    ...baseTheme.node,
-    button: {
-      ...baseTheme.node.button,
-      icon: [baseTheme.node.button.icon, 'fill-[var(--white)]'].join(' ')
-    }
-  }
-};

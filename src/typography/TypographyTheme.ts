@@ -27,18 +27,3 @@ export const typographyTheme: TypographyTheme = {
   small: 'text-sm leading-none font-medium',
   muted: 'text-sm text-text-secondary'
 };
-
-export const legacyTypographyTheme: TypographyTheme = {
-  h1: '[font-size:_var(--page-title-font-size,2.25rem)] [font-weight:_var(--page-title-font-weight,800)] tracking-tight text-balance',
-  h2: 'border-b border-[var(--surface)] pb-2 [font-size:_var(--primary-heading-font-size,1.875rem)] [font-weight:_var(--primary-heading-font-weight,600)] tracking-tight first:mt-0',
-  h3: '[font-size:_var(--secondary-heading-font-size,1.5rem)] [font-weight:_var(--secondary-heading-font-weight,600)] tracking-tight',
-  h4: '[font-size:_var(--small-heading-font-size,1.25rem)] [font-weight:_var(--small-heading-font-weight,600)] tracking-tight',
-  h5: '[font-size:_var(--small-heading-font-size,1.125rem)] [font-weight:_var(--small-heading-font-weight,600)] tracking-tight',
-  h6: '[font-size:_var(--small-heading-font-size,1rem)] [font-weight:_var(--small-heading-font-weight,600)] tracking-tight',
-  p: 'leading-7 [&:not(:first-child)]:mt-6',
-  blockquote: 'mt-6 border-l-2 border-[var(--surface)] pl-6 italic',
-  lead: 'text-xl text-[var(--text-secondary)]',
-  large: 'text-lg font-semibold',
-  small: 'text-sm leading-none font-medium',
-  muted: 'text-sm text-[var(--text-secondary)]'
-};

@@ -35,11 +35,3 @@ export const dialogTheme: DialogTheme = {
     closeButton: [baseTheme.header.closeButton, 'text-text-primary'].join(' ')
   }
 };
-
-export const legacyDialogTheme: DialogTheme = {
-  ...baseTheme,
-  inner: [
-    baseTheme.inner,
-    'bg-[var(--dialog-background)] text-[var(--dialog-color)]'
-  ].join(' ')
-};

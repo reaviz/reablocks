@@ -33,24 +33,3 @@ const baseTheme: FieldTheme = {
 export const fieldTheme: FieldTheme = {
   ...baseTheme
 };
-
-export const legacyFieldTheme: FieldTheme = {
-  ...baseTheme,
-  base: 'mb-[var(--block-spacing)]',
-  label: [
-    baseTheme.label,
-    '[font-size:_var(--block-label-size)] [font-weight:_var(--block-label-weight)]'
-  ].join(' '),
-  horizontal: {
-    ...baseTheme.horizontal,
-    label: [baseTheme.horizontal.label, 'mr-[var(--block-label-spacing)]'].join(
-      ' '
-    )
-  },
-  vertical: {
-    ...baseTheme.vertical,
-    label: [baseTheme.vertical.label, 'mb-[var(--block-label-spacing)]'].join(
-      ' '
-    )
-  }
-};
