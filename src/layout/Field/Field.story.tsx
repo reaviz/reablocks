@@ -91,3 +91,56 @@ export const Horizontal = () => (
     Haxx0r ipsum else break headers private dereference.
   </Field>
 );
+
+export const Hint = () => (
+  <Field label="Email" hint="We'll never share your email.">
+    <input
+      type="email"
+      placeholder="you@example.com"
+      className="w-full rounded border border-surface px-3 py-2 text-sm bg-transparent text-text-primary"
+    />
+  </Field>
+);
+
+export const ErrorMessage = () => (
+  <Field label="Email" error="Please enter a valid email address.">
+    <input
+      type="email"
+      placeholder="you@example.com"
+      className="w-full rounded border border-error px-3 py-2 text-sm bg-transparent text-text-primary"
+    />
+  </Field>
+);
+
+export const ErrorReplacesHint = () => (
+  <Field
+    label="Email"
+    hint="We'll never share your email."
+    error="Please enter a valid email address."
+  >
+    <input
+      type="email"
+      placeholder="you@example.com"
+      className="w-full rounded border border-error px-3 py-2 text-sm bg-transparent text-text-primary"
+    />
+  </Field>
+);
+
+export const ErrorBooleanOnly = () => (
+  <Field label="Email" error={true}>
+    <input
+      type="email"
+      placeholder="you@example.com"
+      className="w-full rounded border border-error px-3 py-2 text-sm bg-transparent text-text-primary"
+    />
+  </Field>
+);
+
+export const HintWithRequired = () => (
+  <Field label="Password" required hint="Must be at least 8 characters.">
+    <input
+      type="password"
+      className="w-full rounded border border-surface px-3 py-2 text-sm bg-transparent text-text-primary"
+    />
+  </Field>
+);

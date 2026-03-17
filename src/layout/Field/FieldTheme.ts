@@ -12,6 +12,8 @@ export interface FieldTheme {
     base: string;
     label: string;
   };
+  hint: string;
+  error: string;
 }
 
 const baseTheme: FieldTheme = {
@@ -27,7 +29,9 @@ const baseTheme: FieldTheme = {
   vertical: {
     base: 'block',
     label: 'block mb-0.5'
-  }
+  },
+  hint: 'text-xs text-text-secondary mt-1',
+  error: 'text-xs text-error mt-1'
 };
 
 export const fieldTheme: FieldTheme = {
