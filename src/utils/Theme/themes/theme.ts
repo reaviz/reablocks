@@ -18,17 +18,7 @@ import {
   chipTheme,
   ChipTheme,
   SkeletonTheme,
-  skeletonTheme,
-  legacyAvatarTheme,
-  legacyAvatarGroupTheme,
-  legacyArrowTheme,
-  legacyBadgeTheme,
-  legacyButtonTheme,
-  legacyChipTheme,
-  legacyDotsLoaderTheme,
-  legacyKbdTheme,
-  legacyCommandPaletteTheme,
-  legacySkeletonTheme
+  skeletonTheme
 } from '@/elements';
 
 import {
@@ -50,29 +40,12 @@ import {
   calendarTheme,
   CalendarRangeTheme,
   calendarRangeTheme,
-  legacyCheckboxTheme,
-  legacySelectTheme,
-  legacyInputTheme,
-  legacyCalendarTheme,
-  legacyCalendarRangeTheme,
-  legacyTextareaTheme,
-  legacyRadioTheme,
-  legacyRangeTheme,
-  legacyToggleTheme,
   DateInputTheme,
-  dateInputTheme,
-  legacyDateInputTheme
+  dateInputTheme
 } from '@/form';
 
 import {
   ContextMenuTheme,
-  legacyContextMenuTheme,
-  legacyDialogTheme,
-  legacyDrawerTheme,
-  legacyMenuTheme,
-  legacyNotificationTheme,
-  legacyPopoverTheme,
-  legacyTooltipTheme,
   contextMenuTheme,
   dialogTheme,
   drawerTheme,
@@ -88,10 +61,8 @@ import {
   TooltipTheme,
   CalloutTheme,
   calloutTheme,
-  legacyCalloutTheme,
   BackdropTheme,
-  backdropTheme,
-  legacyBackdropTheme
+  backdropTheme
 } from '@/layers';
 
 import {
@@ -105,26 +76,16 @@ import {
   TabsTheme,
   tabsTheme,
   TreeTheme,
-  legacyFieldTheme,
-  legacyListTheme,
   CardTheme,
   cardTheme,
   listTheme,
   ListTheme,
-  legacyCardTheme,
-  legacyCollapseTheme,
-  legacyTreeTheme,
-  legacyTabsTheme,
-  legacyDividerTheme,
   JsonTreeTheme,
   jsonTreeTheme,
-  legacyJsonTreeTheme,
   breadcrumbsTheme,
   BreadcrumbsTheme,
-  legacyBreadcrumbsTheme,
   StepperTheme,
-  stepperTheme,
-  legacyStepperTheme
+  stepperTheme
 } from '@/layout';
 
 import {
@@ -137,19 +98,10 @@ import {
   SortTheme,
   sortTheme,
   DateFormatTheme,
-  dateFormatTheme,
-  legacyDateFormatTheme,
-  legacyEllipsisTheme,
-  legacySortTheme,
-  legacyRedactTheme,
-  legacyPagerTheme
+  dateFormatTheme
 } from '@/data';
 
-import {
-  TypographyTheme,
-  typographyTheme,
-  legacyTypographyTheme
-} from '@/typography';
+import { TypographyTheme, typographyTheme } from '@/typography';
 
 export interface ReablocksTheme {
   components: {
@@ -248,55 +200,5 @@ export const theme: ReablocksTheme = {
     backdrop: backdropTheme,
     skeleton: skeletonTheme,
     typography: typographyTheme
-  }
-};
-
-export const legacyThemeVars: ReablocksTheme = {
-  components: {
-    avatar: legacyAvatarTheme,
-    avatarGroup: legacyAvatarGroupTheme,
-    arrow: legacyArrowTheme,
-    badge: legacyBadgeTheme,
-    button: legacyButtonTheme,
-    field: legacyFieldTheme,
-    chip: legacyChipTheme,
-    contextMenu: legacyContextMenuTheme,
-    checkbox: legacyCheckboxTheme,
-    dateFormat: legacyDateFormatTheme,
-    dialog: legacyDialogTheme,
-    divider: legacyDividerTheme,
-    dotsLoader: legacyDotsLoaderTheme,
-    drawer: legacyDrawerTheme,
-    ellipsis: legacyEllipsisTheme,
-    select: legacySelectTheme,
-    list: legacyListTheme,
-    menu: legacyMenuTheme,
-    sort: legacySortTheme,
-    card: legacyCardTheme,
-    kbd: legacyKbdTheme,
-    notification: legacyNotificationTheme,
-    input: legacyInputTheme,
-    dateInput: legacyDateInputTheme,
-    calendar: legacyCalendarTheme,
-    calendarRange: legacyCalendarRangeTheme,
-    commandPalette: legacyCommandPaletteTheme,
-    collapse: legacyCollapseTheme,
-    textarea: legacyTextareaTheme,
-    radio: legacyRadioTheme,
-    range: legacyRangeTheme,
-    redact: legacyRedactTheme,
-    toggle: legacyToggleTheme,
-    tooltip: legacyTooltipTheme,
-    tree: legacyTreeTheme,
-    popover: legacyPopoverTheme,
-    pager: legacyPagerTheme,
-    tabs: legacyTabsTheme,
-    jsonTree: legacyJsonTreeTheme,
-    breadcrumbs: legacyBreadcrumbsTheme,
-    stepper: legacyStepperTheme,
-    callout: legacyCalloutTheme,
-    backdrop: legacyBackdropTheme,
-    skeleton: legacySkeletonTheme,
-    typography: legacyTypographyTheme
   }
 };

@@ -55,15 +55,3 @@ export const pagerTheme: PagerTheme = {
   ].join(' '),
   pagerDisplayItems: [baseTheme.pagerDisplayItems, 'text-slate-500'].join(' ')
 };
-
-export const legacyPagerTheme: PagerTheme = {
-  ...(baseTheme as PagerTheme),
-  pages: {
-    ...baseTheme.pages,
-    page: {
-      base: [baseTheme.pages.page.base, 'px-[var(--spacing-sm)]'].join(' '),
-      active: [baseTheme.pages.page.active, 'text-(--input-color)!'].join(' ')
-    }
-  },
-  pagerDisplayItems: ['text-[var(--gray-100)] mr-[var(--spacing-sm)]'].join(' ')
-};

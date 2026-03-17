@@ -21,12 +21,3 @@ export const commandPaletteInputTheme: CommandPaletteInputTheme = {
     'bg-panel text-text-primary placeholder:placeholder-accent'
   ].join(' ')
 };
-
-export const cssVarsCommandPaletteInputTheme: CommandPaletteInputTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'border-[var(--body-background)]'].join(' '),
-  input: [
-    baseTheme.input,
-    'text-[var(--input-color)] placeholder:text-[var(--input-color-placeholder)] [padding:_var(--spacing-md)] [font-family:_var(--font-family)]'
-  ].join(' ')
-};
