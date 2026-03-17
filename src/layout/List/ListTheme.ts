@@ -11,8 +11,8 @@ export interface ListTheme {
     dense: {
       base: string;
       content: string;
-      startAdornment: string;
-      endAdornment: string;
+      start: string;
+      end: string;
     };
     adornment: {
       base: string;
@@ -38,8 +38,8 @@ const baseTheme: ListTheme = {
     dense: {
       base: 'p-1',
       content: '',
-      startAdornment: 'pr-[calc(5/2)]',
-      endAdornment: 'pl-[calc(5/2)]'
+      start: 'pr-[calc(5/2)]',
+      end: 'pl-[calc(5/2)]'
     },
     adornment: {
       base: 'items-center flex',

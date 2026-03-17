@@ -4,8 +4,8 @@ export interface SelectInputTheme {
   inputContainer: string;
   input: string;
   placeholder: string;
-  prefix: string;
-  suffix: {
+  selectedValue: string;
+  actions: {
     container: string;
     button: string;
     refresh: string;
@@ -17,13 +17,17 @@ export interface SelectInputTheme {
   unfilterable: string;
   error: string;
   single: {
-    prefix: string;
+    selectedValue: string;
     inputContainer: string;
     input: string;
   };
   multiple: {
-    prefix: string;
+    selectedValue: string;
     inputContainer: string;
+  };
+  adornment: {
+    start: string;
+    end: string;
   };
   open: string;
   chip: {
@@ -49,8 +53,8 @@ const baseTheme: SelectInputTheme = {
   input:
     'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-hidden disabled:text-disabled',
   placeholder: '',
-  prefix: 'overflow-hidden whitespace-nowrap text-ellipsis',
-  suffix: {
+  selectedValue: 'overflow-hidden whitespace-nowrap text-ellipsis',
+  actions: {
     container: 'flex items-center justify-center',
     button: 'disabled:cursor-not-allowed',
     refresh: 'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-text-secondary',
@@ -61,14 +65,18 @@ const baseTheme: SelectInputTheme = {
   disabled: 'cursor-not-allowed text-disabled hover:after:content-none',
   unfilterable: 'caret-transparent',
   error: 'border border-solid',
+  adornment: {
+    start: 'flex items-center mr-1.5',
+    end: 'flex items-center ml-1.5'
+  },
   open: 'rounded-sm rounded-ee-none rounded-es-none',
   single: {
-    prefix: 'overflow-hidden whitespace-nowrap text-ellipsis max-w-full',
+    selectedValue: 'overflow-hidden whitespace-nowrap text-ellipsis max-w-full',
     inputContainer: 'flex-nowrap',
     input: 'max-w-full'
   },
   multiple: {
-    prefix: 'contents',
+    selectedValue: 'contents',
     inputContainer: 'flex-wrap'
   },
   chip: {
@@ -105,9 +113,9 @@ export const selectInputTheme: SelectInputTheme = {
     'text-text-secondary/40 border-surface light:hover:border-surface'
   ].join(' '),
   error: [baseTheme.error, 'border-error light:border-error/20'].join(' '),
-  suffix: {
-    ...baseTheme.suffix,
-    button: [baseTheme.suffix.button, 'hover:cursor-pointer'].join(' ')
+  actions: {
+    ...baseTheme.actions,
+    button: [baseTheme.actions.button, 'hover:cursor-pointer'].join(' ')
   },
   chip: {
     ...baseTheme.chip,

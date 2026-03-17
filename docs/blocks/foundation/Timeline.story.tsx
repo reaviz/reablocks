@@ -84,7 +84,7 @@ export const ActivityTimeline = () => (
                   placeholder="Leave a reply..."
                   containerClassName="border-transparent bg-vulcan light:bg-athens-gray"
                   className="text-sm! px-0"
-                  endAdornment={null}
+                  end={null}
                 />
                 <IconButton className="text-secondary-inactive" variant="text">
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -124,7 +124,7 @@ export const ActivityTimeline = () => (
             placeholder="Leave a comment..."
             containerClassName="border-transparent bg-vulcan light:bg-athens-gray"
             className="text-sm! px-0"
-            endAdornment={null}
+            end={null}
           />
           <IconButton className="text-secondary-inactive" variant="text">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">

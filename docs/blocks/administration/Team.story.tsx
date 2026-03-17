@@ -124,7 +124,7 @@ export const TeamGeneral = () => {
                 </span>
               </div>
               <Button
-                startAdornment={
+                start={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -284,7 +284,7 @@ export const TeamMinimal = () => {
             </TabList>
           </Tabs>
           <Input
-            startAdornment={
+            start={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -308,7 +308,7 @@ export const TeamMinimal = () => {
               </span>
             </div>
             <Button
-              startAdornment={
+              start={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -489,7 +489,7 @@ export const TeamRoles = () => {
               </span>
             </div>
             <Button
-              startAdornment={
+              start={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"

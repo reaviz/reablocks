@@ -767,7 +767,7 @@ export const PricingMinimal = () => {
             <Button
               color="primary"
               className="px-4 py-2 text-lg bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
-              endAdornment={
+              end={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -784,7 +784,7 @@ export const PricingMinimal = () => {
             <Button
               variant="outline"
               className="px-4 py-2 text-lg"
-              endAdornment={
+              end={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -802,7 +802,7 @@ export const PricingMinimal = () => {
               <Button
                 variant="text"
                 color="primary"
-                startAdornment={
+                start={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"

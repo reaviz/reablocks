@@ -1018,7 +1018,7 @@ export const Profile = () => (
           <Input
             value="reablocks"
             fullWidth
-            endAdornment={
+            end={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="14"
@@ -1097,13 +1097,13 @@ export const Profile = () => (
       <div className="grid grid-cols-2 gap-4">
         <h3 className="text-1xl font-sans font-bold">Social Profiles</h3>
         <div className="flex flex-col items-center gap-2.5 justify-end">
-          <Input fullWidth value="reaviz" startAdornment="twitter.com/" />
+          <Input fullWidth value="reaviz" start="twitter.com/" />
           <Input
             fullWidth
             value="goodcodeus"
-            startAdornment="linkedin.com/in/"
+            start="linkedin.com/in/"
           />
-          <Input fullWidth value="goodcodeus" startAdornment="dribbble.com/" />
+          <Input fullWidth value="goodcodeus" start="dribbble.com/" />
         </div>
       </div>
     </Card>
@@ -1360,7 +1360,7 @@ export const Overview = () => (
                   className="px-3"
                   variant="filled"
                   color="primary"
-                  startAdornment={<BillingIcon className="text-white" />}
+                  start={<BillingIcon className="text-white" />}
                 >
                   Overview
                 </Button>
@@ -1368,7 +1368,7 @@ export const Overview = () => (
                   className="px-3 bg-gray-700/40 light:bg-blue-200/40"
                   variant="filled"
                   color="secondary"
-                  startAdornment={
+                  start={
                     <ListIcon className="text-white light:text-black" />
                   }
                 >
@@ -1378,7 +1378,7 @@ export const Overview = () => (
                   className="px-3 bg-gray-700/40 light:bg-blue-200/40"
                   variant="filled"
                   color="secondary"
-                  startAdornment={
+                  start={
                     <TeamManageIcon className="text-white light:text-black" />
                   }
                 >
@@ -1388,7 +1388,7 @@ export const Overview = () => (
                   className="px-3 bg-gray-700/40 light:bg-blue-200/40"
                   variant="filled"
                   color="secondary"
-                  startAdornment={
+                  start={
                     <FilterIcon className="text-white light:text-black" />
                   }
                 >
@@ -1404,7 +1404,7 @@ export const Overview = () => (
                     variant="text"
                     color="primary"
                     className="text-lg"
-                    startAdornment={<EditIcon />}
+                    start={<EditIcon />}
                   >
                     Edit
                   </Button>

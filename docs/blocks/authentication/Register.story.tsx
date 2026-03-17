@@ -778,7 +778,7 @@ export const RegisterWithSocial = () => {
                   type={showPassword ? 'text' : 'password'}
                   onChange={onChange}
                   onBlur={onBlur}
-                  endAdornment={
+                  end={
                     <Button
                       variant="text"
                       size="small"
@@ -812,7 +812,7 @@ export const RegisterWithSocial = () => {
                   type={showPassword ? 'text' : 'password'}
                   onChange={onChange}
                   onBlur={onBlur}
-                  endAdornment={
+                  end={
                     <Button
                       variant="text"
                       size="small"

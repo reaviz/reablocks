@@ -87,7 +87,7 @@ export const Login = () => {
             color="primary"
             disabled={isSubmitting}
             className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
-            startAdornment={
+            start={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
@@ -114,7 +114,7 @@ export const Login = () => {
           <Divider className="my-7" variant="secondary" />
           <Button
             variant="outline"
-            startAdornment={
+            start={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
@@ -195,7 +195,7 @@ export const LoginBasic = () => {
             color="primary"
             disabled={isSubmitting}
             className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
-            startAdornment={
+            start={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
@@ -222,7 +222,7 @@ export const LoginBasic = () => {
           <Divider className="my-7" variant="secondary" />
           <Button
             variant="outline"
-            startAdornment={
+            start={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
@@ -339,7 +339,7 @@ export const LoginFull = () => {
             <div className="flex flex-col w-full gap-4">
               <Button
                 className="px-4 py-2 font-semibold dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-hidden transition-colors"
-                startAdornment={
+                start={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17"
@@ -356,7 +356,7 @@ export const LoginFull = () => {
               </Button>
               <Button
                 className="px-4 py-2 font-semibold dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-hidden transition-colors"
-                startAdornment={
+                start={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -373,7 +373,7 @@ export const LoginFull = () => {
               </Button>
               <Button
                 className="px-4 py-2 font-semibold dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-hidden transition-colors"
-                startAdornment={
+                start={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="17"
@@ -498,7 +498,7 @@ export const LoginPassword = () => {
             color="primary"
             disabled={isSubmitting}
             className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
-            startAdornment={
+            start={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
@@ -581,7 +581,7 @@ export const LoginSocial = () => {
             color="primary"
             disabled={isSubmitting}
             className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
-            startAdornment={
+            start={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
@@ -615,7 +615,7 @@ export const LoginSocial = () => {
           <div className="flex flex-col w-full gap-4">
             <Button
               variant="outline"
-              startAdornment={
+              start={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17"
@@ -632,7 +632,7 @@ export const LoginSocial = () => {
             </Button>
             <Button
               variant="outline"
-              startAdornment={
+              start={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -649,7 +649,7 @@ export const LoginSocial = () => {
             </Button>
             <Button
               variant="outline"
-              startAdornment={
+              start={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17"

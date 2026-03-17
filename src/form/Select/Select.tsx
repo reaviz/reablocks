@@ -214,6 +214,16 @@ export interface SelectProps {
   onOptionsChange?: (options: SelectOptionProps[]) => void;
 
   /**
+   * Content to display before the select input.
+   */
+  start?: React.ReactNode;
+
+  /**
+   * Content to display after the select input (before the action buttons).
+   */
+  end?: React.ReactNode;
+
+  /**
    * Input override component.
    */
   input?: ReactElement<SelectInputProps, typeof SelectInput>;
@@ -267,6 +277,8 @@ export const Select: FC<SelectProps> = ({
   required,
   clearOnBlur = true,
   size = 'medium',
+  start,
+  end,
   input = <SelectInput />,
   menu = <SelectMenu />,
   onRefresh,
@@ -817,6 +829,8 @@ export const Select: FC<SelectProps> = ({
         error={error}
         closeOnSelect={closeOnSelect}
         inputText={keyword}
+        start={start}
+        end={end}
         multiple={multiple}
         createable={createable}
         filterable={filterable}
