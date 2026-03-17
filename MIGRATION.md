@@ -59,6 +59,25 @@ const customTheme = extendTheme(theme, {
 
 ---
 
+### Input/Select gradient effects now use CSS custom properties
+
+The hover and focus glow gradients on `Input` and `Select` components previously used hardcoded hex colors. They now use CSS custom properties (`--input-glow-hover` and `--input-glow-focus`) defined in `index.css`.
+
+**Who is affected:**
+- If you were overriding Input or Select theme strings that contained the inline `radial-gradient(circle,_#105EFF...)` syntax
+
+**How to migrate:**
+The old gradient strings in component themes have been replaced with `bg-[image:var(--input-glow-hover)]` and `bg-[image:var(--input-glow-focus)]`. If you had custom theme overrides that copied the old gradient syntax, update them to reference the CSS variables instead. You can also override the gradient variables directly in CSS:
+
+```css
+:root {
+  --input-glow-hover: radial-gradient(circle, purple 0%, purple 36%, black 100%);
+  --input-glow-focus: radial-gradient(circle, lavender 0%, purple 36%, black 100%);
+}
+```
+
+---
+
 ## Unify Design System Adapter
 
 This section explains how to integrate the [Unify design system](https://www.figma.com) tokens with reablocks components using the adapter pattern.
@@ -185,7 +204,11 @@ The adapter bridges these reablocks semantic tokens to Unify equivalents:
 | `--text-primary` | `--color-content-text-neutral-base` | Primary text |
 | `--text-secondary` | `--color-content-text-neutral-3` | Secondary text |
 
-The adapter also maps the full color scales (gray, blue, red, green, orange, yellow, pink, violet, teal) to their Unify equivalents.
+The adapter also maps:
+- Full color scales (gray, blue, red, green, orange, yellow, pink, violet, teal)
+- Stroke/border tokens (`--stroke-neutral`, `--stroke-brand`, `--stroke-focus`, etc.)
+- Spacing tokens (`--spacing-xs` through `--spacing-xl`)
+- Border radius tokens (`--radius-sm`, `--radius-md`, `--radius-lg`, `--radius-pill`)
 
 ## JavaScript API (optional)
 

@@ -96,6 +96,15 @@ The adapter maps Unify semantic token names to the CSS custom properties that re
 | `--panel` | `--color-background-neutral-canvas-base` | Page/panel background |
 | `--text-primary` | `--color-content-text-neutral-base` | Primary text color |
 | `--text-secondary` | `--color-content-text-neutral-3` | Secondary text color |
+| `--stroke-neutral` | `--color-stroke-neutral-raised-base` | Neutral border color |
+| `--stroke-brand` | `--color-stroke-brand-base` | Brand border color |
+| `--stroke-focus` | `--color-stroke-focused-highlight` | Focus ring color |
+| `--stroke-success` | `--color-stroke-semantic-success-base` | Success border color |
+| `--stroke-error` | `--color-stroke-semantic-error-base` | Error border color |
+| `--stroke-warning` | `--color-stroke-semantic-warning-base` | Warning border color |
+| `--stroke-info` | `--color-stroke-semantic-info-base` | Info border color |
+
+The adapter also maps full color scales (gray, blue, red, green, orange, yellow, pink, violet, teal), spacing tokens, and border radius tokens. See `src/adapters/unify.css` for the complete mapping.
 
 ### Step 4: Use reablocks normally
 

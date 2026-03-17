@@ -184,6 +184,15 @@
   --color-teal-900: var(--color-color-teal-sunspark-oasis-800, #024b42);
   --color-teal-950: var(--color-color-teal-sunspark-oasis-900, #02231f);
 
+  /* ===== Stroke/Border Colors (Unify stroke tokens) ===== */
+  --stroke-neutral: var(--color-stroke-neutral-raised-base);
+  --stroke-brand: var(--color-stroke-brand-base);
+  --stroke-focus: var(--color-stroke-focused-highlight);
+  --stroke-success: var(--color-stroke-semantic-success-base);
+  --stroke-error: var(--color-stroke-semantic-error-base);
+  --stroke-warning: var(--color-stroke-semantic-warning-base);
+  --stroke-info: var(--color-stroke-semantic-info-base);
+
   /* ===== Spacing (Unify spacing tokens) ===== */
   --spacing-xs: var(--spacing-padding-xs, 8px);
   --spacing-sm: var(--spacing-padding-sm, 12px);

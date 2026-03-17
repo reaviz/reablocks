@@ -76,6 +76,21 @@
     rgba(23, 23, 255, 0.1) 100%
   );
 
+  /* Input/Select hover and focus glow gradients */
+  --input-glow-hover: radial-gradient(
+    circle,
+    var(--primary) 0%,
+    var(--primary) 36%,
+    var(--color-charade) 100%
+  );
+  --input-glow-focus: radial-gradient(
+    circle,
+    var(--color-anakiwa) 0%,
+    var(--primary) 36%,
+    var(--color-gray-600) 90%,
+    var(--color-charade) 100%
+  );
+
   .theme-light,
   &.theme-light,
   [data-theme='light'],
@@ -129,6 +144,20 @@
     /* Text colors */
     --text-primary: var(--color-vulcan);
     --text-secondary: var(--color-gray-700);
+
+    /* Input/Select glow gradients (light) */
+    --input-glow-hover: radial-gradient(
+      circle,
+      var(--primary) 0%,
+      var(--primary) 36%,
+      var(--color-mystic) 100%
+    );
+    --input-glow-focus: radial-gradient(
+      circle,
+      var(--primary) 10%,
+      var(--color-anakiwa) 36%,
+      var(--color-mystic) 90%
+    );
   }
 }
 
