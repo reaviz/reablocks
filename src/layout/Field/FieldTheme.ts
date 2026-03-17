@@ -7,6 +7,7 @@ export interface FieldTheme {
   horizontal: {
     base: string;
     label: string;
+    content: string;
   };
   vertical: {
     base: string;
@@ -25,7 +26,8 @@ const baseTheme: FieldTheme = {
   endAlign: 'items-end',
   horizontal: {
     base: 'flex flex-row items-baseline',
-    label: 'mr-0.5 whitespace-nowrap'
+    label: 'mr-0.5 whitespace-nowrap',
+    content: 'flex-1 min-w-0'
   },
   vertical: {
     base: 'block',

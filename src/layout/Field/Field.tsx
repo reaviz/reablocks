@@ -59,7 +59,7 @@ export interface FieldProps extends React.HTMLAttributes<HTMLElement> {
    * Error state or message. When `true`, applies error styling.
    * When a string or ReactNode, renders the error message below the input.
    */
-  error?: boolean | string | React.ReactNode;
+  error?: boolean | React.ReactNode;
 
   /**
    * Theme for the Field.
@@ -83,7 +83,7 @@ export const Field: FC<FieldProps> = ({
   ...rest
 }) => {
   const theme: FieldTheme = useComponentTheme('field', customTheme);
-  const hasErrorMessage = error && error !== true;
+  const hasErrorMessage = error != null && error !== false && error !== true;
 
   return (
     <section
@@ -113,14 +113,18 @@ export const Field: FC<FieldProps> = ({
           {`${required ? ' *' : ''}`}
         </label>
       )}
-      {children}
-      {hasErrorMessage ? (
-        <span className={theme.error} role="alert">
-          {error}
-        </span>
-      ) : (
-        hint && <span className={theme.hint}>{hint}</span>
-      )}
+      <div
+        className={cn(direction === 'horizontal' && theme.horizontal.content)}
+      >
+        {children}
+        {hasErrorMessage ? (
+          <span className={theme.error} role="alert">
+            {error}
+          </span>
+        ) : (
+          hint && <span className={theme.hint}>{hint}</span>
+        )}
+      </div>
     </section>
   );
 };
