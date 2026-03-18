@@ -131,7 +131,7 @@ export const defaultCalendarTheme: CalendarTheme = {
       divider: 'mx-0',
       item: {
         base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 hover:bg-primary-hover hover:text-white',
-        selected: 'bg-primary-active text-white',
+        selected: 'bg-primary text-white',
         disabled: 'cursor-not-allowed opacity-40 pointer-events-none'
       }
     }

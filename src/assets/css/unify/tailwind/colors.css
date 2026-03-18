@@ -23,8 +23,8 @@
   --color-neutral-*: initial;
   --color-stone-*: initial;
 
-  --color-white: var(--neutrals-pure-white-dnt-1000);
-  --color-black: var(--neutrals-pure-black-dnt-1000);
+  --color-white: var(--color-neutrals-pure-white-dnt-1000);
+  --color-black: var(--color-neutrals-pure-black-dnt-1000);
 
   /* Color Tokens Level 3 */
 
