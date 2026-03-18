@@ -31,34 +31,13 @@ const preview: Preview = {
         light: 'theme-light',
         dark: 'theme-dark',
       },
-      defaultTheme: 'dark',
+      defaultTheme: 'theme-dark',
     }),
   ],
   parameters: {
     layout: 'centered',
     actions: { argTypesRegex: '^on.*' },
     controls: { hideNoControlsWarning: true },
-    docs: {
-      theme,
-
-      container: ({ children, ...props }: any) => {
-        // For whatever reason the theme is not getting applied to docs
-        // This is a workaround to apply the theme to the docs
-        const isLight = props.context?.store?.globals?.globals?.theme === 'light';
-
-        return (
-          <DocsContainer {...props}>
-            <ThemeProvider theme={reablocksTheme}>
-              <div className={isLight ? 'theme-light' : 'theme-dark'}>
-                {children}
-              </div>
-            </ThemeProvider>
-          </DocsContainer>
-        );
-      },
-
-      codePanel: true
-    },
     options: {
       storySort: {
         order: [
