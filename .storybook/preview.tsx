@@ -31,7 +31,7 @@ const preview: Preview = {
         light: 'theme-light',
         dark: 'theme-dark',
       },
-      defaultTheme: 'theme-dark',
+      defaultTheme: 'dark',
     }),
   ],
   parameters: {
