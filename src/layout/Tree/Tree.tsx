@@ -1,8 +1,13 @@
-import React, { FC, PropsWithChildren, useMemo } from 'react';
-import { Arrow } from '@/elements/Arrow';
-import { TreeContext, TreeContextProps } from './TreeContext';
-import { TreeTheme } from './TreeTheme';
+import type { FC, PropsWithChildren } from 'react';
+import React, { useMemo } from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
+import ArrowUpIcon from '@/assets/icons/arrow-up.svg?react';
+import ArrowDownIcon from '@/assets/icons/arrow-down.svg?react';
+
+import type { TreeContextProps } from './TreeContext';
+import { TreeContext } from './TreeContext';
+import type { TreeTheme } from './TreeTheme';
 
 export type TreeProps = {
   /**
@@ -32,12 +37,8 @@ export const Tree: FC<TreeProps> = ({
 }) => {
   const theme: TreeTheme = useComponentTheme('tree', customTheme);
 
-  expandedIcon = expandedIcon ?? (
-    <Arrow direction="down" className={theme.arrow} />
-  );
-  collapsedIcon = collapsedIcon ?? (
-    <Arrow direction="right" className={theme.arrow} />
-  );
+  expandedIcon = expandedIcon ?? <ArrowUpIcon className={theme.arrow} />;
+  collapsedIcon = collapsedIcon ?? <ArrowDownIcon className={theme.arrow} />;
 
   const values = useMemo(
     () => ({

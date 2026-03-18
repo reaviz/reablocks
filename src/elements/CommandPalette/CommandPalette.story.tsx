@@ -1,9 +1,11 @@
-import { CommandPalette } from './CommandPalette';
-import { Dialog } from '../../layers/Dialog';
+import { CommandPalette } from '@/elements';
+import { CommandPaletteSection } from '@/elements';
+import { CommandPaletteItem } from '@/elements';
+import { Dialog } from '@/layers';
+import { Divider } from '@/layout';
+import { Stack } from '@/layout';
+
 import { Chip } from '../Chip';
-import { Divider } from '../../layout/Divider';
-import { CommandPaletteSection } from './CommandPaletteSection';
-import { CommandPaletteItem } from './CommandPaletteItem';
 
 export default {
   title: 'Components/Data/Command Palette',
@@ -35,11 +37,11 @@ export const Sections = () => (
   <div style={{ width: 400 }}>
     <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection key="shorts">
-        <div className="flex items-center gap-2.5 px-2">
+        <Stack className="px-2">
           <Chip>Dashboards</Chip>
           <Chip>Integrations</Chip>
           <Chip>Rules</Chip>
-        </div>
+        </Stack>
       </CommandPaletteSection>
       <Divider />
       <CommandPaletteSection title="Recently Used" key="recent">
@@ -128,7 +130,14 @@ export const LongList = () => (
 );
 
 export const WithDialog = () => (
-  <Dialog open size={400} showCloseButton={false} disablePadding>
+  <Dialog
+    innerClassName="border-none!"
+    contentClassName="p-2!"
+    open
+    size={400}
+    showCloseButton={false}
+    disablePadding
+  >
     <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection title="Recently Used" key="recent">
         <CommandPaletteItem key="home">Home</CommandPaletteItem>

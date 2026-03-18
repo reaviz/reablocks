@@ -1,10 +1,9 @@
-import { IconButton } from './IconButton';
-import {
-  extendTheme,
-  PartialReablocksTheme
-} from '../../utils/Theme/themes/extendTheme';
+import { Stack } from '../../layout';
 import { ThemeProvider } from '../../utils/Theme/ThemeProvider';
-import { theme } from '../../utils/Theme/themes/theme';
+import { theme } from '../../utils/Theme/themes/themeDefault';
+import type { PartialReablocksTheme } from '../../utils/Theme/themes/extendTheme';
+import { extendTheme } from '../../utils/Theme/themes/extendTheme';
+import { IconButton } from './IconButton';
 
 export default {
   title: 'Components/Elements/IconButton',
@@ -23,98 +22,6 @@ const BellIcon = () => (
   </svg>
 );
 
-export const Sizes = () => (
-  <div className="flex items-center gap-2.5">
-    <IconButton size="small">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="large">
-      <BellIcon />
-    </IconButton>
-  </div>
-);
-
-export const ColorsBackground = () => (
-  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-    <IconButton size="medium" variant="filled">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="filled" color="primary">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="filled" color="secondary">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="filled" color="success">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="filled" color="warning">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="filled" color="error">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="filled" disabled>
-      <BellIcon />
-    </IconButton>
-  </div>
-);
-
-export const ColorsIcons = () => (
-  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-    <IconButton size="medium" variant="text">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="text" color="primary">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="text" color="secondary">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="text" color="success">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="text" color="warning">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="text" color="error">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="text" disabled>
-      <BellIcon />
-    </IconButton>
-  </div>
-);
-
-export const ColorsOutline = () => (
-  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
-    <IconButton size="medium" variant="outline">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="outline" color="primary">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="outline" color="secondary">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="outline" color="success">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="outline" color="warning">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="outline" color="error">
-      <BellIcon />
-    </IconButton>
-    <IconButton size="medium" variant="outline" disabled>
-      <BellIcon />
-    </IconButton>
-  </div>
-);
-
 export const Variants = () => (
   <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
     <IconButton size="medium">
@@ -126,13 +33,109 @@ export const Variants = () => (
     <IconButton size="medium" variant="text">
       <BellIcon />
     </IconButton>
+    <IconButton size="medium" variant="ghost">
+      <BellIcon />
+    </IconButton>
   </div>
 );
 
-export const Square = () => {
+export const Sizes = () => (
+  <Stack>
+    <IconButton size="small">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="large">
+      <BellIcon />
+    </IconButton>
+  </Stack>
+);
+
+export const ColorsFilled = () => (
+  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+    <IconButton size="medium" variant="filled" color="primary">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="filled" color="secondary">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="filled" color="destructive">
+      <BellIcon />
+    </IconButton>
+  </div>
+);
+
+export const ColorsOutline = () => (
+  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+    <IconButton size="medium" variant="outline" color="primary">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="outline" color="secondary">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="outline" color="destructive">
+      <BellIcon />
+    </IconButton>
+  </div>
+);
+
+export const ColorsText = () => (
+  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+    <IconButton size="medium" variant="text" color="primary">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="text" color="secondary">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="text" color="destructive">
+      <BellIcon />
+    </IconButton>
+  </div>
+);
+
+export const ColorsGhost = () => (
+  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+    <IconButton size="medium" variant="ghost" color="primary">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="ghost" color="secondary">
+      <BellIcon />
+    </IconButton>
+    <IconButton size="medium" variant="ghost" color="destructive">
+      <BellIcon />
+    </IconButton>
+  </div>
+);
+
+export const Disabled = () => (
+  <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+    <IconButton disabled size="medium" variant="filled">
+      <BellIcon />
+    </IconButton>
+    <IconButton disabled size="medium" variant="outline">
+      <BellIcon />
+    </IconButton>
+    <IconButton disabled size="medium" variant="text">
+      <BellIcon />
+    </IconButton>
+    <IconButton disabled size="medium" variant="ghost">
+      <BellIcon />
+    </IconButton>
+  </div>
+);
+
+export const Custom = () => {
   const iconTheme: PartialReablocksTheme = {
     components: {
       button: {
+        colors: {
+          primary: {
+            filled:
+              'bg-pink-plasma-circuit-400 hover:bg-pink-plasma-circuit-600'
+          }
+        },
         iconSizes: {
           small: 'p-1',
           medium: 'p-2',
@@ -143,7 +146,7 @@ export const Square = () => {
   };
   return (
     <ThemeProvider theme={extendTheme(theme, iconTheme)}>
-      <div className="flex items-center gap-2.5">
+      <Stack>
         <IconButton size="small">
           <BellIcon />
         </IconButton>
@@ -153,7 +156,7 @@ export const Square = () => {
         <IconButton size="large">
           <BellIcon />
         </IconButton>
-      </div>
+      </Stack>
     </ThemeProvider>
   );
 };

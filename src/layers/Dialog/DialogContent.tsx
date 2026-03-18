@@ -1,9 +1,11 @@
 'use client';
 
-import React, { ReactNode, forwardRef, HTMLAttributes } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
+import React, { forwardRef } from 'react';
 import { cn, useComponentTheme } from '@/utils';
-import { DialogTheme } from './DialogTheme';
+
 import { useDialogContext } from './DialogContext';
+import type { DialogTheme } from './DialogTheme';
 
 export interface DialogContentProps extends HTMLAttributes<HTMLDivElement> {
   /**

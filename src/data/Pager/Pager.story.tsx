@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { Pager } from './Pager';
-import { pagerTheme } from './PagerTheme';
+
+import { Pager } from '@/data';
+
+import { defaultPagerTheme } from './PagerTheme';
 
 export default {
   title: 'Components/Data/Pager',
@@ -16,7 +18,9 @@ export const ShowPages = () => {
       size={10}
       total={100}
       onPageChange={setPage}
-      displayMode="pages"
+      displayMode="all"
+      startArrow={null}
+      endArrow={null}
     />
   );
 };
@@ -49,9 +53,26 @@ export const ShowAll = () => {
   );
 };
 
+export const CustomPageCount = () => {
+  const [page, setPage] = useState<number>(0);
+
+  return (
+    <Pager
+      page={page}
+      size={10}
+      total={100}
+      onPageChange={setPage}
+      displayMode="all"
+      startArrow={null}
+      endArrow={null}
+      pageCountToShow={2}
+    />
+  );
+};
+
 export const CustomTheme = () => {
   const [page, setPage] = useState<number>(0);
-  const customTheme = pagerTheme;
+  const customTheme = defaultPagerTheme;
   customTheme.itemsDisplay = 'text-slate-500';
   customTheme.showPageRange =
     "text-blue-400 font-bold before:content-['Showing_'] before:text-slate-500 before:font-normal";

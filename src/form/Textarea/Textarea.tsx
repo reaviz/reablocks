@@ -1,15 +1,16 @@
+import type { RefObject } from 'react';
 import React, {
   forwardRef,
-  RefObject,
   useImperativeHandle,
   useLayoutEffect,
   useRef
 } from 'react';
-import TextareaAutosize, {
-  TextareaAutosizeProps
-} from 'react-textarea-autosize';
-import { TextareaTheme } from './TextareaTheme';
+import type { TextareaAutosizeProps } from 'react-textarea-autosize';
+import TextareaAutosize from 'react-textarea-autosize';
+
 import { cn, useComponentTheme } from '@/utils';
+
+import type { TextareaSizeTheme, TextareaTheme } from './TextareaTheme';
 
 export interface TextareaProps extends TextareaAutosizeProps {
   /**
@@ -30,7 +31,7 @@ export interface TextareaProps extends TextareaAutosizeProps {
   /**
    * Size of the field.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof TextareaSizeTheme;
 
   /**
    * Theme for the Textarea.

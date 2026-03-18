@@ -1,18 +1,13 @@
-import React, {
-  Children,
-  FC,
-  Fragment,
-  PropsWithChildren,
-  useEffect,
-  useMemo,
-  useState
-} from 'react';
-import { cn, useId } from '@/utils';
 import { AnimatePresence } from 'motion/react';
+import type { FC, PropsWithChildren } from 'react';
+import React, { Children, Fragment, useEffect, useMemo, useState } from 'react';
+
+import { cn, useId } from '@/utils';
 import { useComponentTheme } from '@/utils/Theme/hooks';
-import { TabsTheme } from './TabsTheme';
-import { TabPanel } from './TabPanel';
+
 import { TabList } from './TabList';
+import { TabPanel } from './TabPanel';
+import type { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';
 
 export interface TabsProps extends PropsWithChildren {
   /**
@@ -43,12 +38,12 @@ export interface TabsProps extends PropsWithChildren {
   /**
    * The variant of the tabs.
    */
-  variant?: 'primary' | 'secondary';
+  variant?: keyof TabVariantTheme;
 
   /**
    * The size of the tabs.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof TabSizeTheme;
 
   /**
    * The callback to be called when a tab is selected.

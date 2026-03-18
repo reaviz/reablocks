@@ -1,9 +1,11 @@
 import React, { Fragment, useEffect, useState } from 'react';
-import { Select } from './Select';
-import { SelectOption } from './SelectOption';
-import { SelectMenu } from './SelectMenu';
-import { SelectInput, SelectInputChip } from './SelectInput';
+
 import { ListItem } from '../../layout/List/ListItem';
+import { Stack } from '../../layout/Stack';
+import { Select } from './Select';
+import { SelectInput, SelectInputChip } from './SelectInput';
+import { SelectMenu } from './SelectMenu';
+import { SelectOption } from './SelectOption';
 
 export default {
   title: 'Components/Form/Select/Single',
@@ -48,8 +50,8 @@ export const Sizes = () => {
   const [value, setValue] = useState<string | null>(null);
   return (
     <div style={{ width: 500 }}>
-      <div className="flex items-center gap-2.5 flex-col w-full">
-        <div className="flex items-center gap-2.5 w-full">
+      <Stack className="w-full" direction="column">
+        <Stack className="w-full">
           <label className="w-[50px]">Small: </label>
           <Select
             placeholder="Select a category"
@@ -65,8 +67,8 @@ export const Sizes = () => {
             <SelectOption value="twitter">twitter</SelectOption>
             <SelectOption value="twitch">twitch</SelectOption>
           </Select>
-        </div>
-        <div className="flex items-center gap-2.5 w-full">
+        </Stack>
+        <Stack className="w-full">
           <label className="w-[50px]">Medium: </label>
           <Select
             placeholder="Select a category"
@@ -81,8 +83,8 @@ export const Sizes = () => {
             <SelectOption value="twitter">twitter</SelectOption>
             <SelectOption value="twitch">twitch</SelectOption>
           </Select>
-        </div>
-        <div className="flex items-center gap-2.5 w-full">
+        </Stack>
+        <Stack className="w-full">
           <label className="w-[50px]">Large: </label>
           <Select
             placeholder="Select a category"
@@ -98,8 +100,8 @@ export const Sizes = () => {
             <SelectOption value="twitter">twitter</SelectOption>
             <SelectOption value="twitch">twitch</SelectOption>
           </Select>
-        </div>
-      </div>
+        </Stack>
+      </Stack>
     </div>
   );
 };
@@ -682,7 +684,9 @@ export const CustomCreatableOption = () => {
         menu={
           <SelectMenu
             renderCreateOption={({ text, onCreate }) => (
-              <ListItem onClick={onCreate}>➕&nbsp;Create "{text}"</ListItem>
+              <ListItem onClick={onCreate}>
+                ➕&nbsp;Create &quot;{text}&quot;
+              </ListItem>
             )}
           />
         }
@@ -714,40 +718,6 @@ export const TabToSelect = () => {
         <SelectOption value="facebook">facebook</SelectOption>
         <SelectOption value="twitter">twitter</SelectOption>
         <SelectOption value="twitch">twitch</SelectOption>
-      </Select>
-    </div>
-  );
-};
-
-export const WithStartEnd = () => {
-  const [value, setValue] = useState<string | null>(null);
-  return (
-    <div style={{ width: 300 }}>
-      <Select
-        placeholder="Search..."
-        value={value}
-        onChange={v => setValue(v)}
-        start={
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-        }
-        end={<span className="text-xs text-gray-400">Required</span>}
-      >
-        <SelectOption value="facebook">Facebook</SelectOption>
-        <SelectOption value="twitter">Twitter</SelectOption>
-        <SelectOption value="twitch">Twitch</SelectOption>
       </Select>
     </div>
   );

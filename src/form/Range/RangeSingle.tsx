@@ -1,15 +1,18 @@
+import { motion, useMotionValue } from 'motion/react';
+import type { FC } from 'react';
 import React, {
   useCallback,
   useEffect,
+  useMemo,
   useRef,
-  useState,
-  FC,
-  useMemo
+  useState
 } from 'react';
-import { motion, useMotionValue } from 'motion/react';
-import { RangeProps, RangeTooltip } from './RangeTooltip';
+
 import { cn, useComponentTheme } from '@/utils';
-import { RangeTheme } from './RangeTheme';
+
+import type { RangeTheme } from './RangeTheme';
+import type { RangeProps } from './RangeTooltip';
+import { RangeTooltip } from './RangeTooltip';
 
 export interface RangeSingleProps extends RangeProps<number> {
   /**

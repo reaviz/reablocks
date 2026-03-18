@@ -1,6 +1,9 @@
-import React, { FC, PropsWithChildren } from 'react';
-import { TabsTheme } from './TabsTheme';
+import type { FC, PropsWithChildren } from 'react';
+import React from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
+
+import type { TabsTheme } from './TabsTheme';
 
 export interface TabPanelProps extends PropsWithChildren {
   /**

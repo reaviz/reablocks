@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  TypographyBlocks,
   ColorBlocks,
   SpacingBlocks,
   BorderBlocks,
@@ -11,6 +10,7 @@ import {
 import favoriteIcon from './icon-demo.svg';
 import { useTheme } from './hooks/useTheme';
 import { extractTheme } from './themes/extractTheme';
+import { TypographyBlocks } from './blocks/TypographyBlocks';
 
 export default {
   title: 'Components/Theme'

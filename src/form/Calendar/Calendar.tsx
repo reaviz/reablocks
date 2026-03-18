@@ -1,41 +1,42 @@
 import {
-  AnimatePresence,
-  motion,
-  MotionNodeAnimationOptions
-} from 'motion/react';
-import React, { FC, useCallback, useMemo, useState } from 'react';
-import { Button } from '@/elements/Button';
-import {
   add,
   addYears,
   endOfDecade,
+  format,
+  getHours,
+  getMinutes,
   getMonth,
+  getSeconds,
   getYear,
-  min as minDate,
   max as maxDate,
+  min as minDate,
+  setHours,
+  setMinutes,
   setMonth,
+  setSeconds,
   setYear,
   startOfDecade,
   sub,
-  subYears,
-  format,
-  setSeconds,
-  setMinutes,
-  setHours,
-  getMinutes,
-  getSeconds,
-  getHours
+  subYears
 } from 'date-fns';
+import type { MotionNodeAnimationOptions } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
+import type { FC } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
+
+import { Button } from '@/elements/Button';
+import type { CalendarTheme, PresetOption } from '@/form';
+import { CalendarPresets } from '@/form';
+import { Stack } from '@/layout';
+import { Divider } from '@/layout/Divider';
+import { Typography } from '@/typography';
+import { cn, useComponentTheme } from '@/utils';
+
 import { CalendarDays } from './CalendarDays';
 import { CalendarMonths } from './CalendarMonths';
-import { CalendarYears } from './CalendarYears';
-import { cn, useComponentTheme } from '@/utils';
-import { CalendarTheme } from './CalendarTheme';
-import { Divider } from '@/layout/Divider';
-import { H4 } from '@/typography';
 import { CalendarTimes } from './CalendarTimes';
+import { CalendarYears } from './CalendarYears';
 import { updateDateTime } from './utils';
-import { CalendarPresets, PresetOption } from './CalendarPresets';
 
 export type CalendarViewType = 'days' | 'months' | 'years';
 
@@ -276,8 +277,7 @@ export const Calendar: FC<CalendarProps> = ({
           );
           onChange?.([rangeStart!, newRangeEnd]);
         } else {
-          const newRangeStart = newTimeDate;
-          onChange?.([newRangeStart, rangeEnd]);
+          onChange?.([newTimeDate, rangeEnd]);
         }
       }
     },
@@ -315,9 +315,7 @@ export const Calendar: FC<CalendarProps> = ({
       <div className="relative flex">
         {preset && (
           <>
-            <div
-              className={cn('flex items-center gap-1', theme.presets.wrapper)}
-            >
+            <Stack dense direction="row" className={theme.presets.wrapper}>
               <CalendarPresets
                 options={preset}
                 value={value as Date | [Date, Date]}
@@ -327,7 +325,7 @@ export const Calendar: FC<CalendarProps> = ({
                 orientation="vertical"
                 className={theme.presets.divider}
               />
-            </div>
+            </Stack>
           </>
         )}
 
@@ -339,7 +337,6 @@ export const Calendar: FC<CalendarProps> = ({
               onClick={previousClickHandler}
               className={theme.header.prev}
               disablePadding
-              aria-label="Previous"
             >
               {previousArrow}
             </Button>
@@ -351,7 +348,7 @@ export const Calendar: FC<CalendarProps> = ({
               disablePadding
               fullWidth
             >
-              <H4 className={theme.title}>
+              <Typography variant="h6" className={theme.title}>
                 {view === 'days' && format(viewValue, 'MMMM')}
                 {view === 'months' && <>{yearValue}</>}
                 {view === 'years' && (
@@ -359,7 +356,7 @@ export const Calendar: FC<CalendarProps> = ({
                     {decadeStart.getFullYear()}-{decadeEnd.getFullYear()}
                   </>
                 )}
-              </H4>
+              </Typography>
             </Button>
             <Button
               variant="text"
@@ -367,12 +364,11 @@ export const Calendar: FC<CalendarProps> = ({
               onClick={nextClickHandler}
               className={theme.header.next}
               disablePadding
-              aria-label="Next"
             >
               {nextArrow}
             </Button>
           </header>
-          <Divider />
+          <Divider disableMargins />
           <AnimatePresence initial={false} mode="wait">
             <motion.div
               className={cn(theme.content)}
@@ -436,6 +432,7 @@ export const Calendar: FC<CalendarProps> = ({
             value={
               isRange ? (rangeEnd ? rangeEnd : value?.[0]) : (value as Date)
             }
+            disabled={disabled}
             min={min}
             max={max === 'now' ? new Date() : max}
             theme={theme.time}

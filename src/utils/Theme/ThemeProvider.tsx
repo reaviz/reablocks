@@ -8,7 +8,7 @@ import React, {
   useState
 } from 'react';
 import { getThemeVariables, mergeDeep, observeThemeSwitcher } from './helpers';
-import { ReablocksTheme, theme as defaultTheme } from './themes/theme';
+import { ReablocksTheme, theme as themeDefault } from './themes/themeDefault';
 
 export interface ThemeContextProps {
   theme: ReablocksTheme;
@@ -21,9 +21,14 @@ export const ThemeContext = createContext<ThemeContextProps>(null);
 
 interface ThemeProviderProps extends PropsWithChildren {
   theme: ReablocksTheme;
+  defaultTheme?: ReablocksTheme;
 }
 
-export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
+export const ThemeProvider: FC<ThemeProviderProps> = ({
+  children,
+  theme,
+  defaultTheme = themeDefault
+}) => {
   const [activeTheme, setActiveTheme] = useState(theme);
   const [tokens, setTokens] = useState<Record<string, string>>({});
 

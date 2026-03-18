@@ -1,10 +1,17 @@
-import React, { FC, forwardRef, ReactElement } from 'react';
+import type { ReactElement } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { ChipTheme } from '@/elements';
 import { Button } from '@/elements/Button';
-import { Chip, ChipProps, ChipRef } from './Chip';
 import { CloseIcon } from '@/form';
-import { ChipTheme } from './ChipTheme';
 import { cn, useComponentTheme } from '@/utils';
 
+import type { ChipProps } from './Chip';
+import { Chip } from './Chip';
+
+/**
+ * @deprecated
+ */
 export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
   /**
    * Customize delete icon.
@@ -22,7 +29,10 @@ export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
   theme?: ChipTheme;
 }
 
-export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
+/**
+ * @deprecated
+ */
+export const DeletableChip = forwardRef<HTMLDivElement, DeletableChipProps>(
   (
     {
       children,
@@ -50,7 +60,10 @@ export const DeletableChip: FC<DeletableChipProps & ChipRef> = forwardRef(
             tabIndex={0}
             variant="text"
             size={size}
-            className={cn(theme.deleteButton.base, theme.deleteButton[size])}
+            className={cn(
+              theme.types.tag.closeButton.base,
+              theme.types.tag.closeButton.sizes[size]
+            )}
             onClick={event => {
               if (!disabled) {
                 event.stopPropagation();

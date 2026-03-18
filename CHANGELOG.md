@@ -3,17 +3,21 @@
 ## Breaking Changes
 
 ### Typography: Complete Rewrite
-The old typography components have been removed and replaced with semantic HTML wrappers.
+The old individual typography components have been removed and replaced with a single `Typography` component controlled via a `variant` prop.
 
 **Removed components:**
-- `PageTitle` — use `H1` instead
-- `PrimaryHeading` — use `H2` instead
-- `SecondaryHeading` — use `H3` instead
-- `SmallHeading` — use `H4` instead
-- `Sub` — use `H5` instead
-- `Text` — use `P`, `Small`, or `Muted` instead
+- `PageTitle` — use `<Typography variant="h1" />` instead
+- `PrimaryHeading` — use `<Typography variant="h2" />` instead
+- `SecondaryHeading` — use `<Typography variant="h3" />` instead
+- `SmallHeading` — use `<Typography variant="h4" />` instead
+- `Sub` — use `<Typography variant="h5" />` instead
+- `Text` — use `<Typography variant="body" />` instead
 
-**New components:** `H1`, `H2`, `H3`, `H4`, `H5`, `H6`, `P`, `BlockQuote`, `Lead`, `Large`, `Small`, `Muted`
+**New component:** `Typography`
+
+**Available variants:** `h1`, `h2`, `h3`, `h4`, `h5`, `h6`, `body`, `label`, `button`, `monospace`
+
+**Props:** `variant`, `color` (`primary` | `secondary`), `size` (`small` | `medium` | `large`), `weight` (`thin` | `extralight` | `light` | `regular` | `medium` | `semibold` | `bold` | `extrabold` | `black`)
 
 **Theme shape changed:**
 ```
@@ -21,10 +25,15 @@ The old typography components have been removed and replaced with semantic HTML 
 typography: { base, text: { thin, bold, ... }, variant: { default, mono }, colors: { ... }, sub, smallHeading, ... }
 
 // After
-typography: { h1, h2, h3, h4, h5, h6, p, blockquote, lead, large, small, muted }
+typography: {
+  base,
+  color: { primary, secondary },
+  weight: { thin, extralight, light, regular, medium, semibold, bold, extrabold, black },
+  variant: { h1, h2, h3, h4, h5, h6, body, label, button, monospace }
+}
 ```
 
-The old props `color`, `variant`, `fontStyle`, and `disableMargins` are gone — use `className` or theme customization.
+The old props `fontStyle` and `disableMargins` are removed.
 
 ### Layout: Block renamed to Field, Stack and VerticalSpacer removed
 - `Block` → renamed to `Field`. Update all imports: `BlockProps` → `FieldProps`, `BlockTheme` → `FieldTheme`, `blockTheme` → `fieldTheme`
@@ -38,12 +47,6 @@ All `legacy*Theme` exports and the `legacyThemeVars` object have been removed. I
 
 Removed exports include: `legacyFieldTheme`, `legacyButtonTheme`, `legacyInputTheme`, `legacySelectTheme`, `legacyDialogTheme`, `legacyDrawerTheme`, `legacyTooltipTheme`, `legacyCalendarTheme`, `legacyCheckboxTheme`, `legacyRadioTheme`, `legacyToggleTheme`, `legacyCardTheme`, `legacyTabsTheme`, `legacyTreeTheme`, `legacyListTheme`, `legacyMenuTheme`, `legacyNotificationTheme`, `legacyPopoverTheme`, `legacyTypographyTheme`, and all others.
 
-### Button: Adornment Props Renamed
-- `startAdornment` → `start`
-- `endAdornment` → `end`
-
-Types narrowed from `any` to `React.ReactNode`.
-
 ### Input: Deprecated Adornment Props Removed
 - `startAdornment` and `endAdornment` props removed (were already deprecated)
 - Use `start` and `end` props instead
@@ -54,6 +57,27 @@ Types narrowed from `any` to `React.ReactNode`.
 - `SelectInputTheme.single.prefix` → `single.selectedValue`
 - `SelectInputTheme.multiple.prefix` → `multiple.selectedValue`
 - `inputPrefix` prop removed from `SelectOption`
+
+### Chip: Theme Restructured
+The chip theme is no longer flat — it is now organized under a `types` key with separate configs for `badge` and `tag`.
+
+**Theme shape changed:**
+```
+// Before
+chip: { base, variants, colors, sizes }
+
+// After
+chip: {
+  types: {
+    badge: { base, label, adornment: { base, start, end, sizes }, variants, colors, sizes },
+    tag:   { base, label, adornment: { base, start, end, sizes }, variants, colors, sizes, closeButton: { base, sizes }, disabled }
+  }
+}
+```
+
+**New `subtle` variant** added alongside `filled` and `outline`.
+
+**`DeletableChip` deprecated** — use `<Chip type="tag" onClose={...} />` instead.
 
 ### DotsLoader/Breadcrumbs: Theme Export Renames
 - `legacyLoaderTheme` → `legacyDotsLoaderTheme` (removed with legacy cleanup)
@@ -68,13 +92,22 @@ Types narrowed from `any` to `React.ReactNode`.
 - [feature] Error messages include `role="alert"` for accessibility
 - [feature] Horizontal layout correctly stacks input + hint/error beneath the label
 
+### Chip: Type System and New Props
+- [feature] New `type` prop — `badge` (default) or `tag`, replacing the need for a separate `DeletableChip` component
+- [feature] `onClose` and `closeIcon` props on `Chip` directly for closable chips (type `tag`)
+- [feature] `start` and `end` adornment props with per-size SVG scaling via theme
+- [feature] `selected` prop for selectable tag chips with themed selected/hover states
+- [feature] `animated` prop to disable motion animations
+- [feature] New `subtle` variant added alongside `filled` and `outline`
+- [deprecated] `DeletableChip` — migrate to `<Chip type="tag" onClose={...} />`
+
 ### Select: Start/End Adornments
 - [feature] `Select` and `SelectInput` now support `start` and `end` props for prefix/suffix adornments
 - [feature] New `adornment: { start, end }` keys in `SelectInputTheme`
 
 ### Utilities
 - [feature] New `cn()` utility — combines `classnames` + `tailwind-merge` in one call, exported publicly
-- [feature] `H5` and `H6` heading components added
+- [feature] `h5` and `h6` variants added to `Typography`
 
 ### Infrastructure
 - [chore] Playwright visual regression testing for Storybook components
@@ -99,10 +132,10 @@ import { PageTitle, PrimaryHeading, SecondaryHeading, SmallHeading, Text } from 
 <Text fontStyle="bold" color="primary">Bold text</Text>
 
 // After
-import { H1, H2, P, Small, Muted } from 'reablocks';
-<H1>Title</H1>
-<H2>Heading</H2>
-<P className="font-bold text-primary">Bold text</P>
+import { Typography } from 'reablocks';
+<Typography variant="h1">Title</Typography>
+<Typography variant="h2">Heading</Typography>
+<Typography variant="body" weight="bold" color="primary">Bold text</Typography>
 ```
 
 ### Step 2: Layout
@@ -138,13 +171,66 @@ import { Field } from 'reablocks';
 <Input start={<Icon />} end={<Icon />} />
 ```
 
-### Step 5: Legacy Themes
+### Step 5: Themes and Styles
+
+There are now two first-party themes — **default** and **unify** — each paired with its own CSS file.
+
+#### Default theme
+
+```tsx
+// 1. Import the CSS (once, at your app entry point)
+import 'reablocks/dist/default.css';
+
+// 2. Wrap your app
+import { ThemeProvider, theme } from 'reablocks';
+
+<ThemeProvider theme={theme}>
+  <App />
+</ThemeProvider>
+```
+
+#### Unify theme
+
+```tsx
+// 1. Import the CSS (once, at your app entry point)
+import 'reablocks/dist/unify.css';
+
+// 2. Wrap your app
+import { ThemeProvider, themeUnify } from 'reablocks';
+
+<ThemeProvider theme={themeUnify}>
+  <App />
+</ThemeProvider>
+```
+
+#### Customizing either theme
+
+```tsx
+import { ThemeProvider, theme, themeUnify, extendTheme } from 'reablocks';
+
+const customTheme = extendTheme(theme, {
+  components: {
+    button: {
+      base: 'rounded-full'
+    }
+  }
+});
+
+// Use mergeThemeClasses as the third argument to merge class strings
+// instead of replacing them:
+import { mergeThemeClasses } from 'reablocks';
+
+const mergedTheme = extendTheme(theme, customTheme, mergeThemeClasses);
+```
+
+#### Legacy theme migration
+
 ```tsx
 // Before
 import { ThemeProvider, legacyThemeVars } from 'reablocks';
 <ThemeProvider theme={legacyThemeVars}>...</ThemeProvider>
 
-// After — use the Tailwind-based theme
+// After — pick either theme above
 import { ThemeProvider, theme } from 'reablocks';
 <ThemeProvider theme={theme}>...</ThemeProvider>
 ```

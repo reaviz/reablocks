@@ -1,9 +1,12 @@
-import React, { FC } from 'react';
-import { TooltipProps, Tooltip } from '@/layers/Tooltip';
 import FocusTrap from 'focus-trap-react';
-import { useId } from '@/utils';
-import { PopoverTheme } from './PopoverTheme';
-import { cn, useComponentTheme } from '@/utils';
+import type { FC } from 'react';
+import React from 'react';
+
+import type { TooltipProps } from '@/layers/Tooltip';
+import { Tooltip } from '@/layers/Tooltip';
+import { cn, useComponentTheme, useId } from '@/utils';
+
+import type { PopoverTheme } from './PopoverTheme';
 
 type FocusTargetValueOrFalse = HTMLElement | SVGElement | string | false;
 

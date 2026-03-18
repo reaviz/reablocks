@@ -1,13 +1,15 @@
+import type { RefObject } from 'react';
 import React, {
   forwardRef,
-  RefObject,
   useImperativeHandle,
   useLayoutEffect,
   useRef,
   useState
 } from 'react';
-import { InputTheme } from './InputTheme';
+
 import { cn, useComponentTheme } from '@/utils';
+
+import type { InputSizeTheme, InputTheme } from './InputTheme';
 
 export interface InputProps extends Omit<
   React.InputHTMLAttributes<HTMLInputElement>,
@@ -36,17 +38,31 @@ export interface InputProps extends Omit<
   /**
    * Size of the input.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof InputSizeTheme;
 
   /**
    * Content to display before the input.
+   *
+   * @deprecated Use `startAdornment` instead.
    */
   start?: React.ReactNode | string;
 
   /**
    * Content to display after the input.
+   *
+   * @deprecated Use `endAdornment` instead.
    */
   end?: React.ReactNode | string;
+
+  /**
+   * Element to display before the Button content.
+   */
+  startAdornment?: React.ReactNode | string;
+
+  /**
+   * Element to display after the Button content.
+   */
+  endAdornment?: React.ReactNode | string;
 
   /**
    * Shortcut for the onChange value event.
@@ -96,6 +112,8 @@ export const Input = forwardRef<InputRef, InputProps>(
       selectOnFocus,
       start,
       end,
+      startAdornment,
+      endAdornment,
       autoFocus,
       disabled,
       value,
@@ -143,9 +161,9 @@ export const Input = forwardRef<InputRef, InputProps>(
         )}
         ref={containerRef}
       >
-        {start && (
+        {(start || startAdornment) && (
           <div className={cn(theme.adornment.base, theme.adornment.start)}>
-            {start}
+            {start ?? startAdornment}
           </div>
         )}
         <input
@@ -171,9 +189,9 @@ export const Input = forwardRef<InputRef, InputProps>(
             onChange?.(event);
           }}
         />
-        {end && (
+        {(end || endAdornment) && (
           <div className={cn(theme.adornment.base, theme.adornment.end)}>
-            {end}
+            {end ?? endAdornment}
           </div>
         )}
       </div>

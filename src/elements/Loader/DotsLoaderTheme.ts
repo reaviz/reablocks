@@ -1,17 +1,19 @@
+export interface DotsLoaderSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
+
 export interface DotsLoaderTheme {
   base: string;
   dot: string;
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  sizes: DotsLoaderSizeTheme;
 }
 
-const baseTheme: DotsLoaderTheme = {
+export const defaultDotsLoaderTheme: DotsLoaderTheme = {
   base: 'flex',
-  dot: 'rounded-[50%]',
+  dot: 'rounded-[50%] bg-primary',
   sizes: {
     small: 'w-1 h-1 m-1',
     medium: 'w-1.5 h-1.5 m-1.5',
@@ -19,7 +21,12 @@ const baseTheme: DotsLoaderTheme = {
   }
 };
 
-export const dotsLoaderTheme: DotsLoaderTheme = {
-  ...baseTheme,
-  dot: [baseTheme.dot, 'light:bg-gray-900 dark:bg-gray-100'].join(' ')
+export const unifyDotsLoaderTheme: DotsLoaderTheme = {
+  base: 'flex',
+  dot: 'rounded-[50%] bg-background-brand-base',
+  sizes: {
+    small: 'size-1 m-1',
+    medium: 'size-1.5 m-1.5',
+    large: 'size-2 m-2'
+  }
 };

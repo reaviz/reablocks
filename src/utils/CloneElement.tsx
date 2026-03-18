@@ -1,5 +1,5 @@
 import { cloneElement, useMemo } from 'react';
-import classNames from 'classnames';
+import { cn } from '@/utils';
 
 interface CloneElementProps {
   element: any;
@@ -32,7 +32,7 @@ export function CloneElement<T = any>({
             return childProp(...args);
           };
         } else if (key === 'className') {
-          acc[key] = classNames(prop, childProp);
+          acc[key] = cn(prop, childProp);
         } else {
           acc[key] = prop;
         }

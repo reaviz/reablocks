@@ -1,21 +1,25 @@
-import React, { FC, Fragment, useCallback, useMemo, useState } from 'react';
 import {
   add,
   addMonths,
-  min as minDate,
+  format,
   max as maxDate,
-  sub,
-  format
+  min as minDate,
+  sub
 } from 'date-fns';
 import { AnimatePresence, motion } from 'motion/react';
+import type { FC } from 'react';
+import React, { Fragment, useCallback, useMemo, useState } from 'react';
+
 import { Button } from '@/elements';
-import { CalendarProps } from './Calendar';
-import { CalendarDays } from './CalendarDays';
-import { Divider } from '@/layout';
-import { H4 } from '@/typography';
+import { Divider, Stack } from '@/layout';
+import { Typography } from '@/typography';
 import { useComponentTheme } from '@/utils';
-import { CalendarRangeTheme } from './CalendarRangeTheme';
-import { CalendarPresets, PresetOption } from './CalendarPresets';
+
+import type { CalendarProps } from './Calendar';
+import { CalendarDays } from './CalendarDays';
+import type { PresetOption } from './CalendarPresets';
+import { CalendarPresets } from './CalendarPresets';
+import type { CalendarRangeTheme } from './CalendarRangeTheme';
 
 export interface CalendarRangeProps extends Omit<
   CalendarProps,
@@ -166,7 +170,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
     <div className={theme.base}>
       <div className="relative flex">
         {preset && (
-          <div className={`flex items-center gap-1 ${theme.presets.wrapper}`}>
+          <Stack dense direction="row" className={theme.presets.wrapper}>
             <CalendarPresets
               options={preset}
               showTime={false}
@@ -179,18 +183,17 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
               onChange={handlePresetChange}
             />
             <Divider orientation="vertical" className={theme.presets.divider} />
-          </div>
+          </Stack>
         )}
         <div className="flex-1">
           <header className={theme.header.base}>
-            <div className="flex items-center gap-2.5">
+            <Stack>
               <Button
                 variant="text"
                 disabled={disabled}
                 onClick={previousYearClickHandler}
                 className={theme.header.prev}
                 disablePadding
-                aria-label="Previous year"
               >
                 {previousYearArrow}
               </Button>
@@ -200,12 +203,11 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 onClick={previousClickHandler}
                 className={theme.header.prev}
                 disablePadding
-                aria-label="Previous month"
               >
                 {previousArrow}
               </Button>
-            </div>
-            <H4 className={theme.title}>
+            </Stack>
+            <Typography variant="h6" className={theme.title}>
               {displayMonths.map(i => (
                 <span
                   key={addMonths(viewValue, showPast ? -i : i).toDateString()}
@@ -216,15 +218,14 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                   )}
                 </span>
               ))}
-            </H4>
-            <div className="flex items-center gap-2.5">
+            </Typography>
+            <Stack>
               <Button
                 variant="text"
                 disabled={disabled}
                 onClick={nextClickHandler}
                 className={theme.header.next}
                 disablePadding
-                aria-label="Next month"
               >
                 {nextArrow}
               </Button>
@@ -234,13 +235,12 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
                 onClick={nextYearClickHandler}
                 className={theme.header.next}
                 disablePadding
-                aria-label="Next year"
               >
                 {nextYearArrow}
               </Button>
-            </div>
+            </Stack>
           </header>
-          <Divider />
+          <Divider disableMargins />
           <AnimatePresence initial={false} mode="wait">
             <motion.div
               initial={{ scale: 0, opacity: 0 }}

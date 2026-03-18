@@ -1,6 +1,13 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
+import React from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
-import { DividerTheme } from './DividerTheme';
+
+import type {
+  DividerOrientationTheme,
+  DividerTheme,
+  DividerVariantTheme
+} from './DividerTheme';
 
 export interface DividerProps {
   /**
@@ -17,7 +24,7 @@ export interface DividerProps {
   /**
    * Orientation of the divider.
    */
-  orientation?: 'horizontal' | 'vertical';
+  orientation?: keyof DividerOrientationTheme;
 
   /**
    * Additional style attributes. Recommend to use css classes over this.
@@ -32,7 +39,7 @@ export interface DividerProps {
   /**
    * Variant of the divider.
    */
-  variant?: 'primary' | 'secondary';
+  variant?: keyof DividerVariantTheme;
 }
 
 export const Divider: FC<DividerProps> = ({

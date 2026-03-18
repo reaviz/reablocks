@@ -1,6 +1,9 @@
-import React, { forwardRef, LegacyRef, FC, PropsWithChildren } from 'react';
-import { CardTheme } from './CardTheme';
+import type { FC, LegacyRef, PropsWithChildren } from 'react';
+import React, { forwardRef } from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
+
+import type { CardTheme } from './CardTheme';
 
 export interface CardProps extends React.DOMAttributes<any> {
   /**

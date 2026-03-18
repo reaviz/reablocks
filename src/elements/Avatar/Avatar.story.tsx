@@ -1,10 +1,21 @@
+import type { Meta, StoryObj } from '@storybook/react';
 import React from 'react';
-import { Meta, StoryObj } from '@storybook/react';
+
 import { Avatar } from './Avatar';
 
 export default {
   title: 'Components/Elements/Avatar',
-  component: Avatar
+  component: Avatar,
+  decorators: [
+    (Story, context) => {
+      const variant = context.globals?.themeVariant ?? 'default';
+      context.args.color =
+        variant === 'unify'
+          ? 'bg-avatar-colors-background-container-resting'
+          : (context.args.color ?? 'teal');
+      return <Story />;
+    }
+  ]
 } satisfies Meta<typeof Avatar>;
 
 export const Simple: StoryObj<typeof Avatar> = {
@@ -26,7 +37,7 @@ export const Outline: StoryObj<typeof Avatar> = {
 
 export const RoundedWithImage: StoryObj<typeof Avatar> = {
   args: {
-    src: 'https://i.pravatar.cc/128',
+    src: 'https://avatars.githubusercontent.com/u/227909?s=96&v=4',
     size: 50,
     rounded: true
   }
@@ -37,6 +48,15 @@ export const LargeRounded: StoryObj<typeof Avatar> = {
     name: 'John Doe',
     size: 100,
     rounded: true
+  }
+};
+
+export const Clickable: StoryObj<typeof Avatar> = {
+  args: {
+    name: 'Charlie',
+    size: 50,
+    rounded: true,
+    onClick: () => null
   }
 };
 

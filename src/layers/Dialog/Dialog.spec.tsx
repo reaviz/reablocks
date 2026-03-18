@@ -1,8 +1,10 @@
-import { describe, test, expect } from 'vitest';
-import React, { ReactNode } from 'react';
-import { DialogHeader } from './DialogHeader';
+import type { ReactNode } from 'react';
+import React from 'react';
+import { describe, expect, test } from 'vitest';
+
 import { DialogContent } from './DialogContent';
 import { DialogFooter } from './DialogFooter';
+import { DialogHeader } from './DialogHeader';
 
 // Test that displayNames are set correctly for slot detection
 describe('Dialog Slot Components', () => {

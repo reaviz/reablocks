@@ -1,0 +1,76 @@
+@theme inline {
+  /* TW overrides */
+  --color-red-*: initial;
+  --color-orange-*: initial;
+  --color-amber-*: initial;
+  --color-yellow-*: initial;
+  --color-lime-*: initial;
+  --color-green-*: initial;
+  --color-emerald-*: initial;
+  --color-teal-*: initial;
+  --color-cyan-*: initial;
+  --color-sky-*: initial;
+  --color-blue-*: initial;
+  --color-indigo-*: initial;
+  --color-violet-*: initial;
+  --color-purple-*: initial;
+  --color-fuchsia-*: initial;
+  --color-pink-*: initial;
+  --color-rose-*: initial;
+  --color-slate-*: initial;
+  --color-gray-*: initial;
+  --color-zinc-*: initial;
+  --color-neutral-*: initial;
+  --color-stone-*: initial;
+
+  --color-white: var(--neutrals-pure-white-dnt-1000);
+  --color-black: var(--neutrals-pure-black-dnt-1000);
+
+  /* Primary colors */
+  --color-primary: var(--primary);
+  --color-primary-active: var(--primary-active);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-inactive: var(--primary-inactive);
+
+  /* Secondary colors */
+  --color-secondary: var(--secondary);
+  --color-secondary-active: var(--secondary-active);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-inactive: var(--secondary-inactive);
+
+  /* Success colors */
+  --color-success: var(--success);
+  --color-success-active: var(--success-active);
+  --color-success-hover: var(--success-hover);
+  --color-success-background: var(--success-background);
+
+  /* Error colors */
+  --color-error: var(--error);
+  --color-error-active: var(--error-active);
+  --color-error-hover: var(--error-hover);
+  --color-error-background: var(--error-background);
+
+  /* Warning colors */
+  --color-warning: var(--warning);
+  --color-warning-active: var(--warning-active);
+  --color-warning-hover: var(--warning-hover);
+  --color-warning-background: var(--warning-background);
+
+  /* Info colors */
+  --color-info: var(--info);
+  --color-info-active: var(--info-active);
+  --color-info-hover: var(--info-hover);
+  --color-info-background: var(--info-background);
+
+  /* Panel colors */
+  --color-panel: var(--panel);
+  --color-panel-accent: var(--panel-accent);
+
+  /* Surface colors */
+  --color-surface: var(--surface);
+  --color-surface-accent: var(--surface-accent);
+
+  /* Text colors */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+}

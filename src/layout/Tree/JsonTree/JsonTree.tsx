@@ -1,5 +1,8 @@
-import React, { FC, useMemo } from 'react';
+import type { FC } from 'react';
+import React from 'react';
+
 import { Tree } from '@/layout/Tree/Tree';
+
 import { JsonTreeNode } from './JsonTreeNode';
 import { parseJsonTree } from './utils';
 

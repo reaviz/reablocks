@@ -1,9 +1,12 @@
-import React, { FC, PropsWithChildren, useCallback } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { DownArrowIcon } from './DownArrowIcon';
-import { getNextDirection, SortDirection } from './utils';
-import { SortTheme } from './SortTheme';
+import type { FC, PropsWithChildren } from 'react';
+import React, { useCallback } from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
+import DownArrowIcon from '@/assets/icons/arrow-down.svg?react';
+import type { SortTheme } from './SortTheme';
+import type { SortDirection } from './utils';
+import { getNextDirection } from './utils';
 
 export interface SortProps extends PropsWithChildren {
   /**

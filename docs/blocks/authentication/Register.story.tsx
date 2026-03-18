@@ -51,7 +51,7 @@ const RadioTheme = {
   base: 'box-border leading-3',
   radio: {
     ...radioTheme.radio,
-    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-hidden focus-visible:border-primary-hover',
+    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border border-panel-accent cursor-pointer focus-visible:outline-hidden focus-visible:border-primary-hover',
     checked: 'border-primary'
   }
 };
@@ -160,7 +160,7 @@ export const Register = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-5 mb-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-5 mb-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}
@@ -314,9 +314,9 @@ export const RegisterFull = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card
               className={cn(
-                'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
+                'p-5 bg-panel hover:cursor-pointer hover:bg-panel-accent hover:border-panel-accent/40 transition-colors',
                 {
-                  'border-primary dark:bg-black dark:hover:bg-black light:bg-athens-gray light:hover:border-primary':
+                  'border-primary bg-panel':
                     selection === 'starter'
                 }
               )}
@@ -341,7 +341,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-text-secondary">
                     Community support
                   </span>
                 </div>
@@ -355,7 +355,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-text-secondary">
                     Integration support
                   </span>
                 </div>
@@ -369,7 +369,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-text-secondary">
                     Figmas support
                   </span>
                 </div>
@@ -378,9 +378,9 @@ export const RegisterFull = () => {
             </Card>
             <Card
               className={cn(
-                'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
+                'p-5 bg-panel hover:cursor-pointer hover:bg-panel-accent hover:border-panel-accent/40 transition-colors',
                 {
-                  'border-primary dark:bg-black dark:hover:bg-black light:bg-athens-gray light:hover:border-primary':
+                  'border-primary bg-panel':
                     selection === 'premium'
                 }
               )}
@@ -405,7 +405,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-text-secondary">
                     Community support
                   </span>
                 </div>
@@ -419,7 +419,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-text-secondary">
                     Integration support
                   </span>
                 </div>
@@ -433,7 +433,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-text-secondary">
                     Figmas support
                   </span>
                 </div>
@@ -442,9 +442,9 @@ export const RegisterFull = () => {
             </Card>
             <Card
               className={cn(
-                'p-5 dark:bg-vulcan hover:cursor-pointer dark:hover:bg-charade light:hover:athens-gray light:hover:border-vulcan/40 transition-colors',
+                'p-5 bg-panel hover:cursor-pointer hover:bg-panel-accent hover:border-panel-accent/40 transition-colors',
                 {
-                  'border-primary dark:bg-black dark:hover:bg-black light:bg-athens-gray light:hover:border-primary':
+                  'border-primary bg-panel':
                     selection === 'enterprise'
                 }
               )}
@@ -469,7 +469,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-text-secondary">
                     Community support
                   </span>
                 </div>
@@ -483,7 +483,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-text-secondary">
                     Integration support
                   </span>
                 </div>
@@ -497,7 +497,7 @@ export const RegisterFull = () => {
                   >
                     <path d="M5.86332 10.9166L3.08332 8.13661L2.13666 9.07661L5.86332 12.8033L13.8633 4.80328L12.9233 3.86328L5.86332 10.9166Z" />
                   </svg>
-                  <span className="dark:text-waterloo light:text-charade">
+                  <span className="text-text-secondary">
                     Figmas support
                   </span>
                 </div>
@@ -521,7 +521,7 @@ export const RegisterFull = () => {
                 type="submit"
                 variant="filled"
                 color="primary"
-                className="mt-5 mb-2 px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+                className="mt-5 mb-2 px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) focus:outline-hidden transition-colors"
                 disabled={isSubmitting}
               >
                 {isSubmitting ? 'Creating...' : 'Create Account →'}
@@ -657,7 +657,7 @@ export const RegisterV2 = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-5 mb-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-5 mb-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Creating...' : 'Create Account →'}
@@ -846,7 +846,7 @@ export const RegisterWithSocial = () => {
             fullWidth
             variant="filled"
             color="primary"
-            className="mt-7 mb-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+            className="mt-7 mb-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) focus:outline-hidden transition-colors"
             disabled={isSubmitting}
           >
             {isSubmitting ? 'Signing up...' : 'Sign up →'}

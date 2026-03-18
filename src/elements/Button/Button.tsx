@@ -1,34 +1,35 @@
-import React, { FC, forwardRef, LegacyRef, useContext } from 'react';
 import { motion } from 'motion/react';
-import { ButtonGroupContext } from './ButtonGroupContext';
+import type { FC, LegacyRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
-import { ButtonTheme } from './ButtonTheme';
+
+import { ButtonGroupContext } from './ButtonGroupContext';
+import type {
+  ButtonColorTheme,
+  ButtonSizeTheme,
+  ButtonTheme,
+  ButtonVariantTheme
+} from './ButtonTheme';
 
 export interface ButtonProps extends Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
-  'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag'
+  'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag' | 'color'
 > {
   /**
    * Color variation of the button.
    */
-  color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'success'
-    | 'warning'
-    | string;
+  color?: keyof ButtonColorTheme;
 
   /**
    * Style variant of the button.
    */
-  variant?: 'filled' | 'outline' | 'text' | string;
+  variant?: keyof ButtonVariantTheme;
 
   /**
    * The size variation of the button.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof ButtonSizeTheme;
 
   /**
    * If true, the button will take up the full width of its container.
@@ -47,18 +48,24 @@ export interface ButtonProps extends Omit<
 
   /**
    * If true, the animation of the button will be disabled.
+   * @deprecated
    */
   disableAnimation?: boolean;
 
   /**
+   * If false, the animation of the button will be disabled.
+   */
+  animated?: boolean;
+
+  /**
    * Element to display before the Button content.
    */
-  start?: React.ReactNode;
+  startAdornment?: any;
 
   /**
    * Element to display after the Button content.
    */
-  end?: React.ReactNode;
+  endAdornment?: any;
 
   /**
    * Theme for the Button.
@@ -76,18 +83,19 @@ export interface ButtonRef {
 export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
   (
     {
-      color = 'default',
+      color = 'primary',
       variant = 'filled',
       children,
       fullWidth,
       size = 'medium',
       disableAnimation,
+      animated = true,
       className,
       disableMargins,
       disablePadding,
       disabled,
-      start,
-      end,
+      startAdornment,
+      endAdornment,
       theme: customTheme,
       type = 'button',
       ...rest
@@ -107,14 +115,16 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         type={type}
         disabled={disabled}
         ref={ref}
-        whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
+        whileTap={{
+          scale: disabled || disableAnimation || !animated ? 1 : 0.9
+        }}
         data-variant={groupVariant || variant}
         className={cn(
           theme.base,
           theme.disabled,
           fullWidth && theme.fullWidth,
           theme.variants[groupVariant || variant],
-          theme.colors[color][groupVariant || variant],
+          theme.colors[color]?.[groupVariant || variant],
           theme.sizes[groupSize || size],
           isGroup && theme.group,
           isGroup && groupVariant === 'text' && theme.groupText,
@@ -123,27 +133,27 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
           className
         )}
       >
-        {start && (
+        {startAdornment && (
           <div
             className={cn(
               theme.adornment.base,
-              theme.adornment.start,
-              theme.adornment.sizes[size]
+              theme.adornment.sizes[size],
+              theme.adornment.start[size]
             )}
           >
-            {start}
+            {startAdornment}
           </div>
         )}
         {children}
-        {end && (
+        {endAdornment && (
           <div
             className={cn(
               theme.adornment.base,
-              theme.adornment.end,
-              theme.adornment.sizes[size]
+              theme.adornment.sizes[size],
+              theme.adornment.end[size]
             )}
           >
-            {end}
+            {endAdornment}
           </div>
         )}
       </motion.button>

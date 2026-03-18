@@ -1,25 +1,26 @@
 import {
+  addDays,
+  addMonths,
+  addWeeks,
+  addYears,
+  endOfDay,
+  endOfMonth,
+  endOfWeek,
+  endOfYear,
   setHours,
   setMinutes,
   setSeconds,
-  addDays,
   startOfDay,
-  subDays,
-  endOfDay,
-  startOfWeek,
-  subWeeks,
-  endOfWeek,
   startOfMonth,
-  subMonths,
-  endOfMonth,
+  startOfWeek,
   startOfYear,
-  subYears,
-  endOfYear,
-  addWeeks,
-  addMonths,
-  addYears
+  subDays,
+  subMonths,
+  subWeeks,
+  subYears
 } from 'date-fns';
-import { PresetOption } from './CalendarPresets';
+
+import type { PresetOption } from './CalendarPresets';
 
 export const TIME_PRESETS: PresetOption[] = [
   {

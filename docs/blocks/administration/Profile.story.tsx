@@ -1130,28 +1130,28 @@ export const Account = () => (
             <div className="flex flex-col items-start gap-2.5 w-3/5">
               <div className="flex flex-col items-start gap-1">
                 <div className="flex items-center gap-2.5">
-                  <h2 className="text-2xl font-sans font-bold text-gray-100 light:text-gray-900">
+                  <h2 className="text-2xl font-sans font-bold text-text-primary">
                     Austin McDaniel
                   </h2>
                   <Chip
                     variant="filled"
-                    className="rounded-[20px] border-orange-500 bg-orange-950 light:bg-orange-100"
+                    className="rounded-[20px] border-orange-500 bg-warning-background"
                   >
                     Admin
                   </Chip>
                 </div>
-                <p className="text-base text-gray-400 light:text-gray-600">
+                <p className="text-base text-text-secondary">
                   CEO / Cyber Security Wizard
                 </p>
               </div>
 
               <MotionItem>
-                <Field className="min-w-[300px] mt-8 p-5 border rounded-sm border-gray-600 light:border-gray-300">
+                <Field className="min-w-[300px] mt-8 p-5 border rounded-sm border-panel-accent">
                   <div className="flex flex-col items-center gap-5 w-full">
                     <div className="flex items-center gap-2.5 justify-between w-full">
                       <Chip
                         variant="filled"
-                        className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px] light:bg-blue-100"
+                        className="bg-info-background px-3 py-1 border-primary/40 rounded-[20px]"
                       >
                         <LocationIcon className="text-blue-500" />{' '}
                         <span className="pl-1">Florida</span>
@@ -1162,7 +1162,7 @@ export const Account = () => (
                     <div className="flex items-center gap-2.5 justify-between w-full">
                       <Chip
                         variant="filled"
-                        className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px] light:bg-blue-100"
+                        className="bg-info-background px-3 py-1 border-primary/40 rounded-[20px]"
                       >
                         <EmailIcon className="text-blue-500" />{' '}
                         <span className="pl-1">Email</span>
@@ -1173,7 +1173,7 @@ export const Account = () => (
                     <div className="flex items-center gap-2.5 justify-between w-full">
                       <Chip
                         variant="filled"
-                        className="bg-blue-950 px-3 py-1 border-blue-500 rounded-[20px] light:bg-blue-100"
+                        className="bg-info-background px-3 py-1 border-primary/40 rounded-[20px]"
                       >
                         <PhoneIcon className="text-blue-500" />{' '}
                         <span className="pl-1">Phone</span>
@@ -1184,7 +1184,7 @@ export const Account = () => (
                     <div className="flex items-center gap-2.5 justify-between w-full">
                       <Chip
                         variant="filled"
-                        className="bg-gray-950 px-3 py-1 border-gray-500 rounded-[20px] light:bg-white light:border-gray-200"
+                        className="bg-panel px-3 py-1 border-panel-accent rounded-[20px]"
                       >
                         <UserIcon className="text-gray-300" />{' '}
                         <span className="pl-1">Joined</span>
@@ -1201,12 +1201,12 @@ export const Account = () => (
                 <Stepper animated>
                   <Step>
                     <div className="flex flex-col gap-1">
-                      <span className="text-sm text-gray-400 light:text-gray-600">
+                      <span className="text-sm text-text-secondary">
                         03/01/2024, 8:00 AM
                       </span>
                       <span>
                         Austin{' '}
-                        <span className="text-gray-400 light:text-gray-600">
+                        <span className="text-text-secondary">
                           created ticket
                         </span>
                       </span>
@@ -1214,17 +1214,17 @@ export const Account = () => (
                   </Step>
                   <Step>
                     <div className="flex flex-col gap-1">
-                      <span className="text-sm text-gray-400 light:text-gray-600">
+                      <span className="text-sm text-text-secondary">
                         03/02/2024, 10:00 AM
                       </span>
                       <span>
                         Austin
-                        <span className="text-gray-400 light:text-gray-600">
+                        <span className="text-text-secondary">
                           {' '}
                           changed statues from{' '}
                         </span>
                         In Progress
-                        <span className="text-gray-400 light:text-gray-600">
+                        <span className="text-text-secondary">
                           {' '}
                           to{' '}
                         </span>
@@ -1234,24 +1234,24 @@ export const Account = () => (
                   </Step>
                   <Step>
                     <div className="flex flex-col gap-1">
-                      <span className="text-sm text-gray-400 light:text-gray-600">
+                      <span className="text-sm text-text-secondary">
                         03/03/2024, 10:10 AM
                       </span>
                       <span>
                         Austin
-                        <span className="text-gray-400 light:text-gray-600">
+                        <span className="text-text-secondary">
                           {' '}
                           changed statues from{' '}
                         </span>
                         Backlog
-                        <span className="text-gray-400 light:text-gray-600">
+                        <span className="text-text-secondary">
                           {' '}
                           to{' '}
                         </span>
                         In Progress
                       </span>
                       <div className="p-[1px] bg-[linear-gradient(283deg,_#0d0dd2_0%,_rgba(23,_23,_255,_0.1)_100%)] text-gray-400 rounded-md">
-                        <div className="px-4 py-2 bg-gray-800 rounded-md light:bg-gray-200 light:text-gray-600">
+                        <div className="px-4 py-2 bg-panel-accent text-text-secondary rounded-md">
                           This looks fine, might've missed it but maybe we can
                           add a link to the website where we also have the video
                           of how to use the plug in? Otherwise this is a nice
@@ -1263,10 +1263,10 @@ export const Account = () => (
                 </Stepper>
               </Field>
             </div>
-            <Field className="w-2/5 min-w-[300px] mt-8 p-5 border rounded-sm border-gray-600 light:border-gray-300">
+            <Field className="w-2/5 min-w-[300px] mt-8 p-5 border rounded-sm border-panel-accent">
               <MotionItem>
                 <img src={AvatarImage} className="h-full w-full" />
-                <h3 className="text-gray-100 my-2.5 font-bold light:text-gray-900">
+                <h3 className="text-text-primary my-2.5 font-bold">
                   Teams
                   <span className="text-gray-400"> (2)</span>
                 </h3>
@@ -1274,7 +1274,7 @@ export const Account = () => (
                 <div className="flex items-center gap-2.5 justify-between">
                   <div className="inline-flex">
                     <SymbolIcon />
-                    <span className="px-2.5 text-base text-gray-100 light:text-gray-900">
+                    <span className="px-2.5 text-base text-text-primary">
                       GoodCode
                     </span>
                   </div>
@@ -1283,7 +1283,7 @@ export const Account = () => (
                 <div className="flex items-center gap-2.5 justify-between mt-3">
                   <div className="inline-flex">
                     <SymbolIcon />
-                    <span className="px-2.5 text-base text-gray-100 light:text-gray-900">
+                    <span className="px-2.5 text-base text-text-primary">
                       GoodCode
                     </span>
                   </div>
@@ -1294,18 +1294,18 @@ export const Account = () => (
 
                 <div className="flex items-center gap-2.5 w-full">
                   <div className="flex flex-col items-center gap-1 w-2/4">
-                    <label className="text-[32px] text-gray-100 light:text-gray-900">
+                    <label className="text-[32px] text-text-primary">
                       2 days
                     </label>
-                    <span className="font-semibold text-gray-400 light:text-gray-600">
+                    <span className="font-semibold text-text-secondary">
                       Avg turnaround time
                     </span>
                   </div>
                   <div className="flex flex-col items-center gap-1 w-2/4">
-                    <label className="text-[32px] text-gray-100 light:text-gray-900">
+                    <label className="text-[32px] text-text-primary">
                       176
                     </label>
-                    <span className="font-semibold text-gray-400 light:text-gray-600">
+                    <span className="font-semibold text-text-secondary">
                       Hours saved
                     </span>
                   </div>
@@ -1326,10 +1326,10 @@ export const Overview = () => (
     className="flex flex-col justify-center grow sm:mx-auto w-full"
   >
     <MotionGroup>
-      <Card className="p-8 transition-colors w-full min-w-[960px] max-w-[1200px] light:bg-gray-100">
+      <Card className="p-8 transition-colors w-full min-w-[960px] max-w-[1200px] bg-panel">
         <div className="flex items-start gap-5 justify-between">
           <div className="flex flex-col items-stretch gap-2.5 w-full">
-            <Field className="bg-gray-900 light:bg-white rounded-[20px] p-[30px]">
+            <Field className="bg-panel rounded-[20px] p-[30px]">
               <div className="flex items-center gap-2.5">
                 <Avatar
                   src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg"
@@ -1338,19 +1338,19 @@ export const Overview = () => (
                 />
                 <div className="flex flex-col items-start gap-2.5">
                   <div className="flex items-center gap-2.5">
-                    <h2 className="text-2xl font-sans font-bold text-gray-100 light:text-gray-900">
+                    <h2 className="text-2xl font-sans font-bold text-text-primary">
                       Austin McDaniel
                     </h2>
                     <Chip
                       variant="filled"
-                      className="rounded-[20px] border-orange-500 bg-orange-950 light:bg-orange-100"
+                      className="rounded-[20px] border-orange-500 bg-warning-background"
                     >
                       Admin
                     </Chip>
                   </div>
-                  <div className="flex items-center gap-2.5 text-gray-400 light:text-gray-600">
+                  <div className="flex items-center gap-2.5 text-text-secondary">
                     <span>CEO</span>
-                    <DotIcon className="text-white light:text-black" />
+                    <DotIcon className="text-text-primary" />
                     <span>Cyber Security Wizard</span>
                   </div>
                 </div>
@@ -1360,36 +1360,36 @@ export const Overview = () => (
                   className="px-3"
                   variant="filled"
                   color="primary"
-                  start={<BillingIcon className="text-white" />}
+                  startAdornment={<BillingIcon className="text-white" />}
                 >
                   Overview
                 </Button>
                 <Button
-                  className="px-3 bg-gray-700/40 light:bg-blue-200/40"
+                  className="px-3 bg-panel-accent/40"
                   variant="filled"
                   color="secondary"
-                  start={
-                    <ListIcon className="text-white light:text-black" />
+                  startAdornment={
+                    <ListIcon className="text-text-primary" />
                   }
                 >
                   Notes
                 </Button>
                 <Button
-                  className="px-3 bg-gray-700/40 light:bg-blue-200/40"
+                  className="px-3 bg-panel-accent/40"
                   variant="filled"
                   color="secondary"
-                  start={
-                    <TeamManageIcon className="text-white light:text-black" />
+                  startAdornment={
+                    <TeamManageIcon className="text-text-primary" />
                   }
                 >
                   Teams
                 </Button>
                 <Button
-                  className="px-3 bg-gray-700/40 light:bg-blue-200/40"
+                  className="px-3 bg-panel-accent/40"
                   variant="filled"
                   color="secondary"
-                  start={
-                    <FilterIcon className="text-white light:text-black" />
+                  startAdornment={
+                    <FilterIcon className="text-text-primary" />
                   }
                 >
                   History
@@ -1397,74 +1397,74 @@ export const Overview = () => (
               </div>
             </Field>
             <MotionItem>
-              <Field className="bg-gray-900 light:bg-white rounded-[20px] p-[30px]">
+              <Field className="bg-panel rounded-[20px] p-[30px]">
                 <div className="flex items-center gap-2.5 justify-between">
                   <h3 className="text-lg font-bold">Personal Information</h3>
                   <Button
                     variant="text"
                     color="primary"
                     className="text-lg"
-                    start={<EditIcon />}
+                    startAdornment={<EditIcon />}
                   >
                     Edit
                   </Button>
                 </div>
                 <Field className="grid grid-cols-2 gap-4 mt-4">
                   <div className="flex items-center gap-2.5">
-                    <Field className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
-                      <EmailIcon className="text-gray-300 light:text-gray-700" />
+                    <Field className="border border-panel-accent p-3 rounded-xs">
+                      <EmailIcon className="text-text-secondary" />
                     </Field>
                     <div>
                       <div className="flex flex-col items-start gap-1">
-                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                        <div className="pl-2 text-sm text-text-primary">
                           austin@goodcode.us
                         </div>
-                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                        <div className="pl-2 text-sm text-text-secondary">
                           Email Address
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <Field className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
-                      <PhoneIcon className="text-gray-300 light:text-gray-700" />
+                    <Field className="border border-panel-accent p-3 rounded-xs">
+                      <PhoneIcon className="text-text-secondary" />
                     </Field>
                     <div>
                       <div className="flex flex-col items-start gap-1">
-                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                        <div className="pl-2 text-sm text-text-primary">
                           561-699-7050
                         </div>
-                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                        <div className="pl-2 text-sm text-text-secondary">
                           Mobile
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <Field className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
-                      <LoginIcon className="text-gray-300 light:text-gray-700" />
+                    <Field className="border border-panel-accent p-3 rounded-xs">
+                      <LoginIcon className="text-text-secondary" />
                     </Field>
                     <div>
                       <div className="flex flex-col items-start gap-1">
-                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                        <div className="pl-2 text-sm text-text-primary">
                           Mar 15, 2024
                         </div>
-                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                        <div className="pl-2 text-sm text-text-secondary">
                           Joined
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <Field className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
-                      <AdminIcon className="text-gray-300 light:text-gray-700" />
+                    <Field className="border border-panel-accent p-3 rounded-xs">
+                      <AdminIcon className="text-text-secondary" />
                     </Field>
                     <div>
                       <div className="flex flex-col items-start gap-1">
-                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                        <div className="pl-2 text-sm text-text-primary">
                           Admin
                         </div>
-                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                        <div className="pl-2 text-sm text-text-secondary">
                           Role
                         </div>
                       </div>
@@ -1474,30 +1474,30 @@ export const Overview = () => (
                 <Divider variant="secondary" className="my-1" />
                 <Field className="grid grid-cols-1 gap-4 mt-4">
                   <div className="flex items-center gap-2.5">
-                    <Field className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
-                      <LocationIcon className="text-gray-300 light:text-gray-700" />
+                    <Field className="border border-panel-accent p-3 rounded-xs">
+                      <LocationIcon className="text-text-secondary" />
                     </Field>
                     <div>
                       <div className="flex flex-col items-start gap-1">
-                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                        <div className="pl-2 text-sm text-text-primary">
                           United States of America
                         </div>
-                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                        <div className="pl-2 text-sm text-text-secondary">
                           Location
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <Field className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
-                      <PendingIcon className="text-gray-300 light:text-gray-700" />
+                    <Field className="border border-panel-accent p-3 rounded-xs">
+                      <PendingIcon className="text-text-secondary" />
                     </Field>
                     <div>
                       <div className="flex flex-col items-start gap-1">
-                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                        <div className="pl-2 text-sm text-text-primary">
                           Management, Development, Code Reviews
                         </div>
-                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                        <div className="pl-2 text-sm text-text-secondary">
                           Responsibilities
                         </div>
                       </div>
@@ -1508,55 +1508,55 @@ export const Overview = () => (
             </MotionItem>
 
             <MotionItem>
-              <Field className="bg-gray-900 light:bg-white rounded-[20px] p-[30px]">
+              <Field className="bg-panel rounded-[20px] p-[30px]">
                 <h3 className="text-lg font-bold align-middle">
                   <span>Teams</span>{' '}
-                  <div className="ml-2.5 inline-flex justify-center text-sm items-center w-8 h-8 rounded-full bg-gray-950 text-center border border-gray-700 light:bg-blue-100 light:border-blue-500">
+                  <div className="ml-2.5 inline-flex justify-center text-sm items-center w-8 h-8 rounded-full text-center border border-primary/40 bg-info-background">
                     3
                   </div>
                 </h3>
 
                 <div className="flex items-center mt-4 gap-4">
                   <div className="flex items-center gap-2.5">
-                    <Field className="flex items-center justify-center mb-0 border border-gray-600 light:border-gray-300 p-[14px] w-[60px] h-[60px]">
+                    <Field className="flex items-center justify-center mb-0 border border-panel-accent p-[14px] w-[60px] h-[60px]">
                       <SymbolIcon />
                     </Field>
                     <div>
                       <div className="flex flex-col items-start gap-1">
-                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                        <div className="pl-2 text-sm text-text-primary">
                           Goodcode
                         </div>
-                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                        <div className="pl-2 text-sm text-text-secondary">
                           Joined Mar 15, 2023
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <Field className="flex items-center justify-center mb-0 border border-gray-600 light:border-gray-300 p-[14px] w-[60px] h-[60px]">
+                    <Field className="flex items-center justify-center mb-0 border border-panel-accent p-[14px] w-[60px] h-[60px]">
                       <CloudburstLogo />
                     </Field>
                     <div>
                       <div className="flex flex-col items-start gap-1">
-                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                        <div className="pl-2 text-sm text-text-primary">
                           Cloudburst
                         </div>
-                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                        <div className="pl-2 text-sm text-text-secondary">
                           Joined Mar 15, 2023
                         </div>
                       </div>
                     </div>
                   </div>
                   <div className="flex items-center gap-2.5">
-                    <Field className="flex items-center justify-center mb-0 border border-gray-600 light:border-gray-300 p-[14px] w-[60px] h-[60px]">
+                    <Field className="flex items-center justify-center mb-0 border border-panel-accent p-[14px] w-[60px] h-[60px]">
                       <CyberSainikLogo />
                     </Field>
                     <div>
                       <div className="flex flex-col items-start gap-1">
-                        <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
+                        <div className="pl-2 text-sm text-text-primary">
                           Cyber Sainik
                         </div>
-                        <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
+                        <div className="pl-2 text-sm text-text-secondary">
                           Joined Mar 15, 2023
                         </div>
                       </div>
@@ -1566,22 +1566,22 @@ export const Overview = () => (
               </Field>
             </MotionItem>
           </div>
-          <Field className="bg-gray-900 light:bg-white rounded-[20px] p-[30px] min-w-[360px]">
-            <h3 className="text-gray-100 light:text-gray-900 font-bold text-lg">
+          <Field className="bg-panel rounded-[20px] p-[30px] min-w-[360px]">
+            <h3 className="text-text-primary font-bold text-lg">
               Latest Activity
             </h3>
 
             <Stepper activeStep={1} className="mt-4" animated>
               <Step label="v6.0">
                 <div className="flex flex-col gap-1">
-                  <span className="text-gray-100 light:text-gray-900">
+                  <span className="text-text-primary">
                     New custom statuses for projects
                   </span>
-                  <span className="text-sm text-gray-400 light:text-gray-600">
+                  <span className="text-sm text-text-secondary">
                     <span>Austin McDaniel </span>
                     <DotIcon
                       size={4}
-                      className="inline text-gray-400 light:text-gray-600"
+                      className="inline text-text-secondary"
                     />
                     <span>1 hour ago</span>
                   </span>
@@ -1589,14 +1589,14 @@ export const Overview = () => (
               </Step>
               <Step label="v5.0">
                 <div className="flex flex-col gap-1">
-                  <span className="text-gray-100 light:text-gray-900">
+                  <span className="text-text-primary">
                     Timeline UI overhaul
                   </span>
-                  <span className="text-sm text-gray-400 light:text-gray-600">
+                  <span className="text-sm text-text-secondary">
                     <span>Austin McDaniel </span>
                     <DotIcon
                       size={4}
-                      className="inline text-gray-400 light:text-gray-600"
+                      className="inline text-text-secondary"
                     />
                     <span>March 22, 2024</span>
                   </span>
@@ -1604,14 +1604,14 @@ export const Overview = () => (
               </Step>
               <Step label="v4.0">
                 <div className="flex flex-col gap-1">
-                  <span className="text-gray-100 light:text-gray-900">
+                  <span className="text-text-primary">
                     Google calendar integration
                   </span>
-                  <span className="text-sm text-gray-400 light:text-gray-600">
+                  <span className="text-sm text-text-secondary">
                     <span>Austin McDaniel </span>
                     <DotIcon
                       size={4}
-                      className="inline text-gray-400 light:text-gray-600"
+                      className="inline text-text-secondary"
                     />
                     <span>March 21, 2024</span>
                   </span>
@@ -1619,14 +1619,14 @@ export const Overview = () => (
               </Step>
               <Step>
                 <div className="flex flex-col gap-1">
-                  <span className="text-gray-100 light:text-gray-900">
+                  <span className="text-text-primary">
                     Branch-specific workflow automations
                   </span>
-                  <span className="text-sm text-gray-400 light:text-gray-600">
+                  <span className="text-sm text-text-secondary">
                     <span>Austin McDaniel </span>
                     <DotIcon
                       size={4}
-                      className="inline text-gray-400 light:text-gray-600"
+                      className="inline text-text-secondary"
                     />
                     <span>February 28, 2024</span>
                   </span>
@@ -1634,14 +1634,14 @@ export const Overview = () => (
               </Step>
               <Step>
                 <div className="flex flex-col gap-1">
-                  <span className="text-gray-100 light:text-gray-900">
+                  <span className="text-text-primary">
                     Project time frames
                   </span>
-                  <span className="text-sm text-gray-400 light:text-gray-600">
+                  <span className="text-sm text-text-secondary">
                     <span>Austin McDaniel </span>
                     <DotIcon
                       size={4}
-                      className="inline text-gray-400 light:text-gray-600"
+                      className="inline text-text-secondary"
                     />
                     <span>February 15, 2024</span>
                   </span>
@@ -1649,14 +1649,14 @@ export const Overview = () => (
               </Step>
               <Step label="v3.0">
                 <div className="flex flex-col gap-1">
-                  <span className="text-gray-100 light:text-gray-900">
+                  <span className="text-text-primary">
                     GitHub Issues Sync
                   </span>
-                  <span className="text-sm text-gray-400 light:text-gray-600">
+                  <span className="text-sm text-text-secondary">
                     <span>Austin McDaniel </span>
                     <DotIcon
                       size={4}
-                      className="inline text-gray-400 light:text-gray-600"
+                      className="inline text-text-secondary"
                     />
                     <span>February 10, 2024</span>
                   </span>
@@ -1689,16 +1689,16 @@ export const Settings = () => {
       animate={{ y: 0, opacity: 1 }}
       className="flex flex-col justify-center grow sm:mx-auto w-full"
     >
-      <Card className="p-8 transition-colors w-full min-w-[960px] max-w-[1200px] light:bg-gray-100">
+      <Card className="p-8 transition-colors w-full min-w-[960px] max-w-[1200px] bg-panel">
         <div className="flex items-start gap-2.5">
-          <Field className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
-            <UserIcon className="text-gray-300 light:text-gray-700" />
+          <Field className="border border-panel-accent p-3 rounded-xs">
+            <UserIcon className="text-text-secondary" />
           </Field>
           <div className="flex flex-col items-start gap-0">
-            <h4 className="text-xl font-bold text-gray-100 light:text-gray-900">
+            <h4 className="text-xl font-bold text-text-primary">
               Profile Settings
             </h4>
-            <div className="text-gray-400 light:text-gray-600">
+            <div className="text-text-secondary">
               Customize and edit essential profile details.
             </div>
           </div>
@@ -1725,14 +1725,14 @@ export const Settings = () => {
                   >
                     <Field>
                       <div className="flex items-center gap-2.5 justify-end">
-                        <Field className="p-5 items-center rounded-full border border-gray-700 bg-gray-900 light:bg-gray-200 light:border-gray-300">
+                        <Field className="p-5 items-center rounded-full border border-gray-700 bg-panel bg-surface border-panel-accent">
                           <UserIcon size={32} className="h-10 w-10" />
                         </Field>
                         <div className="flex flex-col items-start gap-0">
-                          <h6 className="text-lg text-gray-100 font-bold light:text-gray-900">
+                          <h6 className="text-lg text-text-primary font-bold">
                             Upload Image
                           </h6>
-                          <div className="text-gray-400 light:text-gray-600">
+                          <div className="text-text-secondary">
                             Min 400 x 400 px, PNG or JPEG formats.
                           </div>
 
@@ -1824,7 +1824,7 @@ export const Settings = () => {
                         type="submit"
                         variant="filled"
                         color="primary"
-                        className="w-1/2 min-h-10 rounded-xs px-4 py-2 text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+                        className="w-1/2 min-h-10 rounded-xs px-4 py-2 text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) focus:outline-hidden transition-colors"
                         disabled={isSubmitting}
                       >
                         {isSubmitting ? 'Saving...' : 'Save'}

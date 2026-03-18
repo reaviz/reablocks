@@ -1,7 +1,9 @@
-import { DateFormat } from '../../data/DateFormat';
 import { useState } from 'react';
-import { DateInput } from './DateInput';
+
+import { DateFormat } from '../../data/DateFormat';
+import { Stack } from '../../layout/Stack';
 import { COMBINED_PRESETS, PAST_RANGE_PRESETS } from '../Calendar';
+import { DateInput } from './DateInput';
 
 export default {
   title: 'Components/Form/Date Input',
@@ -12,10 +14,10 @@ export const Simple = () => {
   const [date, setDate] = useState<Date>(new Date());
 
   return (
-    <div className="flex items-center gap-2.5 flex-col">
+    <Stack direction="column">
       <DateFormat date={date} format="MM/dd/yyyy" />
       <DateInput value={date} onChange={setDate} />
-    </div>
+    </Stack>
   );
 };
 
@@ -100,18 +102,18 @@ export const Range = () => {
   const [date, setDate] = useState<[Date, Date]>([new Date(), new Date()]);
 
   return (
-    <div className="flex items-center gap-2.5 flex-col w-[300px]">
-      <div className="flex items-center gap-2.5">
+    <Stack className="w-[300px]" direction="column">
+      <Stack>
         <DateFormat date={date[0]} format="MM/dd/yyyy" /> -{' '}
         <DateFormat date={date[1]} format="MM/dd/yyyy" />
-      </div>
+      </Stack>
       <DateInput
         fullWidth
         isRange
         value={date}
         onChange={(value: [Date, Date]) => setDate(value)}
       />
-    </div>
+    </Stack>
   );
 };
 
@@ -119,11 +121,11 @@ export const RangePreset = () => {
   const [date, setDate] = useState<[Date, Date]>([new Date(), new Date()]);
 
   return (
-    <div className="flex items-center gap-2.5 flex-col w-[300px]">
-      <div className="flex items-center gap-2.5">
+    <Stack className="w-[300px]" direction="column">
+      <Stack>
         <DateFormat date={date[0]} format="MM/dd/yyyy" /> -{' '}
         <DateFormat date={date[1]} format="MM/dd/yyyy" />
-      </div>
+      </Stack>
       <DateInput
         fullWidth
         isRange
@@ -131,7 +133,7 @@ export const RangePreset = () => {
         onChange={(value: [Date, Date]) => setDate(value)}
         preset={PAST_RANGE_PRESETS}
       />
-    </div>
+    </Stack>
   );
 };
 

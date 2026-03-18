@@ -1,5 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { Dialog, DialogProps } from './Dialog';
+
+import type { DialogProps } from './Dialog';
+import { Dialog } from './Dialog';
 
 type DialogOptions =
   | {

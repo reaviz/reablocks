@@ -1,6 +1,9 @@
 import { useRef } from 'react';
-import { Textarea } from './Textarea';
+
 import { Button } from '@/elements';
+
+import { Stack } from '../../layout/Stack';
+import { Textarea } from './Textarea';
 
 export default {
   title: 'Components/Form/Textarea',
@@ -26,20 +29,20 @@ export const FullWidth = () => (
 export const Placeholder = () => <Textarea placeholder="Type your text here" />;
 
 export const Sizes = () => (
-  <div className="flex items-center gap-2.5 flex-col">
+  <Stack direction="column">
     <Textarea value="Small" size="small" />
     <Textarea value="Medium" size="medium" />
     <Textarea value="Large" size="large" />
-  </div>
+  </Stack>
 );
 
 export const OutsideFocus = () => {
   const inputRef = useRef(null);
 
   return (
-    <div className="flex items-center gap-2.5 flex-col">
+    <Stack direction="column">
       <Button onClick={() => inputRef?.current.focus()}>Click to focus</Button>
       <Textarea ref={inputRef} />
-    </div>
+    </Stack>
   );
 };

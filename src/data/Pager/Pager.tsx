@@ -1,14 +1,18 @@
-import React, { FC, Fragment, ReactNode, useCallback } from 'react';
-import { Button } from '@/elements';
-import { Small } from '@/typography';
+import type { FC, ReactNode } from 'react';
+import React, { Fragment, useCallback } from 'react';
+
+import type { PagerTheme } from '@/data';
+import { FUZZY_RANGE, getItemsRange, getPageRange } from '@/data';
 import { Pluralize } from '@/data/Pluralize';
+import { Button } from '@/elements';
+import { Stack } from '@/layout';
+import { Typography } from '@/typography';
+import { cn, useComponentTheme } from '@/utils';
+
 import EndArrow from './assets/arrow-end.svg?react';
 import NextArrow from './assets/arrow-next.svg?react';
 import PreviousArrow from './assets/arrow-previous.svg?react';
 import StartArrow from './assets/arrow-start.svg?react';
-import { FUZZY_RANGE, getItemsRange, getPageRange } from './utils';
-import { cn, useComponentTheme } from '@/utils';
-import { PagerTheme } from './PagerTheme';
 
 export interface PagerProps {
   /**
@@ -45,6 +49,12 @@ export interface PagerProps {
    * The total number of items.
    */
   total: number;
+
+  /**
+   * The number of pages to show in the pager.
+   * Default is 6.
+   */
+  pageCountToShow?: number;
 
   /**
    * The React node or string to use for the previous arrow.
@@ -90,6 +100,7 @@ export const Pager: FC<PagerProps> = ({
   page,
   size,
   total,
+  pageCountToShow,
   startArrow = <StartArrow />,
   endArrow = <EndArrow />,
   previousArrow = <PreviousArrow />,
@@ -101,7 +112,11 @@ export const Pager: FC<PagerProps> = ({
   const pageCount = Math.ceil(total / size);
   const canPrevious = page !== 0;
   const canNext = page < pageCount - 1;
-  const [startPage, endPage] = getPageRange(page, pageCount - 1);
+  const [startPage, endPage] = getPageRange(
+    page,
+    pageCount - 1,
+    pageCountToShow
+  );
   const [startItem, endItem] = getItemsRange(page, size, total);
   const theme = useComponentTheme('pager', customTheme);
 
@@ -126,31 +141,39 @@ export const Pager: FC<PagerProps> = ({
       {(displayMode === 'items' || displayMode === 'all') && (
         <div className={theme.pagerDisplayItems}>
           {pageCount === 1 && total > 0 && (
-            <Small>
+            <Typography variant="body" size="small">
               Showing {total === 1 ? total : `all ${total.toLocaleString()}`}{' '}
               <Pluralize count={total} singular="item" showCount={false} />
-            </Small>
+            </Typography>
           )}
           {pageCount > 1 && (
-            <div className={theme.itemsDisplay}>
-              <Small>
-                <span className={theme.showPageRange}>
+            <Stack className={theme.itemsDisplay} dense>
+              <Typography variant="body" size="small">
+                <Typography
+                  variant="body"
+                  size="small"
+                  className={theme.showPageRange}
+                >
                   {startItem.toLocaleString()}-{endItem.toLocaleString()}
-                </span>{' '}
+                </Typography>{' '}
                 of{' '}
-                <span className={theme.totalCount}>
+                <Typography
+                  variant="body"
+                  size="small"
+                  className={theme.totalCount}
+                >
                   {total.toLocaleString()}
-                </span>{' '}
+                </Typography>{' '}
                 <Pluralize count={total} singular="item" showCount={false} />
-              </Small>
-            </div>
+              </Typography>
+            </Stack>
           )}
         </div>
       )}
       {startArrow && (
         <Button
           className={cn(theme.control, theme.firstPage)}
-          variant="text"
+          variant="ghost"
           size="small"
           disablePadding
           title="First Page"
@@ -162,7 +185,7 @@ export const Pager: FC<PagerProps> = ({
       )}
       <Button
         className={cn(theme.control, theme.prevPage)}
-        variant="text"
+        variant="ghost"
         size="small"
         disablePadding
         title="Previous page"
@@ -180,7 +203,7 @@ export const Pager: FC<PagerProps> = ({
             <Fragment key={i}>
               {i >= startPage && i <= endPage && (
                 <Button
-                  variant="text"
+                  variant="ghost"
                   size="small"
                   disabled={page === i}
                   title={`Page ${(i + 1).toLocaleString()}`}
@@ -204,7 +227,7 @@ export const Pager: FC<PagerProps> = ({
       )}
       <Button
         className={cn(theme.control, theme.nextPage)}
-        variant="text"
+        variant="ghost"
         title="Next Page"
         size="small"
         disablePadding
@@ -219,7 +242,7 @@ export const Pager: FC<PagerProps> = ({
           size="small"
           title="Last Page"
           disablePadding
-          variant="text"
+          variant="ghost"
           onClick={() => onPageChange?.(pageCount - 1)}
           disabled={!canNext}
         >

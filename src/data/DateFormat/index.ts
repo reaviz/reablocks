@@ -1,4 +1,4 @@
 export * from './DateFormat';
-export * from './DateFormatTheme';
+export type * from './DateFormatTheme';
 export * from './formatting';
 export * from './relative';

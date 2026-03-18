@@ -1,8 +1,11 @@
-import React, { FC, ReactNode, useCallback, useEffect, useRef } from 'react';
-import { NotificationOptions } from './NotificationsContext';
 import { motion } from 'motion/react';
-import { NotificationTheme } from './NotificationTheme';
+import type { FC, ReactNode } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
+
+import type { NotificationOptions } from './NotificationsContext';
+import type { NotificationTheme } from './NotificationTheme';
 
 export interface NotificationProps extends NotificationOptions {
   /**

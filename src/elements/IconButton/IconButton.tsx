@@ -1,11 +1,14 @@
-import React, { FC, forwardRef, Ref } from 'react';
-import { Button, ButtonProps, ButtonRef } from '@/elements/Button';
+import type { FC, Ref } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { ButtonProps, ButtonRef } from '@/elements/Button';
+import { Button } from '@/elements/Button';
 import { cn, useComponentTheme } from '@/utils';
 
-export interface IconButtonProps extends Omit<
+export type IconButtonProps = Omit<
   ButtonProps,
-  'fullWidth' | 'start' | 'end'
-> {}
+  'fullWidth' | 'startAdornment' | 'endAdornment'
+>;
 
 export const IconButton: FC<IconButtonProps & ButtonRef> = forwardRef(
   (

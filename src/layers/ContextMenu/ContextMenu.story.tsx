@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { Button } from '../../elements/Button';
 import { Card } from '../../layout/Card';
 import { List, ListItem } from '../../layout/List';
@@ -15,10 +16,30 @@ export const Simple = () => (
       content={
         <Card disablePadding>
           <List>
-            <ListItem start={<Icon />}>Menu Item 1</ListItem>
-            <ListItem start={<Icon />}>Menu Item 2</ListItem>
-            <ListItem start={<Icon />}>Menu Item 3</ListItem>
-            <ListItem start={<Icon />}>Menu Item 4</ListItem>
+            <ListItem
+              start={<Icon />}
+              onClick={() => console.info('Menu Item 1')}
+            >
+              Menu Item 1
+            </ListItem>
+            <ListItem
+              start={<Icon />}
+              onClick={() => console.info('Menu Item 2')}
+            >
+              Menu Item 2
+            </ListItem>
+            <ListItem
+              start={<Icon />}
+              onClick={() => console.info('Menu Item 3')}
+            >
+              Menu Item 3
+            </ListItem>
+            <ListItem
+              start={<Icon />}
+              onClick={() => console.info('Menu Item 4')}
+            >
+              Menu Item 4
+            </ListItem>
           </List>
         </Card>
       }

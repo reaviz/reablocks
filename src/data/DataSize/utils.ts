@@ -18,7 +18,7 @@ export function formatSize(
   decimals = 2
 ) {
   let newSize = size;
-  var binaryScale = humanFormat.Scale.create(scale, 1024);
+  const binaryScale = humanFormat.Scale.create(scale, 1024);
 
   if (typeof size === 'string') {
     newSize = parseFloat(size as string);

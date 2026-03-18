@@ -1,9 +1,11 @@
-import React, { FC } from 'react';
-import { SelectOptionProps } from '@/form/Select/SelectOption';
 import ellipsize from 'ellipsize';
+import type { FC } from 'react';
+import React from 'react';
+
 import { CloseIcon } from '@/form/Select/icons';
+import type { SelectOptionProps } from '@/form/Select/SelectOption';
+import type { SelectTheme } from '@/form/Select/SelectTheme';
 import { cn, useComponentTheme } from '@/utils';
-import { SelectTheme } from '@/form/Select/SelectTheme';
 
 export interface SelectInputChipProps {
   /**

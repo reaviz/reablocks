@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
+
+import { Input } from '@/form/Input';
+
+import { Button } from '../../elements';
+import { Stack } from '../../layout';
 import { Dialog } from './Dialog';
-import { DialogHeader } from './DialogHeader';
 import { DialogContent } from './DialogContent';
 import { DialogFooter } from './DialogFooter';
-import { Button } from '../../elements';
+import { DialogHeader } from './DialogHeader';
 
 export default {
   title: 'Components/Layers/Dialog',
@@ -40,10 +44,12 @@ export const WithFooter = () => {
           </p>
         </DialogContent>
         <DialogFooter>
-          <div className="flex items-center gap-2.5 justify-end w-full">
-            <Button onClick={() => setOpen(false)}>Cancel</Button>
+          <Stack justifyContent="end" className="w-full">
+            <Button color="secondary" onClick={() => setOpen(false)}>
+              Cancel
+            </Button>
             <Button color="primary">Save</Button>
-          </div>
+          </Stack>
         </DialogFooter>
       </Dialog>
     </div>
@@ -64,36 +70,32 @@ export const WithForm = () => {
             setOpen(false);
           }}
         >
-          <DialogHeader>Edit Profile</DialogHeader>
+          <DialogHeader showCloseButton={false}>Edit Profile</DialogHeader>
           <DialogContent>
             <div className="flex flex-col gap-4">
               <label className="flex flex-col gap-1">
                 <span className="text-sm text-text-secondary">Name</span>
-                <input
-                  type="text"
-                  className="px-3 py-2 border border-panel-accent rounded bg-panel"
-                  placeholder="Enter your name"
-                />
+                <Input type="text" placeholder="Enter your name" />
               </label>
               <label className="flex flex-col gap-1">
                 <span className="text-sm text-text-secondary">Email</span>
-                <input
-                  type="email"
-                  className="px-3 py-2 border border-panel-accent rounded bg-panel"
-                  placeholder="Enter your email"
-                />
+                <Input type="email" placeholder="Enter your email" />
               </label>
             </div>
           </DialogContent>
           <DialogFooter>
-            <div className="flex items-center gap-2.5 justify-end w-full">
-              <Button type="button" onClick={() => setOpen(false)}>
+            <Stack justifyContent="end" className="w-full">
+              <Button
+                type="button"
+                color="secondary"
+                onClick={() => setOpen(false)}
+              >
                 Cancel
               </Button>
               <Button type="submit" color="primary">
                 Save Changes
               </Button>
-            </div>
+            </Stack>
           </DialogFooter>
         </form>
       </Dialog>
@@ -117,7 +119,9 @@ export const NoCloseButton = () => {
           <p>This dialog has no close button in the header.</p>
         </DialogContent>
         <DialogFooter>
-          <Button onClick={() => setOpen(false)}>Close</Button>
+          <Button color="secondary" onClick={() => setOpen(false)}>
+            Close
+          </Button>
         </DialogFooter>
       </Dialog>
     </div>

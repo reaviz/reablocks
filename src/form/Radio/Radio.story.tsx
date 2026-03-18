@@ -1,4 +1,5 @@
-import React, { Fragment, useState } from 'react';
+import { Fragment, useState } from 'react';
+
 import { Radio } from './Radio';
 
 export default {
@@ -41,7 +42,7 @@ export const Sizes = () => {
         checked={selectedSize === 'medium'}
         onChange={() => handleSizeChange('medium')}
         size="medium"
-        label="Medium"
+        label="Medium (Default)"
       />
       <br />
       <Radio

@@ -1,5 +1,6 @@
+import { useState } from 'react';
+
 import { Toggle } from './Toggle';
-import React, { useState } from 'react';
 
 export default { title: 'Components/Form/Toggle', component: Toggle };
 
@@ -10,7 +11,7 @@ export const Simple = () => {
 
 export const Disabled = () => (
   <div
-    className="bg-panel p-20"
+    className="p-20"
     style={{ display: 'flex', gap: '1rem', flexDirection: 'column' }}
   >
     <Toggle disabled checked />
@@ -73,11 +74,20 @@ export const Sizes = () => {
 
   return (
     <>
-      <Toggle checked={stateSmall} onChange={setStateSmall} size="small" />
+      <div className="flex gap-2 items-center">
+        <Toggle checked={stateSmall} onChange={setStateSmall} size="small" />
+        Small
+      </div>
       <br />
-      <Toggle checked={stateMedium} onChange={setStateMedium} size="medium" />
+      <div className="flex gap-2 items-center">
+        <Toggle checked={stateMedium} onChange={setStateMedium} size="medium" />
+        Medium (Default)
+      </div>
       <br />
-      <Toggle checked={stateLarge} onChange={setStateLarge} size="large" />
+      <div className="flex gap-2 items-center">
+        <Toggle checked={stateLarge} onChange={setStateLarge} size="large" />
+        Large
+      </div>
     </>
   );
 };

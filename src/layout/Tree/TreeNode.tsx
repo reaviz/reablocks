@@ -1,18 +1,18 @@
+import type { FC, PropsWithChildren, ReactNode } from 'react';
 import React, {
   Children,
-  ReactNode,
-  FC,
-  useState,
-  useEffect,
   useCallback,
   useContext,
-  PropsWithChildren
+  useEffect,
+  useState
 } from 'react';
+
 import { Button } from '@/elements/Button';
 import { Collapse } from '@/layout/Collapse';
-import { TreeContext } from './TreeContext';
-import { TreeTheme } from './TreeTheme';
 import { cn, useComponentTheme } from '@/utils';
+
+import { TreeContext } from './TreeContext';
+import type { TreeTheme } from './TreeTheme';
 
 export interface TreeNodeProps extends PropsWithChildren {
   /**

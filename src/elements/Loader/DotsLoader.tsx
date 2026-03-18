@@ -1,7 +1,10 @@
-import React, { FC } from 'react';
 import { motion } from 'motion/react';
-import { DotsLoaderTheme } from './DotsLoaderTheme';
+import type { FC } from 'react';
+import React from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
+
+import type { DotsLoaderSizeTheme, DotsLoaderTheme } from './DotsLoaderTheme';
 
 export interface DotsLoaderProps {
   /**
@@ -17,7 +20,7 @@ export interface DotsLoaderProps {
   /**
    * The size of the loader.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof DotsLoaderSizeTheme;
 
   /**
    * Theme for the DotsLoader.
@@ -33,12 +36,15 @@ export const DotsLoader: FC<DotsLoaderProps> = ({
 }) => {
   const theme: DotsLoaderTheme = useComponentTheme('dotsLoader', customTheme);
 
+  const dotClasses = [theme.dot, theme.sizes?.[size]].filter(Boolean);
+
   return (
     <motion.div className={cn(theme.base, className)}>
       {[...Array(3)].map((_, i) => (
         <motion.div
           key={i}
-          className={cn(theme.dot, theme.sizes[size])}
+          className={cn(...dotClasses)}
+          initial={{ opacity: 0, scale: 1 }}
           animate={{
             opacity: [0, 1, 0],
             scale: [1, 2, 2, 1, 1]

@@ -1,4 +1,4 @@
-import { FC, ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
 
 export type SelectValue = SelectOptionProps | SelectOptionProps[] | null;
 
@@ -27,6 +27,11 @@ export interface SelectOptionProps {
    * Optional menu label.
    */
   menuLabel?: ReactNode | string;
+
+  /**
+   * Optional input prefix.
+   */
+  inputPrefix?: ReactNode | string;
 
   /**
    * Whether the option is selected.

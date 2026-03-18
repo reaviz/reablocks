@@ -1,11 +1,14 @@
-import React, { FC, ReactNode } from 'react';
+import type { FC, ReactNode } from 'react';
+import React from 'react';
+
 import { cn } from '@/utils';
-import { CheckboxTheme } from './CheckboxTheme';
+
+import type { CheckboxSizeTheme, CheckboxTheme } from './CheckboxTheme';
 
 interface CheckboxLabelProps {
   id?: string;
   label: string | ReactNode;
-  size: 'small' | 'medium' | 'large' | string;
+  size: keyof CheckboxSizeTheme;
   disabled?: boolean;
   checked?: boolean;
   onChange?: () => void;

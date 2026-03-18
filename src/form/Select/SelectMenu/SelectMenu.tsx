@@ -1,12 +1,18 @@
-import React, { FC, Fragment, ReactElement, useCallback } from 'react';
 import { motion } from 'motion/react';
-import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
+import type { FC, ReactElement } from 'react';
+import React, { Fragment, useCallback } from 'react';
 import Highlighter from 'react-highlight-words';
-import { GroupOptions, GroupOption } from '@/form/Select/utils';
+
+import type { SelectInputSizeTheme } from '@/form';
+import { CheckIcon } from '@/form/Select/icons/CheckIcon';
+import type {
+  SelectOptionProps,
+  SelectValue
+} from '@/form/Select/SelectOption';
+import type { SelectTheme } from '@/form/Select/SelectTheme';
+import type { GroupOption, GroupOptions } from '@/form/Select/utils';
 import { List, ListItem } from '@/layout';
 import { cn, useComponentTheme } from '@/utils';
-import { SelectTheme } from '@/form/Select/SelectTheme';
-import { CheckIcon } from '@/form/Select/icons/CheckIcon';
 
 export interface RenderCreateOptionArgs {
   text: string;
@@ -90,7 +96,7 @@ export interface SelectMenuProps {
   /**
    * The size of the select menu.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof SelectInputSizeTheme;
 
   /**
    * Icon displayed for checked elements of the list
@@ -109,7 +115,6 @@ export interface SelectMenuProps {
 }
 
 export const SelectMenu: FC<SelectMenuProps> = ({
-  id,
   style,
   disabled,
   createable,
@@ -128,7 +133,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
   onSelectedChange,
   theme: customTheme
 }) => {
-  const trimmedText = (inputSearchText ?? '').trim();
+  const trimmedText = inputSearchText.trim();
 
   const checkOptionSelected = useCallback(
     (option: SelectOptionProps) => {
@@ -231,7 +236,7 @@ export const SelectMenu: FC<SelectMenuProps> = ({
         transition: { duration: 0.3, ease: 'anticipate' }
       }}
     >
-      <List role="listbox" id={id}>
+      <List>
         {options?.length === 0 &&
           createable &&
           trimmedText &&

@@ -1,23 +1,27 @@
+import type { FC, ReactElement, Ref, RefObject } from 'react';
 import React, {
-  FC,
-  ReactElement,
-  Ref,
-  RefObject,
   useCallback,
   useImperativeHandle,
   useMemo,
   useRef
 } from 'react';
-import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
-import { InlineInput } from '@/form/Input';
-import { DownArrowIcon } from '@/form/Select/icons/DownArrowIcon';
-import { CloseIcon } from '@/form/Select/icons/CloseIcon';
+
 import { DotsLoader } from '@/elements/Loader/DotsLoader';
+import { InlineInput } from '@/form/Input';
+import { CloseIcon } from '@/form/Select/icons/CloseIcon';
+import { DownArrowIcon } from '@/form/Select/icons/DownArrowIcon';
 import { RefreshIcon } from '@/form/Select/icons/RefreshIcon';
-import { SelectInputChip, SelectInputChipProps } from './SelectInputChip';
+import type {
+  SelectOptionProps,
+  SelectValue
+} from '@/form/Select/SelectOption';
+import type { SelectTheme } from '@/form/Select/SelectTheme';
 import { cn, useComponentTheme } from '@/utils';
-import { SelectTheme } from '@/form/Select/SelectTheme';
 import { CloneElement } from '@/utils';
+
+import type { SelectInputChipProps } from './SelectInputChip';
+import { SelectInputChip } from './SelectInputChip';
+import type { SelectInputSizeTheme } from './SelectInputTheme';
 
 export interface SelectInputProps {
   /**
@@ -133,7 +137,7 @@ export interface SelectInputProps {
   /**
    * The size of the select input.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof SelectInputSizeTheme;
 
   /**
    * The theme of the select input.
@@ -159,16 +163,6 @@ export interface SelectInputProps {
    * The loading icon of the select input.
    */
   loadingIcon?: React.ReactNode;
-
-  /**
-   * Content to display before the select input.
-   */
-  start?: React.ReactNode;
-
-  /**
-   * Content to display after the select input (before the action buttons).
-   */
-  end?: React.ReactNode;
 
   /**
    * The chip of the select input.
@@ -274,8 +268,6 @@ export const SelectInput: FC<SelectInputProps> = ({
   closeIcon = <CloseIcon />,
   expandIcon = <DownArrowIcon />,
   loadingIcon = <DotsLoader size="small" />,
-  start,
-  end,
   closeOnSelect,
   onSelectedChange,
   onKeyDown,
@@ -451,14 +443,14 @@ export const SelectInput: FC<SelectInputProps> = ({
     [clearable, disabled, onSelectedChange]
   );
 
-  const renderSelectedValue = useCallback(() => {
+  const renderPrefix = useCallback(() => {
     if (multiple) {
       const multipleOptions = selectedOption as SelectOptionProps[];
       if (multipleOptions?.length) {
         return (
           <div
-            className={cn(theme.selectedValue, 'select-input-value', {
-              [theme.multiple?.selectedValue]: multiple
+            className={cn(theme.prefix, 'select-input-value', {
+              [theme.multiple?.prefix]: multiple
             })}
           >
             {multipleOptions.map(option => (
@@ -482,8 +474,8 @@ export const SelectInput: FC<SelectInputProps> = ({
         return (
           <div
             className={cn(
-              theme.selectedValue,
-              theme.single?.selectedValue,
+              theme.prefix,
+              theme.single?.prefix,
               'select-input-value'
             )}
           >
@@ -505,7 +497,7 @@ export const SelectInput: FC<SelectInputProps> = ({
     onTagKeyDown,
     selectedOption,
     theme.multiple,
-    theme.selectedValue,
+    theme.prefix,
     theme.single
   ]);
 
@@ -533,8 +525,7 @@ export const SelectInput: FC<SelectInputProps> = ({
           })}
           onClick={onInputFocus}
         >
-          {start && <div className={theme.adornment.start}>{start}</div>}
-          {renderSelectedValue()}
+          {renderPrefix()}
           <InlineInput
             ref={inputRef}
             id={id}
@@ -543,7 +534,6 @@ export const SelectInput: FC<SelectInputProps> = ({
             aria-expanded={menuOpen}
             aria-haspopup="listbox"
             aria-autocomplete="list"
-            aria-controls={menuOpen ? `${id}-menu` : undefined}
             disabled={disabled}
             required={required}
             autoFocus={autoFocus}
@@ -565,16 +555,15 @@ export const SelectInput: FC<SelectInputProps> = ({
             onPaste={onPaste}
           />
         </div>
-        {end && <div className={theme.adornment.end}>{end}</div>}
-        <div className={theme.actions?.container}>
+        <div className={theme.suffix?.container}>
           {refreshable && !loading && (
             <button
               type="button"
               title="Refresh Options"
               disabled={disabled}
               className={cn(
-                theme.actions?.button,
-                theme.actions?.refresh,
+                theme.suffix?.button,
+                theme.suffix?.refresh,
                 'select-input-refresh'
               )}
               onClick={onRefresh}
@@ -582,17 +571,15 @@ export const SelectInput: FC<SelectInputProps> = ({
               {refreshIcon}
             </button>
           )}
-          {loading && (
-            <div className={theme.actions?.loader}>{loadingIcon}</div>
-          )}
+          {loading && <div className={theme.suffix?.loader}>{loadingIcon}</div>}
           {showClear && (
             <button
               type="button"
               title="Clear selection"
               disabled={disabled}
               className={cn(
-                theme.actions?.button,
-                theme.actions?.close,
+                theme.suffix?.button,
+                theme.suffix?.close,
                 'select-input-clear'
               )}
               onClick={onClearValues}
@@ -606,8 +593,8 @@ export const SelectInput: FC<SelectInputProps> = ({
               title="Toggle options menu"
               disabled={disabled}
               className={cn(
-                theme.actions?.button,
-                theme.actions?.expand,
+                theme.suffix?.button,
+                theme.suffix?.expand,
                 'select-input-toggle'
               )}
               onClick={onExpandClick}

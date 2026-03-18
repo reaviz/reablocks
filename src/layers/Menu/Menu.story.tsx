@@ -1,10 +1,13 @@
 import React, { Fragment, useRef, useState } from 'react';
-import { Card } from '../../layout/Card';
-import { List, ListItem } from '../../layout/List';
+
+import { Button } from '@/elements';
+import type { NestedMenuRef } from '@/layers';
+import { NestedMenu } from '@/layers';
+import { useMenu } from '@/layers';
+import { Card } from '@/layout';
+import { List, ListItem } from '@/layout';
+
 import { Menu } from './Menu';
-import { NestedMenu, NestedMenuRef } from './NestedMenu';
-import { useMenu } from './useMenu';
-import { Button } from '../../elements/Button';
 
 export default {
   title: 'Components/Layers/Menu',
@@ -249,7 +252,7 @@ export const CustomAnimation = () => {
               rotateZ: 0,
               scale: 1,
               transformOrigin: 'center',
-              backgroundColor: 'rgba(255, 255, 255, 0.98)',
+              backgroundColor: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'blur(12px)',
               boxShadow:
                 '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)'

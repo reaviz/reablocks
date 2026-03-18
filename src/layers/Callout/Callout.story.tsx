@@ -1,15 +1,15 @@
 import React from 'react';
-import { Small } from '@/typography';
-
-import {
-  Callout,
-  SuccessCallout,
-  WarningCallout,
-  ErrorCallout,
-  InfoCallout
-} from '@/layers';
 
 import CalendarIcon from '@/assets/icons/calendar.svg?react';
+import {
+  Callout,
+  ErrorCallout,
+  InfoCallout,
+  SuccessCallout,
+  WarningCallout
+} from '@/layers';
+import { Stack } from '@/layout';
+import { Typography } from '@/typography';
 
 export default {
   title: 'Components/Layers/Callout',
@@ -23,13 +23,13 @@ export const Simple = () => (
 );
 
 export const Variants = () => (
-  <div className="flex items-center gap-2.5 flex-col w-full">
+  <Stack direction="column" className="w-full">
     <Callout text="You will need admin privileges to install and access this application." />
     <SuccessCallout text="You will need admin privileges to install and access this application." />
     <WarningCallout text="You will need admin privileges to install and access this application." />
     <ErrorCallout text="You will need admin privileges to install and access this application." />
     <InfoCallout text="You will need admin privileges to install and access this application." />
-  </div>
+  </Stack>
 );
 
 export const CustomIcon = () => (
@@ -46,11 +46,10 @@ export const CustomText = () => (
     <InfoCallout
       variant="info"
       text={
-        <Small>
-          You will need{' '}
-          <span className="font-semibold text-warning">admin</span> privileges
-          to install and access this application.
-        </Small>
+        <Typography>
+          You will need <Typography variant="button">admin</Typography>{' '}
+          privileges to install and access this application.
+        </Typography>
       }
     />
   </div>

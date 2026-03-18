@@ -9,7 +9,7 @@ import { Button } from '../../../src/elements/Button';
 import { Input } from '../../../src/form/Input';
 
 import { Chip } from '../../../src/elements/Chip';
-import { H1 } from '../../../src/typography';
+import { Typography } from '../../../src/typography';
 
 export default {
   title: 'Blocks/Foundation/Not Found'
@@ -832,18 +832,18 @@ const GridPatternIcon = ({ className }) => (
 );
 
 export const NotFound = () => (
-  <div className="flex flex-row justify-center w-full md:min-w-[960px] min-h-[600px] relative dark:bg-black-pearl p-6">
+  <div className="flex flex-row justify-center w-full md:min-w-[960px] min-h-[600px] relative bg-panel p-6">
     <div className="text-center">
       <div className="absolute top-0 left-0 z-0 w-full leading-[600px] text-center text-transparent bg-clip-text text-[400px] opacity-30 bg-linear-to-r from-waterloo to-charade font-bold">
         404
       </div>
-      <div className="absolute top-0 left-0 w-full h-full dark:bg-[radial-gradient(circle,rgba(36,36,66,0.3)_2%,rgba(2,2,15,1)_80%)] light:bg-[radial-gradient(circle,rgba(224,224,232,0.3)_2%,rgba(247,247,250,1)_80%)]" />
+      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle,rgba(36,36,66,0.3)_2%,rgba(2,2,15,1)_80%)]" />
       <div className="flex flex-col gap-3 h-full justify-center">
         <div className="grow" />
         <div className="text-text-primary z-10 relative font-bold text-5xl!">
           We lost this page
         </div>
-        <div className="dark:text-waterloo light:text-charade opacity-80 z-10 relative">
+        <div className="text-text-secondary opacity-80 z-10 relative">
           The page you are looking for doesnt exist or has been moved.
         </div>
         <Input
@@ -874,7 +874,7 @@ export const NotFound = () => (
         <div className="grow flex flex-col justify-center">
           <Button
             color="primary"
-            className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors font-semibold"
+            className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) focus:outline-hidden transition-colors font-semibold"
           >
             ← Back to Home
           </Button>
@@ -885,7 +885,7 @@ export const NotFound = () => (
 );
 
 export const DoesNotExist = () => (
-  <div className="w-full dark:bg-black-pearl md:min-w-[960px] p-6 pt-0">
+  <div className="w-full bg-panel md:min-w-[960px] p-6 pt-0">
     <MotionGroup className="bg-[radial-gradient(50%_6.33%_at_50%_0%,rgba(16,94,255,0.71)_0%,rgba(248,248,251,0)_85.19%)] pb-[50px]">
       <Divider variant="secondary" />
       <MotionItem className="flex flex-col items-center p-12">
@@ -940,7 +940,7 @@ export const DoesNotExist = () => (
         </svg>
         <Chip
           color="primary"
-          className="rounded-full px-3 dark:text-athens-gray light:text-charade dark:bg-blue-950 light:bg-blue-100 gap-1"
+          className="rounded-full px-3 text-text-primary bg-info-background gap-1"
           start={
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -958,17 +958,17 @@ export const DoesNotExist = () => (
         >
           404
         </Chip>
-        <H1 className="font-bold my-3 dark:text-athens-gray">
+        <Typography variant="h1" className="font-bold my-3 text-text-primary">
           This page does not exist
-        </H1>
-        <span className="dark:text-waterloo light:text-charade">
+        </Typography>
+        <span className="text-text-secondary">
           Sorry, we couldn't find the page you're looking for.
         </span>
       </MotionItem>
       <div className="flex flex-col items-center w-full md:w-[600px] pb-[50px] m-auto">
-        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded-sm group/item">
+        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent hover:[border-image:linear-gradient(to_top_left,var(--panel-accent),var(--panel))_10] hover:cursor-pointer transition-colors rounded-sm group/item">
           <svg
-            className="group-hover/item:fill-primary-active dark:fill-mystic transition-colors"
+            className="group-hover/item:fill-primary-active fill-text-secondary transition-colors"
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"
@@ -979,13 +979,13 @@ export const DoesNotExist = () => (
           </svg>
           <div className="flex flex-col items-start gap-1">
             <span className="font-bold">Documentation</span>
-            <span className="dark:text-waterloo light:text-charade">
+            <span className="text-text-secondary">
               Learn how to integrate our tools with your app.
             </span>
           </div>
           <div className="grow self-center flex justify-end">
             <svg
-              className="dark:fill-mystic"
+              className="fill-text-secondary"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -999,9 +999,9 @@ export const DoesNotExist = () => (
         <MotionItem className="w-full">
           <Divider variant="secondary" disableMargins />
         </MotionItem>
-        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded-sm group/item">
+        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent hover:[border-image:linear-gradient(to_top_left,var(--panel-accent),var(--panel))_10] hover:cursor-pointer transition-colors rounded-sm group/item">
           <svg
-            className="group-hover/item:fill-primary-active dark:fill-mystic transition-colors"
+            className="group-hover/item:fill-primary-active fill-text-secondary transition-colors"
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"
@@ -1012,13 +1012,13 @@ export const DoesNotExist = () => (
           </svg>
           <div className="flex flex-col items-start gap-1">
             <span className="font-bold">APIs</span>
-            <span className="dark:text-waterloo light:text-charade">
+            <span className="text-text-secondary">
               Explore all API references
             </span>
           </div>
           <div className="grow self-center flex justify-end">
             <svg
-              className="dark:fill-mystic"
+              className="fill-text-secondary"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -1032,9 +1032,9 @@ export const DoesNotExist = () => (
         <MotionItem className="w-full">
           <Divider variant="secondary" disableMargins />
         </MotionItem>
-        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded-sm group/item">
+        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent hover:[border-image:linear-gradient(to_top_left,var(--panel-accent),var(--panel))_10] hover:cursor-pointer transition-colors rounded-sm group/item">
           <svg
-            className="group-hover/item:fill-primary-active dark:fill-mystic transition-colors"
+            className="group-hover/item:fill-primary-active fill-text-secondary transition-colors"
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"
@@ -1045,13 +1045,13 @@ export const DoesNotExist = () => (
           </svg>
           <div className="flex flex-col items-start gap-1">
             <span className="font-bold">Guide</span>
-            <span className="dark:text-waterloo light:text-charade">
+            <span className="text-text-secondary">
               Easy-to-follow installation guides.
             </span>
           </div>
           <div className="grow self-center flex justify-end">
             <svg
-              className="dark:fill-mystic"
+              className="fill-text-secondary"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -1065,9 +1065,9 @@ export const DoesNotExist = () => (
         <MotionItem className="w-full">
           <Divider variant="secondary" disableMargins />
         </MotionItem>
-        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent dark:hover:[border-image:linear-gradient(to_top_left,#242433,#02020F)_10] light:hover:[border-image:linear-gradient(to_top_left,#E6E6F0,#FFFFFF)_10] hover:cursor-pointer transition-colors rounded-sm group/item">
+        <MotionItem className="flex gap-2.5 w-full p-6 border border-transparent hover:[border-image:linear-gradient(to_top_left,var(--panel-accent),var(--panel))_10] hover:cursor-pointer transition-colors rounded-sm group/item">
           <svg
-            className="group-hover/item:fill-primary-active dark:fill-mystic transition-colors"
+            className="group-hover/item:fill-primary-active fill-text-secondary transition-colors"
             xmlns="http://www.w3.org/2000/svg"
             width="20"
             height="20"
@@ -1078,13 +1078,13 @@ export const DoesNotExist = () => (
           </svg>
           <div className="flex flex-col items-start gap-1">
             <span className="font-bold">Blog</span>
-            <span className="dark:text-waterloo light:text-charade">
+            <span className="text-text-secondary">
               Read our latest news.
             </span>
           </div>
           <div className="grow self-center flex justify-end">
             <svg
-              className="dark:fill-mystic"
+              className="fill-text-secondary"
               xmlns="http://www.w3.org/2000/svg"
               width="24"
               height="24"
@@ -1099,7 +1099,7 @@ export const DoesNotExist = () => (
       <MotionItem>
         <Button
           color="primary"
-          className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors font-semibold"
+          className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) focus:outline-hidden transition-colors font-semibold"
         >
           ← Back to Home
         </Button>
@@ -1109,14 +1109,14 @@ export const DoesNotExist = () => (
 );
 
 export const LostPage = () => (
-  <div className="flex flex-row justify-center w-full md:min-w-[960px] p-6 min-h-[800px] relative dark:bg-black-pearl">
+  <div className="flex flex-row justify-center w-full md:min-w-[960px] p-6 min-h-[800px] relative bg-panel">
     <div className="text-center w-full">
       <GridPatternIcon className="absolute top-0" />
       <div className="flex flex-col gap-3 w-full h-full justify-center">
         <div>
           <Chip
             color="primary"
-            className="rounded-full px-3 dark:text-athens-gray light:text-charade dark:bg-blue-950 light:bg-blue-100 gap-1"
+            className="rounded-full px-3 text-text-primary bg-info-background gap-1"
           >
             404 Error
           </Chip>
@@ -1124,18 +1124,18 @@ export const LostPage = () => (
         <div className="text-text-primary z-10 relative font-bold text-5xl!">
           We lost this page
         </div>
-        <div className="dark:text-waterloo light:text-charade opacity-80 z-10 relative">
+        <div className="text-text-secondary opacity-80 z-10 relative">
           Let's find a better place for you to go.
         </div>
         <Button
           color="primary"
-          className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors font-semibold"
+          className="z-10 mx-auto relative rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) focus:outline-hidden transition-colors font-semibold"
         >
           ← Back to Home
         </Button>
         <MotionGroup className="mt-12 md:mt-[200px] w-full grid md:grid-cols-3 grid-cols-1 px-10">
           <MotionItem className="group/item">
-            <Card className="relative text-left border-transparent dark:group-hover/item:border-charade light:group-hover/item:border-mystic transition-colors">
+            <Card className="relative text-left border-transparent group-hover/item:border-panel-accent transition-colors">
               <div className="flex flex-col gap-6 items-start">
                 <svg
                   className="fill:secondary-hover group-hover/item:fill-primary transition-colors"
@@ -1149,7 +1149,7 @@ export const LostPage = () => (
                 </svg>
                 <div className="flex flex-col">
                   <span className="font-bold">Documentation</span>
-                  <span className="text-base dark:text-waterloo light:text-charade">
+                  <span className="text-base text-text-secondary">
                     Learn how to integrate our tools.
                   </span>
                 </div>
@@ -1177,7 +1177,7 @@ export const LostPage = () => (
             </Card>
           </MotionItem>
           <MotionItem className="group/item">
-            <Card className="relative text-left border-transparent dark:group-hover/item:border-charade light:group-hover/item:border-mystic transition-colors">
+            <Card className="relative text-left border-transparent group-hover/item:border-panel-accent transition-colors">
               <div className="flex flex-col gap-6 items-start">
                 <svg
                   className="fill:secondary-hover group-hover/item:fill-primary transition-colors"
@@ -1191,7 +1191,7 @@ export const LostPage = () => (
                 </svg>
                 <div className="flex flex-col">
                   <span className="font-bold">Guide</span>
-                  <span className="text-base dark:text-waterloo light:text-charade">
+                  <span className="text-base text-text-secondary">
                     Easy-to-follow installation guides.
                   </span>
                 </div>
@@ -1219,7 +1219,7 @@ export const LostPage = () => (
             </Card>
           </MotionItem>
           <MotionItem className="group/item">
-            <Card className="relative text-left border-transparent dark:group-hover/item:border-charade light:group-hover/item:border-mystic transition-colors">
+            <Card className="relative text-left border-transparent group-hover/item:border-panel-accent transition-colors">
               <div className="flex flex-col gap-6 items-start">
                 <svg
                   className="fill:secondary-hover group-hover/item:fill-primary transition-colors"
@@ -1233,7 +1233,7 @@ export const LostPage = () => (
                 </svg>
                 <div className="flex flex-col">
                   <span className="font-bold">Blog</span>
-                  <span className="text-base dark:text-waterloo light:text-charade">
+                  <span className="text-base text-text-secondary">
                     Read our latest news.
                   </span>
                 </div>

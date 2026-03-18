@@ -1,29 +1,179 @@
-export interface TypographyTheme {
-  h1: string;
-  h2: string;
-  h3: string;
-  h4: string;
-  h5: string;
-  h6: string;
-  p: string;
-  blockquote: string;
-  lead: string;
-  large: string;
-  small: string;
-  muted: string;
+export interface TypographySize {
+  small?: string;
+  medium?: string;
+  large?: string;
+  [key: string]: string;
 }
 
-export const typographyTheme: TypographyTheme = {
-  h1: 'scroll-m-20 text-4xl font-extrabold tracking-tight text-balance',
-  h2: 'scroll-m-20 border-b border-surface pb-2 text-3xl font-semibold tracking-tight first:mt-0',
-  h3: 'scroll-m-20 text-2xl font-semibold tracking-tight',
-  h4: 'scroll-m-20 text-xl font-semibold tracking-tight',
-  h5: 'scroll-m-20 text-lg font-semibold tracking-tight',
-  h6: 'scroll-m-20 text-base font-semibold tracking-tight',
-  p: 'leading-7 [&:not(:first-child)]:mt-6',
-  blockquote: 'mt-6 border-l-2 border-surface pl-6 italic',
-  lead: 'text-xl text-text-secondary',
-  large: 'text-lg font-semibold',
-  small: 'text-sm leading-none font-medium',
-  muted: 'text-sm text-text-secondary'
+export interface TypographyWeight {
+  thin?: string;
+  extralight?: string;
+  light?: string;
+  regular?: string;
+  medium?: string;
+  semibold?: string;
+  bold?: string;
+  extrabold?: string;
+  black?: string;
+  [key: string]: string;
+}
+
+export interface TypographyColor {
+  primary?: string;
+  secondary?: string;
+  [key: string]: string;
+}
+
+interface TypographyVariant {
+  base?: string;
+  size?: TypographySize;
+}
+
+export interface TypographyTheme {
+  base: string;
+  color?: TypographyColor;
+  weight?: TypographyWeight;
+  variant: {
+    h1?: TypographyVariant;
+    h2?: TypographyVariant;
+    h3?: TypographyVariant;
+    h4?: TypographyVariant;
+    h5?: TypographyVariant;
+    h6?: TypographyVariant;
+    body?: TypographyVariant;
+    label?: TypographyVariant;
+    button?: TypographyVariant;
+    monospace?: TypographyVariant;
+    [key: string]: TypographyVariant;
+  };
+}
+
+export const defaultTypographyTheme: TypographyTheme = {
+  base: '',
+  color: {
+    primary: 'text-primary',
+    secondary: 'text-secondary'
+  },
+  weight: {
+    thin: 'font-thin',
+    extralight: 'font-extralight',
+    light: 'font-light',
+    regular: 'font-normal',
+    medium: 'font-medium',
+    semibold: 'font-semibold',
+    bold: 'font-bold',
+    extrabold: 'font-extrabold',
+    black: 'font-black'
+  },
+  variant: {
+    h1: {
+      base: 'font-sans text-5xl font-normal leading-12'
+    },
+    h2: {
+      base: 'font-sans text-4xl font-normal leading-9'
+    },
+    h3: {
+      base: 'font-sans text-3xl font-normal leading-8'
+    },
+    h4: {
+      base: 'font-sans text-2xl font-normal leading-7'
+    },
+    h5: {
+      base: 'font-sans text-xl font-normal leading-6'
+    },
+    h6: {
+      base: 'font-sans text-lg font-normal leading-6'
+    },
+    body: {
+      base: 'font-serif text-base font-normal leading-4.5',
+      size: {
+        large: 'text-lg leading-6',
+        small: 'text-sm leading-3.5'
+      }
+    },
+    button: {
+      base: 'font-serif text-base font-semibold leading-4.5',
+      size: {
+        large: 'text-lg leading-6',
+        small: 'text-sm leading-3.5'
+      }
+    },
+    label: {
+      base: 'font-serif text-sm font-semibold leading-3',
+      size: {
+        large: 'text-md leading-3.5',
+        small: 'text-xs'
+      }
+    },
+    monospace: {
+      base: 'font-mono font-medium text-xs leading-3'
+    }
+  }
+};
+
+export const unifyTypographyTheme: TypographyTheme = {
+  base: '',
+  color: {
+    primary: 'text-content-text-on-color-light-dark',
+    secondary: 'text-content-text-neutral-base',
+    success: 'text-content-text-success-base',
+    warning: 'text-content-text-warning-base',
+    error: 'text-content-text-destructive-base',
+    info: 'text-content-text-info-base'
+  },
+  weight: {
+    thin: 'font-thin',
+    extralight: 'font-extralight',
+    light: 'font-light',
+    regular: 'font-normal',
+    medium: 'font-medium',
+    semibold: 'font-semibold',
+    bold: 'font-bold',
+    extrabold: 'font-extrabold',
+    black: 'font-black'
+  },
+  variant: {
+    h1: {
+      base: 'font-sans text-5xl font-normal leading-12'
+    },
+    h2: {
+      base: 'font-sans text-4xl font-normal leading-9'
+    },
+    h3: {
+      base: 'font-sans text-3xl font-normal leading-8'
+    },
+    h4: {
+      base: 'font-sans text-2xl font-normal leading-7'
+    },
+    h5: {
+      base: 'font-sans text-xl font-normal leading-6'
+    },
+    h6: {
+      base: 'font-sans text-lg font-normal leading-6'
+    },
+    body: {
+      base: 'font-serif text-base font-normal leading-4.5',
+      size: {
+        large: 'text-lg leading-6',
+        small: 'text-sm leading-3.5'
+      }
+    },
+    button: {
+      base: 'font-serif text-base font-semibold leading-4.5',
+      size: {
+        large: 'text-lg leading-6',
+        small: 'text-sm leading-3.5'
+      }
+    },
+    label: {
+      base: 'font-serif text-sm font-semibold leading-3',
+      size: {
+        large: 'text-md leading-3.5',
+        small: 'text-xs'
+      }
+    },
+    monospace: {
+      base: 'font-mono font-medium text-xs leading-3'
+    }
+  }
 };

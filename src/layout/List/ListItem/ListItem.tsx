@@ -1,5 +1,7 @@
-import React, { FC, InputHTMLAttributes, LegacyRef, forwardRef } from 'react';
-import { ListTheme } from '@/layout/List/ListTheme';
+import type { FC, InputHTMLAttributes, LegacyRef } from 'react';
+import React, { forwardRef } from 'react';
+
+import type { ListTheme } from '@/layout/List/ListTheme';
 import { cn, useComponentTheme } from '@/utils';
 
 export interface ListItemProps extends InputHTMLAttributes<HTMLDivElement> {
@@ -103,7 +105,7 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
             className={cn(
               theme.listItem.adornment.base,
               theme.listItem.adornment.start,
-              { [theme.listItem.dense.start]: dense }
+              { [theme.listItem.dense.startAdornment]: dense }
             )}
           >
             {start}
@@ -125,7 +127,7 @@ export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<
             className={cn(
               theme.listItem.adornment.base,
               theme.listItem.adornment.end,
-              { [theme.listItem.dense.end]: dense }
+              { [theme.listItem.dense.endAdornment]: dense }
             )}
           >
             {end}

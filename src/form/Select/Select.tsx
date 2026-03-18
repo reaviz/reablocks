@@ -1,6 +1,7 @@
+import { useFuzzy } from '@reaviz/react-use-fuzzy';
+import type Fuse from 'fuse.js';
+import type { FC, ReactElement } from 'react';
 import React, {
-  FC,
-  ReactElement,
   useCallback,
   useEffect,
   useLayoutEffect,
@@ -8,19 +9,18 @@ import React, {
   useRef,
   useState
 } from 'react';
-import Fuse from 'fuse.js';
-import {
-  ConnectedOverlay,
-  ConnectedOverlayContentRef,
-  Placement
-} from '@/utils';
-import { CloneElement, useId } from '@/utils';
-import { SelectInput, SelectInputProps, SelectInputRef } from './SelectInput';
-import { SelectMenu, SelectMenuProps } from './SelectMenu';
-import { SelectOptionProps, SelectValue } from './SelectOption';
-import { useFuzzy } from '@reaviz/react-use-fuzzy';
-import { createOptions, getGroups, useWidth, keyNameToCode } from './utils';
 import isEqual from 'react-fast-compare';
+
+import type { ConnectedOverlayContentRef, Placement } from '@/utils';
+import { ConnectedOverlay } from '@/utils';
+import { CloneElement, useId } from '@/utils';
+
+import type { SelectInputProps, SelectInputRef } from './SelectInput';
+import { SelectInput } from './SelectInput';
+import type { SelectMenuProps } from './SelectMenu';
+import { SelectMenu } from './SelectMenu';
+import type { SelectOptionProps, SelectValue } from './SelectOption';
+import { createOptions, getGroups, keyNameToCode, useWidth } from './utils';
 
 export interface SelectProps {
   /**
@@ -214,16 +214,6 @@ export interface SelectProps {
   onOptionsChange?: (options: SelectOptionProps[]) => void;
 
   /**
-   * Content to display before the select input.
-   */
-  start?: React.ReactNode;
-
-  /**
-   * Content to display after the select input (before the action buttons).
-   */
-  end?: React.ReactNode;
-
-  /**
    * Input override component.
    */
   input?: ReactElement<SelectInputProps, typeof SelectInput>;
@@ -277,8 +267,6 @@ export const Select: FC<SelectProps> = ({
   required,
   clearOnBlur = true,
   size = 'medium',
-  start,
-  end,
   input = <SelectInput />,
   menu = <SelectMenu />,
   onRefresh,
@@ -598,10 +586,10 @@ export const Select: FC<SelectProps> = ({
         // Add new item if menu not disabled or item not presents in the list otherwise just clear input
         if (
           newSelection &&
-          (!menuDisabled || !value?.includes(newSelection.value))
+          (!menuDisabled || !value.includes(newSelection.value))
         ) {
           toggleSelectedOption(newSelection);
-        } else if (menuDisabled && value?.includes(newSelection.value)) {
+        } else if (menuDisabled && value.includes(newSelection.value)) {
           resetInput();
         }
       }
@@ -829,8 +817,6 @@ export const Select: FC<SelectProps> = ({
         error={error}
         closeOnSelect={closeOnSelect}
         inputText={keyword}
-        start={start}
-        end={end}
         multiple={multiple}
         createable={createable}
         filterable={filterable}

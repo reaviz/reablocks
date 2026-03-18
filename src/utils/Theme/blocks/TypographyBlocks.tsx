@@ -1,18 +1,5 @@
-import React, { FC } from 'react';
-import {
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
-  H6,
-  P,
-  BlockQuote,
-  Lead,
-  Large,
-  Small,
-  Muted
-} from '@/typography';
+import type { FC } from 'react';
+import React from 'react';
 
 export interface TypographyLetterBlockProps {
   fontFamily: string;
@@ -44,7 +31,7 @@ export const TypographyLetterBlock: FC<TypographyLetterBlockProps> = ({
       <h2 style={{ margin: 0 }}>{fontFamily}</h2>
       <div>ABCDEFGHIJKLMNOPQRSTUVWXYZ</div>
       <div>abcdefghijklmnopqrstuvwxyz</div>
-      <div>{'1234567890 /&*()?<>+-=$@%!"[]{}'}</div>
+      <div>{'1234567890 /&*()?<>+-=$@%!”[]{}'}</div>
     </div>
   </div>
 );
@@ -155,115 +142,6 @@ export const TypographyWeightBlock: FC<TypographyWeightBlockProps> = ({
   </div>
 );
 
-export const TypographyComponentsBlock: FC = () => (
-  <div style={{ maxWidth: '720px' }}>
-    <h2 style={{ fontSize: '20px', fontWeight: '500', marginBottom: '16px' }}>
-      Components
-    </h2>
-    <div
-      style={{
-        padding: '24px',
-        borderRadius: '8px',
-        border: 'solid 1px var(--border-color)',
-        marginBottom: '24px'
-      }}
-    >
-      <H1>H1: The quick brown fox</H1>
-      <Muted>text-4xl font-extrabold tracking-tight text-balance</Muted>
-      <div style={{ height: '16px' }} />
-      <H2 className="border-0">H2: The quick brown fox</H2>
-      <Muted>border-b pb-2 text-3xl font-semibold tracking-tight</Muted>
-      <div style={{ height: '16px' }} />
-      <H3>H3: The quick brown fox</H3>
-      <Muted>text-2xl font-semibold tracking-tight</Muted>
-      <div style={{ height: '16px' }} />
-      <H4>H4: The quick brown fox</H4>
-      <H5>H5: The quick brown fox</H5>
-      <H6>H6: The quick brown fox</H6>
-      <Muted>text-xl font-semibold tracking-tight</Muted>
-    </div>
-    <div
-      style={{
-        padding: '24px',
-        borderRadius: '8px',
-        border: 'solid 1px var(--border-color)',
-        marginBottom: '24px'
-      }}
-    >
-      <P>
-        The king, seeing how much happier his subjects were, realized the error
-        of his ways and repealed the joke tax. Jokester began sneaking into the
-        castle in the middle of the night and telling jokes to the king.
-      </P>
-      <P>
-        The people of the kingdom once again could freely exchange jokes and
-        laughter, and the land was filled with joy and mirth once more.
-      </P>
-    </div>
-    <div
-      style={{
-        padding: '24px',
-        borderRadius: '8px',
-        border: 'solid 1px var(--border-color)',
-        marginBottom: '24px'
-      }}
-    >
-      <BlockQuote>
-        {
-          '"After all," he said, "everyone enjoys a good joke, so it\'s only fair that they should pay for the privilege."'
-        }
-      </BlockQuote>
-    </div>
-    <div
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        gap: '16px'
-      }}
-    >
-      <div
-        style={{
-          padding: '24px',
-          borderRadius: '8px',
-          border: 'solid 1px var(--border-color)'
-        }}
-      >
-        <Large>Large Text</Large>
-        <Muted>text-lg font-semibold</Muted>
-      </div>
-      <div
-        style={{
-          padding: '24px',
-          borderRadius: '8px',
-          border: 'solid 1px var(--border-color)'
-        }}
-      >
-        <Lead>Lead text for introductions and summaries.</Lead>
-        <Muted>text-xl text-text-secondary</Muted>
-      </div>
-      <div
-        style={{
-          padding: '24px',
-          borderRadius: '8px',
-          border: 'solid 1px var(--border-color)'
-        }}
-      >
-        <Small>Small Text</Small>
-        <Muted>text-sm leading-none font-medium</Muted>
-      </div>
-      <div
-        style={{
-          padding: '24px',
-          borderRadius: '8px',
-          border: 'solid 1px var(--border-color)'
-        }}
-      >
-        <Muted>Muted text for secondary information.</Muted>
-      </div>
-    </div>
-  </div>
-);
-
 export const TypographyBlocks = ({
   families,
   sizes,
@@ -273,56 +151,54 @@ export const TypographyBlocks = ({
   sizes: Record<string, string>;
   weights: Record<string, string>;
 }) => (
-  <div
-    style={{
-      color: 'var(--body-color)',
-      width: '100%'
-    }}
-  >
-    <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '8px' }}>
-      Typography
-    </h1>
-    <TypographyComponentsBlock />
-    <br />
-    <h2 style={{ fontSize: '20px', fontWeight: '500' }}>Font Families</h2>
-    <br />
-    {Object.keys(families).map(family => (
-      <div
-        key={family}
-        style={{
-          marginBottom: '24px'
-        }}
-      >
-        <h3 style={{ fontWeight: 600, fontSize: '20px' }}>
-          <small>
-            <code>{family.replace('--font-', '')}</code>
-          </small>
-          <br />
-        </h3>
+    <div
+      style={{
+        color: 'var(--body-color)',
+        width: '100%'
+      }}
+    >
+      <h1 style={{ fontSize: '28px', fontWeight: 'bold', marginBottom: '8px' }}>
+        Typography
+      </h1>
+      <h2 style={{ fontSize: '20px', fontWeight: '500' }}>Font Families</h2>
+      <br />
+      {Object.keys(families).map(family => (
         <div
+          key={family}
           style={{
-            padding: '10px',
-            borderRadius: '8px',
-            border: 'solid 1px var(--border-color)'
+            marginBottom: '24px'
           }}
         >
-          <TypographyLetterBlock fontFamily={families[family]} />
-          <hr
+          <h3 style={{ fontWeight: 600, fontSize: '20px' }}>
+            <small>
+              <code>{family.replace('--font-', '')}</code>
+            </small>
+            <br />
+          </h3>
+          <div
             style={{
-              background: 'none',
-              border: 'none',
-              borderTop: 'solid 1px var(--border-color)'
+              padding: '10px',
+              borderRadius: '8px',
+              border: 'solid 1px var(--border-color)'
             }}
-          />
-          <TypographySizeBlock sizes={sizes} />
+          >
+            <TypographyLetterBlock fontFamily={families[family]} />
+            <hr
+              style={{
+                background: 'none',
+                border: 'none',
+                borderTop: 'solid 1px var(--border-color)'
+              }}
+            />
+            <TypographySizeBlock sizes={sizes} />
+          </div>
         </div>
-      </div>
-    ))}
-    {weights && (
-      <>
-        <h2>Font Weights</h2>
-        <TypographyWeightBlock weights={weights} />
-      </>
-    )}
-  </div>
-);
+      ))}
+      {weights && (
+        <>
+          <h2>Font Weights</h2>
+          <TypographyWeightBlock weights={weights} />
+        </>
+      )}
+    </div>
+  );

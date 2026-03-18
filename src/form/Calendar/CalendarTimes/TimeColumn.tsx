@@ -1,4 +1,6 @@
-import React, { FC, useCallback, useEffect, useRef } from 'react';
+import type { FC } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
+
 import type { CalendarTheme } from '@/form/Calendar/CalendarTheme';
 import { cn } from '@/utils';
 
@@ -14,6 +16,11 @@ interface TimeColumnProps {
    * Currently selected time value
    */
   value?: number | AmPm;
+
+  /**
+   * Whether the column is disabled.
+   */
+  disabled?: boolean;
 
   /**
    * Minimum allowed time value
@@ -49,6 +56,7 @@ interface TimeColumnProps {
 export const TimeColumn: FC<TimeColumnProps> = ({
   options,
   value,
+  disabled,
   min,
   max,
   theme,
@@ -84,26 +92,30 @@ export const TimeColumn: FC<TimeColumnProps> = ({
   );
 
   useEffect(() => {
-    if (containerRef.current && selectedRef.current) {
-      const container = containerRef.current;
-      const selected = selectedRef.current;
+    const timeoutId = setTimeout(() => {
+      if (containerRef.current && selectedRef.current) {
+        const container = containerRef.current;
+        const selected = selectedRef.current;
 
-      const containerHeight = container.clientHeight;
-      const itemOffsetTop = selected.offsetTop;
-      const itemHeight = selected.offsetHeight;
-      let scrollTop = 0;
-      if (is12HourCycle) {
-        scrollTop = itemOffsetTop;
-      } else {
-        // Calculate scrollTop so that the selected item is centered
-        scrollTop = itemOffsetTop - containerHeight / 2 + itemHeight / 2;
+        const containerHeight = container.clientHeight;
+        const itemOffsetTop = selected.offsetTop;
+        const itemHeight = selected.offsetHeight;
+        let scrollTop = 0;
+        if (is12HourCycle) {
+          scrollTop = itemOffsetTop;
+        } else {
+          // Calculate scrollTop so that the selected item is centered
+          scrollTop = itemOffsetTop - containerHeight / 2 + itemHeight / 2;
+        }
+
+        container.scrollTo({
+          top: scrollTop,
+          behavior: 'smooth'
+        });
       }
+    }, 100);
 
-      container.scrollTo({
-        top: scrollTop,
-        behavior: 'smooth'
-      });
-    }
+    return () => clearTimeout(timeoutId);
   }, [value, is12HourCycle]);
 
   return (
@@ -124,7 +136,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
             ref={value === option ? selectedRef : null}
             className={cn(theme.items.item.base, {
               [theme.items.item.selected]: value === option,
-              [theme.items.item.disabled]: isOptionDisabled(option)
+              [theme.items.item.disabled]: isOptionDisabled(option) || disabled
             })}
             onClick={() => {
               if (isOptionDisabled(option)) {
@@ -134,7 +146,7 @@ export const TimeColumn: FC<TimeColumnProps> = ({
               onSelect(option);
             }}
             role="option"
-            aria-disabled={isOptionDisabled(option)}
+            aria-disabled={isOptionDisabled(option) || disabled}
             aria-selected={value === option}
           >
             {typeof option === 'number'

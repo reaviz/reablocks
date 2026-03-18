@@ -5,9 +5,11 @@ export interface CalendarTheme {
     prev: string;
     mid: string;
     next: string;
+    divider?: string;
   };
   title: string;
   content: string;
+  contentContainer: string;
   days: {
     header: string;
     dayOfWeek: string;
@@ -33,7 +35,7 @@ export interface CalendarTheme {
     year: string;
     selected: string;
   };
-  time?: {
+  time: {
     base: string;
     wrapper: string;
     dividerTop: string;
@@ -58,7 +60,7 @@ export interface CalendarTheme {
       };
     };
   };
-  presets?: {
+  presets: {
     wrapper: string;
     divider: string;
     base: string;
@@ -70,47 +72,46 @@ export interface CalendarTheme {
   };
 }
 
-const baseTheme: CalendarTheme = {
+export const defaultCalendarTheme: CalendarTheme = {
   base: 'relative overflow-hidden',
   header: {
-    base: 'flex text-center justify-between mb-2 items-center',
+    base: 'flex text-center justify-between mb-2 items-center text-text-secondary',
     prev: 'text-xl leading-4',
     mid: '',
     next: 'text-xl leading-4'
   },
-  title: 'text-base font-semibold leading-[normal]',
+  title: 'font-semibold leading-[normal]',
   content: 'flex',
-
+  contentContainer: '',
   days: {
-    header: 'text-center grid grid-cols-7 mb-1 pt-2 font-medium',
+    header:
+      'text-center grid grid-cols-7 mb-1 pt-2 font-medium text-text-secondary',
     dayOfWeek: 'text-center font-medium',
     week: 'grid grid-cols-7',
-    day: 'font-normal flex p-2 border',
-    outside: '',
+    day: 'font-normal flex p-2 border border-transparent text-text-secondary opacity-90 hover:bg-primary-hover hover:disabled:bg-transparent! hover:text-white disabled:text-text-secondary/60',
+    outside: ' opacity-40 text-text-secondary',
     startRangeDate: 'rounded-tl-md rounded-tr-none rounded-br-none',
     cornerStartDateBottom: 'rounded-bl-none',
     endRangeDate: 'rounded-br-md rounded-bl-none rounded-tl-none',
     cornerEndDateTop: 'rounded-tr-none',
     range: 'rounded-none',
-    selected: '',
-    hover: 'rounded-sm',
-    today: 'rounded-sm border'
+    selected: 'text-white border-transparent opacity-100',
+    hover: 'bg-primary-active text-white border-transparent opacity-100',
+    today: 'rounded-sm border border-panel-accent text-text-primary'
   },
-
   months: {
     root: 'grid grid-cols-4 gap-2',
-    month: 'p-1.5',
-    selected: ''
+    month:
+      'p-1.5 hover:bg-primary-hover hover:text-white border-transparent text-text-secondary',
+    selected: 'border-transparent text-white'
   },
-
   years: {
     root: 'grid grid-cols-4 gap-2',
-    year: 'p-1.5',
-    selected: ''
+    year: 'p-1.5 hover:bg-primary-hover hover:text-white border-transparent text-text-secondary',
+    selected: 'border-transparent text-white'
   },
-
   time: {
-    base: 'flex flex-col h-full gap-0',
+    base: 'flex flex-col h-full gap-0 text-text-secondary',
     wrapper: 'mt-4 bg-panel z-10 flex flex-row',
     dividerTop: 'w-full',
     dividerLeft: 'h-auto mt-2.5 mx-1 bg-surface z-10',
@@ -118,10 +119,10 @@ const baseTheme: CalendarTheme = {
     column: {
       base: 'w-6',
       wrapper: 'overflow-y-auto h-52',
-      label: 'text-center text-xs text-gray-500',
+      label: 'text-center text-xs text-text-secondary',
       list: 'p-0 m-0 list-none',
       scrollbar:
-        'scrollbar-thin scrollbar-thumb-gray-300 dark:scrollbar-thumb-gray-600 scrollbar-track-transparent hover:scrollbar-thumb-gray-400 dark:hover:scrollbar-thumb-gray-500'
+        'scrollbar-thin scrollbar-thumb-panel-accent scrollbar-track-transparent hover:scrollbar-thumb-surface'
     },
     items: {
       wrapper: 'flex flex-row flex-auto gap-0.25 pt-1 h-46',
@@ -129,9 +130,9 @@ const baseTheme: CalendarTheme = {
       list: 'relative h-full p-0 m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
       divider: 'mx-0',
       item: {
-        base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150',
-        selected: '',
-        disabled: 'cursor-not-allowed'
+        base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 hover:bg-primary-hover hover:text-white',
+        selected: 'bg-primary-active text-white',
+        disabled: 'cursor-not-allowed opacity-40 pointer-events-none'
       }
     }
   },
@@ -147,90 +148,106 @@ const baseTheme: CalendarTheme = {
   }
 };
 
-export const calendarTheme: CalendarTheme = {
-  ...baseTheme,
+export const unifyCalendarTheme: CalendarTheme = {
+  base: 'bg-calendar-colors-container-background-default relative overflow-hidden border rounded-(--calendar-details-corner-radius-default) border-calendar-colors-container-stroke-default [&>hr]:bg-calendar-colors-container-stroke-default',
   header: {
-    ...baseTheme.header,
-    base: [baseTheme.header.base, 'text-text-secondary'].join(' ')
+    base: 'flex gap-(--calendar-details-space-between-default) text-center justify-between py-(--calendar-details-vertical-padding-default) px-(--calendar-details-horizontal-padding-header) items-center text-calendar-colors-header-text-default',
+    prev: 'text-lg leading-4 min-w-8 text-center text-buttons-colors-core-icon-ghost-assets-resting hover:text-buttons-colors-core-icon-ghost-assets-hover focus-visible:text-buttons-colors-core-icon-ghost-assets-hover',
+    mid: 'group/calendar',
+    next: 'text-lg leading-4 min-w-8 text-center text-buttons-colors-core-icon-ghost-assets-resting hover:text-buttons-colors-core-icon-ghost-assets-hover focus-visible:text-buttons-colors-core-icon-ghost-assets-hover',
+    divider: 'm-0 bg-calendar-colors-container-stroke-default'
   },
+  title:
+    'font-semibold text-base leading-8 text-calendar-colors-date-text-today group-hover/calendar:text-buttons-colors-core-icon-ghost-text-hover group-focus-visible/calendar:text-buttons-colors-core-icon-ghost-text-hover',
+  content: 'flex pt-(--calendar-details-vertical-padding-inside)',
+  contentContainer: 'relative flex h-full max-h-80',
   days: {
-    ...baseTheme.days,
-    day: [
-      baseTheme.days.day,
-      'border-transparent text-text-secondary opacity-90 hover:bg-primary-hover hover:disabled:bg-transparent! hover:text-black disabled:text-text-secondary/60'
-    ].join(' '),
-    header: [baseTheme.days.header, 'text-text-secondary'].join(' '),
-    outside: [baseTheme.days.outside, 'opacity-40 text-text-secondary'].join(
-      ' '
-    ),
-    selected: [
-      baseTheme.days.selected,
-      'text-black border-transparent light:text-white light:border-transparent opacity-100'
-    ].join(' '),
-    hover: [
-      baseTheme.days.hover,
-      'bg-primary-active text-black border-transparent light:text-white opacity-100'
-    ].join(' '),
-    today: [baseTheme.days.today, 'border-panel-accent text-text-primary'].join(
-      ' '
-    )
+    header:
+      'pt-0 text-center grid grid-cols-7 gap-(--calendar-details-space-between-default) font-semibold text-calendar-colors-label-text-default px-(--calendar-details-horizontal-padding-content) pb-1',
+    dayOfWeek:
+      'flex items-center justify-center text-xs min-w-(--calendar-details-height-default) py-(--calendar-details-vertical-padding-inside)',
+    week: 'grid grid-cols-7 gap-(--calendar-details-space-between-default) py-(--calendar-details-space-between-content) px-(--calendar-details-horizontal-padding-content) last:pb-(--calendar-details-horizontal-padding-content)',
+    day: `
+      font-normal text-xs flex p-(--calendar-details-vertical-padding-inside) rounded-(--calendar-details-corner-radius-default) size-(--calendar-details-height-default) border
+      border-calendar-colors-date-stroke-resting focus-visible:border-calendar-colors-date-stroke-hover
+      text-calendar-colors-date-text-resting focus-visible:text-calendar-colors-date-text-hover
+      bg-calendar-colors-date-background-resting focus-visible:bg-calendar-colors-date-background-hover
+    `,
+    outside: 'opacity-40',
+    startRangeDate: '',
+    cornerStartDateBottom: '',
+    endRangeDate: '',
+    cornerEndDateTop: '',
+    range: '',
+    selected:
+      'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected',
+    hover:
+      'bg-calendar-colors-date-background-hover border-calendar-colors-date-stroke-hover text-calendar-colors-date-text-hover',
+    today: 'border-calendar-colors-date-stroke-today'
   },
   months: {
-    ...baseTheme.months,
-    month: [
-      baseTheme.months.month,
-      'hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white'
-    ].join(' '),
-    selected: [
-      baseTheme.years.selected,
-      'border-transparent text-black light:text-white'
-    ].join(' ')
+    root: 'grid grid-cols-4 gap-(--calendar-details-space-between-default)',
+    month: `
+          font-normal text-xs flex p-(--calendar-details-vertical-padding-inside) rounded-(--calendar-details-corner-radius-default) border
+          border-calendar-colors-date-stroke-resting hover:border-calendar-colors-date-stroke-hover focus-visible:border-calendar-colors-date-stroke-hover
+          text-calendar-colors-date-text-resting hover:text-calendar-colors-date-text-hover focus-visible:text-calendar-colors-date-text-hover
+          bg-calendar-colors-date-background-resting hover:bg-calendar-colors-date-background-hover focus-visible:bg-calendar-colors-date-background-hover
+        `,
+    selected:
+      'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected'
   },
   years: {
-    ...baseTheme.years,
-    year: [
-      baseTheme.years.year,
-      'hover:bg-primary-hover hover:text-black border-transparent text-text-secondary light:hover:text-white'
-    ].join(' '),
-    selected: [
-      baseTheme.years.selected,
-      'border-transparent text-black light:text-white'
-    ].join(' ')
+    root: 'grid grid-cols-4 gap-(--calendar-details-space-between-default)',
+    year: `
+      font-normal text-xs flex p-(--calendar-details-vertical-padding-inside) rounded-(--calendar-details-corner-radius-default) border
+      border-calendar-colors-date-stroke-resting hover:border-calendar-colors-date-stroke-hover focus-visible:border-calendar-colors-date-stroke-hover
+      text-calendar-colors-date-text-resting hover:text-calendar-colors-date-text-hover focus-visible:text-calendar-colors-date-text-hover
+      bg-calendar-colors-date-background-resting hover:bg-calendar-colors-date-background-hover focus-visible:bg-calendar-colors-date-background-hover
+    `,
+    selected:
+      'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected'
   },
   time: {
-    ...baseTheme.time,
-    wrapper: [baseTheme.time.wrapper, 'border-panel-border'].join(' '),
+    base: 'pr-(--calendar-details-space-between-content) flex flex-col h-full gap-0 text-xs text-buttons-colors-core-icon-ghost-assets-resting',
+    wrapper: 'z-10 flex flex-row',
+    dividerTop: 'hidden',
+    dividerLeft:
+      'h-auto mx-(--calendar-details-space-between-content) z-10 bg-calendar-colors-container-stroke-default mt-(--calendar-details-space-between-content)',
+    header:
+      'flex gap-(--calendar-details-space-between-default) px-0.5 pb-2.5 mb-2',
+    column: {
+      base: 'w-6',
+      wrapper: 'overflow-y-auto h-52',
+      label: 'text-center text-xs text-calendar-colors-label-text-default',
+      list: 'p-0 m-0 list-none',
+      scrollbar: ''
+    },
     items: {
-      ...baseTheme.time.items,
+      wrapper:
+        'flex flex-row flex-auto gap-0.25 h-full pt-(--calendar-details-vertical-padding-inside) h-46',
+      container: 'h-full',
+      list: 'relative h-full m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
+      divider: 'mx-0 bg-calendar-colors-container-stroke-default',
       item: {
-        ...baseTheme.time.items.item,
-        base: [
-          baseTheme.time.items.item.base,
-          'text-text-secondary hover:bg-primary-hover hover:text-black'
-        ].join(' '),
-        selected: [
-          baseTheme.time.items.item.selected,
-          'bg-blue-500 text-white dark:bg-blue-600 dark:text-white'
-        ].join(' '),
-        disabled: [baseTheme.time.items.item.disabled, 'opacity-50'].join(' ')
+        base: 'bg-calendar-colors-date-background-resting py-(--calendar-details-space-between-content) px-(--spacing-padding-2xs) text-center select-none cursor-pointer rounded transition-colors duration-150 hover:text-buttons-colors-core-icon-ghost-assets-hover hover:bg-calendar-colors-date-background-hover',
+        selected:
+          'bg-calendar-colors-date-background-selected text-calendar-colors-date-text-selected',
+        disabled:
+          'cursor-not-allowed opacity-50 hover:bg-transparent hover:text-calendar-colors-date-text-resting'
       }
     }
   },
   presets: {
-    ...baseTheme.presets,
-    group: [baseTheme.presets.group, '!text-gray-500 dark:text-gray-400'].join(
-      ' '
-    ),
+    wrapper:
+      'z-10 pl-(--calendar-details-vertical-padding-inside) py-(--calendar-details-space-between-content) items-start',
+    divider:
+      'mx-(--calendar-details-space-between-content) self-end bg-calendar-colors-container-stroke-default',
+    base: 'relative max-w-52 pr-(--calendar-details-space-between-content) overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y space-y-0 max-h-60',
+    group:
+      'text-xs font-medium my-(--calendar-details-space-between-content) !pr-0 !pl-0',
     item: {
-      ...baseTheme.presets.item,
-      base: [
-        baseTheme.presets.item.base,
-        'hover:text-black dark:hover:bg-primary-hover hover:rounded-sm'
-      ].join(' '),
-      active: [
-        baseTheme.presets.item.active,
-        'bg-primary text-black rounded-sm'
-      ].join(' ')
+      base: 'text-xs p-(--spacing-padding-2xs) my-(--spacing-padding-4xs) duration-0 text-select-menu-items-color-item-text-row-resting ',
+      active: 'text-select-menu-items-color-item-text-row-selected'
     }
   }
 };

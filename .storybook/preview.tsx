@@ -5,12 +5,20 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import { DocsContainer } from '@storybook/addon-docs/blocks';
 
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
-import { theme as reablocksTheme } from '../src/utils/Theme/themes/theme';
+import { theme as defaultTheme } from '../src/utils/Theme/themes/themeDefault';
+import { themeUnify } from '../src/utils/Theme/themes/themeUnify';
 
-import '../src/index.css';
+const THEME = (import.meta as any).env?.VITE_THEME || 'default';
+const reablocksTheme = THEME === 'unify' ? themeUnify : defaultTheme;
+
+const cssModules = (import.meta as any).glob([
+  '../src/assets/css/default/index.css',
+  '../src/assets/css/unify/index.css'
+]);
+cssModules[`../src/assets/css/${THEME}/index.css`]?.();
 
 const withProvider = (Story, context) => (
-  <ThemeProvider theme={reablocksTheme}>
+  <ThemeProvider theme={reablocksTheme} defaultTheme={reablocksTheme}>
     <Story {...context} />
   </ThemeProvider>
 );

@@ -2,10 +2,10 @@ export interface EllipsisTheme {
   dots: string;
 }
 
-const baseTheme: EllipsisTheme = {
+export const defaultEllipsisTheme: EllipsisTheme = {
   dots: 'cursor-pointer opacity-50 text-[unset] p-0 border-[none] outline-hidden'
 };
 
-export const ellipsisTheme: EllipsisTheme = {
-  ...baseTheme
+export const unifyEllipsisTheme: EllipsisTheme = {
+  dots: 'cursor-pointer opacity-50 text-[unset] p-0 border-[none] outline-hidden'
 };

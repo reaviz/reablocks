@@ -1,14 +1,16 @@
-import React, {
-  FC,
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-  useMemo
-} from 'react';
 import ellipsize from 'ellipsize';
-import { EllipsisTheme } from './EllipsisTheme';
+import type { FC } from 'react';
+import React, {
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from 'react';
+
 import { useComponentTheme } from '@/utils';
+
+import type { EllipsisTheme } from './EllipsisTheme';
 
 export interface EllipsisProps {
   /**

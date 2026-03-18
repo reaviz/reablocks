@@ -12,7 +12,7 @@ import {
 import {
   Chip,
   ChipTheme,
-  chipTheme as defaultChipTheme
+  defaultChipTheme
 } from '../../../src/elements/Chip';
 import { Button } from '../../../src/elements/Button';
 import { Tooltip } from '../../../src/layers';
@@ -51,7 +51,7 @@ export const BillingFull = () => (
             <span className="font-bold">Plan</span>
             <div className="flex w-full gap-4">
               <Card
-                className="light:bg-athens-gray flex-1"
+                className="bg-panel flex-1"
                 contentClassName="flex flex-col gap-6"
               >
                 <div className="flex items-center gap-2.5 justify-between">
@@ -70,9 +70,9 @@ export const BillingFull = () => (
                   </span>
                 </div>
                 <Button
-                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                  className="bg-panel-accent/40 hover:bg-panel-accent/60 focus:bg-panel-accent/60 text-text-primary w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                   variant="outline"
-                  start={
+                  startAdornment={
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -89,7 +89,7 @@ export const BillingFull = () => (
                 </Button>
               </Card>
               <Card
-                className="light:bg-athens-gray flex-1"
+                className="bg-panel flex-1"
                 contentClassName="flex flex-col gap-6"
               >
                 <span className="font-bold">Billing period</span>
@@ -100,9 +100,9 @@ export const BillingFull = () => (
                   </span>
                 </div>
                 <Button
-                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                  className="bg-panel-accent/40 hover:bg-panel-accent/60 focus:bg-panel-accent/60 text-text-primary w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                   variant="outline"
-                  start={
+                  startAdornment={
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -122,7 +122,7 @@ export const BillingFull = () => (
             <Divider className="my-6" variant="secondary" />
             <span className="font-bold">Seats</span>
             <span className="text-sm">Remaining Seats</span>
-            <div className="dark:bg-vulcan light:bg-mystic relative my-3 h-[50px] w-full rounded-full border border-primary/40">
+            <div className="bg-panel relative my-3 h-[50px] w-full rounded-full border border-primary/40">
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: '33%', opacity: 1 }}
@@ -144,7 +144,7 @@ export const BillingFull = () => (
               <Button
                 className="h-fit px-4 py-2 font-semibold"
                 variant="outline"
-                start={
+                startAdornment={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -168,22 +168,33 @@ export const BillingFull = () => (
 
 export const PayAndBilling = () => {
   const chipTheme: ChipTheme = {
-    ...defaultChipTheme,
-    base: `${defaultChipTheme?.base} rounded-full`,
-    colors: {
-      ...defaultChipTheme?.colors,
-      info: {
-        ...defaultChipTheme.colors.info,
-        variants: {
-          ...defaultChipTheme?.colors?.info?.variants,
-          filled: `${defaultChipTheme?.colors?.info?.variants?.filled} text-text-primary bg-info/10 border-info`
-        }
-      },
-      success: {
-        ...defaultChipTheme.colors.success,
-        variants: {
-          ...defaultChipTheme?.colors?.success?.variants,
-          filled: `${defaultChipTheme?.colors?.success?.variants?.filled} text-text-primary bg-success/10 border-success`
+    types: {
+      ...defaultChipTheme.types,
+      badge: {
+        ...defaultChipTheme.types.badge,
+        base: `${defaultChipTheme.types.badge.base} rounded-full`,
+        colors: {
+          ...defaultChipTheme.types.badge.colors,
+          info: {
+            ...defaultChipTheme.types.badge.colors.info,
+            variants: {
+              ...defaultChipTheme.types.badge.colors.info?.variants,
+              filled: {
+                ...defaultChipTheme.types.badge.colors.info?.variants?.filled,
+                base: `${defaultChipTheme.types.badge.colors.info?.variants?.filled?.base} text-text-primary bg-info/10 border-info`
+              }
+            }
+          },
+          success: {
+            ...defaultChipTheme.types.badge.colors.success,
+            variants: {
+              ...defaultChipTheme.types.badge.colors.success?.variants,
+              filled: {
+                ...defaultChipTheme.types.badge.colors.success?.variants?.filled,
+                base: `${defaultChipTheme.types.badge.colors.success?.variants?.filled?.base} text-text-primary bg-success/10 border-success`
+              }
+            }
+          }
         }
       }
     }
@@ -206,9 +217,9 @@ export const PayAndBilling = () => {
             </div>
             <div className="flex items-center gap-2.5">
               <Button
-                className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                className="bg-panel-accent/40 hover:bg-panel-accent/60 focus:bg-panel-accent/60 text-text-primary w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                 variant="outline"
-                end={
+                endAdornment={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -223,8 +234,8 @@ export const PayAndBilling = () => {
                 Cancel Subscription
               </Button>
               <Button
-                className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover flex items-center gap-2 self-stretch px-4 py-2 font-semibold transition-colors focus:outline-hidden"
-                end={
+                className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) flex items-center gap-2 self-stretch px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                endAdornment={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -329,7 +340,7 @@ export const PayAndBilling = () => {
                 </Tooltip>
               </div>
               <span className="text-xl font-bold">100 of 500</span>
-              <div className="dark:bg-vulcan light:bg-mystic relative h-3 w-full rounded-full border border-primary/40">
+              <div className="bg-panel relative h-3 w-full rounded-full border border-primary/40">
                 <motion.div
                   initial={{ width: 0, opacity: 0 }}
                   animate={{ width: `${(100 / 500) * 100}%`, opacity: 1 }}
@@ -371,7 +382,7 @@ export const PayAndBilling = () => {
                 </Tooltip>
               </div>
               <span className="text-xl font-bold">33 of 50</span>
-              <div className="dark:bg-vulcan light:bg-mystic relative h-3 w-full rounded-full border border-primary/40">
+              <div className="bg-panel relative h-3 w-full rounded-full border border-primary/40">
                 <motion.div
                   initial={{ width: 0, opacity: 0 }}
                   animate={{ width: `${(33 / 50) * 100}%`, opacity: 1 }}
@@ -413,7 +424,7 @@ export const PayAndBilling = () => {
                 </Tooltip>
               </div>
               <span className="text-xl font-bold">47 of 125</span>
-              <div className="dark:bg-vulcan light:bg-mystic relative h-3 w-full rounded-full border border-primary/40">
+              <div className="bg-panel relative h-3 w-full rounded-full border border-primary/40">
                 <motion.div
                   initial={{ width: 0, opacity: 0 }}
                   animate={{ width: `${(47 / 125) * 100}%`, opacity: 1 }}
@@ -447,8 +458,8 @@ export const BillingSubscription = () => (
           <h2 className="text-2xl font-bold">Billing</h2>
           <div className="flex items-center gap-2.5">
             <Button
-              className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
-              end={
+              className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+              endAdornment={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -464,7 +475,7 @@ export const BillingSubscription = () => (
             </Button>
             <Button
               className="flex items-center gap-2 px-4 py-2 font-semibold "
-              end={
+              endAdornment={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="16"
@@ -493,7 +504,7 @@ export const BillingSubscription = () => (
         </div>
         <div className="border-panel-accent flex overflow-hidden rounded-xl border">
           <div className="flex flex-1 flex-col">
-            <div className="dark:bg-vulcan light:bg-mystic text-text-secondary px-6 py-4 text-base">
+            <div className="bg-panel text-text-secondary px-6 py-4 text-base">
               Selected plan
             </div>
             <div className="text-text-secondary flex-1 px-6 py-4 text-base">
@@ -501,7 +512,7 @@ export const BillingSubscription = () => (
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="dark:bg-vulcan light:bg-mystic text-text-secondary px-6 py-4 text-base">
+            <div className="bg-panel text-text-secondary px-6 py-4 text-base">
               Price
             </div>
             <div className="text-text-secondary flex flex-1 items-center gap-2 px-6 py-4 text-base">
@@ -519,7 +530,7 @@ export const BillingSubscription = () => (
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="dark:bg-vulcan light:bg-mystic text-text-secondary px-6 py-4 text-base">
+            <div className="bg-panel text-text-secondary px-6 py-4 text-base">
               Seats
             </div>
             <div className="text-text-secondary flex flex-1 items-center gap-2 px-6 py-4 text-base">
@@ -537,7 +548,7 @@ export const BillingSubscription = () => (
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="dark:bg-vulcan light:bg-mystic text-text-secondary px-6 py-4 text-base">
+            <div className="bg-panel text-text-secondary px-6 py-4 text-base">
               Yearly Cost
             </div>
             <div className="text-text-secondary flex flex-1 items-center gap-2 px-6 py-4 text-base">
@@ -562,7 +573,7 @@ export const BillingSubscription = () => (
               <span className="text-sm">Editors</span>
               <span className="text-base">11/30 used</span>
             </div>
-            <div className="dark:bg-vulcan light:bg-mystic relative h-3 w-full rounded-full border border-primary/40">
+            <div className="bg-panel relative h-3 w-full rounded-full border border-primary/40">
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: `${(11 / 30) * 100}%`, opacity: 1 }}
@@ -580,7 +591,7 @@ export const BillingSubscription = () => (
               variant="text"
               color="primary"
               className="w-fit px-0"
-              start={
+              startAdornment={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
@@ -600,7 +611,7 @@ export const BillingSubscription = () => (
               <span className="text-sm">Contributors</span>
               <span className="text-base">18/20 used</span>
             </div>
-            <div className="dark:bg-vulcan light:bg-mystic relative h-3 w-full rounded-full border border-orange-500/40">
+            <div className="bg-panel relative h-3 w-full rounded-full border border-orange-500/40">
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: `${(18 / 20) * 100}%`, opacity: 1 }}
@@ -618,7 +629,7 @@ export const BillingSubscription = () => (
               variant="text"
               color="default"
               className="w-fit px-0"
-              start={
+              startAdornment={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17"
@@ -639,7 +650,7 @@ export const BillingSubscription = () => (
               <span className="text-sm">Viewers</span>
               <span className="text-base">11/15 used</span>
             </div>
-            <div className="dark:bg-vulcan light:bg-mystic relative h-3 w-full rounded-full border border-orange-500/40">
+            <div className="bg-panel relative h-3 w-full rounded-full border border-orange-500/40">
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: `${(11 / 15) * 100}%`, opacity: 1 }}
@@ -657,7 +668,7 @@ export const BillingSubscription = () => (
               variant="text"
               color="primary"
               className="w-fit px-0"
-              start={
+              startAdornment={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="17"
@@ -681,22 +692,33 @@ export const BillingSubscription = () => (
 
 export const BillingInformation = () => {
   const chipTheme: ChipTheme = {
-    ...defaultChipTheme,
-    base: `${defaultChipTheme?.base} rounded-full`,
-    colors: {
-      ...defaultChipTheme?.colors,
-      warning: {
-        ...defaultChipTheme.colors.warning,
-        variants: {
-          ...defaultChipTheme?.colors?.warning?.variants,
-          filled: `${defaultChipTheme?.colors?.warning?.variants?.filled} text-text-primary bg-warning/10 border-warning`
-        }
-      },
-      success: {
-        ...defaultChipTheme.colors.success,
-        variants: {
-          ...defaultChipTheme?.colors?.success?.variants,
-          filled: `${defaultChipTheme?.colors?.success?.variants?.filled} text-text-primary bg-success/10 border-success`
+    types: {
+      ...defaultChipTheme.types,
+      badge: {
+        ...defaultChipTheme.types.badge,
+        base: `${defaultChipTheme.types.badge.base} rounded-full`,
+        colors: {
+          ...defaultChipTheme.types.badge.colors,
+          warning: {
+            ...defaultChipTheme.types.badge.colors.warning,
+            variants: {
+              ...defaultChipTheme.types.badge.colors.warning?.variants,
+              filled: {
+                ...defaultChipTheme.types.badge.colors.warning?.variants?.filled,
+                base: `${defaultChipTheme.types.badge.colors.warning?.variants?.filled?.base} text-text-primary bg-warning/10 border-warning`
+              }
+            }
+          },
+          success: {
+            ...defaultChipTheme.types.badge.colors.success,
+            variants: {
+              ...defaultChipTheme.types.badge.colors.success?.variants,
+              filled: {
+                ...defaultChipTheme.types.badge.colors.success?.variants?.filled,
+                base: `${defaultChipTheme.types.badge.colors.success?.variants?.filled?.base} text-text-primary bg-success/10 border-success`
+              }
+            }
+          }
         }
       }
     }
@@ -729,9 +751,9 @@ export const BillingInformation = () => {
             </span>
           </div>
           <Button
-            className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+            className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
             color="primary"
-            end={
+            endAdornment={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -762,7 +784,7 @@ export const BillingInformation = () => {
               <div className="flex items-center justify-between">
                 <span className="font-bold">Payment Method</span>
                 <Button
-                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                  className="bg-panel-accent/40 hover:bg-panel-accent/60 focus:bg-panel-accent/60 text-text-primary w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                   color="secondary"
                 >
                   Update
@@ -785,7 +807,7 @@ export const BillingInformation = () => {
               <div className="flex items-center justify-between">
                 <span className="font-bold">Billing Details</span>
                 <Button
-                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                  className="bg-panel-accent/40 hover:bg-panel-accent/60 focus:bg-panel-accent/60 text-text-primary w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                   color="secondary"
                 >
                   Update

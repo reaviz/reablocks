@@ -1,9 +1,14 @@
 import React, { Fragment, useState } from 'react';
+
+import { Input } from '@/form/Input';
+import { Textarea } from '@/form/Textarea';
+
+import { Button } from '../../elements';
+import { Stack } from '../../layout';
 import { Drawer } from './Drawer';
-import { DrawerHeader } from './DrawerHeader';
 import { DrawerContent } from './DrawerContent';
 import { DrawerFooter } from './DrawerFooter';
-import { Button } from '../../elements';
+import { DrawerHeader } from './DrawerHeader';
 
 export default {
   title: 'Components/Layers/Drawer',
@@ -45,10 +50,10 @@ export const WithFooter = () => {
           </p>
         </DrawerContent>
         <DrawerFooter>
-          <div className="flex items-center gap-2.5 justify-end w-full">
+          <Stack justifyContent="end" className="w-full">
             <Button onClick={() => setOpen(false)}>Cancel</Button>
             <Button color="primary">Save</Button>
-          </div>
+          </Stack>
         </DrawerFooter>
       </Drawer>
     </Fragment>
@@ -71,36 +76,28 @@ export const WithForm = () => {
             setOpen(false);
           }}
         >
-          <DrawerHeader>Create New Item</DrawerHeader>
+          <DrawerHeader showCloseButton={false}>Create New Item</DrawerHeader>
           <DrawerContent>
             <div className="flex flex-col gap-4">
               <label className="flex flex-col gap-1">
                 <span className="text-sm text-text-secondary">Title</span>
-                <input
-                  type="text"
-                  className="px-3 py-2 border border-panel-accent rounded bg-panel"
-                  placeholder="Enter title"
-                />
+                <Input type="text" placeholder="Enter title" />
               </label>
               <label className="flex flex-col gap-1">
                 <span className="text-sm text-text-secondary">Description</span>
-                <textarea
-                  className="px-3 py-2 border border-panel-accent rounded bg-panel"
-                  placeholder="Enter description"
-                  rows={4}
-                />
+                <Textarea placeholder="Enter description" />
               </label>
             </div>
           </DrawerContent>
           <DrawerFooter>
-            <div className="flex items-center gap-2.5 justify-end w-full">
+            <Stack justifyContent="end" className="w-full">
               <Button type="button" onClick={() => setOpen(false)}>
                 Cancel
               </Button>
               <Button type="submit" color="primary">
                 Create
               </Button>
-            </div>
+            </Stack>
           </DrawerFooter>
         </form>
       </Drawer>
