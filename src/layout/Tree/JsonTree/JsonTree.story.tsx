@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { JsonTree } from './JsonTree';
 
 export default {

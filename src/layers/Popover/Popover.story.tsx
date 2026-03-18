@@ -1,7 +1,6 @@
 import React from 'react';
-
-import { Button } from '../../elements';
 import { Popover } from './Popover';
+import { Button } from '../../elements';
 
 export default {
   title: 'Components/Layers/Popover',

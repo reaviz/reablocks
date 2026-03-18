@@ -1,3 +1,3 @@
 export * from './Radio';
-export * from './RadioTheme';
 export * from './RadioGroup';
+export * from './RadioTheme';

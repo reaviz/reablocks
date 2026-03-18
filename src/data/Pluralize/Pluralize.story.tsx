@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { Pluralize } from './Pluralize';
 
 export default {

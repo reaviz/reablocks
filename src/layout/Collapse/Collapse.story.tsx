@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-
-import { Button } from '../../elements';
 import { Collapse } from './Collapse';
+import { Button } from '../../elements';
 
 export default {
   title: 'Components/Layout/Collapse',

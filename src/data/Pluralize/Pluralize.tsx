@@ -1,8 +1,5 @@
-import type { FC } from 'react';
-import React, { useMemo } from 'react';
-
-import type { PluralizeInputs } from './utils';
-import { pluralize } from './utils';
+import React, { FC, useMemo } from 'react';
+import { pluralize, PluralizeInputs } from './utils';
 
 export interface PluralizeProps extends PluralizeInputs {
   /**

@@ -1,10 +1,8 @@
+import React, { FC, MouseEvent } from 'react';
 import { motion } from 'motion/react';
-import type { FC, MouseEvent } from 'react';
-import React from 'react';
-
 import { cn, useComponentTheme } from '@/utils';
 
-import type { BackdropTheme } from './BackdropTheme';
+import { BackdropTheme } from './BackdropTheme';
 
 export interface BackdropProps {
   /**

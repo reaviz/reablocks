@@ -1,7 +1,11 @@
-import type { RefObject } from 'react';
-import { useCallback, useEffect, useLayoutEffect, useState } from 'react';
-
-import type { ConnectedOverlayContentRef } from '@/utils/Overlay';
+import {
+  RefObject,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+  useState
+} from 'react';
+import { ConnectedOverlayContentRef } from '@/utils/Overlay';
 
 export const useWidth = (
   ref: RefObject<HTMLDivElement>,

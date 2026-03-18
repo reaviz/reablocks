@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { DateFormat } from './DateFormat';
 
 export default {

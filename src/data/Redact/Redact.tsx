@@ -1,10 +1,7 @@
+import React, { FC, useMemo, useState } from 'react';
 import coverup from 'coverup';
-import type { FC } from 'react';
-import React, { useMemo, useState } from 'react';
-
+import { RedactTheme } from './RedactTheme';
 import { cn, useComponentTheme } from '@/utils';
-
-import type { RedactTheme } from './RedactTheme';
 
 export interface RedactProps {
   /**

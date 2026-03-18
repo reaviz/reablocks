@@ -1,17 +1,15 @@
-import type { FC } from 'react';
 import React, {
+  FC,
+  useState,
   useCallback,
   useEffect,
-  useMemo,
   useRef,
-  useState
+  useMemo
 } from 'react';
-
-import { cn, useComponentTheme } from '@/utils';
-
-import type { DateFormatTheme } from './DateFormatTheme';
-import { safeFormat } from './formatting';
 import { formatRelative, getInterval } from './relative';
+import { safeFormat } from './formatting';
+import { DateFormatTheme } from './DateFormatTheme';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface DateFormatProps {
   /**

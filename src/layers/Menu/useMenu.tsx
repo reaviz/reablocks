@@ -1,7 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-
-import type { MenuProps } from './Menu';
-import { Menu } from './Menu';
+import { Menu, MenuProps } from './Menu';
 
 type MenuOptions =
   | {

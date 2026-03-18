@@ -1,4 +1,4 @@
-import type { SelectOptionProps } from '@/form/Select/SelectOption';
+import { SelectOptionProps } from '@/form/Select/SelectOption';
 
 export interface GroupOptions {
   groups: GroupOption[];

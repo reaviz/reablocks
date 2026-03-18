@@ -1,8 +1,5 @@
-import type { FC } from 'react';
-import React, { Children, Fragment } from 'react';
-
-import type { InfinityListInputs } from './useInfinityList';
-import { useInfinityList } from './useInfinityList';
+import React, { FC, Children, Fragment } from 'react';
+import { useInfinityList, InfinityListInputs } from './useInfinityList';
 
 export interface InfinityListProps extends Omit<InfinityListInputs, 'items'> {
   /**

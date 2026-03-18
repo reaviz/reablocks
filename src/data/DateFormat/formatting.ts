@@ -1,5 +1,4 @@
-import { format as dateFnsFormat, isValid } from 'date-fns';
-
+import { isValid, format as dateFnsFormat } from 'date-fns';
 import { formatRelative } from './relative';
 
 export interface SafeFormatOptions {

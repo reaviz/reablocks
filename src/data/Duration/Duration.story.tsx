@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-
 import { Duration } from './Duration';
 
 export default {

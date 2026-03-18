@@ -1,10 +1,7 @@
-import type { Ref } from 'react';
-import React, { Children, forwardRef } from 'react';
-
+import React, { Children, forwardRef, Ref } from 'react';
 import { useInfinityList } from '@/data';
+import { AvatarGroupTheme } from './AvatarGroupTheme';
 import { cn, useComponentTheme } from '@/utils';
-
-import type { AvatarGroupTheme } from './AvatarGroupTheme';
 
 export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   /**

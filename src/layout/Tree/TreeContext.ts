@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { ReactNode, createContext, useContext } from 'react';
 
 export interface TreeContextProps {
   /**

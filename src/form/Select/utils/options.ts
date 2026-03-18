@@ -1,5 +1,4 @@
 import { Children } from 'react';
-
 import { SelectOption } from '@/form/Select/SelectOption';
 
 export function createOptions(children) {
