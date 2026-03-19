@@ -17,9 +17,9 @@ const cssModules = (import.meta as any).glob([
 ]);
 cssModules[`../src/assets/css/${THEME}/index.css`]?.();
 
-const withProvider = (Story, context) => (
+const withProvider = (storyFn) => (
   <ThemeProvider theme={reablocksTheme} defaultTheme={reablocksTheme}>
-    <Story {...context} />
+    {storyFn()}
   </ThemeProvider>
 );
 
