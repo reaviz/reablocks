@@ -1,0 +1,82 @@
+:root,
+:host {
+  .theme-light,
+  &.theme-light,
+  .light,
+  &.light,
+  [data-theme='light'],
+  &[data-theme='light'] {
+    --reablocks-theme: light;
+
+    /* Primary colors */
+    --primary: var(--color-blue-hyperstream-600);
+    --primary-active: var(--color-blue-hyperstream-600);
+    --primary-hover: var(--color-blue-hyperstream-700);
+    --primary-inactive: var(--color-neutrals-force-dusk-300);
+
+    /* Secondary colors */
+    --secondary: var(--color-blue-hyperstream-300);
+    --secondary-active: var(--color-blue-hyperstream-300);
+    --secondary-hover: var(--color-blue-hyperstream-500);
+    --secondary-inactive: var(--color-neutrals-force-dusk-300);
+
+    /* Success colors */
+    --success: var(--color-green-verdant-flux-500);
+    --success-active: var(--color-green-verdant-flux-500);
+    --success-hover: var(--color-green-verdant-flux-600);
+    --success-background: var(--color-green-verdant-flux-50);
+
+    /* Error colors */
+    --error: var(--color-red-crimson-wrath-400);
+    --error-active: var(--color-red-crimson-wrath-300);
+    --error-hover: var(--color-red-crimson-wrath-500);
+    --error-background: var(--color-red-crimson-wrath-50);
+
+    /* Warning colors */
+    --warning: var(--color-orange-sunstreak-500);
+    --warning-active: var(--color-orange-sunstreak-500);
+    --warning-hover: var(--color-orange-sunstreak-600);
+    --warning-background: var(--color-orange-sunstreak-50);
+
+    /* Info colors */
+    --info: var(--color-blue-hyperstream-600);
+    --info-active: var(--color-blue-hyperstream-600);
+    --info-hover: var(--color-blue-hyperstream-700);
+    --info-background: var(--color-blue-hyperstream-50);
+
+    /* Panel colors */
+    --panel: var(--color-neutrals-pure-white-dnt-1000);
+    --panel-accent: var(--color-neutrals-force-dusk-100);
+
+    /* Surface colors */
+    --surface: var(--color-neutrals-force-dusk-200);
+    --surface-accent: var(--color-blue-hyperstream-600);
+
+    /* Text colors */
+    --text-primary: var(--color-neutrals-force-dusk-900);
+    --text-secondary: var(--color-neutrals-force-dusk-400);
+
+    /* Custom Backgrounds */
+    --bottom-border-glow: radial-gradient(
+      circle at center,
+      var(--color-blue-hyperstream-400) 0,
+      var(--color-blue-hyperstream-600),
+      transparent 100%
+    );
+    --button-gradient: linear-gradient(
+      283deg,
+      var(--color-primary) 0%,
+      var(--color-primary) 100%
+    );
+    --button-gradient-hover: linear-gradient(
+      283deg,
+      var(--color-primary-hover) 0%,
+      var(--color-primary-hover) 100%
+    );
+    --button-gradient-focus: linear-gradient(
+      283deg,
+      var(--color-primary-active) 0%,
+      var(--color-primary-active) 100%
+    );
+  }
+}

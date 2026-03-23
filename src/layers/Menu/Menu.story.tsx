@@ -249,7 +249,7 @@ export const CustomAnimation = () => {
               rotateZ: 0,
               scale: 1,
               transformOrigin: 'center',
-              backgroundColor: 'rgba(255, 255, 255, 0.98)',
+              backgroundColor: 'rgba(255, 255, 255, 0.4)',
               backdropFilter: 'blur(12px)',
               boxShadow:
                 '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1)'

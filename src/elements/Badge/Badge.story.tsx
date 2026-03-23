@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { FC, Fragment } from 'react';
 import { Notifications, NotificationsContext } from '../../layers';
 import { Button } from '../Button';
 import { Badge } from './Badge';
@@ -58,7 +58,7 @@ export const Custom = () => (
           {({ notifyError }) => (
             <Fragment>
               <Button
-                color="error"
+                color="destructive"
                 onClick={() => notifyError('You have 10 alerts!')}
               >
                 Alerts
@@ -71,7 +71,10 @@ export const Custom = () => (
   </>
 );
 
-const NotificationIcon = ({ height, width }) => (
+const NotificationIcon: FC<{
+  height?: number;
+  width?: number;
+}> = ({ height, width }) => (
   <div>
     <svg
       xmlns="http://www.w3.org/2000/svg"

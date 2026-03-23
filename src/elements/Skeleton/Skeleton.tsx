@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 import { SkeletonTheme } from './SkeletonTheme';
 import { cn, useComponentTheme } from '@/utils';
 
-export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface SkeletonProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * Additional CSS class names to apply to the skeleton.
    */
@@ -44,14 +44,16 @@ export const Skeleton: FC<SkeletonProps> = ({
 }) => {
   const theme: SkeletonTheme = useComponentTheme('skeleton', customTheme);
 
+  const classes = [
+    theme.base,
+    animated && theme.animated,
+    variant && theme.variants?.[variant],
+    className
+  ].filter(Boolean);
+
   return (
     <div
-      className={cn(
-        theme.base,
-        animated && theme.animated,
-        variant && theme.variants[variant],
-        className
-      )}
+      className={cn(...classes)}
       style={style}
       aria-busy="true"
       aria-live="polite"

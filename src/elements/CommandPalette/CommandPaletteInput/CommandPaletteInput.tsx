@@ -1,18 +1,13 @@
-import React, {
-  FC,
-  KeyboardEvent,
-  FocusEvent,
-  ReactNode,
-  useEffect,
-  useLayoutEffect,
-  useRef
-} from 'react';
-import { SearchIcon } from './SearchIcon';
-import { HotkeyIem } from '@/elements/CommandPalette/useFlattenedTree';
-import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
-import { useComponentTheme } from '@/utils';
 import type { HandlerInterface, Key } from 'ctrl-keys';
 import { keys } from 'ctrl-keys';
+import type { FC, FocusEvent, KeyboardEvent, ReactNode } from 'react';
+import React, { useEffect, useLayoutEffect, useRef } from 'react';
+
+import type { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
+import type { HotkeyIem } from '@/elements/CommandPalette/useFlattenedTree';
+import { useComponentTheme } from '@/utils';
+
+import { SearchIcon } from './SearchIcon';
 
 export interface CommandPaletteInputProps {
   /**

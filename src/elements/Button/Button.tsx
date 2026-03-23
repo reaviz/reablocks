@@ -1,34 +1,32 @@
-import React, { FC, forwardRef, LegacyRef, useContext } from 'react';
+import React, { FC, forwardRef, Ref, useContext } from 'react';
 import { motion } from 'motion/react';
 import { ButtonGroupContext } from './ButtonGroupContext';
+import type {
+  ButtonColorTheme,
+  ButtonSizeTheme,
+  ButtonTheme,
+  ButtonVariantTheme
+} from './ButtonTheme';
 import { cn, useComponentTheme } from '@/utils';
-import { ButtonTheme } from './ButtonTheme';
 
 export interface ButtonProps extends Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,
-  'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag'
+  'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag' | 'color'
 > {
   /**
    * Color variation of the button.
    */
-  color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'success'
-    | 'warning'
-    | string;
+  color?: keyof ButtonColorTheme;
 
   /**
    * Style variant of the button.
    */
-  variant?: 'filled' | 'outline' | 'text' | string;
+  variant?: keyof ButtonVariantTheme;
 
   /**
    * The size variation of the button.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof ButtonSizeTheme;
 
   /**
    * If true, the button will take up the full width of its container.
@@ -47,8 +45,14 @@ export interface ButtonProps extends Omit<
 
   /**
    * If true, the animation of the button will be disabled.
+   * @deprecated
    */
   disableAnimation?: boolean;
+
+  /**
+   * If false, the animation of the button will be disabled.
+   */
+  animated?: boolean;
 
   /**
    * Element to display before the Button content.
@@ -70,18 +74,19 @@ export interface ButtonRef {
   /**
    * The ref to the button element.
    */
-  ref?: LegacyRef<HTMLButtonElement>;
+  ref?: Ref<HTMLButtonElement>;
 }
 
 export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
   (
     {
-      color = 'default',
+      color = 'primary',
       variant = 'filled',
       children,
       fullWidth,
       size = 'medium',
       disableAnimation,
+      animated = true,
       className,
       disableMargins,
       disablePadding,
@@ -107,14 +112,16 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
         type={type}
         disabled={disabled}
         ref={ref}
-        whileTap={{ scale: disabled || disableAnimation ? 1 : 0.9 }}
+        whileTap={{
+          scale: disabled || disableAnimation || !animated ? 1 : 0.9
+        }}
         data-variant={groupVariant || variant}
         className={cn(
           theme.base,
           theme.disabled,
           fullWidth && theme.fullWidth,
           theme.variants[groupVariant || variant],
-          theme.colors[color][groupVariant || variant],
+          theme.colors[color]?.[groupVariant || variant],
           theme.sizes[groupSize || size],
           isGroup && theme.group,
           isGroup && groupVariant === 'text' && theme.groupText,
@@ -127,8 +134,8 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
           <div
             className={cn(
               theme.adornment.base,
-              theme.adornment.start,
-              theme.adornment.sizes[size]
+              theme.adornment.sizes[size],
+              theme.adornment.start[size]
             )}
           >
             {start}
@@ -139,8 +146,8 @@ export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
           <div
             className={cn(
               theme.adornment.base,
-              theme.adornment.end,
-              theme.adornment.sizes[size]
+              theme.adornment.sizes[size],
+              theme.adornment.end[size]
             )}
           >
             {end}

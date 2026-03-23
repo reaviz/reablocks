@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Chip } from './Chip';
-import { ChipTheme, chipTheme } from './ChipTheme';
+import { defaultChipTheme } from './ChipTheme';
 
 export default {
   title: 'Components/Elements/Chip',
@@ -104,44 +104,44 @@ const DemoIcon = () => (
 );
 
 export const CustomTheme = () => {
-  const customTheme: ChipTheme = {
-    ...chipTheme,
-    base: `${chipTheme.base} rounded-full`,
+  const customTheme = {
+    ...defaultChipTheme,
+    base: `${defaultChipTheme.types.badge.base} rounded-full`,
     colors: {
-      ...chipTheme?.colors,
+      ...defaultChipTheme?.types.badge.colors,
       secondary: {
-        ...chipTheme.colors.secondary,
+        ...defaultChipTheme.types.badge.colors.secondary,
         variants: {
-          ...chipTheme.colors.secondary.variants,
-          filled: `${chipTheme?.colors?.secondary?.variants?.filled} dark:bg-gray-100 light:bg-gray-900 text-panel`
+          ...defaultChipTheme.types.badge.colors.secondary.variants,
+          filled: `${defaultChipTheme?.types.badge.colors?.secondary?.variants?.filled} dark:bg-gray-100 light:bg-gray-900 text-panel`
         }
       },
       info: {
-        ...chipTheme.colors.info,
+        ...defaultChipTheme.types.badge.colors.info,
         variants: {
-          ...chipTheme.colors.info.variants,
-          filled: `${chipTheme?.colors?.info?.variants?.filled} text-text-primary bg-info/10 border-info`
+          ...defaultChipTheme.types.badge.colors.info.variants,
+          filled: `${defaultChipTheme?.types.badge.colors?.info?.variants?.filled} text-text-primary bg-info/10 border-info`
         }
       },
       error: {
-        ...chipTheme.colors.error,
+        ...defaultChipTheme.types.badge.colors.error,
         variants: {
-          ...chipTheme.colors.error.variants,
-          filled: `${chipTheme?.colors?.error?.variants?.filled} text-text-primary bg-error/10 border-error`
+          ...defaultChipTheme.types.badge.colors.error.variants,
+          filled: `${defaultChipTheme?.types.badge.colors?.error?.variants?.filled} text-text-primary bg-error/10 border-error`
         }
       },
       warning: {
-        ...chipTheme.colors.warning,
+        ...defaultChipTheme.types.badge.colors.warning,
         variants: {
-          ...chipTheme.colors.warning.variants,
-          filled: `${chipTheme?.colors?.warning?.variants?.filled} text-text-primary bg-warning/10 border-warning`
+          ...defaultChipTheme.types.badge.colors.warning.variants,
+          filled: `${defaultChipTheme?.types.badge.colors?.warning?.variants?.filled} text-text-primary bg-warning/10 border-warning`
         }
       },
       success: {
-        ...chipTheme.colors.success,
+        ...defaultChipTheme.types.badge.colors.success,
         variants: {
-          ...chipTheme.colors.success.variants,
-          filled: `${chipTheme?.colors?.success?.variants?.filled} text-text-primary bg-success/10 border-success`
+          ...defaultChipTheme.types.badge.colors.success.variants,
+          filled: `${defaultChipTheme?.types.badge.colors?.success?.variants?.filled} text-text-primary bg-success/10 border-success`
         }
       }
     }

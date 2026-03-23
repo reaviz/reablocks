@@ -5,11 +5,13 @@ import { isObject } from './isObject';
  * Merge and deep copy the values of all the enumerable own properties of target object from source object to a new object
  * @param target The target object to get properties from.
  * @param source The source object from which to copy properties.
+ * @param mergeFunction
  * @return A new merged and deep copied object.
  */
 export function mergeDeep<T extends object, S extends object>(
   target: T,
-  source: S
+  source: S,
+  mergeFunction?: (objValue: any, srcValue: any, key: string) => string
 ): T & S {
   if (isObject(source) && Object.keys(source).length === 0) {
     return cloneDeep({ ...target, ...source });
@@ -22,12 +24,17 @@ export function mergeDeep<T extends object, S extends object>(
       if (isObject(source[key]) && key in target && isObject(target[key])) {
         (output as Record<string, unknown>)[key] = mergeDeep(
           target[key] as object,
-          source[key] as object
+          source[key] as object,
+          mergeFunction
         );
       } else {
         (output as Record<string, unknown>)[key] = isObject(source[key])
-          ? cloneDeep(source[key])
-          : source[key];
+          ? mergeFunction
+            ? mergeFunction(target[key], source[key], key)
+            : cloneDeep(source[key])
+          : mergeFunction
+            ? mergeFunction(target[key], source[key], key)
+            : source[key];
       }
     }
   }

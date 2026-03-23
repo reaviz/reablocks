@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 import { FieldTheme } from './FieldTheme';
 import { cn, useComponentTheme } from '@/utils';
 
-export interface FieldProps extends React.HTMLAttributes<HTMLElement> {
+export interface FieldProps extends HTMLAttributes<HTMLElement> {
   /**
    * Label to display on the field.
    */

@@ -276,8 +276,7 @@ export const Calendar: FC<CalendarProps> = ({
           );
           onChange?.([rangeStart!, newRangeEnd]);
         } else {
-          const newRangeStart = newTimeDate;
-          onChange?.([newRangeStart, rangeEnd]);
+          onChange?.([newTimeDate, rangeEnd]);
         }
       }
     },
@@ -436,6 +435,7 @@ export const Calendar: FC<CalendarProps> = ({
             value={
               isRange ? (rangeEnd ? rangeEnd : value?.[0]) : (value as Date)
             }
+            disabled={disabled}
             min={min}
             max={max === 'now' ? new Date() : max}
             theme={theme.time}

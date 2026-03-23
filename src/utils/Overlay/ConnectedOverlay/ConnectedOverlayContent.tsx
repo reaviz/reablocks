@@ -5,7 +5,7 @@ import React, {
   RefObject,
   useState,
   useCallback,
-  LegacyRef
+  Ref
 } from 'react';
 import { useExitListener } from '@/utils/ExitListener';
 import { Modifiers, Placement, usePosition } from '@/utils/Position';
@@ -75,7 +75,7 @@ export interface ConnectedOverlayContentProps {
 
 export const ConnectedOverlayContent: FC<
   ConnectedOverlayContentProps & {
-    ref?: LegacyRef<ConnectedOverlayContentRef>;
+    ref?: Ref<ConnectedOverlayContentRef>;
   }
 > = forwardRef(
   (

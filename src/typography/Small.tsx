@@ -1,8 +1,8 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { cn, useComponentTheme } from '@/utils';
 import { TypographyTheme } from './TypographyTheme';
 
-export interface SmallProps extends React.HTMLAttributes<HTMLElement> {
+export interface SmallProps extends HTMLAttributes<HTMLElement> {
   /**
    * Theme for Typography.
    */

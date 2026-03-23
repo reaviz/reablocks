@@ -1,8 +1,8 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { cn, useComponentTheme } from '@/utils';
 import { TypographyTheme } from './TypographyTheme';
 
-export interface PProps extends React.HTMLAttributes<HTMLParagraphElement> {
+export interface PProps extends HTMLAttributes<HTMLParagraphElement> {
   /**
    * Theme for Typography.
    */

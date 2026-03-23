@@ -2,7 +2,7 @@ import React, {
   CSSProperties,
   FC,
   forwardRef,
-  LegacyRef,
+  Ref,
   useImperativeHandle,
   useRef,
   useState
@@ -19,7 +19,7 @@ export interface OverlayPortalRef {
   /**
    * Reference to the overlay portal element.
    */
-  ref?: LegacyRef<HTMLElement>;
+  ref?: Ref<HTMLElement>;
 }
 
 /**

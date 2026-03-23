@@ -1,9 +1,9 @@
-import React, { FC, LegacyRef, forwardRef, useMemo } from 'react';
+import React, { FC, HTMLAttributes, Ref, forwardRef, useMemo } from 'react';
 import getInitials from 'name-initials';
 import { cn, useComponentTheme, generateColor } from '@/utils';
 import { AvatarTheme } from './AvatarTheme';
 
-export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The name of the person.
    */
@@ -53,7 +53,7 @@ export interface AvatarRef {
   /**
    * Reference to the root div element.
    */
-  ref?: LegacyRef<HTMLDivElement>;
+  ref?: Ref<HTMLDivElement>;
 }
 
 export const Avatar: FC<AvatarProps> & AvatarRef = forwardRef<
@@ -96,7 +96,12 @@ export const Avatar: FC<AvatarProps> & AvatarRef = forwardRef<
     return (
       <div
         {...rest}
-        className={cn(theme.base, rounded && theme.rounded, className)}
+        className={cn(
+          theme.base,
+          rounded && theme.rounded,
+          rest.onClick && theme.clickable,
+          className
+        )}
         style={{
           width: `${size}px`,
           height: `${size}px`,

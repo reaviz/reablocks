@@ -1,3 +1,4 @@
+import { SelectInputSizeTheme } from '@/form';
 import React, { FC, Fragment, ReactElement, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
@@ -6,7 +7,7 @@ import { GroupOptions, GroupOption } from '@/form/Select/utils';
 import { List, ListItem } from '@/layout';
 import { cn, useComponentTheme } from '@/utils';
 import { SelectTheme } from '@/form/Select/SelectTheme';
-import { CheckIcon } from '@/form/Select/icons/CheckIcon';
+import CheckIcon from '@/assets/icons/check.svg?react';
 
 export interface RenderCreateOptionArgs {
   text: string;
@@ -90,7 +91,7 @@ export interface SelectMenuProps {
   /**
    * The size of the select menu.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof SelectInputSizeTheme;
 
   /**
    * Icon displayed for checked elements of the list

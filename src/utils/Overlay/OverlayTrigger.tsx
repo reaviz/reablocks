@@ -1,4 +1,4 @@
-import React, { useCallback, forwardRef, FC, LegacyRef } from 'react';
+import React, { useCallback, forwardRef, FC, Ref } from 'react';
 
 export type TriggerTypes = 'hover' | 'click' | 'contextmenu' | 'focus' | 'key';
 
@@ -51,7 +51,7 @@ export interface OverlayTriggerProps {
 
 export const OverlayTrigger: FC<
   OverlayTriggerProps & {
-    ref: LegacyRef<HTMLSpanElement>;
+    ref: Ref<HTMLSpanElement>;
   }
 > = forwardRef(
   (

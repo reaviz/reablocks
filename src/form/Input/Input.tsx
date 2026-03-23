@@ -6,7 +6,7 @@ import React, {
   useRef,
   useState
 } from 'react';
-import { InputTheme } from './InputTheme';
+import { InputSizeTheme, InputTheme } from './InputTheme';
 import { cn, useComponentTheme } from '@/utils';
 
 export interface InputProps extends Omit<
@@ -36,7 +36,7 @@ export interface InputProps extends Omit<
   /**
    * Size of the input.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof InputSizeTheme;
 
   /**
    * Content to display before the input.

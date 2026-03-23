@@ -1,4 +1,4 @@
-import React, { FC, InputHTMLAttributes, LegacyRef, forwardRef } from 'react';
+import React, { FC, InputHTMLAttributes, Ref, forwardRef } from 'react';
 import { ListTheme } from '@/layout/List/ListTheme';
 import { cn, useComponentTheme } from '@/utils';
 
@@ -53,7 +53,7 @@ export interface ListItemRef {
   /**
    * Reference to the list item element.
    */
-  ref?: LegacyRef<HTMLDivElement>;
+  ref?: Ref<HTMLDivElement>;
 }
 
 export const ListItem: FC<ListItemProps & ListItemRef> = forwardRef<

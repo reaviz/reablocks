@@ -1,7 +1,7 @@
 import React, { FC, PropsWithChildren, Children } from 'react';
 import { Tab } from './Tab';
 import { cn, useComponentTheme } from '@/utils';
-import { TabsTheme } from './TabsTheme';
+import { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';
 
 export interface TabListProps extends PropsWithChildren {
   /**
@@ -37,13 +37,13 @@ export interface TabListProps extends PropsWithChildren {
    * The variant of the tabs.
    * @private
    */
-  variant?: 'primary' | 'secondary';
+  variant?: keyof TabVariantTheme;
 
   /**
    * The size of the tabs.
    * @private
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof TabSizeTheme;
 
   /**
    * Theme for the Tabs.
@@ -81,14 +81,15 @@ export const TabList: FC<TabListProps> = ({
           {...rest}
           id={id}
           selected={index === selectedIndex}
-          onSelect={() => onSelect(index)}
           size={size}
+          variant={variant}
+          onSelect={() => onSelect(index)}
         >
           {children}
         </Tab>
       ))}
       <hr
-        className={cn(theme.list.divider, theme.list.variant[variant].divider)}
+        className={cn(theme.list.divider, theme.list.variant[variant]?.divider)}
       />
     </nav>
   );

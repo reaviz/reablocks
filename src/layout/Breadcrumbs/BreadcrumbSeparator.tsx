@@ -1,15 +1,17 @@
-import { Arrow } from '@/elements';
-import { cn, useComponentTheme } from '@/utils';
-import React, { FC } from 'react';
-import { BreadcrumbsTheme } from './BreadcrumbsTheme';
+import type { FC, LiHTMLAttributes } from 'react';
+import React from 'react';
 
-export interface BreadcrumbSeparatorProps
-  extends React.LiHTMLAttributes<HTMLLIElement> {
+import { cn, useComponentTheme } from '@/utils';
+import ArrowRightIcon from '@/assets/icons/arrow-right.svg?react';
+
+import type { BreadcrumbsTheme } from './BreadcrumbsTheme';
+
+export interface BreadcrumbSeparatorProps extends LiHTMLAttributes<HTMLLIElement> {
   theme?: BreadcrumbsTheme;
 }
 
 export const BreadcrumbSeparator: FC<BreadcrumbSeparatorProps> = ({
-  children = <Arrow direction="right" />,
+  children = <ArrowRightIcon />,
   className,
   theme: customTheme,
   ...rest

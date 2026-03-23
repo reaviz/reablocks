@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, LegacyRef, useMemo } from 'react';
+import React, { FC, forwardRef, Ref, useMemo } from 'react';
 import FocusTrap from 'focus-trap-react';
 import { MiddlewareState, size } from '@floating-ui/react';
 import { ConnectedOverlay, OverlayEvent } from '@/utils/Overlay';
@@ -120,7 +120,7 @@ export interface MenuRef {
   /**
    * Reference to the menu element.
    */
-  ref?: LegacyRef<HTMLDivElement>;
+  ref?: Ref<HTMLDivElement>;
 }
 
 export const Menu: FC<MenuProps & MenuRef> = forwardRef<

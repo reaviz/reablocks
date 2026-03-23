@@ -1,8 +1,8 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 import { cn, useComponentTheme } from '@/utils';
 import { TypographyTheme } from './TypographyTheme';
 
-export interface H1Props extends React.HTMLAttributes<HTMLHeadingElement> {
+export interface H1Props extends HTMLAttributes<HTMLHeadingElement> {
   /**
    * Theme for Typography.
    */

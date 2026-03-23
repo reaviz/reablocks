@@ -19,39 +19,55 @@ export interface PagerTheme {
   nextPage: string;
 }
 
-const baseTheme: PagerTheme = {
+export const defaultPagerTheme: PagerTheme = {
   base: 'items-center flex user-select-none',
   pages: {
     base: 'inline-flex',
     page: {
-      base: 'py-1',
-      active: 'font-bold'
+      base: 'py-1 text-text-secondary',
+      active: 'font-bold text-text-primary!'
     }
   },
   ellipsis: 'cursor-pointer',
-  pagerDisplayItems: 'mr-1.5',
-  itemsDisplay: 'flex items-center gap-1',
+  pagerDisplayItems: 'mr-1.5 text-text-secondary',
+  itemsDisplay: '',
   showPageRange: '',
   totalCount: '',
-  control: '[&>svg]:w-5 [&>svg]:h-5',
+  control:
+    '[&>svg]:w-5 [&>svg]:h-5 text-text-secondary disabled:text-secondary-inactive',
   firstPage: '',
   prevPage: '',
   lastPage: '',
   nextPage: ''
 };
 
-export const pagerTheme: PagerTheme = {
-  ...(baseTheme as PagerTheme),
+export const unifyPagerTheme: PagerTheme = {
+  base: 'items-center flex user-select-none gap-5',
   pages: {
-    ...baseTheme.pages,
+    base: 'inline-flex items-center gap-1 text-sm',
     page: {
-      base: [baseTheme.pages.page.base, 'text-slate-500'].join(' '),
-      active: [baseTheme.pages.page.active, 'text-text-primary!'].join(' ')
+      base: `
+        text-xs text-buttons-colors-core-icon-ghost-text-resting py-2 min-w-8 transition-colors border
+        bg-buttons-colors-core-icon-ghost-background-resting hover:bg-buttons-colors-core-icon-ghost-background-hover focus-visible:bg-buttons-colors-core-icon-ghost-background-hover
+        border-buttons-colors-core-icon-ghost-stroke-resting hover:border-buttons-colors-core-icon-ghost-stroke-hover focus-visible:border-buttons-colors-core-icon-ghost-stroke-hover
+      `,
+      active:
+        'text-buttons-colors-core-icon-ghost-text-selected font-bold disabled:cursor-default disabled:opacity-100 disabled:bg-buttons-colors-core-icon-ghost-background-selected disabled:text-buttons-colors-core-icon-ghost-text-selected'
     }
   },
-  control: [
-    baseTheme.control,
-    'text-slate-200 light:text-slate-400 disabled:light:text-slate-300'
-  ].join(' '),
-  pagerDisplayItems: [baseTheme.pagerDisplayItems, 'text-slate-500'].join(' ')
+  ellipsis:
+    'cursor-pointer text-buttons-colors-core-icon-ghost-text-resting min-w-8 flex items-baseline justify-center leading-8',
+  pagerDisplayItems: 'text-xs',
+  itemsDisplay: 'text-buttons-colors-core-icon-ghost-text-selected font-sm',
+  showPageRange: '',
+  totalCount: '',
+  control: `
+    min-size-8 p-2 [&>svg]:size-4 text-buttons-colors-core-icon-secondary-assets-resting transition-colors border
+    bg-buttons-colors-core-icon-secondary-background-resting hover:bg-buttons-colors-core-icon-secondary-background-hover focus-visible:bg-buttons-colors-core-icon-secondary-background-hover disabled:bg-buttons-colors-core-icon-secondary-background-resting
+    border-buttons-colors-core-icon-secondary-stroke-resting hover:border-buttons-colors-core-icon-secondary-stroke-hover focus-visible:border-buttons-colors-core-icon-secondary-stroke-hover disabled:border-buttons-colors-core-icon-secondary-stroke-resting
+  `,
+  firstPage: '',
+  prevPage: '',
+  lastPage: '',
+  nextPage: ''
 };

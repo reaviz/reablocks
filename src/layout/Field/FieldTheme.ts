@@ -38,6 +38,10 @@ const baseTheme: FieldTheme = {
   errorState: ''
 };
 
-export const fieldTheme: FieldTheme = {
+export const defaultFieldTheme: FieldTheme = {
+  ...baseTheme
+};
+
+export const unifyFieldTheme: FieldTheme = {
   ...baseTheme
 };

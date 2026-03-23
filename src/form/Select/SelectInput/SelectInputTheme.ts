@@ -1,11 +1,18 @@
+export interface SelectInputSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
+
 export interface SelectInputTheme {
   container: string;
   base: string;
   inputContainer: string;
   input: string;
   placeholder: string;
-  selectedValue: string;
-  actions: {
+  prefix: string;
+  suffix: {
     container: string;
     button: string;
     refresh: string;
@@ -17,17 +24,13 @@ export interface SelectInputTheme {
   unfilterable: string;
   error: string;
   single: {
-    selectedValue: string;
+    prefix: string;
     inputContainer: string;
     input: string;
   };
   multiple: {
-    selectedValue: string;
+    prefix: string;
     inputContainer: string;
-  };
-  adornment: {
-    start: string;
-    end: string;
   };
   open: string;
   chip: {
@@ -37,55 +40,52 @@ export interface SelectInputTheme {
     disabled: string;
     removeButton: string;
   };
-  size: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  size: SelectInputSizeTheme;
 }
 
-const baseTheme: SelectInputTheme = {
-  base: 'flex flex-nowrap items-center box-border border rounded-sm',
+export const defaultSelectInputTheme: SelectInputTheme = {
+  base: [
+    'flex flex-nowrap items-center box-border border rounded-sm bg-panel text-text-primary border-panel-accent border-solid hover:border-panel-accent'
+  ].join(' '),
   container: 'relative',
   inputContainer:
     'flex-wrap flex items-center overflow-hidden flex-1 max-w-full [&>div]:max-w-full [&_.invisible]:text-ellipsis [&_.invisible]:overflow-hidden',
   input:
     'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-hidden disabled:text-disabled',
-  placeholder: '',
-  selectedValue: 'overflow-hidden whitespace-nowrap text-ellipsis',
-  actions: {
+  placeholder: ' placeholder:text-secondary-content',
+  prefix: 'overflow-hidden whitespace-nowrap text-ellipsis',
+  suffix: {
     container: 'flex items-center justify-center',
-    button: 'disabled:cursor-not-allowed',
+    button: 'disabled:cursor-not-allowed hover:cursor-pointer',
     refresh: 'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-text-secondary',
     loader: 'mr-2.5',
     close: 'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-text-secondary',
     expand: '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-text-secondary'
   },
-  disabled: 'cursor-not-allowed text-disabled hover:after:content-none',
+  disabled: [
+    'cursor-not-allowed text-disabled hover:after:content-none',
+    'text-text-secondary/40 border-surface hover:border-surface'
+  ].join(' '),
   unfilterable: 'caret-transparent',
-  error: 'border border-solid',
-  adornment: {
-    start: 'flex items-center mr-1.5',
-    end: 'flex items-center ml-1.5'
-  },
+  error: 'border border-solid border-error',
   open: 'rounded-sm rounded-ee-none rounded-es-none',
   single: {
-    selectedValue: 'overflow-hidden whitespace-nowrap text-ellipsis max-w-full',
+    prefix: 'overflow-hidden whitespace-nowrap text-ellipsis max-w-full',
     inputContainer: 'flex-nowrap',
     input: 'max-w-full'
   },
   multiple: {
-    selectedValue: 'contents',
+    prefix: 'contents',
     inputContainer: 'flex-wrap'
   },
   chip: {
-    base: 'cursor-pointer flex text-sm leading-none box-border mr-1 px-1 py-1 rounded-sm border-solid border-transparent',
-    hover: '',
-    focused: 'focused:border-transparent focused:outline-none',
+    base: 'cursor-pointer flex text-sm leading-none box-border mr-1 px-1 py-1 rounded-sm border-solid border-transparent [&>svg]:fill-text-primary [&>svg]:disabled:fill-text-secondary/40',
+    hover: ' hover:brightness-150',
+    focused:
+      'focused:border-transparent focused:outline-none border-panel-accent',
     disabled: 'disabled:cursor-not-allowed',
     removeButton:
-      'cursor-pointer leading-0 ml-1 p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none'
+      'cursor-pointer leading-0 ml-1 p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none [&>svg]:fill-text-primary [&>svg]:disabled:fill-text-secondary/40'
   },
   size: {
     small: 'py-1 px-2 text-sm min-h-8',
@@ -94,40 +94,60 @@ const baseTheme: SelectInputTheme = {
   }
 };
 
-export const selectInputTheme: SelectInputTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    'bg-panel text-text-primary border-panel-accent border-solid hover:border-panel-accent light:hover:border-panel-accent',
-    'hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#242433_100%)] light:hover:after:bg-[radial-gradient(circle,_#105EFF_0%,_#105EFF_36%,_#E6E6F0_100%)]',
-    'focus-within:after:bg-[radial-gradient(circle,_#93B6FF_0%,_#105EFF_36%,_#3D3D4D_90%,_#242433_100%)] light:focus-within:after:bg-[radial-gradient(circle,_#105EFF_10%,_#93B6FF_36%,_#E6E6F0_90%)]',
-    'hover:after:content-[""] hover:after:absolute hover:after:mx-1 hover:after:h-px after:z-2 hover:after:rounded-sm hover:after:-bottom-[0px] hover:after:inset-x-0.5',
-    'focus-within:after:content-[""] focus-within:after:absolute focus-within:after:mx-0 focus-within:after:h-px after:z-2 focus-within:after:rounded-sm focus-within:after:-bottom-[0px] focus-within:after:inset-x-0.5'
-  ].join(' '),
-  placeholder: [
-    baseTheme.placeholder,
-    'placeholder:text-secondary-content'
-  ].join(' '),
-  disabled: [
-    baseTheme.disabled,
-    'text-text-secondary/40 border-surface light:hover:border-surface'
-  ].join(' '),
-  error: [baseTheme.error, 'border-error light:border-error/20'].join(' '),
-  actions: {
-    ...baseTheme.actions,
-    button: [baseTheme.actions.button, 'hover:cursor-pointer'].join(' ')
+export const unifySelectInputTheme: SelectInputTheme = {
+  base: 'flex flex-nowrap items-center box-border border rounded-md border-inputs-colors-normal-stroke-resting bg-inputs-colors-normal-background-resting hover:border-inputs-colors-normal-stroke-hover focus-within:border-inputs-colors-normal-stroke-selected focus-within:bg-inputs-colors-normal-background-selected',
+  container: 'relative',
+  inputContainer:
+    'flex-wrap flex items-center overflow-hidden flex-1 max-w-full [&>div]:max-w-full [&_.invisible]:text-ellipsis [&_.invisible]:overflow-hidden [&_.invisible]:invisible',
+  input:
+    'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-hidden disabled:text-content-text-neutral-5 text-inputs-colors-normal-text-input-text-resting',
+  placeholder:
+    'placeholder:text-inputs-colors-normal-text-input-text-resting focus:placeholder:text-inputs-colors-normal-text-input-text-selected',
+  prefix: 'overflow-hidden whitespace-nowrap text-ellipsis flex flex-wrap',
+  suffix: {
+    container: 'flex items-center justify-center',
+    button:
+      'disabled:cursor-not-allowed focus-visible:outline-none [&_svg]:text-buttons-colors-core-icon-ghost-assets-resting focus-visible:[&_svg]:text-buttons-colors-core-icon-ghost-assets-selected',
+    refresh:
+      'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:text-inputs-colors-normal-assets-input-resting',
+    loader: 'mr-2.5',
+    close:
+      'mr-1.5 [&>svg]:w-4 [&>svg]:h-4 [&>svg]:text-inputs-colors-normal-assets-input-resting',
+    expand:
+      '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:text-inputs-colors-normal-assets-input-resting'
+  },
+  disabled:
+    'cursor-not-allowed text-content-text-neutral-5 hover:after:content-none opacity-40',
+  unfilterable: 'caret-transparent',
+  error: `
+    border-inputs-colors-error-stroke-resting bg-inputs-colors-error-background-resting [&>input]:text-inputs-colors-error-text-input-filled [&>input]:placeholder:text-inputs-colors-error-text-input-text-resting
+    hover:border-inputs-colors-error-stroke-hover hover:bg-inputs-colors-error-background-hover
+    focus-within:border-inputs-colors-error-stroke-selected focus-within:bg-inputs-colors-error-background-selected
+  `,
+  open: 'rounded-sm',
+  single: {
+    prefix: 'overflow-hidden whitespace-nowrap text-ellipsis max-w-full',
+    inputContainer: 'flex-nowrap',
+    input: 'max-w-full'
+  },
+  multiple: {
+    prefix: 'contents',
+    inputContainer: 'flex-wrap'
   },
   chip: {
-    ...baseTheme.chip,
-    base: [
-      baseTheme.chip.base,
-      '[&>svg]:fill-text-primary [&>svg]:disabled:fill-text-secondary/40'
-    ].join(' '),
-    hover: [baseTheme.chip.hover, 'hover:brightness-150'].join(' '),
-    focused: [baseTheme.chip.focused, 'border-panel-accent'].join(' '),
-    removeButton: [
-      baseTheme.chip.removeButton,
-      '[&>svg]:fill-text-primary [&>svg]:disabled:fill-text-secondary/40'
-    ].join(' ')
+    base: 'cursor-pointer flex text-xs leading-none box-border mr-(--spacing-space-between-2xs) px-(--spacing-padding-3xs) py-(--spacing-padding-3xs) rounded-sm border-solid border-transparent',
+    hover: '',
+    focused: 'focused:border-transparent focused:outline-none',
+    disabled: 'disabled:cursor-not-allowed',
+    removeButton:
+      'cursor-pointer leading-0 ml-(--spacing-space-between-2xs) p-0 border-0 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:align-baseline [&>svg]:pointer-events-none'
+  },
+  size: {
+    small:
+      'text-xs [&_input]:leading-4 [&_svg]:size-4 px-(--inputs-details-horizontal-padding-left-sm) min-h-(--inputs-details-height-input-sm) gap-(--inputs-details-space-between-horizontal-sm)',
+    medium:
+      'text-sm [&_input]:leading-4 [&_svg]:size-4 px-(--inputs-details-horizontal-padding-left-md) min-h-(--inputs-details-height-input-md) gap-(--inputs-details-space-between-horizontal-md)',
+    large:
+      'text-base [&_svg]:size-4.5 px-(--inputs-details-horizontal-padding-left-lg) min-h-(--inputs-details-height-input-lg) gap-(--inputs-details-space-between-horizontal-lg)'
   }
 };
