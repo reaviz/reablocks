@@ -42,6 +42,7 @@ import { unifyTabsTheme } from '@/layout/Tabs/TabsTheme';
 import { unifyJsonTreeTheme } from '@/layout/Tree/JsonTree/JsonTreeTheme';
 import { unifyTreeTheme } from '@/layout/Tree/TreeTheme';
 import { unifyFieldTheme } from '@/layout/Field/FieldTheme';
+import { unifyTypographyTheme } from '@/typography';
 
 import type { ReablocksTheme } from './themeDefault';
 
@@ -106,6 +107,7 @@ export const themeUnify: ReablocksTheme = {
     toggle: unifyToggleTheme,
     tooltip: unifyTooltipTheme,
     tree: unifyTreeTheme,
-    skeleton: unifySkeletonTheme
+    skeleton: unifySkeletonTheme,
+    typography: unifyTypographyTheme
   }
 };

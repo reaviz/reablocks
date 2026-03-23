@@ -131,6 +131,7 @@ import {
   type JsonTreeTheme
 } from '@/layout/Tree/JsonTree/JsonTreeTheme';
 import { defaultTreeTheme, type TreeTheme } from '@/layout/Tree/TreeTheme';
+import { defaultTypographyTheme, TypographyTheme } from '@/typography';
 
 export interface ReablocksTheme {
   components: {
@@ -178,6 +179,7 @@ export interface ReablocksTheme {
     backdrop: BackdropTheme;
     navigation: NavigationTheme;
     skeleton: SkeletonTheme;
+    typography: TypographyTheme;
   };
 }
 
@@ -226,6 +228,7 @@ export const theme: ReablocksTheme = {
     toggle: defaultToggleTheme,
     tooltip: defaultTooltipTheme,
     tree: defaultTreeTheme,
-    skeleton: defaultSkeletonTheme
+    skeleton: defaultSkeletonTheme,
+    typography: defaultTypographyTheme
   }
 };

@@ -32,7 +32,7 @@ import { CalendarYears } from './CalendarYears';
 import { cn, useComponentTheme } from '@/utils';
 import { CalendarTheme } from './CalendarTheme';
 import { Divider } from '@/layout/Divider';
-import { H4 } from '@/typography';
+import { H4 } from '@/typography/H4';
 import { CalendarTimes } from './CalendarTimes';
 import { updateDateTime } from './utils';
 import { CalendarPresets, PresetOption } from './CalendarPresets';
