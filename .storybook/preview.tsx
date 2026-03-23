@@ -5,6 +5,7 @@ import { withThemeByClassName } from '@storybook/addon-themes';
 import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
 import { theme as defaultTheme } from '../src/utils/Theme/themes/themeDefault';
 import { themeUnify } from '../src/utils/Theme/themes/themeUnify';
+import storybookTheme from './theme';
 
 import 'virtual:theme-css';
 
@@ -32,6 +33,9 @@ const preview: Preview = {
     layout: 'centered',
     actions: { argTypesRegex: '^on.*' },
     controls: { hideNoControlsWarning: true },
+    docs: {
+      theme: storybookTheme,
+    },
     options: {
       storySort: {
         order: [
