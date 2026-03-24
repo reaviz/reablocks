@@ -95,14 +95,14 @@ export const Tab: FC<TabProps> = ({
         className={cn(
           tabTheme.list.tab.button,
           tabTheme.list.variant?.[variant]?.button,
-          className,
           {
             [tabTheme.list.tab.disabled]: disabled,
             [tabTheme.list.tab.selected]: selected,
             [tabTheme.list.variant?.[variant]?.selected]: selected,
             [tabTheme.list.variant?.[variant]?.disabled]: disabled
           },
-          tabTheme.list.tab.size?.[size]
+          tabTheme.list.tab.size?.[size],
+          className
         )}
         disabled={disabled}
         role="tab"

@@ -71,9 +71,13 @@ export const TabList: FC<TabListProps> = ({
   return (
     <nav
       role="tablist"
-      className={cn(theme.list.base, className, {
-        'justify-end': direction === 'rtl'
-      })}
+      className={cn(
+        theme.list.base,
+        {
+          'justify-end': direction === 'rtl'
+        },
+        className
+      )}
     >
       {childs.map(({ children, ...rest }, index) => (
         <Tab
