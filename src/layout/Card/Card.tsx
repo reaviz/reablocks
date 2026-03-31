@@ -1,8 +1,14 @@
-import React, { forwardRef, LegacyRef, FC, PropsWithChildren } from 'react';
+import React, {
+  forwardRef,
+  Ref,
+  FC,
+  PropsWithChildren,
+  DOMAttributes
+} from 'react';
 import { CardTheme } from './CardTheme';
 import { cn, useComponentTheme } from '@/utils';
 
-export interface CardProps extends React.DOMAttributes<any> {
+export interface CardProps extends DOMAttributes<any> {
   /**
    * Disable the padding of the card.
    */
@@ -40,7 +46,7 @@ export interface CardProps extends React.DOMAttributes<any> {
 }
 
 export type CardRefProps = CardProps &
-  PropsWithChildren & { ref?: LegacyRef<HTMLDivElement> };
+  PropsWithChildren & { ref?: Ref<HTMLDivElement> };
 
 export const Card: FC<CardRefProps> = forwardRef(
   (

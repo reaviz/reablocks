@@ -2,10 +2,7 @@ import React, { FC, forwardRef, Ref } from 'react';
 import { Button, ButtonProps, ButtonRef } from '@/elements/Button';
 import { cn, useComponentTheme } from '@/utils';
 
-export interface IconButtonProps extends Omit<
-  ButtonProps,
-  'fullWidth' | 'start' | 'end'
-> {}
+export type IconButtonProps = Omit<ButtonProps, 'fullWidth' | 'start' | 'end'>;
 
 export const IconButton: FC<IconButtonProps & ButtonRef> = forwardRef(
   (

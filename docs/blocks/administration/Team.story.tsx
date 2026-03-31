@@ -9,7 +9,7 @@ import { IconButton } from '../../../src/elements/IconButton';
 import {
   Checkbox,
   CheckboxTheme,
-  checkboxTheme as defaultCheckboxTheme
+  defaultCheckboxTheme
 } from '../../../src/form/Checkbox';
 import { Divider } from '../../../src/layout';
 import { Input } from '../../../src/form/Input';
@@ -74,7 +74,11 @@ export const TeamGeneral = () => {
 
   const checkboxTheme: CheckboxTheme = {
     ...defaultCheckboxTheme,
-    check: 'stroke-white',
+    check: {
+      base: 'stroke-white',
+      checked: '',
+      disabled: ''
+    },
     boxVariants: {
       ...defaultCheckboxTheme.boxVariants,
       checked: {
@@ -458,7 +462,11 @@ export const TeamRoles = () => {
 
   const checkboxTheme: CheckboxTheme = {
     ...defaultCheckboxTheme,
-    check: 'stroke-white',
+    check: {
+      base: 'stroke-white',
+      checked: '',
+      unchecked: ''
+    },
     boxVariants: {
       ...defaultCheckboxTheme.boxVariants,
       checked: {

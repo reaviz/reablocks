@@ -4,7 +4,7 @@ import React, {
   useEffect,
   Fragment,
   forwardRef,
-  LegacyRef,
+  Ref,
   useImperativeHandle,
   useMemo
 } from 'react';
@@ -118,7 +118,7 @@ export interface ConnectedOverlayProps {
 
 export const ConnectedOverlay: FC<
   ConnectedOverlayProps & {
-    ref?: LegacyRef<ConnectedOverlayContentRef>;
+    ref?: Ref<ConnectedOverlayContentRef>;
   }
 > = forwardRef(
   (

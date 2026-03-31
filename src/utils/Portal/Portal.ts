@@ -7,7 +7,7 @@ import {
   useLayoutEffect,
   useRef,
   useEffect,
-  LegacyRef
+  Ref
 } from 'react';
 import { createPortal } from 'react-dom';
 import { useUnmount } from '@/utils/useUnmount';
@@ -43,7 +43,7 @@ export interface PortalRef {
   /**
    * Reference to the portal element.
    */
-  ref?: LegacyRef<HTMLElement>;
+  ref?: Ref<HTMLElement>;
 }
 
 export const Portal: FC<PortalProps & PortalRef> = forwardRef<

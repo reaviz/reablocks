@@ -29,6 +29,11 @@ export interface SelectOptionProps {
   menuLabel?: ReactNode | string;
 
   /**
+   * Optional input prefix.
+   */
+  inputPrefix?: ReactNode | string;
+
+  /**
    * Whether the option is selected.
    */
   selected?: boolean;

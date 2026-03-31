@@ -1,0 +1,4 @@
+@import '../root.css';
+@import './theme-light.css';
+@import './theme-dark.css';
+@import './tailwind/index.css';

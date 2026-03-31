@@ -1,5 +1,4 @@
 import { useTheme } from './useTheme';
-import { ReablocksTheme } from '@/utils/Theme/themes/theme';
 
 /**
  * Hook to get the theme for a specific component.

@@ -1,9 +1,8 @@
-import React, { FC } from 'react';
+import React, { FC, OlHTMLAttributes } from 'react';
 import { cn, useComponentTheme } from '@/utils';
 import { BreadcrumbsTheme } from './BreadcrumbsTheme';
 
-export interface BreadcrumbListProps
-  extends React.OlHTMLAttributes<HTMLOListElement> {
+export interface BreadcrumbListProps extends OlHTMLAttributes<HTMLOListElement> {
   theme?: BreadcrumbsTheme;
 }
 

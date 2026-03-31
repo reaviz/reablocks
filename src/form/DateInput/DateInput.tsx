@@ -176,7 +176,7 @@ export const DateInput: FC<DateInputProps> = ({
         theme={theme.input}
         end={
           <IconButton
-            className="px-0"
+            className="p-0"
             variant="text"
             aria-label="Open calendar"
             onClick={() => setOpen(true)}
@@ -203,7 +203,7 @@ export const DateInput: FC<DateInputProps> = ({
       >
         {() =>
           isCalendarView ? (
-            <Card>
+            <Card className={theme.card}>
               <Calendar
                 disabled={disabled}
                 value={value}

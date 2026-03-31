@@ -1,3 +1,9 @@
+export interface RadioSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
 export interface RadioTheme {
   base: string;
   radio: {
@@ -8,12 +14,7 @@ export interface RadioTheme {
   indicator: {
     base: string;
     disabled: string;
-    sizes: {
-      small: string;
-      medium: string;
-      large: string;
-      [key: string]: string;
-    };
+    sizes: RadioSizeTheme;
   };
   label: {
     base: string;
@@ -21,24 +22,19 @@ export interface RadioTheme {
     checked: string;
     disabled: string;
   };
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  sizes: RadioSizeTheme;
 }
 
-const baseTheme: RadioTheme = {
-  base: 'box-border leading-none group/radio',
+export const defaultRadioTheme: RadioTheme = {
+  base: 'box-border leading-none group',
   radio: {
-    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-[100%] bg-transparent border cursor-pointer',
-    disabled: 'cursor-not-allowed',
-    checked: ''
+    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-[100%] bg-transparent border cursor-pointer border-surface group-hover:border-primary-hover hover:border-primary-hover',
+    disabled: 'cursor-not-allowed border-secondary-inactive!',
+    checked: 'border-primary-active group-hover:border-primary-hover'
   },
   indicator: {
-    base: 'rounded-[100%]',
-    disabled: 'cursor-not-allowed',
+    base: 'rounded-[100%] bg-primary group-hover:bg-primary-hover',
+    disabled: 'cursor-not-allowed bg-secondary-inactive!',
     sizes: {
       small: 'w-2 h-2',
       medium: 'w-2.5 h-2.5',
@@ -46,10 +42,10 @@ const baseTheme: RadioTheme = {
     }
   },
   label: {
-    base: 'w-full align-middle ml-2.5',
-    clickable: 'cursor-pointer hover:text-blue-300',
-    disabled: 'cursor-not-allowed',
-    checked: ''
+    base: 'w-full align-middle ml-2.5 text-text-secondary',
+    clickable: 'cursor-pointer hover:text-primary-hover',
+    disabled: 'cursor-not-allowed text-secondary-inactive/40!',
+    checked: 'text-text-primary'
   },
   sizes: {
     small: 'w-3 h-3',
@@ -58,34 +54,41 @@ const baseTheme: RadioTheme = {
   }
 };
 
-export const radioTheme: RadioTheme = {
-  ...baseTheme,
-  label: {
-    ...baseTheme.label,
-    base: [baseTheme.label.base, 'text-text-secondary'].join(' '),
-    checked: [baseTheme.label.checked, 'text-text-primary'].join(' '),
-    disabled: [baseTheme.label.disabled, 'text-secondary-inactive/40!'].join(
-      ' '
-    )
-  },
+export const unifyRadioTheme: RadioTheme = {
+  base: 'box-border leading-none group',
   radio: {
-    ...baseTheme.radio,
-    base: [
-      baseTheme.radio.base,
-      'border-surface group-hover/radio:border-primary-hover hover:border-primary-hover'
-    ].join(' '),
-    checked: [
-      baseTheme.radio.checked,
-      'border-primary-active group-hover/radio:border-primary-hover'
-    ].join(' '),
-    disabled: [baseTheme.radio.disabled, 'border-secondary-inactive!'].join(' ')
+    base: `
+          inline-flex justify-center items-center align-middle rounded-full cursor-pointer transition-colors border focus-visible:outline-none
+          bg-selectors-colors-radio-not-selected-background-resting group-hover:bg-selectors-colors-radio-not-selected-background-hover group-focus-within:bg-selectors-colors-radio-not-selected-background-hover
+          border-selectors-colors-radio-not-selected-stroke-resting group-hover:border-selectors-colors-radio-not-selected-stroke-hover group-focus-within:border-selectors-colors-radio-not-selected-stroke-hover
+        `,
+    checked: `
+          bg-selectors-colors-radio-selected-background-resting group-hover:bg-selectors-colors-radio-selected-background-hover group-focus-within:bg-selectors-colors-radio-selected-background-hover
+          border-selectors-colors-radio-selected-stroke-resting group-hover:border-selectors-colors-radio-selected-stroke-hover group-focus-within:border-selectors-colors-radio-selected-stroke-hover
+        `,
+    disabled:
+      'cursor-not-allowed opacity-40 group-hover:bg-inherit group-focus-within:bg-inherit'
   },
   indicator: {
-    ...baseTheme.indicator,
-    base: [
-      baseTheme.indicator.base,
-      'bg-primary group-hover/radio:bg-primary-hover'
-    ].join(' '),
-    disabled: [baseTheme.indicator.disabled, 'bg-secondary-inactive!'].join(' ')
+    base: 'rounded-full bg-selectors-colors-radio-selected-assets-base',
+    disabled: 'cursor-not-allowed',
+    sizes: {
+      small: 'size-(--selectors-details-asset-size-radio-checkbox-sm)',
+      medium: 'size-(--selectors-details-asset-size-radio-checkbox-sm)',
+      large: 'size-(--selectors-details-asset-size-radio-checkbox-lg)'
+    }
+  },
+  label: {
+    base: 'w-full align-middle ml-(--selectors-details-space-between-horizontal-sm) text-selectors-colors-text-label-not-selected',
+    clickable:
+      'cursor-pointer group-hover:text-selectors-colors-text-label-selected group-focus-within:text-selectors-colors-text-label-selected',
+    disabled: 'cursor-not-allowed opacity-40',
+    checked: 'text-selectors-colors-text-label-selected'
+  },
+  sizes: {
+    small: 'size-(--selectors-details-width-radio-checkbox-sm)',
+    medium: 'size-(--selectors-details-width-radio-checkbox-sm)',
+    large:
+      'size-(--selectors-details-width-radio-checkbox-lg) p-(--selectors-details-vertical-padding-lg)'
   }
 };

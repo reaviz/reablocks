@@ -80,7 +80,9 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
       if (newMin <= currentMax - minValueBetween) {
         setCurrentMin(newMin);
         minX.set(getPosition(newMin));
-        notifyChange && onChange?.([newMin, currentMax]);
+        if (notifyChange) {
+          onChange?.([newMin, currentMax]);
+        }
       }
     },
     [currentMax, min, minX, getPosition, onChange, minValueBetween]
@@ -92,7 +94,9 @@ export const RangeDouble: FC<RangeProps<[number, number]>> = ({
       if (newMax >= currentMin + minValueBetween) {
         setCurrentMax(newMax);
         maxX.set(getPosition(newMax));
-        notifyChange && onChange?.([currentMin, newMax]);
+        if (notifyChange) {
+          onChange?.([currentMin, newMax]);
+        }
       }
     },
     [currentMin, max, maxX, getPosition, onChange, minValueBetween]

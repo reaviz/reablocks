@@ -1,16 +1,15 @@
 import { cn, useComponentTheme, useId } from '@/utils';
 import { motion, useMotionValue, useTransform } from 'motion/react';
 import React, {
-  FC,
   forwardRef,
-  LegacyRef,
+  Ref,
   ReactNode,
   useCallback,
   useEffect,
   useState
 } from 'react';
 import { CheckboxLabel } from './CheckboxLabel';
-import { CheckboxTheme } from './CheckboxTheme';
+import { CheckboxSizeTheme, CheckboxTheme } from './CheckboxTheme';
 
 export interface CheckboxProps {
   /**
@@ -41,7 +40,7 @@ export interface CheckboxProps {
   /**
    * Size of the checkbox.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof CheckboxSizeTheme;
 
   /**
    * Additional class names to apply to the checkbox.
@@ -93,10 +92,10 @@ export interface CheckboxRef {
   /**
    * The ref to the checkbox element.
    */
-  ref?: LegacyRef<HTMLDivElement>;
+  ref?: Ref<HTMLDivElement>;
 }
 
-export const Checkbox: FC<CheckboxProps & CheckboxRef> = forwardRef(
+export const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>(
   (
     {
       checked = false,

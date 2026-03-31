@@ -1,15 +1,8 @@
-import React, {
-  FC,
-  forwardRef,
-  LegacyRef,
-  ReactNode,
-  useContext,
-  useMemo
-} from 'react';
+import React, { forwardRef, Ref, ReactNode, useContext, useMemo } from 'react';
 import { motion } from 'motion/react';
 import { RadioGroupContext } from './RadioGroupContext';
 import { cn, useComponentTheme, useId } from '@/utils';
-import { RadioTheme } from './RadioTheme';
+import { RadioSizeTheme, RadioTheme } from './RadioTheme';
 
 export interface RadioProps {
   /**
@@ -37,7 +30,7 @@ export interface RadioProps {
   /**
    * Size of the radio.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof RadioSizeTheme;
 
   /**
    * Event handler for when the radio is changed.
@@ -70,10 +63,10 @@ export interface RadioRef {
   /**
    * Reference to the radio element.
    */
-  ref?: LegacyRef<HTMLDivElement>;
+  ref?: Ref<HTMLDivElement>;
 }
 
-export const Radio: FC<RadioProps & RadioRef> = forwardRef(
+export const Radio = forwardRef<HTMLDivElement, RadioProps>(
   (
     {
       checked: isRadioChecked,

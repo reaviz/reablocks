@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { SelectOptionProps } from '@/form/Select/SelectOption';
 import ellipsize from 'ellipsize';
-import { CloseIcon } from '@/form/Select/icons';
+import CloseIcon from '@/assets/icons/close.svg?react';
 import { cn, useComponentTheme } from '@/utils';
 import { SelectTheme } from '@/form/Select/SelectTheme';
 

@@ -1,30 +1,36 @@
-import React, { FC, forwardRef, LegacyRef, ReactElement } from 'react';
+import { HTMLMotionProps, motion } from 'motion/react';
+import React, { forwardRef, ReactElement, ReactNode, Ref } from 'react';
+import CloseIcon from '@/assets/icons/close.svg?react';
 import { cn, useComponentTheme } from '@/utils';
-import { ChipTheme } from './ChipTheme';
+import {
+  ChipColorTheme,
+  ChipSizeTheme,
+  ChipTheme,
+  ChipTypeTheme,
+  ChipVariantTheme,
+  TagTypeThemeConfig
+} from './ChipTheme';
 
-export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ChipProps extends Omit<HTMLMotionProps<'div'>, 'color'> {
+  /**
+   * Type of the chip, e.g., badge or tag.
+   */
+  type?: keyof ChipTypeTheme;
+
   /**
    * Color variant for the chip.
    */
-  color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'success'
-    | 'warning'
-    | 'info'
-    | string;
+  color?: keyof ChipColorTheme;
 
   /**
    * Size variant for the chip.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof ChipSizeTheme;
 
   /**
    * Style variant for the chip.
    */
-  variant?: 'filled' | 'outline' | string;
+  variant?: keyof ChipVariantTheme;
 
   /**
    * Whether the chip is selected.
@@ -42,14 +48,29 @@ export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
   disableMargins?: boolean;
 
   /**
+   * If false, the animation of the chip will be disabled.
+   */
+  animated?: boolean;
+
+  /**
    * Content to display before the chip label.
    */
   start?: ReactElement | string;
 
   /**
-   * Content to display after the chip label.
+   * Content to display before the chip label.
    */
   end?: ReactElement | string;
+
+  /**
+   * Close icon for the chip, typically used in closable chips.
+   */
+  closeIcon?: ReactElement;
+
+  /**
+   * Close handler for the chip, typically used in closable chips.
+   */
+  onClose?: () => void;
 
   /**
    * Theme for the Chip.
@@ -61,13 +82,14 @@ export interface ChipRef {
   /**
    * Reference to the root element.
    */
-  ref?: LegacyRef<HTMLDivElement>;
+  ref?: Ref<HTMLDivElement>;
 }
 
-export const Chip: FC<ChipProps & ChipRef> = forwardRef(
+export const Chip = forwardRef<HTMLDivElement, ChipProps>(
   (
     {
       children,
+      type = 'badge',
       color = 'default',
       variant = 'filled',
       size = 'medium',
@@ -75,50 +97,43 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
       disabled,
       className,
       disableMargins,
+      animated = true,
       start,
       end,
+      closeIcon = <CloseIcon />,
+      onClose,
       onClick,
       theme: customTheme,
       ...rest
     },
     ref
   ) => {
-    const theme = useComponentTheme('chip', customTheme);
+    const theme = useComponentTheme('chip', customTheme).types[type];
+    const isClickable = type === 'tag' && onClick && !disabled;
 
     return (
-      <div
+      <motion.div
+        whileTap={{
+          scale: !isClickable || !animated || onClose ? 1 : 0.9
+        }}
         {...rest}
         ref={ref}
         tabIndex={onClick ? 0 : -1}
-        role={onClick ? 'button' : undefined}
         onClick={!disabled ? onClick : undefined}
-        onKeyDown={
-          onClick && !disabled
-            ? e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  onClick(e as unknown as React.MouseEvent<HTMLDivElement>);
-                }
-              }
-            : undefined
-        }
         className={cn(
           theme.base,
           theme.variants[variant],
           theme.colors[color]?.base,
-          theme.colors[color]?.variants?.[variant],
+          theme.colors[color]?.variants?.[variant]?.base,
           theme.sizes[size],
-          theme.focus,
-          !!onClick && !disabled && theme.colors[color]?.selectable?.base,
-          !!onClick &&
-            !disabled &&
-            theme.colors[color]?.selectable?.variants?.[variant]?.base,
-          selected &&
-            theme.colors[color]?.selectable?.variants?.[variant]?.selected,
+          {
+            [theme.colors[color]?.variants?.[variant]?.selected]: selected,
+            [theme.colors[color]?.variants?.[variant]?.selectable]: isClickable,
+            'cursor-pointer': isClickable
+          },
           disableMargins && 'm-0',
-          'transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill]',
-          className,
-          disabled && theme.disabled
+          disabled && type === 'tag' && (theme as TagTypeThemeConfig).disabled,
+          className
         )}
         aria-disabled={disabled}
       >
@@ -127,25 +142,42 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
             className={cn(
               theme.adornment.base,
               theme.adornment.start,
-              theme.adornment.sizes[size]
+              theme.adornment.sizes[size],
+              theme.colors[color]?.variants?.[variant]?.start
             )}
           >
             {start}
           </div>
         )}
-        <div className={'flex items-center'}>{children}</div>
+        <div className={theme.label}>{children as ReactNode}</div>
         {end && (
           <div
             className={cn(
               theme.adornment.base,
               theme.adornment.end,
-              theme.adornment.sizes[size]
+              theme.adornment.sizes[size],
+              theme.colors[color]?.variants?.[variant]?.end
             )}
           >
             {end}
           </div>
         )}
-      </div>
+        {onClose && (
+          <motion.button
+            whileTap={{ scale: disabled || !animated ? 1 : 0.9 }}
+            className={cn(
+              (theme as TagTypeThemeConfig).closeButton?.base,
+              (theme as TagTypeThemeConfig).closeButton?.sizes?.[size]
+            )}
+            onClick={e => {
+              e.stopPropagation();
+              onClose();
+            }}
+          >
+            {closeIcon}
+          </motion.button>
+        )}
+      </motion.div>
     );
   }
 );

@@ -10,7 +10,7 @@ import React, {
 import { cn, useId } from '@/utils';
 import { AnimatePresence } from 'motion/react';
 import { useComponentTheme } from '@/utils/Theme/hooks';
-import { TabsTheme } from './TabsTheme';
+import { TabSizeTheme, TabsTheme, TabVariantTheme } from './TabsTheme';
 import { TabPanel } from './TabPanel';
 import { TabList } from './TabList';
 
@@ -43,12 +43,12 @@ export interface TabsProps extends PropsWithChildren {
   /**
    * The variant of the tabs.
    */
-  variant?: 'primary' | 'secondary';
+  variant?: keyof TabVariantTheme;
 
   /**
    * The size of the tabs.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof TabSizeTheme;
 
   /**
    * The callback to be called when a tab is selected.
