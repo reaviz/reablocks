@@ -11,6 +11,7 @@ import { unifyChipTheme } from '@/elements/Chip/ChipTheme';
 import { unifyCommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 import { unifyKbdTheme } from '@/elements/Kbd/KbdTheme';
 import { unifyDotsLoaderTheme } from '@/elements/Loader/DotsLoaderTheme';
+import { unifyNavigationTheme } from '@/elements/Navigation/NavigationTheme';
 import { unifySkeletonTheme } from '@/elements/Skeleton/SkeletonTheme';
 import { unifyCalendarRangeTheme } from '@/form/Calendar/CalendarRangeTheme';
 import { unifyCalendarTheme } from '@/form/Calendar/CalendarTheme';
@@ -91,6 +92,7 @@ export const themeUnify: ReablocksTheme = {
     kbd: unifyKbdTheme,
     list: unifyListTheme,
     menu: unifyMenuTheme,
+    navigation: unifyNavigationTheme,
     notification: unifyNotificationTheme,
     pager: unifyPagerTheme,
     popover: unifyPopoverTheme,
