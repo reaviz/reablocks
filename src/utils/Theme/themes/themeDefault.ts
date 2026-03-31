@@ -39,10 +39,6 @@ import {
   type DotsLoaderTheme
 } from '@/elements/Loader/DotsLoaderTheme';
 import {
-  defaultNavigationTheme,
-  type NavigationTheme
-} from '@/elements/Navigation/NavigationTheme';
-import {
   defaultSkeletonTheme,
   type SkeletonTheme
 } from '@/elements/Skeleton/SkeletonTheme';
@@ -177,7 +173,6 @@ export interface ReablocksTheme {
     stepper: StepperTheme;
     callout: CalloutTheme;
     backdrop: BackdropTheme;
-    navigation: NavigationTheme;
     skeleton: SkeletonTheme;
     typography: TypographyTheme;
   };
@@ -214,7 +209,6 @@ export const theme: ReablocksTheme = {
     list: defaultListTheme,
     menu: defaultMenuTheme,
     notification: defaultNotificationTheme,
-    navigation: defaultNavigationTheme,
     pager: defaultPagerTheme,
     popover: defaultPopoverTheme,
     radio: defaultRadioTheme,
