@@ -4,14 +4,12 @@ export interface AvatarGroupTheme {
   overflow: string;
 }
 
-export const defaultAvatarGroupTheme: AvatarGroupTheme = {
-  base: 'flex items-center text-text-primary',
+const baseAvatarGroupTheme: AvatarGroupTheme = {
+  base: 'flex items-center',
   avatar: '-ml-2.5',
   overflow: 'ml-[5px]'
 };
 
-export const unifyAvatarGroupTheme: AvatarGroupTheme = {
-  base: 'flex items-center text-avatar-colors-text-resting',
-  avatar: '-ml-2.5 [&>*]:after:hidden',
-  overflow: 'ml-[5px]'
-};
+export const defaultAvatarGroupTheme: AvatarGroupTheme = baseAvatarGroupTheme;
+
+export const unifyAvatarGroupTheme: AvatarGroupTheme = baseAvatarGroupTheme;
