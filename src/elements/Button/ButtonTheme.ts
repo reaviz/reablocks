@@ -164,7 +164,7 @@ export const unifyButtonTheme: ButtonTheme = {
     filled:
       'bg-buttons-colors-core-icon-secondary-background-resting hover:bg-buttons-colors-core-icon-secondary-background-hover',
     outline: 'border',
-    text: 'border-0!',
+    text: 'border-0',
     ghost: ''
   },
   colors: {
