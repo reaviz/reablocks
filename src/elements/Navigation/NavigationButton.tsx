@@ -9,7 +9,7 @@ import type {
   NavigationTheme
 } from './NavigationTheme';
 
-interface NavigationButtonProps extends PropsWithChildren {
+export interface NavigationButtonProps extends PropsWithChildren {
   /**
    * Custom class names for the navigation button.
    */

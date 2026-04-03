@@ -46,7 +46,7 @@ export const defaultNavigationTheme: NavigationTheme = {
     variant: {
       ghost: {
         content:
-          'w-full h-full outline-none relative z-10 p-4 rounded-md border border-transparent text-text-secondary hover:text-text-primary hover:bg-panel-accent transition-colors ease-out duration-300',
+          'w-full h-full outline-none relative z-10 p-4 rounded-md border border-transparent text-text-secondary hover:text-text-primary focus-visible:text-text-primary hover:bg-panel-accent transition-colors ease-out duration-300',
         active:
           'text-text-primary hover:text-text-primary focus-visible:text-text-primary',
         selection:
@@ -88,13 +88,13 @@ export const unifyNavigationTheme: NavigationTheme = {
       ghost: {
         content: `
           w-full h-full outline-none relative z-10
-          p-(--navigation-details-horizontal-padding-nav-item-main-row) rounded-(--navigation-details-corner-radius-row-item) border border-transparent text-navigation-colors-text-resting 
+          p-(--navigation-details-horizontal-padding-nav-item-main-row) rounded-(--navigation-details-corner-radius-row-item) border border-transparent text-navigation-colors-text-resting
           hover:text-navigation-colors-text-hover hover:bg-navigation-colors-background-row-items-hover hover:border-navigation-colors-stroke-row-items-hover
           focus-visible:text-navigation-colors-text-hover focus-visible:bg-navigation-colors-background-row-items-hover focus-visible:border-navigation-colors-stroke-row-items-hover
           transition-colors ease-out duration-300
         `,
         active: `
-          text-navigation-colors-text-selected 
+          text-navigation-colors-text-selected
           hover:text-navigation-colors-text-selected
           focus-visible:text-navigation-colors-text-selected
         `,
@@ -113,7 +113,7 @@ export const unifyNavigationTheme: NavigationTheme = {
         content: `
           h-(--navigation-details-height-width-items-side-nav)
           relative z-10 p-(--navigation-details-horizontal-padding-nav-item-main-row) outline-none
-          text-navigation-colors-text-resting 
+          text-navigation-colors-text-resting
           hover:text-navigation-colors-text-hover
           focus-visible:text-navigation-colors-text-hover
           transition-colors ease-out duration-300

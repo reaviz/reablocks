@@ -1,5 +1,5 @@
 import type { FC, PropsWithChildren, ReactNode } from 'react';
-import React from 'react';
+import React, { Children, isValidElement } from 'react';
 
 import { cn, useComponentTheme } from '@/utils';
 
@@ -8,26 +8,26 @@ import type {
   NavigationTheme
 } from './NavigationTheme';
 
-export interface NavigationBarProps extends PropsWithChildren {
+export interface NavigationBarSlotProps extends PropsWithChildren {
   /**
-   * Custom class names for the navigation bar and its sections.
+   * Additional class name for the slot.
    */
   className?: string;
+}
 
-  /**
-   * Custom class names for the top section of the navigation bar.
-   */
-  classNameStart?: string;
+const NavigationBarStart: FC<NavigationBarSlotProps> = ({ children }) => (
+  <>{children}</>
+);
 
-  /**
-   * Custom class names for the navigation section.
-   */
-  classNameNavigation?: string;
+const NavigationBarEnd: FC<NavigationBarSlotProps> = ({ children }) => (
+  <>{children}</>
+);
 
+export interface NavigationBarProps extends PropsWithChildren {
   /**
-   * Custom class names for the bottom section of the navigation bar.
+   * Custom class names for the navigation bar.
    */
-  classNameEnd?: string;
+  className?: string;
 
   /**
    * Direction of the navigation bar layout.
@@ -35,29 +35,19 @@ export interface NavigationBarProps extends PropsWithChildren {
   direction?: keyof NavigationBarDirectionTheme;
 
   /**
-   * Content to be displayed at the start of the navigation bar.
-   */
-  start?: ReactNode;
-
-  /**
-   * Content to be displayed at the end of the navigation bar.
-   */
-  end?: ReactNode;
-
-  /**
    * Theme overrides for the navigation bar.
    */
   theme?: NavigationTheme;
 }
 
-export const NavigationBar: FC<NavigationBarProps> = ({
+type NavigationBarComponent = FC<NavigationBarProps> & {
+  Start: FC<NavigationBarSlotProps>;
+  End: FC<NavigationBarSlotProps>;
+};
+
+const NavigationBarInner: FC<NavigationBarProps> = ({
   className,
-  classNameStart,
-  classNameNavigation,
-  classNameEnd,
   direction = 'vertical',
-  start,
-  end,
   children,
   theme
 }) => {
@@ -65,6 +55,28 @@ export const NavigationBar: FC<NavigationBarProps> = ({
     'navigation',
     theme
   );
+
+  let startContent: ReactNode = null;
+  let startClassName: string | undefined;
+  let endContent: ReactNode = null;
+  let endClassName: string | undefined;
+  const bodyChildren: ReactNode[] = [];
+
+  Children.forEach(children, child => {
+    if (isValidElement<NavigationBarSlotProps>(child)) {
+      if (child.type === NavigationBarStart) {
+        startContent = child.props.children;
+        startClassName = child.props.className;
+        return;
+      }
+      if (child.type === NavigationBarEnd) {
+        endContent = child.props.children;
+        endClassName = child.props.className;
+        return;
+      }
+    }
+    bodyChildren.push(child);
+  });
 
   return (
     <nav
@@ -75,19 +87,25 @@ export const NavigationBar: FC<NavigationBarProps> = ({
         navigationTheme.bar.direction?.[direction]
       )}
     >
-      <div className={cn(navigationTheme.bar.start, classNameStart)}>
-        {start}
+      <div className={cn(navigationTheme.bar.start, startClassName)}>
+        {startContent}
       </div>
       <div
         className={cn(
           navigationTheme.bar.navigation,
-          classNameNavigation,
           navigationTheme.bar.direction?.[direction]
         )}
       >
-        {children}
+        {bodyChildren}
       </div>
-      <div className={cn(navigationTheme.bar.end, classNameEnd)}>{end}</div>
+      <div className={cn(navigationTheme.bar.end, endClassName)}>
+        {endContent}
+      </div>
     </nav>
   );
 };
+
+export const NavigationBar = NavigationBarInner as NavigationBarComponent;
+
+NavigationBar.Start = NavigationBarStart;
+NavigationBar.End = NavigationBarEnd;
