@@ -197,11 +197,9 @@ export const Text = () => {
 
   return (
     <NavigationBar className="h-[600px]">
-      <NavigationBar.Start>
-        <div className="flex gap-2 items-center">
-          {logo}
-          {companyName}
-        </div>
+      <NavigationBar.Start className="flex gap-2 items-center">
+        {logo}
+        {companyName}
       </NavigationBar.Start>
       <NavigationButton
         animationLayoutId={id}
@@ -254,29 +252,27 @@ export const Text = () => {
           <span>Reports</span>
         </div>
       </NavigationButton>
-      <NavigationBar.End>
-        <div className="flex flex-col gap-2">
-          <NavigationButton
-            animationLayoutId={id}
-            active={active === 6}
-            onClick={() => setActive(6)}
-          >
-            <div className="flex items-center gap-2">
-              <HelpIcon />
-              <span>Help</span>
-            </div>
-          </NavigationButton>
-          <NavigationButton
-            animationLayoutId={id}
-            active={active === 7}
-            onClick={() => setActive(7)}
-          >
-            <div className="flex items-center gap-2">
-              <SettingsIcon />
-              <span>Settings</span>
-            </div>
-          </NavigationButton>
-        </div>
+      <NavigationBar.End className="flex flex-col gap-2">
+        <NavigationButton
+          animationLayoutId={id}
+          active={active === 6}
+          onClick={() => setActive(6)}
+        >
+          <div className="flex items-center gap-2">
+            <HelpIcon />
+            <span>Help</span>
+          </div>
+        </NavigationButton>
+        <NavigationButton
+          animationLayoutId={id}
+          active={active === 7}
+          onClick={() => setActive(7)}
+        >
+          <div className="flex items-center gap-2">
+            <SettingsIcon />
+            <span>Settings</span>
+          </div>
+        </NavigationButton>
       </NavigationBar.End>
     </NavigationBar>
   );
@@ -288,9 +284,7 @@ export const Icons = () => {
 
   return (
     <NavigationBar className="h-[600px]">
-      <NavigationBar.Start>
-        <div className="px-4">{logo}</div>
-      </NavigationBar.Start>
+      <NavigationBar.Start className="px-4">{logo}</NavigationBar.Start>
       <NavigationButton
         animationLayoutId={id}
         active={active === 1}
@@ -327,23 +321,21 @@ export const Icons = () => {
       >
         <ReportsIcon />
       </NavigationButton>
-      <NavigationBar.End>
-        <div className="flex flex-col gap-2">
-          <NavigationButton
-            animationLayoutId={id}
-            active={active === 6}
-            onClick={() => setActive(6)}
-          >
-            <HelpIcon />
-          </NavigationButton>
-          <NavigationButton
-            animationLayoutId={id}
-            active={active === 7}
-            onClick={() => setActive(7)}
-          >
-            <SettingsIcon />
-          </NavigationButton>
-        </div>
+      <NavigationBar.End className="flex flex-col gap-2">
+        <NavigationButton
+          animationLayoutId={id}
+          active={active === 6}
+          onClick={() => setActive(6)}
+        >
+          <HelpIcon />
+        </NavigationButton>
+        <NavigationButton
+          animationLayoutId={id}
+          active={active === 7}
+          onClick={() => setActive(7)}
+        >
+          <SettingsIcon />
+        </NavigationButton>
       </NavigationBar.End>
     </NavigationBar>
   );
@@ -355,9 +347,7 @@ export const Horizontal = () => {
 
   return (
     <NavigationBar direction="horizontal" className="w-[800px]">
-      <NavigationBar.Start>
-        <div className="px-4">{logo}</div>
-      </NavigationBar.Start>
+      <NavigationBar.Start className="px-4">{logo}</NavigationBar.Start>
       <NavigationButton
         animationLayoutId={id}
         variant="underline"
@@ -399,25 +389,23 @@ export const Horizontal = () => {
       >
         <ReportsIcon />
       </NavigationButton>
-      <NavigationBar.End>
-        <div className="flex flex-row gap-2">
-          <NavigationButton
-            animationLayoutId={id}
-            variant="underline"
-            active={active === 6}
-            onClick={() => setActive(6)}
-          >
-            <HelpIcon />
-          </NavigationButton>
-          <NavigationButton
-            animationLayoutId={id}
-            variant="underline"
-            active={active === 7}
-            onClick={() => setActive(7)}
-          >
-            <SettingsIcon />
-          </NavigationButton>
-        </div>
+      <NavigationBar.End className="flex flex-row gap-2">
+        <NavigationButton
+          animationLayoutId={id}
+          variant="underline"
+          active={active === 6}
+          onClick={() => setActive(6)}
+        >
+          <HelpIcon />
+        </NavigationButton>
+        <NavigationButton
+          animationLayoutId={id}
+          variant="underline"
+          active={active === 7}
+          onClick={() => setActive(7)}
+        >
+          <SettingsIcon />
+        </NavigationButton>
       </NavigationBar.End>
     </NavigationBar>
   );
@@ -429,9 +417,7 @@ export const AnimationDisabled = () => {
 
   return (
     <NavigationBar className="h-[600px]">
-      <NavigationBar.Start>
-        <div className="px-4">{logo}</div>
-      </NavigationBar.Start>
+      <NavigationBar.Start className="px-4">{logo}</NavigationBar.Start>
       <NavigationButton
         animationLayoutId={id}
         animated={false}
@@ -472,25 +458,23 @@ export const AnimationDisabled = () => {
       >
         <ReportsIcon />
       </NavigationButton>
-      <NavigationBar.End>
-        <div className="flex flex-col gap-2">
-          <NavigationButton
-            animationLayoutId={id}
-            animated={false}
-            active={active === 6}
-            onClick={() => setActive(6)}
-          >
-            <HelpIcon />
-          </NavigationButton>
-          <NavigationButton
-            animationLayoutId={id}
-            animated={false}
-            active={active === 7}
-            onClick={() => setActive(7)}
-          >
-            <SettingsIcon />
-          </NavigationButton>
-        </div>
+      <NavigationBar.End className="flex flex-col gap-2">
+        <NavigationButton
+          animationLayoutId={id}
+          animated={false}
+          active={active === 6}
+          onClick={() => setActive(6)}
+        >
+          <HelpIcon />
+        </NavigationButton>
+        <NavigationButton
+          animationLayoutId={id}
+          animated={false}
+          active={active === 7}
+          onClick={() => setActive(7)}
+        >
+          <SettingsIcon />
+        </NavigationButton>
       </NavigationBar.End>
     </NavigationBar>
   );
@@ -520,9 +504,7 @@ export const CustomTheme = () => {
 
   return (
     <NavigationBar theme={customTheme} className="h-[600px]">
-      <NavigationBar.Start>
-        <div className="px-4">{logo}</div>
-      </NavigationBar.Start>
+      <NavigationBar.Start className="px-4">{logo}</NavigationBar.Start>
       <NavigationButton
         animationLayoutId={id}
         theme={customTheme}
@@ -563,25 +545,23 @@ export const CustomTheme = () => {
       >
         <ReportsIcon />
       </NavigationButton>
-      <NavigationBar.End>
-        <div className="flex flex-col gap-2">
-          <NavigationButton
-            animationLayoutId={id}
-            theme={customTheme}
-            active={active === 6}
-            onClick={() => setActive(6)}
-          >
-            <HelpIcon />
-          </NavigationButton>
-          <NavigationButton
-            animationLayoutId={id}
-            theme={customTheme}
-            active={active === 7}
-            onClick={() => setActive(7)}
-          >
-            <SettingsIcon />
-          </NavigationButton>
-        </div>
+      <NavigationBar.End className="flex flex-col gap-2">
+        <NavigationButton
+          animationLayoutId={id}
+          theme={customTheme}
+          active={active === 6}
+          onClick={() => setActive(6)}
+        >
+          <HelpIcon />
+        </NavigationButton>
+        <NavigationButton
+          animationLayoutId={id}
+          theme={customTheme}
+          active={active === 7}
+          onClick={() => setActive(7)}
+        >
+          <SettingsIcon />
+        </NavigationButton>
       </NavigationBar.End>
     </NavigationBar>
   );
