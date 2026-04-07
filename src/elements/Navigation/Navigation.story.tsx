@@ -2,13 +2,14 @@ import { useId, useState } from 'react';
 
 import type { NavigationTheme } from '@/elements/Navigation';
 import { NavigationButton } from '@/elements/Navigation/NavigationButton';
-import { extendComponentTheme, useComponentTheme } from '@/utils';
+import { cn, extendComponentTheme, useComponentTheme } from '@/utils';
 
 import {
   NavigationBar,
   NavigationBarStart,
   NavigationBarEnd
 } from './NavigationBar';
+import { Button } from '../Button';
 
 export default {
   title: 'Components/Elements/Navigation',
@@ -195,13 +196,145 @@ const SettingsIcon = () => (
   </svg>
 );
 
+const PanelLeftCloseIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 19 19"
+    width="18"
+    height="18"
+  >
+    <path
+      d="M14.9019 4.3413a.5.5 0 0 0-.5-.5h-6.5v11.5h6.5a.5.5 0 0 0 .5-.5v-10.5Zm-3.457 2.293c.3905-.3906 1.0235-.3906 1.414 0a.9997.9997 0 0 1 0 1.414l-1.5429 1.543 1.5429 1.543.0684.0761c.3203.3928.2977.9718-.0684 1.3379-.3661.3661-.9451.3887-1.3379.0684l-.0761-.0684-2.25-2.25c-.3905-.3905-.3905-1.0235 0-1.414l2.25-2.25Zm-8.043 8.207a.5.5 0 0 0 .5.5h2v-11.5h-2a.5.5 0 0 0-.5.5v10.5Zm13.5 0c0 1.3807-1.1193 2.5-2.5 2.5h-10.5c-1.3807 0-2.5-1.1193-2.5-2.5v-10.5c0-1.3807 1.1193-2.5 2.5-2.5h10.5c1.3807 0 2.5 1.1193 2.5 2.5v10.5Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
+const PanelLeftOpenIcon = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 19 19"
+    width="18"
+    height="18"
+  >
+    <path
+      d="M14.9513 4.424a.5.5 0 0 0-.5-.5h-6.5v11.5h6.5a.5.5 0 0 0 .5-.5v-10.5Zm-4.957 2.293c.3661-.3661.9451-.3887 1.3379-.0683l.0761.0683 2.25 2.25c.3906.3905.3906 1.0236 0 1.4141l-2.25 2.2499c-.3905.3906-1.0235.3906-1.414 0-.3906-.3905-.3906-1.0235 0-1.414l1.5429-1.543-1.543-1.543-.0683-.0761c-.3204-.3928-.2978-.9718.0684-1.3379Zm-6.543 8.207a.5.5 0 0 0 .5.5h2v-11.5h-2a.5.5 0 0 0-.5.5v10.5Zm13.5 0c0 1.3807-1.1193 2.5-2.5 2.5h-10.5c-1.3807 0-2.5-1.1193-2.5-2.5v-10.5c0-1.3807 1.1193-2.5 2.5-2.5h10.5c1.3807 0 2.5 1.1193 2.5 2.5v10.5Z"
+      fill="currentColor"
+    />
+  </svg>
+);
+
+export const Collapsed = () => {
+  const [active, setActive] = useState<number>(1);
+  const [collapsed, setCollapsed] = useState(false);
+  const id = useId();
+
+  return (
+    <NavigationBar collapsed={collapsed} className="h-[600px]">
+      <NavigationBarStart
+        className={cn('flex gap-2 items-center', {
+          'flex-row justify-between': !collapsed,
+          'flex-col': collapsed
+        })}
+      >
+        <div className="flex items-center gap-2 px-2">
+          {logo}
+          {!collapsed && companyName}
+        </div>
+        <Button
+          variant="ghost"
+          color="secondary"
+          onClick={() => setCollapsed(!collapsed)}
+        >
+          {collapsed ? <PanelLeftOpenIcon /> : <PanelLeftCloseIcon />}
+        </Button>
+      </NavigationBarStart>
+      <NavigationButton
+        animationLayoutId={id}
+        active={active === 1}
+        onClick={() => setActive(1)}
+      >
+        <div className="flex items-center gap-2">
+          <HomeIcon />
+          {!collapsed && <span>Home</span>}
+        </div>
+      </NavigationButton>
+      <NavigationButton
+        animationLayoutId={id}
+        active={active === 2}
+        onClick={() => setActive(2)}
+      >
+        <div className="flex items-center gap-2">
+          <DashboardIcon />
+          {!collapsed && <span>Dashboard</span>}
+        </div>
+      </NavigationButton>
+      <NavigationButton
+        animationLayoutId={id}
+        active={active === 3}
+        onClick={() => setActive(3)}
+      >
+        <div className="flex items-center gap-2">
+          <AlertsIcon />
+          {!collapsed && <span>Alerts</span>}
+        </div>
+      </NavigationButton>
+      <NavigationButton
+        animationLayoutId={id}
+        active={active === 4}
+        onClick={() => setActive(4)}
+      >
+        <div className="flex items-center gap-2">
+          <IntelligenceIcon />
+          {!collapsed && <span>Intelligence</span>}
+        </div>
+      </NavigationButton>
+      <NavigationButton
+        animationLayoutId={id}
+        disabled
+        active={active === 5}
+        onClick={() => setActive(5)}
+      >
+        <div className="flex items-center gap-2">
+          <ReportsIcon />
+          {!collapsed && <span>Reports</span>}
+        </div>
+      </NavigationButton>
+      <NavigationBarEnd className="flex flex-col gap-2">
+        <NavigationButton
+          animationLayoutId={id}
+          active={active === 6}
+          onClick={() => setActive(6)}
+        >
+          <div className="flex items-center gap-2">
+            <HelpIcon />
+            {!collapsed && <span>Help</span>}
+          </div>
+        </NavigationButton>
+        <NavigationButton
+          animationLayoutId={id}
+          active={active === 7}
+          onClick={() => setActive(7)}
+        >
+          <div className="flex items-center gap-2">
+            <SettingsIcon />
+            {!collapsed && <span>Settings</span>}
+          </div>
+        </NavigationButton>
+      </NavigationBarEnd>
+    </NavigationBar>
+  );
+};
+
 export const Text = () => {
   const [active, setActive] = useState<number>(1);
   const id = useId();
 
   return (
     <NavigationBar className="h-[600px]">
-      <NavigationBarStart className="flex  gap-2 items-center">
+      <NavigationBarStart className="flex gap-2 items-center">
         {logo}
         {companyName}
       </NavigationBarStart>
