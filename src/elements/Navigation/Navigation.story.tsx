@@ -4,7 +4,11 @@ import type { NavigationTheme } from '@/elements/Navigation';
 import { NavigationButton } from '@/elements/Navigation/NavigationButton';
 import { extendComponentTheme, useComponentTheme } from '@/utils';
 
-import { NavigationBar } from './NavigationBar';
+import {
+  NavigationBar,
+  NavigationBarStart,
+  NavigationBarEnd
+} from './NavigationBar';
 
 export default {
   title: 'Components/Elements/Navigation',
@@ -197,10 +201,10 @@ export const Text = () => {
 
   return (
     <NavigationBar className="h-[600px]">
-      <NavigationBar.Start className="flex gap-2 items-center">
+      <NavigationBarStart className="flex  gap-2 items-center">
         {logo}
         {companyName}
-      </NavigationBar.Start>
+      </NavigationBarStart>
       <NavigationButton
         animationLayoutId={id}
         active={active === 1}
@@ -252,7 +256,7 @@ export const Text = () => {
           <span>Reports</span>
         </div>
       </NavigationButton>
-      <NavigationBar.End className="flex flex-col gap-2">
+      <NavigationBarEnd className="flex flex-col gap-2">
         <NavigationButton
           animationLayoutId={id}
           active={active === 6}
@@ -273,7 +277,7 @@ export const Text = () => {
             <span>Settings</span>
           </div>
         </NavigationButton>
-      </NavigationBar.End>
+      </NavigationBarEnd>
     </NavigationBar>
   );
 };
@@ -284,7 +288,7 @@ export const Icons = () => {
 
   return (
     <NavigationBar className="h-[600px]">
-      <NavigationBar.Start className="px-4">{logo}</NavigationBar.Start>
+      <NavigationBarStart className="px-4">{logo}</NavigationBarStart>
       <NavigationButton
         animationLayoutId={id}
         active={active === 1}
@@ -321,7 +325,7 @@ export const Icons = () => {
       >
         <ReportsIcon />
       </NavigationButton>
-      <NavigationBar.End className="flex flex-col gap-2">
+      <NavigationBarEnd className="flex flex-col gap-2">
         <NavigationButton
           animationLayoutId={id}
           active={active === 6}
@@ -336,7 +340,7 @@ export const Icons = () => {
         >
           <SettingsIcon />
         </NavigationButton>
-      </NavigationBar.End>
+      </NavigationBarEnd>
     </NavigationBar>
   );
 };
@@ -347,7 +351,7 @@ export const Horizontal = () => {
 
   return (
     <NavigationBar direction="horizontal" className="w-[800px]">
-      <NavigationBar.Start className="px-4">{logo}</NavigationBar.Start>
+      <NavigationBarStart className="px-4">{logo}</NavigationBarStart>
       <NavigationButton
         animationLayoutId={id}
         variant="underline"
@@ -389,7 +393,7 @@ export const Horizontal = () => {
       >
         <ReportsIcon />
       </NavigationButton>
-      <NavigationBar.End className="flex flex-row gap-2">
+      <NavigationBarEnd className="flex flex-row gap-2">
         <NavigationButton
           animationLayoutId={id}
           variant="underline"
@@ -406,7 +410,7 @@ export const Horizontal = () => {
         >
           <SettingsIcon />
         </NavigationButton>
-      </NavigationBar.End>
+      </NavigationBarEnd>
     </NavigationBar>
   );
 };
@@ -417,7 +421,7 @@ export const AnimationDisabled = () => {
 
   return (
     <NavigationBar className="h-[600px]">
-      <NavigationBar.Start className="px-4">{logo}</NavigationBar.Start>
+      <NavigationBarStart className="px-4">{logo}</NavigationBarStart>
       <NavigationButton
         animationLayoutId={id}
         animated={false}
@@ -458,7 +462,7 @@ export const AnimationDisabled = () => {
       >
         <ReportsIcon />
       </NavigationButton>
-      <NavigationBar.End className="flex flex-col gap-2">
+      <NavigationBarEnd className="flex flex-col gap-2">
         <NavigationButton
           animationLayoutId={id}
           animated={false}
@@ -475,7 +479,7 @@ export const AnimationDisabled = () => {
         >
           <SettingsIcon />
         </NavigationButton>
-      </NavigationBar.End>
+      </NavigationBarEnd>
     </NavigationBar>
   );
 };
@@ -504,7 +508,7 @@ export const CustomTheme = () => {
 
   return (
     <NavigationBar theme={customTheme} className="h-[600px]">
-      <NavigationBar.Start className="px-4">{logo}</NavigationBar.Start>
+      <NavigationBarStart className="px-4">{logo}</NavigationBarStart>
       <NavigationButton
         animationLayoutId={id}
         theme={customTheme}
@@ -545,7 +549,7 @@ export const CustomTheme = () => {
       >
         <ReportsIcon />
       </NavigationButton>
-      <NavigationBar.End className="flex flex-col gap-2">
+      <NavigationBarEnd className="flex flex-col gap-2">
         <NavigationButton
           animationLayoutId={id}
           theme={customTheme}
@@ -562,7 +566,7 @@ export const CustomTheme = () => {
         >
           <SettingsIcon />
         </NavigationButton>
-      </NavigationBar.End>
+      </NavigationBarEnd>
     </NavigationBar>
   );
 };

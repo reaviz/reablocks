@@ -15,11 +15,11 @@ export interface NavigationBarSlotProps extends PropsWithChildren {
   className?: string;
 }
 
-const NavigationBarStart: FC<NavigationBarSlotProps> = ({ children }) => (
-  <>{children}</>
-);
+export const NavigationBarStart: FC<NavigationBarSlotProps> = ({
+  children
+}) => <>{children}</>;
 
-const NavigationBarEnd: FC<NavigationBarSlotProps> = ({ children }) => (
+export const NavigationBarEnd: FC<NavigationBarSlotProps> = ({ children }) => (
   <>{children}</>
 );
 
@@ -40,12 +40,7 @@ export interface NavigationBarProps extends PropsWithChildren {
   theme?: NavigationTheme;
 }
 
-type NavigationBarComponent = FC<NavigationBarProps> & {
-  Start: FC<NavigationBarSlotProps>;
-  End: FC<NavigationBarSlotProps>;
-};
-
-const NavigationBarInner: FC<NavigationBarProps> = ({
+export const NavigationBar: FC<NavigationBarProps> = ({
   className,
   direction = 'vertical',
   children,
@@ -104,8 +99,3 @@ const NavigationBarInner: FC<NavigationBarProps> = ({
     </nav>
   );
 };
-
-export const NavigationBar = NavigationBarInner as NavigationBarComponent;
-
-NavigationBar.Start = NavigationBarStart;
-NavigationBar.End = NavigationBarEnd;
