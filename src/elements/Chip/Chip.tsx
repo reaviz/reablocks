@@ -118,8 +118,19 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
         }}
         {...rest}
         ref={ref}
+        role={onClick ? 'button' : undefined}
         tabIndex={onClick ? 0 : -1}
         onClick={!disabled ? onClick : undefined}
+        onKeyDown={
+          onClick && !disabled
+            ? e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onClick(e as any);
+                }
+              }
+            : undefined
+        }
         className={cn(
           theme.base,
           theme.variants[variant],

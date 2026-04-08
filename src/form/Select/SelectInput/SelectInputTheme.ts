@@ -12,6 +12,10 @@ export interface SelectInputTheme {
   input: string;
   placeholder: string;
   prefix: string;
+  adornment: {
+    start: string;
+    end: string;
+  };
   suffix: {
     container: string;
     button: string;
@@ -54,6 +58,10 @@ export const defaultSelectInputTheme: SelectInputTheme = {
     'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-hidden disabled:text-disabled',
   placeholder: ' placeholder:text-secondary-content',
   prefix: 'overflow-hidden whitespace-nowrap text-ellipsis',
+  adornment: {
+    start: 'flex items-center mr-1.5',
+    end: 'flex items-center ml-1.5'
+  },
   suffix: {
     container: 'flex items-center justify-center',
     button: 'disabled:cursor-not-allowed hover:cursor-pointer',
@@ -104,6 +112,11 @@ export const unifySelectInputTheme: SelectInputTheme = {
   placeholder:
     'placeholder:text-inputs-colors-normal-text-input-text-resting focus:placeholder:text-inputs-colors-normal-text-input-text-selected',
   prefix: 'overflow-hidden whitespace-nowrap text-ellipsis flex flex-wrap',
+  adornment: {
+    start:
+      'flex items-center mr-(--inputs-details-space-between-horizontal-md)',
+    end: 'flex items-center ml-(--inputs-details-space-between-horizontal-md)'
+  },
   suffix: {
     container: 'flex items-center justify-center',
     button:

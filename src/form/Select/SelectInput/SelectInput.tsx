@@ -527,6 +527,7 @@ export const SelectInput: FC<SelectInputProps> = ({
         )}
         onClick={onContainerClick}
       >
+        {start && <div className={theme.adornment?.start}>{start}</div>}
         <div
           className={cn(theme.inputContainer, {
             [theme.multiple?.inputContainer]: multiple,
@@ -565,6 +566,7 @@ export const SelectInput: FC<SelectInputProps> = ({
             onPaste={onPaste}
           />
         </div>
+        {end && <div className={theme.adornment?.end}>{end}</div>}
         <div className={theme.suffix?.container}>
           {refreshable && !loading && (
             <button
