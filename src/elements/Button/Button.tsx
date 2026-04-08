@@ -80,7 +80,7 @@ export interface ButtonRef {
 export const Button: FC<ButtonProps & ButtonRef> = forwardRef(
   (
     {
-      color = 'primary',
+      color = 'default',
       variant = 'filled',
       children,
       fullWidth,

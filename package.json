@@ -35,7 +35,9 @@
       "import": "./dist/index.js",
       "require": "./dist/index.umd.cjs"
     },
-    "./index.css": "./dist/index.css",
+    "./index.css": "./dist/default.css",
+    "./default.css": "./dist/default.css",
+    "./unify.css": "./dist/unify.css",
     "./stories/*": "./dist/stories/*",
     "./blocks/*": "./dist/blocks/*"
   },
