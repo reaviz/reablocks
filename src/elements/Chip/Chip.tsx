@@ -164,6 +164,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
         )}
         {onClose && (
           <motion.button
+            type="button"
             whileTap={{ scale: disabled || !animated ? 1 : 0.9 }}
             className={cn(
               (theme as TagTypeThemeConfig).closeButton?.base,

@@ -11,7 +11,11 @@ import { isObject } from './isObject';
 export function mergeDeep<T extends object, S extends object>(
   target: T,
   source: S,
-  mergeFunction?: (objValue: any, srcValue: any, key: string) => string
+  mergeFunction?: (
+    objValue: any,
+    srcValue: any,
+    key: string
+  ) => string | undefined
 ): T & S {
   if (isObject(source) && Object.keys(source).length === 0) {
     return cloneDeep({ ...target, ...source });
@@ -27,14 +31,18 @@ export function mergeDeep<T extends object, S extends object>(
           source[key] as object,
           mergeFunction
         );
+      } else if (mergeFunction) {
+        const merged = mergeFunction(target[key], source[key], key);
+        (output as Record<string, unknown>)[key] =
+          merged !== undefined
+            ? merged
+            : isObject(source[key])
+              ? cloneDeep(source[key])
+              : source[key];
       } else {
         (output as Record<string, unknown>)[key] = isObject(source[key])
-          ? mergeFunction
-            ? mergeFunction(target[key], source[key], key)
-            : cloneDeep(source[key])
-          : mergeFunction
-            ? mergeFunction(target[key], source[key], key)
-            : source[key];
+          ? cloneDeep(source[key])
+          : source[key];
       }
     }
   }

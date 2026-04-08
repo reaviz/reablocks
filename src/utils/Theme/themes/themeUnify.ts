@@ -49,17 +49,19 @@ import type { ReablocksTheme } from './themeDefault';
  * Unify Design System theme.
  *
  * This theme uses Unify Design System tokens and styling.
- * Enable it via ThemeProvider's variant prop:
+ * Pass it as the base theme to ThemeProvider:
  *
  * @example
  * ```tsx
- * <ThemeProvider variant="unify">
+ * import { ThemeProvider, themeUnify } from 'reablocks';
+ *
+ * <ThemeProvider overrides={themeUnify}>
  *   <App />
  * </ThemeProvider>
  * ```
  *
  * NOTE: This theme relies on Unify CSS custom properties being defined.
- * Make sure to import the Unify CSS tokens in your application.
+ * Make sure to import the Unify CSS (`reablocks/unify.css`) in your application.
  */
 export const themeUnify: ReablocksTheme = {
   components: {

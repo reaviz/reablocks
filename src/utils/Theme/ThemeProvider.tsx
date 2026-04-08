@@ -29,13 +29,13 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
   overrides,
   theme = themeDefault
 }) => {
-  const [activeTheme, setActiveTheme] = useState(overrides);
+  const [activeTheme, setActiveTheme] = useState(() =>
+    overrides ? mergeDeep(theme, overrides) : theme
+  );
   const [tokens, setTokens] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    if (overrides) {
-      setActiveTheme(mergeDeep(theme, overrides));
-    }
+    setActiveTheme(overrides ? mergeDeep(theme, overrides) : theme);
     setTokens(getThemeVariables());
 
     const themeObserver = observeThemeSwitcher(() =>
