@@ -74,7 +74,7 @@ export const unifyNavigationTheme: NavigationTheme = {
     bg-navigation-colors-background-container-base border-navigation-colors-stroke-container-base
   `,
     direction: {
-      vertical: 'flex-col ',
+      vertical: 'flex-col',
       horizontal: 'flex-row border-none p-0'
     },
     start: 'py-4',

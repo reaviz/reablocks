@@ -116,9 +116,11 @@ export const NavigationBar: FC<NavigationBarProps> = ({
           isCollapsible && 'overflow-hidden'
         )}
       >
-        <div className={cn(navigationTheme.bar.start, startClassName)}>
-          {startContent}
-        </div>
+        {startContent && (
+          <div className={cn(navigationTheme.bar.start, startClassName)}>
+            {startContent}
+          </div>
+        )}
         <div
           className={cn(
             navigationTheme.bar.navigation,
@@ -127,9 +129,11 @@ export const NavigationBar: FC<NavigationBarProps> = ({
         >
           {bodyChildren}
         </div>
-        <div className={cn(navigationTheme.bar.end, endClassName)}>
-          {endContent}
-        </div>
+        {endContent && (
+          <div className={cn(navigationTheme.bar.end, endClassName)}>
+            {endContent}
+          </div>
+        )}
       </nav>
     </motion.div>
   );

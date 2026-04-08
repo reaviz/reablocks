@@ -78,12 +78,13 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
         />
       )}
       <motion.button
+        type="button"
         disabled={disabled}
         whileTap={{ scale: disabled || !animated || active ? 1 : 0.9 }}
         className={cn(
           navigationTheme.button?.variant?.[variant]?.content,
-          { [navigationTheme.button?.variant?.[variant]?.active]: active },
-          { [navigationTheme.button?.variant?.[variant]?.disabled]: disabled },
+          active && navigationTheme.button?.variant?.[variant]?.active,
+          disabled && navigationTheme.button?.variant?.[variant]?.disabled,
           className
         )}
         onClick={onClick}
