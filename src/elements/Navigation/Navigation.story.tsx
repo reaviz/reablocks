@@ -228,11 +228,11 @@ const PanelLeftOpenIcon = () => (
 
 export const Collapsed = () => {
   const [active, setActive] = useState<number>(1);
-  const [collapsed, setCollapsed] = useState(false);
+  const [collapsed, setCollapsed] = useState(true);
   const id = useId();
 
   return (
-    <NavigationBar collapsed={collapsed} className="h-[600px]">
+    <NavigationBar collapsed={collapsed}>
       <NavigationBarStart
         className={cn('flex gap-2 items-center', {
           'flex-row justify-between': !collapsed,

@@ -1,6 +1,6 @@
 import { motion } from 'motion/react';
 import type { ComponentProps, FC, PropsWithChildren, ReactNode } from 'react';
-import React, { Children, isValidElement } from 'react';
+import React, { Children, isValidElement, useMemo } from 'react';
 
 import { cn, useComponentTheme } from '@/utils';
 
@@ -17,12 +17,20 @@ export interface NavigationBarSlotProps extends PropsWithChildren {
 }
 
 export const NavigationBarStart: FC<NavigationBarSlotProps> = ({
-  children
-}) => <>{children}</>;
+  children,
+  className
+}) => {
+  const theme: NavigationTheme = useComponentTheme('navigation');
+  return <div className={cn(theme.bar.start, className)}>{children}</div>;
+};
 
-export const NavigationBarEnd: FC<NavigationBarSlotProps> = ({ children }) => (
-  <>{children}</>
-);
+export const NavigationBarEnd: FC<NavigationBarSlotProps> = ({
+  children,
+  className
+}) => {
+  const theme: NavigationTheme = useComponentTheme('navigation');
+  return <div className={cn(theme.bar.end, className)}>{children}</div>;
+};
 
 export type NavigationBarAnimation = Pick<
   ComponentProps<typeof motion.div>,
@@ -57,6 +65,12 @@ export interface NavigationBarProps extends PropsWithChildren {
   theme?: NavigationTheme;
 }
 
+const defaultTransition = {
+  type: 'spring',
+  stiffness: 300,
+  damping: 30
+} as const;
+
 export const NavigationBar: FC<NavigationBarProps> = ({
   className,
   direction = 'vertical',
@@ -70,39 +84,33 @@ export const NavigationBar: FC<NavigationBarProps> = ({
     theme
   );
 
-  let startContent: ReactNode = null;
-  let startClassName: string | undefined;
-  let endContent: ReactNode = null;
-  let endClassName: string | undefined;
-  const bodyChildren: ReactNode[] = [];
+  const { slots, bodyChildren } = useMemo(() => {
+    const slots: ReactNode[] = [];
+    const bodyChildren: ReactNode[] = [];
 
-  Children.forEach(children, child => {
-    if (isValidElement<NavigationBarSlotProps>(child)) {
-      if (child.type === NavigationBarStart) {
-        startContent = child.props.children;
-        startClassName = child.props.className;
-        return;
+    Children.forEach(children, child => {
+      if (
+        isValidElement(child) &&
+        (child.type === NavigationBarStart || child.type === NavigationBarEnd)
+      ) {
+        slots.push(child);
+      } else {
+        bodyChildren.push(child);
       }
-      if (child.type === NavigationBarEnd) {
-        endContent = child.props.children;
-        endClassName = child.props.className;
-        return;
-      }
-    }
-    bodyChildren.push(child);
-  });
+    });
+
+    return { slots, bodyChildren };
+  }, [children]);
 
   const isCollapsible = collapsed !== undefined && direction === 'vertical';
-  const defaultAnimation: NavigationBarAnimation = {
+  const resolvedAnimation = animation ?? {
     initial: false,
     animate: { width: collapsed ? 85 : 320 },
-    transition: { type: 'spring', stiffness: 300, damping: 30 }
+    transition: defaultTransition
   };
-  const resolvedAnimation = animation ?? defaultAnimation;
 
   return (
     <motion.div
-      className="h-full shrink-0 overflow-hidden"
       initial={isCollapsible ? (resolvedAnimation.initial ?? false) : false}
       animate={isCollapsible ? resolvedAnimation.animate : undefined}
       transition={isCollapsible ? resolvedAnimation.transition : undefined}
@@ -116,11 +124,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
           isCollapsible && 'overflow-hidden'
         )}
       >
-        {startContent && (
-          <div className={cn(navigationTheme.bar.start, startClassName)}>
-            {startContent}
-          </div>
-        )}
+        {slots.filter(s => isValidElement(s) && s.type === NavigationBarStart)}
         <div
           className={cn(
             navigationTheme.bar.navigation,
@@ -129,11 +133,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
         >
           {bodyChildren}
         </div>
-        {endContent && (
-          <div className={cn(navigationTheme.bar.end, endClassName)}>
-            {endContent}
-          </div>
-        )}
+        {slots.filter(s => isValidElement(s) && s.type === NavigationBarEnd)}
       </nav>
     </motion.div>
   );

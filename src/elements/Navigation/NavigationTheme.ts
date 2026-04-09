@@ -38,11 +38,11 @@ export const defaultNavigationTheme: NavigationTheme = {
       horizontal: 'flex-row border-none pb-0'
     },
     start: 'pt-4',
-    navigation: 'flex-1 flex flex-col gap-2',
+    navigation: 'flex-1 flex gap-2 overflow-auto',
     end: ''
   },
   button: {
-    base: 'group relative',
+    base: 'group relative shrink-0',
     variant: {
       ghost: {
         content:
@@ -79,11 +79,11 @@ export const unifyNavigationTheme: NavigationTheme = {
     },
     start: 'py-4',
     navigation:
-      'flex-1 flex flex-col gap-(--navigation-details-space-between-items-left-nav)',
+      'flex-1 flex gap-(--navigation-details-space-between-items-left-nav) overflow-auto',
     end: ''
   },
   button: {
-    base: 'group relative',
+    base: 'group relative shrink-0',
     variant: {
       ghost: {
         content: `

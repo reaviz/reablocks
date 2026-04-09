@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import type { FC, PropsWithChildren } from 'react';
+import type { FC } from 'react';
 import React from 'react';
 
 import { cn, useComponentTheme } from '@/utils';
@@ -9,12 +9,10 @@ import type {
   NavigationTheme
 } from './NavigationTheme';
 
-export interface NavigationButtonProps extends PropsWithChildren {
-  /**
-   * Custom class names for the navigation button.
-   */
-  className?: string;
-
+export interface NavigationButtonProps extends Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag'
+> {
   /**
    * Variant of the navigation button.
    */
@@ -31,11 +29,6 @@ export interface NavigationButtonProps extends PropsWithChildren {
   theme?: NavigationTheme;
 
   /**
-   * Disables the button, preventing interaction.
-   */
-  disabled?: boolean;
-
-  /**
    * If false, the animation of the button will be disabled.
    */
   animated?: boolean;
@@ -44,11 +37,6 @@ export interface NavigationButtonProps extends PropsWithChildren {
    * Unique identifier for the animation layout.
    */
   animationLayoutId?: string;
-
-  /**
-   * Callback function to handle click events on the button.
-   */
-  onClick?: () => void;
 }
 
 export const NavigationButton: FC<NavigationButtonProps> = ({
@@ -60,7 +48,7 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
   animated = true,
   variant = 'ghost',
   animationLayoutId,
-  onClick
+  ...rest
 }) => {
   const navigationTheme: NavigationTheme = useComponentTheme(
     'navigation',
@@ -79,6 +67,7 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
       )}
       <motion.button
         type="button"
+        {...rest}
         disabled={disabled}
         whileTap={{ scale: disabled || !animated || active ? 1 : 0.9 }}
         className={cn(
@@ -87,7 +76,6 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
           disabled && navigationTheme.button?.variant?.[variant]?.disabled,
           className
         )}
-        onClick={onClick}
       >
         {children}
       </motion.button>
