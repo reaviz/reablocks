@@ -1,4 +1,4 @@
-import { useId, useState } from 'react';
+import { useState } from 'react';
 
 import type { NavigationTheme } from '@/elements/Navigation';
 import { NavigationButton } from '@/elements/Navigation/NavigationButton';
@@ -229,7 +229,6 @@ const PanelLeftOpenIcon = () => (
 export const Collapsed = () => {
   const [active, setActive] = useState<number>(1);
   const [collapsed, setCollapsed] = useState(true);
-  const id = useId();
 
   return (
     <NavigationBar collapsed={collapsed}>
@@ -251,48 +250,31 @@ export const Collapsed = () => {
           {collapsed ? <PanelLeftOpenIcon /> : <PanelLeftCloseIcon />}
         </Button>
       </NavigationBarStart>
-      <NavigationButton
-        animationLayoutId={id}
-        active={active === 1}
-        onClick={() => setActive(1)}
-      >
+      <NavigationButton active={active === 1} onClick={() => setActive(1)}>
         <div className="flex items-center gap-2">
           <HomeIcon />
           {!collapsed && <span>Home</span>}
         </div>
       </NavigationButton>
-      <NavigationButton
-        animationLayoutId={id}
-        active={active === 2}
-        onClick={() => setActive(2)}
-      >
+      <NavigationButton active={active === 2} onClick={() => setActive(2)}>
         <div className="flex items-center gap-2">
           <DashboardIcon />
           {!collapsed && <span>Dashboard</span>}
         </div>
       </NavigationButton>
-      <NavigationButton
-        animationLayoutId={id}
-        active={active === 3}
-        onClick={() => setActive(3)}
-      >
+      <NavigationButton active={active === 3} onClick={() => setActive(3)}>
         <div className="flex items-center gap-2">
           <AlertsIcon />
           {!collapsed && <span>Alerts</span>}
         </div>
       </NavigationButton>
-      <NavigationButton
-        animationLayoutId={id}
-        active={active === 4}
-        onClick={() => setActive(4)}
-      >
+      <NavigationButton active={active === 4} onClick={() => setActive(4)}>
         <div className="flex items-center gap-2">
           <IntelligenceIcon />
           {!collapsed && <span>Intelligence</span>}
         </div>
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         disabled
         active={active === 5}
         onClick={() => setActive(5)}
@@ -303,21 +285,13 @@ export const Collapsed = () => {
         </div>
       </NavigationButton>
       <NavigationBarEnd className="flex flex-col gap-2">
-        <NavigationButton
-          animationLayoutId={id}
-          active={active === 6}
-          onClick={() => setActive(6)}
-        >
+        <NavigationButton active={active === 6} onClick={() => setActive(6)}>
           <div className="flex items-center gap-2">
             <HelpIcon />
             {!collapsed && <span>Help</span>}
           </div>
         </NavigationButton>
-        <NavigationButton
-          animationLayoutId={id}
-          active={active === 7}
-          onClick={() => setActive(7)}
-        >
+        <NavigationButton active={active === 7} onClick={() => setActive(7)}>
           <div className="flex items-center gap-2">
             <SettingsIcon />
             {!collapsed && <span>Settings</span>}
@@ -330,7 +304,6 @@ export const Collapsed = () => {
 
 export const Text = () => {
   const [active, setActive] = useState<number>(1);
-  const id = useId();
 
   return (
     <NavigationBar className="h-[600px]">
@@ -338,48 +311,31 @@ export const Text = () => {
         {logo}
         {companyName}
       </NavigationBarStart>
-      <NavigationButton
-        animationLayoutId={id}
-        active={active === 1}
-        onClick={() => setActive(1)}
-      >
+      <NavigationButton active={active === 1} onClick={() => setActive(1)}>
         <div className="flex items-center gap-2">
           <HomeIcon />
           <span>Home</span>
         </div>
       </NavigationButton>
-      <NavigationButton
-        animationLayoutId={id}
-        active={active === 2}
-        onClick={() => setActive(2)}
-      >
+      <NavigationButton active={active === 2} onClick={() => setActive(2)}>
         <div className="flex items-center gap-2">
           <DashboardIcon />
           <span>Dashboard</span>
         </div>
       </NavigationButton>
-      <NavigationButton
-        animationLayoutId={id}
-        active={active === 3}
-        onClick={() => setActive(3)}
-      >
+      <NavigationButton active={active === 3} onClick={() => setActive(3)}>
         <div className="flex items-center gap-2">
           <AlertsIcon />
           <span>Alerts</span>
         </div>
       </NavigationButton>
-      <NavigationButton
-        animationLayoutId={id}
-        active={active === 4}
-        onClick={() => setActive(4)}
-      >
+      <NavigationButton active={active === 4} onClick={() => setActive(4)}>
         <div className="flex items-center gap-2">
           <IntelligenceIcon />
           <span>Intelligence</span>
         </div>
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         disabled
         active={active === 5}
         onClick={() => setActive(5)}
@@ -390,21 +346,13 @@ export const Text = () => {
         </div>
       </NavigationButton>
       <NavigationBarEnd className="flex flex-col gap-2">
-        <NavigationButton
-          animationLayoutId={id}
-          active={active === 6}
-          onClick={() => setActive(6)}
-        >
+        <NavigationButton active={active === 6} onClick={() => setActive(6)}>
           <div className="flex items-center gap-2">
             <HelpIcon />
             <span>Help</span>
           </div>
         </NavigationButton>
-        <NavigationButton
-          animationLayoutId={id}
-          active={active === 7}
-          onClick={() => setActive(7)}
-        >
+        <NavigationButton active={active === 7} onClick={() => setActive(7)}>
           <div className="flex items-center gap-2">
             <SettingsIcon />
             <span>Settings</span>
@@ -417,41 +365,23 @@ export const Text = () => {
 
 export const Icons = () => {
   const [active, setActive] = useState<number>(1);
-  const id = useId();
 
   return (
     <NavigationBar className="h-[600px]">
       <NavigationBarStart className="px-4">{logo}</NavigationBarStart>
-      <NavigationButton
-        animationLayoutId={id}
-        active={active === 1}
-        onClick={() => setActive(1)}
-      >
+      <NavigationButton active={active === 1} onClick={() => setActive(1)}>
         <HomeIcon />
       </NavigationButton>
-      <NavigationButton
-        animationLayoutId={id}
-        active={active === 2}
-        onClick={() => setActive(2)}
-      >
+      <NavigationButton active={active === 2} onClick={() => setActive(2)}>
         <DashboardIcon />
       </NavigationButton>
-      <NavigationButton
-        animationLayoutId={id}
-        active={active === 3}
-        onClick={() => setActive(3)}
-      >
+      <NavigationButton active={active === 3} onClick={() => setActive(3)}>
         <AlertsIcon />
       </NavigationButton>
-      <NavigationButton
-        animationLayoutId={id}
-        active={active === 4}
-        onClick={() => setActive(4)}
-      >
+      <NavigationButton active={active === 4} onClick={() => setActive(4)}>
         <IntelligenceIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         disabled
         active={active === 5}
         onClick={() => setActive(5)}
@@ -459,18 +389,10 @@ export const Icons = () => {
         <ReportsIcon />
       </NavigationButton>
       <NavigationBarEnd className="flex flex-col gap-2">
-        <NavigationButton
-          animationLayoutId={id}
-          active={active === 6}
-          onClick={() => setActive(6)}
-        >
+        <NavigationButton active={active === 6} onClick={() => setActive(6)}>
           <HelpIcon />
         </NavigationButton>
-        <NavigationButton
-          animationLayoutId={id}
-          active={active === 7}
-          onClick={() => setActive(7)}
-        >
+        <NavigationButton active={active === 7} onClick={() => setActive(7)}>
           <SettingsIcon />
         </NavigationButton>
       </NavigationBarEnd>
@@ -480,13 +402,11 @@ export const Icons = () => {
 
 export const Horizontal = () => {
   const [active, setActive] = useState<number>(1);
-  const id = useId();
 
   return (
     <NavigationBar direction="horizontal" className="w-[800px]">
       <NavigationBarStart className="px-4">{logo}</NavigationBarStart>
       <NavigationButton
-        animationLayoutId={id}
         variant="underline"
         active={active === 1}
         onClick={() => setActive(1)}
@@ -494,7 +414,6 @@ export const Horizontal = () => {
         <HomeIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         variant="underline"
         active={active === 2}
         onClick={() => setActive(2)}
@@ -502,7 +421,6 @@ export const Horizontal = () => {
         <DashboardIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         variant="underline"
         active={active === 3}
         onClick={() => setActive(3)}
@@ -510,7 +428,6 @@ export const Horizontal = () => {
         <AlertsIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         variant="underline"
         active={active === 4}
         onClick={() => setActive(4)}
@@ -518,7 +435,6 @@ export const Horizontal = () => {
         <IntelligenceIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         disabled
         variant="underline"
         active={active === 5}
@@ -528,7 +444,6 @@ export const Horizontal = () => {
       </NavigationButton>
       <NavigationBarEnd className="flex flex-row gap-2">
         <NavigationButton
-          animationLayoutId={id}
           variant="underline"
           active={active === 6}
           onClick={() => setActive(6)}
@@ -536,7 +451,6 @@ export const Horizontal = () => {
           <HelpIcon />
         </NavigationButton>
         <NavigationButton
-          animationLayoutId={id}
           variant="underline"
           active={active === 7}
           onClick={() => setActive(7)}
@@ -550,13 +464,11 @@ export const Horizontal = () => {
 
 export const AnimationDisabled = () => {
   const [active, setActive] = useState<number>(1);
-  const id = useId();
 
   return (
     <NavigationBar className="h-[600px]">
       <NavigationBarStart className="px-4">{logo}</NavigationBarStart>
       <NavigationButton
-        animationLayoutId={id}
         animated={false}
         active={active === 1}
         onClick={() => setActive(1)}
@@ -564,7 +476,6 @@ export const AnimationDisabled = () => {
         <HomeIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         animated={false}
         active={active === 2}
         onClick={() => setActive(2)}
@@ -572,7 +483,6 @@ export const AnimationDisabled = () => {
         <DashboardIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         animated={false}
         active={active === 3}
         onClick={() => setActive(3)}
@@ -580,7 +490,6 @@ export const AnimationDisabled = () => {
         <AlertsIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         animated
         active={active === 4}
         onClick={() => setActive(4)}
@@ -588,7 +497,6 @@ export const AnimationDisabled = () => {
         <IntelligenceIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         animated={false}
         active={active === 5}
         onClick={() => setActive(5)}
@@ -597,7 +505,6 @@ export const AnimationDisabled = () => {
       </NavigationButton>
       <NavigationBarEnd className="flex flex-col gap-2">
         <NavigationButton
-          animationLayoutId={id}
           animated={false}
           active={active === 6}
           onClick={() => setActive(6)}
@@ -605,7 +512,6 @@ export const AnimationDisabled = () => {
           <HelpIcon />
         </NavigationButton>
         <NavigationButton
-          animationLayoutId={id}
           animated={false}
           active={active === 7}
           onClick={() => setActive(7)}
@@ -619,7 +525,6 @@ export const AnimationDisabled = () => {
 
 export const CustomTheme = () => {
   const [active, setActive] = useState<number>(1);
-  const id = useId();
   const navigationTheme: NavigationTheme = useComponentTheme('navigation');
 
   const customTheme: NavigationTheme = extendComponentTheme(navigationTheme, {
@@ -643,7 +548,6 @@ export const CustomTheme = () => {
     <NavigationBar theme={customTheme} className="h-[600px]">
       <NavigationBarStart className="px-4">{logo}</NavigationBarStart>
       <NavigationButton
-        animationLayoutId={id}
         theme={customTheme}
         active={active === 1}
         onClick={() => setActive(1)}
@@ -651,7 +555,6 @@ export const CustomTheme = () => {
         <HomeIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         theme={customTheme}
         active={active === 2}
         onClick={() => setActive(2)}
@@ -659,7 +562,6 @@ export const CustomTheme = () => {
         <DashboardIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         theme={customTheme}
         active={active === 3}
         onClick={() => setActive(3)}
@@ -667,7 +569,6 @@ export const CustomTheme = () => {
         <AlertsIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         theme={customTheme}
         active={active === 4}
         onClick={() => setActive(4)}
@@ -675,7 +576,6 @@ export const CustomTheme = () => {
         <IntelligenceIcon />
       </NavigationButton>
       <NavigationButton
-        animationLayoutId={id}
         theme={customTheme}
         active={active === 5}
         onClick={() => setActive(5)}
@@ -684,7 +584,6 @@ export const CustomTheme = () => {
       </NavigationButton>
       <NavigationBarEnd className="flex flex-col gap-2">
         <NavigationButton
-          animationLayoutId={id}
           theme={customTheme}
           active={active === 6}
           onClick={() => setActive(6)}
@@ -692,7 +591,6 @@ export const CustomTheme = () => {
           <HelpIcon />
         </NavigationButton>
         <NavigationButton
-          animationLayoutId={id}
           theme={customTheme}
           active={active === 7}
           onClick={() => setActive(7)}

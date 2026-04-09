@@ -84,22 +84,22 @@ export const NavigationBar: FC<NavigationBarProps> = ({
     theme
   );
 
-  const { slots, bodyChildren } = useMemo(() => {
-    const slots: ReactNode[] = [];
+  const { startSlots, endSlots, bodyChildren } = useMemo(() => {
+    const startSlots: ReactNode[] = [];
+    const endSlots: ReactNode[] = [];
     const bodyChildren: ReactNode[] = [];
 
     Children.forEach(children, child => {
-      if (
-        isValidElement(child) &&
-        (child.type === NavigationBarStart || child.type === NavigationBarEnd)
-      ) {
-        slots.push(child);
+      if (isValidElement(child) && child.type === NavigationBarStart) {
+        startSlots.push(child);
+      } else if (isValidElement(child) && child.type === NavigationBarEnd) {
+        endSlots.push(child);
       } else {
         bodyChildren.push(child);
       }
     });
 
-    return { slots, bodyChildren };
+    return { startSlots, endSlots, bodyChildren };
   }, [children]);
 
   const isCollapsible = collapsed !== undefined && direction === 'vertical';
@@ -124,7 +124,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
           isCollapsible && 'overflow-hidden'
         )}
       >
-        {slots.filter(s => isValidElement(s) && s.type === NavigationBarStart)}
+        {startSlots}
         <div
           className={cn(
             navigationTheme.bar.navigation,
@@ -133,7 +133,7 @@ export const NavigationBar: FC<NavigationBarProps> = ({
         >
           {bodyChildren}
         </div>
-        {slots.filter(s => isValidElement(s) && s.type === NavigationBarEnd)}
+        {endSlots}
       </nav>
     </motion.div>
   );

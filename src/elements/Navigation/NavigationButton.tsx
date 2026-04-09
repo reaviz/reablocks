@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { HTMLMotionProps, motion } from 'motion/react';
 import type { FC } from 'react';
 import React from 'react';
 
@@ -9,10 +9,7 @@ import type {
   NavigationTheme
 } from './NavigationTheme';
 
-export interface NavigationButtonProps extends Omit<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  'onAnimationStart' | 'onDragStart' | 'onDragEnd' | 'onDrag'
-> {
+export interface NavigationButtonProps extends HTMLMotionProps<'button'> {
   /**
    * Variant of the navigation button.
    */
@@ -32,11 +29,6 @@ export interface NavigationButtonProps extends Omit<
    * If false, the animation of the button will be disabled.
    */
   animated?: boolean;
-
-  /**
-   * Unique identifier for the animation layout.
-   */
-  animationLayoutId?: string;
 }
 
 export const NavigationButton: FC<NavigationButtonProps> = ({
@@ -47,7 +39,8 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
   disabled,
   animated = true,
   variant = 'ghost',
-  animationLayoutId,
+  layoutId,
+  whileTap,
   ...rest
 }) => {
   const navigationTheme: NavigationTheme = useComponentTheme(
@@ -59,9 +52,7 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
     <div className={navigationTheme.button.base}>
       {active && (
         <motion.div
-          layoutId={
-            !animated ? undefined : (animationLayoutId ?? 'selected-nav-button')
-          }
+          layoutId={!animated ? undefined : (layoutId ?? 'selected-nav-button')}
           className={navigationTheme.button.variant?.[variant]?.selection}
         />
       )}
@@ -69,7 +60,9 @@ export const NavigationButton: FC<NavigationButtonProps> = ({
         type="button"
         {...rest}
         disabled={disabled}
-        whileTap={{ scale: disabled || !animated || active ? 1 : 0.9 }}
+        whileTap={
+          whileTap ?? { scale: disabled || !animated || active ? 1 : 0.9 }
+        }
         className={cn(
           navigationTheme.button?.variant?.[variant]?.content,
           active && navigationTheme.button?.variant?.[variant]?.active,
