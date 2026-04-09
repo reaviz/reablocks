@@ -526,6 +526,7 @@ export const AnimationDisabled = () => {
 export const CustomTheme = () => {
   const [active, setActive] = useState<number>(1);
   const navigationTheme: NavigationTheme = useComponentTheme('navigation');
+  const buttonAnimation = { whileTap: { scale: 0.5 } };
 
   const customTheme: NavigationTheme = extendComponentTheme(navigationTheme, {
     bar: {
@@ -551,6 +552,7 @@ export const CustomTheme = () => {
         theme={customTheme}
         active={active === 1}
         onClick={() => setActive(1)}
+        {...buttonAnimation}
       >
         <HomeIcon />
       </NavigationButton>
@@ -558,6 +560,7 @@ export const CustomTheme = () => {
         theme={customTheme}
         active={active === 2}
         onClick={() => setActive(2)}
+        {...buttonAnimation}
       >
         <DashboardIcon />
       </NavigationButton>
@@ -565,6 +568,7 @@ export const CustomTheme = () => {
         theme={customTheme}
         active={active === 3}
         onClick={() => setActive(3)}
+        {...buttonAnimation}
       >
         <AlertsIcon />
       </NavigationButton>
@@ -572,6 +576,7 @@ export const CustomTheme = () => {
         theme={customTheme}
         active={active === 4}
         onClick={() => setActive(4)}
+        {...buttonAnimation}
       >
         <IntelligenceIcon />
       </NavigationButton>
@@ -579,6 +584,7 @@ export const CustomTheme = () => {
         theme={customTheme}
         active={active === 5}
         onClick={() => setActive(5)}
+        {...buttonAnimation}
       >
         <ReportsIcon />
       </NavigationButton>
@@ -587,6 +593,7 @@ export const CustomTheme = () => {
           theme={customTheme}
           active={active === 6}
           onClick={() => setActive(6)}
+          {...buttonAnimation}
         >
           <HelpIcon />
         </NavigationButton>
@@ -594,6 +601,8 @@ export const CustomTheme = () => {
           theme={customTheme}
           active={active === 7}
           onClick={() => setActive(7)}
+          whileHover={{ scale: 1 }}
+          whileTap={{ scale: 0.85 }}
         >
           <SettingsIcon />
         </NavigationButton>
