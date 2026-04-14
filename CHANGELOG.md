@@ -1,4 +1,5 @@
-# 10.0.0-beta.1 - 4/08/26
+# 10.0.0-beta.2 - 4/9/26
+- [feature] new nav component
 
 ## Breaking Changes
 
