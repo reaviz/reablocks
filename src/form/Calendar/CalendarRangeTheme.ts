@@ -34,10 +34,10 @@ const baseUnifyTheme: Partial<CalendarRangeTheme> = {
 };
 
 export const defaultCalendarRangeTheme: CalendarRangeTheme = {
-  base: baseDefaultTheme.base!,
-  header: baseDefaultTheme.header!,
-  title: baseDefaultTheme.title!,
-  content: baseDefaultTheme.content!,
+  base: baseDefaultTheme.base,
+  header: baseDefaultTheme.header,
+  title: baseDefaultTheme.title,
+  content: baseDefaultTheme.content,
   contentContainer: baseDefaultTheme.contentContainer || '',
   days: defaultCalendarTheme.days,
   time: defaultCalendarTheme.time,
@@ -48,10 +48,10 @@ export const defaultCalendarRangeTheme: CalendarRangeTheme = {
 };
 
 export const unifyCalendarRangeTheme: CalendarRangeTheme = {
-  base: baseUnifyTheme.base!,
-  header: baseUnifyTheme.header!,
-  title: baseUnifyTheme.title!,
-  content: baseUnifyTheme.content!,
+  base: baseUnifyTheme.base,
+  header: baseUnifyTheme.header,
+  title: baseUnifyTheme.title,
+  content: baseUnifyTheme.content,
   contentContainer: baseUnifyTheme.contentContainer || '',
   days: unifyCalendarTheme.days,
   time: unifyCalendarTheme.time,
