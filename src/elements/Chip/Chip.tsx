@@ -53,7 +53,7 @@ export interface ChipProps extends Omit<
   start?: ReactElement | string;
 
   /**
-   * Content to display before the chip label.
+   * Content to display after the chip label.
    */
   end?: ReactElement | string;
 
