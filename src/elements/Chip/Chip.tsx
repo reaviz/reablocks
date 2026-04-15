@@ -1,22 +1,22 @@
-import { HTMLMotionProps, motion } from 'motion/react';
-import React, { forwardRef, ReactElement, ReactNode, Ref } from 'react';
-import CloseIcon from '@/assets/icons/close.svg?react';
+import React, {
+  forwardRef,
+  HTMLAttributes,
+  ReactElement,
+  ReactNode,
+  Ref
+} from 'react';
 import { cn, useComponentTheme } from '@/utils';
 import {
   ChipColorTheme,
   ChipSizeTheme,
   ChipTheme,
-  ChipTypeTheme,
-  ChipVariantTheme,
-  TagTypeThemeConfig
+  ChipVariantTheme
 } from './ChipTheme';
 
-export interface ChipProps extends Omit<HTMLMotionProps<'div'>, 'color'> {
-  /**
-   * Type of the chip, e.g., badge or tag.
-   */
-  type?: keyof ChipTypeTheme;
-
+export interface ChipProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  'color'
+> {
   /**
    * Color variant for the chip.
    */
@@ -48,11 +48,6 @@ export interface ChipProps extends Omit<HTMLMotionProps<'div'>, 'color'> {
   disableMargins?: boolean;
 
   /**
-   * If false, the animation of the chip will be disabled.
-   */
-  animated?: boolean;
-
-  /**
    * Content to display before the chip label.
    */
   start?: ReactElement | string;
@@ -61,16 +56,6 @@ export interface ChipProps extends Omit<HTMLMotionProps<'div'>, 'color'> {
    * Content to display before the chip label.
    */
   end?: ReactElement | string;
-
-  /**
-   * Close icon for the chip, typically used in closable chips.
-   */
-  closeIcon?: ReactElement;
-
-  /**
-   * Close handler for the chip, typically used in closable chips.
-   */
-  onClose?: () => void;
 
   /**
    * Theme for the Chip.
@@ -89,7 +74,6 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
   (
     {
       children,
-      type = 'badge',
       color = 'default',
       variant = 'filled',
       size = 'medium',
@@ -97,40 +81,19 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
       disabled,
       className,
       disableMargins,
-      animated = true,
       start,
       end,
-      closeIcon = <CloseIcon />,
-      onClose,
-      onClick,
       theme: customTheme,
       ...rest
     },
     ref
   ) => {
-    const theme = useComponentTheme('chip', customTheme).types[type];
-    const isClickable = type === 'tag' && onClick && !disabled;
+    const theme = useComponentTheme('chip', customTheme);
 
     return (
-      <motion.div
-        whileTap={{
-          scale: !isClickable || !animated || onClose ? 1 : 0.9
-        }}
+      <div
         {...rest}
         ref={ref}
-        role={onClick ? 'button' : undefined}
-        tabIndex={onClick ? 0 : -1}
-        onClick={!disabled ? onClick : undefined}
-        onKeyDown={
-          onClick && !disabled
-            ? e => {
-                if (e.key === 'Enter' || e.key === ' ') {
-                  e.preventDefault();
-                  onClick(e as any);
-                }
-              }
-            : undefined
-        }
         className={cn(
           theme.base,
           theme.variants[variant],
@@ -139,11 +102,9 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
           theme.sizes[size],
           {
             [theme.colors[color]?.variants?.[variant]?.selected]: selected,
-            [theme.colors[color]?.variants?.[variant]?.selectable]: isClickable,
-            'cursor-pointer': isClickable
+            'm-0': disableMargins
           },
-          disableMargins && 'm-0',
-          disabled && type === 'tag' && (theme as TagTypeThemeConfig).disabled,
+          disabled,
           className
         )}
         aria-disabled={disabled}
@@ -173,23 +134,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
             {end}
           </div>
         )}
-        {onClose && (
-          <motion.button
-            type="button"
-            whileTap={{ scale: disabled || !animated ? 1 : 0.9 }}
-            className={cn(
-              (theme as TagTypeThemeConfig).closeButton?.base,
-              (theme as TagTypeThemeConfig).closeButton?.sizes?.[size]
-            )}
-            onClick={e => {
-              e.stopPropagation();
-              onClose();
-            }}
-          >
-            {closeIcon}
-          </motion.button>
-        )}
-      </motion.div>
+      </div>
     );
   }
 );
