@@ -70,7 +70,7 @@ export interface ChipTheme {
 }
 
 export const defaultChipTheme: ChipTheme = {
-  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5 rounded-xl leading-none text-white transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium',
+  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5 rounded-xs leading-none text-white transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium',
   adornment: {
     base: 'flex items-center justify-center',
     start: 'mr-1',
@@ -101,21 +101,21 @@ export const defaultChipTheme: ChipTheme = {
         },
         outline: {
           base: 'text-text-primary border-panel-accent',
-          selected: 'border-panel-accent text-primary',
-          selectable: 'hover:text-primary-hover hover:border-panel-accent'
+          selectable: 'hover:text-primary-hover hover:border-panel-accent',
+          selected: 'border-panel-accent text-primary'
         }
       }
     },
     primary: {
       variants: {
-        filled: {
-          base: 'bg-primary border-primary text-panel',
+        outline: {
+          base: 'text-primary border-panel-accent',
           selectable:
             'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
           selected: 'bg-primary-hover'
         },
-        outline: {
-          base: 'text-primary border-panel-accent',
+        filled: {
+          base: 'bg-primary border-primary text-panel',
           selectable: 'hover:text-primary-hover hover:border-primary',
           selected: 'border-primary'
         }
@@ -140,13 +140,13 @@ export const defaultChipTheme: ChipTheme = {
       variants: {
         filled: {
           base: 'bg-success border-success text-panel',
-          selected: 'bg-success-hover',
-          selectable: 'hover:bg-success-hover hover:border-success-hover'
+          selectable: 'hover:bg-success-hover hover:border-success-hover',
+          selected: 'bg-success-hover'
         },
         outline: {
           base: 'text-success border-panel-accent',
-          selected: 'border-success',
-          selectable: 'hover:text-success-hover hover:border-success'
+          selectable: 'hover:text-success-hover hover:border-success',
+          selected: 'border-success'
         }
       }
     },
@@ -228,6 +228,14 @@ export const unifyChipTheme: ChipTheme = {
             border-badges-colors-outline-neutral-stroke-default
             text-badges-colors-outline-neutral-text-default
           `,
+          selected: `
+            border-tags-colors-neutral-stroke-selected bg-tags-colors-neutral-background-selected
+            hover:border-tags-colors-neutral-stroke-selected hover:bg-tags-colors-neutral-background-selected
+          `,
+          selectable: `
+            hover:border-tags-colors-neutral-stroke-hover hover:bg-tags-colors-neutral-background-hover
+            focus-visible:border-tags-colors-neutral-stroke-hover focus-visible:bg-tags-colors-neutral-background-hover
+          `,
           start: 'fill-badges-colors-outline-neutral-assets-default',
           end: 'fill-badges-colors-outline-neutral-assets-default'
         },
@@ -258,6 +266,14 @@ export const unifyChipTheme: ChipTheme = {
             bg-badges-colors-outline-brand-background-standard
             border-badges-colors-outline-brand-stroke-default
             text-badges-colors-outline-brand-text-default
+          `,
+          selected: `
+            border-tags-colors-brand-stroke-selected bg-tags-colors-brand-background-selected
+            hover:border-tags-colors-brand-stroke-selected hover:bg-tags-colors-brand-background-selected
+          `,
+          selectable: `
+            hover:border-tags-colors-brand-stroke-hover hover:bg-tags-colors-brand-background-hover
+            focus-visible:border-tags-colors-brand-stroke-hover focus-visible:bg-tags-colors-brand-background-hover
           `,
           start: 'fill-badges-colors-outline-brand-assets-default',
           end: 'fill-badges-colors-outline-brand-assets-default'
@@ -290,6 +306,14 @@ export const unifyChipTheme: ChipTheme = {
             border-badges-colors-outline-accent-stroke-default
             text-badges-colors-outline-accent-text-default
           `,
+          selected: `
+            border-tags-colors-accent-stroke-selected bg-tags-colors-accent-background-selected
+            hover:border-tags-colors-accent-stroke-selected hover:bg-tags-colors-accent-background-selected
+          `,
+          selectable: `
+            hover:border-tags-colors-accent-stroke-hover hover:bg-tags-colors-accent-background-hover
+            focus-visible:border-tags-colors-accent-stroke-hover focus-visible:bg-tags-colors-accent-background-hover
+          `,
           start: 'fill-badges-colors-outline-accent-assets-default',
           end: 'fill-badges-colors-outline-accent-assets-default'
         },
@@ -320,6 +344,14 @@ export const unifyChipTheme: ChipTheme = {
             bg-badges-colors-outline-success-background-standard
             border-badges-colors-outline-success-stroke-default
             text-badges-colors-outline-success-text-default
+          `,
+          selected: `
+            border-tags-colors-success-stroke-selected bg-tags-colors-success-background-selected
+            hover:border-tags-colors-success-stroke-selected hover:bg-tags-colors-success-background-selected
+          `,
+          selectable: `
+            hover:border-tags-colors-success-stroke-hover hover:bg-tags-colors-success-background-hover
+            focus-visible:border-tags-colors-success-stroke-hover focus-visible:bg-tags-colors-success-background-hover
           `,
           start: 'fill-badges-colors-outline-success-assets-default',
           end: 'fill-badges-colors-outline-success-assets-default'
@@ -352,6 +384,14 @@ export const unifyChipTheme: ChipTheme = {
             border-badges-colors-outline-warning-stroke-default
             text-badges-colors-outline-warning-text-default
           `,
+          selected: `
+            border-tags-colors-warning-stroke-selected bg-tags-colors-warning-background-selected
+            hover:border-tags-colors-warning-stroke-selected hover:bg-tags-colors-warning-background-selected
+          `,
+          selectable: `
+            hover:border-tags-colors-warning-stroke-hover hover:bg-tags-colors-warning-background-hover
+            focus-visible:border-tags-colors-warning-stroke-hover focus-visible:bg-tags-colors-warning-background-hover
+          `,
           start: 'fill-badges-colors-outline-warning-assets-default',
           end: 'fill-badges-colors-outline-warning-assets-default'
         },
@@ -383,6 +423,14 @@ export const unifyChipTheme: ChipTheme = {
             border-badges-colors-outline-error-stroke-default
             text-badges-colors-outline-error-text-default
           `,
+          selected: `
+            border-tags-colors-error-stroke-selected bg-tags-colors-error-background-selected
+            hover:border-tags-colors-error-stroke-selected hover:bg-tags-colors-error-background-selected
+          `,
+          selectable: `
+            hover:border-tags-colors-error-stroke-hover hover:bg-tags-colors-error-background-hover
+            focus-visible:border-tags-colors-error-stroke-hover focus-visible:bg-tags-colors-error-background-hover
+          `,
           start: 'fill-badges-colors-outline-error-assets-default',
           end: 'fill-badges-colors-outline-error-assets-default'
         },
@@ -413,6 +461,14 @@ export const unifyChipTheme: ChipTheme = {
             bg-badges-colors-outline-info-background-standard
             border-badges-colors-outline-info-stroke-default
             text-badges-colors-outline-info-text-default
+          `,
+          selected: `
+            border-tags-colors-info-stroke-selected bg-tags-colors-info-background-selected
+            hover:border-tags-colors-info-stroke-selected hover:bg-tags-colors-info-background-selected
+          `,
+          selectable: `
+            hover:border-tags-colors-info-stroke-hover hover:bg-tags-colors-info-background-hover
+            focus-visible:border-tags-colors-info-stroke-hover focus-visible:bg-tags-colors-info-background-hover
           `,
           start: 'fill-badges-colors-outline-info-assets-default',
           end: 'fill-badges-colors-outline-info-assets-default'

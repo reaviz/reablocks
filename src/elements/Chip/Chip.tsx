@@ -83,17 +83,32 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
       disableMargins,
       start,
       end,
+      onClick,
       theme: customTheme,
       ...rest
     },
     ref
   ) => {
     const theme = useComponentTheme('chip', customTheme);
+    const isClickable = onClick && !disabled;
 
     return (
       <div
         {...rest}
         ref={ref}
+        tabIndex={onClick ? 0 : -1}
+        role={onClick ? 'button' : undefined}
+        onClick={!disabled ? onClick : undefined}
+        onKeyDown={
+          onClick && !disabled
+            ? e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  onClick(e as unknown as React.MouseEvent<HTMLDivElement>);
+                }
+              }
+            : undefined
+        }
         className={cn(
           theme.base,
           theme.variants[variant],
@@ -102,6 +117,7 @@ export const Chip = forwardRef<HTMLDivElement, ChipProps>(
           theme.sizes[size],
           {
             [theme.colors[color]?.variants?.[variant]?.selected]: selected,
+            [theme.colors[color]?.variants?.[variant]?.selectable]: isClickable,
             'm-0': disableMargins
           },
           disabled,

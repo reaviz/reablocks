@@ -137,6 +137,14 @@ export const Deletable = () => (
   </div>
 );
 
+export const Clickable = () => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+    <Chip variant="outline" onClick={() => alert('clicked')}>
+      Clickable
+    </Chip>
+  </div>
+);
+
 const DemoIcon = () => (
   <svg
     width="16"
