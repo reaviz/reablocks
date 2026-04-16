@@ -1,10 +1,31 @@
-import React, { FC, useState, useRef, useEffect, ReactNode } from 'react';
+import React, {
+  FC,
+  useState,
+  useRef,
+  useEffect,
+  useMemo,
+  ReactNode
+} from 'react';
 import { ConnectedOverlay, TriggerTypes } from '@/utils/Overlay';
 import { Modifiers, Placement, ReferenceObject } from '@/utils/Position';
 import { motion, MotionNodeAnimationOptions } from 'motion/react';
+import {
+  arrow as arrowMiddleware,
+  offset,
+  flip,
+  shift,
+  limitShift
+} from '@floating-ui/react';
 import { useTooltipState } from './useTooltipState';
 import { TooltipTheme } from './TooltipTheme';
 import { cn, useComponentTheme } from '@/utils';
+
+const ARROW_STATIC_SIDE: Record<string, string> = {
+  top: 'bottom',
+  right: 'left',
+  bottom: 'top',
+  left: 'right'
+};
 
 export interface TooltipProps {
   /**
@@ -104,6 +125,11 @@ export interface TooltipProps {
   pointerEvents?: string;
 
   /**
+   * Whether to show an arrow pointing from the tooltip to the trigger element.
+   */
+  showArrow?: boolean;
+
+  /**
    * Differentiator for popovers to be handled separate from tooltips
    */
   isPopover?: boolean;
@@ -142,6 +168,8 @@ export const Tooltip: FC<TooltipProps> = ({
   closeOnEscape = true,
   closeOnBodyClick = true,
   pointerEvents = 'none',
+  showArrow = false,
+  modifiers,
   isPopover,
   onOpen,
   onClose,
@@ -154,6 +182,34 @@ export const Tooltip: FC<TooltipProps> = ({
   const [internalVisible, setInternalVisible] = useState<boolean>(visible);
   const timeout = useRef<any | null>(null);
   const mounted = useRef<boolean>(false);
+  const arrowRef = useRef<HTMLElement | null>(null);
+  const arrowDataRef = useRef<{
+    x?: number;
+    y?: number;
+    placement: string;
+  } | null>(null);
+
+  const effectiveModifiers = useMemo(() => {
+    if (!showArrow) return modifiers;
+    const base = modifiers || [flip(), shift({ limiter: limitShift() })];
+    return [
+      offset(8),
+      ...base,
+      arrowMiddleware({ element: arrowRef, padding: 8 }),
+      {
+        name: 'arrowCapture',
+        fn(state: any) {
+          arrowDataRef.current = {
+            x: state.middlewareData.arrow?.x,
+            y: state.middlewareData.arrow?.y,
+            placement: state.placement
+          };
+          return {};
+        }
+      }
+    ];
+  }, [showArrow, modifiers]);
+
   const ref = useRef<(setter: boolean, isPop?: boolean) => boolean>(
     (vis, isPop) => {
       // Since Popovers use the Tooltip component and they share state, need to differentiate between
@@ -196,6 +252,7 @@ export const Tooltip: FC<TooltipProps> = ({
       open={internalVisible}
       closeOnBodyClick={closeOnBodyClick}
       closeOnEscape={closeOnEscape}
+      modifiers={effectiveModifiers}
       content={() => {
         const contentChildren =
           typeof content === 'function' ? content() : content;
@@ -207,7 +264,7 @@ export const Tooltip: FC<TooltipProps> = ({
         return (
           <motion.div
             role={isPopover ? undefined : 'tooltip'}
-            className={cn(theme.base, className)}
+            className={cn(theme.base, showArrow && 'relative', className)}
             {...(animation
               ? animation
               : {
@@ -244,6 +301,26 @@ export const Tooltip: FC<TooltipProps> = ({
             }}
           >
             {contentChildren}
+            {showArrow &&
+              (() => {
+                const data = arrowDataRef.current;
+                const side =
+                  data?.placement?.split('-')[0] ?? placement.split('-')[0];
+                const staticSide = ARROW_STATIC_SIDE[side];
+                return (
+                  <div
+                    ref={arrowRef as React.Ref<HTMLDivElement>}
+                    className={theme.arrow}
+                    style={{
+                      position: 'absolute',
+                      visibility: data ? 'visible' : 'hidden',
+                      left: data?.x != null ? data.x : '',
+                      top: data?.y != null ? data.y : '',
+                      [staticSide]: -4
+                    }}
+                  />
+                );
+              })()}
           </motion.div>
         );
       }}

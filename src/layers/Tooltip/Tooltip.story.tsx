@@ -149,6 +149,33 @@ export const FollowScroll = () => (
   </div>
 );
 
+export const WithArrow = () => (
+  <div
+    style={{
+      display: 'flex',
+      gap: 40,
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      margin: '80px auto',
+      color: 'green'
+    }}
+  >
+    <Tooltip content="Top" placement="top" showArrow>
+      Top
+    </Tooltip>
+    <Tooltip content="Bottom" placement="bottom" showArrow>
+      Bottom
+    </Tooltip>
+    <Tooltip content="Left" placement="left" showArrow>
+      Left
+    </Tooltip>
+    <Tooltip content="Right" placement="right" showArrow>
+      Right
+    </Tooltip>
+  </div>
+);
+
 export const Disabled = () => (
   <div style={{ textAlign: 'center', width: '100%', margin: '50px' }}>
     <Tooltip content="Hi there" disabled={true}>
