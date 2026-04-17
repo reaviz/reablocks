@@ -210,9 +210,7 @@ export const CustomTheme = () => {
   };
 
   return (
-    <ThemeProvider
-      overrides={extendTheme(theme, customTheme, mergeThemeClasses)}
-    >
+    <ThemeProvider theme={extendTheme(theme, customTheme, mergeThemeClasses)}>
       <div style={{ display: 'flex', gap: 10 }}>
         <Button variant="filled">Filled</Button>
         <Button variant="outline">Outline</Button>
@@ -243,7 +241,7 @@ export const CustomColor = () => {
   };
 
   return (
-    <ThemeProvider overrides={extendTheme(theme, customTheme)}>
+    <ThemeProvider theme={extendTheme(theme, customTheme)}>
       <Button color="gradient">Gradient</Button>
     </ThemeProvider>
   );
@@ -271,7 +269,7 @@ export const CustomVariant = () => {
   };
 
   return (
-    <ThemeProvider overrides={extendTheme(theme, customTheme)}>
+    <ThemeProvider theme={extendTheme(theme, customTheme)}>
       <div style={{ display: 'flex', gap: 10 }}>
         <Button variant="gradient" color="primary">
           Gradient - Default
@@ -297,7 +295,7 @@ export const CustomSize = () => {
   };
 
   return (
-    <ThemeProvider overrides={extendTheme(theme, customTheme)}>
+    <ThemeProvider theme={extendTheme(theme, customTheme)}>
       <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
         <Button size="xsmall">xsmall</Button>
         <Button size="xlarge">xlarge</Button>

@@ -7,8 +7,8 @@ import React, {
   useEffect,
   useState
 } from 'react';
-import { getThemeVariables, mergeDeep, observeThemeSwitcher } from './helpers';
-import { ReablocksTheme, theme as themeDefault } from './themes/themeDefault';
+import { getThemeVariables, observeThemeSwitcher } from './helpers';
+import { ReablocksTheme } from './themes/themeDefault';
 
 export interface ThemeContextProps {
   theme: ReablocksTheme;
@@ -20,22 +20,15 @@ export interface ThemeContextProps {
 export const ThemeContext = createContext<ThemeContextProps>(null);
 
 interface ThemeProviderProps extends PropsWithChildren {
-  overrides: ReablocksTheme;
-  theme?: ReablocksTheme;
+  theme: ReablocksTheme;
 }
 
-export const ThemeProvider: FC<ThemeProviderProps> = ({
-  children,
-  overrides,
-  theme = themeDefault
-}) => {
-  const [activeTheme, setActiveTheme] = useState(() =>
-    overrides ? mergeDeep(theme, overrides) : theme
-  );
+export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
+  const [activeTheme, setActiveTheme] = useState(theme);
   const [tokens, setTokens] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    setActiveTheme(overrides ? mergeDeep(theme, overrides) : theme);
+    setActiveTheme(theme);
     setTokens(getThemeVariables());
 
     const themeObserver = observeThemeSwitcher(() =>
@@ -43,7 +36,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({
     );
 
     return () => themeObserver.disconnect();
-  }, [overrides]);
+  }, [theme]);
 
   const updateTheme = (newTheme: ReablocksTheme) => {
     setActiveTheme({ ...activeTheme, ...newTheme });

@@ -56,7 +56,7 @@ import type { ReablocksTheme } from './themeDefault';
  * ```tsx
  * import { ThemeProvider, themeUnify } from 'reablocks';
  *
- * <ThemeProvider overrides={themeUnify}>
+ * <ThemeProvider theme={themeUnify}>
  *   <App />
  * </ThemeProvider>
  * ```

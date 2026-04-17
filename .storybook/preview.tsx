@@ -13,7 +13,7 @@ const THEME = (import.meta as any).env?.VITE_THEME || 'default';
 const reablocksTheme = THEME === 'unify' ? themeUnify : defaultTheme;
 
 const withProvider = (Story, context) => (
-  <ThemeProvider overrides={reablocksTheme} theme={reablocksTheme}>
+  <ThemeProvider theme={reablocksTheme}>
     <Story {...context} />
   </ThemeProvider>
 );

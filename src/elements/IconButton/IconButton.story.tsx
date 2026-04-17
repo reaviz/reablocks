@@ -146,7 +146,7 @@ export const Custom = () => {
     }
   };
   return (
-    <ThemeProvider overrides={extendTheme(theme, iconTheme)}>
+    <ThemeProvider theme={extendTheme(theme, iconTheme)}>
       <div className="flex items-center gap-2.5">
         <IconButton size="small">
           <BellIcon />
