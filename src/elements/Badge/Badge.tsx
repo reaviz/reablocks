@@ -1,19 +1,16 @@
-import React, { FC, forwardRef, LegacyRef } from 'react';
+import React, { FC, forwardRef, Ref } from 'react';
 import { motion } from 'motion/react';
-import { BadgeTheme } from './BadgeTheme';
 import { cn, useComponentTheme } from '@/utils';
 
-export type BadgeColor = 'default' | 'primary' | 'secondary' | 'error';
-
-export type BadgePlacement =
-  | 'top-start'
-  | 'top-end'
-  | 'bottom-end'
-  | 'bottom-start';
+import type {
+  BadgeColorTheme,
+  BadgePlacementTheme,
+  BadgeTheme
+} from './BadgeTheme';
 
 export interface BadgeProps extends Omit<
   React.HTMLAttributes<HTMLSpanElement>,
-  'content'
+  'content' | 'color'
 > {
   /**
    * The content of the badge.
@@ -23,7 +20,7 @@ export interface BadgeProps extends Omit<
   /**
    * The color of the badge.
    */
-  color?: BadgeColor | string;
+  color?: keyof BadgeColorTheme;
 
   /**
    * Whether to disable the margins.
@@ -38,7 +35,7 @@ export interface BadgeProps extends Omit<
   /**
    * The placement of the badge.
    */
-  placement?: BadgePlacement;
+  placement?: keyof BadgePlacementTheme;
 
   /**
    * Theme for the Budge.
@@ -50,7 +47,7 @@ export interface BadgeRef {
   /**
    * Reference to the HTML span element.
    */
-  ref?: LegacyRef<HTMLSpanElement>;
+  ref?: Ref<HTMLSpanElement>;
 }
 
 export const Badge: FC<BadgeProps & BadgeRef> = forwardRef(

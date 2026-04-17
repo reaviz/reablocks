@@ -7,7 +7,7 @@ import { Button } from '../../../src/elements/Button';
 import { Card } from '../../../src/layout/Card';
 import { Divider } from '../../../src/layout';
 import { Input } from '../../../src/form/Input';
-import { Radio, radioTheme } from '../../../src/form/Radio';
+import { Radio, defaultRadioTheme } from '../../../src/form/Radio';
 import { cn } from '../../../src/utils';
 import { Select, SelectOption } from '../../../src/form';
 
@@ -47,10 +47,10 @@ const LogoIcon = ({ className }: { className?: string }) => (
 );
 
 const RadioTheme = {
-  ...radioTheme,
+  ...defaultRadioTheme,
   base: 'box-border leading-3',
   radio: {
-    ...radioTheme.radio,
+    ...defaultRadioTheme.radio,
     base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-hidden focus-visible:border-primary-hover',
     checked: 'border-primary'
   }

@@ -1,4 +1,9 @@
-import { inputTheme } from '@/form/Input/InputTheme';
+export interface TextareaSizeTheme {
+  small: string;
+  medium: string;
+  large: string;
+  [key: string]: string;
+}
 
 export interface TextareaTheme {
   base: string;
@@ -6,28 +11,61 @@ export interface TextareaTheme {
   fullWidth: string;
   error: string;
   disabled: string;
-  sizes: {
-    small: string;
-    medium: string;
-    large: string;
-    [key: string]: string;
-  };
+  sizes: TextareaSizeTheme;
 }
 
-const baseTheme: Partial<TextareaTheme> = {
-  input: 'resize-none read-only:cursor-not-allowed'
+export const defaultTextareaTheme: TextareaTheme = {
+  base: 'flex relative flex-row items-center flex-nowrap box-border transition-colors rounded-xs bg-panel border border-panel-accent text-text-primary hover:border-primary-hover',
+  input:
+    'resize-none read-only:cursor-not-allowed flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-hidden px-0.5 disabled:cursor-not-allowed disabled:text-disabled placeholder-accent',
+  disabled:
+    ' text-waterloo cursor-not-allowed disabled-within:bg-dark-disabled disabled-within:after:content-none',
+  fullWidth: 'w-full',
+  error: 'border-error',
+  sizes: {
+    small: '[&>input]:text-sm p-1 text-sm',
+    medium: '[&>input]:text-base px-2.5 py-1.5 text-base',
+    large: '[&>input]:text-lg p-5 text-lg'
+  }
 };
 
-export const textareaTheme: TextareaTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    inputTheme.base,
-    'disabled-within:hover:after:content-none'
-  ].join(' '),
-  input: [baseTheme.input, inputTheme.input].join(' '),
-  disabled: [baseTheme.disabled, inputTheme.disabled].join(' '),
-  fullWidth: inputTheme.fullWidth,
-  error: inputTheme.error,
-  sizes: inputTheme.sizes
-} as TextareaTheme;
+export const unifyTextareaTheme: TextareaTheme = {
+  base: `
+    flex items-center transition-colors rounded-md border
+    border-inputs-colors-normal-stroke-resting bg-inputs-colors-normal-background-resting
+    hover:border-inputs-colors-normal-stroke-hover hover:bg-inputs-colors-normal-background-hover
+    focus-within:border-inputs-colors-normal-stroke-selected focus-within:bg-inputs-colors-normal-background-selected
+    disabled-within:hover:border-inputs-colors-normal-stroke-resting disabled-within:hover:bg-inputs-colors-normal-background-resting
+  `,
+  input: `
+    border-0 resize-none read-only:cursor-not-allowed outline-hidden transition-colors
+    text-inputs-colors-normal-text-input-text-resting
+    placeholder:text-inputs-colors-normal-text-input-text-resting focus:placeholder:text-inputs-colors-normal-text-input-text-selected
+  `,
+  fullWidth: 'w-full',
+  error: `
+    border-inputs-colors-error-stroke-resting bg-inputs-colors-error-background-resting
+    hover:border-inputs-colors-error-stroke-hover hover:bg-inputs-colors-error-background-hover
+    focus-within:border-inputs-colors-error-stroke-selected focus-within:bg-inputs-colors-error-background-selected
+    disabled-within:hover:border-inputs-colors-error-stroke-resting disabled-within:hover:bg-inputs-colors-error-background-resting
+    [&>textarea]:text-inputs-colors-error-text-input-filled [&>textarea]:placeholder:text-inputs-colors-error-text-input-text-resting
+  `,
+  disabled: 'cursor-not-allowed opacity-40',
+  sizes: {
+    small: `
+      text-xs
+      pl-(--inputs-details-horizontal-padding-left-sm) pr-(--inputs-details-horizontal-padding-right-sm)
+      py-[3px]
+    `,
+    medium: `
+      text-sm
+      pl-(--inputs-details-horizontal-padding-left-md) pr-(--inputs-details-horizontal-padding-right-md)
+      py-[7px]
+    `,
+    large: `
+      text-base
+      pl-(--inputs-details-horizontal-padding-left-lg) pr-(--inputs-details-horizontal-padding-right-lg)
+      py-[7px]
+    `
+  }
+};

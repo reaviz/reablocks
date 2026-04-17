@@ -4,7 +4,17 @@ import { Avatar } from './Avatar';
 
 export default {
   title: 'Components/Elements/Avatar',
-  component: Avatar
+  component: Avatar,
+  decorators: [
+    (Story, context) => {
+      const variant = context.globals?.themeVariant ?? 'default';
+      context.args.color =
+        variant === 'unify'
+          ? 'bg-avatar-colors-background-container-resting'
+          : (context.args.color ?? 'teal');
+      return <Story />;
+    }
+  ]
 } satisfies Meta<typeof Avatar>;
 
 export const Simple: StoryObj<typeof Avatar> = {
@@ -37,6 +47,15 @@ export const LargeRounded: StoryObj<typeof Avatar> = {
     name: 'John Doe',
     size: 100,
     rounded: true
+  }
+};
+
+export const Clickable: StoryObj<typeof Avatar> = {
+  args: {
+    name: 'Charlie',
+    size: 50,
+    rounded: true,
+    onClick: () => null
   }
 };
 

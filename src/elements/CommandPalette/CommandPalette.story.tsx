@@ -128,7 +128,14 @@ export const LongList = () => (
 );
 
 export const WithDialog = () => (
-  <Dialog open size={400} showCloseButton={false} disablePadding>
+  <Dialog
+    innerClassName="border-none!"
+    contentClassName="p-2!"
+    open
+    size={400}
+    showCloseButton={false}
+    disablePadding
+  >
     <CommandPalette placeholder="Type a command or search...">
       <CommandPaletteSection title="Recently Used" key="recent">
         <CommandPaletteItem key="home">Home</CommandPaletteItem>

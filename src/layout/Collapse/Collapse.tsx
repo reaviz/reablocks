@@ -1,11 +1,11 @@
-import React, { FC } from 'react';
-import {
-  motion,
-  AnimatePresence,
-  MotionNodeAnimationOptions
-} from 'motion/react';
-import { CollapseTheme } from './CollapseTheme';
+import type { MotionNodeAnimationOptions } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
+import type { FC } from 'react';
+import React from 'react';
+
 import { cn, useComponentTheme } from '@/utils';
+
+import type { CollapseTheme } from './CollapseTheme';
 
 const VARIANTS = {
   open: { opacity: 1, height: 'auto' },

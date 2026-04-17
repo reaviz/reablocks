@@ -1,30 +1,36 @@
-import React, { FC, forwardRef, LegacyRef, ReactElement } from 'react';
+import React, {
+  forwardRef,
+  HTMLAttributes,
+  ReactElement,
+  ReactNode,
+  Ref
+} from 'react';
 import { cn, useComponentTheme } from '@/utils';
-import { ChipTheme } from './ChipTheme';
+import {
+  ChipColorTheme,
+  ChipSizeTheme,
+  ChipTheme,
+  ChipVariantTheme
+} from './ChipTheme';
 
-export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ChipProps extends Omit<
+  HTMLAttributes<HTMLDivElement>,
+  'color'
+> {
   /**
    * Color variant for the chip.
    */
-  color?:
-    | 'default'
-    | 'primary'
-    | 'secondary'
-    | 'error'
-    | 'success'
-    | 'warning'
-    | 'info'
-    | string;
+  color?: keyof ChipColorTheme;
 
   /**
    * Size variant for the chip.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof ChipSizeTheme;
 
   /**
    * Style variant for the chip.
    */
-  variant?: 'filled' | 'outline' | string;
+  variant?: keyof ChipVariantTheme;
 
   /**
    * Whether the chip is selected.
@@ -61,10 +67,10 @@ export interface ChipRef {
   /**
    * Reference to the root element.
    */
-  ref?: LegacyRef<HTMLDivElement>;
+  ref?: Ref<HTMLDivElement>;
 }
 
-export const Chip: FC<ChipProps & ChipRef> = forwardRef(
+export const Chip = forwardRef<HTMLDivElement, ChipProps>(
   (
     {
       children,
@@ -84,6 +90,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
     ref
   ) => {
     const theme = useComponentTheme('chip', customTheme);
+    const isClickable = onClick && !disabled;
 
     return (
       <div
@@ -106,19 +113,15 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
           theme.base,
           theme.variants[variant],
           theme.colors[color]?.base,
-          theme.colors[color]?.variants?.[variant],
+          theme.colors[color]?.variants?.[variant]?.base,
           theme.sizes[size],
-          theme.focus,
-          !!onClick && !disabled && theme.colors[color]?.selectable?.base,
-          !!onClick &&
-            !disabled &&
-            theme.colors[color]?.selectable?.variants?.[variant]?.base,
-          selected &&
-            theme.colors[color]?.selectable?.variants?.[variant]?.selected,
-          disableMargins && 'm-0',
-          'transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill]',
-          className,
-          disabled && theme.disabled
+          {
+            [theme.colors[color]?.variants?.[variant]?.selected]: selected,
+            [theme.colors[color]?.variants?.[variant]?.selectable]: isClickable,
+            'm-0': disableMargins
+          },
+          disabled,
+          className
         )}
         aria-disabled={disabled}
       >
@@ -127,19 +130,21 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
             className={cn(
               theme.adornment.base,
               theme.adornment.start,
-              theme.adornment.sizes[size]
+              theme.adornment.sizes[size],
+              theme.colors[color]?.variants?.[variant]?.start
             )}
           >
             {start}
           </div>
         )}
-        <div className={'flex items-center'}>{children}</div>
+        <div className={theme.label}>{children as ReactNode}</div>
         {end && (
           <div
             className={cn(
               theme.adornment.base,
               theme.adornment.end,
-              theme.adornment.sizes[size]
+              theme.adornment.sizes[size],
+              theme.colors[color]?.variants?.[variant]?.end
             )}
           >
             {end}

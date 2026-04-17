@@ -1,21 +1,90 @@
-import { useState } from 'react';
+import type { ChipTheme } from '@/elements';
+import { IconButton } from '@/elements/IconButton';
+import { cn, extendComponentTheme } from '@/utils';
+import CloseIcon from '@/assets/icons/close.svg?react';
+
 import { Chip } from './Chip';
-import { ChipTheme, chipTheme } from './ChipTheme';
+import { defaultChipTheme } from './ChipTheme';
 
 export default {
   title: 'Components/Elements/Chip',
   component: Chip
 };
 
-export const Colors = () => (
+export const Variants = () => (
   <div style={{ display: 'flex', gap: 10 }}>
-    <Chip>Default</Chip>
-    <Chip color="primary">Primary</Chip>
-    <Chip color="secondary">Secondary</Chip>
-    <Chip color="error">Error</Chip>
-    <Chip color="success">Success</Chip>
-    <Chip color="warning">Warning</Chip>
-    <Chip color="info">Info</Chip>
+    <Chip variant="filled">Filled</Chip>
+    <Chip variant="outline">Outline</Chip>
+  </div>
+);
+
+export const Colors = () => (
+  <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Chip start={<DemoIcon />}>Default</Chip>
+      <Chip color="primary" start={<DemoIcon />}>
+        Primary
+      </Chip>
+      <Chip color="secondary" start={<DemoIcon />}>
+        Secondary
+      </Chip>
+      <Chip color="error" start={<DemoIcon />}>
+        Error
+      </Chip>
+      <Chip color="success" start={<DemoIcon />}>
+        Success
+      </Chip>
+      <Chip color="warning" start={<DemoIcon />}>
+        Warning
+      </Chip>
+      <Chip color="info" start={<DemoIcon />}>
+        Info
+      </Chip>
+    </div>
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Chip variant="outline" start={<DemoIcon />}>
+        Default
+      </Chip>
+      <Chip variant="outline" color="primary" start={<DemoIcon />}>
+        Primary
+      </Chip>
+      <Chip variant="outline" color="secondary" start={<DemoIcon />}>
+        Secondary
+      </Chip>
+      <Chip variant="outline" color="error" start={<DemoIcon />}>
+        Error
+      </Chip>
+      <Chip variant="outline" color="success" start={<DemoIcon />}>
+        Success
+      </Chip>
+      <Chip variant="outline" color="warning" start={<DemoIcon />}>
+        Warning
+      </Chip>
+      <Chip variant="outline" color="info" start={<DemoIcon />}>
+        Info
+      </Chip>
+    </div>
+    <div style={{ display: 'flex', gap: 10 }}>
+      <Chip variant="subtle">Default</Chip>
+      <Chip variant="subtle" color="primary" start={<DemoIcon />}>
+        Primary
+      </Chip>
+      <Chip variant="subtle" color="secondary" start={<DemoIcon />}>
+        Secondary
+      </Chip>
+      <Chip variant="subtle" color="error" start={<DemoIcon />}>
+        Error
+      </Chip>
+      <Chip variant="subtle" color="success" start={<DemoIcon />}>
+        Success
+      </Chip>
+      <Chip variant="subtle" color="warning" start={<DemoIcon />}>
+        Warning
+      </Chip>
+      <Chip variant="subtle" color="info" start={<DemoIcon />}>
+        Info
+      </Chip>
+    </div>
   </div>
 );
 
@@ -47,41 +116,31 @@ export const StartEndAdornment = () => (
   </Chip>
 );
 
-export const Variants = () => (
-  <div style={{ display: 'flex', gap: 10 }}>
-    <Chip variant="filled">Filled</Chip>
-    <Chip variant="outline">Outline</Chip>
+export const Deletable = () => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+    <Chip
+      variant="filled"
+      color="success"
+      end={
+        <IconButton
+          size="small"
+          variant="text"
+          onClick={() => alert('on delete')}
+          className="w-auto"
+        >
+          <CloseIcon />
+        </IconButton>
+      }
+    >
+      Deletable
+    </Chip>
   </div>
 );
 
-export const Selectable = () => {
-  const [isFilledSelected, setisFilledSelected] = useState(false);
-  const [isOutlineSelected, setIsOutlineSelected] = useState(false);
-
-  return (
-    <div className="flex items-center gap-2.5">
-      <Chip
-        onClick={() => setisFilledSelected(!isFilledSelected)}
-        selected={isFilledSelected}
-      >
-        Selectable
-      </Chip>
-      <Chip
-        variant="outline"
-        onClick={() => setIsOutlineSelected(!isOutlineSelected)}
-        selected={isOutlineSelected}
-      >
-        Selectable
-      </Chip>
-    </div>
-  );
-};
-
-export const Disabled = () => (
-  <div className="flex items-center gap-2.5">
-    <Chip disabled>Selectable</Chip>
-    <Chip variant="outline" disabled>
-      Selectable
+export const Clickable = () => (
+  <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+    <Chip variant="outline" onClick={() => alert('clicked')}>
+      Clickable
     </Chip>
   </div>
 );
@@ -102,72 +161,3 @@ const DemoIcon = () => (
     />
   </svg>
 );
-
-export const CustomTheme = () => {
-  const customTheme: ChipTheme = {
-    ...chipTheme,
-    base: `${chipTheme.base} rounded-full`,
-    colors: {
-      ...chipTheme?.colors,
-      secondary: {
-        ...chipTheme.colors.secondary,
-        variants: {
-          ...chipTheme.colors.secondary.variants,
-          filled: `${chipTheme?.colors?.secondary?.variants?.filled} dark:bg-gray-100 light:bg-gray-900 text-panel`
-        }
-      },
-      info: {
-        ...chipTheme.colors.info,
-        variants: {
-          ...chipTheme.colors.info.variants,
-          filled: `${chipTheme?.colors?.info?.variants?.filled} text-text-primary bg-info/10 border-info`
-        }
-      },
-      error: {
-        ...chipTheme.colors.error,
-        variants: {
-          ...chipTheme.colors.error.variants,
-          filled: `${chipTheme?.colors?.error?.variants?.filled} text-text-primary bg-error/10 border-error`
-        }
-      },
-      warning: {
-        ...chipTheme.colors.warning,
-        variants: {
-          ...chipTheme.colors.warning.variants,
-          filled: `${chipTheme?.colors?.warning?.variants?.filled} text-text-primary bg-warning/10 border-warning`
-        }
-      },
-      success: {
-        ...chipTheme.colors.success,
-        variants: {
-          ...chipTheme.colors.success.variants,
-          filled: `${chipTheme?.colors?.success?.variants?.filled} text-text-primary bg-success/10 border-success`
-        }
-      }
-    }
-  };
-
-  return (
-    <div className="flex items-center gap-2.5">
-      <Chip theme={customTheme}>Default</Chip>
-      <Chip theme={customTheme} color="primary">
-        Primary
-      </Chip>
-      <Chip theme={customTheme} color="secondary">
-        Secondary
-      </Chip>
-      <Chip theme={customTheme} color="error">
-        Error
-      </Chip>
-      <Chip theme={customTheme} color="success">
-        Success
-      </Chip>
-      <Chip theme={customTheme} color="warning">
-        Warning
-      </Chip>
-      <Chip theme={customTheme} color="info">
-        Info
-      </Chip>
-    </div>
-  );
-};

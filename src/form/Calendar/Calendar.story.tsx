@@ -8,8 +8,7 @@ import {
   endOfMonth,
   format,
   startOfMonth,
-  sub,
-  subDays
+  sub
 } from 'date-fns';
 import { Divider } from '../../layout/Divider';
 import {
@@ -108,6 +107,7 @@ export const Disabled = () => {
   return (
     <Card>
       <Calendar
+        showTime
         value={date}
         disabled
         onChange={(date: Date) => setDate(date)}
@@ -546,6 +546,7 @@ export const RangeWithDatePastPresets = () => {
           onChange={(newDate: [Date, Date]) => setRange(newDate)}
           showDayOfWeek
           showToday
+          showTime
           isRange
           preset={PAST_RANGE_PRESETS}
         />

@@ -41,7 +41,7 @@ export const Sizes = () => {
         checked={selectedSize === 'medium'}
         onChange={() => handleSizeChange('medium')}
         size="medium"
-        label="Medium"
+        label="Medium (Default)"
       />
       <br />
       <Radio

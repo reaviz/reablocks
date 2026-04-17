@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 
-import { toggleTheme, Toggle } from '../../../src/form/Toggle';
-import { radioTheme, Radio } from '../../../src/form/Radio';
+import { defaultToggleTheme, Toggle } from '../../../src/form/Toggle';
+import { defaultRadioTheme, Radio } from '../../../src/form/Radio';
 import { Button } from '../../../src/elements/Button';
 import {
   Card,
@@ -35,27 +35,29 @@ const CheckIcon = () => (
 );
 
 const ToggleTheme = {
-  ...toggleTheme,
+  ...defaultToggleTheme,
   base: 'flex items-center justify-start cursor-pointer box-border border dark:border-charade dark:bg-[#1E1E2E] light:border-mystic light:bg-[#C9C9D6] hover:bg-primary-hover focus-visible:outline-hidden focus-visible:border-primary-hover rounded-xl transition-colors',
   checked: 'justify-end bg-blue-500!',
   handle: {
     base: 'rounded-full dark:bg-black light:bg-white',
     sizes: {
-      ...toggleTheme.handle.sizes,
+      ...defaultToggleTheme.handle.sizes,
       medium: 'w-5 h-5'
-    }
+    },
+    disabled: '',
+    disabledAndChecked: '',
   },
   sizes: {
-    ...toggleTheme.sizes,
+    ...defaultToggleTheme.sizes,
     medium: 'w-12 h-6 py-0.5 px-[1px]'
   }
 };
 
 const RadioTheme = {
-  ...radioTheme,
+  ...defaultRadioTheme,
   base: 'box-border leading-3',
   radio: {
-    ...radioTheme.radio,
+    ...defaultRadioTheme.radio,
     base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-hidden focus-visible:border-primary-hover',
     checked: 'border-primary'
   }

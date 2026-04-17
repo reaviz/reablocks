@@ -1,15 +1,18 @@
+import type { CommandPaletteInputTheme } from './CommandPaletteInput';
 import {
-  CommandPaletteInputTheme,
-  commandPaletteInputTheme
-} from './CommandPaletteInput';
+  defaultCommandPaletteInputTheme,
+  unifyCommandPaletteInputTheme
+} from './CommandPaletteInput/CommandPaletteInputTheme';
+import type { CommandPaletteItemTheme } from './CommandPaletteItem';
 import {
-  CommandPaletteItemTheme,
-  commandPaletteItemTheme
-} from './CommandPaletteItem';
+  defaultCommandPaletteItemTheme,
+  unifyCommandPaletteItemTheme
+} from './CommandPaletteItem/CommandPaletteItemTheme';
+import type { CommandPaletteSectionTheme } from './CommandPaletteSection';
 import {
-  CommandPaletteSectionTheme,
-  commandPaletteSectionTheme
-} from './CommandPaletteSection';
+  defaultCommandPaletteSectionTheme,
+  unifyCommandPaletteSectionTheme
+} from './CommandPaletteSection/CommandPaletteSectionTheme';
 
 export interface CommandPaletteTheme {
   base: string;
@@ -20,16 +23,20 @@ export interface CommandPaletteTheme {
   section: CommandPaletteSectionTheme;
 }
 
-const baseTheme: Partial<CommandPaletteTheme> = {
-  base: 'w-full border',
-  inner: 'max-h-[80vh] overflow-y-auto'
+export const defaultCommandPaletteTheme: CommandPaletteTheme = {
+  base: 'w-full border border-panel-accent',
+  inner: 'max-h-[80vh] overflow-y-auto bg-panel border-0',
+  emptyContainer: 'bg-panel',
+  input: defaultCommandPaletteInputTheme,
+  item: defaultCommandPaletteItemTheme,
+  section: defaultCommandPaletteSectionTheme
 };
 
-export const commandPaletteTheme: CommandPaletteTheme = {
-  base: [baseTheme.base, 'border-panel-accent'].join(' '),
-  inner: [baseTheme.inner, 'bg-panel border-0'].join(' '),
-  emptyContainer: 'bg-panel',
-  input: commandPaletteInputTheme,
-  item: commandPaletteItemTheme,
-  section: commandPaletteSectionTheme
+export const unifyCommandPaletteTheme: CommandPaletteTheme = {
+  base: 'w-full border border-stroke-neutral-1',
+  inner: 'max-h-[80vh] overflow-y-auto border-0',
+  emptyContainer: '',
+  input: unifyCommandPaletteInputTheme,
+  item: unifyCommandPaletteItemTheme,
+  section: unifyCommandPaletteSectionTheme
 };

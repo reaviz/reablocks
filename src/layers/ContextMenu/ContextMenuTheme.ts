@@ -2,10 +2,10 @@ export interface ContextMenuTheme {
   enabled: string;
 }
 
-const baseTheme: ContextMenuTheme = {
+const baseContextMenuTheme: ContextMenuTheme = {
   enabled: 'cursor-context-menu'
 };
 
-export const contextMenuTheme: ContextMenuTheme = {
-  ...baseTheme
-};
+export const defaultContextMenuTheme: ContextMenuTheme = baseContextMenuTheme;
+
+export const unifyContextMenuTheme: ContextMenuTheme = baseContextMenuTheme;

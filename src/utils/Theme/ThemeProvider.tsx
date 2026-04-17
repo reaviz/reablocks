@@ -7,8 +7,8 @@ import React, {
   useEffect,
   useState
 } from 'react';
-import { getThemeVariables, mergeDeep, observeThemeSwitcher } from './helpers';
-import { ReablocksTheme, theme as defaultTheme } from './themes/theme';
+import { getThemeVariables, observeThemeSwitcher } from './helpers';
+import { ReablocksTheme } from './themes/themeDefault';
 
 export interface ThemeContextProps {
   theme: ReablocksTheme;
@@ -28,9 +28,7 @@ export const ThemeProvider: FC<ThemeProviderProps> = ({ children, theme }) => {
   const [tokens, setTokens] = useState<Record<string, string>>({});
 
   useEffect(() => {
-    if (theme) {
-      setActiveTheme(mergeDeep(defaultTheme, theme));
-    }
+    setActiveTheme(theme);
     setTokens(getThemeVariables());
 
     const themeObserver = observeThemeSwitcher(() =>

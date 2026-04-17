@@ -13,7 +13,7 @@ export interface TypographyTheme {
   muted: string;
 }
 
-export const typographyTheme: TypographyTheme = {
+const typographyTheme: TypographyTheme = {
   h1: 'scroll-m-20 text-4xl font-extrabold tracking-tight text-balance',
   h2: 'scroll-m-20 border-b border-surface pb-2 text-3xl font-semibold tracking-tight first:mt-0',
   h3: 'scroll-m-20 text-2xl font-semibold tracking-tight',
@@ -27,3 +27,6 @@ export const typographyTheme: TypographyTheme = {
   small: 'text-sm leading-none font-medium',
   muted: 'text-sm text-text-secondary'
 };
+
+export const defaultTypographyTheme: TypographyTheme = typographyTheme;
+export const unifyTypographyTheme: TypographyTheme = typographyTheme;

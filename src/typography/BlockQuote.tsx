@@ -1,8 +1,8 @@
-import React, { forwardRef } from 'react';
+import React, { BlockquoteHTMLAttributes, forwardRef } from 'react';
 import { cn, useComponentTheme } from '@/utils';
 import { TypographyTheme } from './TypographyTheme';
 
-export interface BlockQuoteProps extends React.BlockquoteHTMLAttributes<HTMLQuoteElement> {
+export interface BlockQuoteProps extends BlockquoteHTMLAttributes<HTMLQuoteElement> {
   /**
    * Theme for Typography.
    */

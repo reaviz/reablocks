@@ -1,8 +1,8 @@
 import { cn, useComponentTheme } from '@/utils';
-import React, { FC } from 'react';
+import React, { FC, HTMLAttributes } from 'react';
 import { BreadcrumbsTheme } from './BreadcrumbsTheme';
 
-export interface BreadcrumbsProps extends React.HTMLAttributes<HTMLElement> {
+export interface BreadcrumbsProps extends HTMLAttributes<HTMLElement> {
   theme?: BreadcrumbsTheme;
 }
 

@@ -1,3 +1,4 @@
+import { SelectInputSizeTheme } from '@/form';
 import React, {
   FC,
   ReactElement,
@@ -10,10 +11,10 @@ import React, {
 } from 'react';
 import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
 import { InlineInput } from '@/form/Input';
-import { DownArrowIcon } from '@/form/Select/icons/DownArrowIcon';
-import { CloseIcon } from '@/form/Select/icons/CloseIcon';
+import DownArrowIcon from '@/assets/icons/arrow-down.svg?react';
+import CloseIcon from '@/assets/icons/close.svg?react';
 import { DotsLoader } from '@/elements/Loader/DotsLoader';
-import { RefreshIcon } from '@/form/Select/icons/RefreshIcon';
+import RefreshIcon from '@/assets/icons/refresh.svg?react';
 import { SelectInputChip, SelectInputChipProps } from './SelectInputChip';
 import { cn, useComponentTheme } from '@/utils';
 import { SelectTheme } from '@/form/Select/SelectTheme';
@@ -133,7 +134,7 @@ export interface SelectInputProps {
   /**
    * The size of the select input.
    */
-  size?: 'small' | 'medium' | 'large' | string;
+  size?: keyof SelectInputSizeTheme;
 
   /**
    * The theme of the select input.
@@ -451,14 +452,14 @@ export const SelectInput: FC<SelectInputProps> = ({
     [clearable, disabled, onSelectedChange]
   );
 
-  const renderSelectedValue = useCallback(() => {
+  const renderPrefix = useCallback(() => {
     if (multiple) {
       const multipleOptions = selectedOption as SelectOptionProps[];
       if (multipleOptions?.length) {
         return (
           <div
-            className={cn(theme.selectedValue, 'select-input-value', {
-              [theme.multiple?.selectedValue]: multiple
+            className={cn(theme.prefix, 'select-input-value', {
+              [theme.multiple?.prefix]: multiple
             })}
           >
             {multipleOptions.map(option => (
@@ -482,8 +483,8 @@ export const SelectInput: FC<SelectInputProps> = ({
         return (
           <div
             className={cn(
-              theme.selectedValue,
-              theme.single?.selectedValue,
+              theme.prefix,
+              theme.single?.prefix,
               'select-input-value'
             )}
           >
@@ -505,7 +506,7 @@ export const SelectInput: FC<SelectInputProps> = ({
     onTagKeyDown,
     selectedOption,
     theme.multiple,
-    theme.selectedValue,
+    theme.prefix,
     theme.single
   ]);
 
@@ -526,6 +527,7 @@ export const SelectInput: FC<SelectInputProps> = ({
         )}
         onClick={onContainerClick}
       >
+        {start && <div className={theme.adornment?.start}>{start}</div>}
         <div
           className={cn(theme.inputContainer, {
             [theme.multiple?.inputContainer]: multiple,
@@ -533,8 +535,7 @@ export const SelectInput: FC<SelectInputProps> = ({
           })}
           onClick={onInputFocus}
         >
-          {start && <div className={theme.adornment.start}>{start}</div>}
-          {renderSelectedValue()}
+          {renderPrefix()}
           <InlineInput
             ref={inputRef}
             id={id}
@@ -565,16 +566,16 @@ export const SelectInput: FC<SelectInputProps> = ({
             onPaste={onPaste}
           />
         </div>
-        {end && <div className={theme.adornment.end}>{end}</div>}
-        <div className={theme.actions?.container}>
+        {end && <div className={theme.adornment?.end}>{end}</div>}
+        <div className={theme.suffix?.container}>
           {refreshable && !loading && (
             <button
               type="button"
               title="Refresh Options"
               disabled={disabled}
               className={cn(
-                theme.actions?.button,
-                theme.actions?.refresh,
+                theme.suffix?.button,
+                theme.suffix?.refresh,
                 'select-input-refresh'
               )}
               onClick={onRefresh}
@@ -582,17 +583,15 @@ export const SelectInput: FC<SelectInputProps> = ({
               {refreshIcon}
             </button>
           )}
-          {loading && (
-            <div className={theme.actions?.loader}>{loadingIcon}</div>
-          )}
+          {loading && <div className={theme.suffix?.loader}>{loadingIcon}</div>}
           {showClear && (
             <button
               type="button"
               title="Clear selection"
               disabled={disabled}
               className={cn(
-                theme.actions?.button,
-                theme.actions?.close,
+                theme.suffix?.button,
+                theme.suffix?.close,
                 'select-input-clear'
               )}
               onClick={onClearValues}
@@ -606,8 +605,8 @@ export const SelectInput: FC<SelectInputProps> = ({
               title="Toggle options menu"
               disabled={disabled}
               className={cn(
-                theme.actions?.button,
-                theme.actions?.expand,
+                theme.suffix?.button,
+                theme.suffix?.expand,
                 'select-input-toggle'
               )}
               onClick={onExpandClick}

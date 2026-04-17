@@ -82,25 +82,23 @@ export const Variants = () => {
   return (
     <div className="flex flex-col gap-6">
       <div>
-        <h3 className="text-sm font-semibold mb-2 light:text-gray-700 dark:text-gray-300">
-          Text
-        </h3>
+        <h3 className="text-sm font-semibold mb-2 text-text-secondary">Text</h3>
         <Skeleton variant="text" animated />
       </div>
       <div>
-        <h3 className="text-sm font-semibold mb-2 light:text-gray-700 dark:text-gray-300">
+        <h3 className="text-sm font-semibold mb-2 text-text-secondary">
           Rounded
         </h3>
         <Skeleton variant="rounded" animated />
       </div>
       <div>
-        <h3 className="text-sm font-semibold mb-2 light:text-gray-700 dark:text-gray-300">
+        <h3 className="text-sm font-semibold mb-2 text-text-secondary">
           Rectangle
         </h3>
         <Skeleton variant="rectangle" animated />
       </div>
       <div>
-        <h3 className="text-sm font-semibold mb-2 light:text-gray-700 dark:text-gray-300">
+        <h3 className="text-sm font-semibold mb-2 text-text-secondary">
           Square
         </h3>
         <Skeleton variant="square" animated />

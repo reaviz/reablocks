@@ -11,10 +11,12 @@ import { AnimatePresence, motion } from 'motion/react';
 import { Notification } from './Notification';
 import {
   NotificationOptions,
-  NotificationsContext,
-  NotificationVariants
+  NotificationsContext
 } from './NotificationsContext';
-import { NotificationTheme } from './NotificationTheme';
+import {
+  NotificationTheme,
+  NotificationVariantTheme
+} from './NotificationTheme';
 import { cn, useComponentTheme } from '@/utils';
 import InfoIcon from '@/assets/icons/info.svg?react';
 import CheckCircleIcon from '@/assets/icons/check_circle.svg?react';
@@ -23,7 +25,7 @@ import ErrorCircleIcon from '@/assets/icons/error_circle.svg?react';
 
 export interface NotificationComponentProps {
   message: string;
-  variant: NotificationVariants;
+  variant: keyof NotificationVariantTheme;
   onClose?: () => void;
 }
 
@@ -35,10 +37,10 @@ export interface NotificationsProps {
   children?: ReactNode;
   className?: string;
   components?: {
-    [variant in NotificationVariants]?: JSXElementConstructor<NotificationComponentProps>;
+    [variant in keyof NotificationVariantTheme]?: JSXElementConstructor<NotificationComponentProps>;
   };
   icons?: {
-    [variant in NotificationVariants]?:
+    [variant in keyof NotificationVariantTheme]?:
       | string
       | React.JSX.Element
       | React.JSX.Element[];

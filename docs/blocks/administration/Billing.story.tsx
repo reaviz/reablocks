@@ -12,7 +12,7 @@ import {
 import {
   Chip,
   ChipTheme,
-  chipTheme as defaultChipTheme
+  defaultChipTheme
 } from '../../../src/elements/Chip';
 import { Button } from '../../../src/elements/Button';
 import { Tooltip } from '../../../src/layers';
@@ -169,21 +169,31 @@ export const BillingFull = () => (
 export const PayAndBilling = () => {
   const chipTheme: ChipTheme = {
     ...defaultChipTheme,
-    base: `${defaultChipTheme?.base} rounded-full`,
-    colors: {
-      ...defaultChipTheme?.colors,
-      info: {
-        ...defaultChipTheme.colors.info,
-        variants: {
-          ...defaultChipTheme?.colors?.info?.variants,
-          filled: `${defaultChipTheme?.colors?.info?.variants?.filled} text-text-primary bg-info/10 border-info`
-        }
-      },
-      success: {
-        ...defaultChipTheme.colors.success,
-        variants: {
-          ...defaultChipTheme?.colors?.success?.variants,
-          filled: `${defaultChipTheme?.colors?.success?.variants?.filled} text-text-primary bg-success/10 border-success`
+    types: {
+      ...defaultChipTheme?.types,
+      badge: {
+        ...defaultChipTheme?.types?.badge,
+        base: `${defaultChipTheme?.types?.badge?.base} rounded-full`,
+        colors: {
+          ...defaultChipTheme?.types?.badge?.colors,
+          info: {
+            ...defaultChipTheme.types?.badge?.colors.info,
+            variants: {
+              ...defaultChipTheme?.types?.badge?.colors?.info?.variants,
+              filled: {
+                base: `${defaultChipTheme?.types?.badge?.colors?.info?.variants?.filled} text-text-primary bg-info/10 border-info`
+              }
+            }
+          },
+          success: {
+            ...defaultChipTheme.types?.badge?.colors.success,
+            variants: {
+              ...defaultChipTheme?.types?.badge?.colors?.success?.variants,
+              filled: {
+                base: `${defaultChipTheme?.types?.badge?.colors?.success?.variants?.filled} text-text-primary bg-success/10 border-success`
+              }
+            }
+          }
         }
       }
     }
@@ -682,21 +692,31 @@ export const BillingSubscription = () => (
 export const BillingInformation = () => {
   const chipTheme: ChipTheme = {
     ...defaultChipTheme,
-    base: `${defaultChipTheme?.base} rounded-full`,
-    colors: {
-      ...defaultChipTheme?.colors,
-      warning: {
-        ...defaultChipTheme.colors.warning,
-        variants: {
-          ...defaultChipTheme?.colors?.warning?.variants,
-          filled: `${defaultChipTheme?.colors?.warning?.variants?.filled} text-text-primary bg-warning/10 border-warning`
-        }
-      },
-      success: {
-        ...defaultChipTheme.colors.success,
-        variants: {
-          ...defaultChipTheme?.colors?.success?.variants,
-          filled: `${defaultChipTheme?.colors?.success?.variants?.filled} text-text-primary bg-success/10 border-success`
+    types: {
+      ...defaultChipTheme.types,
+      badge: {
+        ...defaultChipTheme.types?.badge,
+        base: `${defaultChipTheme?.types?.badge?.base} rounded-full`,
+        colors: {
+          ...defaultChipTheme?.types?.badge?.colors,
+          warning: {
+            ...defaultChipTheme.types?.badge?.colors.warning,
+            variants: {
+              ...defaultChipTheme?.types?.badge?.colors?.warning?.variants,
+              filled: {
+                base: `${defaultChipTheme?.types?.badge?.colors?.warning?.variants?.filled} text-text-primary bg-warning/10 border-warning`
+              }
+            }
+          },
+          success: {
+            ...defaultChipTheme.types?.badge?.colors.success,
+            variants: {
+              ...defaultChipTheme?.types?.badge?.colors?.success?.variants,
+              filled: {
+                base: `${defaultChipTheme?.types?.badge?.colors?.success?.variants?.filled} text-text-primary bg-success/10 border-success`
+              }
+            }
+          }
         }
       }
     }

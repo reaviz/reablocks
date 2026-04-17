@@ -1,9 +1,9 @@
-import React, { Children, forwardRef, Ref } from 'react';
+import React, { Children, forwardRef, HTMLAttributes, Ref } from 'react';
 import { useInfinityList } from '@/data';
 import { AvatarGroupTheme } from './AvatarGroupTheme';
 import { cn, useComponentTheme } from '@/utils';
 
-export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface AvatarGroupProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The avatars to display in the group.
    */

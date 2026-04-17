@@ -240,7 +240,7 @@ export const CalendarRange: FC<CalendarRangeProps> = ({
               </Button>
             </div>
           </header>
-          <Divider />
+          <Divider disableMargins />
           <AnimatePresence initial={false} mode="wait">
             <motion.div
               initial={{ scale: 0, opacity: 0 }}
