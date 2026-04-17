@@ -4,6 +4,7 @@ import React, {
   useRef,
   useEffect,
   useMemo,
+  useCallback,
   ReactNode
 } from 'react';
 import { ConnectedOverlay, TriggerTypes } from '@/utils/Overlay';
@@ -125,9 +126,10 @@ export interface TooltipProps {
   pointerEvents?: string;
 
   /**
-   * Whether to show an arrow pointing from the tooltip to the trigger element.
+   * Arrow pointing from the tooltip to the trigger element.
+   * Pass `true` to render the default arrow, or a ReactNode to render a custom arrow.
    */
-  showArrow?: boolean;
+  arrow?: boolean | ReactNode;
 
   /**
    * Differentiator for popovers to be handled separate from tooltips
@@ -168,7 +170,7 @@ export const Tooltip: FC<TooltipProps> = ({
   closeOnEscape = true,
   closeOnBodyClick = true,
   pointerEvents = 'none',
-  showArrow = false,
+  arrow,
   modifiers,
   isPopover,
   onOpen,
@@ -182,12 +184,14 @@ export const Tooltip: FC<TooltipProps> = ({
   const [internalVisible, setInternalVisible] = useState<boolean>(visible);
   const timeout = useRef<any | null>(null);
   const mounted = useRef<boolean>(false);
-  const arrowRef = useRef<HTMLElement | null>(null);
+  const arrowRef = useRef<HTMLDivElement | null>(null);
   const arrowDataRef = useRef<{
     x?: number;
     y?: number;
     placement: string;
   } | null>(null);
+
+  const showArrow = !!arrow;
 
   const effectiveModifiers = useMemo(() => {
     if (!showArrow) return modifiers;
@@ -240,6 +244,35 @@ export const Tooltip: FC<TooltipProps> = ({
   }, [deactivateTooltip, isPopover, visible]);
 
   const theme: TooltipTheme = useComponentTheme('tooltip', customTheme);
+
+  const renderArrow = useCallback(() => {
+    if (!showArrow) {
+      return null;
+    }
+
+    const data = arrowDataRef.current;
+    const side = data?.placement?.split('-')[0] ?? placement.split('-')[0];
+    const staticSide = ARROW_STATIC_SIDE[side];
+    const arrowSize =
+      arrowRef.current?.offsetWidth ?? arrowRef.current?.offsetHeight ?? 8;
+    const isDefault = arrow === true;
+
+    return (
+      <div
+        ref={arrowRef}
+        className={isDefault ? theme.arrow : undefined}
+        style={{
+          position: 'absolute',
+          visibility: data ? 'visible' : 'hidden',
+          left: data?.x != null ? data.x : '',
+          top: data?.y != null ? data.y : '',
+          [staticSide]: -arrowSize / 2
+        }}
+      >
+        {isDefault ? null : arrow}
+      </div>
+    );
+  }, [showArrow, arrow, placement, theme.arrow]);
 
   return (
     <ConnectedOverlay
@@ -301,26 +334,7 @@ export const Tooltip: FC<TooltipProps> = ({
             }}
           >
             {contentChildren}
-            {showArrow &&
-              (() => {
-                const data = arrowDataRef.current;
-                const side =
-                  data?.placement?.split('-')[0] ?? placement.split('-')[0];
-                const staticSide = ARROW_STATIC_SIDE[side];
-                return (
-                  <div
-                    ref={arrowRef as React.Ref<HTMLDivElement>}
-                    className={theme.arrow}
-                    style={{
-                      position: 'absolute',
-                      visibility: data ? 'visible' : 'hidden',
-                      left: data?.x != null ? data.x : '',
-                      top: data?.y != null ? data.y : '',
-                      [staticSide]: -4
-                    }}
-                  />
-                );
-              })()}
+            {renderArrow()}
           </motion.div>
         );
       }}

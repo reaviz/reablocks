@@ -1,7 +1,7 @@
 export interface TooltipTheme {
   base: string;
   disablePointer: string;
-  arrow: string;
+  arrow?: string;
 }
 
 const baseTheme: TooltipTheme = {

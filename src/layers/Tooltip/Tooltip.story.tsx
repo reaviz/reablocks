@@ -161,17 +161,49 @@ export const WithArrow = () => (
       color: 'green'
     }}
   >
-    <Tooltip content="Top" placement="top" showArrow>
+    <Tooltip content="Top" placement="top" arrow>
       Top
     </Tooltip>
-    <Tooltip content="Bottom" placement="bottom" showArrow>
+    <Tooltip content="Bottom" placement="bottom" arrow>
       Bottom
     </Tooltip>
-    <Tooltip content="Left" placement="left" showArrow>
+    <Tooltip content="Left" placement="left" arrow>
       Left
     </Tooltip>
-    <Tooltip content="Right" placement="right" showArrow>
+    <Tooltip content="Right" placement="right" arrow>
       Right
+    </Tooltip>
+  </div>
+);
+
+export const WithCustomArrow = () => (
+  <div
+    style={{
+      display: 'flex',
+      gap: 40,
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+      margin: '80px auto',
+      color: 'green'
+    }}
+  >
+    <Tooltip
+      content="Custom"
+      placement="top"
+      arrow={
+        <span
+          style={{
+            display: 'block',
+            width: 12,
+            height: 12,
+            background: 'var(--panel-accent)',
+            transform: 'rotate(45deg)'
+          }}
+        />
+      }
+    >
+      Custom arrow
     </Tooltip>
   </div>
 );
