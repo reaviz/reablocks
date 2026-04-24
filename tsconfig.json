@@ -4,7 +4,8 @@
     "module": "ESNext",
     "types": [
       "vite/client",
-      "vitest/globals"
+      "vitest/globals",
+      "@figma/code-connect/figma-types"
     ],
     "lib": ["dom", "dom.iterable", "esnext"],
     "jsx": "react-jsx",
