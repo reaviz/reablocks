@@ -10,6 +10,7 @@ export interface ButtonSizeTheme {
   small: string;
   medium: string;
   large: string;
+  xsmall: string;
   [key: string]: string;
 }
 
@@ -50,27 +51,32 @@ export const defaultButtonTheme: ButtonTheme = {
   adornment: {
     base: 'flex [&_svg]:fill-current',
     start: {
+      xsmall: '',
       small: 'pr-1',
       medium: 'pr-1',
       large: 'pr-1'
     },
     end: {
+      xsmall: '',
       small: 'pl-1',
       medium: 'pl-1',
       large: 'pl-1'
     },
     sizes: {
+      xsmall: '',
       small: '[&>svg]:w-3 [&>svg]:h-3',
       medium: '[&>svg]:w-4 [&>svg]:h-4',
       large: '[&>svg]:w-5 [&>svg]:h-5'
     }
   },
   sizes: {
+    xsmall: '',
     small: 'text-sm px-2 py-1 leading-[normal]',
     medium: 'text-base px-4 py-2 leading-[normal]',
     large: 'text-xl px-5 py-2.5 leading-[normal]'
   },
   iconSizes: {
+    xsmall: 'px-0 py-0',
     small: 'px-2 py-1',
     medium: 'px-4 py-2',
     large: 'px-5 py-2.5'
@@ -127,22 +133,26 @@ export const unifyButtonTheme: ButtonTheme = {
   adornment: {
     base: 'flex',
     start: {
+      xsmall: 'pr-(--buttons-details-space-between-horizontal-xs)',
       small: 'pr-(--buttons-details-space-between-horizontal-sm)',
       medium: 'pr-(--buttons-details-space-between-horizontal-md)',
       large: 'pr-(--buttons-details-space-between-horizontal-lg)'
     },
     end: {
+      xsmall: '',
       small: 'pl-(--buttons-details-space-between-horizontal-sm)',
       medium: 'pl-(--buttons-details-space-between-horizontal-md)',
       large: 'pl-(--buttons-details-space-between-horizontal-lg)'
     },
     sizes: {
+      xsmall: '[&>svg]:size-(--buttons-details-asset-size-xs)',
       small: '[&>svg]:size-(--buttons-details-asset-size-sm)',
       medium: '[&>svg]:size-(--buttons-details-asset-size-md)',
       large: '[&>svg]:size-(--buttons-details-asset-size-lg)'
     }
   },
   sizes: {
+    xsmall: '',
     small:
       'h-(--buttons-details-height-core-icon-sm) text-xs px-(--buttons-details-horizontal-padding-sm)',
     medium:
