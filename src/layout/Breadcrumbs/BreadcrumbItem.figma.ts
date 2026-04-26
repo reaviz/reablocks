@@ -6,7 +6,6 @@ const instance = figma.selectedInstance;
 const text = instance.getString('Text');
 const chevronIcon = instance.getBoolean('Chevron Icon');
 const isSelected = instance.getEnum('State', { Selected: true });
-// const showLeadIcon = instance.getBoolean('Lead Icon');
 const leadIcon = instance.findInstance('Lead Icon')?.executeTemplate()?.example;
 
 export default {
