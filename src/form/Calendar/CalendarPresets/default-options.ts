@@ -360,3 +360,43 @@ export const FUTURE_RANGE_PRESETS: PresetOption[] = [
     ]
   }
 ];
+
+export const UNIFY_PRESETS: PresetOption[] = [
+  {
+    label: 'Today',
+    value: [startOfDay(new Date()), endOfDay(new Date())]
+  },
+  {
+    label: 'Yesterday',
+    value: [
+      startOfDay(subDays(new Date(), 1)),
+      endOfDay(subDays(new Date(), 1))
+    ]
+  },
+  {
+    label: 'This Week',
+    value: [startOfWeek(new Date()), endOfWeek(new Date())]
+  },
+  {
+    label: 'Last Week',
+    value: [
+      startOfWeek(subWeeks(new Date(), 1)),
+      endOfWeek(subWeeks(new Date(), 1))
+    ]
+  },
+  {
+    label: 'This Month',
+    value: [startOfMonth(new Date()), endOfMonth(new Date())]
+  },
+  {
+    label: 'This Year',
+    value: [startOfYear(new Date()), endOfYear(new Date())]
+  },
+  {
+    label: 'Last Year',
+    value: [
+      startOfYear(subYears(new Date(), 1)),
+      endOfYear(subYears(new Date(), 1))
+    ]
+  }
+];
