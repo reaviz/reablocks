@@ -1,5 +1,6 @@
-# Master
+# 10.0.0-beta.4 - 5/5/26
 - [feature] Navigation component #342
+- [feature] Improve merge theme helpers #343
 
 # 10.0.0-beta.3 - 5/5/26
 - [feature] Ability to pass start/end for Tab component #341
