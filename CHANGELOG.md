@@ -1,3 +1,7 @@
+# 10.0.0-beta.3 - 5/5/26
+- [feature] Ability to pass start/end for Tab component #341
+- [fix] DeepPartial export #340
+
 # 10.0.0-beta.2 - 4/9/26
 - [feature] new nav component
 
