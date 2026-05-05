@@ -1,43 +1,44 @@
 import { cloneDeep } from './cloneDeep';
 import { isObject } from './isObject';
 
+type MergeFunction = (objValue: any, srcValue: any, key: string) => any;
+
 /**
- * Merge and deep copy the values of all the enumerable own properties of target object from source object to a new object
- * @param target The target object to get properties from.
- * @param source The source object from which to copy properties.
- * @param mergeFunction
- * @return A new merged and deep copied object.
+ * Deep-merges `source` into `target`, returning a new object.
+ *
+ * - When `mergeFunction` is provided, it is invoked first for every key. If
+ *   it returns a non-`undefined` value, that value is used; returning
+ *   `undefined` falls back to default merging.
+ * - Default merging: plain objects on both sides are merged recursively;
+ *   everything else (primitives, arrays, mismatched types) is taken from source.
  */
 export function mergeDeep<T extends object, S extends object>(
   target: T,
   source: S,
-  mergeFunction?: (objValue: any, srcValue: any, key: string) => string
+  mergeFunction?: MergeFunction
 ): T & S {
-  if (isObject(source) && Object.keys(source).length === 0) {
-    return cloneDeep({ ...target, ...source });
+  if (!isObject(target) || !isObject(source)) {
+    return cloneDeep({ ...target, ...source }) as T & S;
   }
 
-  const output = { ...target, ...source };
+  const output: Record<string, unknown> = { ...target };
 
-  if (isObject(source) && isObject(target)) {
-    for (const key in source) {
-      if (isObject(source[key]) && key in target && isObject(target[key])) {
-        (output as Record<string, unknown>)[key] = mergeDeep(
-          target[key] as object,
-          source[key] as object,
-          mergeFunction
-        );
-      } else {
-        (output as Record<string, unknown>)[key] = isObject(source[key])
-          ? mergeFunction
-            ? mergeFunction(target[key], source[key], key)
-            : cloneDeep(source[key])
-          : mergeFunction
-            ? mergeFunction(target[key], source[key], key)
-            : source[key];
-      }
+  for (const key in source) {
+    const targetValue = (target as Record<string, unknown>)[key];
+    const sourceValue = source[key];
+
+    if (mergeFunction) {
+      output[key] = mergeFunction(targetValue, sourceValue, key);
+    }
+
+    if (isObject(targetValue) && isObject(sourceValue)) {
+      output[key] = mergeDeep(targetValue, sourceValue, mergeFunction);
+    } else if (isObject(sourceValue)) {
+      output[key] = cloneDeep(sourceValue);
+    } else {
+      output[key] = sourceValue;
     }
   }
 
-  return output;
+  return output as T & S;
 }
