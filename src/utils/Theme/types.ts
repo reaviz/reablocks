@@ -1,3 +1,7 @@
+export type DeepPartial<T> = {
+  [P in keyof T]?: DeepPartial<T[P]>;
+};
+
 export interface Palette {
   background?: string;
   color?: string;
