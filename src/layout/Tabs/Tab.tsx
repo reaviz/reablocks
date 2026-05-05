@@ -1,4 +1,4 @@
-import React, { FC, PropsWithChildren } from 'react';
+import React, { FC, PropsWithChildren, ReactElement } from 'react';
 import { Button } from '@/elements/Button';
 import { TabsTheme } from './TabsTheme';
 import { useComponentTheme, cn } from '@/utils';
@@ -43,6 +43,16 @@ export interface TabProps extends PropsWithChildren {
   onSelect?: () => void;
 
   /**
+   * Element to display before the Button content.
+   */
+  start?: ReactElement;
+
+  /**
+   * Element to display after the Button content.
+   */
+  end?: ReactElement;
+
+  /**
    * The size of the tabs.
    *
    * @private
@@ -62,6 +72,8 @@ export const Tab: FC<TabProps> = ({
   containerClassName,
   className,
   disabled,
+  start,
+  end,
   onSelect,
   size = 'medium',
   theme: customTheme
@@ -71,6 +83,8 @@ export const Tab: FC<TabProps> = ({
   return (
     <span className={cn(theme.list.tab.base, containerClassName)}>
       <Button
+        start={start}
+        end={end}
         className={cn(
           theme.list.tab.button,
           className,
