@@ -18,7 +18,9 @@ import {
   chipTheme,
   ChipTheme,
   SkeletonTheme,
-  skeletonTheme
+  skeletonTheme,
+  NavigationTheme,
+  navigationTheme
 } from '@/elements';
 
 import {
@@ -127,6 +129,7 @@ export interface ReablocksTheme {
     card: CardTheme;
     kbd: KbdTheme;
     notification: NotificationTheme;
+    navigation: NavigationTheme;
     input: InputTheme;
     dateInput: DateInputTheme;
     calendar: CalendarTheme;
@@ -177,6 +180,7 @@ export const theme: ReablocksTheme = {
     card: cardTheme,
     kbd: kbdTheme,
     notification: notificationTheme,
+    navigation: navigationTheme,
     input: inputTheme,
     dateInput: dateInputTheme,
     calendar: calendarTheme,
