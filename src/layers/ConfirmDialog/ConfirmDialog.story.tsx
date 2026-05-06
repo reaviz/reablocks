@@ -69,3 +69,55 @@ export const Default: Story = {
     cancelLabel: 'Cancel'
   }
 };
+
+export const Destructive: Story = {
+  render: args => {
+    const [isOpen, setIsOpen] = useState<boolean>(false);
+
+    const handleConfirm = useCallback(
+      function (): void {
+        if (args.onConfirm) {
+          args.onConfirm();
+        }
+        setIsOpen(false);
+      },
+      [args, setIsOpen]
+    );
+
+    const handleCancel = useCallback(
+      function (): void {
+        if (args.onCancel) {
+          args.onCancel();
+        }
+        setIsOpen(false);
+      },
+      [args, setIsOpen]
+    );
+
+    return (
+      <>
+        <Button
+          onClick={function (): void {
+            setIsOpen(true);
+          }}
+        >
+          Delete Item
+        </Button>
+        <ConfirmDialog
+          {...args}
+          open={isOpen}
+          onConfirm={handleConfirm}
+          onCancel={handleCancel}
+        />
+      </>
+    );
+  },
+  args: {
+    header: 'Delete Item',
+    content:
+      'Are you sure you want to delete this item? This action cannot be undone.',
+    confirmLabel: 'Delete',
+    cancelLabel: 'Cancel',
+    destructive: true
+  }
+};

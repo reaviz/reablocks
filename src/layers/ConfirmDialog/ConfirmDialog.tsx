@@ -38,6 +38,11 @@ export interface ConfirmDialogProps {
    * Callback when the cancel button is clicked
    */
   onCancel?: () => void;
+
+  /**
+   * Whether the confirm action is destructive. When true, the confirm button uses the error color.
+   */
+  destructive?: boolean;
 }
 
 export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
@@ -47,14 +52,19 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   confirmLabel = 'Confirm',
   cancelLabel = 'Cancel',
   onConfirm,
-  onCancel
+  onCancel,
+  destructive = false
 }) => (
   <Dialog open={open} onClose={onCancel} header={header}>
     {() => (
       <>
         <div className="mb-6">{content}</div>
         <footer className="flex justify-end space-x-4">
-          <Button className="px-4 py-2" onClick={onConfirm} color="primary">
+          <Button
+            className="px-4 py-2"
+            onClick={onConfirm}
+            color={destructive ? 'error' : 'primary'}
+          >
             {confirmLabel}
           </Button>
           <Button className="px-4 py-2" onClick={onCancel}>
