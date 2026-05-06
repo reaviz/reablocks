@@ -28,7 +28,11 @@ export function mergeDeep<T extends object, S extends object>(
     const sourceValue = source[key];
 
     if (mergeFunction) {
-      output[key] = mergeFunction(targetValue, sourceValue, key);
+      const merged = mergeFunction(targetValue, sourceValue, key);
+      if (merged !== undefined) {
+        output[key] = merged;
+        continue;
+      }
     }
 
     if (isObject(targetValue) && isObject(sourceValue)) {
