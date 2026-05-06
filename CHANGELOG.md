@@ -1,3 +1,8 @@
+# 10.0.0-beta.5 - 5/6/26
+- [feature] ConfirmDialog: add destructive prop #346
+- [fix] Update ButtonGroupContextProps to align with button #345
+- [fix] mergeDeep: respect mergeFunction return value #344
+
 # 10.0.0-beta.4 - 5/5/26
 - [feature] Navigation component #342
 - [feature] Improve merge theme helpers #343
