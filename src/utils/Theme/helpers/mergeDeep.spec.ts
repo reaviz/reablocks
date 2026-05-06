@@ -220,6 +220,64 @@ describe('mergeDeep', () => {
 
       expect(keys).toEqual(['a', 'b', 'c']);
     });
+
+    test('mergeFunction return value should win over default deep-merge for object/object', () => {
+      const merger = vi.fn(() => 'REPLACED');
+      const target = { a: { x: 'old' } };
+      const source = { a: { x: 'new' } };
+
+      const result = mergeDeep(target, source, merger);
+
+      // If the return value were ignored, the default merge would yield
+      // { a: { x: 'new' } } instead of { a: 'REPLACED' }.
+      expect(result).toEqual({ a: 'REPLACED' });
+    });
+
+    test('mergeFunction return value should win over cloneDeep when source is object', () => {
+      const merger = vi.fn(() => 'REPLACED');
+      const target = { a: 1 };
+      const source = { a: { x: 1 } };
+
+      const result = mergeDeep(target, source, merger);
+
+      expect(result).toEqual({ a: 'REPLACED' });
+    });
+
+    test('mergeFunction should not recurse into source after returning a value', () => {
+      const merger = vi.fn((_t, s) =>
+        typeof s === 'object' && s !== null ? 'STOPPED' : undefined
+      );
+      const target = { a: { deep: { x: 1 } } };
+      const source = { a: { deep: { x: 2 } } };
+
+      mergeDeep(target, source, merger);
+
+      // Should be called once for top-level 'a' (returns 'STOPPED'), then stop.
+      expect(merger).toHaveBeenCalledTimes(1);
+      expect(merger).toHaveBeenCalledWith(
+        { deep: { x: 1 } },
+        { deep: { x: 2 } },
+        'a'
+      );
+    });
+
+    test.each([
+      ['null', null],
+      ['empty string', ''],
+      ['zero', 0],
+      ['false', false]
+    ])(
+      'falsy non-undefined return (%s) should be respected',
+      (_label, value) => {
+        const merger = vi.fn(() => value);
+        const target = { a: 'old', b: { x: 1 } };
+        const source = { a: 'new', b: { x: 2 } };
+
+        const result = mergeDeep(target, source, merger);
+
+        expect(result).toEqual({ a: value, b: value });
+      }
+    );
   });
 
   describe('theme-style merging (real-world use)', () => {
