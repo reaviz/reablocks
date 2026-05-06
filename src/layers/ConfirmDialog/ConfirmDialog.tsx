@@ -40,10 +40,18 @@ export interface ConfirmDialogProps {
   onCancel?: () => void;
 
   /**
-   * Whether the confirm action is destructive. When true, the confirm button uses the error color.
+   * The visual variant of the dialog. Use `destructive` for actions like delete.
    */
-  destructive?: boolean;
+  variant?: 'default' | 'destructive';
 }
+
+const VARIANT_COLORS: Record<
+  NonNullable<ConfirmDialogProps['variant']>,
+  'primary' | 'error'
+> = {
+  default: 'primary',
+  destructive: 'error'
+};
 
 export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   open,
@@ -53,7 +61,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   cancelLabel = 'Cancel',
   onConfirm,
   onCancel,
-  destructive = false
+  variant = 'default'
 }) => (
   <Dialog open={open} onClose={onCancel} header={header}>
     {() => (
@@ -63,7 +71,7 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
           <Button
             className="px-4 py-2"
             onClick={onConfirm}
-            color={destructive ? 'error' : 'primary'}
+            color={VARIANT_COLORS[variant]}
           >
             {confirmLabel}
           </Button>

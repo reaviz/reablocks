@@ -118,6 +118,6 @@ export const Destructive: Story = {
       'Are you sure you want to delete this item? This action cannot be undone.',
     confirmLabel: 'Delete',
     cancelLabel: 'Cancel',
-    destructive: true
+    variant: 'destructive'
   }
 };
