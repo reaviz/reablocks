@@ -26,6 +26,7 @@ interface ThemeColor {
 
 export interface ChipTheme {
   base: string;
+  label: string;
   adornment: {
     base: string;
     start: string;
@@ -77,6 +78,7 @@ const baseTheme: Partial<ChipTheme> = {
   rounded-xs leading-none text-white transition-colors
   duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium
   `,
+  label: 'flex items-center',
   colors: {
     default: {
       selectable: {
@@ -144,6 +146,7 @@ const baseTheme: Partial<ChipTheme> = {
 
 export const chipTheme: ChipTheme = {
   base: baseTheme.base,
+  label: baseTheme.label,
   adornment: baseTheme.adornment,
   sizes: baseTheme.sizes,
   focus: baseTheme.focus,
