@@ -133,7 +133,7 @@ export const Chip: FC<ChipProps & ChipRef> = forwardRef(
             {start}
           </div>
         )}
-        <div className={'flex items-center'}>{children}</div>
+        <div className={theme.label}>{children}</div>
         {end && (
           <div
             className={cn(
