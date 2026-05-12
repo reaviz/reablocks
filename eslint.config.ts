@@ -77,6 +77,9 @@ module.exports = defineConfig([{
     'react-hooks/set-state-in-effect': 'off',
     'react-hooks/refs': 'off',
     'react-hooks/immutability': 'off',
+    // Added in eslint-plugin-react-hooks@7.1; targets React Compiler output.
+    // Compiler is not enabled here, so the rule flags valid manual useCallback/useMemo as errors.
+    'react-hooks/preserve-manual-memoization': 'off',
   },
 }, {
   files: ['**/*.test.*'],
