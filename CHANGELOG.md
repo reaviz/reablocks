@@ -1,3 +1,6 @@
+# 10.0.1 - 5/13/26
+- [chore] upgrade deps
+
 # 10.0.0 - 5/7/26
 
 Major release with breaking changes across Typography, Layout, Button, Input, and Select. See the [Migration Guide](#migration-guide) below.
