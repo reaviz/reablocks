@@ -1,5 +1,6 @@
 import React from 'react';
 import { Ellipsis } from './Ellipsis';
+import { EllipsisButton } from './EllipsisButton';
 import { P, H3, Muted, H4, Lead, Small, H5 } from '@/typography';
 
 export default {
@@ -66,4 +67,37 @@ export const WithMixedTypography = () => (
 
 export const CharacterLimit = () => (
   <Ellipsis limit={80} value={words} title={words} />
+);
+
+export const CustomButtonLabel = () => (
+  <div style={{ width: '300px' }}>
+    <Ellipsis lines={2} title={words}>
+      <P>{words}</P>
+      <EllipsisButton>Read full description</EllipsisButton>
+    </Ellipsis>
+  </div>
+);
+
+export const CustomButtonRender = () => (
+  <div style={{ width: '300px' }}>
+    <Ellipsis lines={2} title={words}>
+      <P>{words}</P>
+      <EllipsisButton>
+        {({ showAll, toggleExpand }) => (
+          <div style={{ marginTop: 4 }}>
+            <a
+              href="#"
+              onClick={event => {
+                event.preventDefault();
+                toggleExpand(event);
+              }}
+              style={{ color: '#6366f1', cursor: 'pointer' }}
+            >
+              {showAll ? '← Collapse' : 'Read more →'}
+            </a>
+          </div>
+        )}
+      </EllipsisButton>
+    </Ellipsis>
+  </div>
 );

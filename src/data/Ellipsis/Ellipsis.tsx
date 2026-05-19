@@ -1,19 +1,25 @@
 import React, {
+  Children,
   FC,
-  useState,
-  useRef,
-  useEffect,
-  useCallback,
-  useMemo,
+  MouseEvent,
   ReactNode,
-  Children
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
 } from 'react';
 import ellipsize from 'ellipsize';
 import { EllipsisTheme } from './EllipsisTheme';
-import { useComponentTheme, cn } from '@/utils';
+import {
+  useComponentTheme,
+  cn,
+  hasSlotComponents,
+  extractSlots
+} from '@/utils';
 import { Tooltip } from '@/layers/Tooltip';
-import { Button } from '@/elements/Button';
-import { Divider } from '@/layout/Divider';
+import { EllipsisContext, EllipsisContextValue } from './EllipsisContext';
+import { EllipsisButton } from './EllipsisButton';
 
 export interface EllipsisProps {
   /**
@@ -104,7 +110,26 @@ export const Ellipsis: FC<EllipsisProps> = ({
   const contentRef = useRef<HTMLDivElement>(null);
   const theme: EllipsisTheme = useComponentTheme('ellipsis', customTheme);
 
-  const hasChildren = Children.count(children) > 0;
+  // Detect EllipsisButton slot and split it out from the content children.
+  const useSlots = useMemo(
+    () => hasSlotComponents(children, ['EllipsisButton']),
+    [children]
+  );
+
+  const slots = useMemo(
+    () =>
+      useSlots
+        ? extractSlots<{ button: ReactNode }>(children, {
+            EllipsisButton: 'button'
+          })
+        : null,
+    [useSlots, children]
+  );
+
+  const contentChildren: ReactNode = slots ? slots.other : children;
+  const hasChildren = slots
+    ? slots.other.length > 0
+    : Children.count(children) > 0;
 
   const substr = useMemo(() => {
     if (hasChildren) return '';
@@ -148,10 +173,10 @@ export const Ellipsis: FC<EllipsisProps> = ({
     };
   }, [checkTruncation]);
 
-  const toggleExpand = (event: React.MouseEvent) => {
+  const toggleExpand = useCallback((event: MouseEvent) => {
     event.stopPropagation();
-    setShowAll(!showAll);
-  };
+    setShowAll(prev => !prev);
+  }, []);
 
   // Resolve Truncation Active
   const renderButton = expandable && (isTruncated || showAll);
@@ -159,9 +184,9 @@ export const Ellipsis: FC<EllipsisProps> = ({
   const appliedLines = lines ?? 1;
 
   // Decide what to render inside the wrapper
-  let content;
+  let content: ReactNode;
   if (hasChildren) {
-    content = children;
+    content = contentChildren;
   } else if (lines !== undefined) {
     // CSS line-clamp handles truncation natively, render the full value
     content = value;
@@ -173,51 +198,37 @@ export const Ellipsis: FC<EllipsisProps> = ({
   const finalTooltip =
     title !== false ? title || (!hasChildren ? value : null) : null;
 
+  const contextValue: EllipsisContextValue = useMemo(
+    () => ({ showAll, isTruncated, toggleExpand, moreText, lessText }),
+    [showAll, isTruncated, toggleExpand, moreText, lessText]
+  );
+
   return (
-    <div className={cn(theme.base, className)}>
-      <Tooltip
-        arrow
-        className={cn(theme.tooltip, tooltipClassName)}
-        content={
-          isTruncated && !showAll && finalTooltip ? (
-            <div className={theme.tooltipContent}>{finalTooltip}</div>
-          ) : null
-        }
-        enterDelay={tooltipEnterDelay}
-      >
-        <div
-          ref={contentRef}
-          className={cn(theme.content.base, {
-            [`line-clamp-${appliedLines}`]:
-              (hasChildren || lines !== undefined) && !showAll,
-            [theme.content.truncated]: expandable && isTruncated && !showAll
-          })}
+    <EllipsisContext.Provider value={contextValue}>
+      <div className={cn(theme.base, className)}>
+        <Tooltip
+          arrow
+          className={cn(theme.tooltip, tooltipClassName)}
+          content={
+            isTruncated && !showAll && finalTooltip ? (
+              <div className={theme.tooltipContent}>{finalTooltip}</div>
+            ) : null
+          }
+          enterDelay={tooltipEnterDelay}
         >
-          {content}
-        </div>
-      </Tooltip>
-      {renderButton && (
-        <div
-          className={cn(
-            theme.buttonContainer.base,
-            !showAll
-              ? theme.buttonContainer.collapsed
-              : theme.buttonContainer.expanded
-          )}
-        >
-          <Divider disableMargins className={theme.buttonContainer.divider} />
-          <Button
-            variant="text"
-            size="small"
-            disableMargins
-            className={theme.buttonContainer.expandButton}
-            onClick={toggleExpand}
+          <div
+            ref={contentRef}
+            className={cn(theme.content.base, {
+              [`line-clamp-${appliedLines}`]:
+                (hasChildren || lines !== undefined) && !showAll,
+              [theme.content.truncated]: expandable && isTruncated && !showAll
+            })}
           >
-            {showAll ? lessText : moreText}
-          </Button>
-          <Divider disableMargins className={theme.buttonContainer.divider} />
-        </div>
-      )}
-    </div>
+            {content}
+          </div>
+        </Tooltip>
+        {renderButton && (slots?.button ?? <EllipsisButton />)}
+      </div>
+    </EllipsisContext.Provider>
   );
 };
