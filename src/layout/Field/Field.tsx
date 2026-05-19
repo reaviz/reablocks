@@ -1,6 +1,13 @@
-import React, { FC, ReactNode } from 'react';
+import React, {
+  Children,
+  cloneElement,
+  FC,
+  isValidElement,
+  ReactElement,
+  ReactNode
+} from 'react';
 import { FieldTheme } from './FieldTheme';
-import { cn, useComponentTheme } from '@/utils';
+import { cn, useComponentTheme, useId } from '@/utils';
 
 export interface FieldProps extends React.HTMLAttributes<HTMLElement> {
   /**
@@ -26,13 +33,20 @@ export interface FieldProps extends React.HTMLAttributes<HTMLElement> {
   requiredIndicator?: ReactNode;
 
   /**
-   * Visually-hidden text announced by assistive tech alongside the required
-   * indicator. Defaults to `'required'` so the requirement is conveyed to
-   * screen readers even when the form control doesn't carry `aria-required`.
-   * Pass `''` to opt out (e.g. when the input already announces it), or pass
-   * a localized string.
+   * Visually-hidden fallback text announced by assistive tech when Field
+   * cannot inject `aria-required` onto the form control (e.g. multiple
+   * children, fragments, or already-set values). Defaults to `'required'`.
+   * Pass `''` to opt out, or a localized string.
    */
   requiredAnnouncement?: string;
+
+  /**
+   * Associates the label with the form control via `htmlFor`/`id`. When
+   * omitted, Field auto-generates an id. If `children` is a single React
+   * element, Field also injects this id and (when `required`) `aria-required`
+   * into that child — preserving any values the child already sets.
+   */
+  htmlFor?: string;
 
   /**
    * Children to render.
@@ -92,6 +106,7 @@ export const Field: FC<FieldProps> = ({
   required,
   requiredIndicator = '*',
   requiredAnnouncement = 'required',
+  htmlFor,
   direction = 'vertical',
   alignment = 'start',
   onTitleClick,
@@ -102,6 +117,8 @@ export const Field: FC<FieldProps> = ({
 }) => {
   const theme: FieldTheme = useComponentTheme('field', customTheme);
   const hasErrorMessage = error != null && error !== false && error !== true;
+  const generatedId = useId();
+  const fieldId = htmlFor ?? generatedId;
 
   return (
     <section
@@ -119,6 +136,7 @@ export const Field: FC<FieldProps> = ({
     >
       {label && (
         <label
+          htmlFor={fieldId}
           className={cn(
             theme.label,
             direction === 'horizontal' && theme.horizontal.label,

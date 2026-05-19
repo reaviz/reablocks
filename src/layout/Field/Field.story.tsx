@@ -57,6 +57,12 @@ export const RequiredAnnouncementDisabled = () => (
   </Field>
 );
 
+export const ExplicitHtmlFor = () => (
+  <Field label="Username" htmlFor="my-username">
+    <Input id="my-username" placeholder="Consumer-controlled id" />
+  </Field>
+);
+
 export const RequiredCustomIndicator = () => (
   <>
     <Field label="Name" required requiredIndicator="(required)">
