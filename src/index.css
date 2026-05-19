@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@source inline("line-clamp-{1..10}");
 
 /* Color palette */
 :root,
