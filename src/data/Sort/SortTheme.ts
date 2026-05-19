@@ -13,7 +13,7 @@ const baseTheme: SortTheme = {
   disabled: 'cursor-[initial]',
   hasValue: 'cursor-not-allowed',
   icon: {
-    base: 'w-4 h-4 align-middle mx-1.5 fill-current',
+    base: 'w-2 h-[5px] align-middle mx-1.5 fill-current',
     ascending: 'rotate-180'
   }
 };

@@ -100,7 +100,9 @@ import {
   SortTheme,
   sortTheme,
   DateFormatTheme,
-  dateFormatTheme
+  dateFormatTheme,
+  TableTheme,
+  tableTheme
 } from '@/data';
 
 import { TypographyTheme, typographyTheme } from '@/typography';
@@ -153,6 +155,7 @@ export interface ReablocksTheme {
     backdrop: BackdropTheme;
     skeleton: SkeletonTheme;
     typography: TypographyTheme;
+    table: TableTheme;
   };
 }
 
@@ -203,6 +206,7 @@ export const theme: ReablocksTheme = {
     callout: calloutTheme,
     backdrop: backdropTheme,
     skeleton: skeletonTheme,
-    typography: typographyTheme
+    typography: typographyTheme,
+    table: tableTheme
   }
 };
