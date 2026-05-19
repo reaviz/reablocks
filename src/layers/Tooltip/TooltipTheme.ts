@@ -5,7 +5,7 @@ export interface TooltipTheme {
 }
 
 const baseTheme: TooltipTheme = {
-  base: 'whitespace-nowrap text-center will-change-[transform,opacity] p-1.5 rounded-sm',
+  base: 'whitespace-normal break-words text-center will-change-[transform,opacity] p-1.5 rounded-sm',
   disablePointer: 'pointer-events-none',
   arrow: 'w-2 h-2 rotate-45 bg-inherit'
 };

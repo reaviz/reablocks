@@ -4,17 +4,32 @@ import React, {
   useRef,
   useEffect,
   useCallback,
-  useMemo
+  useMemo,
+  ReactNode
 } from 'react';
 import ellipsize from 'ellipsize';
 import { EllipsisTheme } from './EllipsisTheme';
-import { useComponentTheme } from '@/utils';
+import { useComponentTheme, cn } from '@/utils';
+import { Tooltip } from '@/layers/Tooltip';
+import { Button } from '@/elements/Button';
+import { Divider } from '@/layout/Divider';
 
 export interface EllipsisProps {
   /**
-   * The value to ellipsis.
+   * The value to ellipsis. Optional if children are provided.
+   * @deprecated Use `children` instead.
    */
-  value: string;
+  value?: string;
+
+  /**
+   * Children components for CSS-based truncation.
+   */
+  children?: ReactNode;
+
+  /**
+   * Class name for the tooltip.
+   */
+  tooltipClassName?: string;
 
   /**
    * Whether you can expand or not. Default: true.
@@ -27,9 +42,14 @@ export interface EllipsisProps {
   limit?: number;
 
   /**
-   * The title text to show on the hover.
+   * The title text to show on the hover in the Tooltip.
    */
   title?: string | false;
+
+  /**
+   * Delay in milliseconds before showing the tooltip. Default: 200.
+   */
+  tooltipEnterDelay?: number;
 
   /**
    * Remove line breaks or not.
@@ -63,118 +83,140 @@ export interface EllipsisProps {
 }
 
 export const Ellipsis: FC<EllipsisProps> = ({
-  value,
+  value = '',
+  children,
+  tooltipClassName,
   className,
   title,
+  tooltipEnterDelay = 200,
   removeLinebreaks = true,
   expandable = true,
   limit = 256,
   lines,
-  moreText = '...',
+  moreText = 'Show more',
   lessText = 'Show less',
   theme: customTheme
 }) => {
-  const [expanded, setExpanded] = useState<boolean>(false);
+  const [showAll, setShowAll] = useState<boolean>(false);
   const [isTruncated, setIsTruncated] = useState<boolean>(false);
-  const [isMeasured, setIsMeasured] = useState<boolean>(false);
-  const [truncatedText, setTruncatedText] = useState<string>(value);
-  const contentRef = useRef<HTMLDivElement>(null);
+
+  const modernRef = useRef<HTMLDivElement>(null);
   const theme: EllipsisTheme = useComponentTheme('ellipsis', customTheme);
+
+  const hasChildren = React.Children.count(children) > 0;
 
   const substr = useMemo(() => {
     const formatted = removeLinebreaks
       ? value.replace(/(\r\n|\n|\r)/gm, ' ')
       : value;
-    return ellipsize(formatted, limit, { ellipse: expandable ? '' : '...' });
-  }, [expandable, limit, value, removeLinebreaks]);
+    return ellipsize(formatted, limit, { ellipse: '...' });
+  }, [limit, value, removeLinebreaks]);
 
-  const measureText = useCallback(() => {
-    if (lines === undefined) {
-      if (substr.length !== value.length) {
-        setTruncatedText(substr);
-        setIsTruncated(true);
-      }
-      setIsMeasured(true);
-      return;
-    }
+  const isCharTruncated =
+    !hasChildren && lines === undefined && substr.length !== value.length;
 
-    if (!contentRef.current) {
-      return;
-    }
+  const checkTruncation = useCallback(() => {
+    const el = modernRef.current;
+    if (!el) return;
 
-    const content = contentRef.current;
-    const lineHeight = parseInt(window.getComputedStyle(content).lineHeight);
-    const maxHeight = lines ? lineHeight * lines : content.clientHeight;
-
-    content.style.maxHeight = `${maxHeight}px`;
-    content.style.overflow = 'hidden';
-
-    let truncated = value;
-    content.textContent = truncated + moreText;
-
-    if (content.scrollHeight > maxHeight) {
-      setIsTruncated(true);
-      while (content.scrollHeight > maxHeight && truncated.length > 0) {
-        truncated = truncated.slice(0, -1).trim();
-        content.textContent = truncated + moreText;
-      }
-      setTruncatedText(truncated);
+    let truncated = false;
+    if (hasChildren || lines !== undefined) {
+      truncated = el.scrollHeight > el.clientHeight;
     } else {
-      setIsTruncated(false);
-      setTruncatedText(value);
+      truncated = isCharTruncated;
     }
 
-    content.style.maxHeight = '';
-    content.style.overflow = '';
-    setIsMeasured(true);
-  }, [lines, value, moreText, substr]);
+    setIsTruncated(truncated);
+  }, [hasChildren, lines, isCharTruncated]);
 
   useEffect(() => {
-    // NOTE: The contentRef is used to measure the text. It must be a child of the parent element
-    // and positioned as a block element (div). The contentRef is not used to render the text due
-    // to the way wrapping works in CSS.
-    measureText();
-    if (lines !== undefined && typeof window !== 'undefined') {
-      window.addEventListener('resize', measureText);
-      return () => window.removeEventListener('resize', measureText);
-    }
-  }, [measureText, lines]);
+    checkTruncation();
+
+    const el = modernRef.current;
+    if (!el) return;
+
+    const resizeObserver = new ResizeObserver(() => {
+      checkTruncation();
+    });
+    resizeObserver.observe(el);
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, [checkTruncation]);
 
   const toggleExpand = (event: React.MouseEvent) => {
     event.stopPropagation();
-    setExpanded(!expanded);
+    setShowAll(!showAll);
   };
 
+  // Resolve Truncation Active
+  const renderButton = expandable && (isTruncated || showAll);
+
+  const appliedLines = lines || 1;
+
+  // Decide what to render inside the wrapper
+  let content;
+  if (hasChildren) {
+    content = children;
+  } else if (lines !== undefined) {
+    content = showAll ? value : value; // CSS line-clamp handles the text natively
+  } else {
+    content = showAll ? value : substr; // Character limit handles text
+  }
+
+  const finalTooltip =
+    title !== false ? title || (!hasChildren ? value : null) : null;
+
   return (
-    <div className={className}>
-      {!isMeasured && lines !== undefined && (
-        <div ref={contentRef} className="invisible">
-          {value}
+    <div className={cn(theme.base, className)}>
+      <Tooltip
+        arrow
+        className={cn(theme.tooltip, tooltipClassName)}
+        content={
+          isTruncated && !showAll && finalTooltip ? (
+            <div className={theme.tooltipContent}>{finalTooltip}</div>
+          ) : null
+        }
+        enterDelay={tooltipEnterDelay}
+      >
+        <div
+          ref={modernRef}
+          className={cn(theme.content.base, {
+            [`line-clamp-${appliedLines}`]:
+              (hasChildren || lines !== undefined) && !showAll,
+            [theme.content.truncated]: expandable && isTruncated && !showAll
+          })}
+          style={{
+            ...((hasChildren || lines !== undefined) && !showAll
+              ? { WebkitLineClamp: appliedLines.toString() }
+              : {})
+          }}
+        >
+          {content}
         </div>
-      )}
-      {isMeasured && (
-        <>
-          <span title={title !== false ? title || value : undefined}>
-            {expanded ? value : truncatedText}
-          </span>
-          {expandable && isTruncated && (
-            <>
-              {expanded ? ' ' : ''}
-              <button
-                type="button"
-                title={
-                  expanded
-                    ? 'Click to show less'
-                    : 'Click to view rest of content'
-                }
-                className={theme.dots}
-                onClick={toggleExpand}
-              >
-                {expanded ? lessText : moreText}
-              </button>
-            </>
+      </Tooltip>
+      {renderButton && (
+        <div
+          className={cn(
+            theme.buttonContainer.base,
+            !showAll
+              ? theme.buttonContainer.collapsed
+              : theme.buttonContainer.expanded
           )}
-        </>
+        >
+          <Divider disableMargins className={theme.buttonContainer.divider} />
+          <Button
+            variant="text"
+            size="small"
+            disableMargins
+            className={theme.buttonContainer.expandButton}
+            onClick={toggleExpand}
+          >
+            {showAll ? lessText : moreText}
+          </Button>
+          <Divider disableMargins className={theme.buttonContainer.divider} />
+        </div>
       )}
     </div>
   );
