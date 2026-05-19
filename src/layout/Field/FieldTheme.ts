@@ -2,6 +2,7 @@ export interface FieldTheme {
   base: string;
   disableMargin: string;
   label: string;
+  requiredIndicator: string;
   centerAlign: string;
   endAlign: string;
   horizontal: {
@@ -22,6 +23,7 @@ const baseTheme: FieldTheme = {
   base: 'mb-2.5',
   disableMargin: 'mb-0',
   label: 'text-sm',
+  requiredIndicator: 'ml-0.5',
   centerAlign: 'items-center',
   endAlign: 'items-end',
   horizontal: {
