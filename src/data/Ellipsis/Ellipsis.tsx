@@ -5,7 +5,8 @@ import React, {
   useEffect,
   useCallback,
   useMemo,
-  ReactNode
+  ReactNode,
+  Children
 } from 'react';
 import ellipsize from 'ellipsize';
 import { EllipsisTheme } from './EllipsisTheme';
@@ -100,23 +101,25 @@ export const Ellipsis: FC<EllipsisProps> = ({
   const [showAll, setShowAll] = useState<boolean>(false);
   const [isTruncated, setIsTruncated] = useState<boolean>(false);
 
-  const modernRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const theme: EllipsisTheme = useComponentTheme('ellipsis', customTheme);
 
-  const hasChildren = React.Children.count(children) > 0;
+  const hasChildren = Children.count(children) > 0;
 
   const substr = useMemo(() => {
+    if (hasChildren) return '';
     const formatted = removeLinebreaks
       ? value.replace(/(\r\n|\n|\r)/gm, ' ')
       : value;
+
     return ellipsize(formatted, limit, { ellipse: '...' });
-  }, [limit, value, removeLinebreaks]);
+  }, [hasChildren, limit, value, removeLinebreaks]);
 
   const isCharTruncated =
     !hasChildren && lines === undefined && substr.length !== value.length;
 
   const checkTruncation = useCallback(() => {
-    const el = modernRef.current;
+    const el = contentRef.current;
     if (!el) return;
 
     let truncated = false;
@@ -132,7 +135,7 @@ export const Ellipsis: FC<EllipsisProps> = ({
   useEffect(() => {
     checkTruncation();
 
-    const el = modernRef.current;
+    const el = contentRef.current;
     if (!el) return;
 
     const resizeObserver = new ResizeObserver(() => {
@@ -153,16 +156,18 @@ export const Ellipsis: FC<EllipsisProps> = ({
   // Resolve Truncation Active
   const renderButton = expandable && (isTruncated || showAll);
 
-  const appliedLines = lines || 1;
+  const appliedLines = lines ?? 1;
 
   // Decide what to render inside the wrapper
   let content;
   if (hasChildren) {
     content = children;
   } else if (lines !== undefined) {
-    content = showAll ? value : value; // CSS line-clamp handles the text natively
+    // CSS line-clamp handles truncation natively, render the full value
+    content = value;
   } else {
-    content = showAll ? value : substr; // Character limit handles text
+    // Character limit path — swap to full value when expanded
+    content = showAll ? value : substr;
   }
 
   const finalTooltip =
@@ -181,17 +186,12 @@ export const Ellipsis: FC<EllipsisProps> = ({
         enterDelay={tooltipEnterDelay}
       >
         <div
-          ref={modernRef}
+          ref={contentRef}
           className={cn(theme.content.base, {
             [`line-clamp-${appliedLines}`]:
               (hasChildren || lines !== undefined) && !showAll,
             [theme.content.truncated]: expandable && isTruncated && !showAll
           })}
-          style={{
-            ...((hasChildren || lines !== undefined) && !showAll
-              ? { WebkitLineClamp: appliedLines.toString() }
-              : {})
-          }}
         >
           {content}
         </div>
