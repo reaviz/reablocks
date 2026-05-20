@@ -71,7 +71,8 @@ export const tableTheme: TableTheme = {
     row: 'bg-panel-accent text-text-primary',
     cell: {
       base: 'font-semibold whitespace-nowrap select-none text-sm text-text-primary',
-      sortable: 'cursor-pointer hover:text-text-primary',
+      sortable:
+        'cursor-pointer text-text-primary transition-colors hover:text-text-secondary',
       sorted: 'text-text-primary',
       draggable:
         'cursor-grab active:cursor-grabbing transition-colors hover:bg-panel/40',

@@ -274,8 +274,6 @@ export const TableHeaderCell = forwardRef<
           theme.header.cell.base,
           theme.header.cell.size[size],
           theme.header.cell.align[align],
-          sortable && !disabled && theme.header.cell.sortable,
-          sortable && !!sortDirection && theme.header.cell.sorted,
           draggableActive && !disabled && theme.header.cell.draggable,
           dragging && theme.header.cell.dragging,
           disabled && theme.header.cell.disabled,
@@ -291,7 +289,11 @@ export const TableHeaderCell = forwardRef<
             disabled={disabled}
             icon={sortIcon}
             neutralIcon={sortNeutralIcon}
-            className="flex-1 min-w-0"
+            className={cn(
+              'flex-1 min-w-0',
+              !disabled && theme.header.cell.sortable,
+              !!sortDirection && theme.header.cell.sorted
+            )}
           >
             {label}
           </Sort>

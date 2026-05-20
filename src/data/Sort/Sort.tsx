@@ -89,7 +89,8 @@ export const Sort: FC<SortProps> = ({
         disabled &&
           direction !== undefined &&
           direction !== null &&
-          theme.hasValue
+          theme.hasValue,
+        className
       )}
       role="button"
       tabIndex={-1}
