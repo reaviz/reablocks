@@ -128,17 +128,20 @@ export const Condensed = () => (
   </Table>
 );
 
-export const Sortable = () => {
+const usePersonSort = (
+  data: Person[],
+  extraHeaderProps?: Record<string, unknown>
+) => {
   const [sort, setSort] = useState<{
     field: keyof Person | null;
     direction: SortDirection;
   }>({ field: 'name', direction: 'asc' });
 
   const sorted = useMemo(() => {
-    if (!sort.field || !sort.direction) return people;
+    if (!sort.field || !sort.direction) return data;
     const field = sort.field;
     const direction = sort.direction;
-    return [...people].sort((a, b) => {
+    return [...data].sort((a, b) => {
       const av = a[field];
       const bv = b[field];
       if (typeof av === 'number' && typeof bv === 'number') {
@@ -147,13 +150,20 @@ export const Sortable = () => {
       const cmp = String(av).localeCompare(String(bv));
       return direction === 'asc' ? cmp : -cmp;
     });
-  }, [sort]);
+  }, [data, sort]);
 
   const headerProps = (field: keyof Person) => ({
     sortable: true,
     sortDirection: sort.field === field ? sort.direction : null,
-    onSort: (next: SortDirection) => setSort({ field, direction: next })
+    onSort: (next: SortDirection) => setSort({ field, direction: next }),
+    ...extraHeaderProps
   });
+
+  return { sorted, headerProps };
+};
+
+export const Sortable = () => {
+  const { sorted, headerProps } = usePersonSort(people);
 
   return (
     <Table>
@@ -276,30 +286,7 @@ const NeutralArrowSortIcon = ({ className }: { className?: string }) => (
 );
 
 export const Custom = () => {
-  const [sort, setSort] = useState<{
-    field: keyof Person | null;
-    direction: SortDirection;
-  }>({ field: 'name', direction: 'asc' });
-
-  const sorted = useMemo(() => {
-    if (!sort.field || !sort.direction) return people;
-    const field = sort.field;
-    const direction = sort.direction;
-    return [...people].sort((a, b) => {
-      const av = a[field];
-      const bv = b[field];
-      if (typeof av === 'number' && typeof bv === 'number') {
-        return direction === 'asc' ? av - bv : bv - av;
-      }
-      const cmp = String(av).localeCompare(String(bv));
-      return direction === 'asc' ? cmp : -cmp;
-    });
-  }, [sort]);
-
-  const headerProps = (field: keyof Person) => ({
-    sortable: true,
-    sortDirection: sort.field === field ? sort.direction : null,
-    onSort: (next: SortDirection) => setSort({ field, direction: next }),
+  const { sorted, headerProps } = usePersonSort(people, {
     sortIcon: ArrowSortIcon,
     sortNeutralIcon: NeutralArrowSortIcon
   });
