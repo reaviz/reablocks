@@ -9,9 +9,14 @@ import { cn, useComponentTheme } from '@/utils';
 import { TableTheme } from './TableTheme';
 import { useTableContext } from './TableContext';
 
-const DEFAULT_TRANSITION: MotionNodeAnimationOptions['transition'] = {
-  duration: 0.25,
-  ease: [0.04, 0.62, 0.23, 0.98]
+const DEFAULT_ANIMATION: MotionNodeAnimationOptions = {
+  initial: { height: 0, opacity: 0 },
+  animate: { height: 'auto', opacity: 1 },
+  exit: { height: 0, opacity: 0 },
+  transition: {
+    duration: 0.25,
+    ease: [0.04, 0.62, 0.23, 0.98]
+  }
 };
 
 export interface TableRowExpandProps extends HTMLAttributes<HTMLDivElement> {
@@ -21,9 +26,13 @@ export interface TableRowExpandProps extends HTMLAttributes<HTMLDivElement> {
   open: boolean;
 
   /**
-   * Optional override for the motion transition.
+   * Motion animation configuration. Any of `initial`, `animate`, `exit`,
+   * `variants`, or `transition` can be overridden; unspecified keys fall
+   * back to the defaults (height + opacity expand/collapse). When
+   * `variants` is set, pass variant label strings to `initial` /
+   * `animate` / `exit` instead of inline target objects.
    */
-  transition?: MotionNodeAnimationOptions['transition'];
+  animation?: MotionNodeAnimationOptions;
 
   /**
    * Theme override for this slot.
@@ -36,12 +45,17 @@ export const TableRowExpand = forwardRef<
   PropsWithChildren<TableRowExpandProps>
 >(
   (
-    { open, transition, className, theme: customTheme, children, ...rest },
+    { open, animation, className, theme: customTheme, children, ...rest },
     ref
   ) => {
     const ctx = useTableContext();
     const fallbackTheme: TableTheme = useComponentTheme('table', customTheme);
     const theme = ctx?.theme ?? fallbackTheme;
+
+    const motionProps: MotionNodeAnimationOptions = {
+      ...DEFAULT_ANIMATION,
+      ...animation
+    };
 
     return (
       <AnimatePresence initial={false}>
@@ -49,10 +63,7 @@ export const TableRowExpand = forwardRef<
           <motion.div
             ref={ref}
             key="content"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: 'auto', opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={transition ?? DEFAULT_TRANSITION}
+            {...motionProps}
             className={cn(theme.body.expand.base, className, 'overflow-hidden')}
             {...(rest as unknown as HTMLMotionProps<'div'>)}
           >
