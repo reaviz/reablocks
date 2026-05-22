@@ -11,11 +11,13 @@ export interface DotsLoaderProps {
 
   /**
    * The speed of the animation.
+   * @default 0.2
    */
   speed?: number;
 
   /**
    * The size of the loader.
+   * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large' | string;
 

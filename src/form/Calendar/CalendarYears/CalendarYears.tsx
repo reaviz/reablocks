@@ -27,6 +27,7 @@ export interface CalendarYearsProps {
   /**
    * @deprecated Use animation configuration instead.
    * X-axis block animation
+   * @default 0
    */
   xAnimation?: string | number;
 

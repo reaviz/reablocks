@@ -34,6 +34,7 @@ export interface ConnectedOverlayContentProps {
 
   /**
    * The placement of the overlay content relative to the trigger.
+   * @default 'bottom'
    */
   placement?: Placement;
 
@@ -49,11 +50,13 @@ export interface ConnectedOverlayContentProps {
 
   /**
    * If true, the overlay content will close when a click is detected on the body.
+   * @default true
    */
   closeOnBodyClick?: boolean;
 
   /**
    * If true, the overlay content will close when the escape key is pressed.
+   * @default true
    */
   closeOnEscape?: boolean;
 
@@ -64,6 +67,7 @@ export interface ConnectedOverlayContentProps {
 
   /**
    * If true, the overlay content will be appended to the body.
+   * @default true
    */
   appendToBody?: boolean;
 

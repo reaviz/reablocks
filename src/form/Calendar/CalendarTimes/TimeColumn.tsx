@@ -32,11 +32,13 @@ interface TimeColumnProps {
 
   /**
    * Whether to use 12-hour cycle for the time picker.
+   * @default false
    */
   is12HourCycle?: boolean;
 
   /**
    * Whether the selected value is PM
+   * @default false
    */
   isPM?: boolean;
 

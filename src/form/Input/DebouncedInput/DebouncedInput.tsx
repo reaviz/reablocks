@@ -4,6 +4,7 @@ import { Input, InputProps, InputRef } from '@/form/Input/Input';
 export interface DebouncedInputProps extends InputProps {
   /**
    * The debounce time in milliseconds. Defaults to 100.
+   * @default 100
    */
   debounce?: number;
 }

@@ -28,15 +28,30 @@ export interface NotificationComponentProps {
 }
 
 export interface NotificationsProps {
+  /**
+   * @default 10
+   */
   limit?: number;
+  /**
+   * @default 4000
+   */
   timeout?: number;
+  /**
+   * @default true
+   */
   showClose?: boolean;
+  /**
+   * @default true
+   */
   preventFlooding?: boolean;
   children?: ReactNode;
   className?: string;
   components?: {
     [variant in NotificationVariants]?: JSXElementConstructor<NotificationComponentProps>;
   };
+  /**
+   * @default {...}
+   */
   icons?: {
     [variant in NotificationVariants]?:
       | string

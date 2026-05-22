@@ -32,11 +32,13 @@ export interface ContextMenuProps extends Omit<ConnectedOverlayProps, 'open'> {
 
   /**
    * Whether the context menu should autofocus on open.
+   * @default true
    */
   autofocus?: boolean;
 
   /**
    * Whether the context menu should close on click.
+   * @default true
    */
   autoClose?: boolean;
 

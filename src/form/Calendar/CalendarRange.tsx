@@ -32,26 +32,31 @@ export interface CalendarRangeProps extends Omit<
 
   /**
    * The number of calendar months to display.
+   * @default 2
    */
   monthsToDisplay?: number;
 
   /**
    * Defaults view to show past or future months if multiple months shown.
+   * @default 'future'
    */
   direction?: 'past' | 'future';
 
   /**
    * The text or icon to use for next year.
+   * @default '»'
    */
   nextYearArrow?: React.ReactNode | string;
 
   /**
    * The text or icon to use for previous year.
+   * @default '«'
    */
   previousYearArrow?: React.ReactNode | string;
 
   /**
    * The format of the date displayed in the calendar header.
+   * @default 'MMMM'
    */
   headerDateFormat?: string;
 

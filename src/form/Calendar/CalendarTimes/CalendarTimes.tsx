@@ -47,11 +47,13 @@ export interface CalendarTimesProps {
 
   /**
    * Whether day of week labels are shown in the calendar
+   * @default false
    */
   showDayOfWeek?: boolean;
 
   /**
    * Whether to use 12-hour cycle for the time picker.
+   * @default false
    */
   is12HourCycle?: boolean;
 }

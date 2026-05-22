@@ -11,11 +11,13 @@ import { cn, useComponentTheme } from '@/utils';
 export interface MenuProps {
   /**
    * Whether to append the menu to the body or not.
+   * @default true
    */
   appendToBody?: boolean;
 
   /**
    * Autofocus the menu on open or not.
+   * @default true
    */
   autofocus?: boolean;
 
@@ -31,16 +33,19 @@ export interface MenuProps {
 
   /**
    * Close the menu on click or not.
+   * @default true
    */
   closeOnBodyClick?: boolean;
 
   /**
    * Close the menu on escape.
+   * @default true
    */
   closeOnEscape?: boolean;
 
   /**
    * floating-ui placement type.
+   * @default 'bottom-start'
    */
   placement?: Placement;
 
@@ -56,12 +61,14 @@ export interface MenuProps {
 
   /**
    * Whether to show the menu or not.
+   * @default false
    */
   open?: boolean;
 
   /**
    * @deprecated Use animation configuration instead.
    * Whether to animate the menu.
+   * @default true
    */
   animated?: boolean;
 
@@ -72,6 +79,7 @@ export interface MenuProps {
 
   /**
    * Max height of the menu.
+   * @default 'max-height: calc(100vh - 48px)'
    */
   maxHeight?: string;
 

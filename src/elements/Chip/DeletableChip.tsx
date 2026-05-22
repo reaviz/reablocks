@@ -8,6 +8,7 @@ import { cn, useComponentTheme } from '@/utils';
 export interface DeletableChipProps extends Omit<ChipProps, 'end'> {
   /**
    * Customize delete icon.
+   * @default <CloseIcon height={12} width={12} />
    */
   deleteIcon?: ReactElement;
 

@@ -31,6 +31,7 @@ export interface NavigationBarProps extends PropsWithChildren {
 
   /**
    * Direction of the navigation bar layout.
+   * @default 'vertical'
    */
   direction?: keyof NavigationBarDirectionTheme;
 

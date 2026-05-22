@@ -18,11 +18,13 @@ export interface EllipsisProps {
 
   /**
    * Whether you can expand or not. Default: true.
+   * @default true
    */
   expandable?: boolean;
 
   /**
    * Limit of characters to show. Default: 256.
+   * @default 256
    */
   limit?: number;
 
@@ -33,6 +35,7 @@ export interface EllipsisProps {
 
   /**
    * Remove line breaks or not.
+   * @default true
    */
   removeLinebreaks?: boolean;
 
@@ -53,11 +56,13 @@ export interface EllipsisProps {
 
   /**
    * Custom text for the expand button. Default: "..."
+   * @default '...'
    */
   moreText?: string;
 
   /**
    * Custom text for the collapse button. Default: "Show less"
+   * @default 'Show less'
    */
   lessText?: string;
 }

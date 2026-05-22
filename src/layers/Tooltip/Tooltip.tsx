@@ -36,16 +36,19 @@ export interface TooltipProps {
 
   /**
    * Close on any click.
+   * @default false
    */
   closeOnClick?: boolean;
 
   /**
    * Close when the body is clicked.
+   * @default true
    */
   closeOnBodyClick?: boolean;
 
   /**
    * Close when escape key is triggered.
+   * @default true
    */
   closeOnEscape?: boolean;
 
@@ -61,16 +64,19 @@ export interface TooltipProps {
 
   /**
    * floating-ui placement.
+   * @default 'top'
    */
   placement?: Placement;
 
   /**
    * Delay before showing tooltip.
+   * @default 0
    */
   enterDelay?: number;
 
   /**
    * Delay before closing tooltip.
+   * @default 200
    */
   leaveDelay?: number;
 
@@ -81,6 +87,7 @@ export interface TooltipProps {
 
   /**
    * External setter for visibility.
+   * @default false
    */
   visible?: boolean;
 
@@ -96,17 +103,20 @@ export interface TooltipProps {
 
   /**
    * How the tooltip will be triggered.
+   * @default 'hover'
    */
   trigger?: TriggerTypes[] | TriggerTypes;
 
   /**
    * Whether the tooltip is disabled.
+   * @default false
    */
   disabled?: boolean;
 
   /**
    * @deprecated Use animation configuration instead.
    * Whether the tooltip is animated.
+   * @default true
    */
   animated?: boolean;
 
@@ -117,11 +127,13 @@ export interface TooltipProps {
 
   /**
    * Whether the tooltip should move with the cursor or not.
+   * @default false
    */
   followCursor?: boolean;
 
   /**
    * Add pointer events or not. Usually not for tooltips.
+   * @default 'none'
    */
   pointerEvents?: string;
 

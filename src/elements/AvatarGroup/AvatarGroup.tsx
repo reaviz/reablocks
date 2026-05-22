@@ -16,6 +16,7 @@ export interface AvatarGroupProps extends React.HTMLAttributes<HTMLDivElement> {
 
   /**
    * The maximum number of avatars to show before +x more
+   * @default 10
    */
   size?: number;
 

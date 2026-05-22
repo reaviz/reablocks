@@ -4,14 +4,17 @@
 export interface ColorOptions {
   /**
    * Saturation value (0-100), defaults to 65
+   * @default 65
    */
   saturation?: number;
   /**
    * Lightness value (0-100), defaults to 50
+   * @default 50
    */
   lightness?: number;
   /**
    * Alpha value (0-100), defaults to 100 (opaque)
+   * @default 100
    */
   alpha?: number;
 }

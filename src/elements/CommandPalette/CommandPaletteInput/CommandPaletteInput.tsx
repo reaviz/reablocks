@@ -32,6 +32,7 @@ export interface CommandPaletteInputProps {
 
   /**
    * Icon to show in the search input.
+   * @default <SearchIcon />
    */
   icon?: ReactNode;
 

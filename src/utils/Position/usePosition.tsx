@@ -33,7 +33,13 @@ export interface ReferenceObject {
 export interface PositionOptions {
   reference?: Element | ReferenceObject;
   floating?: HTMLElement;
+  /**
+   * @default 'top'
+   */
   placement?: Placement;
+  /**
+   * @default [flip(), shift({ limiter: limitShift() })]
+   */
   modifiers?: Modifiers;
   followCursor?: boolean;
 }

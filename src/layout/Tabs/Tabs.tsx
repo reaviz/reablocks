@@ -27,11 +27,13 @@ export interface TabsProps extends PropsWithChildren {
 
   /**
    * The default index of the tabs. Default is 0.
+   * @default 0
    */
   defaultIndex?: number;
 
   /**
    * The direction of the tabs. Default is 'ltr'.
+   * @default 'ltr'
    */
   direction?: 'ltr' | 'rtl';
 
@@ -42,11 +44,13 @@ export interface TabsProps extends PropsWithChildren {
 
   /**
    * The variant of the tabs.
+   * @default 'primary'
    */
   variant?: 'primary' | 'secondary';
 
   /**
    * The size of the tabs.
+   * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large' | string;
 

@@ -10,6 +10,7 @@ export interface ButtonProps extends Omit<
 > {
   /**
    * Color variation of the button.
+   * @default 'default'
    */
   color?:
     | 'default'
@@ -22,11 +23,13 @@ export interface ButtonProps extends Omit<
 
   /**
    * Style variant of the button.
+   * @default 'filled'
    */
   variant?: 'filled' | 'outline' | 'text' | string;
 
   /**
    * The size variation of the button.
+   * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large' | string;
 

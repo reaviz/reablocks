@@ -57,6 +57,9 @@ interface ColorPaletteBlockProps {
   name: string;
   color: string;
   className?: string;
+  /**
+   * @default true
+   */
   showName?: boolean;
 }
 
@@ -133,6 +136,9 @@ export interface ColorPaletteBlocksProps {
   colors: string | Record<string, string>;
   className?: string;
   token?: string | null;
+  /**
+   * @default true
+   */
   showNames?: boolean;
 }
 

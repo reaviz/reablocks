@@ -32,6 +32,7 @@ export interface NestedMenuProps {
 
   /**
    * floating-ui placement type.
+   * @default 'right-start'
    */
   placement?: Placement;
 
@@ -62,21 +63,25 @@ export interface NestedMenuProps {
 
   /**
    * Delay before showing tooltip.
+   * @default 0
    */
   enterDelay?: number;
 
   /**
    * Delay before closing tooltip.
+   * @default 100
    */
   leaveDelay?: number;
 
   /**
    * Close the menu on click or not.
+   * @default true
    */
   closeOnBodyClick?: boolean;
 
   /**
    * Close the menu on escape.
+   * @default true
    */
   closeOnEscape?: boolean;
 
@@ -87,6 +92,7 @@ export interface NestedMenuProps {
 
   /**
    * Autofocus the menu on open or not.
+   * @default true
    */
   autofocus?: boolean;
 

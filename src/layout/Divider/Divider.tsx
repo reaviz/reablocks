@@ -11,11 +11,13 @@ export interface DividerProps {
   /**
    * Disable the margins of the divider.
    * The default margin is: `--spacings-md`.
+   * @default false
    */
   disableMargins?: boolean;
 
   /**
    * Orientation of the divider.
+   * @default 'horizontal'
    */
   orientation?: 'horizontal' | 'vertical';
 
@@ -31,6 +33,7 @@ export interface DividerProps {
 
   /**
    * Variant of the divider.
+   * @default 'primary'
    */
   variant?: 'primary' | 'secondary';
 }

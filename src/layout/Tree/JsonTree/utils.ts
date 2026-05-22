@@ -32,9 +32,15 @@ function getDataType(data: any) {
 
 export interface ParseJsonInputs {
   data: any;
+  /**
+   * @default 'root'
+   */
   id?: string;
   label?: string;
   index?: number;
+  /**
+   * @default true
+   */
   showEmpty?: boolean;
 }
 

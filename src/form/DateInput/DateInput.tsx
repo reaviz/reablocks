@@ -27,21 +27,25 @@ export type DateInputProps = Omit<InputProps, 'value' | 'onChange'> & {
   /**
    * The format in which the date should be displayed.
    * @type {string}
+   * @default 'MM/dd/yyyy'
    */
   format?: string;
 
   /**
    * Calendar placement type.
+   * @default 'bottom-start'
    */
   placement?: Placement;
 
   /**
    * Open calendar on field focus
+   * @default true
    */
   openOnFocus?: boolean;
 
   /**
    * Preset to show in quick filter.
+   * @default []
    */
   preset?: PresetOption[];
 
@@ -57,6 +61,7 @@ export type DateInputProps = Omit<InputProps, 'value' | 'onChange'> & {
 
   /**
    * Icon to show in open calendar button.
+   * @default <CalendarIcon />
    */
   icon?: ReactElement;
 } & (

@@ -50,6 +50,7 @@ export interface OverlayPortalMountEvent {
 export interface OverlayPortalProps {
   /**
    * If true, the overlay portal will be appended to the body.
+   * @default true
    */
   appendToBody?: boolean;
 
