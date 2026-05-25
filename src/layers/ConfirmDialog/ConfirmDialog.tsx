@@ -1,5 +1,12 @@
 // ConfirmDialog.tsx
-import React, { ReactNode, useCallback, useMemo, useState } from 'react';
+import React, {
+  ReactElement,
+  ReactNode,
+  useCallback,
+  useMemo,
+  useRef,
+  useState
+} from 'react';
 import {
   Dialog,
   DialogContent,
@@ -8,11 +15,12 @@ import {
 } from '@/layers/Dialog';
 import { Button } from '@/elements/Button';
 import { DotsLoader } from '@/elements/Loader';
-import { hasSlotComponents } from '@/utils';
+import { hasSlotComponents, isPromiseLike } from '@/utils';
 import {
   ConfirmDialogContext,
   ConfirmDialogContextValue
 } from './ConfirmDialogContext';
+import { ConfirmDialogActionsProps } from './ConfirmDialogActions';
 
 export interface ConfirmDialogProps {
   /**
@@ -75,11 +83,12 @@ export interface ConfirmDialogProps {
   confirmDisabled?: boolean;
 
   /**
-   * Optional slot children. Pass a `<ConfirmDialogActions>` to replace the
-   * default Confirm/Cancel buttons. Action children can read the managed
-   * state via `useConfirmDialogContext()`.
+   * Optional slot children. Pass a `<ConfirmDialogActions>` element to
+   * replace the default Confirm/Cancel buttons. Action children can read
+   * the managed state via `useConfirmDialogContext()`. Other React nodes
+   * are not rendered — use `header`/`content` props for those.
    */
-  children?: ReactNode;
+  children?: ReactElement<ConfirmDialogActionsProps>;
 }
 
 const VARIANT_COLORS: Record<
@@ -108,13 +117,18 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
   const [internalLoading, setInternalLoading] = useState(false);
   const isLoading = loading ?? internalLoading;
 
+  // Ref mirrors isLoading so the re-entry guard sees the latest value
+  // without forcing handleConfirm to re-create on every state change.
+  const isLoadingRef = useRef(isLoading);
+  isLoadingRef.current = isLoading;
+
   const handleConfirm = useCallback(async () => {
-    if (!onConfirm) {
+    if (isLoadingRef.current || !onConfirm) {
       return;
     }
 
     const result = onConfirm();
-    if (result instanceof Promise) {
+    if (isPromiseLike(result)) {
       const manageInternal = loading === undefined;
       if (manageInternal) {
         setInternalLoading(true);
@@ -177,6 +191,8 @@ export const ConfirmDialog: React.FC<ConfirmDialogProps> = ({
               color={VARIANT_COLORS[variant]}
               disabled={confirmDisabled || isLoading}
               start={isLoading && <DotsLoader size="small" />}
+              aria-label={confirmLabel}
+              aria-busy={isLoading}
             >
               {!isLoading && confirmLabel}
             </Button>

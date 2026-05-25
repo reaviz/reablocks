@@ -10,9 +10,10 @@ export interface ConfirmDialogContextValue {
 
   /**
    * Wrapped confirm handler. Awaits the user's `onConfirm` and toggles
-   * the loading state automatically when it returns a Promise.
+   * the loading state automatically when it returns a Promise. Returns a
+   * Promise so callers can await completion.
    */
-  onConfirm: () => void;
+  onConfirm: () => void | Promise<void>;
 
   /**
    * Wrapped cancel handler. Suppressed while the confirm action is pending.
