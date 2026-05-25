@@ -46,14 +46,25 @@ export const Required = () => (
 );
 
 export const RequiredLocalizedAnnouncement = () => (
-  <Field label="Nom" required requiredAnnouncement="obligatoire">
-    <Input placeholder="Localized sr-only announcement" />
+  <Field
+    label="Nom"
+    required
+    requiredAnnouncement="obligatoire"
+    htmlFor="localized-name"
+  >
+    <Input id="localized-name" placeholder="Localized sr-only announcement" />
   </Field>
 );
 
 export const RequiredAnnouncementDisabled = () => (
-  <Field label="Email" required requiredAnnouncement="">
-    <Input type="email" required placeholder="Input owns aria-required" />
+  <Field label="Email" required requiredAnnouncement="" htmlFor="opt-out-email">
+    <Input
+      id="opt-out-email"
+      type="email"
+      required
+      aria-required="true"
+      placeholder="Input owns aria-required"
+    />
   </Field>
 );
 
@@ -65,15 +76,21 @@ export const ExplicitHtmlFor = () => (
 
 export const RequiredCustomIndicator = () => (
   <>
-    <Field label="Name" required requiredIndicator="(required)">
-      <Input placeholder="Custom text indicator" />
+    <Field
+      label="Name"
+      required
+      requiredIndicator="(required)"
+      htmlFor="custom-text-indicator"
+    >
+      <Input id="custom-text-indicator" placeholder="Custom text indicator" />
     </Field>
     <Field
       label="Email"
       required
       requiredIndicator={<span style={{ color: 'red' }}>★</span>}
+      htmlFor="custom-node-indicator"
     >
-      <Input placeholder="Custom node indicator" />
+      <Input id="custom-node-indicator" placeholder="Custom node indicator" />
     </Field>
   </>
 );
@@ -89,8 +106,8 @@ export const RequiredThemedIndicator = () => {
 
   return (
     <ThemeProvider theme={extendTheme(theme, customTheme)}>
-      <Field label="Name" required>
-        <Input placeholder="Themed indicator" />
+      <Field label="Name" required htmlFor="themed-indicator">
+        <Input id="themed-indicator" placeholder="Themed indicator" />
       </Field>
     </ThemeProvider>
   );

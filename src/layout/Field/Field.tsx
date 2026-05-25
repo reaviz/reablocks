@@ -1,13 +1,6 @@
-import React, {
-  Children,
-  cloneElement,
-  FC,
-  isValidElement,
-  ReactElement,
-  ReactNode
-} from 'react';
+import React, { FC, ReactNode } from 'react';
 import { FieldTheme } from './FieldTheme';
-import { cn, useComponentTheme, useId } from '@/utils';
+import { cn, useComponentTheme } from '@/utils';
 
 export interface FieldProps extends React.HTMLAttributes<HTMLElement> {
   /**
@@ -33,18 +26,15 @@ export interface FieldProps extends React.HTMLAttributes<HTMLElement> {
   requiredIndicator?: ReactNode;
 
   /**
-   * Visually-hidden fallback text announced by assistive tech when Field
-   * cannot inject `aria-required` onto the form control (e.g. multiple
-   * children, fragments, or already-set values). Defaults to `'required'`.
-   * Pass `''` to opt out, or a localized string.
+   * Visually-hidden text announced by assistive tech alongside the required
+   * indicator. Defaults to `'required'`. Pass `''` to opt out (e.g. when the
+   * input already carries `aria-required`), or a localized string.
    */
   requiredAnnouncement?: string;
 
   /**
-   * Associates the label with the form control via `htmlFor`/`id`. When
-   * omitted, Field auto-generates an id. If `children` is a single React
-   * element, Field also injects this id and (when `required`) `aria-required`
-   * into that child — preserving any values the child already sets.
+   * Sets the label's `htmlFor`. Pair with a matching `id` on the child form
+   * control to associate them. When omitted, no `htmlFor` is rendered.
    */
   htmlFor?: string;
 
@@ -119,8 +109,6 @@ export const Field: FC<FieldProps> = ({
 }) => {
   const theme: FieldTheme = useComponentTheme('field', customTheme);
   const hasErrorMessage = error != null && error !== false && error !== true;
-  const generatedId = useId();
-  const fieldId = htmlFor ?? generatedId;
 
   return (
     <section
@@ -138,7 +126,7 @@ export const Field: FC<FieldProps> = ({
     >
       {label && (
         <label
-          htmlFor={fieldId}
+          htmlFor={htmlFor}
           className={cn(
             theme.label,
             direction === 'horizontal' && theme.horizontal.label,
