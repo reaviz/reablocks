@@ -3,7 +3,6 @@ import pluralizeLib from 'pluralize';
 export interface PluralizeInputs {
   /**
    * Count of items.
-   * @default 0
    */
   count: number;
 
