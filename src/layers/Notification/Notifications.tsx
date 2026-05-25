@@ -50,7 +50,13 @@ export interface NotificationsProps {
     [variant in NotificationVariants]?: JSXElementConstructor<NotificationComponentProps>;
   };
   /**
-   * @default {...}
+   * @default {
+   *   default: <InfoIcon />,
+   *   success: <CheckCircleIcon />,
+   *   warning: <WarningIcon />,
+   *   error: <ErrorCircleIcon />,
+   *   info: <InfoIcon />
+   * }
    */
   icons?: {
     [variant in NotificationVariants]?:

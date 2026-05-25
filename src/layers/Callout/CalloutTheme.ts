@@ -26,7 +26,7 @@ export interface CalloutTheme {
 
 export const calloutTheme: CalloutTheme = {
   base: {
-    common: 'px-4 py-3 border-b',
+    common: 'flex items-center gap-2.5 px-4 py-3 border-b',
     variant: {
       default: 'bg-panel-background border-panel-accent',
       success: 'bg-success-background border-success',

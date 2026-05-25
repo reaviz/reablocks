@@ -31,14 +31,25 @@ function getDataType(data: any) {
 }
 
 export interface ParseJsonInputs {
+  /**
+   * The JSON data to parse into a tree structure.
+   */
   data: any;
   /**
+   * Identifier for the current node, used as a key prefix for descendants.
    * @default 'root'
    */
   id?: string;
+  /**
+   * Display label for the current node.
+   */
   label?: string;
+  /**
+   * Index of the current node within its parent (used for array items).
+   */
   index?: number;
   /**
+   * Whether to include nodes with empty values in the parsed tree.
    * @default true
    */
   showEmpty?: boolean;
