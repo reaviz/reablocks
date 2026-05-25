@@ -38,10 +38,6 @@ export default defineConfig(({ mode }) =>
             {
               src: 'docs/blocks/**/*.story.tsx',
               dest: 'blocks/'
-            },
-            {
-              src: 'docs/blocks/blocks.css',
-              dest: 'blocks/'
             }
           ]
         })

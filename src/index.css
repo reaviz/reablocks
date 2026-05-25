@@ -55,6 +55,29 @@
   --text-secondary: var(--color-waterloo);
   --text-inactive: var(--color-gray-300);
 
+  /* Custom Backgrounds */
+  --bottom-border-glow: radial-gradient(
+    circle at center,
+    var(--color-anakiwa) 0,
+    blue,
+    transparent 100%
+  );
+  --button-gradient: linear-gradient(
+    283deg,
+    #0808a5 0%,
+    rgba(8, 8, 165, 0) 100%
+  );
+  --button-gradient-hover: linear-gradient(
+    283deg,
+    #44f 0%,
+    rgba(23, 23, 255, 0.1) 100%
+  );
+  --button-gradient-focus: linear-gradient(
+    283deg,
+    #0d0dd2 0%,
+    rgba(23, 23, 255, 0.1) 100%
+  );
+
   .theme-light,
   &.theme-light,
   [data-theme='light'],
