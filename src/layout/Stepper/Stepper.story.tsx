@@ -7,31 +7,20 @@ export const Markers = () => (
   <Stepper activeStep={2}>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
-          Austin{' '}
-          <span className="text-gray-400 light:text-gray-600">
-            created ticket
-          </span>
+          Austin <span className="text-text-secondary">created ticket</span>
         </span>
       </div>
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
-            {' '}
-            changed statues from{' '}
-          </span>
+          <span className="text-text-secondary"> changed statues from </span>
           Backlog
-          <span className="text-gray-400 light:text-gray-600"> to </span>In
-          Progress
+          <span className="text-text-secondary"> to </span>In Progress
         </span>
         <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
@@ -42,17 +31,12 @@ export const Markers = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
-            {' '}
-            changed statues from{' '}
-          </span>
+          <span className="text-text-secondary"> changed statues from </span>
           In Progress
-          <span className="text-gray-400 light:text-gray-600"> to </span>Done
+          <span className="text-text-secondary"> to </span>Done
         </span>
       </div>
     </Step>
@@ -63,31 +47,20 @@ export const Numbered = () => (
   <Stepper variant="numbered" activeStep={2}>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
-          Austin{' '}
-          <span className="text-gray-400 light:text-gray-600">
-            created ticket
-          </span>
+          Austin <span className="text-text-secondary">created ticket</span>
         </span>
       </div>
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
-            {' '}
-            changed statues from{' '}
-          </span>
+          <span className="text-text-secondary"> changed statues from </span>
           Backlog
-          <span className="text-gray-400 light:text-gray-600"> to </span>In
-          Progress
+          <span className="text-text-secondary"> to </span>In Progress
         </span>
         <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
@@ -98,17 +71,12 @@ export const Numbered = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
-            {' '}
-            changed statues from{' '}
-          </span>
+          <span className="text-text-secondary"> changed statues from </span>
           In Progress
-          <span className="text-gray-400 light:text-gray-600"> to </span>Done
+          <span className="text-text-secondary"> to </span>Done
         </span>
       </div>
     </Step>
@@ -119,31 +87,20 @@ export const Labels = () => (
   <Stepper>
     <Step label="v6.8">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
-          Austin{' '}
-          <span className="text-gray-400 light:text-gray-600">
-            created ticket
-          </span>
+          Austin <span className="text-text-secondary">created ticket</span>
         </span>
       </div>
     </Step>
     <Step label="v6.9">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
-            {' '}
-            changed statues from{' '}
-          </span>
+          <span className="text-text-secondary"> changed statues from </span>
           Backlog
-          <span className="text-gray-400 light:text-gray-600"> to </span>In
-          Progress
+          <span className="text-text-secondary"> to </span>In Progress
         </span>
         <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
@@ -154,17 +111,12 @@ export const Labels = () => (
     </Step>
     <Step label="v7.0">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
-            {' '}
-            changed statues from{' '}
-          </span>
+          <span className="text-text-secondary"> changed statues from </span>
           In Progress
-          <span className="text-gray-400 light:text-gray-600"> to </span>Done
+          <span className="text-text-secondary"> to </span>Done
         </span>
       </div>
     </Step>
@@ -175,31 +127,20 @@ export const Mixed = () => (
   <Stepper activeStep={3}>
     <Step label="v6.8">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
-          Austin{' '}
-          <span className="text-gray-400 light:text-gray-600">
-            created ticket
-          </span>
+          Austin <span className="text-text-secondary">created ticket</span>
         </span>
       </div>
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
-            {' '}
-            changed statues from{' '}
-          </span>
+          <span className="text-text-secondary"> changed statues from </span>
           Backlog
-          <span className="text-gray-400 light:text-gray-600"> to </span>In
-          Progress
+          <span className="text-text-secondary"> to </span>In Progress
         </span>
         <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
@@ -210,17 +151,12 @@ export const Mixed = () => (
     </Step>
     <Step label="v7.0">
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
-            {' '}
-            changed statues from{' '}
-          </span>
+          <span className="text-text-secondary"> changed statues from </span>
           In Progress
-          <span className="text-gray-400 light:text-gray-600"> to </span>Done
+          <span className="text-text-secondary"> to </span>Done
         </span>
       </div>
     </Step>
@@ -231,31 +167,20 @@ export const Animated = () => (
   <Stepper animated activeStep={2}>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
-          Austin{' '}
-          <span className="text-gray-400 light:text-gray-600">
-            created ticket
-          </span>
+          Austin <span className="text-text-secondary">created ticket</span>
         </span>
       </div>
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
-            {' '}
-            changed statues from{' '}
-          </span>
+          <span className="text-text-secondary"> changed statues from </span>
           Backlog
-          <span className="text-gray-400 light:text-gray-600"> to </span>In
-          Progress
+          <span className="text-text-secondary"> to </span>In Progress
         </span>
         <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
           This looks fine, might've missed it but maybe we can add a link to the
@@ -266,17 +191,12 @@ export const Animated = () => (
     </Step>
     <Step>
       <div className="flex flex-col gap-1">
-        <span className="text-sm text-gray-400 light:text-gray-600">
-          03/01/2024, 8:00 AM
-        </span>
+        <span className="text-sm text-text-secondary">03/01/2024, 8:00 AM</span>
         <span>
           Austin
-          <span className="text-gray-400 light:text-gray-600">
-            {' '}
-            changed statues from{' '}
-          </span>
+          <span className="text-text-secondary"> changed statues from </span>
           In Progress
-          <span className="text-gray-400 light:text-gray-600"> to </span>Done
+          <span className="text-text-secondary"> to </span>Done
         </span>
       </div>
     </Step>
@@ -310,31 +230,24 @@ export const CustomAnimation = () => {
     <Stepper activeStep={2} animation={uniqueStepperAnimation}>
       <Step>
         <div className="flex flex-col gap-1">
-          <span className="text-sm text-gray-400 light:text-gray-600">
+          <span className="text-sm text-text-secondary">
             03/01/2024, 8:00 AM
           </span>
           <span>
-            Austin{' '}
-            <span className="text-gray-400 light:text-gray-600">
-              created ticket
-            </span>
+            Austin <span className="text-text-secondary">created ticket</span>
           </span>
         </div>
       </Step>
       <Step>
         <div className="flex flex-col gap-1">
-          <span className="text-sm text-gray-400 light:text-gray-600">
+          <span className="text-sm text-text-secondary">
             03/01/2024, 8:00 AM
           </span>
           <span>
             Austin
-            <span className="text-gray-400 light:text-gray-600">
-              {' '}
-              changed statues from{' '}
-            </span>
+            <span className="text-text-secondary"> changed statues from </span>
             Backlog
-            <span className="text-gray-400 light:text-gray-600"> to </span>In
-            Progress
+            <span className="text-text-secondary"> to </span>In Progress
           </span>
           <div className="px-4 py-2 border border-solid border-blue-700 bg-surface rounded-md">
             This looks fine, might've missed it but maybe we can add a link to
@@ -345,17 +258,14 @@ export const CustomAnimation = () => {
       </Step>
       <Step>
         <div className="flex flex-col gap-1">
-          <span className="text-sm text-gray-400 light:text-gray-600">
+          <span className="text-sm text-text-secondary">
             03/01/2024, 8:00 AM
           </span>
           <span>
             Austin
-            <span className="text-gray-400 light:text-gray-600">
-              {' '}
-              changed statues from{' '}
-            </span>
+            <span className="text-text-secondary"> changed statues from </span>
             In Progress
-            <span className="text-gray-400 light:text-gray-600"> to </span>Done
+            <span className="text-text-secondary"> to </span>Done
           </span>
         </div>
       </Step>

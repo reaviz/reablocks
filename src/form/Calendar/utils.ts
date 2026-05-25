@@ -259,8 +259,8 @@ export function updateDateTime(
       if (!isRange) {
         // For single date, inherit time from previous value
         const originalTimeSource = Array.isArray(currentDate)
-          ? currentDate[0] ?? new Date()
-          : currentDate ?? new Date();
+          ? (currentDate[0] ?? new Date())
+          : (currentDate ?? new Date());
         finalDate = setSeconds(
           setMinutes(
             setHours(newDate, getHours(originalTimeSource)),
@@ -272,8 +272,8 @@ export function updateDateTime(
         // For range, only inherit time for first date
         if (!rangeStart) {
           const originalTimeSource = Array.isArray(currentDate)
-            ? currentDate[0] ?? new Date()
-            : currentDate ?? new Date();
+            ? (currentDate[0] ?? new Date())
+            : (currentDate ?? new Date());
           finalDate = setSeconds(
             setMinutes(
               setHours(newDate, getHours(originalTimeSource)),

@@ -6,15 +6,10 @@ export interface ArrowTheme {
   left: string;
 }
 
-const baseTheme: ArrowTheme = {
-  base: '',
+export const arrowTheme: ArrowTheme = {
+  base: 'text-text-primary',
   up: 'rotate-180',
   down: '',
   left: 'rotate-90',
   right: '-rotate-90'
-};
-
-export const arrowTheme: ArrowTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-text-primary'].join(' ')
 };

@@ -14,42 +14,20 @@ export interface RangeTheme {
   tooltip: string;
 }
 
-const baseTheme: RangeTheme = {
-  base: 'relative box-border w-full h-0.5',
+export const rangeTheme: RangeTheme = {
+  base: 'relative box-border w-full h-0.5 bg-panel-accent',
   drag: 'absolute w-4 h-4 -left-2 -top-2 rounded-full',
   inputWrapper: {
-    base: 'cursor-pointer inline-block relative h-full w-full rounded-full',
-    disabled: 'cursor-not-allowed'
+    base: 'cursor-pointer inline-block relative h-full w-full rounded-full bg-primary-active hover:bg-primary-hover shadow-[0px_4px_4px_0px_rgba(0,0,0,0.20)]',
+    disabled:
+      'cursor-not-allowed bg-secondary-inactive hover:bg-secondary-inactive'
   },
   rangeHighlight: {
-    base: 'pointer-events-none h-0.5',
-    disabled: 'cursor-not-allowed'
+    base: 'pointer-events-none h-0.5 bg-primary-active',
+    disabled: 'cursor-not-allowed bg-secondary-inactive'
   },
   disabled: 'cursor-not-allowed',
-  input: 'absolute left-[-9999px]', // The hidden input used for keyboard controls
+  input: 'absolute left-[-9999px]',
   tooltip:
-    'absolute top-[-45px] whitespace-nowrap text-center left-2/4 rounded-lg p-2.5'
-};
-
-export const rangeTheme: RangeTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-surface light:bg-gray-200'].join(' '),
-  inputWrapper: {
-    ...baseTheme.inputWrapper,
-    base: [
-      baseTheme.inputWrapper.base,
-      'bg-primary-active hover:bg-primary-hover shadow-[0px_4px_4px_0px_rgba(0,0,0,0.20)]'
-    ].join(' '),
-    disabled: [
-      baseTheme.inputWrapper.disabled,
-      'bg-secondary-inactive hover:bg-secondary-inactive'
-    ].join(' ')
-  },
-  rangeHighlight: {
-    base: [baseTheme.rangeHighlight.base, 'bg-primary-active'].join(' '),
-    disabled: [baseTheme.rangeHighlight.disabled, 'bg-secondary-inactive'].join(
-      ' '
-    )
-  },
-  tooltip: [baseTheme.tooltip, 'text-text-primary bg-surface'].join(' ')
+    'absolute top-[-45px] whitespace-nowrap text-center left-2/4 rounded-lg p-2.5 text-text-primary bg-surface'
 };

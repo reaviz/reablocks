@@ -5,7 +5,7 @@ export interface CalendarRangeTheme extends Omit<
   'months' | 'years'
 > {}
 
-const baseTheme: Partial<CalendarRangeTheme> = {
+export const calendarRangeTheme: CalendarRangeTheme = {
   base: 'relative overflow-hidden',
   header: {
     base: 'flex text-center justify-between mb-2 items-center',
@@ -14,14 +14,7 @@ const baseTheme: Partial<CalendarRangeTheme> = {
     next: ''
   },
   title: 'font-semibold flex grow justify-around',
-  content: 'flex gap-4'
-};
-
-export const calendarRangeTheme: CalendarRangeTheme = {
-  base: baseTheme.base,
-  header: baseTheme.header,
-  title: baseTheme.title,
-  content: baseTheme.content,
+  content: 'flex gap-4',
   days: calendarTheme.days,
   presets: {
     ...calendarTheme.presets,

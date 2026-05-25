@@ -79,9 +79,10 @@ export interface ButtonTheme {
   };
 }
 
-const baseTheme: Partial<ButtonTheme> = {
-  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-xs font-sans cursor-pointer',
-  disabled: 'disabled:cursor-not-allowed',
+export const buttonTheme: ButtonTheme = {
+  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-1 rounded-xs font-sans cursor-pointer text-text-primary font-semibold',
+  disabled:
+    'disabled:cursor-not-allowed data-[variant=filled]:disabled:bg-secondary-inactive disabled:text-text-inactive border-secondary-inactive',
   fullWidth: 'flex w-full',
   group:
     'rounded-none first:rounded-s last:rounded-e border-s-0 first:border-s',
@@ -106,30 +107,15 @@ const baseTheme: Partial<ButtonTheme> = {
     small: 'px-2 py-1',
     medium: 'px-4 py-2',
     large: 'px-5 py-2.5'
-  }
-};
-
-export const buttonTheme: ButtonTheme = {
-  base: [baseTheme.base, 'text-text-primary font-semibold'].join(' '),
-  disabled: [
-    baseTheme.disabled,
-    'data-[variant=filled]:disabled:bg-gray-600 disabled:text-gray-400 border-gray-500'
-  ].join(' '),
-  fullWidth: baseTheme.fullWidth,
-  group: baseTheme.group,
-  groupText: baseTheme.groupText,
-  adornment: baseTheme.adornment,
-  sizes: baseTheme.sizes,
-  iconSizes: baseTheme.iconSizes,
+  },
   variants: {
-    filled:
-      'bg-secondary hover:bg-border-secondary-hover border-secondary light:text-gray-100',
+    filled: 'bg-secondary hover:bg-border-secondary-hover border-secondary',
     outline: 'border-grey border',
     text: 'border-0'
   },
   colors: {
     default: {
-      filled: 'bg-gray-800 hover:bg-gray-700 border-gray-800',
+      filled: 'bg-panel-accent hover:bg-panel-active border-panel-accent',
       outline: 'border-secondary border',
       text: 'text-text-primary'
     },

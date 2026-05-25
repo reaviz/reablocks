@@ -43,6 +43,7 @@
 
   /* Panel colors */
   --panel: var(--color-black-pearl);
+  --panel-active: var(--color-gray-600);
   --panel-accent: var(--color-charade);
 
   /* Surface colors */
@@ -52,29 +53,7 @@
   /* Text colors */
   --text-primary: var(--color-athens-gray);
   --text-secondary: var(--color-waterloo);
-
-  /* Custom Backgrounds */
-  --bottom-border-glow: radial-gradient(
-    circle at center,
-    var(--color-anakiwa) 0,
-    blue,
-    transparent 100%
-  );
-  --button-gradient: linear-gradient(
-    283deg,
-    #0808a5 0%,
-    rgba(8, 8, 165, 0) 100%
-  );
-  --button-gradient-hover: linear-gradient(
-    283deg,
-    #44f 0%,
-    rgba(23, 23, 255, 0.1) 100%
-  );
-  --button-gradient-focus: linear-gradient(
-    283deg,
-    #0d0dd2 0%,
-    rgba(23, 23, 255, 0.1) 100%
-  );
+  --text-inactive: var(--color-gray-600);
 
   .theme-light,
   &.theme-light,
@@ -120,6 +99,7 @@
 
     /* Panel colors */
     --panel: var(--color-white);
+    --panel-active: var(--color-gray-300);
     --panel-accent: var(--color-mystic);
 
     /* Surface colors */
@@ -129,6 +109,7 @@
     /* Text colors */
     --text-primary: var(--color-vulcan);
     --text-secondary: var(--color-gray-700);
+    --text-inactive: var(--color-gray-400);
   }
 }
 
@@ -136,6 +117,7 @@
 @custom-variant dark (&:where(.theme-dark, .theme-dark *, [data-theme=dark], [data-theme=dark] *));
 @custom-variant light (&:where(.theme-light, .theme-light *, [data-theme=light], [data-theme=light] *));
 @custom-variant disabled-within (&:has(input:is(:disabled), textarea:is(:disabled), button:is(:disabled)));
+@custom-variant not-disabled-within (&:not(:has(input:is(:disabled), textarea:is(:disabled), button:is(:disabled))));
 
 /* Semantic color tokens - use inline because they reference var() */
 @theme inline {
@@ -177,6 +159,7 @@
 
   /* Panel colors */
   --color-panel: var(--panel);
+  --color-panel-active: var(--panel-active);
   --color-panel-accent: var(--panel-accent);
 
   /* Surface colors */
@@ -186,6 +169,7 @@
   /* Text colors */
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
+  --color-text-inactive: var(--text-inactive);
 }
 
 /* Static theme tokens - emits CSS custom properties for runtime access */

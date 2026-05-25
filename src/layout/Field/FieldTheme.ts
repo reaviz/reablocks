@@ -18,7 +18,7 @@ export interface FieldTheme {
   errorState: string;
 }
 
-const baseTheme: FieldTheme = {
+export const fieldTheme: FieldTheme = {
   base: 'mb-2.5',
   disableMargin: 'mb-0',
   label: 'text-sm',
@@ -36,8 +36,4 @@ const baseTheme: FieldTheme = {
   hint: 'text-xs text-text-secondary mt-1',
   error: 'text-xs text-error mt-1',
   errorState: ''
-};
-
-export const fieldTheme: FieldTheme = {
-  ...baseTheme
 };

@@ -3,11 +3,7 @@ export interface KbdTheme {
   chip: string;
 }
 
-const baseTheme: KbdTheme = {
+export const kbdTheme: KbdTheme = {
   base: 'inline-flex gap-1 items-center',
   chip: 'whitespace-nowrap rounded-sm font-mono'
-};
-
-export const kbdTheme: KbdTheme = {
-  ...baseTheme
 };

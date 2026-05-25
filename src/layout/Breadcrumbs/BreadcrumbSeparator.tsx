@@ -3,8 +3,7 @@ import { cn, useComponentTheme } from '@/utils';
 import React, { FC } from 'react';
 import { BreadcrumbsTheme } from './BreadcrumbsTheme';
 
-export interface BreadcrumbSeparatorProps
-  extends React.LiHTMLAttributes<HTMLLIElement> {
+export interface BreadcrumbSeparatorProps extends React.LiHTMLAttributes<HTMLLIElement> {
   theme?: BreadcrumbsTheme;
 }
 

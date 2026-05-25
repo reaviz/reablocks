@@ -10,28 +10,16 @@ export interface DialogTheme {
   };
 }
 
-const baseTheme: DialogTheme = {
+export const dialogTheme: DialogTheme = {
   base: 'justify-center items-center flex pointer-events-none top-0 left-0 w-full h-full fixed will-change-transform will-change-opacity',
   inner:
-    'flex flex-col box-border outline-0 pointer-events-auto overflow-auto max-w-[80vw] max-h-[80vh]',
+    'flex flex-col box-border outline-0 pointer-events-auto overflow-auto max-w-[80vw] max-h-[80vh] bg-panel text-text-primary border border-panel-accent rounded-sm shadow-2xl',
   content: 'p-[20px] flex-auto overflow-auto',
   footer: 'flex p-[20px] pb-[10px]',
   header: {
     base: 'flex justify-between pt-[20px] px-[20px] pb-[10px]',
     text: 'flex-1 m-0 p-0 inline-flex text-3xl font-bold',
     closeButton:
-      'p-0 m-0 ml-[15px] opacity-80 h-auto w-auto inline-flex bg-none border-none cursor-pointer items-center text-[16px] focus:outline-hidden'
-  }
-};
-
-export const dialogTheme: DialogTheme = {
-  ...baseTheme,
-  inner: [
-    baseTheme.inner,
-    'bg-panel text-text-primary border border-panel-accent rounded-sm shadow-2xl'
-  ].join(' '),
-  header: {
-    ...baseTheme.header,
-    closeButton: [baseTheme.header.closeButton, 'text-text-primary'].join(' ')
+      'p-0 m-0 ml-[15px] opacity-80 h-auto w-auto inline-flex bg-none border-none cursor-pointer items-center text-[16px] focus:outline-hidden text-text-primary'
   }
 };

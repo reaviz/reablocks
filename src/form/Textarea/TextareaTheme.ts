@@ -14,20 +14,16 @@ export interface TextareaTheme {
   };
 }
 
-const baseTheme: Partial<TextareaTheme> = {
-  input: 'resize-none read-only:cursor-not-allowed'
-};
-
 export const textareaTheme: TextareaTheme = {
-  ...baseTheme,
   base: [
-    baseTheme.base,
     inputTheme.base,
-    'disabled-within:hover:after:content-none'
+    'not-disabled-within:focus-within:border-primary'
   ].join(' '),
-  input: [baseTheme.input, inputTheme.input].join(' '),
-  disabled: [baseTheme.disabled, inputTheme.disabled].join(' '),
+  input: ['resize-none read-only:cursor-not-allowed', inputTheme.input].join(
+    ' '
+  ),
+  disabled: inputTheme.disabled,
   fullWidth: inputTheme.fullWidth,
   error: inputTheme.error,
   sizes: inputTheme.sizes
-} as TextareaTheme;
+};

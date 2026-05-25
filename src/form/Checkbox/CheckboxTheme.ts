@@ -53,12 +53,13 @@ export interface CheckboxTheme {
   };
 }
 
-const baseTheme: Partial<CheckboxTheme> = {
+export const checkboxTheme: CheckboxTheme = {
   base: 'inline-flex items-center w-full group/checkbox',
   label: {
-    base: 'dark:text-gray-400 light:text-gray-700 ml-2.5 w-full',
-    checked: 'checked dark:text-gray-100 light:text-gray-900',
-    disabled: 'cursor-not-allowed dark:text-gray-600 light:text-gray-400',
+    base: 'text-text-secondary ml-2.5 w-full text-text-primary group-hover/checkbox:text-primary-hover',
+    checked: 'checked text-text-primary group-hover/checkbox:text-text-primary',
+    disabled:
+      'cursor-not-allowed text-text-inactive group-hover/checkbox:text-text-inactive',
     clickable: 'cursor-pointer',
     sizes: {
       small: 'text-sm',
@@ -67,91 +68,44 @@ const baseTheme: Partial<CheckboxTheme> = {
     }
   },
   check: {
-    base: 'stroke-white',
+    base: 'stroke-white group-hover/checkbox:stroke-panel',
     checked: '',
-    disabled: 'cursor-not-allowed'
+    disabled:
+      'cursor-not-allowed stroke-panel group-hover/checkbox:stroke-panel'
   },
   border: {
-    base: 'stroke-gray-400 light:stroke-gray-700',
-    checked: 'stroke-blue-500',
-    disabled: 'cursor-not-allowed stroke-gray-500'
+    base: 'stroke-text-secondary group-hover/checkbox:stroke-primary-hover',
+    checked: 'stroke-primary',
+    disabled:
+      'cursor-not-allowed stroke-text-inactive group-hover/checkbox:stroke-text-inactive'
   },
   checkbox: {
-    base: 'fill-transparent flex items-center justify-center cursor-pointer focus-visible:outline-hidden',
-    checked: 'fill-blue-500 checked',
-    disabled: 'fill-transparent disabled'
+    base: 'fill-transparent flex items-center justify-center cursor-pointer focus-visible:outline-hidden border border-surface [&.checked.disabled]:fill-text-inactive',
+    checked:
+      'fill-primary checked group-hover/checkbox:fill-primary-hover group-hover/checkbox:[&.disabled]:fill-text-inactive',
+    disabled: 'fill-transparent disabled group-hover/checkbox:transparent'
   },
   sizes: {
     small: '[&>svg]:w-3 [&>svg]:h-3',
     medium: '[&>svg]:w-4 [&>svg]:h-4',
     large: '[&>svg]:w-5 [&>svg]:h-5'
-  }
-};
-export const checkboxTheme: CheckboxTheme = {
-  ...baseTheme,
-  checkbox: {
-    ...baseTheme.checkbox,
-    base: [
-      baseTheme.checkbox.base,
-      'border border-surface',
-      '[&.checked.disabled]:fill-gray-400'
-    ].join(' '),
-    checked: [
-      baseTheme.checkbox.checked,
-      'group-hover/checkbox:fill-blue-400',
-      'light:group-hover/checkbox:fill-blue-600',
-      'light:group-hover/checkbox:[&.disabled]:fill-gray-400'
-    ].join(' '),
-    disabled: [
-      baseTheme.checkbox.disabled,
-      'group-hover/checkbox:transparent',
-      'light:group-hover/checkbox:transparent'
-    ].join(' ')
-  },
-  check: {
-    ...baseTheme.check,
-    base: [
-      baseTheme.check.base,
-      'group-hover/checkbox:stroke-black light:group-hover/checkbox:stroke-white'
-    ].join(' '),
-    disabled: [
-      baseTheme.check.disabled,
-      'stroke-black light:stroke-white group-hover/checkbox:stroke-black '
-    ].join(' ')
-  },
-  border: {
-    ...baseTheme.border,
-    base: [
-      baseTheme.border.base,
-      'dark:group-hover/checkbox:stroke-blue-300',
-      'light:group-hover/checkbox:stroke-blue-600'
-    ].join(' '),
-    disabled: [
-      baseTheme.border.disabled,
-      'dark:group-hover/checkbox:stroke-gray-500',
-      'light:group-hover/checkbox:stroke-gray-400'
-    ].join(' ')
-  },
-  label: {
-    ...baseTheme.label,
-    base: [
-      baseTheme.label.base,
-      'text-text-primary dark:group-hover/checkbox:text-blue-300 light:group-hover/checkbox:text-blue-400'
-    ].join(' '),
-    checked: [
-      baseTheme.label.checked,
-      'group-hover/checkbox:text-gray-100'
-    ].join(' '),
-    disabled: [
-      baseTheme.label.disabled,
-      'light:group-hover/checkbox:text-gray-400',
-      'dark:group-hover/checkbox:text-gray-600'
-    ].join(' ')
   },
   boxVariants: {
     hover: {
-      strokeWidth: 1
+      strokeWidth: 1,
+      stroke: '',
+      fill: ''
     },
-    pressed: { scale: 0.95 }
+    checked: {
+      stroke: '',
+      fill: ''
+    },
+    unchecked: {
+      stroke: '',
+      fill: ''
+    },
+    pressed: {
+      scale: 0.95
+    }
   }
-} as CheckboxTheme;
+};

@@ -19,8 +19,8 @@ export interface DrawerTheme {
   };
 }
 
-const baseTheme: DrawerTheme = {
-  base: 'fixed overflow-y-auto overflow-x-hidden',
+export const drawerTheme: DrawerTheme = {
+  base: 'fixed overflow-y-auto overflow-x-hidden bg-panel text-text-primary',
   header: {
     base: 'flex items-center justify-between px-8 py-5 text-3xl font-bold',
     text: 'flex-1 m-0'
@@ -38,9 +38,4 @@ const baseTheme: DrawerTheme = {
     bottom: 'w-full inset-x-0 bottom-0',
     start: 'h-full inset-y-0 left-0'
   }
-};
-
-export const drawerTheme: DrawerTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'bg-panel text-text-primary'].join(' ')
 };

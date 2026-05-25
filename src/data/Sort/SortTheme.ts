@@ -8,17 +8,12 @@ export interface SortTheme {
   };
 }
 
-const baseTheme: SortTheme = {
-  base: 'cursor-pointer select-none flex items-center relative',
+export const sortTheme: SortTheme = {
+  base: 'cursor-pointer select-none flex items-center relative text-text-primary',
   disabled: 'cursor-[initial]',
   hasValue: 'cursor-not-allowed',
   icon: {
     base: 'w-4 h-4 align-middle mx-1.5 fill-current',
     ascending: 'rotate-180'
   }
-};
-
-export const sortTheme: SortTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-text-primary'].join(' ')
 };

@@ -33,6 +33,7 @@
       "require": "./dist/index.umd.cjs"
     },
     "./index.css": "./dist/index.css",
+    "./blocks/blocks.css": "./dist/blocks/blocks.css",
     "./stories/*": "./dist/stories/*",
     "./blocks/*": "./dist/blocks/*"
   },
@@ -127,7 +128,7 @@
     "react": "^19.2.6",
     "react-docgen-typescript": "^2.4.0",
     "react-dom": "^19.2.6",
-    "react-hook-form": "^7.75.0",
+    "react-hook-form": "^7.76.1",
     "rollup-plugin-peer-deps-external": "2.2.4",
     "storybook": "^10.3.6",
     "tailwindcss": "^4.1.13",

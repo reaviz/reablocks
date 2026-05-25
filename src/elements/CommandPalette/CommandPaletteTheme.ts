@@ -20,14 +20,9 @@ export interface CommandPaletteTheme {
   section: CommandPaletteSectionTheme;
 }
 
-const baseTheme: Partial<CommandPaletteTheme> = {
-  base: 'w-full border',
-  inner: 'max-h-[80vh] overflow-y-auto'
-};
-
 export const commandPaletteTheme: CommandPaletteTheme = {
-  base: [baseTheme.base, 'border-panel-accent'].join(' '),
-  inner: [baseTheme.inner, 'bg-panel border-0'].join(' '),
+  base: 'w-full border border-panel-accent',
+  inner: 'max-h-[80vh] overflow-y-auto bg-panel border-0',
   emptyContainer: 'bg-panel',
   input: commandPaletteInputTheme,
   item: commandPaletteItemTheme,
