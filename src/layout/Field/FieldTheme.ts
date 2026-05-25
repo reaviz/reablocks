@@ -5,6 +5,8 @@ export interface FieldTheme {
   disableMargin: string;
   /** CSS class applied to the field label. */
   label: string;
+  /** CSS class applied to the required indicator. */
+  requiredIndicator: string;
   /** CSS class applied when label alignment is centered. */
   centerAlign: string;
   /** CSS class applied when label alignment is end. */
@@ -32,6 +34,7 @@ const baseTheme: FieldTheme = {
   base: 'mb-2.5',
   disableMargin: 'mb-0',
   label: 'text-sm',
+  requiredIndicator: 'ml-0.5',
   centerAlign: 'items-center',
   endAlign: 'items-end',
   horizontal: {

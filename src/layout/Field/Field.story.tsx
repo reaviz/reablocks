@@ -1,5 +1,11 @@
 import { Field } from './Field';
 import { Input } from '../../form/Input';
+import {
+  extendTheme,
+  PartialReablocksTheme
+} from '../../utils/Theme/themes/extendTheme';
+import { ThemeProvider } from '../../utils/Theme/ThemeProvider';
+import { theme } from '../../utils/Theme/themes/theme';
 import React from 'react';
 
 export default {
@@ -38,6 +44,74 @@ export const Required = () => (
     Haxx0r ipsum else break headers private dereference.
   </Field>
 );
+
+export const RequiredLocalizedAnnouncement = () => (
+  <Field
+    label="Nom"
+    required
+    requiredAnnouncement="obligatoire"
+    htmlFor="localized-name"
+  >
+    <Input id="localized-name" placeholder="Localized sr-only announcement" />
+  </Field>
+);
+
+export const RequiredAnnouncementDisabled = () => (
+  <Field label="Email" required requiredAnnouncement="" htmlFor="opt-out-email">
+    <Input
+      id="opt-out-email"
+      type="email"
+      required
+      aria-required="true"
+      placeholder="Input owns aria-required"
+    />
+  </Field>
+);
+
+export const ExplicitHtmlFor = () => (
+  <Field label="Username" htmlFor="my-username">
+    <Input id="my-username" placeholder="Consumer-controlled id" />
+  </Field>
+);
+
+export const RequiredCustomIndicator = () => (
+  <>
+    <Field
+      label="Name"
+      required
+      requiredIndicator="(required)"
+      htmlFor="custom-text-indicator"
+    >
+      <Input id="custom-text-indicator" placeholder="Custom text indicator" />
+    </Field>
+    <Field
+      label="Email"
+      required
+      requiredIndicator={<span style={{ color: 'red' }}>★</span>}
+      htmlFor="custom-node-indicator"
+    >
+      <Input id="custom-node-indicator" placeholder="Custom node indicator" />
+    </Field>
+  </>
+);
+
+export const RequiredThemedIndicator = () => {
+  const customTheme: PartialReablocksTheme = {
+    components: {
+      field: {
+        requiredIndicator: 'ml-0.5 text-error font-bold'
+      }
+    }
+  };
+
+  return (
+    <ThemeProvider theme={extendTheme(theme, customTheme)}>
+      <Field label="Name" required htmlFor="themed-indicator">
+        <Input id="themed-indicator" placeholder="Themed indicator" />
+      </Field>
+    </ThemeProvider>
+  );
+};
 
 export const Alignment = () => (
   <>
