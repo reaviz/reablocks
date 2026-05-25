@@ -85,32 +85,32 @@ export const calendarTheme: CalendarTheme = {
       'text-center grid grid-cols-7 mb-1 pt-2 font-medium text-text-secondary',
     dayOfWeek: 'text-center font-medium',
     week: 'grid grid-cols-7',
-    day: 'font-normal flex p-2 border border-transparent text-text-secondary opacity-90 hover:bg-primary-hover hover:disabled:bg-transparent! hover:text-panel disabled:text-text-secondary/60',
+    day: 'font-normal flex p-2 border border-transparent text-text-secondary opacity-90 hover:bg-primary-hover hover:disabled:bg-transparent! hover:text-white disabled:text-text-secondary/60',
     outside: 'opacity-40 text-text-secondary',
     startRangeDate: 'rounded-tl-md rounded-tr-none rounded-br-none',
     cornerStartDateBottom: 'rounded-bl-none',
     endRangeDate: 'rounded-br-md rounded-bl-none rounded-tl-none',
     cornerEndDateTop: 'rounded-tr-none',
     range: 'rounded-none',
-    selected: 'text-panel border-transparent opacity-100',
+    selected: 'text-white border-transparent opacity-100',
     hover:
-      'rounded-sm bg-primary-active text-panel border-transparent opacity-100',
+      'rounded-sm bg-primary-active text-white border-transparent opacity-100',
     today: 'rounded-sm border border-panel-accent text-text-primary'
   },
   months: {
     root: 'grid grid-cols-4 gap-2',
     month:
-      'p-1.5 hover:bg-primary-hover hover:text-panel border-transparent text-text-secondary',
-    selected: 'border-transparent text-panel'
+      'p-1.5 hover:bg-primary-hover hover:text-white border-transparent text-text-secondary',
+    selected: 'border-transparent text-white'
   },
   years: {
     root: 'grid grid-cols-4 gap-2',
-    year: 'p-1.5 hover:bg-primary-hover hover:text-panel border-transparent text-text-secondary',
-    selected: 'border-transparent text-panel'
+    year: 'p-1.5 hover:bg-primary-hover hover:text-white border-transparent text-text-secondary',
+    selected: 'border-transparent text-white'
   },
   time: {
     base: 'flex flex-col h-full gap-0',
-    wrapper: 'mt-4 bg-panel z-10 flex flex-row border-panel-border',
+    wrapper: 'mt-4 bg-panel z-10 flex flex-row border-panel-accent',
     dividerTop: 'w-full',
     dividerLeft: 'h-auto mt-2.5 mx-1 bg-surface z-10',
     header: 'flex gap-4 px-0.5 pb-2.5 mb-2',
@@ -128,7 +128,7 @@ export const calendarTheme: CalendarTheme = {
       list: 'relative h-full p-0 m-0 list-none overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y',
       divider: 'mx-0',
       item: {
-        base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 text-text-secondary hover:bg-primary-hover hover:text-panel',
+        base: 'py-0.5 px-1.5 text-center select-none cursor-pointer rounded transition-colors duration-150 text-text-secondary hover:bg-primary-hover hover:text-white',
         selected: 'bg-primary text-white',
         disabled: 'cursor-not-allowed opacity-50'
       }
@@ -140,8 +140,8 @@ export const calendarTheme: CalendarTheme = {
     base: 'relative h-59 max-w-52 pr-1 overflow-y-auto [&::-webkit-scrollbar]:hidden scrollbar-none touch-pan-y space-y-0',
     group: 'text-sm font-medium my-1 !pr-0 !pl-0 !text-text-secondary',
     item: {
-      base: 'text-sm p-1.5 my-0.5 duration-0 hover:text-panel hover:bg-primary-hover hover:rounded-sm',
-      active: 'bg-primary text-panel rounded-sm'
+      base: 'text-sm p-1.5 my-0.5 duration-0 hover:text-white hover:bg-primary-hover hover:rounded-sm',
+      active: 'bg-primary text-white rounded-sm'
     }
   }
 };

@@ -57,7 +57,8 @@ export const checkboxTheme: CheckboxTheme = {
   base: 'inline-flex items-center w-full group/checkbox',
   label: {
     base: 'text-text-secondary ml-2.5 w-full text-text-primary group-hover/checkbox:text-primary-hover',
-    checked: 'checked text-text-primary group-hover/checkbox:text-text-primary',
+    checked:
+      'checked text-text-primary group-hover/checkbox:text-primary-hover',
     disabled:
       'cursor-not-allowed text-text-inactive group-hover/checkbox:text-text-inactive',
     clickable: 'cursor-pointer',
@@ -77,13 +78,13 @@ export const checkboxTheme: CheckboxTheme = {
     base: 'stroke-text-secondary group-hover/checkbox:stroke-primary-hover',
     checked: 'stroke-primary',
     disabled:
-      'cursor-not-allowed stroke-text-inactive group-hover/checkbox:stroke-text-inactive'
+      'cursor-not-allowed stroke-secondary-inactive group-hover/checkbox:stroke-secondary-inactive'
   },
   checkbox: {
-    base: 'fill-transparent flex items-center justify-center cursor-pointer focus-visible:outline-hidden border border-surface [&.checked.disabled]:fill-text-inactive',
+    base: 'fill-transparent flex items-center justify-center cursor-pointer focus-visible:outline-hidden border border-surface [&.checked.disabled]:fill-secondary-inactive',
     checked:
-      'fill-primary checked group-hover/checkbox:fill-primary-hover group-hover/checkbox:[&.disabled]:fill-text-inactive',
-    disabled: 'fill-transparent disabled group-hover/checkbox:transparent'
+      'fill-primary checked group-hover/checkbox:fill-primary-hover group-hover/checkbox:[&.disabled]:fill-secondary-inactive',
+    disabled: 'fill-transparent disabled group-hover/checkbox:fill-transparent'
   },
   sizes: {
     small: '[&>svg]:w-3 [&>svg]:h-3',

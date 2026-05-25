@@ -7,5 +7,5 @@ export interface CommandPaletteItemTheme {
 export const commandPaletteItemTheme: CommandPaletteItemTheme = {
   base: 'transition-colors ease-in-out duration-200',
   active: 'bg-primary text-text-primary',
-  clickable: 'cursor-pointer hover:bg-primary-hover hover:text-panel'
+  clickable: 'cursor-pointer hover:bg-primary-hover hover:text-white'
 };

@@ -23,7 +23,7 @@ export const inputTheme: InputTheme = {
   base: 'flex relative flex-row items-center flex-nowrap box-border transition-colors rounded-xs bg-panel border border-panel-accent text-text-primary not-disabled-within:hover:border-panel-active',
   focused: 'focus-within:border-primary',
   input:
-    'flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-hidden px-0.5 disabled:cursor-not-allowed disabled:text-disabled placeholder-accent',
+    'flex-1 font-normal font-sans bg-transparent border-0 p-0 m-0 disabled:pointer-events-none outline-hidden px-0.5 disabled:cursor-not-allowed disabled:text-text-inactive placeholder:text-text-secondary',
   inline: 'bg-transparent border-0 outline-hidden',
   disabled:
     'text-text-secondary cursor-not-allowed disabled-within:bg-panel-accent disabled-within:after:content-none',

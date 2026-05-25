@@ -51,8 +51,8 @@ export const selectInputTheme: SelectInputTheme = {
   inputContainer:
     'flex-wrap flex items-center overflow-hidden flex-1 max-w-full [&>div]:max-w-full [&_.invisible]:text-ellipsis [&_.invisible]:overflow-hidden',
   input:
-    'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-hidden disabled:text-disabled',
-  placeholder: 'placeholder:text-secondary-content',
+    'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-hidden disabled:text-text-inactive',
+  placeholder: 'placeholder:text-text-secondary',
   selectedValue: 'overflow-hidden whitespace-nowrap text-ellipsis',
   actions: {
     container: 'flex items-center justify-center',
@@ -63,7 +63,7 @@ export const selectInputTheme: SelectInputTheme = {
     expand: '[&>svg]:w-4 [&>svg]:h-4 [&>svg]:fill-text-secondary'
   },
   disabled:
-    'cursor-not-allowed text-disabled text-text-secondary/40 border-surface hover:border-surface',
+    'cursor-not-allowed text-text-inactive border-surface hover:border-surface',
   unfilterable: 'caret-transparent',
   error: 'border border-solid border-error',
   adornment: {

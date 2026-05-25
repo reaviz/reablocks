@@ -35,7 +35,7 @@ export const badgeTheme: BadgeTheme = {
       'bottom-0 right-0 translate-x-2/4 translate-y-2/4 origin-[100%_100%]'
   },
   colors: {
-    default: 'bg-text-primary text-panel',
+    default: 'bg-panel-accent text-text-primary',
     primary: 'bg-primary text-text-primary',
     secondary: 'bg-secondary text-text-primary',
     error: 'bg-error text-text-primary'
