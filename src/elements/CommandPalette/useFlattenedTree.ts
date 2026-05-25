@@ -12,12 +12,16 @@ import {
 export const DATA_ATTRIBUTE_INDEX = 'keyboard_index';
 
 export interface FocusableElement {
+  /** Ref pointing to the focusable DOM element. */
   ref: RefObject<HTMLElement>;
+  /** Handler invoked when the element is clicked. */
   onClick: (() => void) | undefined;
 }
 
 export interface HotkeyIem {
+  /** Keyboard shortcut associated with the item. */
   hotkey: string;
+  /** Index of the item in the flattened tree. */
   index: number;
 }
 

@@ -5,6 +5,7 @@ import { ChipTheme } from './ChipTheme';
 export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
    * Color variant for the chip.
+   * @default 'default'
    */
   color?:
     | 'default'
@@ -18,11 +19,13 @@ export interface ChipProps extends React.HTMLAttributes<HTMLDivElement> {
 
   /**
    * Size variant for the chip.
+   * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * Style variant for the chip.
+   * @default 'filled'
    */
   variant?: 'filled' | 'outline' | string;
 

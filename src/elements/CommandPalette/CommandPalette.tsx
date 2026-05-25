@@ -38,6 +38,7 @@ export interface CommandPaletteProps extends PropsWithChildren {
 
   /**
    * Autofocus or not.
+   * @default true
    */
   autoFocus?: boolean;
 

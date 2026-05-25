@@ -44,11 +44,13 @@ export interface DialogProps
 
   /**
    * The size of the dialog. Can be a string or a number.
+   * @default '50%'
    */
   size?: string | number;
 
   /**
    * Whether to show the close button in the dialog header.
+   * @default true
    */
   showCloseButton?: boolean;
 
@@ -60,6 +62,7 @@ export interface DialogProps
 
   /**
    * Whether to disable padding for the dialog content.
+   * @default false
    */
   disablePadding?: boolean;
 
@@ -96,6 +99,7 @@ export interface DialogProps
   /**
    * The React element for the dialog header.
    * @deprecated Use DialogHeader slot component instead.
+   * @default <DialogHeader />
    */
   headerElement?: ReactElement<DialogHeaderProps, typeof DialogHeader> | null;
 

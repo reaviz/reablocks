@@ -5,7 +5,9 @@ export function getDifference(date: Date) {
 }
 
 export interface FormatRelativeOptions {
+  /** Whether to append a suffix (e.g. "ago", "in") to the relative time string. */
   addSuffix?: boolean;
+  /** Whether to include seconds in the relative time string. */
   includeSeconds?: boolean;
 }
 

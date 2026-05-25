@@ -22,11 +22,13 @@ export interface GlobalOverlayProps {
 
   /**
    * If true, the global overlay will close when the backdrop is clicked.
+   * @default true
    */
   closeOnBackdropClick?: boolean;
 
   /**
    * If true, the global overlay will have a backdrop.
+   * @default true
    */
   hasBackdrop?: boolean;
 
@@ -37,6 +39,7 @@ export interface GlobalOverlayProps {
 
   /**
    * If true, the global overlay will close when the escape key is pressed.
+   * @default true
    */
   closeOnEscape?: boolean;
 

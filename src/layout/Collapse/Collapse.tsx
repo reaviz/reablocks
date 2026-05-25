@@ -30,6 +30,7 @@ export interface CollapseProps extends Omit<
   /**
    * @deprecated Use animation configuration instead.
    * Whether the collapse is animated or not.
+   * @default true
    */
   animated?: boolean;
 

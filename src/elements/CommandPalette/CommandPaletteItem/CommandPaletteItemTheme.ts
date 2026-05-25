@@ -1,6 +1,9 @@
 export interface CommandPaletteItemTheme {
+  /** CSS class applied to the root command palette item. */
   base: string;
+  /** CSS class applied when the item is active or highlighted. */
   active: string;
+  /** CSS class applied when the item is clickable. */
   clickable: string;
 }
 

@@ -22,27 +22,55 @@ import WarningIcon from '@/assets/icons/warning.svg?react';
 import ErrorCircleIcon from '@/assets/icons/error_circle.svg?react';
 
 export interface NotificationComponentProps {
+  /** Message text to display in the notification. */
   message: string;
+  /** Variant style of the notification. */
   variant: NotificationVariants;
+  /** Called when the notification is closed. */
   onClose?: () => void;
 }
 
 export interface NotificationsProps {
+  /**
+   * @default 10
+   */
   limit?: number;
+  /**
+   * @default 4000
+   */
   timeout?: number;
+  /**
+   * @default true
+   */
   showClose?: boolean;
+  /**
+   * @default true
+   */
   preventFlooding?: boolean;
+  /** Children rendered inside the notifications provider. */
   children?: ReactNode;
+  /** Additional class name applied to each notification. */
   className?: string;
+  /** Custom notification components keyed by variant. */
   components?: {
     [variant in NotificationVariants]?: JSXElementConstructor<NotificationComponentProps>;
   };
+  /**
+   * @default {
+   *   default: <InfoIcon />,
+   *   success: <CheckCircleIcon />,
+   *   warning: <WarningIcon />,
+   *   error: <ErrorCircleIcon />,
+   *   info: <InfoIcon />
+   * }
+   */
   icons?: {
     [variant in NotificationVariants]?:
       | string
       | React.JSX.Element
       | React.JSX.Element[];
   };
+  /** Theme for the notifications. */
   theme?: NotificationTheme;
 }
 

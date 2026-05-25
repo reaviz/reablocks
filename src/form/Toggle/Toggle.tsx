@@ -16,6 +16,7 @@ export interface ToggleProps {
 
   /**
    * Whether to animate the toggle.
+   * @default true
    */
   animated?: boolean;
 
@@ -31,6 +32,7 @@ export interface ToggleProps {
 
   /**
    * The size of the toggle.
+   * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large' | string;
 

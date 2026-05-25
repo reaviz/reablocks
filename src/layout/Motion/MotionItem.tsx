@@ -52,6 +52,7 @@ const horizontalVariants = {
 export interface MotionItemProps extends HTMLMotionProps<'div'> {
   /**
    * Direction of the motion.
+   * @default 'vertical'
    */
   direction?: 'horizontal' | 'vertical';
 

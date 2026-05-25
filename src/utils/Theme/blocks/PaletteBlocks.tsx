@@ -2,6 +2,7 @@ import React, { FC } from 'react';
 import { ColorBlock } from './ColorBlocks';
 
 export interface PaletteBlocksProps {
+  /** Map of palette names to their color values. */
   palettes: Record<string, string>;
 }
 

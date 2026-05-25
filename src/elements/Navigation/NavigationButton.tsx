@@ -17,6 +17,7 @@ interface NavigationButtonProps extends PropsWithChildren {
 
   /**
    * Variant of the navigation button.
+   * @default 'ghost'
    */
   variant?: keyof NavigationButtonVariantTheme;
 
@@ -37,6 +38,7 @@ interface NavigationButtonProps extends PropsWithChildren {
 
   /**
    * If false, the animation of the button will be disabled.
+   * @default true
    */
   animated?: boolean;
 

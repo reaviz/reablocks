@@ -52,6 +52,7 @@ export interface ConnectedOverlayProps {
 
   /**
    * Type of trigger to open the overlay.
+   * @default 'click'
    */
   trigger?: TriggerTypes[] | TriggerTypes;
 
@@ -72,16 +73,19 @@ export interface ConnectedOverlayProps {
 
   /**
    * Close when the body is clicked or not.
+   * @default true
    */
   closeOnBodyClick?: boolean;
 
   /**
    * Close when escape is pressed or not.
+   * @default true
    */
   closeOnEscape?: boolean;
 
   /**
    * Append the overlay to the body. Almost always want this.
+   * @default true
    */
   appendToBody?: boolean;
 
@@ -102,6 +106,7 @@ export interface ConnectedOverlayProps {
 
   /**
    * Placement of the overlay.
+   * @default 'bottom'
    */
   placement?: Placement;
 

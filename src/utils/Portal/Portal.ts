@@ -15,6 +15,7 @@ import { useUnmount } from '@/utils/useUnmount';
 export interface PortalProps extends PropsWithChildren {
   /**
    * Element to create for the portal.
+   * @default 'div'
    */
   element?: string;
 

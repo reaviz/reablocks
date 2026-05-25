@@ -15,7 +15,9 @@ import {
 } from '@/typography';
 
 export interface TypographyLetterBlockProps {
+  /** Font family to preview. */
   fontFamily: string;
+  /** Additional class names applied to the block. */
   className?: string;
 }
 
@@ -50,7 +52,9 @@ export const TypographyLetterBlock: FC<TypographyLetterBlockProps> = ({
 );
 
 export interface TypographySizeBlockProps {
+  /** Map of size tokens to their font-size values. */
   sizes: any;
+  /** Additional class names applied to the block. */
   className?: string;
 }
 
@@ -105,7 +109,9 @@ export const TypographySizeBlock: FC<TypographySizeBlockProps> = ({
 );
 
 export interface TypographyWeightBlockProps {
+  /** Map of weight tokens to their font-weight values. */
   weights: any;
+  /** Additional class names applied to the block. */
   className?: string;
 }
 

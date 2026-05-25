@@ -34,6 +34,7 @@ export interface CalendarDaysProps {
 
   /**
    * The currently hovered date.
+   * @default null
    */
   hover?: Date | null;
 
@@ -79,6 +80,7 @@ export interface CalendarDaysProps {
 
   /**
    * Customize the labels for the days of the week.
+   * @default daysOfWeek
    */
   dayOfWeekLabels?: string[];
 
@@ -95,6 +97,7 @@ export interface CalendarDaysProps {
   /**
    * @deprecated Use animation configuration instead.
    * X-axis block animation
+   * @default 0
    */
   xAnimation?: string | number;
 

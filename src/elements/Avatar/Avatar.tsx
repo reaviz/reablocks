@@ -16,16 +16,19 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLDivElement> {
 
   /**
    * The size of the avatar.
+   * @default 24
    */
   size?: number;
 
   /**
    * Style variant for the avatar.
+   * @default 'filled'
    */
   variant?: 'filled' | 'outline';
 
   /**
    * Whether the avatar is rounded.
+   * @default true
    */
   rounded?: boolean;
 
