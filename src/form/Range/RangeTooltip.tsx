@@ -70,7 +70,9 @@ export interface RangeProps<Value> {
 }
 
 export interface RangeTooltipProps {
+  /** Content rendered inside the tooltip. */
   children?: React.ReactNode;
+  /** Whether the tooltip is visible. */
   visible: boolean;
 }
 

@@ -13,6 +13,7 @@ import { OverlayPortal, portals } from '@/utils/Overlay/OverlayPortal';
 import { useId } from '@/utils/useId';
 
 export interface ConnectedOverlayContentRef {
+  /** Recalculates and updates the overlay's position. */
   updatePosition: () => void;
 }
 

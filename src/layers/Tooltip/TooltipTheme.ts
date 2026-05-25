@@ -1,6 +1,9 @@
 export interface TooltipTheme {
+  /** CSS class applied to the root tooltip container. */
   base: string;
+  /** CSS class applied to disable pointer events on the tooltip. */
   disablePointer: string;
+  /** CSS class applied to the tooltip arrow. */
   arrow?: string;
 }
 

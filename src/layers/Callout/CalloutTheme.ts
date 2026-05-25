@@ -1,4 +1,5 @@
 export interface CalloutTheme {
+  /** CSS classes applied to the root callout container, including per-variant styles. */
   base: {
     common: string;
     variant: {
@@ -10,6 +11,7 @@ export interface CalloutTheme {
       [key: string]: string;
     };
   };
+  /** CSS classes applied to the callout icon, including per-variant styles. */
   icon: {
     common: string;
     variant: {
@@ -21,6 +23,7 @@ export interface CalloutTheme {
       [key: string]: string;
     };
   };
+  /** CSS class applied to the callout text content. */
   text: string;
 }
 

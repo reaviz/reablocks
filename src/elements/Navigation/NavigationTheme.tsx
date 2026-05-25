@@ -1,22 +1,32 @@
 export interface NavigationButtonVariantConfigTheme {
+  /** CSS class applied to the button's content wrapper. */
   content: string;
+  /** CSS class applied when the button is active. */
   active: string;
+  /** CSS class applied to the button's selection indicator. */
   selection: string;
+  /** CSS class applied when the button is disabled. */
   disabled: string;
 }
 
 export interface NavigationBarDirectionTheme {
+  /** CSS class applied when the navigation bar is laid out horizontally. */
   horizontal: string;
+  /** CSS class applied when the navigation bar is laid out vertically. */
   vertical: string;
 }
 
 export interface NavigationButtonVariantTheme {
+  /** Configuration for the ghost button variant. */
   ghost: NavigationButtonVariantConfigTheme;
+  /** Configuration for the underline button variant. */
   underline: NavigationButtonVariantConfigTheme;
+  /** Configuration for any additional custom button variant. */
   [key: string]: NavigationButtonVariantConfigTheme;
 }
 
 export interface NavigationTheme {
+  /** Class names for the navigation bar layout slots. */
   bar: {
     base: string;
     direction: NavigationBarDirectionTheme;
@@ -24,6 +34,7 @@ export interface NavigationTheme {
     navigation: string;
     end: string;
   };
+  /** Class names and variant configuration for navigation buttons. */
   button: {
     base: string;
     variant: NavigationButtonVariantTheme;

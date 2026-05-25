@@ -1,4 +1,5 @@
 export interface CollapseTheme {
+  /** CSS class applied to the root collapse container. */
   base: string;
 }
 

@@ -10,7 +10,9 @@ import { cn, useComponentTheme } from '@/utils';
 const useGlobalMenuState = creteGlobalStateHook<any[]>([]);
 
 export interface ContextMenuContentProps {
+  /** Closes the current context menu. */
   close: () => void;
+  /** Closes all open context menus. */
   closeAll: () => void;
 }
 

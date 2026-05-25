@@ -56,10 +56,15 @@ export interface ParseJsonInputs {
 }
 
 export interface JsonTreeData {
+  /** Data type of the node (e.g. `object`, `array`, `string`, `number`). */
   type: string;
+  /** Unique identifier for the node, derived from its path. */
   id: string;
+  /** Parsed data for the node; an array of child nodes for objects/arrays or the raw value otherwise. */
   data: any;
+  /** Display label for the node. */
   label: string;
+  /** Index of the node within its parent (used for array items). */
   index?: number;
 }
 

@@ -24,9 +24,13 @@ export type ReferenceProp =
   | RefObject<HTMLElement>;
 
 export interface ReferenceObject {
+  /** The top offset of the reference, in pixels. */
   top: number;
+  /** The left offset of the reference, in pixels. */
   left: number;
+  /** The height of the reference, in pixels. */
   height: number;
+  /** The width of the reference, in pixels. */
   width: number;
 }
 

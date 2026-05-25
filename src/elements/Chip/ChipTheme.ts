@@ -25,8 +25,11 @@ interface ThemeColor {
 }
 
 export interface ChipTheme {
+  /** CSS class applied to the root chip element. */
   base: string;
+  /** CSS class applied to the chip's label text. */
   label: string;
+  /** Class names for the chip's start and end adornment slots. */
   adornment: {
     base: string;
     start: string;
@@ -38,11 +41,13 @@ export interface ChipTheme {
       [key: string]: string;
     };
   };
+  /** Class names for each visual chip variant. */
   variants: {
     filled: string;
     outline: string;
     [key: string]: string;
   };
+  /** Class names for each chip color, including selectable states. */
   colors: {
     default?: ThemeColor;
     primary?: ThemeColor;
@@ -53,13 +58,16 @@ export interface ChipTheme {
     info?: ThemeColor;
     [key: string]: ThemeColor;
   };
+  /** Class names for each chip size. */
   sizes: {
     small: string;
     medium: string;
     large: string;
     [key: string]: string;
   };
+  /** CSS class applied to the chip when focused. */
   focus: string;
+  /** Class names for the chip's delete button at each size. */
   deleteButton: {
     base: string;
     sizes: {
@@ -69,6 +77,7 @@ export interface ChipTheme {
       [key: string]: string;
     };
   };
+  /** CSS class applied when the chip is disabled. */
   disabled: string;
 }
 

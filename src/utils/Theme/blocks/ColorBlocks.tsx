@@ -2,8 +2,11 @@ import React, { FC, useMemo } from 'react';
 import chroma from 'chroma-js';
 
 export interface ColorBlockProps {
+  /** Display name of the color. */
   name: string;
+  /** CSS color value for the swatch. */
   color: string;
+  /** Additional class names applied to the block. */
   className?: string;
 }
 
@@ -132,9 +135,13 @@ export const ColorPaletteBlock: FC<ColorPaletteBlockProps> = ({
 };
 
 export interface ColorPaletteBlocksProps {
+  /** Display name of the palette. */
   name: string;
+  /** Single color value or a map of color names to values for the palette. */
   colors: string | Record<string, string>;
+  /** Additional class names applied to the palette block. */
   className?: string;
+  /** Optional CSS custom property token associated with the palette. */
   token?: string | null;
   /**
    * @default true
