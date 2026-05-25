@@ -1,0 +1,64 @@
+@import 'tailwindcss';
+@import './theme.css';
+
+:root,
+:host {
+  --bottom-border-glow: radial-gradient(
+    circle at center,
+    var(--color-anakiwa) 0,
+    blue,
+    transparent 100%
+  );
+  --button-gradient: linear-gradient(
+    283deg,
+    #0808a5 0%,
+    rgba(8, 8, 165, 0) 100%
+  );
+  --button-gradient-hover: linear-gradient(
+    283deg,
+    #44f 0%,
+    rgba(23, 23, 255, 0.1) 100%
+  );
+  --button-gradient-focus: linear-gradient(
+    283deg,
+    #0d0dd2 0%,
+    rgba(23, 23, 255, 0.1) 100%
+  );
+
+  /* Block semantic colors - dark */
+  --block-soft: var(--color-charade);
+  --block-soft-text: var(--color-athens-gray);
+  --block-track: var(--color-vulcan);
+  --block-card-bg: var(--panel);
+  --block-cta: transparent;
+  --block-cta-hover: transparent;
+  --block-cta-focus: transparent;
+  --block-cta-image-hover: var(--button-gradient-hover);
+  --block-cta-image-focus: var(--button-gradient-focus);
+
+  .theme-light,
+  &.theme-light,
+  [data-theme='light'],
+  &[data-theme='light'] {
+    /* Block semantic colors - light */
+    --block-soft: var(--color-blue-200);
+    --block-soft-text: var(--color-vulcan);
+    --block-track: var(--color-mystic);
+    --block-card-bg: var(--color-athens-gray);
+    --block-cta: var(--primary);
+    --block-cta-hover: var(--primary-hover);
+    --block-cta-focus: var(--primary-hover);
+    --block-cta-image-hover: none;
+    --block-cta-image-focus: none;
+  }
+}
+
+@theme inline {
+  --color-block-soft: var(--block-soft);
+  --color-block-soft-text: var(--block-soft-text);
+  --color-block-track: var(--block-track);
+  --color-block-card-bg: var(--block-card-bg);
+  --color-block-cta: var(--block-cta);
+  --color-block-cta-hover: var(--block-cta-hover);
+  --color-block-cta-focus: var(--block-cta-focus);
+}

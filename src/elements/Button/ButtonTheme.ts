@@ -120,8 +120,7 @@ export const buttonTheme: ButtonTheme = {
       text: 'text-text-primary'
     },
     primary: {
-      filled:
-        'bg-primary hover:bg-primary-hover border-primary text-text-primary',
+      filled: 'bg-primary hover:bg-primary-hover border-primary text-white',
       outline: 'border border-primary',
       text: 'text-primary hover:text-primary-hover'
     },
@@ -143,7 +142,7 @@ export const buttonTheme: ButtonTheme = {
       text: 'text-warning hover:text-warning-hover'
     },
     error: {
-      filled: 'bg-error hover:bg-error-hover border-error text-text-primary',
+      filled: 'bg-error hover:bg-error-hover border-error text-white',
       outline: 'border border-error',
       text: 'text-error hover:text-error-hover'
     }
