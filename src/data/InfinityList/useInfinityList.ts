@@ -8,11 +8,13 @@ export interface InfinityListInputs {
 
   /**
    * The page size. Combined with the threshold, this will determine the page size.
+   * @default 10
    */
   size?: number;
 
   /**
    * The fuzzy threshold to use when calculating the next page size.
+   * @default 3
    */
   threshold?: number;
 

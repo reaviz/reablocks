@@ -1,8 +1,13 @@
 export interface BreadcrumbsTheme {
+  /** CSS class applied to the root breadcrumbs container. */
   base: string;
+  /** CSS class applied to the separator between breadcrumb items. */
   separator: string;
+  /** CSS class applied to the breadcrumb list element. */
   list: string;
+  /** CSS class applied to each breadcrumb link. */
   link: string;
+  /** CSS class applied to the active (current) page item. */
   activePage: string;
 }
 

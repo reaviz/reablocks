@@ -73,11 +73,13 @@ export interface CalendarProps {
 
   /**
    * The text or icon to use for next.
+   * @default '›'
    */
   nextArrow?: React.ReactNode | string;
 
   /**
    * The text or icon to use for previous.
+   * @default '‹'
    */
   previousArrow?: React.ReactNode | string;
 
@@ -93,17 +95,20 @@ export interface CalendarProps {
 
   /**
    * Whether to show the time picker.
+   * @default false
    */
   showTime?: boolean;
 
   /**
    * Whether to use 12-hour cycle for the time picker.
+   * @default false
    */
   is12HourCycle?: boolean;
 
   /**
    * @deprecated Use animation configuration instead.
    * Whether to animate the calendar.
+   * @default true
    */
   animated?: boolean;
 

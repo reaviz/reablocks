@@ -14,6 +14,7 @@ export interface StepperProps extends PropsWithChildren {
 
   /**
    * Currently active step
+   * @default 0
    */
   activeStep?: number;
 
@@ -24,6 +25,7 @@ export interface StepperProps extends PropsWithChildren {
 
   /**
    * Style of the stepper. Default is dots but it can be numbered too.
+   * @default 'default'
    */
   variant?: 'default' | 'numbered';
 

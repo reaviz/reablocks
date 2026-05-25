@@ -1,15 +1,27 @@
 export interface TypographyTheme {
+  /** CSS class applied to the H1 heading element. */
   h1: string;
+  /** CSS class applied to the H2 heading element. */
   h2: string;
+  /** CSS class applied to the H3 heading element. */
   h3: string;
+  /** CSS class applied to the H4 heading element. */
   h4: string;
+  /** CSS class applied to the H5 heading element. */
   h5: string;
+  /** CSS class applied to the H6 heading element. */
   h6: string;
+  /** CSS class applied to the paragraph element. */
   p: string;
+  /** CSS class applied to the blockquote element. */
   blockquote: string;
+  /** CSS class applied to the Lead text element. */
   lead: string;
+  /** CSS class applied to the Large text element. */
   large: string;
+  /** CSS class applied to the Small text element. */
   small: string;
+  /** CSS class applied to the Muted text element. */
   muted: string;
 }
 

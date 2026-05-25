@@ -1,5 +1,7 @@
 export interface CheckboxTheme {
+  /** CSS class applied to the root checkbox container. */
   base: string;
+  /** Class names for the checkbox label in its various states and sizes. */
   label: {
     base: string;
     clickable: string;
@@ -12,27 +14,32 @@ export interface CheckboxTheme {
       [key: string]: string;
     };
   };
+  /** Class names for the checkbox border in its various states. */
   border: {
     base: string;
     disabled: string;
     checked: string;
   };
+  /** Class names for the check icon in its various states. */
   check: {
     base: string;
     disabled: string;
     checked: string;
   };
+  /** Class names for the checkbox box element in its various states. */
   checkbox: {
     base: string;
     disabled: string;
     checked: string;
   };
+  /** Class names for each size variant of the checkbox. */
   sizes: {
     small: string;
     medium: string;
     large: string;
     [key: string]: string;
   };
+  /** Motion variants used to animate the checkbox box in different states. */
   boxVariants: {
     hover: {
       strokeWidth: number;

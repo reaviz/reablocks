@@ -1,8 +1,13 @@
 export interface DialogTheme {
+  /** CSS class applied to the root dialog container. */
   base: string;
+  /** CSS class applied to the dialog's inner panel. */
   inner: string;
+  /** CSS class applied to the dialog content area. */
   content: string;
+  /** CSS class applied to the dialog footer. */
   footer: string;
+  /** CSS classes applied to the dialog header and its parts. */
   header: {
     base: string;
     text: string;

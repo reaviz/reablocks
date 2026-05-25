@@ -15,11 +15,13 @@ import { CheckboxTheme } from './CheckboxTheme';
 export interface CheckboxProps {
   /**
    * Whether the checkbox is checked or not.
+   * @default false
    */
   checked?: boolean;
 
   /**
    * Whether the checkbox is in an intermediate state or not.
+   * @default false
    */
   intermediate?: boolean;
 
@@ -30,6 +32,7 @@ export interface CheckboxProps {
 
   /**
    * Label position of checkbox.
+   * @default 'end'
    */
   labelPosition?: 'start' | 'end';
 
@@ -40,6 +43,7 @@ export interface CheckboxProps {
 
   /**
    * Size of the checkbox.
+   * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large' | string;
 
@@ -60,16 +64,19 @@ export interface CheckboxProps {
 
   /**
    * Custom svg path for border.
+   * @default 'M 1 0 L 16 0 C 16.552 0 17 0.448 17 1 L 17 15 C 17 15.552 16.552 16 16 16 L 1 16 C 0.448 16 0 15.552 0 15 L 0 1 C 0 0.448 0.448 0 1 0 Z'
    */
   borderPath?: string;
 
   /**
    * Custom svg path for checked state.
+   * @default 'M 4 8 L 8 12 L 12 4'
    */
   checkedPath?: string;
 
   /**
    * Custom svg path for intermediate state.
+   * @default 'M 5.36396 8.17792 L 10.6044 8.17792'
    */
   intermediatePath?: string;
 

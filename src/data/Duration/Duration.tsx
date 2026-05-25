@@ -9,11 +9,13 @@ export interface DurationProps {
 
   /**
    * If the value is undefined/null it will return this value.
+   * @default 'N/A'
    */
   emptyValue?: string;
 
   /**
    * If the value is 0 it will return this value. Default to '0 ms'
+   * @default '0 ms'
    */
   zeroValue?: string;
 }

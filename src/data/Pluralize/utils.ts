@@ -23,6 +23,7 @@ export interface PluralizeInputs {
 
   /**
    * Show count in addition to word.
+   * @default true
    */
   showCount?: boolean;
 }

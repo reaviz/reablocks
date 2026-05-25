@@ -65,11 +65,13 @@ export interface FieldProps extends React.HTMLAttributes<HTMLElement> {
 
   /**
    * Direction of the field.
+   * @default 'vertical'
    */
   direction?: 'vertical' | 'horizontal';
 
   /**
    * Alignment of the label.
+   * @default 'start'
    */
   alignment?: 'start' | 'center' | 'end';
 

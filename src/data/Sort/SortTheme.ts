@@ -1,7 +1,11 @@
 export interface SortTheme {
+  /** CSS class applied to the root sort control. */
   base: string;
+  /** CSS class applied when the sort control is disabled. */
   disabled: string;
+  /** CSS class applied when the sort control has an active value. */
   hasValue: string;
+  /** Class names applied to the sort direction icon. */
   icon: {
     base: string;
     ascending: string;

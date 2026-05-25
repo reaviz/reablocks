@@ -66,6 +66,7 @@ export interface SelectProps {
 
   /**
    * Close the select after you select an option.
+   * @default true
    */
   closeOnSelect?: boolean;
 
@@ -96,11 +97,13 @@ export interface SelectProps {
 
   /**
    * Whether you can filter the select options.
+   * @default true
    */
   filterable?: boolean | 'async';
 
   /**
    * Whether you can clear the select after selection.
+   * @default true
    */
   clearable?: boolean;
 
@@ -116,6 +119,7 @@ export interface SelectProps {
 
   /**
    * Whether you can refresh the async values or not.
+   * @default false
    */
   refreshable?: boolean;
 
@@ -133,6 +137,7 @@ export interface SelectProps {
    * The list of KeyCodes for creating select values.
    * The default is ['Enter']
    * Typical options would be: ['Enter', 'Tab', 'Space', 'Comma']
+   * @default ['Enter']
    */
   selectOnKeys?: string[];
 
@@ -148,21 +153,25 @@ export interface SelectProps {
 
   /**
    * The placement options for the menu.
+   * @default 'bottom-start'
    */
   menuPlacement?: Placement;
 
   /**
    * Whether the menu is disabled or not.
+   * @default false
    */
   menuDisabled?: boolean;
 
   /**
    * The size of the select.
+   * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large' | string;
 
   /**
    * Whether to clear the input on blur.
+   * @default true
    */
   clearOnBlur?: boolean;
 
@@ -225,11 +234,13 @@ export interface SelectProps {
 
   /**
    * Input override component.
+   * @default <SelectInput />
    */
   input?: ReactElement<SelectInputProps, typeof SelectInput>;
 
   /**
    * Menu component override.
+   * @default <SelectMenu />
    */
   menu?: ReactElement<SelectMenuProps, typeof SelectMenu>;
 

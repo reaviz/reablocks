@@ -21,11 +21,13 @@ export interface ConfirmDialogProps {
 
   /**
    * The label for the confirm button
+   * @default 'Confirm'
    */
   confirmLabel?: string;
 
   /**
    * The label for the cancel button
+   * @default 'Cancel'
    */
   cancelLabel?: string;
 
@@ -41,6 +43,7 @@ export interface ConfirmDialogProps {
 
   /**
    * The visual variant of the dialog. Use `destructive` for actions like delete.
+   * @default 'default'
    */
   variant?: 'default' | 'destructive';
 }

@@ -1,21 +1,32 @@
 export interface FieldTheme {
+  /** CSS class applied to the root field container. */
   base: string;
+  /** CSS class applied when the field bottom margin is disabled. */
   disableMargin: string;
+  /** CSS class applied to the field label. */
   label: string;
+  /** CSS class applied to the required indicator. */
   requiredIndicator: string;
+  /** CSS class applied when label alignment is centered. */
   centerAlign: string;
+  /** CSS class applied when label alignment is end. */
   endAlign: string;
+  /** Class names applied when the field is laid out horizontally. */
   horizontal: {
     base: string;
     label: string;
     content: string;
   };
+  /** Class names applied when the field is laid out vertically. */
   vertical: {
     base: string;
     label: string;
   };
+  /** CSS class applied to the hint text. */
   hint: string;
+  /** CSS class applied to the error message. */
   error: string;
+  /** CSS class applied to the field when in an error state. */
   errorState: string;
 }
 

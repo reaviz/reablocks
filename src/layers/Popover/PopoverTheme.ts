@@ -1,5 +1,7 @@
 export interface PopoverTheme {
+  /** CSS class applied to the root popover container. */
   base: string;
+  /** CSS class applied when padding is disabled. */
   disablePadding: string;
 }
 

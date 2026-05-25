@@ -33,6 +33,7 @@ export interface SortProps extends PropsWithChildren {
 
   /**
    * The icon to display
+   * @default DownArrowIcon
    */
   icon?: React.ComponentType<{ className?: string }>;
 

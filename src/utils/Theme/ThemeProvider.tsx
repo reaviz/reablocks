@@ -11,9 +11,13 @@ import { getThemeVariables, mergeDeep, observeThemeSwitcher } from './helpers';
 import { ReablocksTheme, theme as defaultTheme } from './themes/theme';
 
 export interface ThemeContextProps {
+  /** The active Reablocks theme. */
   theme: ReablocksTheme;
+  /** Map of CSS custom property tokens resolved from the current theme. */
   tokens: Record<string, string>;
+  /** Replaces the active theme with the provided one. */
   updateTheme: (newTheme: ReablocksTheme) => void;
+  /** Replaces the active token map with the provided one. */
   updateTokens: (newTokens: Record<string, string>) => void;
 }
 

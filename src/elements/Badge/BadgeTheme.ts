@@ -1,8 +1,13 @@
 export interface BadgeTheme {
+  /** CSS class applied to the root badge wrapper element. */
   base: string;
+  /** CSS class applied when the badge margins are disabled. */
   disableMargins: string;
+  /** CSS class applied to the badge indicator element. */
   badge: string;
+  /** CSS class applied for the default badge position. */
   position: string;
+  /** Class names for each badge color variant. */
   colors: {
     default: string;
     primary: string;
@@ -10,6 +15,7 @@ export interface BadgeTheme {
     error: string;
     [key: string]: string;
   };
+  /** Class names for each badge position relative to its anchor. */
   positions: {
     'top-start': string;
     'top-end': string;

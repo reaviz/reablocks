@@ -32,6 +32,7 @@ export interface RangeProps<Value> {
   /**
    * The value will be a multiple of step
    * The default is 1
+   * @default 1
    */
   step?: number;
 
@@ -42,11 +43,13 @@ export interface RangeProps<Value> {
 
   /**
    * When to display the current value
+   * @default 'hover'
    */
   valueDisplay?: 'always' | 'hover';
 
   /**
    * Format the value to display
+   * @default value => value.toLocaleString()
    */
   valueFormat?: (value: number) => string;
 
@@ -67,7 +70,9 @@ export interface RangeProps<Value> {
 }
 
 export interface RangeTooltipProps {
+  /** Content rendered inside the tooltip. */
   children?: React.ReactNode;
+  /** Whether the tooltip is visible. */
   visible: boolean;
 }
 

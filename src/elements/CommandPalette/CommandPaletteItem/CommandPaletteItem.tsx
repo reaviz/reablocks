@@ -6,6 +6,9 @@ import { cn, useComponentTheme } from '@/utils';
 import { CommandPaletteTheme } from '@/elements/CommandPalette/CommandPaletteTheme';
 
 export interface CommandPaletteItemProps extends Omit<ListItemProps, 'theme'> {
+  /**
+   * Keyboard shortcut displayed alongside the item.
+   */
   hotkey?: string;
 
   /**

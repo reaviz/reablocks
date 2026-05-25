@@ -1,5 +1,7 @@
 export interface BackdropTheme {
+  /** CSS class applied to the backdrop element. */
   base: string;
+  /** Opacity value applied to the backdrop. */
   opacity: number;
 }
 

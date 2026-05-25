@@ -27,6 +27,7 @@ export interface OverlayTriggerProps {
 
   /**
    * The type of element that will be used as the overlay trigger.
+   * @default 'span'
    */
   elementType?: any;
 
@@ -39,12 +40,14 @@ export interface OverlayTriggerProps {
   /**
    * A function that is called when the overlay is opened.
    * It receives an object of type OverlayTriggerEvent as an argument.
+   * @default () => undefined
    */
   onOpen?: (event: OverlayTriggerEvent) => void;
 
   /**
    * A function that is called when the overlay is closed.
    * It receives an object of type OverlayTriggerEvent as an argument.
+   * @default () => undefined
    */
   onClose?: (event: OverlayTriggerEvent) => void;
 }
