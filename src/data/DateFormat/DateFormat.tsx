@@ -14,6 +14,7 @@ import { cn, useComponentTheme } from '@/utils';
 export interface DateFormatProps {
   /**
    * Allow the user to toggle between relative and absolute time.
+   * @default false
    */
   allowToggle?: boolean;
 
@@ -29,6 +30,7 @@ export interface DateFormatProps {
 
   /**
    * The format to use.
+   * @default 'MM/dd/yy hh:mm:ss a'
    */
   format?: string;
 
@@ -39,6 +41,7 @@ export interface DateFormatProps {
 
   /**
    * Whether to add a suffix to the relative time.
+   * @default true
    */
   addSuffix?: boolean;
 
@@ -49,11 +52,13 @@ export interface DateFormatProps {
 
   /**
    * Whether to include seconds in the relative time.
+   * @default false
    */
   includeSeconds?: boolean;
 
   /**
    * The message to display when the date is empty. Default is "N/A".
+   * @default 'N/A'
    */
   emptyMessage?: string;
 

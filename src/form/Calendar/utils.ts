@@ -70,16 +70,24 @@ export function getDayLabels(locale?: string) {
 export const daysOfWeek = getDayLabels();
 
 export interface Day {
+  /** The full Date object for the day. */
   date: Date;
+  /** The numeric day of the month (1-31). */
   dayOfMonth: number;
+  /** Whether the day falls on a weekend (Saturday or Sunday). */
   isWeekendDay: boolean;
+  /** Whether the day belongs to the previous month. */
   isPreviousMonth: boolean;
+  /** Whether the day belongs to the next month. */
   isNextMonth: boolean;
+  /** Whether the day is today. */
   isToday: boolean;
+  /** The day formatted as a string using the configured format. */
   formattedDate: string;
 }
 
 export interface DayOptions {
+  /** Date format string used to format the day. */
   format: string;
 }
 
@@ -259,8 +267,8 @@ export function updateDateTime(
       if (!isRange) {
         // For single date, inherit time from previous value
         const originalTimeSource = Array.isArray(currentDate)
-          ? currentDate[0] ?? new Date()
-          : currentDate ?? new Date();
+          ? (currentDate[0] ?? new Date())
+          : (currentDate ?? new Date());
         finalDate = setSeconds(
           setMinutes(
             setHours(newDate, getHours(originalTimeSource)),
@@ -272,8 +280,8 @@ export function updateDateTime(
         // For range, only inherit time for first date
         if (!rangeStart) {
           const originalTimeSource = Array.isArray(currentDate)
-            ? currentDate[0] ?? new Date()
-            : currentDate ?? new Date();
+            ? (currentDate[0] ?? new Date())
+            : (currentDate ?? new Date());
           finalDate = setSeconds(
             setMinutes(
               setHours(newDate, getHours(originalTimeSource)),

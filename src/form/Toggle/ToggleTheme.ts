@@ -1,8 +1,13 @@
 export interface ToggleTheme {
+  /** CSS class applied to the root toggle container. */
   base: string;
+  /** CSS class applied when the toggle is disabled. */
   disabled: string;
+  /** CSS class applied when the toggle is checked. */
   checked: string;
+  /** CSS class applied when the toggle is both disabled and checked. */
   disabledAndChecked: string;
+  /** Class names for the toggle handle, including size and state variants. */
   handle: {
     base: string;
     sizes: {
@@ -14,6 +19,7 @@ export interface ToggleTheme {
     disabled: string;
     disabledAndChecked: string;
   };
+  /** Class names for each size variant of the toggle. */
   sizes: {
     small: string;
     medium: string;

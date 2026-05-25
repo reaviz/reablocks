@@ -1,8 +1,13 @@
 export interface CardTheme {
+  /** CSS class applied to the root card container. */
   base: string;
+  /** CSS class applied when padding is disabled. */
   disablePadding: string;
+  /** CSS class applied to the card header. */
   header: string;
+  /** CSS class applied to the header text. */
   headerText: string;
+  /** CSS class applied to the card content area. */
   content: string;
 }
 

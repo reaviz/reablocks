@@ -36,6 +36,7 @@ export interface RadioProps {
 
   /**
    * Size of the radio.
+   * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large' | string;
 

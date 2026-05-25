@@ -1,17 +1,26 @@
 export interface InputTheme {
+  /** CSS class applied to the root input wrapper. */
   base: string;
+  /** CSS class applied to the inner input element. */
   input: string;
+  /** CSS class applied when the input is rendered inline (no border/background). */
   inline: string;
+  /** CSS class applied when the input is disabled. */
   disabled: string;
+  /** CSS class applied when the input is focused. */
   focused: string;
+  /** CSS class applied when the input should fill its container width. */
   fullWidth: string;
+  /** CSS class applied when the input is in an error state. */
   error: string;
+  /** Class names for each size variant of the input. */
   sizes: {
     small: string;
     medium: string;
     large: string;
     [key: string]: string;
   };
+  /** Class names for start and end input adornments. */
   adornment: {
     base: string;
     start: string;

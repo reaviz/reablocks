@@ -13,6 +13,7 @@ export interface SelectInputChipProps {
 
   /**
    * The maximum length of the chip.
+   * @default 20
    */
   maxLength?: number;
 
@@ -38,6 +39,7 @@ export interface SelectInputChipProps {
 
   /**
    * The close icon for the chip.
+   * @default <CloseIcon />
    */
   closeIcon?: React.ReactNode;
 

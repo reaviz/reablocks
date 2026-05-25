@@ -2,8 +2,8 @@ import React, { FC } from 'react';
 import { cn, useComponentTheme } from '@/utils';
 import { BreadcrumbsTheme } from './BreadcrumbsTheme';
 
-export interface BreadcrumbLinkProps
-  extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface BreadcrumbLinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
+  /** Theme for the Breadcrumbs. */
   theme?: BreadcrumbsTheme;
 }
 

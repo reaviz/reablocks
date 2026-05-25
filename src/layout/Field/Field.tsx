@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import { FieldTheme } from './FieldTheme';
 import { cn, useComponentTheme } from '@/utils';
 
@@ -14,14 +14,34 @@ export interface FieldProps extends React.HTMLAttributes<HTMLElement> {
   disableMargin?: boolean;
 
   /**
-   * Whether to show the required * or not.
+   * Whether to show the required indicator next to the label.
    */
   required?: boolean;
 
   /**
+   * Content to render as the required indicator. Defaults to `*`.
+   * The indicator is decorative (`aria-hidden`); set `required`/`aria-required`
+   * on the input control for screen readers.
+   */
+  requiredIndicator?: ReactNode;
+
+  /**
+   * Visually-hidden text announced by assistive tech alongside the required
+   * indicator. Defaults to `'required'`. Pass `''` to opt out (e.g. when the
+   * input already carries `aria-required`), or a localized string.
+   */
+  requiredAnnouncement?: string;
+
+  /**
+   * Sets the label's `htmlFor`. Pair with a matching `id` on the child form
+   * control to associate them. When omitted, no `htmlFor` is rendered.
+   */
+  htmlFor?: string;
+
+  /**
    * Children to render.
    */
-  children?: React.ReactNode;
+  children?: ReactNode;
 
   /**
    * Additional classname to apply to the label.
@@ -35,11 +55,13 @@ export interface FieldProps extends React.HTMLAttributes<HTMLElement> {
 
   /**
    * Direction of the field.
+   * @default 'vertical'
    */
   direction?: 'vertical' | 'horizontal';
 
   /**
    * Alignment of the label.
+   * @default 'start'
    */
   alignment?: 'start' | 'center' | 'end';
 
@@ -74,6 +96,9 @@ export const Field: FC<FieldProps> = ({
   labelClassName,
   className,
   required,
+  requiredIndicator = '*',
+  requiredAnnouncement = 'required',
+  htmlFor,
   direction = 'vertical',
   alignment = 'start',
   onTitleClick,
@@ -101,6 +126,7 @@ export const Field: FC<FieldProps> = ({
     >
       {label && (
         <label
+          htmlFor={htmlFor}
           className={cn(
             theme.label,
             direction === 'horizontal' && theme.horizontal.label,
@@ -110,7 +136,16 @@ export const Field: FC<FieldProps> = ({
           onClick={onTitleClick}
         >
           {label}
-          {`${required ? ' *' : ''}`}
+          {required && (
+            <>
+              <span className={theme.requiredIndicator} aria-hidden="true">
+                {requiredIndicator}
+              </span>
+              {requiredAnnouncement && (
+                <span className="sr-only">{requiredAnnouncement}</span>
+              )}
+            </>
+          )}
         </label>
       )}
       <div

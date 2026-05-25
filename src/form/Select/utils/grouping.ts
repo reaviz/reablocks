@@ -1,15 +1,22 @@
 import { SelectOptionProps } from '@/form/Select/SelectOption';
 
 export interface GroupOptions {
+  /** The list of computed groups for the provided options. */
   groups: GroupOption[];
+  /** The total number of items across all groups. */
   itemsCount: number;
+  /** Whether the options resulted in any groups being created. */
   hasGroups: boolean;
 }
 
 export interface GroupOption {
+  /** The starting index of the group within the flattened option list. */
   offset: number;
+  /** The position index of this group. */
   index: number;
+  /** The option items belonging to this group. */
   items: SelectOptionProps[];
+  /** The name of the group. */
   name: string;
 }
 

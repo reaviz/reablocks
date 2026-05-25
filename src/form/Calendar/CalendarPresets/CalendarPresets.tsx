@@ -7,8 +7,11 @@ import { isPresetActive } from '@/form/Calendar/utils';
 const DEFAULT_GROUP_NAME = 'Other';
 
 export interface PresetOption {
+  /** Display label for the preset option. */
   label: string;
+  /** Date value or range, or a function that returns one. */
   value: Date | [Date, Date] | (() => Date | [Date, Date]);
+  /** Optional group name used to organize presets. */
   group?: string;
 }
 

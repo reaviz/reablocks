@@ -11,21 +11,25 @@ export interface RedactProps {
 
   /**
    * Whether you can toggle the text or not.
+   * @default true
    */
   allowToggle?: boolean;
 
   /**
    * Number of characters to compact to.
+   * @default 8
    */
   compactLength?: number;
 
   /**
    * The character to replace the text with.
+   * @default '*'
    */
   character?: string;
 
   /**
    * Text to show upon hover.
+   * @default 'Click to toggle sensitive content'
    */
   tooltipText?: string;
 

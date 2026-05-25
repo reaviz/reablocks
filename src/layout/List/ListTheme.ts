@@ -1,6 +1,9 @@
 export interface ListTheme {
+  /** CSS class applied to the root list container. */
   base: string;
+  /** CSS class applied to the list header. */
   header: string;
+  /** Class names applied to each list item. */
   listItem: {
     base: string;
     disabled: string;

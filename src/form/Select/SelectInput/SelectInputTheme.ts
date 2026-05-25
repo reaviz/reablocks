@@ -1,10 +1,17 @@
 export interface SelectInputTheme {
+  /** CSS class applied to the outer container element. */
   container: string;
+  /** CSS class applied to the root select input. */
   base: string;
+  /** CSS class applied to the input container wrapping the input element. */
   inputContainer: string;
+  /** CSS class applied to the inner input element. */
   input: string;
+  /** CSS class applied to the placeholder text. */
   placeholder: string;
+  /** CSS class applied to the displayed selected value. */
   selectedValue: string;
+  /** Class names for the action buttons (refresh, loader, close, expand). */
   actions: {
     container: string;
     button: string;
@@ -13,23 +20,31 @@ export interface SelectInputTheme {
     close: string;
     expand: string;
   };
+  /** CSS class applied when the select input is disabled. */
   disabled: string;
+  /** CSS class applied when the select is not filterable. */
   unfilterable: string;
+  /** CSS class applied when the select input is in an error state. */
   error: string;
+  /** Class names applied when the select is in single-select mode. */
   single: {
     selectedValue: string;
     inputContainer: string;
     input: string;
   };
+  /** Class names applied when the select is in multi-select mode. */
   multiple: {
     selectedValue: string;
     inputContainer: string;
   };
+  /** Class names for start and end adornments. */
   adornment: {
     start: string;
     end: string;
   };
+  /** CSS class applied when the select menu is open. */
   open: string;
+  /** Class names for chips shown for selected options. */
   chip: {
     base: string;
     hover: string;
@@ -37,6 +52,7 @@ export interface SelectInputTheme {
     disabled: string;
     removeButton: string;
   };
+  /** Class names for each size variant of the select input. */
   size: {
     small: string;
     medium: string;

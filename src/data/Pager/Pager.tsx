@@ -48,21 +48,25 @@ export interface PagerProps {
 
   /**
    * The React node or string to use for the previous arrow.
+   * @default <PreviousArrow />
    */
   previousArrow?: ReactNode | string;
 
   /**
    * The React node or string to use for the next arrow.
+   * @default <NextArrow />
    */
   nextArrow?: ReactNode | string;
 
   /**
    * The React node or string to use for the start arrow.
+   * @default <StartArrow />
    */
   startArrow?: ReactNode | string;
 
   /**
    * The React node or string to use for the end arrow.
+   * @default <EndArrow />
    */
   endArrow?: ReactNode | string;
 
@@ -73,6 +77,7 @@ export interface PagerProps {
 
   /**
    * The type of table data for the pager to display.
+   * @default 'pages'
    */
   displayMode?: 'pages' | 'items' | 'all';
 

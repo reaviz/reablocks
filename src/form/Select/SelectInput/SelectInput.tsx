@@ -142,21 +142,25 @@ export interface SelectInputProps {
 
   /**
    * The close icon of the select input.
+   * @default <CloseIcon />
    */
   closeIcon?: React.ReactNode;
 
   /**
    * The refresh icon of the select input.
+   * @default <RefreshIcon />
    */
   refreshIcon?: React.ReactNode;
 
   /**
    * The expand icon of the select input.
+   * @default <DownArrowIcon />
    */
   expandIcon?: React.ReactNode;
 
   /**
    * The loading icon of the select input.
+   * @default <DotsLoader size="small" />
    */
   loadingIcon?: React.ReactNode;
 
@@ -172,6 +176,7 @@ export interface SelectInputProps {
 
   /**
    * The chip of the select input.
+   * @default <SelectInputChip />
    */
   chip?: ReactElement<SelectInputChipProps, typeof SelectInputChip>;
 

@@ -1,16 +1,23 @@
 export interface RangeTheme {
+  /** CSS class applied to the root range track container. */
   base: string;
+  /** CSS class applied to the draggable thumb handle. */
   drag: string;
+  /** Class names for the highlighted (selected) portion of the range. */
   rangeHighlight: {
     base: string;
     disabled: string;
   };
+  /** CSS class applied when the range is disabled. */
   disabled: string;
+  /** Class names for the input wrapper element. */
   inputWrapper: {
     base: string;
     disabled: string;
   };
+  /** CSS class applied to the hidden input element used for keyboard controls. */
   input: string;
+  /** CSS class applied to the value tooltip shown above the handle. */
   tooltip: string;
 }
 
