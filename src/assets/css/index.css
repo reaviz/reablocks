@@ -55,6 +55,7 @@
   --text-primary: var(--color-athens-gray);
   --text-secondary: var(--color-waterloo);
   --text-inactive: var(--color-gray-300);
+  --text-placeholder: var(--color-gray-400);
 
   .theme-light,
   &.theme-light,
@@ -111,6 +112,7 @@
     --text-primary: var(--color-vulcan);
     --text-secondary: var(--color-gray-700);
     --text-inactive: var(--color-gray-500);
+    --text-placeholder: var(--color-gray-400);
   }
 }
 
@@ -171,6 +173,7 @@
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-inactive: var(--text-inactive);
+  --color-text-placeholder: var(--text-placeholder);
 }
 
 body {
