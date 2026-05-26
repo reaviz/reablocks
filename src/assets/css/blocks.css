@@ -44,6 +44,11 @@
   --block-handle: var(--color-black);
   --block-radio-border: currentColor;
   --block-outline-border: var(--color-gray-600);
+  --block-field-border: var(--color-gray-600);
+  --block-icon-muted: var(--color-gray-300);
+  --block-step-bg: var(--color-gray-950);
+  --block-step-border: var(--color-gray-700);
+  --block-surface: var(--color-vulcan);
 
   .theme-light,
   &.theme-light,
@@ -69,6 +74,11 @@
     --block-handle: var(--color-white);
     --block-radio-border: var(--color-charade);
     --block-outline-border: var(--panel-accent);
+    --block-field-border: var(--color-gray-300);
+    --block-icon-muted: var(--color-gray-700);
+    --block-step-bg: var(--color-blue-100);
+    --block-step-border: var(--color-blue-500);
+    --block-surface: var(--color-white);
   }
 }
 
@@ -88,4 +98,9 @@
   --color-block-handle: var(--block-handle);
   --color-block-radio-border: var(--block-radio-border);
   --color-block-outline-border: var(--block-outline-border);
+  --color-block-field-border: var(--block-field-border);
+  --color-block-icon-muted: var(--block-icon-muted);
+  --color-block-step-bg: var(--block-step-bg);
+  --color-block-step-border: var(--block-step-border);
+  --color-block-surface: var(--block-surface);
 }
