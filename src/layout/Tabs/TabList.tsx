@@ -36,12 +36,14 @@ export interface TabListProps extends PropsWithChildren {
   /**
    * The variant of the tabs.
    * @private
+   * @default 'primary'
    */
   variant?: 'primary' | 'secondary';
 
   /**
    * The size of the tabs.
    * @private
+   * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large' | string;
 

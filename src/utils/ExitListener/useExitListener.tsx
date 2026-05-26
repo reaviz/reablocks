@@ -10,6 +10,7 @@ interface ExitListenerOptions {
   /**
    * An optional boolean to enable or disable the event listeners.
    * When set to true (default), the event listeners are active.
+   * @default true
    */
   open?: boolean;
 

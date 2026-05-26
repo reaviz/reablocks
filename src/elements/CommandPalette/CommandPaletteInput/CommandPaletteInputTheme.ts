@@ -1,6 +1,9 @@
 export interface CommandPaletteInputTheme {
+  /** CSS class applied to the root input container. */
   base: string;
+  /** CSS class applied to the underlying input element. */
   input: string;
+  /** CSS class applied to the search icon. */
   icon: string;
 }
 

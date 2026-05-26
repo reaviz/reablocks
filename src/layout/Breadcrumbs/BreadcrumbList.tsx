@@ -3,6 +3,7 @@ import { cn, useComponentTheme } from '@/utils';
 import { BreadcrumbsTheme } from './BreadcrumbsTheme';
 
 export interface BreadcrumbListProps extends React.OlHTMLAttributes<HTMLOListElement> {
+  /** Theme for the Breadcrumbs. */
   theme?: BreadcrumbsTheme;
 }
 

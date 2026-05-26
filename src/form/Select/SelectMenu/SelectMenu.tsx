@@ -9,7 +9,9 @@ import { SelectTheme } from '@/form/Select/SelectTheme';
 import { CheckIcon } from '@/form/Select/icons/CheckIcon';
 
 export interface RenderCreateOptionArgs {
+  /** The current input text used to create a new option. */
   text: string;
+  /** Callback invoked to create the new option. */
   onCreate: () => void;
 }
 

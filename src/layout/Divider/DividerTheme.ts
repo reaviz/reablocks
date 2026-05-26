@@ -1,13 +1,17 @@
 export interface DividerTheme {
+  /** CSS class applied to the root divider element. */
   base?: string;
+  /** Class names for each divider orientation. */
   orientation?: {
     vertical?: string;
     horizontal?: string;
   };
+  /** Class names for each divider variant. */
   variant?: {
     primary?: string;
     secondary?: string;
   };
+  /** CSS class applied when divider margins are disabled. */
   disableMargins?: string;
 }
 

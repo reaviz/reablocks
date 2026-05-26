@@ -7,11 +7,13 @@ import { BackdropTheme } from './BackdropTheme';
 export interface BackdropProps {
   /**
    * The z-index of the backdrop.
+   * @default 998
    */
   zIndex?: number;
 
   /**
    * The index of the portal.
+   * @default 0
    */
   portalIndex?: number;
 

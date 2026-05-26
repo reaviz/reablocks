@@ -1,5 +1,7 @@
 export interface PagerTheme {
+  /** CSS class applied to the root pager container. */
   base: string;
+  /** Class names applied to the pages list and individual page buttons. */
   pages: {
     base: string;
     page: {
@@ -7,15 +9,25 @@ export interface PagerTheme {
       active: string;
     };
   };
+  /** CSS class applied to the ellipsis indicator shown between page ranges. */
   ellipsis: string;
+  /** CSS class applied to the wrapper around the page-range and total-count display. */
   pagerDisplayItems: string;
+  /** CSS class applied to the items-per-page display element. */
   itemsDisplay: string;
+  /** CSS class applied to the current page-range label. */
   showPageRange: string;
+  /** CSS class applied to the total count label. */
   totalCount: string;
+  /** CSS class applied to each pager navigation control button. */
   control: string;
+  /** CSS class applied to the first-page control button. */
   firstPage: string;
+  /** CSS class applied to the previous-page control button. */
   prevPage: string;
+  /** CSS class applied to the last-page control button. */
   lastPage: string;
+  /** CSS class applied to the next-page control button. */
   nextPage: string;
 }
 

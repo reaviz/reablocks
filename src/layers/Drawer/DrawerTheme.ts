@@ -1,16 +1,23 @@
 export interface DrawerTheme {
+  /** CSS class applied to the root drawer container. */
   base: string;
+  /** CSS classes applied to the drawer header and its text. */
   header: {
     base: string;
     text: string;
   };
+  /** CSS class applied to the drawer content area. */
   content: string;
+  /** CSS class applied to the drawer footer. */
   footer: string;
+  /** CSS class applied when padding is disabled. */
   disablePadding: string;
+  /** CSS classes applied to the drawer close button. */
   closeButton: {
     base: string;
     headerless: string;
   };
+  /** CSS classes applied for each drawer position. */
   positions: {
     top: string;
     end: string;

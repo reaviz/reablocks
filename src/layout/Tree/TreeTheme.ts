@@ -1,7 +1,11 @@
 export interface TreeTheme {
+  /** CSS class applied to the root tree container. */
   base: string;
+  /** CSS class applied to the tree element. */
   tree: string;
+  /** CSS class applied to the expand/collapse arrow icon. */
   arrow: string;
+  /** Class names applied to each tree node and its parts. */
   node: {
     base: string;
     collapsed: string;
@@ -13,7 +17,9 @@ export interface TreeTheme {
       icon: string;
     };
   };
+  /** CSS class applied to the block wrapping a node and its toggle. */
   nodeBlock: string;
+  /** CSS class applied to a nested subtree under a node. */
   subtree: string;
 }
 

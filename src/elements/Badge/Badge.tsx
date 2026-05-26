@@ -22,6 +22,7 @@ export interface BadgeProps extends Omit<
 
   /**
    * The color of the badge.
+   * @default 'default'
    */
   color?: BadgeColor | string;
 
@@ -37,6 +38,7 @@ export interface BadgeProps extends Omit<
 
   /**
    * The placement of the badge.
+   * @default 'top-end'
    */
   placement?: BadgePlacement;
 

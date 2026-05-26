@@ -1,5 +1,7 @@
 export interface AvatarTheme {
+  /** CSS class applied to the root avatar element. */
   base: string;
+  /** CSS class applied when the avatar is rounded. */
   rounded: string;
 }
 

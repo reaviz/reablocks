@@ -24,17 +24,38 @@ export type ReferenceProp =
   | RefObject<HTMLElement>;
 
 export interface ReferenceObject {
+  /** The top offset of the reference, in pixels. */
   top: number;
+  /** The left offset of the reference, in pixels. */
   left: number;
+  /** The height of the reference, in pixels. */
   height: number;
+  /** The width of the reference, in pixels. */
   width: number;
 }
 
 export interface PositionOptions {
+  /**
+   * Element or virtual reference object to position against.
+   */
   reference?: Element | ReferenceObject;
+  /**
+   * The floating element being positioned relative to the reference.
+   */
   floating?: HTMLElement;
+  /**
+   * Preferred placement of the floating element relative to the reference.
+   * @default 'top'
+   */
   placement?: Placement;
+  /**
+   * Floating UI middleware applied when computing the position.
+   * @default [flip(), shift({ limiter: limitShift() })]
+   */
   modifiers?: Modifiers;
+  /**
+   * Track the cursor position as the reference instead of an element.
+   */
   followCursor?: boolean;
 }
 /**

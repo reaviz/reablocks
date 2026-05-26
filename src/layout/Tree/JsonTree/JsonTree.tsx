@@ -11,41 +11,49 @@ export interface JsonTreeProps {
 
   /**
    * If true, all nodes in the JSON tree will be expanded by default.
+   * @default false
    */
   showAll?: boolean;
 
   /**
    * The limit for the number of nodes to show when `showAll` is false.
+   * @default 10
    */
   showAllLimit?: number;
 
   /**
    * If true, the count of child nodes will be shown next to each node.
+   * @default true
    */
   showCount?: boolean;
 
   /**
    * If true, empty nodes will be shown in the JSON tree.
+   * @default true
    */
   showEmpty?: boolean;
 
   /**
    * If true, long text in nodes will be truncated and replaced with an ellipsis.
+   * @default true
    */
   ellipsisText?: boolean;
 
   /**
    * The maximum length of text in a node before it is truncated and replaced with an ellipsis.
+   * @default 150
    */
   ellipsisTextLength?: number;
 
   /**
    * The depth at which the JSON tree nodes should be expanded by default.
+   * @default 2
    */
   expandDepth?: number;
 
   /**
    * If true, the JSON tree will be rendered with a root node.
+   * @default true
    */
   root?: boolean;
 

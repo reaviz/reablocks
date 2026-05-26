@@ -1,4 +1,5 @@
 export interface EllipsisTheme {
+  /** CSS class applied to the ellipsis dots toggle element. */
   dots: string;
 }
 

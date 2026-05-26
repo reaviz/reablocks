@@ -1,5 +1,7 @@
 export interface MenuTheme {
+  /** CSS class applied to the root menu container. */
   base: string;
+  /** CSS class applied to the inner menu wrapper. */
   inner: string;
 }
 

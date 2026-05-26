@@ -15,6 +15,7 @@ export interface CalloutProps {
 
   /**
    * The variant of the callout.
+   * @default 'default'
    */
   variant?: 'default' | 'success' | 'error' | 'warning' | 'info';
 

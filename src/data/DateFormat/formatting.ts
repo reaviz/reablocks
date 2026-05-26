@@ -2,8 +2,11 @@ import { isValid, format as dateFnsFormat } from 'date-fns';
 import { formatRelative } from './relative';
 
 export interface SafeFormatOptions {
+  /** The date-fns format string used to format the absolute date. */
   format: string;
+  /** Whether to include seconds when computing the relative time string. */
   includeSeconds?: boolean;
+  /** Whether to append a suffix (e.g. "ago", "in") to the relative time string. */
   addSuffix?: boolean;
 }
 

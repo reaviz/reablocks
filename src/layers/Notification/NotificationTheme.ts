@@ -1,6 +1,9 @@
 export interface NotificationTheme {
+  /** CSS class applied to the notifications container. */
   container: string;
+  /** CSS class controlling notification stack positioning. */
   positions: string;
+  /** CSS classes applied to an individual notification and its parts. */
   notification: {
     base: string;
     variants: {

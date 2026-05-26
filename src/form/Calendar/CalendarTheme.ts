@@ -1,13 +1,18 @@
 export interface CalendarTheme {
+  /** CSS class applied to the root calendar container. */
   base: string;
+  /** Class names for the calendar header (navigation and title). */
   header: {
     base: string;
     prev: string;
     mid: string;
     next: string;
   };
+  /** CSS class applied to the calendar title. */
   title: string;
+  /** CSS class applied to the main calendar content area. */
   content: string;
+  /** Class names for day cells and related elements (header, week rows, range styling). */
   days: {
     header: string;
     dayOfWeek: string;
@@ -23,16 +28,19 @@ export interface CalendarTheme {
     hover: string;
     today: string;
   };
+  /** Class names for the months view. */
   months: {
     root: string;
     month: string;
     selected: string;
   };
+  /** Class names for the years view. */
   years: {
     root: string;
     year: string;
     selected: string;
   };
+  /** Class names for the time picker section. */
   time?: {
     base: string;
     wrapper: string;
@@ -58,6 +66,7 @@ export interface CalendarTheme {
       };
     };
   };
+  /** Class names for the preset options section. */
   presets?: {
     wrapper: string;
     divider: string;

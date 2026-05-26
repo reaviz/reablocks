@@ -1,3 +1,8 @@
+# 10.0.2 - 5/25/26
+- [feature] Field: Customisable required indicator + sr-only announcement #352
+- [feature] ConfirmDialog: async support + slot-based action customization #351
+- [chore] Add default prop values to various components for improved documentation and usability #354
+
 # 10.0.1 - 5/13/26
 - [chore] upgrade deps
 

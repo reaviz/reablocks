@@ -35,6 +35,7 @@ export interface InputProps extends Omit<
 
   /**
    * Size of the input.
+   * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large' | string;
 

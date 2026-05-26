@@ -1,5 +1,7 @@
 export interface TabsTheme {
+  /** CSS class applied to the root tabs container. */
   base: string;
+  /** Class names applied to the tabs list and its inner elements. */
   list: {
     base: string;
     indicator: {
@@ -33,6 +35,7 @@ export interface TabsTheme {
       };
     };
   };
+  /** CSS class applied to the tab panel content area. */
   panel: string;
 }
 

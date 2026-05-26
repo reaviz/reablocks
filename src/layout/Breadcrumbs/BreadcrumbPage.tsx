@@ -3,6 +3,7 @@ import React, { FC } from 'react';
 import { BreadcrumbsTheme } from './BreadcrumbsTheme';
 
 export interface BreadcrumbPageProps extends React.HTMLAttributes<HTMLSpanElement> {
+  /** Theme for the Breadcrumbs. */
   theme?: BreadcrumbsTheme;
 }
 

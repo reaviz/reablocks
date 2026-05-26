@@ -9,3 +9,4 @@ export * from './useUserSelect';
 export * from './useCursor';
 export * from './stringToColor';
 export * from './slots';
+export * from './isPromiseLike';

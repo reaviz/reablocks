@@ -8,13 +8,21 @@ export type NotificationVariants =
   | 'info';
 
 export interface NotificationOptions {
+  /** Title of the notification. */
   title?: string | React.JSX.Element | React.JSX.Element[];
+  /** Body content of the notification. */
   body?: string | React.JSX.Element | React.JSX.Element[];
+  /** Time in milliseconds before the notification auto-dismisses. */
   timeout?: number;
+  /** Whether to show the close button. */
   showClose?: boolean;
+  /** Variant style of the notification. */
   variant?: NotificationVariants;
+  /** Additional class name applied to the notification. */
   className?: string;
+  /** Icon displayed in the notification. */
   icon?: string | React.JSX.Element | React.JSX.Element[];
+  /** Action content displayed in the notification. */
   action?: string | React.JSX.Element | React.JSX.Element[];
 }
 

@@ -29,6 +29,7 @@ export interface TextareaProps extends TextareaAutosizeProps {
 
   /**
    * Size of the field.
+   * @default 'medium'
    */
   size?: 'small' | 'medium' | 'large' | string;
 

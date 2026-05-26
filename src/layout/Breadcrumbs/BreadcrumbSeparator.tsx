@@ -4,6 +4,7 @@ import React, { FC } from 'react';
 import { BreadcrumbsTheme } from './BreadcrumbsTheme';
 
 export interface BreadcrumbSeparatorProps extends React.LiHTMLAttributes<HTMLLIElement> {
+  /** Theme for the Breadcrumbs. */
   theme?: BreadcrumbsTheme;
 }
 

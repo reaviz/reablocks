@@ -1,4 +1,5 @@
 export interface JsonTreeTheme {
+  /** Class names applied to each JSON tree node and its parts. */
   node: {
     label: string;
     value: string;
@@ -6,6 +7,7 @@ export interface JsonTreeTheme {
     symbol: string;
     count: string;
   };
+  /** CSS class applied to the pager used for paginated nodes. */
   pager: string;
 }
 

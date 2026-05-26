@@ -1,6 +1,9 @@
 export interface DotsLoaderTheme {
+  /** CSS class applied to the root loader container. */
   base: string;
+  /** CSS class applied to each individual dot. */
   dot: string;
+  /** Class names for each loader size. */
   sizes: {
     small: string;
     medium: string;

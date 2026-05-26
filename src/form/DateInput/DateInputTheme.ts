@@ -2,8 +2,11 @@ import { calendarTheme, CalendarTheme } from '@/form/Calendar';
 import { inputTheme, InputTheme } from '@/form/Input';
 
 export interface DateInputTheme {
+  /** Theme applied to the underlying input element. */
   input: InputTheme;
+  /** Theme applied to the calendar popover. */
   calendar: CalendarTheme;
+  /** Class names for the preset list and its options. */
   preset: {
     list: string;
     option: {

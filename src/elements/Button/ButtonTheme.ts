@@ -1,9 +1,15 @@
 export interface ButtonTheme {
+  /** CSS class applied to the root button element. */
   base: string;
+  /** CSS class applied when the button is disabled. */
   disabled: string;
+  /** CSS class applied when the button spans the full width of its container. */
   fullWidth: string;
+  /** CSS class applied when the button is part of a button group. */
   group: string;
+  /** CSS class applied to text buttons within a button group. */
   groupText: string;
+  /** Class names for the button's start and end adornment slots. */
   adornment: {
     base: string;
     start: string;
@@ -15,12 +21,14 @@ export interface ButtonTheme {
       [key: string]: string;
     };
   };
+  /** Class names for each visual button variant. */
   variants: {
     filled: string;
     outline: string;
     text: string;
     [key: string]: string;
   };
+  /** Class names for each button color, broken down by variant. */
   colors: {
     default: {
       filled: string;
@@ -65,12 +73,14 @@ export interface ButtonTheme {
       [key: string]: string;
     };
   };
+  /** Class names for each button size. */
   sizes: {
     small: string;
     medium: string;
     large: string;
     [key: string]: string;
   };
+  /** Class names for icon-only buttons at each size. */
   iconSizes: {
     small: string;
     medium: string;

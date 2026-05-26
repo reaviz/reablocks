@@ -1,6 +1,9 @@
 export interface SkeletonTheme {
+  /** CSS class applied to the root skeleton element. */
   base: string;
+  /** CSS class applied when the skeleton has its loading animation enabled. */
   animated: string;
+  /** Class names for each skeleton shape variant. */
   variants: {
     text: string;
     rounded: string;

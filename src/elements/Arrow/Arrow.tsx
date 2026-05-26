@@ -10,6 +10,7 @@ export interface ArrowProps {
 
   /**
    * The direction of the arrow
+   * @default 'down'
    */
   direction?: 'up' | 'right' | 'down' | 'left';
 

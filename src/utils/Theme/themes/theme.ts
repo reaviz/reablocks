@@ -106,52 +106,99 @@ import {
 import { TypographyTheme, typographyTheme } from '@/typography';
 
 export interface ReablocksTheme {
+  /** Theme overrides applied to each Reablocks component. */
   components: {
+    /** Theme applied to the Avatar component. */
     avatar: AvatarTheme;
+    /** Theme applied to the AvatarGroup component. */
     avatarGroup: AvatarGroupTheme;
+    /** Theme applied to the Arrow component. */
     arrow: ArrowTheme;
+    /** Theme applied to the Badge component. */
     badge: BadgeTheme;
+    /** Theme applied to the Button component. */
     button: ButtonTheme;
+    /** Theme applied to the Field component. */
     field: FieldTheme;
+    /** Theme applied to the Chip component. */
     chip: ChipTheme;
+    /** Theme applied to the ContextMenu component. */
     contextMenu: ContextMenuTheme;
+    /** Theme applied to the Checkbox component. */
     checkbox: CheckboxTheme;
+    /** Theme applied to the DateFormat component. */
     dateFormat: DateFormatTheme;
+    /** Theme applied to the Dialog component. */
     dialog: DialogTheme;
+    /** Theme applied to the Divider component. */
     divider: DividerTheme;
+    /** Theme applied to the DotsLoader component. */
     dotsLoader: DotsLoaderTheme;
+    /** Theme applied to the Drawer component. */
     drawer: DrawerTheme;
+    /** Theme applied to the Ellipsis component. */
     ellipsis: EllipsisTheme;
+    /** Theme applied to the Select component. */
     select: SelectTheme;
+    /** Theme applied to the List component. */
     list: ListTheme;
+    /** Theme applied to the Menu component. */
     menu: MenuTheme;
+    /** Theme applied to the Sort component. */
     sort: SortTheme;
+    /** Theme applied to the Card component. */
     card: CardTheme;
+    /** Theme applied to the Kbd component. */
     kbd: KbdTheme;
+    /** Theme applied to the Notification component. */
     notification: NotificationTheme;
+    /** Theme applied to the Navigation component. */
     navigation: NavigationTheme;
+    /** Theme applied to the Input component. */
     input: InputTheme;
+    /** Theme applied to the DateInput component. */
     dateInput: DateInputTheme;
+    /** Theme applied to the Calendar component. */
     calendar: CalendarTheme;
+    /** Theme applied to the CalendarRange component. */
     calendarRange: CalendarRangeTheme;
+    /** Theme applied to the CommandPalette component. */
     commandPalette: CommandPaletteTheme;
+    /** Theme applied to the Collapse component. */
     collapse: CollapseTheme;
+    /** Theme applied to the Textarea component. */
     textarea: TextareaTheme;
+    /** Theme applied to the Radio component. */
     radio: RadioTheme;
+    /** Theme applied to the Range component. */
     range: RangeTheme;
+    /** Theme applied to the Redact component. */
     redact: RedactTheme;
+    /** Theme applied to the Toggle component. */
     toggle: ToggleTheme;
+    /** Theme applied to the Tooltip component. */
     tooltip: TooltipTheme;
+    /** Theme applied to the Tree component. */
     tree: TreeTheme;
+    /** Theme applied to the JsonTree component. */
     jsonTree: JsonTreeTheme;
+    /** Theme applied to the Popover component. */
     popover: PopoverTheme;
+    /** Theme applied to the Pager component. */
     pager: PagerTheme;
+    /** Theme applied to the Tabs component. */
     tabs: TabsTheme;
+    /** Theme applied to the Breadcrumbs component. */
     breadcrumbs: BreadcrumbsTheme;
+    /** Theme applied to the Stepper component. */
     stepper: StepperTheme;
+    /** Theme applied to the Callout component. */
     callout: CalloutTheme;
+    /** Theme applied to the Backdrop component. */
     backdrop: BackdropTheme;
+    /** Theme applied to the Skeleton component. */
     skeleton: SkeletonTheme;
+    /** Theme applied to the typography components. */
     typography: TypographyTheme;
   };
 }

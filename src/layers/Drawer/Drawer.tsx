@@ -30,11 +30,13 @@ export interface DrawerProps
   extends Omit<GlobalOverlayProps, 'children'>, MotionProps {
   /**
    * Position of the drawer.
+   * @default 'end'
    */
   position?: 'start' | 'end' | 'top' | 'bottom';
 
   /**
    * Size of the drawer.
+   * @default '80%'
    */
   size?: string | number;
 
@@ -55,6 +57,7 @@ export interface DrawerProps
 
   /**
    * Whether to disable padding for the drawer content.
+   * @default false
    */
   disablePadding?: boolean;
 
@@ -75,6 +78,7 @@ export interface DrawerProps
 
   /**
    * Whether to show the close button.
+   * @default true
    */
   showCloseButton?: boolean;
 
@@ -87,6 +91,7 @@ export interface DrawerProps
   /**
    * The React element for the drawer header.
    * @deprecated Use DrawerHeader slot component instead.
+   * @default <DrawerHeader />
    */
   headerElement?: ReactElement<DrawerHeaderProps, typeof DrawerHeader> | null;
 

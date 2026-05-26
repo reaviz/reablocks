@@ -1,5 +1,7 @@
 export interface StepperTheme {
+  /** CSS class applied to the root stepper container. */
   base: string;
+  /** Class names applied to each step. */
   step: {
     base: string;
     marker: {

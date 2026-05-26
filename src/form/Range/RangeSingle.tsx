@@ -14,6 +14,7 @@ import { RangeTheme } from './RangeTheme';
 export interface RangeSingleProps extends RangeProps<number> {
   /**
    * Display the highlight when true
+   * @default false
    */
   showHighlight?: boolean;
 }

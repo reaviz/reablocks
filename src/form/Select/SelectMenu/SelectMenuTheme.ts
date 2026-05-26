@@ -1,5 +1,7 @@
 export interface SelectMenuTheme {
+  /** CSS class applied to the root select menu container. */
   base: string;
+  /** Class names for group items, including title and size variants. */
   groupItem: {
     base: string;
     title: string;
@@ -10,6 +12,7 @@ export interface SelectMenuTheme {
       [key: string]: string;
     };
   };
+  /** Class names for option items in their various states. */
   option: {
     base: string;
     hover: string;
@@ -19,6 +22,7 @@ export interface SelectMenuTheme {
     checkIcon: string;
     content: string;
   };
+  /** Class names for each size variant of the menu. */
   size: {
     small: string;
     medium: string;

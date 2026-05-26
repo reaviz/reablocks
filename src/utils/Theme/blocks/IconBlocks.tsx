@@ -1,9 +1,13 @@
 import React, { FC, Suspense } from 'react';
 
 export interface IconBlockProps {
+  /** Display name of the icon. */
   name: string;
+  /** React component used to render the icon. */
   component?: any;
+  /** Image source URL used to render the icon when no component is provided. */
   src?: any;
+  /** Additional class names applied to the block. */
   className?: string;
 }
 
@@ -47,7 +51,9 @@ export const IconBlock: FC<IconBlockProps> = ({
 );
 
 export interface IconBlocksProps {
+  /** Collection of icons to display in the grid. */
   icons: IconBlockProps[];
+  /** Additional class names applied to the grid. */
   className?: string;
 }
 

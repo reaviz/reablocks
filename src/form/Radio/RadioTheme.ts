@@ -1,10 +1,13 @@
 export interface RadioTheme {
+  /** CSS class applied to the root radio container. */
   base: string;
+  /** Class names for the radio circle in its various states. */
   radio: {
     base: string;
     disabled: string;
     checked: string;
   };
+  /** Class names for the inner indicator dot, including size variants. */
   indicator: {
     base: string;
     disabled: string;
@@ -15,12 +18,14 @@ export interface RadioTheme {
       [key: string]: string;
     };
   };
+  /** Class names for the radio label in its various states. */
   label: {
     base: string;
     clickable: string;
     checked: string;
     disabled: string;
   };
+  /** Class names for each size variant of the radio. */
   sizes: {
     small: string;
     medium: string;

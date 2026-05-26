@@ -70,16 +70,24 @@ export function getDayLabels(locale?: string) {
 export const daysOfWeek = getDayLabels();
 
 export interface Day {
+  /** The full Date object for the day. */
   date: Date;
+  /** The numeric day of the month (1-31). */
   dayOfMonth: number;
+  /** Whether the day falls on a weekend (Saturday or Sunday). */
   isWeekendDay: boolean;
+  /** Whether the day belongs to the previous month. */
   isPreviousMonth: boolean;
+  /** Whether the day belongs to the next month. */
   isNextMonth: boolean;
+  /** Whether the day is today. */
   isToday: boolean;
+  /** The day formatted as a string using the configured format. */
   formattedDate: string;
 }
 
 export interface DayOptions {
+  /** Date format string used to format the day. */
   format: string;
 }
 
