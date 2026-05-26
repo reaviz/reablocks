@@ -52,6 +52,14 @@
   --block-option: var(--color-vulcan);
   --block-option-hover: var(--color-charade);
   --block-option-selected: var(--color-black);
+  --block-icon-fill: var(--color-mystic);
+  --block-card-border-image-tl: linear-gradient(to top left, #242433, #02020f)
+    10;
+  --block-radial-bg: radial-gradient(
+    circle,
+    rgba(36, 36, 66, 0.3) 2%,
+    rgba(2, 2, 15, 1) 80%
+  );
 
   .theme-light,
   &.theme-light,
@@ -85,6 +93,14 @@
     --block-option: var(--panel);
     --block-option-hover: var(--color-athens-gray);
     --block-option-selected: var(--color-athens-gray);
+    --block-icon-fill: currentColor;
+    --block-card-border-image-tl: linear-gradient(to top left, #e6e6f0, #ffffff)
+      10;
+    --block-radial-bg: radial-gradient(
+      circle,
+      rgba(224, 224, 232, 0.3) 2%,
+      rgba(247, 247, 250, 1) 80%
+    );
   }
 }
 
@@ -112,4 +128,5 @@
   --color-block-option: var(--block-option);
   --color-block-option-hover: var(--block-option-hover);
   --color-block-option-selected: var(--block-option-selected);
+  --color-block-icon-fill: var(--block-icon-fill);
 }
