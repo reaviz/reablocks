@@ -1,5 +1,4 @@
 import React, {
-  FC,
   forwardRef,
   HTMLAttributes,
   PropsWithChildren,
@@ -50,10 +49,7 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   theme?: TableTheme;
 }
 
-export const Table: FC<PropsWithChildren<TableProps>> = forwardRef<
-  HTMLDivElement,
-  PropsWithChildren<TableProps>
->(
+export const Table = forwardRef<HTMLDivElement, PropsWithChildren<TableProps>>(
   (
     {
       size = 'base',

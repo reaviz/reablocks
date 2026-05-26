@@ -227,6 +227,7 @@ export const TableHeaderCell = forwardRef<
           document.removeEventListener('mouseup', cleanup);
           document.removeEventListener('touchmove', onTouchMove);
           document.removeEventListener('touchend', cleanup);
+          document.removeEventListener('touchcancel', cleanup);
           cleanupRef.current = null;
         };
         cleanupRef.current = cleanup;
@@ -234,6 +235,7 @@ export const TableHeaderCell = forwardRef<
         document.addEventListener('mouseup', cleanup);
         document.addEventListener('touchmove', onTouchMove);
         document.addEventListener('touchend', cleanup);
+        document.addEventListener('touchcancel', cleanup);
       },
       [canResize, ctx, columnId, ctxWidth, width, minWidth, maxWidth]
     );
