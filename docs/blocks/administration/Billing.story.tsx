@@ -51,13 +51,13 @@ export const BillingFull = () => (
             <span className="font-bold">Plan</span>
             <div className="flex w-full gap-4">
               <Card
-                className="bg-block-card-bg flex-1"
+                className="light:bg-athens-gray flex-1"
                 contentClassName="flex flex-col gap-6"
               >
                 <div className="flex items-center gap-2.5 justify-between">
                   <span className="font-bold">Premium</span>
                   <Chip
-                    className="border-primary-inactive rounded-full border"
+                    className="border-panel-accent rounded-full border"
                     variant="outline"
                   >
                     Annual
@@ -70,7 +70,7 @@ export const BillingFull = () => (
                   </span>
                 </div>
                 <Button
-                  className="bg-block-soft/40 hover:bg-block-soft/60 focus:bg-block-soft/60 text-block-soft-text w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                   variant="outline"
                   start={
                     <svg
@@ -89,7 +89,7 @@ export const BillingFull = () => (
                 </Button>
               </Card>
               <Card
-                className="bg-block-card-bg flex-1"
+                className="light:bg-athens-gray flex-1"
                 contentClassName="flex flex-col gap-6"
               >
                 <span className="font-bold">Billing period</span>
@@ -100,7 +100,7 @@ export const BillingFull = () => (
                   </span>
                 </div>
                 <Button
-                  className="bg-block-soft/40 hover:bg-block-soft/60 focus:bg-block-soft/60 text-block-soft-text w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                   variant="outline"
                   start={
                     <svg
@@ -122,7 +122,7 @@ export const BillingFull = () => (
             <Divider className="my-6" variant="secondary" />
             <span className="font-bold">Seats</span>
             <span className="text-sm">Remaining Seats</span>
-            <div className="bg-block-track relative my-3 h-[50px] w-full rounded-full border border-primary/40">
+            <div className="dark:bg-vulcan light:bg-mystic relative my-3 h-[50px] w-full rounded-full border border-primary/40">
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: '33%', opacity: 1 }}
@@ -206,7 +206,7 @@ export const PayAndBilling = () => {
             </div>
             <div className="flex items-center gap-2.5">
               <Button
-                className="bg-block-soft/40 hover:bg-block-soft/60 focus:bg-block-soft/60 text-block-soft-text w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                 variant="outline"
                 end={
                   <svg
@@ -223,7 +223,7 @@ export const PayAndBilling = () => {
                 Cancel Subscription
               </Button>
               <Button
-                className="bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus! flex items-center gap-2 self-stretch px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover flex items-center gap-2 self-stretch px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                 end={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -329,7 +329,7 @@ export const PayAndBilling = () => {
                 </Tooltip>
               </div>
               <span className="text-xl font-bold">100 of 500</span>
-              <div className="bg-block-track relative h-3 w-full rounded-full border border-primary/40">
+              <div className="dark:bg-vulcan light:bg-mystic relative h-3 w-full rounded-full border border-primary/40">
                 <motion.div
                   initial={{ width: 0, opacity: 0 }}
                   animate={{ width: `${(100 / 500) * 100}%`, opacity: 1 }}
@@ -371,7 +371,7 @@ export const PayAndBilling = () => {
                 </Tooltip>
               </div>
               <span className="text-xl font-bold">33 of 50</span>
-              <div className="bg-block-track relative h-3 w-full rounded-full border border-primary/40">
+              <div className="dark:bg-vulcan light:bg-mystic relative h-3 w-full rounded-full border border-primary/40">
                 <motion.div
                   initial={{ width: 0, opacity: 0 }}
                   animate={{ width: `${(33 / 50) * 100}%`, opacity: 1 }}
@@ -413,7 +413,7 @@ export const PayAndBilling = () => {
                 </Tooltip>
               </div>
               <span className="text-xl font-bold">47 of 125</span>
-              <div className="bg-block-track relative h-3 w-full rounded-full border border-primary/40">
+              <div className="dark:bg-vulcan light:bg-mystic relative h-3 w-full rounded-full border border-primary/40">
                 <motion.div
                   initial={{ width: 0, opacity: 0 }}
                   animate={{ width: `${(47 / 125) * 100}%`, opacity: 1 }}
@@ -447,8 +447,7 @@ export const BillingSubscription = () => (
           <h2 className="text-2xl font-bold">Billing</h2>
           <div className="flex items-center gap-2.5">
             <Button
-              className="bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus! w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
-              color="primary"
+              className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
               end={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -494,7 +493,7 @@ export const BillingSubscription = () => (
         </div>
         <div className="border-panel-accent flex overflow-hidden rounded-xl border">
           <div className="flex flex-1 flex-col">
-            <div className="bg-block-track text-text-secondary px-6 py-4 text-base">
+            <div className="dark:bg-vulcan light:bg-mystic text-text-secondary px-6 py-4 text-base">
               Selected plan
             </div>
             <div className="text-text-secondary flex-1 px-6 py-4 text-base">
@@ -502,7 +501,7 @@ export const BillingSubscription = () => (
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="bg-block-track text-text-secondary px-6 py-4 text-base">
+            <div className="dark:bg-vulcan light:bg-mystic text-text-secondary px-6 py-4 text-base">
               Price
             </div>
             <div className="text-text-secondary flex flex-1 items-center gap-2 px-6 py-4 text-base">
@@ -520,7 +519,7 @@ export const BillingSubscription = () => (
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="bg-block-track text-text-secondary px-6 py-4 text-base">
+            <div className="dark:bg-vulcan light:bg-mystic text-text-secondary px-6 py-4 text-base">
               Seats
             </div>
             <div className="text-text-secondary flex flex-1 items-center gap-2 px-6 py-4 text-base">
@@ -538,7 +537,7 @@ export const BillingSubscription = () => (
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="bg-block-track text-text-secondary px-6 py-4 text-base">
+            <div className="dark:bg-vulcan light:bg-mystic text-text-secondary px-6 py-4 text-base">
               Yearly Cost
             </div>
             <div className="text-text-secondary flex flex-1 items-center gap-2 px-6 py-4 text-base">
@@ -563,7 +562,7 @@ export const BillingSubscription = () => (
               <span className="text-sm">Editors</span>
               <span className="text-base">11/30 used</span>
             </div>
-            <div className="bg-block-track relative h-3 w-full rounded-full border border-primary/40">
+            <div className="dark:bg-vulcan light:bg-mystic relative h-3 w-full rounded-full border border-primary/40">
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: `${(11 / 30) * 100}%`, opacity: 1 }}
@@ -601,7 +600,7 @@ export const BillingSubscription = () => (
               <span className="text-sm">Contributors</span>
               <span className="text-base">18/20 used</span>
             </div>
-            <div className="bg-block-track relative h-3 w-full rounded-full border border-orange-500/40">
+            <div className="dark:bg-vulcan light:bg-mystic relative h-3 w-full rounded-full border border-orange-500/40">
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: `${(18 / 20) * 100}%`, opacity: 1 }}
@@ -640,7 +639,7 @@ export const BillingSubscription = () => (
               <span className="text-sm">Viewers</span>
               <span className="text-base">11/15 used</span>
             </div>
-            <div className="bg-block-track relative h-3 w-full rounded-full border border-orange-500/40">
+            <div className="dark:bg-vulcan light:bg-mystic relative h-3 w-full rounded-full border border-orange-500/40">
               <motion.div
                 initial={{ width: 0, opacity: 0 }}
                 animate={{ width: `${(11 / 15) * 100}%`, opacity: 1 }}
@@ -730,7 +729,7 @@ export const BillingInformation = () => {
             </span>
           </div>
           <Button
-            className="bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus! w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+            className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
             color="primary"
             end={
               <svg
@@ -763,7 +762,7 @@ export const BillingInformation = () => {
               <div className="flex items-center justify-between">
                 <span className="font-bold">Payment Method</span>
                 <Button
-                  className="bg-block-soft/40 hover:bg-block-soft/60 focus:bg-block-soft/60 text-block-soft-text w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                   color="secondary"
                 >
                   Update
@@ -786,7 +785,7 @@ export const BillingInformation = () => {
               <div className="flex items-center justify-between">
                 <span className="font-bold">Billing Details</span>
                 <Button
-                  className="bg-block-soft/40 hover:bg-block-soft/60 focus:bg-block-soft/60 text-block-soft-text w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
+                  className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                   color="secondary"
                 >
                   Update

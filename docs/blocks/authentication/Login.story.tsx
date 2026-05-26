@@ -86,7 +86,7 @@ export const Login = () => {
             variant="filled"
             color="primary"
             disabled={isSubmitting}
-            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus! focus:outline-hidden transition-colors"
+            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             start={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -194,7 +194,7 @@ export const LoginBasic = () => {
             variant="filled"
             color="primary"
             disabled={isSubmitting}
-            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus! focus:outline-hidden transition-colors"
+            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             start={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -310,7 +310,7 @@ export const LoginFull = () => {
                 type="submit"
                 variant="filled"
                 color="primary"
-                className="mt-7 rounded-xs px-4 py-2 font-semibold flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus! focus:outline-hidden transition-colors"
+                className="mt-7 rounded-xs px-4 py-2 font-semibold flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
                 disabled={isSubmitting}
                 fullWidth
               >
@@ -331,14 +331,14 @@ export const LoginFull = () => {
             </div>
             <div className="flex items-center gap-2.5 my-7">
               <Divider variant="secondary" />
-              <span className="whitespace-nowrap text-sm text-text-secondary">
+              <span className="whitespace-nowrap text-sm dark:text-waterloo light:text-charade">
                 or with
               </span>
               <Divider variant="secondary" />
             </div>
             <div className="flex flex-col w-full gap-4">
               <Button
-                className="px-4 py-2 font-semibold bg-block-soft/40 hover:bg-block-soft/60 focus:bg-block-soft/60 text-block-soft-text focus:outline-hidden transition-colors"
+                className="px-4 py-2 font-semibold dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-hidden transition-colors"
                 start={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -355,7 +355,7 @@ export const LoginFull = () => {
                 Sign in with Google
               </Button>
               <Button
-                className="px-4 py-2 font-semibold bg-block-soft/40 hover:bg-block-soft/60 focus:bg-block-soft/60 text-block-soft-text focus:outline-hidden transition-colors"
+                className="px-4 py-2 font-semibold dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-hidden transition-colors"
                 start={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -372,7 +372,7 @@ export const LoginFull = () => {
                 Sign up with Facebook
               </Button>
               <Button
-                className="px-4 py-2 font-semibold bg-block-soft/40 hover:bg-block-soft/60 focus:bg-block-soft/60 text-block-soft-text focus:outline-hidden transition-colors"
+                className="px-4 py-2 font-semibold dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan focus:outline-hidden transition-colors"
                 start={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -497,7 +497,7 @@ export const LoginPassword = () => {
             variant="filled"
             color="primary"
             disabled={isSubmitting}
-            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus! focus:outline-hidden transition-colors"
+            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             start={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -580,7 +580,7 @@ export const LoginSocial = () => {
             variant="filled"
             color="primary"
             disabled={isSubmitting}
-            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus! focus:outline-hidden transition-colors"
+            className="mt-7 rounded-xs px-4 py-2 flex items-center gap-2 self-stretch text-lg! bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             start={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -607,7 +607,7 @@ export const LoginSocial = () => {
           </Button>
           <div className="flex items-center gap-2.5 my-7">
             <Divider variant="secondary" />
-            <span className="whitespace-nowrap text-sm text-text-secondary">
+            <span className="whitespace-nowrap text-sm dark:text-waterloo light:text-charade">
               or with
             </span>
             <Divider variant="secondary" />

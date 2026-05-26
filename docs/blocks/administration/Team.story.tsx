@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
-import { mergeDeep, mergeThemeClasses } from '../../../src/utils/Theme/helpers';
 
 import { Card } from '../../../src/layout/Card';
 import { Tabs, Tab, TabList, TabPanel } from '../../../src/layout/Tabs';
@@ -73,9 +72,11 @@ const GoodCodeLogo = () => (
 export const TeamGeneral = () => {
   const [checkedUsers, setCheckedUsers] = useState<number[]>([]);
 
-  const checkboxTheme: CheckboxTheme = mergeDeep(defaultCheckboxTheme, {
+  const checkboxTheme: CheckboxTheme = {
+    ...defaultCheckboxTheme,
     check: 'stroke-white',
     boxVariants: {
+      ...defaultCheckboxTheme.boxVariants,
       checked: {
         fill: 'hsl(var(--twc-primary))',
         stroke: 'hsla(var(--twc-primary))'
@@ -85,7 +86,7 @@ export const TeamGeneral = () => {
         stroke: 'hsl(var(--twc-surface))'
       }
     }
-  }, mergeThemeClasses);
+  };
 
   return (
     <motion.div
@@ -123,7 +124,6 @@ export const TeamGeneral = () => {
                 </span>
               </div>
               <Button
-                color="primary"
                 start={
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +135,7 @@ export const TeamGeneral = () => {
                     <path d="M12.6667 2H3.33333C2.59333 2 2 2.6 2 3.33333V12.6667C2 13.4 2.59333 14 3.33333 14H12.6667C13.4 14 14 13.4 14 12.6667V3.33333C14 2.6 13.4 2 12.6667 2ZM12.6667 12.6667H3.33333V3.33333H12.6667V12.6667ZM7.33333 11.3333H8.66667V8.66667H11.3333V7.33333H8.66667V4.66667H7.33333V7.33333H4.66667V8.66667H7.33333V11.3333Z" />
                   </svg>
                 }
-                className="font-semibold px-4 py-2 h-fit my-auto flex items-center gap-2 self-stretch bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus! focus:outline-hidden transition-colors"
+                className="font-semibold px-4 py-2 h-fit my-auto flex items-center gap-2 self-stretch bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
               >
                 Add user
               </Button>
@@ -308,7 +308,6 @@ export const TeamMinimal = () => {
               </span>
             </div>
             <Button
-              color="primary"
               start={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -320,7 +319,7 @@ export const TeamMinimal = () => {
                   <path d="M12.6667 2H3.33333C2.59333 2 2 2.6 2 3.33333V12.6667C2 13.4 2.59333 14 3.33333 14H12.6667C13.4 14 14 13.4 14 12.6667V3.33333C14 2.6 13.4 2 12.6667 2ZM12.6667 12.6667H3.33333V3.33333H12.6667V12.6667ZM7.33333 11.3333H8.66667V8.66667H11.3333V7.33333H8.66667V4.66667H7.33333V7.33333H4.66667V8.66667H7.33333V11.3333Z" />
                 </svg>
               }
-              className="font-semibold px-4 py-2 h-fit my-auto flex items-center gap-2 self-stretch bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus! focus:outline-hidden transition-colors"
+              className="font-semibold px-4 py-2 h-fit my-auto flex items-center gap-2 self-stretch bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
             >
               Add team member
             </Button>
@@ -350,7 +349,7 @@ export const TeamMinimal = () => {
           </div>
           <div className="rounded-xl overflow-auto max-h-[300px]">
             <table className="w-full">
-              <thead className="sticky top-0 left-0 text-left text-text-secondary text-base bg-block-track">
+              <thead className="sticky top-0 left-0 text-left text-text-secondary text-base dark:bg-vulcan light:bg-gray-200">
                 <tr>
                   <th className="py-6 pl-4">Name</th>
                   <th className="py-6 pl-4">Email</th>
@@ -457,9 +456,11 @@ export const TeamRoles = () => {
   const [checkedUsers, setCheckedUsers] = useState<number[]>([]);
   const [checkedAdmins, setCheckedAdmins] = useState<number[]>([]);
 
-  const checkboxTheme: CheckboxTheme = mergeDeep(defaultCheckboxTheme, {
+  const checkboxTheme: CheckboxTheme = {
+    ...defaultCheckboxTheme,
     check: 'stroke-white',
     boxVariants: {
+      ...defaultCheckboxTheme.boxVariants,
       checked: {
         fill: 'hsl(var(--twc-primary))',
         stroke: 'hsla(var(--twc-primary))'
@@ -469,7 +470,7 @@ export const TeamRoles = () => {
         stroke: 'hsl(var(--twc-surface))'
       }
     }
-  }, mergeThemeClasses);
+  };
 
   return (
     <motion.div
@@ -515,7 +516,7 @@ export const TeamRoles = () => {
             </div>
             <div className="flex-1 rounded-xl overflow-auto">
               <table className="w-full">
-                <thead className="text-left text-text-secondary text-base bg-block-track">
+                <thead className="text-left text-text-secondary text-base dark:bg-vulcan light:bg-gray-200">
                   <tr>
                     <th className="py-6 pl-4">
                       <Checkbox
@@ -650,7 +651,7 @@ export const TeamRoles = () => {
             </div>
             <div className="flex-1 rounded-xl overflow-auto h-[500px]">
               <table className="w-full">
-                <thead className="sticky top-0 left-0 text-left text-text-secondary text-base bg-block-track">
+                <thead className="sticky top-0 left-0 text-left text-text-secondary text-base dark:bg-vulcan light:bg-gray-200">
                   <tr>
                     <th className="py-6 pl-4">
                       <Checkbox

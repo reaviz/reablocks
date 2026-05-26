@@ -8,7 +8,6 @@ import { ThemeProvider } from '../src/utils/Theme/ThemeProvider';
 import { theme as reablocksTheme } from '../src/utils/Theme/themes/theme';
 
 import '../src/assets/css/index.css';
-import '../src/assets/css/blocks.css';
 
 const withProvider = (Story, context) => (
   <ThemeProvider theme={reablocksTheme}>

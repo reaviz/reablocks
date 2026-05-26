@@ -185,7 +185,7 @@ export const legacyComponentNameTheme: ComponentNameTheme = {
 2. Use `twMerge` from `tailwind-merge` to merge class names
 3. Support theme customization via theme prop
 4. Use CSS custom properties for color theming (defined in `src/assets/css/index.css`)
-5. Prefer semantic CSS-variable tokens (e.g. `bg-panel`, `text-text-primary`, `bg-block-soft`) over `dark:` / `light:` variant utilities. The `--block-*` tokens used by docs/blocks live in `src/assets/css/blocks.css`.
+5. Support both dark and light themes using `dark:` and `light:` variants
 
 ### Storybook Stories
 
@@ -255,7 +255,7 @@ function App() {
 
 ### CSS Custom Properties
 
-Theme colors are defined in `src/assets/css/index.css` (core) and `src/assets/css/blocks.css` (block-only `--block-*` tokens) using CSS custom properties:
+Theme colors are defined in `src/assets/css/index.css` using CSS custom properties:
 
 - `--primary`, `--primary-hover`, `--primary-active`
 - `--secondary`, `--secondary-hover`
@@ -298,16 +298,11 @@ The build process consists of:
    - Generates TypeScript declarations (`dist/index.d.ts`)
    - Copies story files to `dist/stories/` and `dist/blocks/`
 
-2. **CSS Build** (`npm run build:styles`): Tailwind CLI builds the core library styles
+2. **CSS Build** (`npm run build:styles`): Tailwind CLI builds styles
    - Input: `src/assets/css/index.css`
    - Output: `dist/index.css`
 
-3. **Blocks CSS Build** (`npm run build:blocks-styles`): Tailwind CLI builds the opt-in block stylesheet
-   - Input: `src/assets/css/blocks.css`
-   - Output: `dist/blocks/blocks.css`
-   - `blocks.css` references palette vars from `theme.css` directly (no dependency on `index.css` semantic tokens), so the sheet is standalone.
-
-4. **Docs Build** (`npm run build:docs`): Generates component documentation
+3. **Docs Build** (`npm run build:docs`): Generates component documentation
 
 ## Pre-commit Hooks
 

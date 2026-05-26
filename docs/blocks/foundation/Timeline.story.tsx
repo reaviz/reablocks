@@ -24,12 +24,12 @@ export const ActivityTimeline = () => (
       <Stepper continuous animated>
         <Step>
           <div className="flex flex-col gap-1">
-            <span className="text-sm text-text-secondary">
+            <span className="text-sm text-gray-400 light:text-gray-600">
               03/01/2024, 8:00 AM
             </span>
             <span className="font-medium">
               Austin{' '}
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 created ticket
               </span>
             </span>
@@ -37,17 +37,17 @@ export const ActivityTimeline = () => (
         </Step>
         <Step>
           <div className="flex flex-col gap-1">
-            <span className="text-sm text-text-secondary">
+            <span className="text-sm text-gray-400 light:text-gray-600">
               03/02/2024, 10:00 AM
             </span>
             <span className="font-medium">
               Austin
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 {' '}
                 changed statues from{' '}
               </span>
               Backlog
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 {' '}
                 to{' '}
               </span>
@@ -57,18 +57,18 @@ export const ActivityTimeline = () => (
         </Step>
         <Step>
           <div className="flex flex-col gap-2">
-            <span className="text-sm text-text-secondary">
+            <span className="text-sm text-gray-400 light:text-gray-600">
               03/03/2024, 10:15 AM
             </span>
             <span className="font-medium">
               Austin
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 {' '}
                 left a comment{' '}
               </span>
             </span>
-            <div className="mt-2 px-4 py-2 border border-solid border-blue-700 bg-block-callout rounded-md">
-              <div className="text-text-secondary font-medium text-sm">
+            <div className="mt-2 px-4 py-2 border border-solid border-blue-700 bg-vulcan light:bg-athens-gray rounded-md">
+              <div className="text-gray-400 light:text-gray-600 font-medium text-sm">
                 This looks fine, might've missed it but maybe we can add a link
                 to the website where we also have the video of how to use the
                 plug in? Otherwise this is a nice addition.
@@ -82,8 +82,9 @@ export const ActivityTimeline = () => (
                 <Textarea
                   fullWidth
                   placeholder="Leave a reply..."
-                  containerClassName="border-transparent bg-block-callout"
+                  containerClassName="border-transparent bg-vulcan light:bg-athens-gray"
                   className="text-sm! px-0"
+                  end={null}
                 />
                 <IconButton className="text-secondary-inactive" variant="text">
                   <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,17 +97,17 @@ export const ActivityTimeline = () => (
         </Step>
         <Step>
           <div className="flex flex-col gap-1">
-            <span className="text-sm text-text-secondary">
+            <span className="text-sm text-gray-400 light:text-gray-600">
               03/01/2024, 8:00 AM
             </span>
             <span className="font-medium">
               Austin
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 {' '}
                 changed statues from{' '}
               </span>
               In Progress
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 {' '}
                 to{' '}
               </span>
@@ -116,13 +117,14 @@ export const ActivityTimeline = () => (
         </Step>
       </Stepper>
 
-      <div className="mt-2 px-4 py-2 border border-solid border-surface bg-block-callout rounded-md">
+      <div className="mt-2 px-4 py-2 border border-solid border-surface bg-vulcan light:bg-athens-gray rounded-md">
         <div className="flex items-center gap-2.5">
           <Textarea
             fullWidth
             placeholder="Leave a comment..."
-            containerClassName="border-transparent bg-block-callout"
+            containerClassName="border-transparent bg-vulcan light:bg-athens-gray"
             className="text-sm! px-0"
+            end={null}
           />
           <IconButton className="text-secondary-inactive" variant="text">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -158,7 +160,7 @@ export const VersionHistory = () => (
                 <span className="font-medium text-base">
                   New custom statuses for projects
                 </span>
-                <span className="font-normal text-sm text-text-secondary">
+                <span className="font-normal text-sm text-waterloo light:text-gray-600">
                   Austin McDaniel • 1 hour ago
                 </span>
               </div>
@@ -168,7 +170,7 @@ export const VersionHistory = () => (
                 <span className="font-medium text-base">
                   Timeline UI overhaul
                 </span>
-                <span className="font-normal text-sm text-text-secondary">
+                <span className="font-normal text-sm text-waterloo light:text-gray-600">
                   Austin McDaniel • March 22, 2024
                 </span>
               </div>
@@ -178,7 +180,7 @@ export const VersionHistory = () => (
                 <span className="font-medium text-base">
                   Google calendar integration
                 </span>
-                <span className="font-normal text-sm text-text-secondary">
+                <span className="font-normal text-sm text-waterloo light:text-gray-600">
                   Austin McDaniel • March 21, 2024
                 </span>
               </div>
@@ -188,7 +190,7 @@ export const VersionHistory = () => (
                 <span className="font-medium text-base">
                   Branch-specific workflow automations
                 </span>
-                <span className="font-normal text-sm text-text-secondary">
+                <span className="font-normal text-sm text-waterloo light:text-gray-600">
                   Austin McDaniel • February 28, 2024
                 </span>
               </div>
@@ -198,7 +200,7 @@ export const VersionHistory = () => (
                 <span className="font-medium text-base">
                   Project time frames
                 </span>
-                <span className="font-normal text-sm text-text-secondary">
+                <span className="font-normal text-sm text-waterloo light:text-gray-600">
                   Austin McDaniel • February 15, 2024
                 </span>
               </div>
@@ -208,7 +210,7 @@ export const VersionHistory = () => (
                 <span className="font-medium text-base">
                   GitHub Issues Sync
                 </span>
-                <span className="font-normal text-sm text-text-secondary">
+                <span className="font-normal text-sm text-waterloo light:text-gray-600">
                   Austin McDaniel • February 10, 2024
                 </span>
               </div>
@@ -244,7 +246,7 @@ export const WorkspaceHistory = () => (
             <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Austin{' '}
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 created workspace • 5 hour ago
               </span>
             </span>
@@ -255,11 +257,11 @@ export const WorkspaceHistory = () => (
             <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Kyle{' '}
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 renamed workspace to
               </span>{' '}
               Good Code{' '}
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 • 5 hour ago
               </span>
             </span>
@@ -270,11 +272,11 @@ export const WorkspaceHistory = () => (
             <Avatar size={24} src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Laura{' '}
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 added
               </span>{' '}
               MYSQL{' '}
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 database • March 22, 2024
               </span>
             </span>
@@ -285,11 +287,11 @@ export const WorkspaceHistory = () => (
             <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Lisa{' '}
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 changed access permission to
               </span>{' '}
               Private{' '}
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 • February 28, 2024
               </span>
             </span>
@@ -300,11 +302,11 @@ export const WorkspaceHistory = () => (
             <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Kenneth{' '}
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 connected
               </span>{' '}
               GitHub{' '}
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 database • February 15, 2024
               </span>
             </span>
@@ -315,11 +317,11 @@ export const WorkspaceHistory = () => (
             <Avatar size={24}  src="https://goodcode.us/static/austin-d1a2c5249336c31662b8ee6d4e169b2b.jpg" />
             <span className="font-medium">
               Carrington{' '}
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 renamed workspace to
               </span>{' '}
               Good Code Design{' '}
-              <span className="text-text-secondary font-normal">
+              <span className="text-gray-400 light:text-gray-600 font-normal">
                 February 10, 2024
               </span>
             </span>
