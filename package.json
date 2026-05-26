@@ -3,7 +3,7 @@
   "version": "10.0.1",
   "description": "Component library for React",
   "scripts": {
-    "build": "npm run build:js && npm run build:styles && npm run build:blocks && npm run rewrite:stories && npm run build:docs",
+    "build": "npm run build:js && npm run build:styles && npm run build:blocks-styles && npm run rewrite:stories && npm run build:docs",
     "build-storybook": "storybook build",
     "build:js": "vite build --mode library",
     "build:styles": "npx @tailwindcss/cli -i ./src/assets/css/index.css -o ./dist/index.css",

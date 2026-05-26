@@ -1,6 +1,12 @@
 @import 'tailwindcss';
 @import './theme.css';
 
+/* Library bundle: only emit utilities referenced by src/. Block-only utilities
+   (used in docs/blocks/**) ship via dist/blocks/blocks.css. */
+@source not "../../../docs/**";
+@source not "../../../src/assets/css/blocks.css";
+@source not "../../../**/*.md";
+
 /* Color palette */
 :root,
 :host {
