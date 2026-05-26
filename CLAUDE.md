@@ -305,7 +305,7 @@ The build process consists of:
 3. **Blocks CSS Build** (`npm run build:blocks-styles`): Tailwind CLI builds the opt-in block stylesheet
    - Input: `src/assets/css/blocks.css`
    - Output: `dist/blocks/blocks.css`
-   - Consumers must import `reablocks/index.css` before `reablocks/blocks/blocks.css` because block tokens reference semantic vars (`--panel`, `--primary`, `--panel-accent`) defined in the core sheet.
+   - `blocks.css` references palette vars from `theme.css` directly (no dependency on `index.css` semantic tokens), so the sheet is standalone.
 
 4. **Docs Build** (`npm run build:docs`): Generates component documentation
 

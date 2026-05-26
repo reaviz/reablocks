@@ -36,7 +36,7 @@ const CheckIcon = () => (
 
 const toggleTheme: ToggleTheme = mergeDeep(toggleThemeDefault, {
   base: 'flex items-center justify-start cursor-pointer box-border border border-panel-accent bg-block-control hover:bg-primary-hover focus-visible:outline-hidden focus-visible:border-primary-hover rounded-xl transition-colors',
-  checked: 'justify-end bg-blue-500!',
+  checked: 'justify-end bg-primary!',
   handle: {
     base: 'rounded-full bg-block-handle',
     sizes: {
@@ -120,7 +120,7 @@ export const Pricing = () => {
                 {
                   'bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus!':
                     selected === 'free',
-                  'border-block-outline-border focus:border-waterloo/75 hover:border-waterloo!':
+                  'border-block-outline-border focus:border-secondary-inactive/75 hover:border-secondary-inactive!':
                     selected !== 'free'
                 }
               )}
@@ -206,7 +206,7 @@ export const Pricing = () => {
                 {
                   'bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus!':
                     selected === 'starter',
-                  'border-block-outline-border focus:border-waterloo/75 hover:border-waterloo!':
+                  'border-block-outline-border focus:border-secondary-inactive/75 hover:border-secondary-inactive!':
                     selected !== 'starter'
                 }
               )}
@@ -285,7 +285,7 @@ export const Pricing = () => {
                 {
                   'bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus!':
                     selected === 'custom',
-                  'border-block-outline-border focus:border-waterloo/75 hover:border-waterloo!':
+                  'border-block-outline-border focus:border-secondary-inactive/75 hover:border-secondary-inactive!':
                     selected !== 'custom'
                 }
               )}

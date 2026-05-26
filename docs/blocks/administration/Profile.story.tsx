@@ -1186,7 +1186,7 @@ export const Account = () => (
                         variant="filled"
                         className="bg-panel px-3 py-1 border-block-field-border rounded-[20px]"
                       >
-                        <UserIcon className="text-gray-300" />{' '}
+                        <UserIcon className="text-block-icon-muted" />{' '}
                         <span className="pl-1">Joined</span>
                       </Chip>
                       <span>March 15, 2020</span>
@@ -1268,7 +1268,7 @@ export const Account = () => (
                 <img src={AvatarImage} className="h-full w-full" />
                 <h3 className="text-text-primary my-2.5 font-bold">
                   Teams
-                  <span className="text-gray-400"> (2)</span>
+                  <span className="text-text-secondary"> (2)</span>
                 </h3>
                 <Divider variant="secondary" />
                 <div className="flex items-center gap-2.5 justify-between">
