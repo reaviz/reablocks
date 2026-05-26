@@ -68,7 +68,7 @@ export const selectInputTheme: SelectInputTheme = {
     'flex-wrap flex items-center overflow-hidden flex-1 max-w-full [&>div]:max-w-full [&_.invisible]:text-ellipsis [&_.invisible]:overflow-hidden',
   input:
     'p-0 bg-transparent text-ellipsis align-middle max-w-full read-only:cursor-not-allowed focus:outline-hidden disabled:text-text-inactive',
-  placeholder: 'placeholder:text-text-secondary',
+  placeholder: 'placeholder:text-text-placeholder',
   selectedValue: 'overflow-hidden whitespace-nowrap text-ellipsis',
   actions: {
     container: 'flex items-center justify-center',
