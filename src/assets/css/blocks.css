@@ -53,6 +53,7 @@
   --block-option-hover: var(--color-charade);
   --block-option-selected: var(--color-black);
   --block-icon-fill: var(--color-mystic);
+  --block-callout: var(--color-vulcan);
   --block-card-border-image-tl: linear-gradient(to top left, #242433, #02020f)
     10;
   --block-radial-bg: radial-gradient(
@@ -94,6 +95,7 @@
     --block-option-hover: var(--color-athens-gray);
     --block-option-selected: var(--color-athens-gray);
     --block-icon-fill: currentColor;
+    --block-callout: var(--color-athens-gray);
     --block-card-border-image-tl: linear-gradient(to top left, #e6e6f0, #ffffff)
       10;
     --block-radial-bg: radial-gradient(
@@ -129,4 +131,5 @@
   --color-block-option-hover: var(--block-option-hover);
   --color-block-option-selected: var(--block-option-selected);
   --color-block-icon-fill: var(--block-icon-fill);
+  --color-block-callout: var(--block-callout);
 }
