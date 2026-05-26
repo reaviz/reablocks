@@ -49,6 +49,9 @@
   --block-step-bg: var(--color-gray-950);
   --block-step-border: var(--color-gray-700);
   --block-surface: var(--color-vulcan);
+  --block-option: var(--color-vulcan);
+  --block-option-hover: var(--color-charade);
+  --block-option-selected: var(--color-black);
 
   .theme-light,
   &.theme-light,
@@ -79,6 +82,9 @@
     --block-step-bg: var(--color-blue-100);
     --block-step-border: var(--color-blue-500);
     --block-surface: var(--color-white);
+    --block-option: var(--panel);
+    --block-option-hover: var(--color-athens-gray);
+    --block-option-selected: var(--color-athens-gray);
   }
 }
 
@@ -103,4 +109,7 @@
   --color-block-step-bg: var(--block-step-bg);
   --color-block-step-border: var(--block-step-border);
   --color-block-surface: var(--block-surface);
+  --color-block-option: var(--block-option);
+  --color-block-option-hover: var(--block-option-hover);
+  --color-block-option-selected: var(--block-option-selected);
 }
