@@ -56,7 +56,7 @@ export interface CheckboxTheme {
 export const checkboxTheme: CheckboxTheme = {
   base: 'inline-flex items-center w-full group/checkbox',
   label: {
-    base: 'text-text-secondary ml-2.5 w-full text-text-primary group-hover/checkbox:text-primary-hover',
+    base: 'text-text-secondary ml-2.5 w-full group-hover/checkbox:text-primary-hover',
     checked:
       'checked text-text-primary group-hover/checkbox:text-primary-hover',
     disabled:
