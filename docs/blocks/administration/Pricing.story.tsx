@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 
-import { toggleTheme, Toggle } from '../../../src/form/Toggle';
-import { radioTheme, Radio } from '../../../src/form/Radio';
+import { toggleTheme as toggleThemeDefault, Toggle, ToggleTheme } from '../../../src/form/Toggle';
+import { radioTheme as radioThemeDefault, Radio, RadioTheme } from '../../../src/form/Radio';
 import { Button } from '../../../src/elements/Button';
 import {
   Card,
@@ -13,7 +13,7 @@ import {
   MotionItem
 } from '../../../src/layout';
 import { Chip } from '../../../src/elements/Chip';
-import { cn } from '../../../src/utils/Theme/helpers';
+import { cn, mergeDeep, mergeThemeClasses } from '../../../src/utils/Theme/helpers';
 
 export default {
   title: 'Blocks/Administration/Pricing'
@@ -34,32 +34,27 @@ const CheckIcon = () => (
   </svg>
 );
 
-const ToggleTheme = {
-  ...toggleTheme,
-  base: 'flex items-center justify-start cursor-pointer box-border border dark:border-charade dark:bg-[#1E1E2E] light:border-mystic light:bg-[#C9C9D6] hover:bg-primary-hover focus-visible:outline-hidden focus-visible:border-primary-hover rounded-xl transition-colors',
+const toggleTheme: ToggleTheme = mergeDeep(toggleThemeDefault, {
+  base: 'flex items-center justify-start cursor-pointer box-border border border-panel-accent bg-block-control hover:bg-primary-hover focus-visible:outline-hidden focus-visible:border-primary-hover rounded-xl transition-colors',
   checked: 'justify-end bg-blue-500!',
   handle: {
-    base: 'rounded-full dark:bg-black light:bg-white',
+    base: 'rounded-full bg-block-handle',
     sizes: {
-      ...toggleTheme.handle.sizes,
       medium: 'w-5 h-5'
     }
   },
   sizes: {
-    ...toggleTheme.sizes,
     medium: 'w-12 h-6 py-0.5 px-[1px]'
   }
-};
+}, mergeThemeClasses);
 
-const RadioTheme = {
-  ...radioTheme,
+const radioTheme: RadioTheme = mergeDeep(radioThemeDefault, {
   base: 'box-border leading-3',
   radio: {
-    ...radioTheme.radio,
-    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border light:border-charade cursor-pointer focus-visible:outline-hidden focus-visible:border-primary-hover',
+    base: 'will-change-[border-color] inline-flex justify-center items-center box-border align-middle rounded-full bg-transparent border border-block-radio-border cursor-pointer focus-visible:outline-hidden focus-visible:border-primary-hover',
     checked: 'border-primary'
   }
-};
+}, mergeThemeClasses);
 
 export const Pricing = () => {
   const [selected, setSelected] = useState('free');
@@ -69,8 +64,8 @@ export const Pricing = () => {
       <MotionItem>
         <Card
           className={cn('w-full h-[515px] rounded-sm transition-colors', {
-            'dark:dark:bg-[#1E1E2E]': selected !== 'free',
-            'light:border-primary-active light:bg-athens-gray':
+            'bg-block-card-bg-alt': selected !== 'free',
+            'border-block-selected-border bg-block-card-bg':
               selected === 'free'
           })}
           contentClassName="w-full h-full"
@@ -80,17 +75,17 @@ export const Pricing = () => {
               <h6 className="text-lg font-semibold">Free</h6>
               <Chip
                 color="primary"
-                className="rounded-full px-3 text-sm dark:bg-blue-950 light:bg-blue-100 dark:text-athens-gray light:text-vulcan"
+                className="rounded-full px-3 text-sm bg-info-background text-text-primary"
               >
                 Current Plan
               </Chip>
             </div>
-            <span className="dark:text-waterloo light:text-charade">
+            <span className="text-text-secondary">
               For small teams
             </span>
             <div className="flex items-center gap-2.5">
               <h1 className="text-3xl font-semibold">$0</h1>
-              <span className="font-bold dark:text-waterloo light:text-charade">
+              <span className="font-bold text-text-secondary">
                 /Month
               </span>
             </div>
@@ -99,19 +94,19 @@ export const Pricing = () => {
               <List>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-text-secondary"
                 >
                   10 members
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-text-secondary"
                 >
                   Integration support
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-text-secondary"
                 >
                   Figma support
                 </ListItem>
@@ -123,9 +118,9 @@ export const Pricing = () => {
               className={cn(
                 'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
                 {
-                  'bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-none light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
+                  'bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus!':
                     selected === 'free',
-                  'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:border-waterloo!':
+                  'border-block-outline-border focus:border-waterloo/75 hover:border-waterloo!':
                     selected !== 'free'
                 }
               )}
@@ -149,8 +144,8 @@ export const Pricing = () => {
       <MotionItem>
         <Card
           className={cn('w-full h-[515px] rounded-sm transition-colors', {
-            'dark:bg-[#1E1E2E]': selected !== 'starter',
-            'light:border-primary-active light:bg-athens-gray':
+            'bg-block-card-bg-alt': selected !== 'starter',
+            'border-block-selected-border bg-block-card-bg':
               selected === 'starter'
           })}
           contentClassName="w-full h-full"
@@ -160,17 +155,17 @@ export const Pricing = () => {
               <h6 className="text-lg font-semibold">Starter</h6>
               <Chip
                 color="success"
-                className="rounded-full px-3 text-sm dark:bg-green-950 light:bg-green-100 dark:text-athens-gray light:text-vulcan"
+                className="rounded-full px-3 text-sm bg-success-background text-text-primary"
               >
                 Recommended
               </Chip>
             </div>
-            <span className="dark:text-waterloo light:text-charade">
+            <span className="text-text-secondary">
               For a broad set of teams
             </span>
             <div className="flex items-center gap-2.5">
               <h1 className="text-3xl font-semibold">$1,000</h1>
-              <span className="font-bold dark:text-waterloo light:text-charade">
+              <span className="font-bold text-text-secondary">
                 /Month
               </span>
             </div>
@@ -179,25 +174,25 @@ export const Pricing = () => {
               <List>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-text-secondary"
                 >
                   Unlimited members
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-text-secondary"
                 >
                   Integration support
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-text-secondary"
                 >
                   Figma support
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-text-secondary"
                 >
                   Storybook support
                 </ListItem>
@@ -209,9 +204,9 @@ export const Pricing = () => {
               className={cn(
                 'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
                 {
-                  'bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
+                  'bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus!':
                     selected === 'starter',
-                  'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:border-waterloo!':
+                  'border-block-outline-border focus:border-waterloo/75 hover:border-waterloo!':
                     selected !== 'starter'
                 }
               )}
@@ -235,15 +230,15 @@ export const Pricing = () => {
       <MotionItem>
         <Card
           className={cn('w-full h-[515px] rounded-sm transition-colors', {
-            'dark:bg-[#1E1E2E]': selected !== 'custom',
-            'light:border-primary-active light:bg-athens-gray':
+            'bg-block-card-bg-alt': selected !== 'custom',
+            'border-block-selected-border bg-block-card-bg':
               selected === 'custom'
           })}
           contentClassName="w-full h-full"
         >
           <div className="flex flex-col items-start gap-2.5 h-full">
             <h6 className="text-lg font-semibold leading-[31px]">Enterprise</h6>
-            <span className="dark:text-waterloo light:text-charade">
+            <span className="text-text-secondary">
               For all custom needs
             </span>
             <h1 className="text-3xl font-semibold">Custom</h1>
@@ -252,31 +247,31 @@ export const Pricing = () => {
               <List>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-text-secondary"
                 >
                   Unlimited members
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-text-secondary"
                 >
                   Integration support
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-text-secondary"
                 >
                   Figma support
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-text-secondary"
                 >
                   Storybook support
                 </ListItem>
                 <ListItem
                   start={<CheckIcon />}
-                  className="dark:text-waterloo light:text-charade"
+                  className="text-text-secondary"
                 >
                   Everything else
                 </ListItem>
@@ -288,9 +283,9 @@ export const Pricing = () => {
               className={cn(
                 'px-4 py-2 flex items-center gap-2 self-stretch text-lg! rounded-xs focus:outline-hidden transition-colors',
                 {
-                  'bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover':
+                  'bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus!':
                     selected === 'custom',
-                  'dark:border-[#3D3D4D] focus:border-waterloo/75 hover:border-waterloo!':
+                  'border-block-outline-border focus:border-waterloo/75 hover:border-waterloo!':
                     selected !== 'custom'
                 }
               )}
@@ -322,7 +317,7 @@ export const PricingFull = () => {
     <Card className="w-full transition-colors" contentClassName="w-full h-full">
       <div className="flex items-center gap-2.5 justify-between">
         <div className="flex items-center gap-2.5">
-          <div className="dark:bg-charade/40 light:bg-blue-200/40 rounded-xs p-3">
+          <div className="bg-block-soft/40 rounded-xs p-3">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -346,14 +341,15 @@ export const PricingFull = () => {
             Back to billing
           </a>
         </div>
-        <div className="flex items-center gap-1 dark:bg-vulcan light:bg-mystic rounded-sm p-1">
+        <div className="flex items-center gap-1 bg-block-track rounded-sm p-1">
           {['Monthly', 'Yearly'].map(type => (
             <Button
               key={type}
               size="large"
-              className={cn('text-lg', {
-                'dark:text-black dark:bg-blue-100': cycle === type,
-                'light:text-black light:bg-blue-200/40': cycle !== type
+              className={cn('text-lg transition-colors', {
+                'bg-block-soft text-text-primary': cycle === type,
+                'bg-transparent text-text-secondary hover:text-text-primary':
+                  cycle !== type
               })}
               onClick={() => setCycle(type)}
             >
@@ -363,7 +359,7 @@ export const PricingFull = () => {
         </div>
       </div>
       <h4 className="text-[24px] font-bold">Plans</h4>
-      <span className="dark:text-waterloo light:text-charade text-base">
+      <span className="text-text-secondary text-base">
         Change your current workspace plan
       </span>
       <MotionGroup className="flex flex-col gap-2.5 mt-7">
@@ -374,11 +370,11 @@ export const PricingFull = () => {
             <h2 className="text-2xl font-bold">
               {cycle === 'Monthly' ? '$1,000' : '$10,000'}
             </h2>
-            <span className="dark:text-waterloo light:text-charade text-sm">
+            <span className="text-text-secondary text-sm">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
             <div className="h-2.5" />
-            <div className="dark:bg-charade/40 light:bg-blue-200/40 py-2 px-4 rounded-xs flex gap-2 items-center justify-center">
+            <div className="bg-block-soft/40 py-2 px-4 rounded-xs flex gap-2 items-center justify-center">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="17"
@@ -397,13 +393,13 @@ export const PricingFull = () => {
             <h2 className="text-2xl font-bold">
               {cycle === 'Monthly' ? '$5,000' : '$50,000'}
             </h2>
-            <span className="dark:text-waterloo light:text-charade text-sm">
+            <span className="text-text-secondary text-sm">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
             <div className="h-2.5" />
             <Button
               color="primary"
-              className="px-4 py-2 text-lg gap-2 bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+              className="px-4 py-2 text-lg gap-2 bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus! focus:outline-hidden transition-colors"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -424,7 +420,7 @@ export const PricingFull = () => {
           <MotionItem className="flex flex-col">
             <h6 className="text-lg font-bold">Seed Package</h6>
             <h2 className="text-2xl font-bold">Let's talk</h2>
-            <span className="dark:text-waterloo light:text-charade text-sm">
+            <span className="text-text-secondary text-sm">
               {cycle === 'Monthly' ? 'Per month' : 'Per year'}
             </span>
             <div className="h-2.5" />
@@ -448,7 +444,7 @@ export const PricingFull = () => {
           <div>
             <Chip
               color="primary"
-              className="rounded-full px-3 dark:text-athens-gray light:text-charade dark:bg-blue-950 light:bg-blue-100"
+              className="rounded-full px-3 text-text-primary bg-info-background"
             >
               Unlimited
             </Chip>
@@ -456,7 +452,7 @@ export const PricingFull = () => {
           <div>
             <Chip
               color="primary"
-              className="rounded-full px-3 dark:text-athens-gray light:text-charade dark:bg-blue-950 light:bg-blue-100"
+              className="rounded-full px-3 text-text-primary bg-info-background"
             >
               Unlimited
             </Chip>
@@ -464,17 +460,17 @@ export const PricingFull = () => {
           <div>
             <Chip
               color="primary"
-              className="rounded-full px-3 dark:text-athens-gray light:text-charade dark:bg-blue-950 light:bg-blue-100"
+              className="rounded-full px-3 text-text-primary bg-info-background"
             >
               Unlimited
             </Chip>
           </div>
         </MotionItem>
         <MotionItem>
-          <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
+          <Divider className="bg-panel-accent via-panel-accent" />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
-          <div className="justify-self-start dark:text-athens-gray light:text-charade">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base text-text-secondary">
+          <div className="justify-self-start text-text-primary">
             Product Research
           </div>
           <div>Logo and brand book</div>
@@ -498,10 +494,10 @@ export const PricingFull = () => {
           </div>
         </MotionItem>
         <MotionItem>
-          <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
+          <Divider className="bg-panel-accent via-panel-accent" />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
-          <div className="justify-self-start dark:text-athens-gray light:text-charade">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base text-text-secondary">
+          <div className="justify-self-start text-text-primary">
             Brand Style Guide
           </div>
           <div>
@@ -551,10 +547,10 @@ export const PricingFull = () => {
           </div>
         </MotionItem>
         <MotionItem>
-          <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
+          <Divider className="bg-panel-accent via-panel-accent" />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
-          <div className="justify-self-start dark:text-athens-gray light:text-charade">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base text-text-secondary">
+          <div className="justify-self-start text-text-primary">
             Prototype of Web Application
           </div>
           <div>3 Figma Designs</div>
@@ -578,10 +574,10 @@ export const PricingFull = () => {
           </div>
         </MotionItem>
         <MotionItem>
-          <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
+          <Divider className="bg-panel-accent via-panel-accent" />
         </MotionItem>
-        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base dark:text-waterloo light:text-charade">
-          <div className="justify-self-start dark:text-athens-gray light:text-charade">
+        <MotionItem className="grid grid-cols-[400px_1fr_1fr_1fr] justify-items-center items-center text-center gap-2.5 text-base text-text-secondary">
+          <div className="justify-self-start text-text-primary">
             Development of Web Application
           </div>
           <div>
@@ -602,7 +598,7 @@ export const PricingFull = () => {
           <div>Build out of pages/features in react.js</div>
         </MotionItem>
         <MotionItem>
-          <Divider className="dark:bg-charade dark:via-charade light:bg-mystic light:via-mystic" />
+          <Divider className="bg-panel-accent via-panel-accent" />
         </MotionItem>
       </MotionGroup>
     </Card>
@@ -621,16 +617,16 @@ export const PricingMinimal = () => {
     >
       <Card
         className="transition-colors"
-        headerClassName="border-b dark:border-waterloo/40 light:border-mystic px-7 pt-7 pb-2"
+        headerClassName="border-b border-block-divider px-7 pt-7 pb-2"
         header={
           <div className="flex items-center gap-2.5 justify-between w-full">
             <div>
               <h2 className="text-2xl font-bold">Change your plan</h2>
-              <span className="text-sm dark:text-waterloo light:text-charade">
+              <span className="text-sm text-text-secondary">
                 Switch to annual to save 16%
               </span>
             </div>
-            <Button className="p-3 light:bg-blue-200/40 light:text-charade">
+            <Button className="p-3 bg-block-soft/40 hover:bg-block-soft/60 focus:bg-block-soft/60 text-text-secondary transition-colors">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -650,15 +646,15 @@ export const PricingMinimal = () => {
             <Toggle
               checked={isAnnual}
               onChange={setIsAnnual}
-              theme={ToggleTheme}
+              theme={toggleTheme}
             />
-            <span className="text-sm dark:text-waterloo light:text-charade">
+            <span className="text-sm text-text-secondary">
               Annual pricing
             </span>
             <Chip
               size="small"
               color="primary"
-              className="rounded-full dark:bg-blue-950 light:bg-blue-100 dark:text-gray-100 light:text-vulcan px-3 py-1"
+              className="rounded-full bg-info-background text-text-primary px-3 py-1"
             >
               Save 16%
             </Chip>
@@ -667,7 +663,7 @@ export const PricingMinimal = () => {
             <MotionItem>
               <Card
                 className={cn('px-5 py-7', {
-                  'border-solid border-transparent rounded-sm dark:[border-image:linear-gradient(to_top_right,#2F6AFF,#0B0B11)_10] light:[border-image:linear-gradient(to_top_right,#105EFF,#F7F7FA)_10] dark:bg-blue-900/40 light:bg-blue-200/40':
+                  'border-solid border-transparent rounded-sm [border-image:var(--block-card-border-image)] bg-block-highlight/40':
                     isFree
                 })}
               >
@@ -677,14 +673,14 @@ export const PricingMinimal = () => {
                   </h6>
                   <Radio
                     size="small"
-                    theme={RadioTheme}
+                    theme={radioTheme}
                     checked={isFree}
                     onChange={selected => setIsFree(selected)}
                   />
                 </div>
                 <div className="flex items-center gap-2.5">
                   <h2 className="text-[32px] font-bold">$0</h2>
-                  <h6 className="dark:text-waterloo light:text-charade text-lg font-bold">
+                  <h6 className="text-text-secondary text-lg font-bold">
                     {isAnnual ? '/Year' : '/Month'}
                   </h6>
                 </div>
@@ -692,19 +688,19 @@ export const PricingMinimal = () => {
                 <List>
                   <ListItem
                     start={<CheckIcon />}
-                    className="dark:text-waterloo light:text-charade"
+                    className="text-text-secondary"
                   >
                     Basic Integration support
                   </ListItem>
                   <ListItem
                     start={<CheckIcon />}
-                    className="dark:text-waterloo light:text-charade"
+                    className="text-text-secondary"
                   >
                     Limited Figma support
                   </ListItem>
                   <ListItem
                     start={<CheckIcon />}
-                    className="dark:text-waterloo light:text-charade"
+                    className="text-text-secondary"
                   >
                     Storybook Support
                   </ListItem>
@@ -714,7 +710,7 @@ export const PricingMinimal = () => {
             <MotionItem>
               <Card
                 className={cn('px-5 py-7', {
-                  'border-solid border-transparent dark:[border-image:linear-gradient(to_top_right,#2F6AFF,#0B0B11)_10] light:[border-image:linear-gradient(to_top_right,#105EFF,#F7F7FA)_10] dark:bg-blue-900/40 light:bg-blue-200/40':
+                  'border-solid border-transparent [border-image:var(--block-card-border-image)] bg-block-highlight/40':
                     !isFree
                 })}
               >
@@ -724,7 +720,7 @@ export const PricingMinimal = () => {
                   </h6>
                   <Radio
                     size="small"
-                    theme={RadioTheme}
+                    theme={radioTheme}
                     checked={!isFree}
                     onChange={selected => setIsFree(!selected)}
                   />
@@ -733,7 +729,7 @@ export const PricingMinimal = () => {
                   <h2 className="text-[32px] font-bold">
                     {isAnnual ? '$222' : '$25'}
                   </h2>
-                  <h6 className="dark:text-waterloo light:text-charade text-lg font-bold">
+                  <h6 className="text-text-secondary text-lg font-bold">
                     {isAnnual ? '/Year' : '/Month'}
                   </h6>
                 </div>
@@ -741,19 +737,19 @@ export const PricingMinimal = () => {
                 <List>
                   <ListItem
                     start={<CheckIcon />}
-                    className="dark:text-waterloo light:text-charade"
+                    className="text-text-secondary"
                   >
                     Basic Integration support
                   </ListItem>
                   <ListItem
                     start={<CheckIcon />}
-                    className="dark:text-waterloo light:text-charade"
+                    className="text-text-secondary"
                   >
                     Limited Figma support
                   </ListItem>
                   <ListItem
                     start={<CheckIcon />}
-                    className="dark:text-waterloo light:text-charade"
+                    className="text-text-secondary"
                   >
                     Storybook Support
                   </ListItem>
@@ -762,11 +758,11 @@ export const PricingMinimal = () => {
             </MotionItem>
           </MotionGroup>
         </div>
-        <div className="border-t dark:border-waterloo/40 light:border-mystic p-7">
+        <div className="border-t border-block-divider p-7">
           <div className="flex flex-row-reverse items-center gap-2.5">
             <Button
               color="primary"
-              className="px-4 py-2 text-lg bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover focus:outline-hidden transition-colors"
+              className="px-4 py-2 text-lg bg-(image:--button-gradient) bg-block-cta! hover:bg-(image:--block-cta-image-hover) hover:bg-block-cta-hover! focus:bg-(image:--block-cta-image-focus) focus:bg-block-cta-focus! focus:outline-hidden transition-colors"
               end={
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

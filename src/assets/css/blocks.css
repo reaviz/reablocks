@@ -30,11 +30,20 @@
   --block-soft-text: var(--color-athens-gray);
   --block-track: var(--color-vulcan);
   --block-card-bg: var(--panel);
+  --block-highlight: var(--color-blue-900);
   --block-cta: transparent;
   --block-cta-hover: transparent;
   --block-cta-focus: transparent;
   --block-cta-image-hover: var(--button-gradient-hover);
   --block-cta-image-focus: var(--button-gradient-focus);
+  --block-card-bg-alt: var(--color-gray-800);
+  --block-selected-border: var(--panel-accent);
+  --block-divider: color-mix(in oklab, var(--color-waterloo) 40%, transparent);
+  --block-control: var(--color-gray-800);
+  --block-card-border-image: linear-gradient(to top right, #2f6aff, #0b0b11) 10;
+  --block-handle: var(--color-black);
+  --block-radio-border: currentColor;
+  --block-outline-border: var(--color-gray-600);
 
   .theme-light,
   &.theme-light,
@@ -45,11 +54,21 @@
     --block-soft-text: var(--color-vulcan);
     --block-track: var(--color-mystic);
     --block-card-bg: var(--color-athens-gray);
+    --block-highlight: var(--color-blue-200);
     --block-cta: var(--primary);
     --block-cta-hover: var(--primary-hover);
     --block-cta-focus: var(--primary-hover);
     --block-cta-image-hover: none;
     --block-cta-image-focus: none;
+    --block-card-bg-alt: var(--panel);
+    --block-selected-border: var(--primary-active);
+    --block-divider: var(--color-mystic);
+    --block-control: var(--color-gray-300);
+    --block-card-border-image: linear-gradient(to top right, #105eff, #f7f7fa)
+      10;
+    --block-handle: var(--color-white);
+    --block-radio-border: var(--color-charade);
+    --block-outline-border: var(--panel-accent);
   }
 }
 
@@ -58,7 +77,15 @@
   --color-block-soft-text: var(--block-soft-text);
   --color-block-track: var(--block-track);
   --color-block-card-bg: var(--block-card-bg);
+  --color-block-highlight: var(--block-highlight);
   --color-block-cta: var(--block-cta);
   --color-block-cta-hover: var(--block-cta-hover);
   --color-block-cta-focus: var(--block-cta-focus);
+  --color-block-card-bg-alt: var(--block-card-bg-alt);
+  --color-block-selected-border: var(--block-selected-border);
+  --color-block-divider: var(--block-divider);
+  --color-block-control: var(--block-control);
+  --color-block-handle: var(--block-handle);
+  --color-block-radio-border: var(--block-radio-border);
+  --color-block-outline-border: var(--block-outline-border);
 }
