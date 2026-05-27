@@ -56,7 +56,7 @@ export const Login = () => {
       animate={{ y: 0, opacity: 1 }}
       className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
-      <Card className="w-full p-12">
+      <Card className="w-full p-6 sm:p-8 md:p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-14">
           <LogoIcon className="h-11 w-auto mb-2" />
           <h4 className="text-2xl font-sans font-bold mb-0">
@@ -164,7 +164,7 @@ export const LoginBasic = () => {
       animate={{ y: 0, opacity: 1 }}
       className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
-      <Card className="w-full p-12">
+      <Card className="w-full p-6 sm:p-8 md:p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-14">
           <LogoIcon className="h-11 w-auto mb-2" />
           <h4 className="text-2xl font-sans font-bold mb-0">
@@ -269,7 +269,7 @@ export const LoginFull = () => {
   return (
     <Card
       className="w-full grow p-5 h-[650px] md:h-[800px] "
-      contentClassName="w-full flex gap-12"
+      contentClassName="w-full flex flex-col md:flex-row gap-12"
     >
       <motion.div
         initial={{ y: -20, opacity: 0 }}
@@ -429,7 +429,7 @@ export const LoginPassword = () => {
       animate={{ y: 0, opacity: 1 }}
       className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
-      <Card className="w-full p-12">
+      <Card className="w-full p-6 sm:p-8 md:p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-14">
           <LogoIcon className="h-11 w-auto mb-2" />
           <h4 className="text-2xl font-sans font-bold mb-0">
@@ -550,7 +550,7 @@ export const LoginSocial = () => {
       animate={{ y: 0, opacity: 1 }}
       className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
-      <Card className="w-full p-12">
+      <Card className="w-full p-6 sm:p-8 md:p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-14">
           <LogoIcon className="h-11 w-auto mb-2" />
           <h4 className="text-2xl font-sans font-bold mb-0">

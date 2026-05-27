@@ -992,9 +992,9 @@ export const Profile = () => (
   <motion.div
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    className="mt-10 mb-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[800px]"
+    className="mt-10 mb-10 mx-auto w-full max-w-[800px] px-4 sm:px-6"
   >
-    <Card className="w-full p-12">
+    <Card className="w-full p-6 sm:p-8 md:p-12">
       <div className="flex items-center gap-2.5">
         <LogoIcon className="h-11 w-auto mb-2 mr-2" />
         <div>
@@ -1007,7 +1007,7 @@ export const Profile = () => (
         Customize and edit essential profile details.
       </p>
       <Divider />
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="flex flex-col items-start gap-1">
           <h3 className="text-1xl font-sans font-bold">Public Profile</h3>
           <p className="opacity-60 text-sm">
@@ -1035,7 +1035,7 @@ export const Profile = () => (
         </div>
       </div>
       <Divider />
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="flex flex-col items-start gap-1">
           <h3 className="text-1xl font-sans font-bold">Company Logo</h3>
           <p className="opacity-60 text-sm">
@@ -1067,7 +1067,7 @@ export const Profile = () => (
         </div>
       </div>
       <Divider />
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div className="flex flex-col items-start gap-1">
           <h3 className="text-1xl font-sans font-bold">Branding</h3>
           <p className="opacity-60 text-sm">
@@ -1094,7 +1094,7 @@ export const Profile = () => (
         </div>
       </div>
       <Divider />
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <h3 className="text-1xl font-sans font-bold">Social Profiles</h3>
         <div className="flex flex-col items-center gap-2.5 justify-end">
           <Input fullWidth value="reaviz" start="twitter.com/" />
@@ -1114,9 +1114,9 @@ export const Account = () => (
   <motion.div
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    className="flex flex-col justify-center grow sm:mx-auto sm:w-full"
+    className="flex flex-col justify-center grow mx-auto w-full max-w-[1200px] px-4 sm:px-6"
   >
-    <Card className="p-12 transition-colors min-w-[960px]">
+    <Card className="p-6 sm:p-8 md:p-12 transition-colors">
       <Tabs variant="secondary" selectedIndex={0}>
         <TabList>
           <Tab>Profile</Tab>
@@ -1126,8 +1126,8 @@ export const Account = () => (
       </Tabs>
       <TabPanel>
         <MotionGroup>
-          <div className="flex items-start gap-5 justify-between">
-            <div className="flex flex-col items-start gap-2.5 w-3/5">
+          <div className="flex flex-col items-start gap-5 lg:flex-row lg:justify-between">
+            <div className="flex flex-col items-start gap-2.5 w-full md:w-3/5">
               <div className="flex flex-col items-start gap-1">
                 <div className="flex items-center gap-2.5">
                   <h2 className="text-2xl font-sans font-bold text-gray-100 light:text-gray-900">
@@ -1263,7 +1263,7 @@ export const Account = () => (
                 </Stepper>
               </Field>
             </div>
-            <Field className="w-2/5 min-w-[300px] mt-8 p-5 border rounded-sm border-gray-600 light:border-gray-300">
+            <Field className="w-full md:w-2/5 md:min-w-[232px] mt-8 p-5 border rounded-sm border-gray-600 light:border-gray-300">
               <MotionItem>
                 <img src={AvatarImage} className="h-full w-full" />
                 <h3 className="text-gray-100 my-2.5 font-bold light:text-gray-900">
@@ -1292,7 +1292,7 @@ export const Account = () => (
 
                 <Divider variant="secondary" />
 
-                <div className="flex items-center gap-2.5 w-full">
+                <div className="flex items-center gap-2.5 w-full align-middle">
                   <div className="flex flex-col items-center gap-1 w-2/4">
                     <label className="text-[32px] text-gray-100 light:text-gray-900">
                       2 days
@@ -1323,11 +1323,11 @@ export const Overview = () => (
   <motion.div
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    className="flex flex-col justify-center grow sm:mx-auto w-full"
+    className="flex flex-col justify-center grow mx-auto w-full max-w-[1200px] px-4 sm:px-6"
   >
     <MotionGroup>
-      <Card className="p-8 transition-colors w-full min-w-[960px] max-w-[1200px] light:bg-gray-100">
-        <div className="flex items-start gap-5 justify-between">
+      <Card className="p-6 sm:p-8 transition-colors w-full max-w-[1200px] light:bg-gray-100">
+        <div className="flex flex-col items-stretch gap-5">
           <div className="flex flex-col items-stretch gap-2.5 w-full">
             <Field className="bg-gray-900 light:bg-white rounded-[20px] p-[30px]">
               <div className="flex items-center gap-2.5">
@@ -1355,7 +1355,7 @@ export const Overview = () => (
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-2.5 mt-4">
+              <div className="flex items-center gap-2.5 mt-4 overflow-x-auto flex-nowrap">
                 <Button
                   className="px-3"
                   variant="filled"
@@ -1409,7 +1409,7 @@ export const Overview = () => (
                     Edit
                   </Button>
                 </div>
-                <Field className="grid grid-cols-2 gap-4 mt-4">
+                <Field className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4">
                   <div className="flex items-center gap-2.5">
                     <Field className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
                       <EmailIcon className="text-gray-300 light:text-gray-700" />
@@ -1516,7 +1516,7 @@ export const Overview = () => (
                   </div>
                 </h3>
 
-                <div className="flex items-center mt-4 gap-4">
+                <div className="flex flex-col gap-3 mt-4 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4">
                   <div className="flex items-center gap-2.5">
                     <Field className="flex items-center justify-center mb-0 border border-gray-600 light:border-gray-300 p-[14px] w-[60px] h-[60px]">
                       <SymbolIcon />
@@ -1566,7 +1566,7 @@ export const Overview = () => (
               </Field>
             </MotionItem>
           </div>
-          <Field className="bg-gray-900 light:bg-white rounded-[20px] p-[30px] min-w-[360px]">
+          <Field className="bg-gray-900 light:bg-white rounded-[20px] p-[30px] w-full">
             <h3 className="text-gray-100 light:text-gray-900 font-bold text-lg">
               Latest Activity
             </h3>
@@ -1687,9 +1687,9 @@ export const Settings = () => {
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="flex flex-col justify-center grow sm:mx-auto w-full"
+      className="flex flex-col justify-center grow mx-auto w-full max-w-[1200px] px-4 sm:px-6"
     >
-      <Card className="p-8 transition-colors w-full min-w-[960px] max-w-[1200px] light:bg-gray-100">
+      <Card className="p-6 sm:p-8 transition-colors w-full max-w-[1200px] light:bg-gray-100">
         <div className="flex items-start gap-2.5">
           <Field className="border border-gray-600 light:border-gray-300 p-3 rounded-xs">
             <UserIcon className="text-gray-300 light:text-gray-700" />
@@ -1710,7 +1710,6 @@ export const Settings = () => {
             <Tab>Users</Tab>
             <Tab>Billing</Tab>
             <Tab>Integrations</Tab>
-            <Tab>Notifications</Tab>
           </TabList>
         </Tabs>
         <TabPanel>

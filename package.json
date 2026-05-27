@@ -3,11 +3,10 @@
   "version": "10.0.2",
   "description": "Component library for React",
   "scripts": {
-    "build": "npm run build:js && npm run build:styles && npm run rewrite:stories && npm run build:docs",
+    "build": "npm run build:js && npm run build:styles && npm run rewrite:stories",
     "build-storybook": "storybook build",
     "build:js": "vite build --mode library",
     "build:styles": "npx @tailwindcss/cli -i ./src/index.css -o ./dist/index.css",
-    "build:docs": "node scripts/docs.js",
     "rewrite:stories": "node scripts/stories.cjs",
     "lint": "eslint --ext js,ts,tsx",
     "lint:fix": "eslint --ext js,ts,tsx --fix src",
