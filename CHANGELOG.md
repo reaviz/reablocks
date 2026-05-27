@@ -1,3 +1,7 @@
+# 10.0.3 - 5/27/26
+- [fix] fix block responsive stories
+- [chore] remove doc script
+
 # 10.0.2 - 5/25/26
 - [feature] Field: Customisable required indicator + sr-only announcement #352
 - [feature] ConfirmDialog: async support + slot-based action customization #351
