@@ -12,9 +12,9 @@ export const NoResults = () => (
   <motion.div
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    className="mt-10 sm:mx-auto sm:w-full md:w-[800px]"
+    className="mt-10 mx-auto w-full max-w-[800px] px-4 sm:px-6"
   >
-    <Card className="w-full px-12 md:px-24 py-12">
+    <Card className="w-full p-6 sm:p-8 md:px-24 md:py-12">
       <div className="w-full flex-col flex items-center text-center mb-8">
         <span className="text-3xl font-bold">No Results Found</span>
         <span className="text-text-secondary text-base">
@@ -172,10 +172,10 @@ export const MissingInfo = () => (
   <motion.div
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    className="mt-10 sm:mx-auto sm:w-full md:w-[690px]"
+    className="mt-10 mx-auto w-full max-w-[690px] px-4 sm:px-6"
   >
     <Card
-      className="w-full px-12 md:px-24 py-12 md:py-28"
+      className="w-full p-6 sm:p-8 md:px-24 md:py-28"
       contentClassName="flex flex-col gap-2 items-center text-center"
     >
       <span className="text-3xl font-bold">Missing Info</span>
@@ -226,10 +226,10 @@ export const NothingToDisplay = () => (
   <motion.div
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    className="mt-10 sm:mx-auto sm:w-full md:w-[620px]"
+    className="mt-10 mx-auto w-full max-w-[620px] px-4 sm:px-6"
   >
     <Card
-      className="w-full p-14"
+      className="w-full p-6 sm:p-8 md:p-14"
       contentClassName="flex flex-col gap-2 items-center text-center"
     >
       <svg

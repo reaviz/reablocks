@@ -69,7 +69,7 @@ export const Register = () => {
       animate={{ y: 0, opacity: 1 }}
       className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
-      <Card className="w-full p-12">
+      <Card className="w-full p-6 sm:p-8 md:p-12">
         <div className="flex flex-col pt-2 mb-5">
           <div>
             <LogoIcon className="h-11 mb-2 w-auto" />
@@ -209,9 +209,9 @@ export const RegisterFull = () => {
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[1100px]"
+      className="mx-auto w-full max-w-[1100px] px-4 sm:px-6"
     >
-      <Card className="w-full p-12">
+      <Card className="w-full p-6 sm:p-8 md:p-12">
         <div className="flex flex-col pt-2 mb-5">
           <div>
             <LogoIcon className="h-11 mb-2 w-auto" />
@@ -231,7 +231,7 @@ export const RegisterFull = () => {
           className="text-sm"
           onSubmit={handleSubmit(values => console.log('values', values))}
         >
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field label="First Name">
               <Controller
                 name="firstName"
@@ -275,7 +275,7 @@ export const RegisterFull = () => {
               )}
             />
           </Field>
-          <div className="grid grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field label="Company Name">
               <Controller
                 name="companyName"
@@ -547,7 +547,7 @@ export const RegisterV2 = () => {
       animate={{ y: 0, opacity: 1 }}
       className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
-      <Card className="w-full p-12">
+      <Card className="w-full p-6 sm:p-8 md:p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-5">
           <LogoIcon className="h-11 w-auto mb-2" />
           <h4 className="text-2xl font-sans font-bold mb-0 text-center">
@@ -708,7 +708,7 @@ export const RegisterWithSocial = () => {
       animate={{ y: 0, opacity: 1 }}
       className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
-      <Card className="w-full p-12">
+      <Card className="w-full p-6 sm:p-8 md:p-12">
         <div className="flex flex-col items-center justify-center pt-2">
           <LogoIcon className="h-11 w-auto mb-2" />
           <h4 className="text-2xl font-sans font-bold mb-0 text-center">

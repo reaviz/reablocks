@@ -55,7 +55,7 @@ export const ForgotPassword = () => {
       animate={{ y: 0, opacity: 1 }}
       className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
-      <Card className="w-full p-12">
+      <Card className="w-full p-6 sm:p-8 md:p-12">
         <div className="flex flex-col items-center justify-center pt-2 mb-14">
           <LogoIcon className="h-11 w-auto mb-2" />
           <h4 className="text-2xl font-sans font-bold mb-0">
@@ -168,7 +168,7 @@ export const ForgotPasswordFull = () => {
   return (
     <Card
       className="w-full grow p-5"
-      contentClassName="w-full flex w-full gap-12 max-w-[960px] h-[600px]"
+      contentClassName="w-full flex flex-col md:flex-row gap-12 max-w-[960px] md:h-[600px]"
     >
       <motion.div
         initial={{ y: -20, opacity: 0 }}
@@ -256,7 +256,7 @@ export const ForgotPasswordMinimal = () => {
       animate={{ y: 0, opacity: 1 }}
       className="flex flex-col justify-center grow sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
-      <Card className="w-full p-12">
+      <Card className="w-full p-6 sm:p-8 md:p-12">
         <div className="flex flex-col items-center justify-center text-center pt-2 mb-14">
           <h4 className="text-2xl font-sans font-bold mb-0">
             Forgot Password?
@@ -345,7 +345,7 @@ export const ResetPassword = () => {
       className="flex flex-col justify-center grow sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
       <Card
-        className="w-full h-full grow p-12"
+        className="w-full h-full grow p-6 sm:p-8 md:p-12"
         contentClassName="w-full h-full grow flex flex-col"
       >
         <div className="flex items-center gap-2.5 justify-between">
@@ -465,7 +465,7 @@ export const ResetPasswordMinimal = () => {
       animate={{ y: 0, opacity: 1 }}
       className="flex flex-col justify-center grow sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[600px]"
     >
-      <Card className="w-full p-12">
+      <Card className="w-full p-6 sm:p-8 md:p-12">
         <div className="flex flex-col items-center justify-center text-center pt-2 mb-10">
           <div className="p-3 border border-secondary-inactive rounded-sm mb-3">
             <svg
