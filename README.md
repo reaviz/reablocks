@@ -36,10 +36,10 @@
 
 ## 🎁 Other Projects
 
-- [Reaflow](https://reaflow.dev?utm=reablocks) - Open-source library for workflow and diagram graphs.
 - [Reagraph](https://reagraph.dev?utm=reablocks) - Open-source library for large webgl based network graphs.
 - [Reaviz](https://reaviz.dev?utm=reablocks) - Open-source library for data visualizations for React.
 - [Reachat](https://reachat.dev?utm=reablocks) - Open-source library for building LLM/Chat UIs for React.
+- [Reaflow](https://reaflow.dev?utm=reablocks) - Open-source library for workflow and diagram graphs.
 
 ## 🔭 Development
 
@@ -67,12 +67,6 @@ npm run test:visual:update
 `test:visual:extract` runs automatically as part of both commands — it fetches the story list from Storybook so Playwright knows what to screenshot.
 
 ## ❤️ Contributors & Credits
-
-Thanks to Netlify for hosting!
-
-<a href="https://www.netlify.com">
-  <img src="https://www.netlify.com/v3/img/components/netlify-dark.svg" alt="Deploys by Netlify" />
-</a>
 
 Thanks to all our contributors!
 
