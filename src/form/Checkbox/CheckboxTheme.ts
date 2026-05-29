@@ -82,7 +82,7 @@ export const checkboxTheme: CheckboxTheme = {
       'cursor-not-allowed stroke-panel group-hover/checkbox:stroke-panel'
   },
   border: {
-    base: 'stroke-text-secondary group-hover/checkbox:stroke-primary-hover',
+    base: 'stroke-secondary group-hover/checkbox:stroke-primary-hover',
     checked: 'stroke-primary',
     disabled:
       'cursor-not-allowed stroke-secondary-inactive group-hover/checkbox:stroke-secondary-inactive'

@@ -36,7 +36,7 @@ export const pagerTheme: PagerTheme = {
   pages: {
     base: 'inline-flex',
     page: {
-      base: 'py-1 text-text-secondary',
+      base: 'py-1 text-text-secondary cursor-pointer transition-colors hover:text-text-primary',
       active: 'font-bold text-text-primary!'
     }
   },
