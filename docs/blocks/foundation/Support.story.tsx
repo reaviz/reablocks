@@ -21,7 +21,7 @@ export const Support = () => {
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="mt-10 sm:mx-auto sm:w-full md:w-[500px]"
+      className="mt-10 mx-auto w-full max-w-[500px] px-4 sm:px-6"
     >
       <Card className="w-full">
         <div className="flex flex-col items-center justify-center pt-2 pb-5 text-center">

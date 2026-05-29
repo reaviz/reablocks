@@ -1096,7 +1096,7 @@ export const MfaLogin = () => {
       animate={{ y: 0, opacity: 1 }}
       className="mt-10 sm:mx-auto sm:w-full md:w-[600px]"
     >
-      <Card className="w-full p-[50px]">
+      <Card className="w-full p-6 sm:p-8 md:p-[50px]">
         <div className="flex items-center gap-2.5 justify-between">
           <LogoIcon className="h-[30px] w-auto" />
           <a href="#" className="text-lg text-primary font-semibold">
@@ -1203,7 +1203,7 @@ export const MfaAuthenticator = () => {
       animate={{ y: 0, opacity: 1 }}
       className="mt-10 sm:mx-auto sm:w-full md:w-[600px]"
     >
-      <Card className="w-full p-[50px]">
+      <Card className="w-full p-6 sm:p-8 md:p-[50px]">
         <div className="flex flex-col pt-2 pb-5">
           <h1 className="mb-0 text-2xl font-sans font-bold">
             Set up your two-factor authentication.

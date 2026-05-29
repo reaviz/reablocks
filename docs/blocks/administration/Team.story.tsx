@@ -92,9 +92,9 @@ export const TeamGeneral = () => {
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[1200px]"
+      className="mt-10 mx-auto w-full max-w-[1200px] px-4 sm:px-6"
     >
-      <Card className="transition-colors p-12">
+      <Card className="transition-colors p-6 sm:p-8 md:p-12">
         <div className="flex flex-col gap-4">
           <div className="flex flex-col">
             <h2 className="font-bold text-2xl">General</h2>
@@ -111,11 +111,10 @@ export const TeamGeneral = () => {
               <Tab>Users</Tab>
               <Tab>Billing</Tab>
               <Tab>Integrations</Tab>
-              <Tab>Notifications</Tab>
             </TabList>
           </Tabs>
           <TabPanel>
-            <div className="flex w-full justify-between items-center mb-4">
+            <div className="flex flex-col gap-4 w-full md:flex-row md:justify-between md:items-center mb-4">
               <div className="flex flex-col">
                 <span className="font-bold">Users</span>
                 <span className="text-base text-text-secondary">
@@ -270,17 +269,15 @@ export const TeamMinimal = () => {
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[840px]"
+      className="mt-10 mx-auto w-full max-w-[840px] px-4 sm:px-6"
     >
-      <Card className="transition-colors p-12">
-        <div className="flex gap-2 items-center justify-between">
+      <Card className="transition-colors p-6 sm:p-8 md:p-12">
+        <div className="flex flex-col gap-3 sm:flex-row sm:gap-2 sm:items-center sm:justify-between">
           <Tabs variant="secondary" selectedIndex={1}>
             <TabList>
               <Tab>Account</Tab>
               <Tab>Users</Tab>
               <Tab>Billing</Tab>
-              <Tab>Integrations</Tab>
-              <Tab>Notifications</Tab>
             </TabList>
           </Tabs>
           <Input
@@ -300,7 +297,7 @@ export const TeamMinimal = () => {
           />
         </div>
         <TabPanel className="flex flex-col gap-2 mt-8">
-          <div className="flex w-full justify-between items-center">
+          <div className="flex flex-col gap-4 w-full md:flex-row md:justify-between md:items-center">
             <div className="flex flex-col">
               <span className="font-bold">On teams</span>
               <span className="text-base text-text-secondary">
@@ -476,11 +473,11 @@ export const TeamRoles = () => {
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:max-w-[1200px]"
+      className="mt-10 mx-auto w-full max-w-[1200px] px-4 sm:px-6"
     >
-      <Card className="transition-colors p-12">
+      <Card className="transition-colors p-6 sm:p-8 md:p-12">
         <div className="flex flex-col gap-4">
-          <div className="flex justify-between items-center">
+          <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-center">
             <div className="flex flex-col">
               <h2 className="font-bold text-2xl">Team Members</h2>
               <span className="text-text-secondary text-base">
@@ -506,8 +503,8 @@ export const TeamRoles = () => {
             </Button>
           </div>
           <Divider variant="secondary" />
-          <div className="w-full flex gap-12  ">
-            <div className="flex flex-col w-1/4">
+          <div className="w-full flex flex-col gap-6 md:flex-row md:gap-12">
+            <div className="flex flex-col md:w-1/4">
               <span className="font-bold">Admins (3)</span>
               <p className="text-text-secondary text-base">
                 Manage user accounts, permissions, and access levels within the
@@ -641,8 +638,8 @@ export const TeamRoles = () => {
             </div>
           </div>
           <Divider variant="secondary" />
-          <div className="w-full flex gap-12">
-            <div className="flex flex-col w-1/4">
+          <div className="w-full flex flex-col gap-6 md:flex-row md:gap-12">
+            <div className="flex flex-col md:w-1/4">
               <span className="font-bold">Users (12)</span>
               <p className="text-text-secondary text-base">
                 Manage user accounts, permissions, and access levels within the

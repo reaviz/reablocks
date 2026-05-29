@@ -18,9 +18,9 @@ export const ActivityTimeline = () => (
   <motion.div
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    className="mt-10 sm:mx-auto sm:w-full md:w-[820px]"
+    className="mt-10 mx-auto w-full max-w-[820px] px-4 sm:px-6"
   >
-    <Card className="w-full p-12">
+    <Card className="w-full p-6 sm:p-8 md:p-12">
       <Stepper continuous animated>
         <Step>
           <div className="flex flex-col gap-1">
@@ -141,9 +141,9 @@ export const VersionHistory = () => (
   <motion.div
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    className="mt-10 sm:mx-auto sm:w-full md:w-[560px]"
+    className="mt-10 mx-auto w-full max-w-[560px] px-4 sm:px-6"
   >
-    <Card className="w-full p-12">
+    <Card className="w-full p-6 sm:p-8 md:p-12">
       <div className="w-full flex-row flex justify-between items-center text-center mb-8">
         <span className="text-xl font-bold">Version History</span>
         <IconButton variant="text">
@@ -226,9 +226,9 @@ export const WorkspaceHistory = () => (
   <motion.div
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    className="mt-10 sm:mx-auto sm:w-full md:w-[650px]"
+    className="mt-10 mx-auto w-full max-w-[650px] px-4 sm:px-6"
   >
-    <Card className="w-full p-12">
+    <Card className="w-full p-6 sm:p-8 md:p-12">
       <div className="flex flex-col items-start gap-2.5">
         <div className="w-full flex-row flex justify-between items-center text-center">
           <span className="text-xl font-bold">Workspace History</span>

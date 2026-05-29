@@ -25,9 +25,9 @@ export const BillingFull = () => (
   <motion.div
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:min-w-[960px] md:max-w-[1200px]"
+    className="mt-10 mx-auto w-full max-w-[1200px] px-4 sm:px-6"
   >
-    <Card className="p-12 transition-colors">
+    <Card className="p-6 sm:p-8 md:p-12 transition-colors">
       <div className="flex flex-col gap-4">
         <div className="flex flex-col">
           <h2 className="text-2xl font-bold">Billing</h2>
@@ -43,13 +43,12 @@ export const BillingFull = () => (
             <Tab>Users</Tab>
             <Tab>Billing</Tab>
             <Tab>Integrations</Tab>
-            <Tab>Notifications</Tab>
           </TabList>
         </Tabs>
         <TabPanel>
           <div className="flex flex-col gap-2">
             <span className="font-bold">Plan</span>
-            <div className="flex w-full gap-4">
+            <div className="flex flex-col gap-4 md:flex-row">
               <Card
                 className="light:bg-athens-gray flex-1"
                 contentClassName="flex flex-col gap-6"
@@ -136,7 +135,7 @@ export const BillingFull = () => (
                 className="absolute h-full rounded-full bg-linear-to-r from-transparent to-blue-400 blur-md"
               />
             </div>
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-2 font-semibold">
                 <div className="border-panel-accent border px-4 py-2">5</div>
                 <span className="d text-sm">of 25 seats used</span>
@@ -193,18 +192,18 @@ export const PayAndBilling = () => {
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:min-w-[960px] md:max-w-[1200px]"
+      className="mt-10 mx-auto w-full max-w-[1200px] px-4 sm:px-6"
     >
-      <Card className="p-12 transition-colors">
+      <Card className="p-6 sm:p-8 md:p-12 transition-colors">
         <div className="flex flex-col gap-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div className="flex flex-col">
               <h2 className="text-2xl font-bold">Pay & Billing</h2>
               <p className="text-text-secondary text-base">
                 Manage your plan and payments
               </p>
             </div>
-            <div className="flex items-center gap-2.5">
+            <div className="flex items-center gap-2.5 flex-wrap md:justify-end md:ml-auto">
               <Button
                 className="dark:bg-charade/40 dark:hover:bg-charade/60 dark:focus:bg-charade/60 light:bg-blue-200/40 light:hover:bg-blue-200/60 light:focus:bg-blue-200/60 light:text-vulcan w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
                 variant="outline"
@@ -242,14 +241,14 @@ export const PayAndBilling = () => {
             </div>
           </div>
           <Divider />
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <span className="font-bold">Current plan</span>
             <Button variant="outline">Change plan</Button>
           </div>
-          <div className="flex w-full gap-4">
+          <div className="flex flex-col gap-4 md:flex-row">
             <Card
               className="flex-1"
-              contentClassName="flex justify-between items-start"
+              contentClassName="flex flex-col gap-3 sm:flex-row sm:justify-between sm:items-start"
             >
               <div className="flex flex-col">
                 <span className="text-text-secondary text-sm">
@@ -265,6 +264,7 @@ export const PayAndBilling = () => {
               <div className="flex items-center gap-2.5">
                 <Chip
                   theme={chipTheme}
+                  className="whitespace-nowrap"
                   start={
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -301,7 +301,7 @@ export const PayAndBilling = () => {
               Your usage is renewed every month
             </span>
           </div>
-          <div className="flex gap-4">
+          <div className="flex flex-col gap-4 md:flex-row">
             <Card className="flex-1" contentClassName="flex flex-col gap-2">
               <div className="border-panel-accent w-fit border p-4">
                 <svg
@@ -439,13 +439,13 @@ export const BillingSubscription = () => (
   <motion.div
     initial={{ y: -20, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
-    className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:min-w-[960px] md:max-w-[1200px]"
+    className="mt-10 mx-auto w-full max-w-[1200px] px-4 sm:px-6"
   >
-    <Card className="p-12 transition-colors">
+    <Card className="p-6 sm:p-8 md:p-12 transition-colors">
       <div className="flex flex-col gap-4">
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
           <h2 className="text-2xl font-bold">Billing</h2>
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2.5 flex-wrap">
             <Button
               className="bg-(image:--button-gradient) hover:bg-(image:--button-gradient-hover) focus:bg-(image:--button-gradient-focus) dark:bg-transparent! light:bg-primary light:hover:bg-none light:hover:bg-primary-hover light:focus:bg-primary-hover w-fit border-none px-4 py-2 font-semibold transition-colors focus:outline-hidden"
               end={
@@ -494,7 +494,7 @@ export const BillingSubscription = () => (
         <div className="border-panel-accent flex overflow-hidden rounded-xl border">
           <div className="flex flex-1 flex-col">
             <div className="dark:bg-vulcan light:bg-mystic text-text-secondary px-6 py-4 text-base">
-              Selected plan
+              Current
             </div>
             <div className="text-text-secondary flex-1 px-6 py-4 text-base">
               Team
@@ -537,7 +537,7 @@ export const BillingSubscription = () => (
             </div>
           </div>
           <div className="flex flex-1 flex-col">
-            <div className="dark:bg-vulcan light:bg-mystic text-text-secondary px-6 py-4 text-base">
+            <div className="dark:bg-vulcan light:bg-mystic text-text-secondary whitespace-nowrap px-6 py-4 text-base">
               Yearly Cost
             </div>
             <div className="text-text-secondary flex flex-1 items-center gap-2 px-6 py-4 text-base">
@@ -556,7 +556,7 @@ export const BillingSubscription = () => (
           </div>
         </div>
         <span className="mb-8 mt-4 text-xl font-bold">Seats usage</span>
-        <div className="flex w-full gap-4">
+        <div className="flex flex-col gap-4 md:flex-row">
           <div className="flex flex-1 flex-col gap-3">
             <div className="flex items-center justify-between">
               <span className="text-sm">Editors</span>
@@ -706,7 +706,7 @@ export const BillingInformation = () => {
     <motion.div
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm md:min-w-[960px] md:max-w-[1200px]"
+      className="mt-10 mx-auto w-full max-w-[1200px] px-4 sm:px-6"
     >
       <div className="text-text-primary mb-2 flex justify-between gap-2 rounded-xl border border-primary bg-primary/10 p-8">
         <div className="flex flex-col gap-2">
@@ -753,11 +753,11 @@ export const BillingInformation = () => {
           </span>
         </div>
       </div>
-      <Card className="p-12 transition-colors">
+      <Card className="p-6 sm:p-8 md:p-12 transition-colors">
         <div className="flex flex-col gap-2">
           <h2 className="text-2xl font-bold">Billing Information</h2>
           <Divider variant="secondary" className="mb-4" />
-          <div className="flex w-full gap-4">
+          <div className="flex flex-col gap-4 md:flex-row">
             <Card contentClassName="flex flex-col gap-4" className="flex-1">
               <div className="flex items-center justify-between">
                 <span className="font-bold">Payment Method</span>

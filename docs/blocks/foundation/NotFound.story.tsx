@@ -832,10 +832,12 @@ const GridPatternIcon = ({ className }) => (
 );
 
 export const NotFound = () => (
-  <div className="flex flex-row justify-center w-full md:min-w-[960px] min-h-[600px] relative dark:bg-black-pearl p-6">
-    <div className="text-center">
-      <div className="absolute top-0 left-0 z-0 w-full leading-[600px] text-center text-transparent bg-clip-text text-[400px] opacity-30 bg-linear-to-r from-waterloo to-charade font-bold">
-        404
+  <div className="flex flex-row justify-center w-full min-h-[600px] relative dark:bg-black-pearl p-6 overflow-hidden">
+    <div className="text-center w-full max-w-[600px]">
+      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none">
+        <span className="text-transparent bg-clip-text text-[22vw] sm:text-[18vw] md:text-[16vw] lg:text-[300px] leading-none opacity-30 bg-linear-to-r from-waterloo to-charade font-bold">
+          404
+        </span>
       </div>
       <div className="absolute top-0 left-0 w-full h-full dark:bg-[radial-gradient(circle,rgba(36,36,66,0.3)_2%,rgba(2,2,15,1)_80%)] light:bg-[radial-gradient(circle,rgba(224,224,232,0.3)_2%,rgba(247,247,250,1)_80%)]" />
       <div className="flex flex-col gap-3 h-full justify-center">
@@ -885,10 +887,10 @@ export const NotFound = () => (
 );
 
 export const DoesNotExist = () => (
-  <div className="w-full dark:bg-black-pearl md:min-w-[960px] p-6 pt-0">
+  <div className="w-full dark:bg-black-pearl p-6 pt-0">
     <MotionGroup className="bg-[radial-gradient(50%_6.33%_at_50%_0%,rgba(16,94,255,0.71)_0%,rgba(248,248,251,0)_85.19%)] pb-[50px]">
       <Divider variant="secondary" />
-      <MotionItem className="flex flex-col items-center p-12">
+      <MotionItem className="flex flex-col items-center p-6 sm:p-8 md:p-12">
         <svg
           className="mb-14"
           xmlns="http://www.w3.org/2000/svg"
@@ -1109,7 +1111,7 @@ export const DoesNotExist = () => (
 );
 
 export const LostPage = () => (
-  <div className="flex flex-row justify-center w-full md:min-w-[960px] p-6 min-h-[800px] relative dark:bg-black-pearl">
+  <div className="flex flex-row justify-center w-full p-6 min-h-[800px] relative dark:bg-black-pearl">
     <div className="text-center w-full">
       <GridPatternIcon className="absolute top-0" />
       <div className="flex flex-col gap-3 w-full h-full justify-center">
@@ -1133,7 +1135,7 @@ export const LostPage = () => (
         >
           ← Back to Home
         </Button>
-        <MotionGroup className="mt-12 md:mt-[200px] w-full grid md:grid-cols-3 grid-cols-1 px-10">
+        <MotionGroup className="mt-12 md:mt-[200px] w-full grid md:grid-cols-3 grid-cols-1 gap-4 px-2 sm:px-6 md:px-10">
           <MotionItem className="group/item">
             <Card className="relative text-left border-transparent dark:group-hover/item:border-charade light:group-hover/item:border-mystic transition-colors">
               <div className="flex flex-col gap-6 items-start">
