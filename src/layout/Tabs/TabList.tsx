@@ -90,6 +90,7 @@ export const TabList: FC<TabListProps> = ({
         </Tab>
       ))}
       <hr
+        aria-hidden="true"
         className={cn(theme.list.divider, theme.list.variant[variant].divider)}
       />
     </nav>
