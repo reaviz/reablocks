@@ -55,4 +55,35 @@ describe('Select text-filter contract', () => {
       filterOptionsByKeyword(edgeOptions, 'fruit').map(o => o.value)
     ).toEqual(['a', 'b', 'c']);
   });
+
+  test('does not match arbitrary queries against ReactNode children', () => {
+    // Simulates JSX children — `String({...})` produces "[object Object]"
+    const reactNodeOptions: SelectOptionProps[] = [
+      {
+        value: 'a',
+        children: { foo: 'bar' } as unknown as SelectOptionProps['children'],
+        group: 'fruit'
+      },
+      { value: 'b', children: 'Banana', group: 'fruit' }
+    ];
+    expect(
+      filterOptionsByKeyword(reactNodeOptions, 'object').map(o => o.value)
+    ).toEqual([]);
+    expect(
+      filterOptionsByKeyword(reactNodeOptions, 'banana').map(o => o.value)
+    ).toEqual(['b']);
+  });
+
+  test('matches numeric children (allowed by ReactNode contract)', () => {
+    const numericOptions: SelectOptionProps[] = [
+      {
+        value: 'a',
+        children: 42 as unknown as SelectOptionProps['children'],
+        group: 'g'
+      }
+    ];
+    expect(
+      filterOptionsByKeyword(numericOptions, '4').map(o => o.value)
+    ).toEqual(['a']);
+  });
 });
