@@ -1,3 +1,7 @@
+# 10.1.0 - 6/2/26
+- [chore] Select: remove fuse.js + @reaviz/react-use-fuzzy; replace fuzzy search with case-insensitive substring matching on label + group
+- [chore] Select: deprecate `searchOptions` prop (now a no-op; removal scheduled for the next major)
+
 # 10.0.3 - 5/27/26
 - [fix] fix block responsive stories
 - [chore] remove doc script

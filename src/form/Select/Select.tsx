@@ -8,7 +8,6 @@ import React, {
   useRef,
   useState
 } from 'react';
-import Fuse from 'fuse.js';
 import {
   ConnectedOverlay,
   ConnectedOverlayContentRef,
@@ -18,8 +17,13 @@ import { CloneElement, useId } from '@/utils';
 import { SelectInput, SelectInputProps, SelectInputRef } from './SelectInput';
 import { SelectMenu, SelectMenuProps } from './SelectMenu';
 import { SelectOptionProps, SelectValue } from './SelectOption';
-import { useFuzzy } from '@reaviz/react-use-fuzzy';
-import { createOptions, getGroups, useWidth, keyNameToCode } from './utils';
+import {
+  createOptions,
+  filterOptionsByKeyword,
+  getGroups,
+  useWidth,
+  keyNameToCode
+} from './utils';
 import isEqual from 'react-fast-compare';
 
 export interface SelectProps {
@@ -245,9 +249,12 @@ export interface SelectProps {
   menu?: ReactElement<SelectMenuProps, typeof SelectMenu>;
 
   /**
-   * The options for the Fuse.js search algorithm.
+   * @deprecated The Fuse.js-based fuzzy search has been replaced with
+   * case-insensitive substring matching on the option label and group.
+   * This prop is now a no-op and will be removed in the next major
+   * release. Remove it from your code.
    */
-  searchOptions?: Fuse.IFuseOptions<SelectOptionProps>;
+  searchOptions?: Record<string, unknown>;
 
   /**
    * When menu is opened
@@ -301,7 +308,6 @@ export const Select: FC<SelectProps> = ({
   onInputKeyUp,
   onOptionsChange,
   onInputChange,
-  searchOptions,
   onOpenMenu,
   onCloseMenu
 }) => {
@@ -328,19 +334,16 @@ export const Select: FC<SelectProps> = ({
     }
   }, [children, options]);
 
-  const {
-    result: fuseResult,
-    keyword,
-    search,
-    resetSearch
-  } = useFuzzy<SelectOptionProps>(options, {
-    keys: ['children', 'group'],
-    ...searchOptions,
-    getFn: menuDisabled ? () => '' : searchOptions?.getFn
-  });
+  const [keyword, setKeyword] = useState('');
+  const search = setKeyword;
+  const resetSearch = useCallback(() => setKeyword(''), []);
 
-  // TODO: Come back and cleanup the fuzzy search to be more extensible
-  const result = filterable === 'async' ? options : fuseResult;
+  const filteredResult = useMemo(
+    () => (menuDisabled ? options : filterOptionsByKeyword(options, keyword)),
+    [options, keyword, menuDisabled]
+  );
+
+  const result = filterable === 'async' ? options : filteredResult;
 
   // If a keyword is used to filter options, automatically
   // highlight the first option for easy selection

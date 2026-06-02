@@ -190,7 +190,6 @@ export const Createable = () => {
         createable
         selectOnPaste
         selectOnKeys={['Enter', 'Space', 'Comma']}
-        searchOptions={{ threshold: 0 }}
         placeholder="Add some categories or pick existing one..."
         value={value}
         onChange={v => setValue(v)}
