@@ -1,6 +1,6 @@
 {
   "name": "reablocks",
-  "version": "10.0.3",
+  "version": "11.0.0",
   "description": "Component library for React",
   "scripts": {
     "build": "npm run build:js && npm run build:styles && npm run rewrite:stories",
@@ -62,7 +62,6 @@
   "homepage": "https://github.com/reaviz/reablocks#readme",
   "dependencies": {
     "@floating-ui/react": "^0.27.19",
-    "@reaviz/react-use-fuzzy": "^1.0.3",
     "body-scroll-lock-upgrade": "^1.1.0",
     "chroma-js": "^3.2.0",
     "classnames": "^2.5.1",
@@ -72,7 +71,6 @@
     "date-fns": "^4.1.0",
     "ellipsize": "^0.7.0",
     "focus-trap-react": "^12.0.1",
-    "fuse.js": "^6.6.2",
     "human-format": "^1.2.1",
     "motion": "^12.38.0",
     "name-initials": "^0.1.3",

@@ -1,3 +1,8 @@
+# 11.0.0 - 6/2/26
+- [breaking] Select: remove `searchOptions` prop. Use the default case-insensitive substring filter on `children` + `group`. Consumers using `searchOptions` should delete the prop.
+- [chore] Select: remove fuse.js + @reaviz/react-use-fuzzy; replace fuzzy search with case-insensitive substring matching on label + group
+- [fix] TabList: hide decorative `<hr>` divider from assistive tech (`aria-hidden="true"`) — resolves axe `aria-required-children` violation on `<nav role="tablist">`
+
 # 10.0.3 - 5/27/26
 - [fix] fix block responsive stories
 - [chore] remove doc script
