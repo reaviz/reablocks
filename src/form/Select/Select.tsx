@@ -249,14 +249,6 @@ export interface SelectProps {
   menu?: ReactElement<SelectMenuProps, typeof SelectMenu>;
 
   /**
-   * @deprecated The Fuse.js-based fuzzy search has been replaced with
-   * case-insensitive substring matching on the option label and group.
-   * This prop is now a no-op and will be removed in the next major
-   * release. Remove it from your code.
-   */
-  searchOptions?: Record<string, unknown>;
-
-  /**
    * When menu is opened
    */
   onOpenMenu?: () => void;
