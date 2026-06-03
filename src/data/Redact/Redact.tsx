@@ -1,6 +1,6 @@
 import React, { FC, useMemo, useState } from 'react';
-import coverup from 'coverup';
 import { RedactTheme } from './RedactTheme';
+import { maskValue } from './utils';
 import { cn, useComponentTheme } from '@/utils';
 
 export interface RedactProps {
@@ -55,13 +55,7 @@ export const Redact: FC<RedactProps> = ({
 }) => {
   const [visible, setVisible] = useState<boolean>(false);
   const masked = useMemo(
-    () =>
-      coverup(value, {
-        keepLeft: 1,
-        keepRight: 1,
-        compactTo: compactLength,
-        char: character
-      }) || '',
+    () => maskValue(value, compactLength, character),
     [value, character, compactLength]
   );
 

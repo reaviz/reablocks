@@ -1,8 +1,11 @@
 import React, { FC, Fragment, ReactElement, useCallback } from 'react';
 import { motion } from 'motion/react';
 import { SelectOptionProps, SelectValue } from '@/form/Select/SelectOption';
-import Highlighter from 'react-highlight-words';
-import { GroupOptions, GroupOption } from '@/form/Select/utils';
+import {
+  GroupOptions,
+  GroupOption,
+  highlightChunks
+} from '@/form/Select/utils';
 import { List, ListItem } from '@/layout';
 import { cn, useComponentTheme } from '@/utils';
 import { SelectTheme } from '@/form/Select/SelectTheme';
@@ -184,12 +187,20 @@ export const SelectMenu: FC<SelectMenuProps> = ({
         >
           {o.menuLabel ? (
             o.menuLabel
+          ) : typeof o.children === 'string' ||
+            typeof o.children === 'number' ? (
+            <span>
+              {highlightChunks(String(o.children), inputSearchText ?? '').map(
+                (chunk, ci) =>
+                  chunk.highlight ? (
+                    <mark key={ci}>{chunk.text}</mark>
+                  ) : (
+                    <Fragment key={ci}>{chunk.text}</Fragment>
+                  )
+              )}
+            </span>
           ) : (
-            <Highlighter
-              searchWords={[inputSearchText]}
-              autoEscape={true}
-              textToHighlight={o.children}
-            />
+            o.children
           )}
           {Boolean(multiple && checkOptionSelected(o)) &&
             (checkIcon ?? <CheckIcon className={theme.option.checkIcon} />)}
