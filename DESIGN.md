@@ -1,5 +1,6 @@
 ---
-version: alpha
+# Document version (the DESIGN.md format spec itself is at version "alpha")
+version: 0.1.0
 name: reablocks
 description: >-
   Design system for reablocks — an open-source, Tailwind CSS-powered React
