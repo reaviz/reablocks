@@ -31,39 +31,24 @@ export interface PagerTheme {
   nextPage: string;
 }
 
-const baseTheme: PagerTheme = {
+export const pagerTheme: PagerTheme = {
   base: 'items-center flex user-select-none',
   pages: {
     base: 'inline-flex',
     page: {
-      base: 'py-1',
-      active: 'font-bold'
+      base: 'py-1 text-text-secondary cursor-pointer transition-colors hover:text-text-primary',
+      active: 'font-bold text-text-primary!'
     }
   },
   ellipsis: 'cursor-pointer',
-  pagerDisplayItems: 'mr-1.5',
+  pagerDisplayItems: 'mr-1.5 text-text-secondary',
   itemsDisplay: 'flex items-center gap-1',
   showPageRange: '',
   totalCount: '',
-  control: '[&>svg]:w-5 [&>svg]:h-5',
+  control:
+    '[&>svg]:w-5 [&>svg]:h-5 text-text-primary disabled:text-text-inactive',
   firstPage: '',
   prevPage: '',
   lastPage: '',
   nextPage: ''
-};
-
-export const pagerTheme: PagerTheme = {
-  ...(baseTheme as PagerTheme),
-  pages: {
-    ...baseTheme.pages,
-    page: {
-      base: [baseTheme.pages.page.base, 'text-slate-500'].join(' '),
-      active: [baseTheme.pages.page.active, 'text-text-primary!'].join(' ')
-    }
-  },
-  control: [
-    baseTheme.control,
-    'text-slate-200 light:text-slate-400 disabled:light:text-slate-300'
-  ].join(' '),
-  pagerDisplayItems: [baseTheme.pagerDisplayItems, 'text-slate-500'].join(' ')
 };

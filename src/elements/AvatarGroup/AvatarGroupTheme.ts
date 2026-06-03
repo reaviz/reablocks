@@ -7,13 +7,8 @@ export interface AvatarGroupTheme {
   overflow: string;
 }
 
-const baseTheme: AvatarGroupTheme = {
-  base: 'flex items-center',
+export const avatarGroupTheme: AvatarGroupTheme = {
+  base: 'flex items-center text-text-primary',
   avatar: '-ml-2.5',
   overflow: 'ml-[5px]'
-};
-
-export const avatarGroupTheme: AvatarGroupTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-text-primary'].join(' ')
 };

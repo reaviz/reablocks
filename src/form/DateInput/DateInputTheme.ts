@@ -22,8 +22,8 @@ export const dateInputTheme: DateInputTheme = {
   preset: {
     list: 'w-full border border-panel-accent',
     option: {
-      base: 'hover:bg-vulcan hover:text-mystic light:hover:bg-vulcan/5 light:hover:text-text-secondary',
-      active: 'bg-vulcan hover:text-mystic'
+      base: 'hover:bg-panel-accent hover:text-text-primary',
+      active: 'bg-panel-accent hover:text-text-primary'
     }
   }
 };

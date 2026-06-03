@@ -11,18 +11,10 @@ export interface CardTheme {
   content: string;
 }
 
-const baseTheme: CardTheme = {
-  base: 'relative flex flex-col p-7 rounded-xs',
+export const cardTheme: CardTheme = {
+  base: 'relative flex flex-col p-7 rounded-xs bg-panel border border-panel-accent text-text-primary',
   disablePadding: 'p-0',
   header: 'flex items-center',
   headerText: 'text-sm font-medium mt-0 mb-1',
   content: 'flex-1'
-};
-
-export const cardTheme: CardTheme = {
-  ...baseTheme,
-  base: [
-    baseTheme.base,
-    'bg-panel border border-panel-accent text-text-primary'
-  ].join(' ')
 };

@@ -81,50 +81,9 @@ export interface ChipTheme {
   disabled: string;
 }
 
-const baseTheme: Partial<ChipTheme> = {
-  base: `
-  inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5
-  rounded-xs leading-none text-white transition-colors
-  duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium
-  `,
+export const chipTheme: ChipTheme = {
+  base: 'inline-flex whitespace-no-wrap select-none items-center justify-center px-2.5 py-0.5 rounded-xs leading-none text-white transition-colors duration-300 ease [&>svg]:transition-[fill] [&>svg]:will-change-[fill] font-medium',
   label: 'flex items-center',
-  colors: {
-    default: {
-      selectable: {
-        base: 'hover:cursor-pointer'
-      }
-    },
-    primary: {
-      selectable: {
-        base: 'hover:cursor-pointer'
-      }
-    },
-    secondary: {
-      selectable: {
-        base: 'hover:cursor-pointer'
-      }
-    },
-    success: {
-      selectable: {
-        base: 'hover:cursor-pointer'
-      }
-    },
-    warning: {
-      selectable: {
-        base: 'hover:cursor-pointer'
-      }
-    },
-    error: {
-      selectable: {
-        base: 'hover:cursor-pointer'
-      }
-    },
-    info: {
-      selectable: {
-        base: 'hover:cursor-pointer'
-      }
-    }
-  },
   adornment: {
     base: 'flex items-center justify-center',
     start: 'mr-1',
@@ -142,23 +101,6 @@ const baseTheme: Partial<ChipTheme> = {
   },
   focus:
     'focus-visible:outline-dashed focus-visible:outline-1 focus-visible:outline-offset-2',
-  deleteButton: {
-    base: 'text-inherit',
-    sizes: {
-      small: 'leading-[10px] max-h-2.5',
-      medium: 'leading-3 max-h-3',
-      large: 'leading-[14px] max-h-3.5'
-    }
-  },
-  disabled: 'opacity-50 cursor-not-allowed'
-};
-
-export const chipTheme: ChipTheme = {
-  base: baseTheme.base,
-  label: baseTheme.label,
-  adornment: baseTheme.adornment,
-  sizes: baseTheme.sizes,
-  focus: baseTheme.focus,
   variants: {
     filled: 'border border-transparent box-border',
     outline: 'bg-transparent border hover:bg-transparent'
@@ -167,14 +109,14 @@ export const chipTheme: ChipTheme = {
     default: {
       variants: {
         filled: 'bg-panel border-panel text-text-primary',
-        outline: 'text-text-primary dark:border-gray-100 light:border-gray-900'
+        outline: 'text-text-primary border-current'
       },
       selectable: {
-        base: `${baseTheme.colors.default.selectable.base}`,
+        base: 'hover:cursor-pointer',
         variants: {
           filled: {
-            base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
-            selected: 'bg-primary text-panel'
+            base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-white',
+            selected: 'bg-primary text-white'
           },
           outline: {
             base: 'hover:text-primary-hover hover:border-panel-accent',
@@ -186,13 +128,13 @@ export const chipTheme: ChipTheme = {
     primary: {
       variants: {
         outline: 'text-primary border-panel-accent',
-        filled: 'bg-primary border-primary text-panel'
+        filled: 'bg-primary border-primary text-white'
       },
       selectable: {
-        base: `${baseTheme.colors.primary.selectable.base}`,
+        base: 'hover:cursor-pointer',
         variants: {
           filled: {
-            base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-panel',
+            base: 'hover:bg-primary-hover hover:border-primary-hover hover:text-white',
             selected: 'bg-primary-hover'
           },
           outline: {
@@ -208,11 +150,11 @@ export const chipTheme: ChipTheme = {
         outline: 'text-secondary border-panel-accent'
       },
       selectable: {
-        base: `${baseTheme.colors.secondary.selectable.base}`,
+        base: 'hover:cursor-pointer',
         variants: {
           filled: {
-            base: 'hover:bg-secondary-hover hover:border-secondary-hover hover:text-panel',
-            selected: 'bg-secondary-hover text-panel'
+            base: 'hover:bg-secondary-hover hover:border-secondary-hover hover:text-white',
+            selected: 'bg-secondary-hover text-white'
           },
           outline: {
             base: 'hover:text-secondary-hover hover:border-secondary',
@@ -223,11 +165,11 @@ export const chipTheme: ChipTheme = {
     },
     success: {
       variants: {
-        filled: 'bg-success border-success text-panel',
+        filled: 'bg-success border-success text-white',
         outline: 'text-success border-panel-accent'
       },
       selectable: {
-        base: `${baseTheme.colors.success.selectable.base}`,
+        base: 'hover:cursor-pointer',
         variants: {
           filled: {
             base: 'hover:bg-success-hover hover:border-success-hover',
@@ -242,14 +184,14 @@ export const chipTheme: ChipTheme = {
     },
     warning: {
       variants: {
-        filled: 'bg-warning border-warning text-panel',
+        filled: 'bg-warning border-warning text-white',
         outline: 'text-warning border-panel-accent'
       },
       selectable: {
-        base: `${baseTheme.colors.warning.selectable.base}`,
+        base: 'hover:cursor-pointer',
         variants: {
           filled: {
-            base: 'hover:bg-warning-hover hover:border-warning-hover hover:text-panel',
+            base: 'hover:bg-warning-hover hover:border-warning-hover hover:text-white',
             selected: 'bg-warning-hover'
           },
           outline: {
@@ -261,14 +203,14 @@ export const chipTheme: ChipTheme = {
     },
     error: {
       variants: {
-        filled: 'bg-error border-error text-panel',
+        filled: 'bg-error border-error text-white',
         outline: 'text-error border-panel-accent'
       },
       selectable: {
-        base: `${baseTheme.colors.error.selectable.base}`,
+        base: 'hover:cursor-pointer',
         variants: {
           filled: {
-            base: 'hover:bg-error-hover hover:border-error-hover hover:text-panel',
+            base: 'hover:bg-error-hover hover:border-error-hover hover:text-white',
             selected: 'bg-error-hover'
           },
           outline: {
@@ -280,14 +222,14 @@ export const chipTheme: ChipTheme = {
     },
     info: {
       variants: {
-        filled: 'bg-info border-info text-panel',
+        filled: 'bg-info border-info text-white',
         outline: 'text-info border-panel-accent'
       },
       selectable: {
-        base: `${baseTheme.colors.info.selectable.base}`,
+        base: 'hover:cursor-pointer',
         variants: {
           filled: {
-            base: 'hover:bg-info-hover hover:border-info-hover hover:text-panel',
+            base: 'hover:bg-info-hover hover:border-info-hover hover:text-white',
             selected: 'bg-info-hover'
           },
           outline: {
@@ -298,6 +240,13 @@ export const chipTheme: ChipTheme = {
       }
     }
   },
-  deleteButton: baseTheme.deleteButton,
-  disabled: baseTheme.disabled
+  deleteButton: {
+    base: 'text-inherit',
+    sizes: {
+      small: 'leading-[10px] max-h-2.5',
+      medium: 'leading-3 max-h-3',
+      large: 'leading-[14px] max-h-3.5'
+    }
+  },
+  disabled: 'opacity-50 cursor-not-allowed'
 };

@@ -113,7 +113,7 @@ export const CustomTheme = () => {
         ...chipTheme.colors.secondary,
         variants: {
           ...chipTheme.colors.secondary.variants,
-          filled: `${chipTheme?.colors?.secondary?.variants?.filled} dark:bg-gray-100 light:bg-gray-900 text-panel`
+          filled: `${chipTheme?.colors?.secondary?.variants?.filled} bg-panel-accent text-text-primary`
         }
       },
       info: {

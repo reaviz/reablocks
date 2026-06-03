@@ -15,7 +15,7 @@ export interface DividerTheme {
   disableMargins?: string;
 }
 
-const baseTheme: DividerTheme = {
+export const dividerTheme = {
   base: 'border-none',
   orientation: {
     horizontal: 'h-px w-full my-2.5',
@@ -23,11 +23,7 @@ const baseTheme: DividerTheme = {
   },
   variant: {
     primary: 'bg-surface',
-    secondary: 'bg-linear-to-r from-transparent to-transparent via-blue-500'
+    secondary: 'bg-linear-to-r from-transparent to-transparent via-primary'
   },
   disableMargins: 'my-0 mx-0'
-};
-
-export const dividerTheme = {
-  ...baseTheme
 };

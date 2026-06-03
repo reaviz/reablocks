@@ -39,7 +39,7 @@ export interface TabsTheme {
   panel: string;
 }
 
-const baseTheme: TabsTheme = {
+export const tabsTheme: TabsTheme = {
   base: 'flex flex-col',
   list: {
     base: 'flex text-center flex-wrap -mb-px',
@@ -75,5 +75,3 @@ const baseTheme: TabsTheme = {
   },
   panel: 'mt-2'
 };
-
-export const tabsTheme = baseTheme;

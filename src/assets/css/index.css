@@ -1,0 +1,181 @@
+@import 'tailwindcss';
+@import './theme.css';
+
+/* Color palette */
+:root,
+:host {
+  --reablocks-theme: dark;
+
+  /* Primary colors */
+  --primary: var(--color-blue-500);
+  --primary-active: var(--color-blue-500);
+  --primary-hover: var(--color-blue-400);
+  --primary-inactive: var(--color-blue-200);
+
+  /* Secondary colors */
+  --secondary: var(--color-charade);
+  --secondary-active: var(--color-charade);
+  --secondary-hover: var(--color-gray-700);
+  --secondary-inactive: var(--color-gray-600);
+
+  /* Success colors */
+  --success: var(--color-green-500);
+  --success-active: var(--color-green-500);
+  --success-hover: var(--color-green-400);
+  --success-background: var(--color-green-950);
+
+  /* Error colors */
+  --error: var(--color-red-500);
+  --error-active: var(--color-red-500);
+  --error-hover: var(--color-red-400);
+  --error-background: var(--color-red-950);
+
+  /* Warning colors */
+  --warning: var(--color-orange-500);
+  --warning-active: var(--color-orange-500);
+  --warning-hover: var(--color-orange-400);
+  --warning-background: var(--color-orange-950);
+
+  /* Info colors */
+  --info: var(--color-blue-500);
+  --info-active: var(--color-blue-500);
+  --info-hover: var(--color-blue-400);
+  --info-background: var(--color-blue-950);
+
+  /* Panel colors */
+  --panel: var(--color-black-pearl);
+  --panel-active: var(--color-gray-600);
+  --panel-accent: var(--color-charade);
+
+  /* Surface colors */
+  --surface: var(--color-charade);
+  --surface-accent: var(--color-blue-500);
+
+  /* Text colors */
+  --text-primary: var(--color-athens-gray);
+  --text-secondary: var(--color-waterloo);
+  --text-inactive: var(--color-gray-300);
+  --text-placeholder: var(--color-gray-400);
+
+  .theme-light,
+  &.theme-light,
+  [data-theme='light'],
+  &[data-theme='light'] {
+    --reablocks-theme: light;
+
+    /* Primary colors */
+    --primary: var(--color-blue-500);
+    --primary-active: var(--color-blue-500);
+    --primary-hover: var(--color-blue-600);
+    --primary-inactive: var(--color-gray-500);
+
+    /* Secondary colors */
+    --secondary: var(--color-blue-200);
+    --secondary-active: var(--color-blue-200);
+    --secondary-hover: var(--color-blue-300);
+    --secondary-inactive: var(--color-waterloo);
+
+    /* Success colors */
+    --success: var(--color-green-500);
+    --success-active: var(--color-green-500);
+    --success-hover: var(--color-green-600);
+    --success-background: var(--color-green-100);
+
+    /* Error colors */
+    --error: var(--color-red-500);
+    --error-active: var(--color-red-400);
+    --error-hover: var(--color-red-600);
+    --error-background: var(--color-red-100);
+
+    /* Warning colors */
+    --warning: var(--color-orange-500);
+    --warning-active: var(--color-orange-500);
+    --warning-hover: var(--color-orange-600);
+    --warning-background: var(--color-orange-100);
+
+    /* Info colors */
+    --info: var(--color-blue-500);
+    --info-active: var(--color-blue-500);
+    --info-hover: var(--color-blue-600);
+    --info-background: var(--color-blue-100);
+
+    /* Panel colors */
+    --panel: var(--color-white);
+    --panel-active: var(--color-gray-300);
+    --panel-accent: var(--color-mystic);
+
+    /* Surface colors */
+    --surface: var(--color-gray-300);
+    --surface-accent: var(--color-blue-500);
+
+    /* Text colors */
+    --text-primary: var(--color-vulcan);
+    --text-secondary: var(--color-gray-700);
+    --text-inactive: var(--color-gray-500);
+    --text-placeholder: var(--color-gray-400);
+  }
+}
+
+/* Custom variants */
+@custom-variant dark (&:where(.theme-dark, .theme-dark *, [data-theme=dark], [data-theme=dark] *));
+@custom-variant light (&:where(.theme-light, .theme-light *, [data-theme=light], [data-theme=light] *));
+@custom-variant disabled-within (&:has(input:is(:disabled), textarea:is(:disabled), button:is(:disabled)));
+@custom-variant not-disabled-within (&:not(:has(input:is(:disabled), textarea:is(:disabled), button:is(:disabled))));
+
+/* Semantic color tokens - use inline because they reference var() */
+@theme inline {
+  /* Primary colors */
+  --color-primary: var(--primary);
+  --color-primary-active: var(--primary-active);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-inactive: var(--primary-inactive);
+
+  /* Secondary colors */
+  --color-secondary: var(--secondary);
+  --color-secondary-active: var(--secondary-active);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-inactive: var(--secondary-inactive);
+
+  /* Success colors */
+  --color-success: var(--success);
+  --color-success-active: var(--success-active);
+  --color-success-hover: var(--success-hover);
+  --color-success-background: var(--success-background);
+
+  /* Error colors */
+  --color-error: var(--error);
+  --color-error-active: var(--error-active);
+  --color-error-hover: var(--error-hover);
+  --color-error-background: var(--error-background);
+
+  /* Warning colors */
+  --color-warning: var(--warning);
+  --color-warning-active: var(--warning-active);
+  --color-warning-hover: var(--warning-hover);
+  --color-warning-background: var(--warning-background);
+
+  /* Info colors */
+  --color-info: var(--info);
+  --color-info-active: var(--info-active);
+  --color-info-hover: var(--info-hover);
+  --color-info-background: var(--info-background);
+
+  /* Panel colors */
+  --color-panel: var(--panel);
+  --color-panel-active: var(--panel-active);
+  --color-panel-accent: var(--panel-accent);
+
+  /* Surface colors */
+  --color-surface: var(--surface);
+  --color-surface-accent: var(--surface-accent);
+
+  /* Text colors */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-inactive: var(--text-inactive);
+  --color-text-placeholder: var(--text-placeholder);
+}
+
+body {
+  line-height: inherit;
+}

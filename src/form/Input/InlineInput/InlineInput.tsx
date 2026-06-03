@@ -8,8 +8,7 @@ import React, {
 import { InputTheme } from '@/form/Input/InputTheme';
 import { cn, useComponentTheme } from '@/utils';
 
-export interface InlineInputProps
-  extends InputHTMLAttributes<HTMLInputElement> {
+export interface InlineInputProps extends InputHTMLAttributes<HTMLInputElement> {
   /**
    * Additional className for the input container
    */
@@ -57,7 +56,7 @@ export const InlineInput: FC<InlineInputProps & InlineInputRef> = forwardRef<
 
     return (
       <div className={cn('inline-grid', className)}>
-        <span className="invisible" style={{ gridArea: ' 1 / 1 ' }}>
+        <span className="invisible" style={{ gridArea: '1 / 1 ' }}>
           {!value && '\u00A0'}
           {typeof value === 'string'
             ? !value
@@ -69,7 +68,7 @@ export const InlineInput: FC<InlineInputProps & InlineInputRef> = forwardRef<
           {...props}
           size={1}
           ref={ref}
-          style={{ gridArea: ' 1 / 1 ' }}
+          style={{ gridArea: '1 / 1 ' }}
           type="text"
           placeholder={placeholder}
           value={value}

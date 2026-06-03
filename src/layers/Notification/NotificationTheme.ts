@@ -33,12 +33,12 @@ export interface NotificationTheme {
   };
 }
 
-const baseTheme: NotificationTheme = {
+export const notificationTheme: NotificationTheme = {
   container: '',
   positions:
     'fixed z-9998 h-auto -translate-x-2/4 mb-1 px-24 py-0 left-2/4 bottom-0',
   notification: {
-    base: 'flex relative text-base min-w-[400px] rounded-xs mb-2.5 py-2 px-4',
+    base: 'flex relative text-base min-w-[400px] rounded-xs mb-2.5 py-2 px-4 bg-panel text-text-primary border-panel-accent border',
     variants: {
       success: {
         base: 'bg-success-background border border-success',
@@ -64,16 +64,5 @@ const baseTheme: NotificationTheme = {
     closeButton:
       'cursor-pointer text-sm font-semibold m-0 border-0 text-text-primary hover:text-text-primary/70',
     body: 'opacity-70 text-sm mt-1'
-  }
-};
-
-export const notificationTheme: NotificationTheme = {
-  ...baseTheme,
-  notification: {
-    ...baseTheme.notification,
-    base: [
-      baseTheme.notification.base,
-      'bg-panel text-text-primary border-panel-accent border'
-    ].join(' ')
   }
 };

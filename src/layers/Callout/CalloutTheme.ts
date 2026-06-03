@@ -31,7 +31,7 @@ export const calloutTheme: CalloutTheme = {
   base: {
     common: 'flex items-center gap-2.5 px-4 py-3 border-b',
     variant: {
-      default: 'bg-panel-background border-panel-accent',
+      default: 'bg-panel border-panel-accent',
       success: 'bg-success-background border-success',
       error: 'bg-error-background border-error',
       warning: 'bg-warning-background border-warning',

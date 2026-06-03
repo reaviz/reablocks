@@ -184,7 +184,7 @@ export const legacyComponentNameTheme: ComponentNameTheme = {
 1. Use Tailwind utility classes exclusively
 2. Use `twMerge` from `tailwind-merge` to merge class names
 3. Support theme customization via theme prop
-4. Use CSS custom properties for color theming (defined in `src/index.css`)
+4. Use CSS custom properties for color theming (defined in `src/assets/css/index.css`)
 5. Support both dark and light themes using `dark:` and `light:` variants
 
 ### Storybook Stories
@@ -255,7 +255,7 @@ function App() {
 
 ### CSS Custom Properties
 
-Theme colors are defined in `src/index.css` using CSS custom properties:
+Theme colors are defined in `src/assets/css/index.css` using CSS custom properties:
 
 - `--primary`, `--primary-hover`, `--primary-active`
 - `--secondary`, `--secondary-hover`
@@ -299,7 +299,7 @@ The build process consists of:
    - Copies story files to `dist/stories/` and `dist/blocks/`
 
 2. **CSS Build** (`npm run build:styles`): Tailwind CLI builds styles
-   - Input: `src/index.css`
+   - Input: `src/assets/css/index.css`
    - Output: `dist/index.css`
 
 3. **Docs Build** (`npm run build:docs`): Generates component documentation

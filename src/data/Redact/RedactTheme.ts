@@ -5,12 +5,7 @@ export interface RedactTheme {
   interactive: string;
 }
 
-const baseTheme: RedactTheme = {
-  base: 'cursor-text',
-  interactive: 'cursor-pointer hover:underline'
-};
-
 export const redactTheme: RedactTheme = {
-  ...baseTheme,
-  base: [baseTheme.base, 'text-text-primary'].join(' ')
+  base: 'cursor-text text-text-primary',
+  interactive: 'cursor-pointer hover:underline'
 };
