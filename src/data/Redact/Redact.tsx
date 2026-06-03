@@ -1,6 +1,6 @@
 import React, { FC, useMemo, useState } from 'react';
-import coverup from 'coverup';
 import { RedactTheme } from './RedactTheme';
+import { maskValue } from './utils';
 import { cn, useComponentTheme } from '@/utils';
 
 export interface RedactProps {
@@ -16,7 +16,9 @@ export interface RedactProps {
   allowToggle?: boolean;
 
   /**
-   * Number of characters to compact to.
+   * Number of mask characters shown between the first and last characters,
+   * regardless of the value's length (e.g. `compactLength: 8` renders
+   * `m********d`). When 0, the middle is masked at its true length.
    * @default 8
    */
   compactLength?: number;
@@ -55,13 +57,7 @@ export const Redact: FC<RedactProps> = ({
 }) => {
   const [visible, setVisible] = useState<boolean>(false);
   const masked = useMemo(
-    () =>
-      coverup(value, {
-        keepLeft: 1,
-        keepRight: 1,
-        compactTo: compactLength,
-        char: character
-      }) || '',
+    () => maskValue(value, compactLength, character),
     [value, character, compactLength]
   );
 
