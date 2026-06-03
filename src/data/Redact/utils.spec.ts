@@ -19,11 +19,21 @@ describe('maskValue', () => {
     expect(maskValue('ab', 8, '*')).toBe('ab');
   });
 
-  test('should mask three character values to first + char*compactLength + last', () => {
+  test('should mask the middle with compactLength characters', () => {
+    expect(maskValue('SuperSecretText', 8, '*')).toBe('S********t');
+  });
+
+  test('should produce the same compact output regardless of value length', () => {
+    const long = 'SuperSecretText'.repeat(8);
+    expect(maskValue(long, 8, '*')).toBe('S********t');
+    expect(maskValue(long, 8, '*')).toBe(maskValue('SuperSecretText', 8, '*'));
+  });
+
+  test('should mask short values with compactLength characters', () => {
     expect(maskValue('abc', 8, '*')).toBe('a********c');
   });
 
-  test('should mask longer values to first + char*compactLength + last', () => {
+  test('should respect a custom compactLength', () => {
     expect(maskValue('abcdef', 3, '*')).toBe('a***f');
   });
 
@@ -39,7 +49,7 @@ describe('maskValue', () => {
     expect(maskValue('password', 0, 'x')).toBe('pxxxxxxd');
   });
 
-  test('should handle the default-ish case', () => {
+  test('should handle the default case', () => {
     expect(maskValue('mypassword', 8, '*')).toBe('m********d');
   });
 });

@@ -6,7 +6,8 @@
  * - Falsy values (undefined/null/'') return ''.
  * - Values with a length of 2 or less are returned unchanged.
  * - When `compactLength` is greater than 0, the middle is replaced with
- *   `character` repeated `compactLength` times.
+ *   `character` repeated `compactLength` times, regardless of the value's
+ *   length — long values stay compact and don't reveal their true length.
  * - When `compactLength` is 0, the middle is masked at the value's true length
  *   (length - 2 characters).
  */
