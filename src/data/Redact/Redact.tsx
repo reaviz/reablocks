@@ -16,7 +16,9 @@ export interface RedactProps {
   allowToggle?: boolean;
 
   /**
-   * Number of characters to compact to.
+   * Number of mask characters shown between the first and last characters
+   * (e.g. `compactLength: 8` renders `m********d`). When 0, the middle is
+   * masked at its true length.
    * @default 8
    */
   compactLength?: number;
