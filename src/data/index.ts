@@ -1,4 +1,5 @@
 export * from './Ellipsis';
+export * from './HighlightedText';
 export * from './Pluralize';
 export * from './DataSize';
 export * from './Redact';

@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import { highlightChunks } from './highlight';
+import { highlightChunks } from './utils';
 
 describe('highlightChunks', () => {
   test('empty keyword returns the whole text as a single non-highlighted chunk', () => {
