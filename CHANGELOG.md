@@ -1,3 +1,8 @@
+# 10.2.0 - 6/4/26
+- [feature] expose new highlight component
+- [feature] expose new coverup fn
+- [chore] Remove deprecated dependencies: coverup  & react-highlight-words #359
+
 # 10.1.0 - 6/2/26
 - [breaking] Select: remove `searchOptions` prop. Use the default case-insensitive substring filter on `children` + `group`. Consumers using `searchOptions` should delete the prop.
 - [chore] Select: remove fuse.js + @reaviz/react-use-fuzzy; replace fuzzy search with case-insensitive substring matching on label + group
