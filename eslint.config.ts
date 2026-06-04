@@ -27,6 +27,8 @@ const compat = new FlatCompat({
 });
 
 module.exports = defineConfig([{
+  files: ['**/*.{js,jsx,ts,tsx}'],
+
   languageOptions: {
     globals: {
       ...globals.browser,

@@ -33,11 +33,16 @@ export default defineConfig(({ mode }) =>
           targets: [
             {
               src: 'src/**/*.story.tsx',
-              dest: 'stories/'
+              dest: 'stories/',
+              // static-copy v4 preserves directory structure by default;
+              // stripBase: true restores the flat dist/stories layout.
+              rename: { stripBase: true }
             },
             {
               src: 'docs/blocks/**/*.story.tsx',
-              dest: 'blocks/'
+              dest: 'blocks/',
+              // Flatten to dist/blocks/*.story.tsx (see note above).
+              rename: { stripBase: true }
             }
           ]
         })
@@ -60,7 +65,7 @@ export default defineConfig(({ mode }) =>
           name: 'reablocks',
           fileName: 'index'
         },
-        rollupOptions: {
+        rolldownOptions: {
           plugins: [
             external({
               includeDependencies: true

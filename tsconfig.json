@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "strict": false,
     "target": "ES2015",
     "module": "ESNext",
     "types": [
@@ -16,6 +17,7 @@
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
     "resolveJsonModule": true,
+    "rootDir": "src",
     "rootDirs": ["src", "docs"],
     "noImplicitAny": false,
     "noImplicitThis": false,
@@ -28,12 +30,12 @@
     "sourceMap": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
-    "ignoreDeprecations": "5.0",
+    "ignoreDeprecations": "6.0",
     "paths": {
       "@/*": ["./src/*"]
     }
   },
   "types": ["node"],
-  "include": ["src/**/*", "demo/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }
