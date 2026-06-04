@@ -36,6 +36,6 @@
     }
   },
   "types": ["node"],
-  "include": ["src/**/*", "demo/**/*"],
+  "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]
 }

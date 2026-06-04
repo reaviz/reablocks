@@ -8,8 +8,8 @@
     "build:js": "vite build --mode library",
     "build:styles": "npx @tailwindcss/cli -i ./src/index.css -o ./dist/index.css",
     "rewrite:stories": "node scripts/stories.cjs",
-    "lint": "eslint --ext js,ts,tsx",
-    "lint:fix": "eslint --ext js,ts,tsx --fix src",
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src",
     "lint:prettier": "prettier --loglevel warn --write 'src/**/*.{ts,tsx,js,jsx}'",
     "prettier": "prettier --loglevel warn --write 'src/**/*.{ts,tsx,js,jsx}'",
     "start": "storybook dev -p 9009",
@@ -150,7 +150,7 @@
   },
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint --ext js,ts,tsx --fix"
+      "eslint --fix"
     ],
     "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
       "prettier --write"
