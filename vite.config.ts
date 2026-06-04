@@ -65,7 +65,7 @@ export default defineConfig(({ mode }) =>
           name: 'reablocks',
           fileName: 'index'
         },
-        rollupOptions: {
+        rolldownOptions: {
           plugins: [
             external({
               includeDependencies: true
