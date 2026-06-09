@@ -1,3 +1,11 @@
+# 10.3.0 - 6/9/26
+- [chore] Migrate build tooling to Vite 8 (rolldown), @vitejs/plugin-react 6, and TypeScript 6.0 #360
+- [chore] Bump Vite plugins (dts 5, svgr 5, static-copy 4, css-injected-by-js 5, checker 0.14) and align Storybook family to 10.4.2 #360
+- [chore] Bump test tooling: jsdom 29 and Vitest 4.1 #360
+- [chore] Bump runtime dependencies: date-fns 4.4, motion 12.40, focus-trap-react 12.0.2 #360
+- [chore] Remove unused `tw-colors` and deprecated `@types/classnames` dependencies #360
+- [chore] Require Node >=22.13.0 and pin CI to Node 24 (latest LTS) #360
+
 # 10.2.0 - 6/4/26
 - [feature] expose new highlight component
 - [feature] expose new coverup fn
