@@ -1,3 +1,6 @@
+# 10.3.1 - 6/22/26
+- [fix] preserve existing chip on duplicate via Enter/blur #362
+
 # 10.3.0 - 6/9/26
 - [chore] Migrate build tooling to Vite 8 (rolldown), @vitejs/plugin-react 6, and TypeScript 6.0 #360
 - [chore] Bump Vite plugins (dts 5, svgr 5, static-copy 4, css-injected-by-js 5, checker 0.14) and align Storybook family to 10.4.2 #360
