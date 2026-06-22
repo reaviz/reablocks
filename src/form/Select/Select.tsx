@@ -217,6 +217,14 @@ export interface SelectProps {
   onClear?: () => void;
 
   /**
+   * When the user attempts to add a value that is already selected,
+   * via Enter or blur, in `createable` + `menuDisabled` mode. The
+   * duplicate is rejected and the input is reset; this callback lets
+   * consumers surface feedback (e.g. a toast).
+   */
+  onDuplicate?: (value: string) => void;
+
+  /**
    * When the value changes.
    */
   onChange?: (value) => void;
@@ -294,6 +302,7 @@ export const Select: FC<SelectProps> = ({
   onRefresh,
   onChange,
   onClear,
+  onDuplicate,
   onBlur: onInputBlur,
   onFocus: onInputFocus,
   onInputKeydown,
@@ -434,6 +443,12 @@ export const Select: FC<SelectProps> = ({
     setOpen(false);
     resetInput();
   }, [resetInput]);
+
+  const isSelected = useCallback(
+    (candidate: string): boolean =>
+      Array.isArray(value) ? value.includes(candidate) : value === candidate,
+    [value]
+  );
 
   const onArrowUpKeyUp = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -589,11 +604,15 @@ export const Select: FC<SelectProps> = ({
         return;
       }
 
+      if (menuDisabled && createable && !inputValue) {
+        return;
+      }
+
       if (index > -1 || createable) {
         let newSelection;
 
         const hasSelection = index > -1 && result[index];
-        if (createable && !hasSelection) {
+        if (createable && (menuDisabled || !hasSelection)) {
           newSelection = {
             value: inputValue,
             children: inputValue
@@ -604,22 +623,24 @@ export const Select: FC<SelectProps> = ({
         // Add new item if menu not disabled or item not presents in the list otherwise just clear input
         if (
           newSelection &&
-          (!menuDisabled || !value?.includes(newSelection.value))
+          (!menuDisabled || !isSelected(newSelection.value))
         ) {
           toggleSelectedOption(newSelection);
-        } else if (menuDisabled && value?.includes(newSelection.value)) {
+        } else if (menuDisabled && isSelected(newSelection.value)) {
           resetInput();
+          onDuplicate?.(newSelection.value);
         }
       }
     },
     [
       createable,
       index,
+      isSelected,
       menuDisabled,
+      onDuplicate,
       resetInput,
       result,
-      toggleSelectedOption,
-      value
+      toggleSelectedOption
     ]
   );
 
@@ -693,17 +714,28 @@ export const Select: FC<SelectProps> = ({
       const inputElement = event.target as HTMLInputElement;
       const inputValue = inputElement.value.trim();
       if (menuDisabled && createable && inputValue) {
-        const newSelection = {
-          value: inputValue,
-          children: inputValue
-        };
-
-        toggleSelectedOption(newSelection);
+        if (isSelected(inputValue)) {
+          resetInput();
+          onDuplicate?.(inputValue);
+        } else {
+          toggleSelectedOption({
+            value: inputValue,
+            children: inputValue
+          });
+        }
       }
 
       onInputBlur?.(event);
     },
-    [createable, menuDisabled, onInputBlur, toggleSelectedOption]
+    [
+      createable,
+      isSelected,
+      menuDisabled,
+      onDuplicate,
+      onInputBlur,
+      resetInput,
+      toggleSelectedOption
+    ]
   );
 
   const onPasteHandler = useCallback(
