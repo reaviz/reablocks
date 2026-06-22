@@ -373,6 +373,37 @@ export const CreateableNoOptions = () => {
   );
 };
 
+export const CreateableDuplicateRejected = () => {
+  const [value, setValue] = useState<string[]>([]);
+  const [options, setOptions] = useState<string[]>([]);
+  const [lastDuplicate, setLastDuplicate] = useState<string | null>(null);
+  return (
+    <div style={{ width: 300 }}>
+      <Select
+        multiple
+        createable
+        menuDisabled
+        placeholder="Add a tag, then try adding it again..."
+        value={value}
+        onOptionsChange={opts => setOptions(opts.map(o => o.value))}
+        onChange={v => setValue(v)}
+        onDuplicate={dupe => setLastDuplicate(dupe)}
+      >
+        {options.map(opt => (
+          <SelectOption key={opt} value={opt}>
+            {opt}
+          </SelectOption>
+        ))}
+      </Select>
+      {lastDuplicate && (
+        <div style={{ marginTop: 8, fontSize: 12, color: '#888' }}>
+          <code>"{lastDuplicate}"</code> already exists
+        </div>
+      )}
+    </div>
+  );
+};
+
 export const Async = () => {
   const [value, setValue] = useState<string | null>('github');
   const [loading, setLoading] = useState<boolean>(false);
