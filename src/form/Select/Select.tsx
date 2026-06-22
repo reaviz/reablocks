@@ -604,6 +604,10 @@ export const Select: FC<SelectProps> = ({
         return;
       }
 
+      if (menuDisabled && createable && !inputValue) {
+        return;
+      }
+
       if (index > -1 || createable) {
         let newSelection;
 
