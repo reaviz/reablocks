@@ -1167,7 +1167,7 @@ export const Account = () => (
                         <EmailIcon className="text-blue-500" />{' '}
                         <span className="pl-1">Email</span>
                       </Chip>
-                      <span>Austin@goodcode.us</span>
+                      <span>contact@goodcode.us</span>
                     </div>
 
                     <div className="flex items-center gap-2.5 justify-between w-full">
@@ -1178,7 +1178,7 @@ export const Account = () => (
                         <PhoneIcon className="text-blue-500" />{' '}
                         <span className="pl-1">Phone</span>
                       </Chip>
-                      <span>561-699-7050</span>
+                      <span>561-555-5555</span>
                     </div>
 
                     <div className="flex items-center gap-2.5 justify-between w-full">
@@ -1417,7 +1417,7 @@ export const Overview = () => (
                     <div>
                       <div className="flex flex-col items-start gap-1">
                         <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
-                          austin@goodcode.us
+                          contact@goodcode.us
                         </div>
                         <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
                           Email Address
@@ -1432,7 +1432,7 @@ export const Overview = () => (
                     <div>
                       <div className="flex flex-col items-start gap-1">
                         <div className="pl-2 text-sm text-gray-100 light:text-gray-900">
-                          561-699-7050
+                          561-555-5555
                         </div>
                         <div className="pl-2 text-sm text-gray-400 light:text-gray-600">
                           Mobile

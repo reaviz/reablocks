@@ -1121,7 +1121,7 @@ export const MfaLogin = () => {
           <div className="text-text-secondary text-base">
             We sent a code to{' '}
             <a href="#" className="text-primary">
-              austin@goodcode.us
+              contact@goodcode.us
             </a>
           </div>
         </div>

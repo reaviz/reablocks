@@ -145,7 +145,7 @@ export const TeamGeneral = () => {
                   {Array(10)
                     .fill({
                       name: 'Austin McDaniel',
-                      email: 'austin@goodcode.us',
+                      email: 'contact@goodcode.us',
                       role: 'Admin'
                     })
                     .map((user, index) => (
@@ -357,7 +357,7 @@ export const TeamMinimal = () => {
                 {Array(12)
                   .fill({
                     name: 'Austin McDaniel',
-                    email: 'austin@goodcode.us',
+                    email: 'contact@goodcode.us',
                     dateAdded: new Date().toLocaleDateString()
                   })
                   .map((user, index) => (
@@ -542,7 +542,7 @@ export const TeamRoles = () => {
                   {Array(3)
                     .fill({
                       name: 'Austin McDaniel',
-                      email: 'austin@goodcode.us',
+                      email: 'contact@goodcode.us',
                       dateAdded: new Date().toLocaleDateString()
                     })
                     .map((user, index) => (
@@ -677,7 +677,7 @@ export const TeamRoles = () => {
                   {Array(12)
                     .fill({
                       name: 'Austin McDaniel',
-                      email: 'austin@goodcode.us',
+                      email: 'contact@goodcode.us',
                       dateAdded: new Date().toLocaleDateString()
                     })
                     .map((user, index) => (
